@@ -1,0 +1,30 @@
+{
+  "name": "itrc-sitio-institucional",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Sitio institucional de la Agencia ITRC - Astro + Sveltia CMS",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint 'src/**/*.{astro,ts}'",
+    "format": "prettier --write 'src/**/*.{astro,ts,css}'",
+    "astro": "astro",
+    "postinstall": "cp node_modules/@sveltia/cms/dist/sveltia-cms.mjs public/admin/sveltia-cms.js"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@sveltia/cms": "^0.129.3",
+    "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.4.0",
+    "prettier-plugin-astro": "^0.14.0",
+    "typescript": "^5.6.0"
+  }
+}
