@@ -1,0 +1,95 @@
+---
+import siteConfig from '../../content/settings/site.json';
+import contactConfig from '../../content/settings/contact.json';
+
+const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+
+const socialIcons: Record<string, string> = {
+  facebook: 'fa-brands fa-facebook-f',
+  twitter: 'fa-brands fa-x-twitter',
+  youtube: 'fa-brands fa-youtube',
+  instagram: 'fa-brands fa-instagram',
+};
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__content">
+    <div class="footer__section">
+      <h3>{siteConfig.name}</h3>
+      <p>{siteConfig.fullName}</p>
+    </div>
+
+    <div class="footer__section">
+      <h3>Contacto</h3>
+      <ul class="footer__list">
+        <li>
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          {contactConfig.address}
+        </li>
+        <li>
+          <i class="fa-solid fa-city" aria-hidden="true"></i>
+          {contactConfig.city}
+        </li>
+        <li>
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <a href={`tel:${contactConfig.phone.replace(/\s/g, '')}`}>{contactConfig.phone}</a>
+        </li>
+        {contactConfig.tollFree && (
+          <li>
+            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+            Linea gratuita: {contactConfig.tollFree}
+          </li>
+        )}
+        <li>
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <a href={`mailto:${contactConfig.email}`}>{contactConfig.email}</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          {contactConfig.schedule.split('\n')[0]}
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3>Enlaces</h3>
+      <ul class="footer__list">
+        <li><a href={`${base}transparencia`}>Transparencia</a></li>
+        <li><a href={`${base}atencion/pqrs`}>PQRSD</a></li>
+        <li><a href={`${base}mapa-del-sitio`}>Mapa del Sitio</a></li>
+        <li><a href={`${base}politicas`}>Politicas</a></li>
+        <li>
+          <a href="https://www.itrc.gov.co/denuncias" target="_blank" rel="noopener noreferrer">
+            Denuncie
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3>Siguenos</h3>
+      <div class="footer__social">
+        {Object.entries(contactConfig.socialMedia).map(([network, url]) => (
+          url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label={`Siguenos en ${network}`}
+              title={network.charAt(0).toUpperCase() + network.slice(1)}
+            >
+              <i class={socialIcons[network] || 'fa-solid fa-link'} aria-hidden="true"></i>
+            </a>
+          )
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>&copy; {currentYear} {siteConfig.name}. Todos los derechos reservados.</p>
+  </div>
+</footer>

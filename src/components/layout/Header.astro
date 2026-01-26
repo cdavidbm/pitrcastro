@@ -1,0 +1,126 @@
+---
+import siteConfig from '../../content/settings/site.json';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<header class="header" role="banner" id="main-header">
+  <div class="header__content">
+    <a href={base} class="header__brand" aria-label={`Ir al inicio - ${siteConfig.name}`}>
+      <img
+        src={`${base}images/logo-itrc.png`}
+        alt={`Logo ${siteConfig.name}`}
+        class="header__logo"
+        width="180"
+        height="55"
+      >
+      <div class="header__info">
+        <span class="header__name">{siteConfig.name}</span>
+        <span class="header__fullname">{siteConfig.fullName}</span>
+      </div>
+    </a>
+
+    <!-- Botón hamburguesa para desktop (visible solo con scroll) -->
+    <button
+      class="header__menu-btn"
+      id="header-menu-btn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Abrir menu de navegacion"
+    >
+      <span class="header__menu-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  /* Botón hamburguesa en header (oculto por defecto) */
+  .header__menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-md);
+    height: var(--icon-md);
+    background: transparent;
+    border: 2px solid var(--itrc-gold);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    margin-left: auto;
+  }
+
+  .header__menu-btn:hover {
+    background: var(--itrc-gold);
+  }
+
+  .header__menu-btn:hover .header__menu-icon,
+  .header__menu-btn:hover .header__menu-icon::before,
+  .header__menu-btn:hover .header__menu-icon::after {
+    background: var(--itrc-navy);
+  }
+
+  .header__menu-icon {
+    width: 20px;
+    height: 2px;
+    background: var(--itrc-gold);
+    border-radius: 2px;
+    position: relative;
+    transition: all var(--transition-base);
+  }
+
+  .header__menu-icon::before,
+  .header__menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--itrc-gold);
+    border-radius: 2px;
+    left: 0;
+    transition: all var(--transition-base);
+  }
+
+  .header__menu-icon::before { top: -6px; }
+  .header__menu-icon::after { top: 6px; }
+
+  /* Animación hamburger -> X cuando está abierto */
+  .header__menu-btn[aria-expanded="true"] .header__menu-icon {
+    background: transparent;
+  }
+
+  .header__menu-btn[aria-expanded="true"] .header__menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .header__menu-btn[aria-expanded="true"] .header__menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Mostrar botón solo en desktop cuando hay scroll */
+  @media (min-width: 1025px) {
+    :global(body.scrolled) .header__menu-btn {
+      display: flex;
+    }
+  }
+
+  /* En mobile, ocultar siempre el botón del header */
+  @media (max-width: 1024px) {
+    .header__menu-btn {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header__fullname {
+      display: none;
+    }
+
+    .header__logo {
+      height: 45px;
+      width: auto;
+    }
+  }
+</style>

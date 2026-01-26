@@ -1,0 +1,180 @@
+---
+import navigation from '../../content/settings/navigation.json';
+import SearchBox from '../SearchBox.astro';
+import { resolveUrl } from '../../utils/url';
+
+const menuItems = navigation.mainMenu || [];
+---
+
+<nav class="nav" role="navigation" aria-label="Navegacion principal">
+  <div class="nav__content">
+    <ul class="nav__list" id="main-nav" role="menubar">
+      {menuItems.map((item) => (
+        <li class={`nav__item ${item.children ? 'nav__item--has-dropdown' : ''}`} role="none">
+          <a
+            href={resolveUrl(item.url, item.external)}
+            class:list={['nav__link', { 'nav__link--highlighted': item.highlighted }]}
+            role="menuitem"
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+            aria-haspopup={item.children ? 'true' : undefined}
+            aria-expanded={item.children ? 'false' : undefined}
+          >
+            {item.highlighted && <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>}
+            {item.label}
+            {item.external && !item.highlighted && <i class="fa-solid fa-arrow-up-right-from-square nav__external-icon" aria-hidden="true"></i>}
+            {item.children && <i class="fa-solid fa-chevron-down nav__dropdown-icon" aria-hidden="true"></i>}
+          </a>
+
+          {item.children && item.children.length > 0 && (
+            <ul class="nav__dropdown" role="menu">
+              {item.children.map((child) => (
+                <li role="none">
+                  <a
+                    href={resolveUrl(child.url, child.external)}
+                    class="nav__dropdown-link"
+                    role="menuitem"
+                    target={child.external ? '_blank' : undefined}
+                    rel={child.external ? 'noopener noreferrer' : undefined}
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+      <SearchBox />
+    </ul>
+  </div>
+
+  <!-- Overlay para cerrar menu en mobile -->
+  <div class="nav__overlay" id="nav-overlay" aria-hidden="true"></div>
+</nav>
+
+<!-- Boton flotante mobile -->
+<button
+  class="nav__toggle"
+  id="nav-toggle"
+  type="button"
+  aria-expanded="false"
+  aria-controls="main-nav"
+  aria-label="Abrir menu de navegacion"
+>
+  <span class="nav__toggle-icon" aria-hidden="true"></span>
+</button>
+
+<style>
+  .nav__dropdown-icon {
+    font-size: 0.7rem;
+    margin-left: var(--space-2);
+    transition: transform var(--transition-base);
+  }
+
+  .nav__item:hover .nav__dropdown-icon,
+  .nav__item--open .nav__dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 1024px) {
+    .nav__dropdown-icon {
+      margin-left: auto;
+    }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  function closeMobileMenu() {
+    const toggle = document.getElementById('nav-toggle');
+    const navList = document.getElementById('main-nav');
+    const overlay = document.getElementById('nav-overlay');
+
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    if (navList) navList.classList.remove('nav__list--mobile-open');
+    if (overlay) overlay.classList.remove('nav__overlay--visible');
+    document.body.classList.remove('menu-open');
+
+    document.querySelectorAll('.nav__item--open').forEach(function(item) {
+      item.classList.remove('nav__item--open');
+      const link = item.querySelector('.nav__link');
+      if (link) link.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function initNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const navList = document.getElementById('main-nav');
+    const overlay = document.getElementById('nav-overlay');
+
+    if (!toggle || !navList) return;
+
+    toggle.addEventListener('click', function() {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !isOpen);
+
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        navList.classList.add('nav__list--mobile-open');
+        navList.scrollTop = 0;
+        if (overlay) overlay.classList.add('nav__overlay--visible');
+        document.body.classList.add('menu-open');
+      }
+    });
+
+    if (overlay) {
+      overlay.addEventListener('click', closeMobileMenu);
+    }
+
+    const dropdownItems = document.querySelectorAll('.nav__item--has-dropdown');
+    dropdownItems.forEach(function(item) {
+      const link = item.querySelector('.nav__link');
+
+      if (link) {
+        link.addEventListener('click', function(e) {
+          const headerMenuBtn = document.getElementById('header-menu-btn');
+          const isHeaderMenuOpen = headerMenuBtn && headerMenuBtn.getAttribute('aria-expanded') === 'true';
+          const isMobile = window.innerWidth <= 1024;
+
+          if (isMobile || isHeaderMenuOpen) {
+            e.preventDefault();
+            const isOpen = item.classList.contains('nav__item--open');
+
+            dropdownItems.forEach(function(otherItem) {
+              if (otherItem !== item) {
+                otherItem.classList.remove('nav__item--open');
+                const otherLink = otherItem.querySelector('.nav__link');
+                if (otherLink) otherLink.setAttribute('aria-expanded', 'false');
+              }
+            });
+
+            item.classList.toggle('nav__item--open', !isOpen);
+            link.setAttribute('aria-expanded', (!isOpen).toString());
+          }
+        });
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMobileMenu();
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 1024) {
+        closeMobileMenu();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNav);
+  } else {
+    initNav();
+  }
+})();
+</script>

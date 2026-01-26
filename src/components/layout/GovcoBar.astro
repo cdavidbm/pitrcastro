@@ -1,0 +1,26 @@
+---
+/**
+ * Barra superior Gov.co - Obligatoria para sitios de gobierno colombiano
+ */
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="govco-bar">
+  <div class="govco-bar__content">
+    <a
+      href="https://www.gov.co/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="govco-bar__link"
+      aria-label="Ir al portal Gov.co (abre en nueva ventana)"
+    >
+      <img
+        src={`${base}images/logo-govco.png`}
+        alt="Logo Gov.co - Portal del Estado Colombiano"
+        class="govco-bar__logo"
+        width="120"
+        height="28"
+      >
+    </a>
+  </div>
+</div>
