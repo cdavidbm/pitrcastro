@@ -1,0 +1,107 @@
+---
+/**
+ * Componente SectionTitle - Título de sección con decoración
+ * Uso: Títulos de secciones principales con línea dorada decorativa
+ */
+export interface Props {
+  title: string;
+  subtitle?: string;
+  icon?: string;
+  variant?: 'light' | 'dark';
+  align?: 'left' | 'center';
+  size?: 'sm' | 'lg';
+}
+
+const { title, subtitle, icon, variant = 'dark', align = 'center', size = 'sm' } = Astro.props;
+---
+
+<header class:list={['section-header', `section-header--${variant}`, `section-header--${align}`, `section-header--${size}`]}>
+  <h2 class="section-header__title">
+    {icon && <i class={`fa-solid ${icon}`} aria-hidden="true"></i>}
+    {title}
+  </h2>
+  {subtitle && <p class="section-header__subtitle" set:html={subtitle} />}
+</header>
+
+<style>
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-header--center {
+    text-align: center;
+  }
+
+  .section-header--left {
+    text-align: left;
+  }
+
+  .section-header__title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: var(--space-4);
+    position: relative;
+    width: 100%;
+  }
+
+  .section-header--center .section-header__title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--itrc-gold);
+    border-radius: var(--radius-full);
+  }
+
+  .section-header--left .section-header__title {
+    justify-content: flex-start;
+    padding-left: var(--space-4);
+    border-left: 3px solid var(--itrc-gold);
+  }
+
+  .section-header--left .section-header__title::after {
+    display: none;
+  }
+
+  .section-header__title i {
+    color: var(--itrc-gold);
+  }
+
+  /* Variant: dark (for light backgrounds) */
+  .section-header--dark .section-header__title {
+    color: var(--itrc-navy);
+  }
+
+  .section-header--dark .section-header__subtitle {
+    color: var(--gray-600);
+  }
+
+  /* Variant: light (for dark backgrounds) */
+  .section-header--light .section-header__title {
+    color: var(--white);
+  }
+
+  .section-header--light .section-header__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .section-header--lg .section-header__title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .section-header__subtitle {
+    max-width: 700px;
+    margin: var(--space-6) auto 0;
+    line-height: 1.7;
+  }
+
+  .section-header--left .section-header__subtitle {
+    margin-left: 0;
+  }
+</style>
