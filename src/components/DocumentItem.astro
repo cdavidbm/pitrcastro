@@ -1,0 +1,145 @@
+---
+import { getFileInfo } from '../utils/files';
+import type { Document } from '../types/content';
+
+interface Props {
+  document: Document;
+}
+
+const { document } = Astro.props;
+const fileType = getFileInfo(document.file);
+---
+
+<a
+  href={document.file}
+  class="doc-item"
+  target="_blank"
+  rel="noopener"
+  aria-label={`Descargar ${document.name} (${fileType.label})`}
+  download
+>
+  <span class="doc-item__icon" style={`--icon-color: ${fileType.color}`}>
+    <i class={`fa-solid ${fileType.icon}`} aria-hidden="true"></i>
+  </span>
+
+  <span class="doc-item__info">
+    <span class="doc-item__name">{document.name}</span>
+    {document.description && (
+      <span class="doc-item__description">{document.description}</span>
+    )}
+    {document.anio && (
+      <span class="doc-item__year">{document.anio}</span>
+    )}
+  </span>
+
+  <span class="doc-item__badge" aria-hidden="true">
+    {fileType.label}
+  </span>
+
+  <span class="doc-item__download">
+    <i class="fa-solid fa-download" aria-hidden="true"></i>
+  </span>
+</a>
+
+<style>
+  .doc-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+  }
+
+  .doc-item:hover {
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+
+  .doc-item__icon {
+    width: var(--icon-md);
+    height: var(--icon-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--icon-color) 15%, transparent);
+    border-radius: var(--radius-md);
+    color: var(--icon-color);
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+  }
+
+  .doc-item:hover .doc-item__icon {
+    background: var(--icon-color);
+    color: var(--white);
+    transform: scale(1.1);
+  }
+
+  .doc-item__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+
+  .doc-item__name {
+    font-weight: 500;
+    color: var(--itrc-navy);
+    transition: color var(--transition-fast);
+  }
+
+  .doc-item:hover .doc-item__name {
+    color: var(--itrc-gold-dark);
+  }
+
+  .doc-item__description {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .doc-item__year {
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+  }
+
+  .doc-item__badge {
+    padding: var(--space-1) var(--space-3);
+    background: var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--gray-700);
+    flex-shrink: 0;
+  }
+
+  .doc-item__download {
+    width: var(--icon-2xs);
+    height: var(--icon-2xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .doc-item:hover .doc-item__download {
+    color: var(--itrc-gold);
+    transform: translateY(2px);
+  }
+
+  @media (max-width: 640px) {
+    .doc-item__description,
+    .doc-item__badge {
+      display: none;
+    }
+  }
+</style>

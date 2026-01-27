@@ -1,0 +1,191 @@
+---
+import DocumentItem from './DocumentItem.astro';
+import type { Document } from '../types/content';
+import { groupByCategory } from '../utils/documents';
+
+interface Props {
+  documents: Document[];
+  id: string;
+}
+
+const { documents, id } = Astro.props;
+
+const grouped = groupByCategory(documents);
+const categoryNames = Array.from(grouped.keys());
+---
+
+<div class="tabs" data-tabs>
+  <div role="tablist" aria-label="Categorias de documentos" class="tabs__list">
+    {categoryNames.map((category, index) => {
+      const tabId = `${id}-tab-${index}`;
+      const panelId = `${id}-panel-${index}`;
+
+      return (
+        <button
+          type="button"
+          role="tab"
+          id={tabId}
+          aria-selected={index === 0 ? "true" : "false"}
+          aria-controls={panelId}
+          tabindex={index === 0 ? 0 : -1}
+          class="tabs__tab"
+          data-tab-trigger
+        >
+          {category}
+          <span class="tabs__count">{(grouped.get(category) ?? []).length}</span>
+        </button>
+      );
+    })}
+  </div>
+
+  {categoryNames.map((category, index) => {
+    const tabId = `${id}-tab-${index}`;
+    const panelId = `${id}-panel-${index}`;
+
+    return (
+      <div
+        role="tabpanel"
+        id={panelId}
+        aria-labelledby={tabId}
+        class="tabs__panel"
+        hidden={index !== 0}
+        tabindex="0"
+        data-tab-panel
+      >
+        <ul class="tabs__list-docs" role="list">
+          {(grouped.get(category) ?? []).map((doc) => (
+            <li>
+              <DocumentItem document={doc} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .tabs {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: var(--white);
+  }
+
+  .tabs__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    background: var(--itrc-navy);
+    padding: var(--space-3);
+  }
+
+  .tabs__tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    min-width: 120px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-align: center;
+    justify-content: center;
+  }
+
+  .tabs__tab:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .tabs__tab[aria-selected="true"] {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .tabs__count {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-full);
+  }
+
+  .tabs__tab[aria-selected="true"] .tabs__count {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  .tabs__panel {
+    padding: var(--space-6);
+  }
+
+  .tabs__panel[hidden] {
+    display: none;
+  }
+
+  .tabs__list-docs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tabs__list-docs li {
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .tabs__list-docs li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 640px) {
+    .tabs__tab {
+      flex: 1 1 calc(50% - var(--space-1));
+      min-width: auto;
+    }
+  }
+</style>
+
+<script>
+  import { handleListKeydown } from '../utils/keyboard';
+
+  function initTabs() {
+    const tabContainers = document.querySelectorAll('[data-tabs]');
+
+    tabContainers.forEach((container) => {
+      const tabs = container.querySelectorAll('[data-tab-trigger]');
+      const panels = container.querySelectorAll('[data-tab-panel]');
+
+      const selectTab = (selectedTab: Element) => {
+        tabs.forEach((tab, index) => {
+          const isSelected = tab === selectedTab;
+          tab.setAttribute('aria-selected', String(isSelected));
+          tab.setAttribute('tabindex', isSelected ? '0' : '-1');
+          panels[index].hidden = !isSelected;
+        });
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => selectTab(tab));
+
+        tab.addEventListener('keydown', (e) => {
+          const tabsArray = Array.from(tabs) as HTMLElement[];
+          const newIndex = handleListKeydown(e as KeyboardEvent, tabsArray, 'horizontal');
+          if (newIndex !== null) {
+            tabsArray[newIndex].focus();
+            selectTab(tabsArray[newIndex]);
+          }
+        });
+      });
+    });
+  }
+
+  initTabs();
+  document.addEventListener('astro:after-swap', initTabs);
+</script>

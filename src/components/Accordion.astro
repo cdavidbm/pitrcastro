@@ -1,0 +1,426 @@
+---
+/** Accordion — variante content (FAQs) o document (listas de archivos) */
+import DocumentItem from './DocumentItem.astro';
+import type { Document, DocumentSection as SharedDocSection } from '../types/content';
+
+interface ContentItem {
+  title: string;
+  content: string;
+  icon?: string;
+}
+
+type DocumentSection = Omit<SharedDocSection, 'displayMode'>;
+
+interface Props {
+  variant?: 'content' | 'document';
+  // Para variante content
+  items?: ContentItem[];
+  showNumbers?: boolean;
+  // Para variante document
+  sections?: DocumentSection[];
+  // Opciones comunes
+  allowMultiple?: boolean;
+  defaultOpen?: number;
+  id?: string;
+  class?: string;
+}
+
+const {
+  variant = 'content',
+  items = [],
+  sections = [],
+  allowMultiple = false,
+  defaultOpen,
+  showNumbers = false,
+  id,
+  class: className = ''
+} = Astro.props;
+
+const accordionId = id || `accordion-${Math.random().toString(36).substring(2, 11)}`;
+
+// Determinar qué items renderizar
+const isDocument = variant === 'document';
+const renderItems = isDocument ? sections : items;
+---
+
+<div
+  class:list={['accordion', `accordion--${variant}`, className]}
+  data-accordion
+  data-allow-multiple={allowMultiple}
+  id={accordionId}
+>
+  {renderItems.map((item, index) => {
+    const isOpen = defaultOpen === index;
+    const headerId = `${accordionId}-header-${index}`;
+    const panelId = `${accordionId}-panel-${index}`;
+
+    if (isDocument) {
+      const section = item as DocumentSection;
+      return (
+        <div class="accordion__item">
+          <h3 class="accordion__header-wrap">
+            <button
+              type="button"
+              class="accordion__header"
+              id={headerId}
+              aria-expanded={isOpen ? "true" : "false"}
+              aria-controls={panelId}
+            >
+              <span class="accordion__title">
+                {section.sectionIcon && (
+                  <span class="accordion__icon-wrap">
+                    <i class={`fa-solid ${section.sectionIcon}`} aria-hidden="true"></i>
+                  </span>
+                )}
+                {!section.sectionIcon && (
+                  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                )}
+                {section.sectionTitle}
+              </span>
+              <span class="accordion__meta">
+                <span class="accordion__count">{section.documents.length} docs</span>
+                <i class="fa-solid fa-chevron-down accordion__chevron" aria-hidden="true"></i>
+              </span>
+            </button>
+          </h3>
+          <div
+            id={panelId}
+            role="region"
+            aria-labelledby={headerId}
+            class="accordion__panel"
+            hidden={!isOpen}
+          >
+            {section.sectionDescription && (
+              <p class="accordion__description">{section.sectionDescription}</p>
+            )}
+            <ul class="accordion__list" role="list">
+              {section.documents.map((doc) => (
+                <li>
+                  <DocumentItem document={doc} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      );
+    } else {
+      const contentItem = item as ContentItem;
+      return (
+        <div class="accordion__item" data-accordion-item>
+          <button
+            class="accordion__header"
+            aria-expanded={isOpen ? "true" : "false"}
+            aria-controls={panelId}
+            id={headerId}
+            type="button"
+          >
+            <span class="accordion__title">
+              {contentItem.icon && <i class={`fa-solid ${contentItem.icon}`} aria-hidden="true"></i>}
+              {showNumbers && <span class="accordion__number">{index + 1}.</span>}
+              {contentItem.title}
+            </span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </button>
+          <div
+            class="accordion__panel"
+            id={panelId}
+            aria-labelledby={headerId}
+            role="region"
+            hidden={!isOpen}
+          >
+            <div class="accordion__content" set:html={contentItem.content} />
+          </div>
+        </div>
+      );
+    }
+  })}
+</div>
+
+<style>
+  /* Base Accordion Styles */
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .accordion--document {
+    gap: var(--space-4);
+  }
+
+  .accordion__item {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow var(--transition-base);
+  }
+
+  .accordion__item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .accordion__header-wrap {
+    margin: 0;
+  }
+
+  .accordion__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--itrc-navy);
+    transition: all var(--transition-fast);
+  }
+
+  .accordion__header:hover {
+    background: var(--gray-50);
+  }
+
+  .accordion__header:focus-visible {
+    outline: 2px solid var(--itrc-gold);
+    outline-offset: -2px;
+  }
+
+  .accordion__header[aria-expanded="true"] {
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .accordion__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .accordion__title > i {
+    color: var(--itrc-gold);
+    flex-shrink: 0;
+  }
+
+  .accordion__header[aria-expanded="true"] .accordion__title > i {
+    color: var(--itrc-gold);
+  }
+
+  .accordion__number {
+    color: var(--itrc-gold);
+    font-weight: 700;
+    min-width: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  /* Icon wrapper for document variant */
+  .accordion__icon-wrap {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    border-radius: var(--radius-md);
+    color: var(--itrc-gold);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+  }
+
+  .accordion__header[aria-expanded="true"] .accordion__icon-wrap {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Chevron icon */
+  .accordion__icon,
+  .accordion__chevron {
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+    color: var(--gray-400);
+  }
+
+  .accordion__icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .accordion__header[aria-expanded="true"] .accordion__icon,
+  .accordion__header[aria-expanded="true"] .accordion__chevron {
+    transform: rotate(180deg);
+    color: var(--itrc-gold);
+  }
+
+  /* Meta info (count) for document variant */
+  .accordion__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .accordion__count {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--gray-500);
+    background: var(--gray-100);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+  }
+
+  .accordion__header[aria-expanded="true"] .accordion__count {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Panel */
+  .accordion__panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .accordion__panel[hidden] {
+    display: block;
+    max-height: 0;
+  }
+
+  .accordion__panel:not([hidden]) {
+    max-height: var(--panel-max-height);
+  }
+
+  /* Content variant panel */
+  .accordion--content .accordion__panel {
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .accordion__content {
+    padding: var(--space-5);
+    padding-top: var(--space-3);
+    color: var(--gray-700);
+    line-height: 1.7;
+    font-size: var(--font-size-sm);
+  }
+
+  /* Document variant panel */
+  .accordion--document .accordion__panel {
+    background: var(--gray-50);
+    border-top: 2px solid var(--itrc-gold);
+  }
+
+  .accordion__description {
+    color: var(--gray-600);
+    line-height: 1.7;
+    font-size: var(--font-size-sm);
+    background: rgba(var(--itrc-gold-rgb), 0.05);
+    border-left: 3px solid var(--itrc-gold);
+    margin: var(--space-4) var(--space-4) 0;
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .accordion__list {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .accordion__list li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .accordion__list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .accordion__header {
+      padding: var(--space-4);
+      font-size: var(--font-size-sm);
+    }
+
+    .accordion__title {
+      gap: var(--space-2);
+    }
+
+    .accordion__icon-wrap {
+      width: var(--icon-xs);
+      height: var(--icon-xs);
+      font-size: 0.9rem;
+    }
+
+    .accordion__content {
+      padding: var(--space-4);
+      font-size: var(--font-size-sm);
+    }
+
+    .accordion__list {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .accordion__description {
+      margin: var(--space-3) var(--space-3) 0;
+    }
+  }
+</style>
+
+<script>
+  import { handleListKeydown } from '../utils/keyboard';
+
+  function initAccordions() {
+    document.querySelectorAll('[data-accordion]').forEach((accordion) => {
+      const allowMultiple = accordion.getAttribute('data-allow-multiple') === 'true';
+      const headers = accordion.querySelectorAll('.accordion__header');
+
+      headers.forEach((header) => {
+        // Skip if already initialized
+        if (header.hasAttribute('data-accordion-initialized')) return;
+        header.setAttribute('data-accordion-initialized', 'true');
+
+        header.addEventListener('click', () => {
+          const isExpanded = header.getAttribute('aria-expanded') === 'true';
+          const panel = document.getElementById(header.getAttribute('aria-controls') || '');
+
+          if (!allowMultiple) {
+            // Close all other panels in this accordion
+            headers.forEach((otherHeader) => {
+              if (otherHeader !== header) {
+                otherHeader.setAttribute('aria-expanded', 'false');
+                const otherPanel = document.getElementById(otherHeader.getAttribute('aria-controls') || '');
+                if (otherPanel) otherPanel.hidden = true;
+              }
+            });
+          }
+
+          // Toggle current panel
+          header.setAttribute('aria-expanded', (!isExpanded).toString());
+          if (panel) panel.hidden = isExpanded;
+        });
+
+        header.addEventListener('keydown', (e) => {
+          const headersArray = Array.from(headers) as HTMLElement[];
+          const newIndex = handleListKeydown(e as KeyboardEvent, headersArray);
+          if (newIndex !== null) headersArray[newIndex].focus();
+        });
+      });
+    });
+  }
+
+  // Initialize on page load
+  initAccordions();
+
+  // Re-initialize on Astro page transitions
+  document.addEventListener('astro:after-swap', initAccordions);
+</script>
