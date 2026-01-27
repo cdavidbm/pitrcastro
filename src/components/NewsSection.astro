@@ -1,0 +1,114 @@
+---
+import NewsCard from './NewsCard.astro';
+import type { MarkdownModule } from '../types/content';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit = 3 } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const newsFiles = import.meta.glob<MarkdownModule>('../content/news/*.md', { eager: true });
+
+const news = Object.entries(newsFiles)
+  .map(([path, file]) => {
+    const slug = path.split('/').pop()?.replace('.md', '') || '';
+    return {
+      slug,
+      data: file.frontmatter,
+      Content: file.Content
+    };
+  })
+  .filter(item => !item.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, limit);
+---
+
+<section class="news-section" aria-labelledby="news-title">
+  <div class="news-section__container">
+    <h2 id="news-title" class="news-section__title">Ultimas Noticias</h2>
+
+    {news.length > 0 ? (
+      <div class="news-section__grid stagger-children">
+        {news.map((item) => (
+          <NewsCard
+            title={item.data.title}
+            date={item.data.date}
+            image={item.data.image}
+            excerpt={item.data.excerpt}
+            slug={item.slug}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="news-section__empty">No hay noticias disponibles.</p>
+    )}
+
+    <div class="news-section__more">
+      <a href={`${base}prensa/noticias`} class="btn btn--outline-white">
+        Ver todas las noticias
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .news-section {
+    background: var(--itrc-navy);
+    padding: var(--space-20) var(--space-6);
+  }
+
+  .news-section__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .news-section__title {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: var(--space-12);
+    position: relative;
+  }
+
+  .news-section__title::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--space-3));
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--itrc-gold);
+    border-radius: var(--radius-full);
+  }
+
+  .news-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+  }
+
+  .news-section__more {
+    text-align: center;
+  }
+
+  .news-section__empty {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .news-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .news-section__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+</style>
