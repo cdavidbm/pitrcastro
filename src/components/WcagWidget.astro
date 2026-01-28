@@ -1,0 +1,407 @@
+---
+---
+
+<div class="wcag-widget" id="wcag-widget">
+  <button
+    class="wcag-widget__toggle"
+    aria-expanded="false"
+    aria-controls="wcag-panel"
+    aria-label="Abrir opciones de accesibilidad"
+    title="Opciones de accesibilidad"
+  >
+    <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+  </button>
+
+  <div class="wcag-widget__panel" id="wcag-panel" hidden>
+    <div class="wcag-widget__header">
+      <h3>Accesibilidad</h3>
+      <button class="wcag-widget__close" aria-label="Cerrar panel de accesibilidad">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="wcag-widget__content">
+      <!-- Tamaño de texto -->
+      <div class="wcag-widget__option">
+        <span class="wcag-widget__label">Tamaño de texto</span>
+        <div class="wcag-widget__buttons">
+          <button data-action="font-decrease" aria-label="Reducir tamaño de texto">
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <button data-action="font-reset" aria-label="Restablecer tamaño de texto">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+          </button>
+          <button data-action="font-increase" aria-label="Aumentar tamaño de texto">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Contraste -->
+      <div class="wcag-widget__option">
+        <span class="wcag-widget__label">Alto contraste</span>
+        <button
+          class="wcag-widget__toggle-btn"
+          data-action="contrast-toggle"
+          aria-pressed="false"
+          aria-label="Activar alto contraste"
+        >
+          <span class="wcag-widget__toggle-track">
+            <span class="wcag-widget__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Escala de grises -->
+      <div class="wcag-widget__option">
+        <span class="wcag-widget__label">Escala de grises</span>
+        <button
+          class="wcag-widget__toggle-btn"
+          data-action="grayscale-toggle"
+          aria-pressed="false"
+          aria-label="Activar escala de grises"
+        >
+          <span class="wcag-widget__toggle-track">
+            <span class="wcag-widget__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Subrayar enlaces -->
+      <div class="wcag-widget__option">
+        <span class="wcag-widget__label">Subrayar enlaces</span>
+        <button
+          class="wcag-widget__toggle-btn"
+          data-action="underline-toggle"
+          aria-pressed="false"
+          aria-label="Subrayar todos los enlaces"
+        >
+          <span class="wcag-widget__toggle-track">
+            <span class="wcag-widget__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wcag-widget__footer">
+      <button class="wcag-widget__reset" data-action="reset-all">
+        <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+        Restablecer todo
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wcag-widget {
+    position: fixed;
+    bottom: var(--space-6);
+    left: var(--space-6);
+    z-index: 9999;
+    font-family: var(--font-family);
+  }
+
+  .wcag-widget__toggle {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+  }
+
+  .wcag-widget__toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .wcag-widget__toggle[aria-expanded="true"] {
+    background: var(--itrc-navy);
+    color: var(--itrc-gold);
+  }
+
+  .wcag-widget__panel {
+    position: absolute;
+    bottom: calc(100% + var(--space-4));
+    left: 0;
+    width: 300px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    animation: fadeInUp 0.3s ease-out;
+  }
+
+  .wcag-widget__panel[hidden] {
+    display: none;
+  }
+
+  .wcag-widget__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .wcag-widget__header h3 {
+    margin: 0;
+    font-size: var(--font-size-base);
+    color: var(--white);
+  }
+
+  .wcag-widget__close {
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: var(--space-2);
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+  }
+
+  .wcag-widget__close:hover {
+    opacity: 1;
+  }
+
+  .wcag-widget__content {
+    padding: var(--space-5);
+  }
+
+  .wcag-widget__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .wcag-widget__option:last-child {
+    border-bottom: none;
+  }
+
+  .wcag-widget__label {
+    font-size: var(--font-size-sm);
+    color: var(--gray-700);
+  }
+
+  .wcag-widget__buttons {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .wcag-widget__buttons button {
+    width: var(--icon-2xs);
+    height: var(--icon-2xs);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+  }
+
+  .wcag-widget__buttons button:hover {
+    background: var(--itrc-gold);
+    border-color: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  /* Toggle switch */
+  .wcag-widget__toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .wcag-widget__toggle-track {
+    display: block;
+    width: 44px;
+    height: 24px;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    position: relative;
+    transition: background var(--transition-fast);
+  }
+
+  .wcag-widget__toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--white);
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .wcag-widget__toggle-btn[aria-pressed="true"] .wcag-widget__toggle-track {
+    background: var(--itrc-gold);
+  }
+
+  .wcag-widget__toggle-btn[aria-pressed="true"] .wcag-widget__toggle-thumb {
+    transform: translateX(20px);
+  }
+
+  .wcag-widget__footer {
+    padding: var(--space-4) var(--space-5);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .wcag-widget__reset {
+    width: 100%;
+    padding: var(--space-3);
+    background: none;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    transition: all var(--transition-fast);
+  }
+
+  .wcag-widget__reset:hover {
+    background: var(--gray-200);
+    color: var(--gray-800);
+  }
+
+  /* Estados de accesibilidad globales */
+  :global(html.high-contrast) {
+    filter: contrast(1.5);
+  }
+
+  :global(html.grayscale) {
+    filter: grayscale(100%);
+  }
+
+  :global(html.underline-links a) {
+    text-decoration: underline !important;
+  }
+
+  /* En desktop, mover a la derecha */
+  @media (min-width: 1025px) {
+    .wcag-widget {
+      left: auto;
+      right: var(--space-6);
+    }
+
+    .wcag-widget__panel {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  /* Mobile: abajo izquierda */
+  @media (max-width: 480px) {
+    .wcag-widget {
+      bottom: var(--space-4);
+      left: var(--space-4);
+    }
+
+    .wcag-widget__panel {
+      width: calc(100vw - var(--space-8));
+      left: 0;
+    }
+  }
+</style>
+
+<script>
+  import { onEscapeClose } from '../utils/keyboard';
+
+  function initWcagWidget() {
+    const widget = document.getElementById('wcag-widget');
+    if (!widget || widget.hasAttribute('data-wcag-initialized')) return;
+    widget.setAttribute('data-wcag-initialized', 'true');
+
+    const toggle = widget.querySelector('.wcag-widget__toggle') as HTMLElement | null;
+    const panel = document.getElementById('wcag-panel');
+    const closeBtn = widget.querySelector('.wcag-widget__close');
+
+    let fontSize = 100;
+
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', (!expanded).toString());
+      panel?.toggleAttribute('hidden', expanded);
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      panel?.setAttribute('hidden', '');
+    });
+
+    widget.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const button = target.closest('[data-action]') as HTMLElement;
+      if (!button) return;
+
+      switch (button.dataset.action) {
+        case 'font-increase':
+          fontSize = Math.min(fontSize + 10, 150);
+          document.documentElement.style.fontSize = `${fontSize}%`;
+          break;
+        case 'font-decrease':
+          fontSize = Math.max(fontSize - 10, 80);
+          document.documentElement.style.fontSize = `${fontSize}%`;
+          break;
+        case 'font-reset':
+          fontSize = 100;
+          document.documentElement.style.fontSize = '100%';
+          break;
+        case 'contrast-toggle': {
+          document.documentElement.classList.toggle('high-contrast');
+          const pressed = button.getAttribute('aria-pressed') === 'true';
+          button.setAttribute('aria-pressed', (!pressed).toString());
+          break;
+        }
+        case 'grayscale-toggle': {
+          document.documentElement.classList.toggle('grayscale');
+          const pressed = button.getAttribute('aria-pressed') === 'true';
+          button.setAttribute('aria-pressed', (!pressed).toString());
+          break;
+        }
+        case 'underline-toggle': {
+          document.documentElement.classList.toggle('underline-links');
+          const pressed = button.getAttribute('aria-pressed') === 'true';
+          button.setAttribute('aria-pressed', (!pressed).toString());
+          break;
+        }
+        case 'reset-all':
+          fontSize = 100;
+          document.documentElement.style.fontSize = '100%';
+          document.documentElement.classList.remove('high-contrast', 'grayscale', 'underline-links');
+          widget.querySelectorAll('[aria-pressed]').forEach(btn => {
+            btn.setAttribute('aria-pressed', 'false');
+          });
+          break;
+      }
+    });
+
+    if (toggle) {
+      onEscapeClose(toggle, () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        panel?.setAttribute('hidden', '');
+      });
+    }
+  }
+
+  initWcagWidget();
+  document.addEventListener('astro:after-swap', initWcagWidget);
+</script>
