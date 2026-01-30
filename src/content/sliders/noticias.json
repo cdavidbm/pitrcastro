@@ -1,0 +1,41 @@
+{
+  "name": "Noticias Destacadas",
+  "description": "Slider con las noticias mas relevantes de la Agencia ITRC",
+  "autoplay": true,
+  "interval": 6000,
+  "slides": [
+    {
+      "image": "/images/news-slide-1.jpg",
+      "imageAlt": "Rueda de prensa ITRC sobre nuevas medidas de control",
+      "title": "Nuevas medidas de control tributario",
+      "subtitle": "Comunicado oficial",
+      "description": "La Agencia ITRC implementa nuevas estrategias para fortalecer la vigilancia del recaudo nacional",
+      "link": "/prensa/noticias/nuevas-medidas-control-2024",
+      "linkText": "Leer comunicado completo",
+      "active": true,
+      "order": 1
+    },
+    {
+      "image": "/images/news-slide-2.jpg",
+      "imageAlt": "Periodicos y noticias sobre gestion publica",
+      "title": "Informe de Gestion 2024",
+      "subtitle": "Rendicion de cuentas",
+      "description": "Presentamos los resultados de nuestra labor en la proteccion del patrimonio publico durante el ultimo periodo",
+      "link": "/prensa/noticias/informe-gestion-2024",
+      "linkText": "Ver informe completo",
+      "active": true,
+      "order": 2
+    },
+    {
+      "image": "/images/news-slide-3.jpg",
+      "imageAlt": "Equipo de trabajo en reunion estrategica",
+      "title": "Alianza con entidades internacionales",
+      "subtitle": "Cooperacion internacional",
+      "description": "La ITRC firma convenio de cooperacion con organismos internacionales para el intercambio de informacion tributaria",
+      "link": "/prensa/noticias/alianza-internacional-2024",
+      "linkText": "Conocer mas",
+      "active": true,
+      "order": 3
+    }
+  ]
+}

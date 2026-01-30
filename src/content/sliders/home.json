@@ -1,0 +1,42 @@
+{
+  "name": "Slider Principal",
+  "description": "Slider del banner principal de la pagina de inicio",
+  "autoplay": true,
+  "interval": 5000,
+  "slides": [
+    {
+      "image": "/images/hero-1.jpg",
+      "imageAlt": "Sede de la Agencia ITRC",
+      "title": "Agencia ITRC",
+      "subtitle": "Control eficiente para un recaudo transparente",
+      "description": "Protegemos el patrimonio publico frente a acciones de fraude y corrupcion",
+      "link": "/agencia/mision-vision",
+      "linkText": "Conoce nuestra mision",
+      "active": true,
+      "order": 1
+    },
+    {
+      "image": "/images/hero-2.jpg",
+      "imageAlt": "Transparencia y acceso a la informacion",
+      "title": "Transparencia y Acceso a la Informacion",
+      "subtitle": "",
+      "description": "Consulta toda la informacion publica de la Agencia ITRC",
+      "link": "/transparencia",
+      "linkText": "Ir a Transparencia",
+      "active": true,
+      "order": 2
+    },
+    {
+      "image": "/images/hero-3.jpg",
+      "imageAlt": "Denuncie actos de corrupcion",
+      "title": "Denuncie actos de corrupcion",
+      "subtitle": "",
+      "description": "Ayudenos a proteger los recursos publicos",
+      "link": "https://www.itrc.gov.co/denuncias",
+      "linkText": "Realizar denuncia",
+      "external": true,
+      "active": true,
+      "order": 3
+    }
+  ]
+}
