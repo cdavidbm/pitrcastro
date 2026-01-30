@@ -1,0 +1,64 @@
+{
+  "title": "Transparencia y Acceso a la Informacion",
+  "slug": "transparencia",
+  "description": "En cumplimiento de la Ley 1712 de 2014, la Agencia ITRC pone a disposicion de la ciudadania la informacion relacionada con su gestion institucional.",
+  "icon": "fa-eye",
+  "order": 1,
+  "published": true,
+  "sections": [
+    {
+      "sectionTitle": "Informacion de la Entidad",
+      "displayMode": "accordion",
+      "documents": [
+        {
+          "name": "Mision y Vision Institucional",
+          "file": "/uploads/documents/mision-vision-2024.pdf",
+          "anio": "2024",
+          "description": "Documento con la mision, vision y objetivos estrategicos"
+        },
+        {
+          "name": "Estructura Organizacional",
+          "file": "/uploads/documents/organigrama-2024.pdf",
+          "anio": "2024",
+          "description": "Organigrama institucional actualizado"
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Normatividad",
+      "displayMode": "tabs",
+      "documents": [
+        {
+          "name": "Decreto de Creacion",
+          "file": "/uploads/documents/decreto-creacion.pdf",
+          "category": "Decretos",
+          "anio": "2020"
+        },
+        {
+          "name": "Resolucion Funciones",
+          "file": "/uploads/documents/resolucion-funciones.pdf",
+          "category": "Resoluciones",
+          "anio": "2023"
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Presupuesto",
+      "displayMode": "accordion",
+      "documents": [
+        {
+          "name": "Presupuesto Vigencia 2024",
+          "file": "/uploads/documents/presupuesto-2024.pdf",
+          "anio": "2024",
+          "description": "Presupuesto aprobado para la vigencia fiscal 2024"
+        },
+        {
+          "name": "Ejecucion Presupuestal 2023",
+          "file": "/uploads/documents/ejecucion-2023.xlsx",
+          "anio": "2023",
+          "description": "Informe de ejecucion presupuestal"
+        }
+      ]
+    }
+  ]
+}

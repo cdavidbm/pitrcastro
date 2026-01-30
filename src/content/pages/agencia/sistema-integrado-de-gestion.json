@@ -1,0 +1,94 @@
+{
+  "title": "Sistema Integrado de Gestión",
+  "slug": "sistema-integrado-de-gestion",
+  "description": "El Sistema Integrado de Gestión (SIG) de la Agencia ITRC articula los diferentes sistemas de gestión institucional para garantizar una administración eficiente, transparente y orientada al servicio de la ciudadanía, en cumplimiento de los estándares de calidad y las directrices del Modelo Integrado de Planeación y Gestión (MIPG).",
+  "icon": "fa-diagram-project",
+  "order": 5,
+  "published": true,
+  "sections": [
+    {
+      "sectionTitle": "Código de Ética y Buen Gobierno",
+      "sectionDescription": "Contiene los compromisos éticos, de conducta, las directrices de buen gobierno y estilo de Dirección aplicables a todo aquel que se encuentre vinculado o se vincule, bajo cualquier modalidad a la Agencia ITRC, generando una cultura organizacional dirigida hacia el compromiso, cooperación, transparencia y optimización de nuestra gestión en favor de la ciudadanía.",
+      "sectionIcon": "fa-handshake",
+      "displayMode": "accordion",
+      "documents": [
+        {
+          "name": "Código de Ética y Buen Gobierno",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Cdigo-de-tica-Versin-Marzo-2017.pdf",
+          "externo": false
+        },
+        {
+          "name": "Manuales Internos",
+          "file": "https://www.itrc.gov.co/Itrc/index.php/manuales-internos",
+          "externo": true
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Sistema de Gestión de Calidad",
+      "sectionDescription": "El Sistema de Gestión de Calidad es la herramienta de gestión que permite mejorar permanentemente el desempeño institucional, en términos de calidad y satisfacción social de las responsabilidades a cargo de la Agencia ITRC.",
+      "sectionIcon": "fa-certificate",
+      "displayMode": "accordion",
+      "documents": [
+        {
+          "name": "Mapa de Procesos",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/GSI-MP-001_Mapa_de_Procesos.pdf",
+          "externo": false
+        },
+        {
+          "name": "Política y Objetivos de Calidad",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/09/Politica-de-Calidad-1.pdf",
+          "externo": false
+        },
+        {
+          "name": "Resolución 061 de 2018 - Adopta SIG",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Resolucin-061-de-2018-1.pdf",
+          "externo": false
+        },
+        {
+          "name": "Listado Maestro de Documentos",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/2025-10-02_Listado_Maestro_de_Documentos.xls",
+          "externo": false
+        },
+        {
+          "name": "Listado Maestro de Documentos Externos",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/GSI-FT-022_Listado_maestro_docs_externos_2022024_Marzo.xlsx",
+          "externo": false
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Gestión Ambiental",
+      "sectionDescription": "La Agencia ITRC se compromete al mejoramiento continuo y prevención de la contaminación en sus procesos institucionales, en articulación con el Sistema Integrado de Gestión.",
+      "sectionIcon": "fa-leaf",
+      "displayMode": "accordion",
+      "documents": [
+        {
+          "name": "Plan Institucional de Gestión Ambiental 2022-2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/PIGA-2022-2025.pdf",
+          "externo": false
+        },
+        {
+          "name": "Plan Institucional de Gestión Ambiental 2018-2021",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/Plan-Institucional-de-Gestion-Ambiental-2018-2021.pdf",
+          "externo": false
+        },
+        {
+          "name": "Plan de Acción PIGA 2015-2018",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/Plan-de-Accin-PIGA-Actualizado-2.xls",
+          "externo": false
+        },
+        {
+          "name": "Plan Institucional de Gestión Ambiental 2015-2018",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/PIGA-2015-2018-2.doc",
+          "externo": false
+        },
+        {
+          "name": "Plan Institucional de Gestión Ambiental 2013-2014",
+          "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/piga.pdf",
+          "externo": false
+        }
+      ]
+    }
+  ]
+}

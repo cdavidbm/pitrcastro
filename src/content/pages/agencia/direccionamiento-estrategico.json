@@ -1,0 +1,66 @@
+{
+  "title": "Direccionamiento Estratégico",
+  "subtitle": "Políticas, planes e informes que orientan la gestión institucional",
+  "intro": "El direccionamiento estratégico de la Agencia ITRC define el marco de acción para el cumplimiento de la misión institucional. Aquí encontrará los documentos que orientan la planeación, ejecución y evaluación de la gestión.",
+  "sections": [
+    {
+      "id": "politicas",
+      "titulo": "Políticas",
+      "descripcion": "Marco normativo de políticas institucionales que orientan el actuar de la Agencia ITRC",
+      "icon": "fa-scale-balanced",
+      "color": "navy",
+      "documentos": 11
+    },
+    {
+      "id": "planes",
+      "titulo": "Planes",
+      "descripcion": "Planes estratégicos, institucionales y de gestión que guían el cumplimiento de la misión",
+      "icon": "fa-clipboard-list",
+      "color": "gold",
+      "documentos": 120
+    },
+    {
+      "id": "informes",
+      "titulo": "Informes",
+      "descripcion": "Informes de gestión, seguimiento y evaluación del desempeño institucional",
+      "icon": "fa-chart-line",
+      "color": "green",
+      "documentos": 100
+    }
+  ],
+  "marcoNormativo": {
+    "titulo": "Marco Normativo",
+    "descripcion": "Base legal que fundamenta el direccionamiento estratégico",
+    "normas": [
+      {
+        "titulo": "Decreto 4173 de 2011",
+        "descripcion": "Creación de la Agencia ITRC como Unidad Administrativa Especial",
+        "icon": "fa-landmark"
+      },
+      {
+        "titulo": "Ley 1474 de 2011",
+        "descripcion": "Estatuto Anticorrupción - Fortalecimiento de mecanismos de prevención",
+        "icon": "fa-gavel"
+      },
+      {
+        "titulo": "MIPG",
+        "descripcion": "Modelo Integrado de Planeación y Gestión - Función Pública",
+        "icon": "fa-building-columns"
+      }
+    ]
+  },
+  "enlacesRelacionados": [
+    {
+      "titulo": "Misión y Visión",
+      "descripcion": "Propósito estratégico y funciones de la Agencia",
+      "icon": "fa-bullseye",
+      "url": "agencia/mision-vision"
+    },
+    {
+      "titulo": "Estructura Orgánica",
+      "descripcion": "Organigrama y funciones por dependencia",
+      "icon": "fa-sitemap",
+      "url": "agencia/organigrama"
+    }
+  ]
+}

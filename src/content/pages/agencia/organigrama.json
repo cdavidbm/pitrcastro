@@ -1,0 +1,49 @@
+{
+  "title": "Organigrama",
+  "subtitle": "Estructura orgánica de la entidad",
+  "organigrama": {
+    "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/ORGANIGRAMA-AGENCIA-ITRC-01-2024.jpg",
+    "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/ORGANIGRAMA-AGENCIA-ITRC-01.pdf",
+    "alt": "Organigrama de la Agencia ITRC actualizado a 2024"
+  },
+  "funcionesPorArea": {
+    "titulo": "Descripción de la Estructura Orgánica",
+    "descripcion": "Conozca las funciones asignadas a cada área de la Agencia ITRC según su estructura organizacional.",
+    "matrizUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/MATRIZ-DE-FUNCIONES-POR-DEPENDENCIA.pdf"
+  },
+  "resolucionesSeccion": {
+    "titulo": "Resoluciones de Estructura Organizacional",
+    "descripcion": "Normatividad relacionada con la conformación de comités y órganos institucionales"
+  },
+  "resoluciones": [
+    {
+      "titulo": "Resolución No. 108 de 2020",
+      "descripcion": "Conformación Comisión de Personal",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/No.108-Por-medio-de-la-cual-se-conforma-la-Comision-de-Personal-de-la-U.A.E.-Agencia-del-Inspector-General-de-Tributos-Rentas-y-Contribuciones-Parafiscales-–-ITRC-para-el-periodo-2020-.pdf"
+    },
+    {
+      "titulo": "Resolución 061 de 2018",
+      "descripcion": "Adopta el SIG y crea Comité Institucional de Gestión y Desempeño",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/Resolucion-061-de-2018-Adopta-el-SIG-y-crea-Comite-Institucional-de-Gestion-y-Desempeno.pdf"
+    },
+    {
+      "titulo": "Resolución No. 361",
+      "descripcion": "Actualización del Comité Institucional de Control Interno",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/No.361-Por-la-cual-se-actualiza-el-comite-institucional-de-control-interno.pdf"
+    },
+    {
+      "titulo": "Resolución No. 137",
+      "descripcion": "Consejo de Decisiones Disciplinarias",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/No.-137-Consejo-de-Decisiones-Disicplinarias.pdf"
+    },
+    {
+      "titulo": "Resolución No. 145",
+      "descripcion": "Agencia ITRC - Consejo de Decisiones Disciplinarias",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/No.-145-Agencia-ITRC-Consejo-de-Dcisiones-Disciplinarias.pdf"
+    }
+  ],
+  "ctaDirectorio": {
+    "titulo": "Directorio de Servidores y Contratistas",
+    "descripcion": "Consulte la información de contacto de los servidores públicos y contratistas de la Agencia ITRC."
+  }
+}

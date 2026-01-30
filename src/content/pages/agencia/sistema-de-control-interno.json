@@ -1,0 +1,161 @@
+{
+  "title": "Sistema de Control Interno",
+  "slug": "sistema-de-control-interno",
+  "subtitle": "Modelo Estandar de Control Interno - MECI",
+  "icon": "fa-shield-halved",
+  "published": true,
+  "introTitle": "¿Que es?",
+  "introContent": "El Sistema de Control Interno es desarrollado, implementado y mantenido en operacion en la Agencia ITRC por medio del **Modelo Estandar de Control Interno - MECI**.\n\nEste Modelo proporciona una estructura para el control a la estrategia, la gestion y la evaluacion de la Entidad, con el proposito de orientarla hacia el cumplimiento de sus objetivos institucionales y la contribucion de estos a los fines esenciales del Estado.",
+  "entidadesExternas": [
+    {
+      "nombre": "Contraloria General de la Republica",
+      "direccion": "Carrera 69 No 44-35",
+      "telefono": "(601) 518 7000",
+      "email": "cgr@contraloria.gov.co",
+      "web": "https://www.contraloria.gov.co/",
+      "control": "Control fiscal",
+      "icon": "fa-landmark"
+    },
+    {
+      "nombre": "Procuraduria General de la Nacion",
+      "direccion": "Carrera 5 # 15-80",
+      "telefono": "(601) 587 8750",
+      "lineaNacional": "01 8000 94 0808",
+      "web": "https://www.procuraduria.gov.co/",
+      "control": "Control disciplinario",
+      "icon": "fa-gavel"
+    },
+    {
+      "nombre": "Fiscalia General de la Nacion",
+      "direccion": "Avenida Calle 24 No. 52 - 01 (Ciudad Salitre)",
+      "telefono": "(601) 791 0758",
+      "lineaNacional": "01 8000 91 9748",
+      "email": "ges.documentalpqrs@fiscalia.gov.co",
+      "web": "https://www.fiscalia.gov.co/colombia/",
+      "control": "Control penal",
+      "icon": "fa-scale-balanced"
+    },
+    {
+      "nombre": "Contaduria General de la Nacion",
+      "direccion": "Calle 26 No 69 - 76, Edificio Elemento Torre 1 - Piso 15",
+      "telefono": "(601) 492 64 00",
+      "lineaNacional": "01 8000 91 0060",
+      "email": "contactenos@contaduria.gov.co",
+      "web": "https://www.contaduria.gov.co/",
+      "control": "Control contable",
+      "icon": "fa-calculator"
+    },
+    {
+      "nombre": "Ministerio de Hacienda y Credito Publico",
+      "direccion": "Carrera 8 No. 6C-38",
+      "telefono": "(601) 381 1700",
+      "lineaNacional": "01 8000 910071",
+      "email": "relacionciudadano@minhacienda.gov.co",
+      "web": "https://www.minhacienda.gov.co/",
+      "control": "Control presupuestal",
+      "icon": "fa-building-columns"
+    },
+    {
+      "nombre": "Comision Nacional del Servicio Civil",
+      "direccion": "Carrera 16 No. 96 - 64, Piso 7",
+      "telefono": "(601) 325 97 00",
+      "lineaNacional": "01 900 33 11011",
+      "email": "atencionalciudadano@cnsc.gov.co",
+      "web": "https://www.cnsc.gov.co/",
+      "control": "Control de carrera administrativa",
+      "icon": "fa-user-tie"
+    },
+    {
+      "nombre": "Archivo General de la Nacion",
+      "direccion": "Carrera 6 No. 6 - 91",
+      "telefono": "(601) 328 2888",
+      "email": "contacto@archivogeneral.gov.co",
+      "web": "https://www.archivogeneral.gov.co/",
+      "control": "Control de politica archivistica",
+      "icon": "fa-folder-open"
+    }
+  ],
+  "controlPolitico": [
+    {
+      "nombre": "Senado de la Republica",
+      "direccion": "Calle 11 # 5-60 Tercer Nivel",
+      "telefono": "(601) 382 3000",
+      "lineaNacional": "01 8000 12 2512",
+      "email": "atencionciudadanacongreso@senado.gov.co",
+      "web": "https://www.senado.gov.co/"
+    },
+    {
+      "nombre": "Camara de Representantes",
+      "direccion": "Carrera 7 No. 8-68 Primer Piso",
+      "telefono": "(601) 877 0720",
+      "lineaNacional": "01 8000 12 2512",
+      "web": "https://www.camara.gov.co/"
+    }
+  ],
+  "controlInterno": [
+    {
+      "nombre": "Oficina Asesora de Control Interno",
+      "control": "Control interno de gestion",
+      "icon": "fa-clipboard-check"
+    },
+    {
+      "nombre": "Secretaria General - Control Disciplinario Interno",
+      "control": "Control disciplinario interno",
+      "icon": "fa-shield-halved"
+    }
+  ],
+  "contactoInterno": {
+    "direccion": "Calle 26 No. 69-63 Piso 6",
+    "telefono": "(601) 390 7000",
+    "lineaNacional": "01 800 123 004",
+    "email": "contactenos@itrc.gov.co"
+  },
+  "informesLegales": [
+    {
+      "titulo": "Informes de Evaluacion Control Interno Contable",
+      "documentos": [
+        { "name": "Evaluacion Control Interno Contable Vigencia 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Evaluacion_Control_Interno_Contable_Vigencia_2024-1.xls", "anio": "2024" },
+        { "name": "Evaluacion Control Interno Contable Vigencia 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Matriz-Eval-CIC-Vigencia-2023-.xls", "anio": "2023" },
+        { "name": "Evaluacion Control Interno Contable Vigencia 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Evaluacion-Control-Interno-Contable-Vigencia-2022.xlsx", "anio": "2022" },
+        { "name": "Evaluacion Control Interno Contable Vigencia 2021", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2021.xls", "anio": "2021" },
+        { "name": "Evaluacion Control Interno Contable Vigencia 2020", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2020.xls", "anio": "2020" },
+        { "name": "Evaluacion Control Interno Contable Vigencia 2019", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2019.xls", "anio": "2019" },
+        { "name": "Evaluacion Control Interno Contable Vigencia 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2018.xls", "anio": "2018" }
+      ]
+    },
+    {
+      "titulo": "Modelo de Seguridad y Privacidad de la Informacion (MSPI)",
+      "documentos": [
+        { "name": "Autodiagnostico MSPI - Instrumento de Evaluacion", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx", "anio": "2025" }
+      ]
+    },
+    {
+      "titulo": "Informes Software Legal",
+      "documentos": [
+        { "name": "Informe Software Legal Vigencia 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe-derechos-de-autor-publicacion-1.pdf", "anio": "2024" },
+        { "name": "Informe Software Legal Vigencia 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Inf-Software-Legal-ITRC-2023.pdf", "anio": "2023" },
+        { "name": "Informe Software Legal Vigencia 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Inf-Software-Legal-ITRC-2022.pdf", "anio": "2022" }
+      ]
+    }
+  ],
+  "planesMejoramiento": {
+    "titulo": "Planes de Mejoramiento Institucional",
+    "descripcion": "Acciones de mejora suscritas con la Contraloria General de la Republica y otros entes de control",
+    "linkUrl": "planes-de-mejoramiento",
+    "linkText": "Ver Planes"
+  },
+  "enlacesRelacionados": [
+    {
+      "titulo": "Sistema Integrado de Gestion",
+      "descripcion": "Marco de gestion institucional",
+      "url": "agencia/sistema-integrado-de-gestion",
+      "icon": "fa-diagram-project"
+    },
+    {
+      "titulo": "Informes de Gestion",
+      "descripcion": "Seguimiento y evaluacion institucional",
+      "url": "agencia/direccionamiento-estrategico/informes",
+      "icon": "fa-chart-bar"
+    }
+  ]
+}

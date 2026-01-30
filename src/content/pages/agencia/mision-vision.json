@@ -1,0 +1,118 @@
+{
+  "title": "Misión, Visión y Propósito Estratégico",
+  "proposito": {
+    "badge": "Propósito Estratégico Misional",
+    "titulo": "Control eficiente para un recaudo transparente",
+    "subtitulo": "Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales"
+  },
+  "mision": "Proteger el patrimonio público frente a acciones de fraude y corrupción, mediante un modelo especializado e innovador de prevención, aseguramiento e investigación disciplinaria, para fortalecer la transparencia y la efectividad en la <strong>DIAN</strong>, <strong>COLJUEGOS</strong> y la <strong>UGPP</strong>.",
+  "vision": "Ser la Agencia anticorrupción de la Hacienda Pública de Colombia, <strong>referente internacional</strong> en la prevención del fraude y la corrupción, generadora de buenas prácticas en los procesos de recaudo y administración fiscal.",
+  "quienesSomos": {
+    "intro": [
+      "La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, es una entidad del orden Nacional, <strong>adscrita al Ministerio de Hacienda y Crédito Público</strong>, creada mediante <strong>Decreto 4173 de 2011</strong> y posteriormente modificada su estructura, mediante los <strong>Decretos 985 de 2012, y 074 de 2022</strong>.",
+      "Somos una entidad con personal altamente calificado, conformado por más de cien servidores públicos, seleccionados mediante pruebas de nivel alto. Contamos con:"
+    ],
+    "capacidades": [
+      "Expertos auditores financieros, jurídicos, de proceso y sistemas",
+      "Expertos analistas de inteligencia de negocios",
+      "Abogados e investigadores expertos en derecho disciplinario",
+      "Equipo de policía judicial para investigaciones conjuntas con la Fiscalía General de la Nación"
+    ]
+  },
+  "queHacemos": {
+    "intro": "La Agencia ITRC tiene la facultad de <strong>investigar y sancionar las conductas por faltas disciplinarias gravísimas</strong>, generando fallos en primera y segunda instancia dentro de los procesos que se adelanten contra los empleados públicos encargados de:",
+    "entidades": [
+      {
+        "nombre": "DIAN",
+        "descripcion": "Administración de tributos, aduanas y control del régimen cambiario"
+      },
+      {
+        "nombre": "UGPP",
+        "descripcion": "Contribuciones parafiscales"
+      },
+      {
+        "nombre": "COLJUEGOS",
+        "descripcion": "Rentas de la nación por monopolio de juegos de suerte y azar"
+      }
+    ],
+    "cierre": "También tenemos la facultad de <strong>auditar los procesos operativos, tecnológicos y administrativos</strong> de estas entidades, partiendo de la identificación, análisis y valoración de riesgos, promoviendo las buenas prácticas y detectando fallas en los procesos, procedimientos, seguridad informática y recaudos."
+  },
+  "comoLoHacemos": [
+    {
+      "titulo": "Investigación Disciplinaria",
+      "icon": "fa-search",
+      "descripcion": "Investigamos integralmente, generando fallos en primera y segunda instancia dentro de los procesos que se adelanten contra los empleados públicos por conductas relacionadas con las faltas disciplinarias gravísimas."
+    },
+    {
+      "titulo": "Auditoría y Buenas Prácticas",
+      "icon": "fa-clipboard-check",
+      "descripcion": "Promovemos las buenas prácticas y detectamos las fallas en los procesos y procedimientos, en la seguridad informática y en los recaudos e ingresos que administran las entidades auditadas."
+    }
+  ],
+  "funciones": {
+    "intro": "De acuerdo con el artículo 4 del <strong>Decreto 4173 de 2011</strong>, son funciones de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales:",
+    "items": [
+      {
+        "title": "Aplicar estándares rigurosos de auditorías y evaluaciones",
+        "content": "Aplicar estándares rigurosos de auditorías y evaluaciones de los servicios que ofrece la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar, para la prevención de ineficiencias sistemáticas y operativas dentro del sistema."
+      },
+      {
+        "title": "Desarrollar programas anuales de auditoría",
+        "content": "Desarrollar programas anuales de auditoría que prioricen aquellos asuntos de mayor riesgo dentro de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar."
+      },
+      {
+        "title": "Adelantar auditorías previstas o por situaciones excepcionales",
+        "content": "Adelantar las auditorías previstas en el programa anual o en situaciones excepcionales por riesgos al interior de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar."
+      },
+      {
+        "title": "Elaborar programa de formulación de políticas de prevención",
+        "content": "A partir de los resultados de las auditorías, elaborar un programa de formulación de políticas de prevención y detección de malas prácticas en la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar, enfocado en áreas centrales como la seguridad e integridad de sus empleados."
+      },
+      {
+        "title": "Definir e implementar estrategias para detección del fraude",
+        "content": "Definir e implementar estrategias para la detección del fraude y conductas disciplinables de los funcionarios y deficiencias en los procesos, infraestructura y operaciones, de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar."
+      },
+      {
+        "title": "Adelantar investigaciones disciplinarias por faltas gravísimas",
+        "content": "Sin perjuicio del poder preferente de la Procuraduría General de la Nación, tendrá competencia para adelantar investigaciones a los funcionarios de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar, por conductas que por su trascendencia estén relacionadas con las faltas disciplinarias gravísimas establecidas en los numerales 1, 3, 17, 20, 30, 35, 42, 43, 44, 45, 46, 47, 50, 56, 58 y 60 del artículo 48 de la Ley 734 de 2002."
+      },
+      {
+        "title": "Asumir competencia de Control Disciplinario Interno",
+        "content": "Sin perjuicio del control preferente de la Procuraduría General de la Nación, asumir, mediante decisión motivada, la competencia de la Oficina de Control Disciplinario Interno de las entidades vigiladas, por otras conductas y faltas disciplinarias que atenten contra la integridad de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar, cuando resulte necesario para la defensa de los recursos públicos."
+      },
+      {
+        "title": "Ejercer funciones de policía judicial",
+        "content": "De conformidad con el numeral 4 del artículo 202 de la Ley 906 de 2004, ejercer funciones de policía judicial en el curso de las actuaciones de su competencia, bajo la directa coordinación de la Fiscalía General de la Nación. Las funciones de policía judicial serán ejercidas al interior de la Agencia, por las dependencias que determina el presente decreto."
+      },
+      {
+        "title": "Informar sobre problemas detectados y procesos realizados",
+        "content": "Informar al Presidente de la República, al Ministerio de Hacienda y Crédito Público y a la ciudadanía en general, sobre los problemas detectados y los procesos realizados."
+      },
+      {
+        "title": "Realizar capacitaciones continuas",
+        "content": "Realizar capacitaciones continuas a investigadores y auditores en beneficio de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar."
+      },
+      {
+        "title": "Participar en reuniones de Organismos Internacionales",
+        "content": "Participar en las reuniones de los Organismos Internacionales en las que se negocien compromisos del país en materias afines o relacionadas con las funciones de la Entidad."
+      },
+      {
+        "title": "Las demás funciones que se le asignen",
+        "content": "Las demás funciones que se le asignen conforme a la normatividad vigente."
+      }
+    ],
+    "paragrafo": "Para el cumplimiento de sus funciones, la Agencia ITRC está autorizada para acceder a todos los registros, auditorías, investigaciones, revisiones, documentos, recomendaciones y en general, a todo el material relacionado con la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la UGPP y rentas de la Nación a cargo de COLJUEGOS, y para solicitar la producción de informes y reportes que requiera para el cumplimiento de sus funciones."
+  },
+  "valores": [
+    { "nombre": "Honestidad", "icon": "fa-heart", "descripcion": "Actuamos con transparencia y verdad" },
+    { "nombre": "Respeto", "icon": "fa-handshake", "descripcion": "Valoramos la dignidad de todas las personas" },
+    { "nombre": "Compromiso", "icon": "fa-flag", "descripcion": "Cumplimos con dedicación nuestras funciones" },
+    { "nombre": "Diligencia", "icon": "fa-bolt", "descripcion": "Actuamos con prontitud y eficiencia" },
+    { "nombre": "Justicia", "icon": "fa-balance-scale", "descripcion": "Garantizamos equidad en nuestras decisiones" }
+  ],
+  "mapaEstrategico": {
+    "titulo": "Mapa Estratégico 2023-2026",
+    "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/MAPA-ESTRATEGICO-2023-2026.jpg",
+    "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/MAPA-ESTRATEGICO-2023-2026.pdf"
+  }
+}

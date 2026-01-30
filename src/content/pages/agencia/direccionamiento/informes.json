@@ -1,0 +1,202 @@
+{
+  "title": "Informes de Gestion",
+  "slug": "informes",
+  "description": "Informes de gestion, seguimiento y evaluacion del desempeño institucional de la Agencia ITRC.",
+  "icon": "fa-chart-line",
+  "order": 3,
+  "published": true,
+  "sections": [
+    {
+      "sectionTitle": "Informes Institucionales",
+      "displayMode": "accordion",
+      "documents": [
+        {
+          "name": "Informe de Gestion 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/Informe-Gestion-2025.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe de Gestion 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Informe-Gestion-2024.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe de Gestion 2023",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Informe-Gestion-2023.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2023"
+        },
+        {
+          "name": "Informe de Gestion 2022",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/Informe-Gestion-2022.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2022"
+        },
+        {
+          "name": "Informe de Gestion 2021",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/12/Informe-Gestion-2021.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2021"
+        },
+        {
+          "name": "Informe de Gestion 2020",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/Informe-Gestion-2020.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2020"
+        },
+        {
+          "name": "Informe de Gestion 2019",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/12/Informe-Gestion-2019.pdf",
+          "category": "Informes de Gestion",
+          "anio": "2019"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Cuarto Trimestre 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/Seguimiento-PAI-4T-2025.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Tercer Trimestre 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/Seguimiento-PAI-3T-2025.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Segundo Trimestre 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Seguimiento-PAI-2T-2025.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Primer Trimestre 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Seguimiento-PAI-1T-2025.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Cuarto Trimestre 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Seguimiento-PAI-4T-2024.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Tercer Trimestre 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Seguimiento-PAI-3T-2024.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Segundo Trimestre 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Seguimiento-PAI-2T-2024.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe de Seguimiento PAI Primer Trimestre 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Seguimiento-PAI-1T-2024.pdf",
+          "category": "Seguimiento Plan de Accion",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe FURAG 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/03/Informe-FURAG-2024.pdf",
+          "category": "Informes FURAG",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe FURAG 2023",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Informe-FURAG-2023.pdf",
+          "category": "Informes FURAG",
+          "anio": "2023"
+        },
+        {
+          "name": "Informe FURAG 2022",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Informe-FURAG-2022.pdf",
+          "category": "Informes FURAG",
+          "anio": "2022"
+        },
+        {
+          "name": "Informe FURAG 2021",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Informe-FURAG-2021.pdf",
+          "category": "Informes FURAG",
+          "anio": "2021"
+        },
+        {
+          "name": "Informe FURAG 2020",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/03/Informe-FURAG-2020.pdf",
+          "category": "Informes FURAG",
+          "anio": "2020"
+        },
+        {
+          "name": "Informe Pormenorizado de Control Interno Diciembre 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/Informe-CI-Dic-2025.pdf",
+          "category": "Informes de Control Interno",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe Pormenorizado de Control Interno Julio 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Informe-CI-Jul-2025.pdf",
+          "category": "Informes de Control Interno",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe Pormenorizado de Control Interno Marzo 2025",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/03/Informe-CI-Mar-2025.pdf",
+          "category": "Informes de Control Interno",
+          "anio": "2025"
+        },
+        {
+          "name": "Informe Pormenorizado de Control Interno Diciembre 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Informe-CI-Dic-2024.pdf",
+          "category": "Informes de Control Interno",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe Pormenorizado de Control Interno Julio 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-CI-Jul-2024.pdf",
+          "category": "Informes de Control Interno",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe Pormenorizado de Control Interno Marzo 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Informe-CI-Mar-2024.pdf",
+          "category": "Informes de Control Interno",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe de Rendicion de Cuentas 2024",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Rendicion-Cuentas-2024.pdf",
+          "category": "Rendicion de Cuentas",
+          "anio": "2024"
+        },
+        {
+          "name": "Informe de Rendicion de Cuentas 2023",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Rendicion-Cuentas-2023.pdf",
+          "category": "Rendicion de Cuentas",
+          "anio": "2023"
+        },
+        {
+          "name": "Informe de Rendicion de Cuentas 2022",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Rendicion-Cuentas-2022.pdf",
+          "category": "Rendicion de Cuentas",
+          "anio": "2022"
+        },
+        {
+          "name": "Informe de Rendicion de Cuentas 2021",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/Rendicion-Cuentas-2021.pdf",
+          "category": "Rendicion de Cuentas",
+          "anio": "2021"
+        },
+        {
+          "name": "Informe de Rendicion de Cuentas 2020",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/Rendicion-Cuentas-2020.pdf",
+          "category": "Rendicion de Cuentas",
+          "anio": "2020"
+        }
+      ]
+    }
+  ]
+}

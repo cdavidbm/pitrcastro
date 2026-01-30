@@ -1,0 +1,71 @@
+{
+  "title": "Politicas Institucionales",
+  "slug": "politicas",
+  "description": "Marco normativo de politicas que orientan el actuar de la Agencia ITRC en cumplimiento de su mision institucional.",
+  "icon": "fa-scale-balanced",
+  "order": 1,
+  "published": true,
+  "sections": [
+    {
+      "sectionTitle": "Politicas de la Agencia ITRC",
+      "displayMode": "list",
+      "documents": [
+        {
+          "name": "Politica de Administracion de Riesgos",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-ADMINISTRACION-DE-RIESGOS-V3.pdf",
+          "description": "Lineamientos para la gestion integral de riesgos institucionales"
+        },
+        {
+          "name": "Politica de Comunicaciones",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-COMUNICACIONES.pdf",
+          "description": "Estrategia de comunicacion interna y externa"
+        },
+        {
+          "name": "Politica de Gestion del Conocimiento e Innovacion",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-GESTION-DEL-CONOCIMIENTO-E-INNOVACION.pdf",
+          "description": "Lineamientos para la gestion del conocimiento organizacional"
+        },
+        {
+          "name": "Politica de Seguridad Digital",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-SEGURIDAD-DIGITAL.pdf",
+          "description": "Marco de seguridad de la informacion y ciberseguridad"
+        },
+        {
+          "name": "Politica de Seguridad y Salud en el Trabajo",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-SEGURIDAD-Y-SALUD-EN-EL-TRABAJO.pdf",
+          "description": "Sistema de gestion de seguridad y salud laboral"
+        },
+        {
+          "name": "Politica de Tratamiento de Datos Personales",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-TRATAMIENTO-DE-DATOS-PERSONALES.pdf",
+          "description": "Proteccion de datos personales segun Ley 1581 de 2012"
+        },
+        {
+          "name": "Politica Institucional de Gestion Ambiental",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-INSTITUCIONAL-DE-GESTION-AMBIENTAL.pdf",
+          "description": "Compromiso ambiental y sostenibilidad"
+        },
+        {
+          "name": "Politica de Gobierno Digital",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-GOBIERNO-DIGITAL.pdf",
+          "description": "Transformacion digital y servicios electronicos"
+        },
+        {
+          "name": "Politica de Prevencion del Daño Antijuridico",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-PREVENCION-DEL-DANO-ANTIJURIDICO.pdf",
+          "description": "Lineamientos de defensa juridica institucional"
+        },
+        {
+          "name": "Politica de Racionalizacion de Tramites",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DE-RACIONALIZACION-DE-TRAMITES.pdf",
+          "description": "Simplificacion y mejora de tramites al ciudadano"
+        },
+        {
+          "name": "Politica del Sistema Integrado de Gestion",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/POLITICA-DEL-SISTEMA-INTEGRADO-DE-GESTION.pdf",
+          "description": "Marco del SIG institucional"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "title": "Informacion Financiera",
+  "slug": "informacion-financiera",
+  "subtitle": "Estados financieros, operaciones reciprocas y ejecucion presupuestal",
+  "published": true,
+  "tabs": [
+    {
+      "id": "ef2025",
+      "label": "Estados Financieros 2025",
+      "items": [
+        { "titulo": "Estados Financieros a Septiembre 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Estados-Financieros-a-septiembre-2025-aprob.pdf" },
+        { "titulo": "Estados Financieros a Junio 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/Estados-financieros-a-junio-2025.pdf" },
+        { "titulo": "Estados Financieros a Marzo 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/06/Estados-financieros-marzo-2025.pdf" }
+      ]
+    },
+    {
+      "id": "ef2024",
+      "label": "Estados Financieros 2024",
+      "items": [
+        { "titulo": "Estados Financieros Diciembre 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Estados-Financieros-diciembre-2024.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Estados-Financieros-a-septiembre-2024.pdf" },
+        { "titulo": "Estados Financieros Junio 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Estados-financieros-a-junio-2024.pdf" },
+        { "titulo": "Estados Financieros Marzo 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Estados-financieros-a-marzo-2024.pdf" }
+      ]
+    },
+    {
+      "id": "ef2023",
+      "label": "Estados Financieros 2023",
+      "items": [
+        { "titulo": "Estados Financieros Enero 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Estados-Financieros-enero-2023.pdf" },
+        { "titulo": "Estados Financieros Febrero 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Estados-Financieros-Febrero-2023.pdf" },
+        { "titulo": "Estados Financieros Marzo 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Estados-Financieros-marzo-2023.pdf" },
+        { "titulo": "Estados Financieros Abril 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Estados-Financieros-abril-2023-fir.pdf" },
+        { "titulo": "Estados Financieros Mayo 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/06/Estados-Financieros-Mayo-2023.pdf" },
+        { "titulo": "Estados Financieros Junio 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/Estados-Financieros-junio-2023.pdf" },
+        { "titulo": "Estados Financieros Julio 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Estados-Financieros-julio-2023.pdf" },
+        { "titulo": "Estados Financieros Agosto 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/09/Estados-Financieros-agosto-2023.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Estados-Financieros-Septiembre-2023.pdf" },
+        { "titulo": "Estados Financieros Octubre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Estados-Financieros-octubre-2023.pdf" },
+        { "titulo": "Estados Financieros Trimestre Corte Junio 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Estados-financieros-trimestrales-a-30-de-junio-2023.pdf" },
+        { "titulo": "Estados Financieros Trimestre Corte Septiembre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Estados-financieros-trimestrales-a-30-de-septiembre-2023.pdf" }
+      ]
+    },
+    {
+      "id": "ef2022",
+      "label": "Estados Financieros 2022",
+      "items": [
+        { "titulo": "Estados Financieros Diciembre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Estados-Financieros-2022.pdf" },
+        { "titulo": "Estados Financieros Noviembre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/Estados-financieros-noviembre-2022.pdf" },
+        { "titulo": "Estados Financieros Octubre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/Estados-Financieros-octubre-de-2022.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Estados-Financieros-septiembre-de-2022.pdf" },
+        { "titulo": "Estados Financieros Agosto 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Estados-Financieros-agosto-2022.pdf" },
+        { "titulo": "Estados Financieros Julio 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Estados-Financieros-julio-de-2022.pdf" },
+        { "titulo": "Estados Financieros Junio 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/Estados-Financieros-junio-2022.pdf" },
+        { "titulo": "Estados Financieros Mayo 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Estados-Financieros-mayo-2022-FIRMADO-DIRECTORA.pdf" },
+        { "titulo": "Estados Financieros Abril 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/05/Estados-Financieros-abril-2022.pdf" },
+        { "titulo": "Estados Financieros Marzo 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/05/Estados-Financieros-a-marzo-2022.pdf" },
+        { "titulo": "Estados Financieros Febrero 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Estados-Financieros-febrero-2022-V1-1-firmado.pdf" },
+        { "titulo": "Estados Financieros Enero 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Estados-Financieros-enero-2022.pdf" }
+      ]
+    },
+    {
+      "id": "ef2021",
+      "label": "Estados Financieros 2021",
+      "items": [
+        { "titulo": "Estados Financieros Diciembre 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/Estados-Financieros-Diciembre-2021.pdf" },
+        { "titulo": "Estados Financieros Noviembre 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/Estados-Financieros-noviembre-2021.pdf" },
+        { "titulo": "Estados Financieros Octubre 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/12/Estados-Financieros-Octubre-2021.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/Estados-Financieros-Septiembre-2021.pdf" },
+        { "titulo": "Estados Financieros Agosto 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/Estados-Financieros-Agosto-2021.pdf" },
+        { "titulo": "Estados Financieros Julio 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Estados-Financieros-Julio-2021.pdf" },
+        { "titulo": "Estados Financieros Junio 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/Estados-Financieros-Junio-2021.pdf" },
+        { "titulo": "Estados Financieros Mayo 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/21-Estados-Financieros-Mayo-2021.pdf" },
+        { "titulo": "Estados Financieros Abril 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/Estados-Financieros-Abril-2021.pdf" },
+        { "titulo": "Estados Financieros Marzo 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/Estados-Financieros-Marzo-2021.pdf" },
+        { "titulo": "Estados Financieros Febrero 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/Estados-Financieros-Febrero-2021.pdf" },
+        { "titulo": "Estados Financieros Enero 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/Estados-Financieros-Enero-2021.pdf" }
+      ]
+    },
+    {
+      "id": "ef2020",
+      "label": "Estados Financieros 2020",
+      "items": [
+        { "titulo": "Estados Financieros Diciembre 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/Estados-Financieros-Diciembre-2020.pdf" },
+        { "titulo": "Estados Financieros Noviembre 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/Estados-Financieros-Noviembre-2020.pdf" },
+        { "titulo": "Estados Financieros Octubre 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/Estados-Financieros-Octubre-2020.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/Estados-Financieros-Septiembre-2020.pdf" },
+        { "titulo": "Estados Financieros Agosto 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Estados-Financieros-Agosto-2020.pdf" },
+        { "titulo": "Estados Financieros Julio 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Estados-Financieros-Julio-2020.pdf" },
+        { "titulo": "Estados Financieros Junio 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/08/Estados-Financieros-Junio-2020.pdf" },
+        { "titulo": "Estados Financieros Mayo 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Estados-Financieros-Mayo-2020.pdf" },
+        { "titulo": "Estados Financieros Abril 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/06/Estados-Financieros-Abril-2020.pdf" },
+        { "titulo": "Estados Financieros Marzo 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/Estados-Financieros-Marzo-2020.pdf" },
+        { "titulo": "Estados Financieros Febrero 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/Estados-Financieros-Febrero-2020.pdf" },
+        { "titulo": "Estados Financieros Enero 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/04/Estados-Financieros-Enero-2020.pdf" }
+      ]
+    },
+    {
+      "id": "ef2019",
+      "label": "Estados Financieros 2019",
+      "items": [
+        { "titulo": "Estados Financieros Diciembre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/02/Estados-Financieros-Diciembre-2019.pdf" },
+        { "titulo": "Estados Financieros Noviembre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/12/Estados-Financieros-Noviembre-2019.pdf" },
+        { "titulo": "Estados Financieros Octubre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/11/Estados-Financieros-Octubre-2019.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/10/Estados-Financieros-Septiembre-2019.pdf" },
+        { "titulo": "Estados Financieros Agosto 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/10/Estados-Financieros-Agosto-2019.pdf" },
+        { "titulo": "Estados Financieros Julio 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/08/Estados-Financieros-Julio-2019.pdf" },
+        { "titulo": "Estados Financieros Junio 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/07/ESTADOS-FINANCIEROS-A-30-JUNIO-2019.pdf" },
+        { "titulo": "Estados Financieros Mayo 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/07/Estados%20Financieros%20Mayo%20de%202019.pdf" },
+        { "titulo": "Estados Financieros Abril 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/06/Estados-Financieros-Abril-de-2019.pdf" },
+        { "titulo": "Estados Financieros Marzo 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/Estados-Financieros-Marzo-de-2019.pdf" },
+        { "titulo": "Estados Financieros Febrero 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/Estados-Financieros-Febrero-de-2019.pdf" },
+        { "titulo": "Estados Financieros Enero 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/Estados-Financieros-Enero-de-2019.pdf" }
+      ]
+    },
+    {
+      "id": "ef-tri-2018",
+      "label": "EF Trimestrales 2018",
+      "items": [
+        { "titulo": "Estados Financieros IV Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/ESTADOS-FINANCIERO-A-31-DE-DICIEMBRE-DE-2018.pdf" },
+        { "titulo": "Estados Financieros III Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/11/Estados-Financieros-III-Trimestre-vigencia-2018.pdf" },
+        { "titulo": "Estados Financieros II Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Estados-Financieros-II-Trimestre-vigencia-2018.pdf" },
+        { "titulo": "Estados Financieros I Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Estados-Financieros-I-Trimestre-vigencia-2018.pdf" }
+      ]
+    },
+    {
+      "id": "ef-mes-2018",
+      "label": "EF Mensuales 2018",
+      "items": [
+        { "titulo": "Estados Financieros Diciembre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/ESTADOS-FINANCIERO-A-31-DE-DICIEMBRE-DE-2018.pdf" },
+        { "titulo": "Estados Financieros Noviembre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/01/Estados-Financieros-Noviembre.pdf" },
+        { "titulo": "Estados Financieros Octubre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/12/Estados-Financieros-Octubre.pdf" },
+        { "titulo": "Estados Financieros Septiembre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/11/Estados-Financieros-Septiembre.pdf" },
+        { "titulo": "Estados Financieros Agosto 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/Estados-Financieros-Agosto.pdf" },
+        { "titulo": "Estados Financieros Julio 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/09/Estados-Financieros-Julio.pdf" },
+        { "titulo": "Estados Financieros Junio 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Estados-Financieros-Junio.pdf" },
+        { "titulo": "Estados Financieros Mayo 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Estados-Financieros-Mayo.pdf" },
+        { "titulo": "Estados Financieros Abril 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Estados-Financieros-Abril.pdf" },
+        { "titulo": "Estados Financieros Marzo 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Estados-Financieros-Marzo-de-2018.pdf" },
+        { "titulo": "Estados Financieros Febrero 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Estados-Financieros-Febrero-de-2018.pdf" },
+        { "titulo": "Estados Financieros Enero 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Estados-Financieros-Enero-de-2018.pdf" }
+      ]
+    },
+    {
+      "id": "op-reciprocas",
+      "label": "Operaciones Reciprocas",
+      "items": [
+        { "titulo": "Operaciones Reciprocas Septiembre 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/CHIP-Operaciones-reciprocas-septiembre-2024.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Junio 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/CHIP-Operaciones-reciprocas-junio-2024.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Marzo 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/CHIP-Operaciones-reciprocas-marzo-2024.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Operaciones-Reciprocas-a-diciembre-de-2023.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Operaciones-Reciprocas-a-septiembre-de-2023.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Junio 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Operaciones-Reciprocas-a-junio-de-2023.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Marzo 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Operaciones-Reciprocas-a-marzo-de-2023.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/CHIP-Operaciones-Reciprocas-oct-dic.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/Operaciones-Reciprocas-a-septiembre-de-2022.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/Operaciones-Reciprocas-a-junio-de-2022.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Operaciones-Reciprocas-a-marzo-2022.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Operaciones-Reciprocas-a-diciembre-2021.pdf" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Operaciones-reciprocas-a-septiembre-2021.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Operaciones-Reciprocas-a-junio-de-2021.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/Operaciones-Reciprocas-a-marzo-de-2021.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/Operaciones-Reciprocas-a-diciembre-de-2020.pdf" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/Operaciones-Reciprocas-a-30-de-septiembre-de-2020.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Operaciones-Reciprocas-a-junio-de-2020.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Operaciones-Reciprocas-a-marzo-de-2020.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/06/Operaciones-Reciprocas-a-Diciembre-de-2019.pdf" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/10/Operaciones-Rec%C3%ADprocas-a-Septiembre-de-2019.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/07/Operaciones-Rec%C3%ADprocas-a-Junio-de-2019.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/Operaciones-Rec%C3%ADprocas-Trim-I-2019.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/Operaciones-Rec%C3%ADprocas-Trim-IV-2018.pdf" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/Operaciones-Rec%C3%ADprocas-Trim-III-2018.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Operaciones-Rec%C3%ADprocas-a-Junio-2018.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Operaciones-Rec%C3%ADprocas-a-Marzo-2018.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2017", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/RECIPROCAS-DIC-2017.pdf" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2017", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/RECIPROCAS-SEPT-2017.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2017", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/RECIPROCAS-A-JUN-17.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2017", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ordmar17cgn.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/opdic16cgn.xls", "tipo": "xls" },
+        { "titulo": "Operaciones Reciprocas Septiembre 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/opsep16cgn.pdf" },
+        { "titulo": "Operaciones Reciprocas Junio 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ordjun16cgn.pdf" },
+        { "titulo": "Operaciones Reciprocas Marzo 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ordmar16cgn.pdf" },
+        { "titulo": "Operaciones Reciprocas Diciembre 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ord15cgn.pdf" }
+      ]
+    },
+    {
+      "id": "ef-comparativos",
+      "label": "EF Comparativos",
+      "items": [
+        { "titulo": "Enero 2017-2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ener1716.pdf" },
+        { "titulo": "Febrero 2017-2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/febr1716.pdf" },
+        { "titulo": "Marzo 2017-2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/mar1716.pdf" },
+        { "titulo": "Abril 2017-2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/abr1716.pdf" },
+        { "titulo": "Mayo 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/BALANCE-COMPARATIVO-MAYO-2017-2016.pdf" },
+        { "titulo": "Junio 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BALANCE-COMPARATIVO-JUNIO-2017-2016.pdf" },
+        { "titulo": "Julio 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BALANCE-COMPARATIVO-JULIO-2017-2016.pdf" },
+        { "titulo": "Agosto 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BALANCE-COMPARATIVO-AGOSTO-2017-2016.pdf" },
+        { "titulo": "Septiembre 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BALANCE-COMPARATIVO-SEPTIEMBRE-2017-2016.pdf" },
+        { "titulo": "Octubre 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BALANCE-COMPARATIVO-OCTUBRE-2017-2016.pdf" },
+        { "titulo": "Noviembre 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BALANCE-COMPARATIVO-NOVIEMBRE-2017-2016.pdf" },
+        { "titulo": "Diciembre 2017-2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/ESTADOS-FINANCIEROS-A-DICIEMBRE-2017-1.pdf" },
+        { "titulo": "Enero 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ener1615.pdf" },
+        { "titulo": "Febrero 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/febr1615.pdf" },
+        { "titulo": "Marzo 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/marz1615.pdf" },
+        { "titulo": "Abril 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/abri1615.pdf" },
+        { "titulo": "Mayo 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/mayo1615.pdf" },
+        { "titulo": "Junio 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/junio1615.pdf" },
+        { "titulo": "Julio 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/julio1615.pdf" },
+        { "titulo": "Agosto 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/agosto20162015.pdf" },
+        { "titulo": "Septiembre 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/septiembre20162015.pdf" },
+        { "titulo": "Octubre 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/octubre20162015.pdf" },
+        { "titulo": "Noviembre 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/noviembre20162015.pdf" },
+        { "titulo": "Diciembre 2016-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/bp1615.pdf" },
+        { "titulo": "Enero 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ener1514.pdf" },
+        { "titulo": "Febrero 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/febr1514.pdf" },
+        { "titulo": "Marzo 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/marz1514.pdf" },
+        { "titulo": "Abril 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/abri1514.pdf" },
+        { "titulo": "Mayo 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/mayo1514.pdf" },
+        { "titulo": "Junio 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/juni1514.pdf" },
+        { "titulo": "Julio 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/juli1514.pdf" },
+        { "titulo": "Agosto 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/agos1514.pdf" },
+        { "titulo": "Septiembre 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/sept1514.pdf" },
+        { "titulo": "Octubre 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/octu1514.pdf" },
+        { "titulo": "Noviembre 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/novi1514.pdf" },
+        { "titulo": "Diciembre 2015-2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/dici1514.pdf" }
+      ]
+    },
+    {
+      "id": "ef-trimestrales",
+      "label": "EF Trimestrales Historicos",
+      "items": [
+        { "titulo": "Estados Financieros y Notas Diciembre 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ESTADOS-FINANCIEROS-A-DICIEMBRE-2016.pdf" },
+        { "titulo": "Estados Financieros y Notas Septiembre 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ESTADOS-FINANCIEROS-A-SEPTIEMBRE-2016.pdf" },
+        { "titulo": "Estados Financieros y Notas Junio 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/estados-financieros-comparativos-junio2016.pdf" },
+        { "titulo": "Estados Financieros y Notas Marzo 2016", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/estados-financieros-comparativos-marzo2016.pdf" },
+        { "titulo": "Estados Financieros y Notas Diciembre 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/estados-financieros-comparativos.pdf" },
+        { "titulo": "Estados Financieros y Notas Septiembre 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/estfin-sep2015.pdf" },
+        { "titulo": "Estados Financieros y Notas Junio 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/efjun2015.pdf" },
+        { "titulo": "Estados Financieros y Notas Marzo 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/balance-marzo2015.pdf" },
+        { "titulo": "Estados Financieros y Notas Diciembre 2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/efdic2014.pdf" },
+        { "titulo": "Estados Financieros y Notas Septiembre 2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/balance-julio2014.pdf" },
+        { "titulo": "Estados Financieros y Notas Junio 2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/balance-enero2014.pdf" },
+        { "titulo": "Estados Financieros y Notas Marzo 2014", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/efienmar2014.pdf" },
+        { "titulo": "Estados Financieros y Notas 2012", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/estados-Financieros-Notas-Vigencia-2012%20-%20Agencia%20ITRC.pdf" }
+      ]
+    },
+    {
+      "id": "ejecucion-presupuestal",
+      "label": "Ejecucion Presupuestal",
+      "items": [
+        { "titulo": "Avance Ejecucion IV Trimestre 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/AvanceEjecucionComparativo-IV-Trimestre.pdf" },
+        { "titulo": "Ejecucion Presupuestal Diciembre 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/EjecucionPresupuestalAdiciembre2025.pdf" },
+        { "titulo": "Avance Ejecucion III Trimestre 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/EjecucionPresupuestalTercerTrimestre2024-2025.pdf" },
+        { "titulo": "Ejecucion Presupuestal Septiembre 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/EjecucionPresupuestalAseptiembre2025.pdf" },
+        { "titulo": "Avance Ejecucion II Trimestre 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/COMPARATIVO-II-TRIMESTRE-2024-2025.pdf" },
+        { "titulo": "Ejecucion Presupuestal Junio 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/25-REP_EPG013_LibroRegistro-AL-30JUNIO-2025.pdf" },
+        { "titulo": "Avance Ejecucion I Trimestre 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Avance-Ejecucion-y-Comparativo-I-Trimestre-2024-2025.pdf" },
+        { "titulo": "Ejecucion Presupuestal Marzo 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Ejecucion-Presupuestal-a-31-Marzo-2025.pdf" },
+        { "titulo": "Avance Ejecucion IV Trimestre 2023-2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/AVANCE-DE-EJECUCION-Y-COMPARATIVO-IV-TRIMESTRE-2023-2024.pdf" },
+        { "titulo": "Ejecucion Presupuestal Diciembre 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/EJECUCION-PRESUPUESTAL-A-DICIEMBRE-2024.pdf" },
+        { "titulo": "Ejecucion Presupuestal Septiembre 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/EJECUCION-PRESUPUESTAL-A-SEPTIEMBRE-2024.pdf" },
+        { "titulo": "Avance Ejecucion III Trimestre 2023-2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/AVANCE-DE-EJECUCION-Y-COMPARATIVO-III-TRIMESTRE-2023-2024-002.pdf" },
+        { "titulo": "Ejecucion Presupuestal Junio 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/EJECUCION-PRESUPUESTA-A-JUNIO-2024.pdf" },
+        { "titulo": "Avance Ejecucion II Trimestre 2023-2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/INFORME-II-TRIMESTRES-2023-2024.pdf" },
+        { "titulo": "Ejecucion Presupuestal Marzo 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/EJECUCUIN-PRESUPUESTAL-MARZO-2024.pdf" },
+        { "titulo": "Avance Ejecucion I Trimestre 2023-2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/AVANCE-DE-EJECUCION-2023-Y-COMPARATIVO-I-TRIMESTRE-2023-2024.pdf" },
+        { "titulo": "Ejecucion Presupuestal Diciembre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/EJECUCION-PRESUPUESTA-ACUMULADA-DICIEMBRE-2023.pdf" },
+        { "titulo": "Avance Ejecucion IV Trimestre 2022-2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/AVANCE-EJECUCION-2023-Y-COMPARATIVO-IV-TRIMESTRE-2022-2023.pdf" },
+        { "titulo": "Ejecucion Desagregada Septiembre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/9.-SEPTIEMBRE.pdf" },
+        { "titulo": "Avance Ejecucion III Trimestre 2022-2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/AVANCE-EJECUCI%C3%93N-2023-Y-COMPARATIVO-III-TRIMESTRE-2022-2023.pdf" },
+        { "titulo": "Ejecucion Desagregada Junio 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Ejecucion-Desagregada-a-junio-2023.pdf" },
+        { "titulo": "Avance Ejecucion II Trimestre 2022-2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/AVANCE-EJECUCION-2023-Y-COMPARATIVO-II-TRIMESTRE-2022-2023.pdf" },
+        { "titulo": "Avance Ejecucion I Trimestre 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/3.-EJECUCION-MARZO-2023.pdf" },
+        { "titulo": "Comparativo I Trimestre 2023 vs 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/AVANCE-EJECUCION-2023-Y-COMPARATIVO-I-TRIMESTRE-2022-2023.pdf" },
+        { "titulo": "Ejecucion Presupuestal Diciembre 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/12.-EJECUCION-PRESUPUESTAL-DICIEMBRE-2022.pdf" },
+        { "titulo": "Avance Ejecucion IV Trimestre 2021-2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/AVANCE-EJECUCION-2022-Y-COMPARATIVO-IV-TRIMESTRE-2021-2022.pdf" },
+        { "titulo": "Avance Ejecucion III Trimestre 2021-2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/AVANCE-EJECUCION-2022-Y-COMPARATIVO-III-TRIMESTRE-2021-2022.pdf" },
+        { "titulo": "Avance Ejecucion II Trimestre 2021-2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/22-AVANCE-DE-EJECUCION-2022-Y-COMPARATIVO-II-TRIMESTRE-2021-2022.pdf" },
+        { "titulo": "Avance Ejecucion I Trimestre 2021-2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/22-AVANCE-DE-EJECUCION-2022-Y-COMPARATIVO-I-TRIMESTRE-2021-2022.pdf" },
+        { "titulo": "Avance Ejecucion IV Trimestre 2020-2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/22-AVANCE-DE-EJECUCION-2020-Y-COMPARATIVO-IV-TRIMESTRE-2020-2021.pdf" },
+        { "titulo": "Avance Ejecucion III Trimestre 2020-2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/21-AVANCE-DE-EJECUCION-2020-Y-COMPARATIVO-III-TRIMESTRE-2020-2021.pdf" },
+        { "titulo": "Avance Ejecucion II Trimestre 2020-2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/21-AVANCE-DE-EJECUCION-2020-Y-COMPARATIVO-II-TRIMESTRE-2020-2021.pdf" },
+        { "titulo": "Presupuesto Serie 2021 I Trimestre", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/21-AVANCE-DE-EJECUCION-2020-Y-COMPARATIVO-2020-2021.pdf" },
+        { "titulo": "Presupuesto Serie 2020 IV Trimestre", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/PRESUPUESTO-SERIE-2020-CUARTO-TRIMESTRE.pdf" },
+        { "titulo": "Presupuesto Serie 2019-2020 IV Trimestre", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/PRESUPUESTO-SERIES-2019-2020-CUARTO-TRIMESTRE.pdf" },
+        { "titulo": "Historico Ejecucion 2013-2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/hep2013-2015.pdf" }
+      ]
+    }
+  ],
+  "infoCards": [
+    {
+      "titulo": "Resolucion 533 de 2015",
+      "descripcion": "Marco normativo para entidades de gobierno en materia de contabilidad publica expedido por la Contaduria General de la Nacion.",
+      "icon": "fa-scale-balanced"
+    },
+    {
+      "titulo": "Ley 1712 de 2014",
+      "descripcion": "Ley de Transparencia y del Derecho de Acceso a la Informacion Publica Nacional.",
+      "icon": "fa-landmark"
+    },
+    {
+      "titulo": "Decreto 111 de 1996",
+      "descripcion": "Estatuto Organico del Presupuesto que regula la programacion, elaboracion y ejecucion del presupuesto.",
+      "icon": "fa-chart-pie"
+    }
+  ],
+  "ctaSection": {
+    "titulo": "Sistema CHIP - Contaduria General de la Nacion",
+    "descripcion": "Consulte informacion financiera consolidada de entidades publicas en el portal de la CGN.",
+    "linkUrl": "https://www.chip.gov.co/",
+    "linkText": "Ir al portal CHIP",
+    "icon": "fa-building-columns"
+  }
+}

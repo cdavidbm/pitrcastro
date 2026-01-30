@@ -1,0 +1,47 @@
+{
+  "title": "Equipo Directivo",
+  "subtitle": "Liderazgo comprometido con la transparencia y el control fiscal",
+  "directora": {
+    "nombre": "Eva Carolina Madrid Torres",
+    "cargo": "Directora General",
+    "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/DIRECTORA-EVA-CAROLINA-MADRID.png",
+    "bio": [
+      "Eva Carolina Madrid Torres es contadora publica, activista politica y actualmente figura en varios roles dentro del sector publico colombiano. Es la Directora de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC), una entidad que trabaja en la supervision y el control de recursos tributarios en Colombia. Este nombramiento sigue una serie de cambios impulsados por el Ministerio de Hacienda, especialmente con el objetivo de fortalecer la supervision y combatir la corrupcion dentro de las finanzas publicas.",
+      "Madrid Torres ha ocupado cargos en entidades como el Ministerio de Ambiente y Desarrollo Sostenible, el Ministerio de Salud, Departamento de la Prosperidad Social y Proteccion Social y la Unidad Administrativa Especial de Gestion de Restitucion de Tierras Despojadas. Ademas, tiene experiencia previa en roles de auditoria y administracion contable en el sector privado. Sus estudios en contaduria publica fueron completados en la Universidad de Pamplona, y ha cursado especializaciones en areas relacionadas con paz y desarrollo territorial.",
+      "Tambien se ha destacado como lideresa social en proyectos de mujeres, medio ambiente, victimas y habitantes de calle. Su trayectoria tambien incluye una participacion activa en la politica, siendo precandidata al Senado por Colombia Humana, lo cual refleja su compromiso con la agenda politica y social del pais."
+    ]
+  },
+  "subdirectores": [
+    {
+      "nombre": "Diana Marcela Montenegro Villanueva",
+      "cargo": "Subdirectora de Instruccion Disciplinaria",
+      "area": "Subdireccion de Instruccion Disciplinaria",
+      "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/DIANA.png",
+      "bio": [
+        "Abogada egresada de la Universidad Santo Tomas de Bogota, Magister en Derecho Disciplinario de la Universidad Libre de Colombia; Especialista en Derecho Contractual y en Derecho Administrativo de la Universidad del Rosario, con estudios en doctorado en Derecho Constitucional de la Universidad de Buenos Aires. Con mas de 18 años de experiencia profesional en derecho disciplinario, trabajando en las oficinas de control interno disciplinario, de la U.A.E. DIAN, ECOPETROL S.A., COLPENSIONES e ICBF.",
+        "Coautora del Libro Retos y Perspectivas Contemporaneas del Derecho Disciplinario de la Editorial Ibañez."
+      ]
+    },
+    {
+      "nombre": "Marisol Niño Vargas",
+      "cargo": "Subdirectora de Asuntos Legales",
+      "area": "Subdireccion de Asuntos Legales",
+      "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Marisol-Nino.png",
+      "bio": [
+        "Abogada, especialista en Gestion de Entidades Territoriales, Instituciones Juridico Procesales y Conciliadora, con amplia experiencia en la administracion publica, en la que se ha desempeñado como Secretaria de Gobierno, Secretaria General y Asesora juridica en varias entidades del nivel territorial; Personera Delegada para la vigilancia y la moralidad administrativa del municipio de Yopal, Asesora juridica en Contratacion Estatal, Servicios Publicos Domiciliarios, y en el Sector Vivienda; litigante en Defensa juridica de entidades publicas.",
+        "Desde el mes de febrero de 2025 ejerce como Subdirectora Tecnica de Asuntos Legales de la Agencia ITRC, donde lidera procesos juridicos estrategicos y misionales para el fortalecimiento institucional; autora del libro Perspectiva del acoso sexual en el Ambito Laboral."
+      ]
+    },
+    {
+      "nombre": "Vladimir Ruzynke Castaño",
+      "cargo": "Subdirector de Auditoria y Gestion del Riesgo",
+      "area": "Subdireccion de Auditoria y Gestion del Riesgo",
+      "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/VLADIMIR.png",
+      "bio": [
+        "Economista, Especialista en Alta Gerencia Financiera y Magister en Finanzas, con mas de 20 años de trayectoria en el servicio publico, liderando equipos tecnicos de auditoria, control y analitica de datos. Su experiencia se centra en el diseño, implementacion y direccion de programas interinstitucionales orientados a detectar y prevenir ineficiencias operativas y sistematicas con impacto en la administracion tributaria, aduanera, de rentas y contribuciones parafiscales del pais.",
+        "Cuenta con solida experticia en analitica avanzada y en inteligencia estrategica del Estado, aplicada a la identificacion de fraude, conductas disciplinables y penalizables de servidores publicos, asi como a la deteccion de fallas estructurales en procesos vulnerables a la corrupcion, la evasion fiscal, el contrabando y el lavado de activos. Posee Macrocertificacion en Ciencia de Datos Aplicada a los Negocios (2025) y Becario del Curso Estrategico de Seguridad Publica - CESEP de la Policia Nacional (2025).",
+        "Su desempeño profesional ha sido reconocido a nivel nacional e internacional: Mejor Gerente Publico de la Agencia ITRC en 2023 y distincion de la Oficina de Asistencia Tecnica (OTA) del Departamento del Tesoro de los Estados Unidos en 2022 por sus aportes en la lucha contra la corrupcion."
+      ]
+    }
+  ]
+}

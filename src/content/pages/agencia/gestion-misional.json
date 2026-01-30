@@ -1,0 +1,165 @@
+{
+  "title": "Gestión Misional",
+  "slug": "gestion-misional",
+  "description": "Informes y documentos de las áreas misionales de la Agencia ITRC",
+  "icon": "fa-briefcase",
+  "published": true,
+  "subdirecciones": [
+    {
+      "id": "sagr",
+      "titulo": "Subdirección de Auditoría y Gestión del Riesgo",
+      "sigla": "SAGR",
+      "icon": "fa-magnifying-glass-chart",
+      "color": "navy",
+      "descripcion": "Esta área misional vigila la integridad del proceso de recaudo y administración de los bienes, tributos, rentas y contribuciones parafiscales que realizan la DIAN, la UGPP y COLJUEGOS, mediante programas anuales de auditoría, auditorías independientes de desempeño, y estrategias para la detección del fraude y corrupción.",
+      "observatorio": {
+        "texto": "Conozca más sobre la gestión misional de la Agencia ITRC en relación con la prevención y el aseguramiento al fraude y la corrupción:",
+        "url": "https://www.itrc.gov.co/observatorio/",
+        "label": "Ir al Observatorio ITRC"
+      },
+      "categorias": [
+        {
+          "titulo": "Programa Anual de Inspecciones (PAI)",
+          "documentos": [
+            { "name": "PAI 2025 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/Programa-Anual-de-Inspecciones-2025-ejecutado.pdf", "anio": "2025" },
+            { "name": "PAI 1er semestre 2025 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/Programa-Anual-de-Inspecciones-1er-semestre-de-2025-ejecutado.pdf", "anio": "2025" },
+            { "name": "PAI 2024 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/PAI-EJECUTADO-2024.pdf", "anio": "2024" },
+            { "name": "PAI 1er semestre 2024 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Programa-Anual-de-Inspecciones-primer-semestre-de-2024-ejecutado.pdf", "anio": "2024" },
+            { "name": "PAI 2023 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/PAI-Ejecutado-2023.pdf", "anio": "2023" },
+            { "name": "PAI 1er semestre 2023 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/PAI-Ejecutado-primer-semestre-2023.pdf", "anio": "2023" },
+            { "name": "PAI 2022 cumplido", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/PAI-2022-CUMPLIDO.pdf", "anio": "2022" },
+            { "name": "PAI 1er semestre 2022 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/PAI-2022-Primer-Semestre.pdf", "anio": "2022" },
+            { "name": "PAI 2021 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/12/PAI-2021-EJECUTADO.pdf", "anio": "2021" },
+            { "name": "PAI 1er semestre 2021 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/PAI-2021-1er-semestre.pdf", "anio": "2021" },
+            { "name": "PAI 2020 ejecutado", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/PAI-2020-ejecutado.pdf", "anio": "2020" },
+            { "name": "PAI 2020", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/PAI-2020_08092020_Versión-Final.pdf", "anio": "2020" },
+            { "name": "PAI 2019 - Segundo Ciclo v3", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/10/Modificaciòn-PAI.pdf", "anio": "2019" },
+            { "name": "PAI 2019 - Segundo Ciclo v2", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/10/Modificaciòn-PAI-2019v2.pdf", "anio": "2019" },
+            { "name": "PAI 2019 - Segundo Ciclo v1", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/07/Programa-Anual-de-Inspecciones-PAI-Segundo-Ciclo.pdf", "anio": "2019" },
+            { "name": "PAI 2013-2014", "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/pai2013-2014.pdf", "anio": "2013" }
+          ]
+        },
+        {
+          "titulo": "Informes de Gestión SAGR",
+          "documentos": [
+            { "name": "Informe de gestión I Semestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Informe-de-gestion-I-Semestre-2024.pdf", "anio": "2024" },
+            { "name": "Informe de gestión II Semestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Informe-de-gestion-II-Semestre-2023.pdf", "anio": "2023" },
+            { "name": "Informe de gestión I Semestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Informe-de-gestion-I-semestre.pdf", "anio": "2023" },
+            { "name": "Informe de gestión II Semestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Informe-gestion-II-sem-2022_SAGR.pdf", "anio": "2022" },
+            { "name": "Informe de gestión I Semestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Informe-gestion-I-sem-2022_SAGR-1.pdf", "anio": "2022" },
+            { "name": "Informe de gestión II Semestre 2021", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Informe-de-gestion-SAGR_II_-Semestre_2021.pdf", "anio": "2021" },
+            { "name": "Informe de gestión I Semestre 2021", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Informe-de-gestion-SAGR_I_-Semestre_2021-1.pdf", "anio": "2021" },
+            { "name": "Informe de gestión II Semestre 2020", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Informe-de-gestion-segundo-semestre-2020-SAGR.pdf", "anio": "2020" },
+            { "name": "Informe de gestión I Semestre 2020", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Informe-de-gestion-primer-semestre-2020-SAGR.pdf", "anio": "2020" },
+            { "name": "Informe de Gestión 2019", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Balance-de-gestión-2019_Minhacienda.pdf", "anio": "2019" },
+            { "name": "Informe de Gestión 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Informe-de-Gestión-2018.pdf", "anio": "2018" },
+            { "name": "Informe de Gestión Misional 2017", "file": "http://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Informe-Gestion-Misional-SAGR-2017.pdf", "anio": "2017" },
+            { "name": "Informe de Gestión Misional 2013-2016", "file": "http://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Informe-2013-a-2016-SAGR-g-publicacion-WEB.pdf", "anio": "2016" }
+          ]
+        },
+        {
+          "titulo": "Sistema de Prevención del Fraude y Corrupción (SPFC)",
+          "documentos": [
+            { "name": "Informe SPFC 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe_SPFC_2024.pdf", "anio": "2024" },
+            { "name": "Informe SPFC 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Informe_SPFC_2023.pdf", "anio": "2023" },
+            { "name": "Informe SPFC 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/06/Informe-de-SPFC-2022-VF-26062023.pdf", "anio": "2022" },
+            { "name": "Informe SPFC 2021", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/05/Informe-Estado-del-SPFC-2021-1.pdf", "anio": "2021" },
+            { "name": "Informe SPFC 2020", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Informe-del-estado-del-SPFC-.pdf", "anio": "2020" },
+            { "name": "Informe SPFC 2019", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/SISTEMA-DE-PREVENCIOìN-DEL-FRAUDE-Y-LA-CORRUPCIOìN.pdf", "anio": "2019" },
+            { "name": "Informe SPFC 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/03/CARTILLA-SPFC-2018_final.pdf", "anio": "2018" },
+            { "name": "Informe SPFC 2017", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/01/CARTILLA-SPFC-2017-g.pdf", "anio": "2017" },
+            { "name": "Informe SPFC 2016", "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/SPFC-2016.pdf", "anio": "2016" },
+            { "name": "Informe SPFC 2015", "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/spfc.pdf", "anio": "2015" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sid",
+      "titulo": "Subdirección de Instrucción Disciplinaria",
+      "sigla": "SID",
+      "icon": "fa-gavel",
+      "color": "gold",
+      "descripcion": "Tiene la finalidad de investigar disciplinariamente a los servidores públicos que cometan irregularidades en el ejercicio de sus funciones, extralimitándose de ellas u omitiéndolas, dentro de los procesos misionales de la DIAN, UGPP y COLJUEGOS. Busca garantizar el adecuado funcionamiento de estas Entidades y su efectiva prestación del servicio, en protección del patrimonio público.",
+      "categorias": [
+        {
+          "titulo": "Informes Misionales 2025",
+          "documentos": [
+            { "name": "Informe misional segundo trimestre 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/INFORME-MISIONAL-FINAL-SEGUNDO-TRIMESTRE-2025.pdf", "anio": "2025" },
+            { "name": "Informe misional primer trimestre 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/INFORME-MISIONAL-PRIMER-TRIMESTRE-FINAL-SID.pdf", "anio": "2025" }
+          ]
+        },
+        {
+          "titulo": "Informes Misionales 2024",
+          "documentos": [
+            { "name": "Informe misional tercer trimestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Informe-3er-trimestre-2024.pdf", "anio": "2024" },
+            { "name": "Informe misional segundo trimestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-2-trimestre-SID.pdf", "anio": "2024" },
+            { "name": "Informe misional primer trimestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Informe-1er-trimestre-2024-1.pdf", "anio": "2024" }
+          ]
+        },
+        {
+          "titulo": "Informes Misionales 2023",
+          "documentos": [
+            { "name": "Informe misional cuarto trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/Informe-misional_IV-trimestre_2023.pdf", "anio": "2023" },
+            { "name": "Informe misional tercer trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Informe-3er-trimestre-2023.pdf", "anio": "2023" },
+            { "name": "Informe misional segundo trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/Informe-Misional-2do-trimestre-SID-2023.pdf", "anio": "2023" },
+            { "name": "Informe misional primer trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/INFORME-DE-GESTION-I-TRIMESTRE-SID.pdf", "anio": "2023" }
+          ]
+        },
+        {
+          "titulo": "Informes Misionales 2022",
+          "documentos": [
+            { "name": "Informe misional cuarto trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/INFORME-DE-GESTIÓN-IV-TRIMESTRE-.pdf", "anio": "2022" },
+            { "name": "Informe misional tercer trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/INFORME-III-TRIMESTRE-VF.pdf", "anio": "2022" },
+            { "name": "Informe misional segundo trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Informe-segundo-trimestre-140722.pdf", "anio": "2022" },
+            { "name": "Informe misional primer trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Informe-Misional-trimestral-SUB.-ID.-.pdf", "anio": "2022" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sal",
+      "titulo": "Subdirección de Asuntos Legales",
+      "sigla": "SAL",
+      "icon": "fa-scale-balanced",
+      "color": "green",
+      "descripcion": "Creada por el Decreto 074 de 2022, asume dos roles: la representación judicial y extrajudicial, liderando la política de prevención del daño antijurídico y el cobro coactivo; y la labor misional sancionatoria al asumir la etapa de juzgamiento de la actuación disciplinaria de competencia de la Agencia ITRC.",
+      "categorias": [
+        {
+          "titulo": "Informes Misionales 2025",
+          "documentos": [
+            { "name": "Informe misional cuarto trimestre 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/Informe-Misional-4to-trimestre-2025.pdf", "anio": "2025" },
+            { "name": "Informe misional tercer trimestre 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/Informe-Misional-3er-trimestre-2025-1.pdf", "anio": "2025" },
+            { "name": "Informe misional segundo trimestre 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Informe-Misional-2do-trimestre-2025.pdf", "anio": "2025" }
+          ]
+        },
+        {
+          "titulo": "Informes Misionales 2024",
+          "documentos": [
+            { "name": "Informe misional tercer trimestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/informe-Misional-3-2024.pdf", "anio": "2024" },
+            { "name": "Informe misional segundo trimestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-2-trimestre-SID.pdf", "anio": "2024" },
+            { "name": "Informe misional primer trimestre 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Informe-Misional-1-2024.pdf", "anio": "2024" }
+          ]
+        },
+        {
+          "titulo": "Informes Misionales 2023",
+          "documentos": [
+            { "name": "Informe misional cuarto trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Informe-Misional-4-2023.pdf", "anio": "2023" },
+            { "name": "Informe misional tercer trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Informe-3er-trimestre-2023.pdf", "anio": "2023" },
+            { "name": "Informe misional segundo trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/Informe-Misional-2do-trimestre-SID-2023.pdf", "anio": "2023" },
+            { "name": "Informe misional primer trimestre 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/INFORME-DE-GESTION-I-TRIMESTRE-SID.pdf", "anio": "2023" }
+          ]
+        },
+        {
+          "titulo": "Informes Misionales 2022",
+          "documentos": [
+            { "name": "Informe misional cuarto trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Info-Misional-4-SDL.pdf", "anio": "2022" },
+            { "name": "Informe misional tercer trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Info-Misional-3-SDL.pdf", "anio": "2022" },
+            { "name": "Informe misional segundo trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Informe-Misional-2-SUB.-AL.pdf", "anio": "2022" },
+            { "name": "Informe misional primer trimestre 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/INFOME-MISIONAL-1-SUB.-AL.pdf", "anio": "2022" }
+          ]
+        }
+      ]
+    }
+  ]
+}

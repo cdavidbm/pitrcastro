@@ -1,0 +1,55 @@
+{
+  "title": "Sala de Prensa",
+  "subtitle": "Noticias, eventos y comunicaciones oficiales de la Agencia ITRC",
+  "sections": [
+    {
+      "id": "noticias",
+      "titulo": "Noticias",
+      "descripcion": "Ultimas noticias y novedades de la Agencia",
+      "icon": "fa-newspaper",
+      "url": "/prensa/noticias"
+    },
+    {
+      "id": "eventos",
+      "titulo": "Eventos",
+      "descripcion": "Calendario de eventos y actividades",
+      "icon": "fa-calendar-days",
+      "url": "/prensa/eventos"
+    },
+    {
+      "id": "boletines",
+      "titulo": "Boletines",
+      "descripcion": "Boletines informativos periodicos",
+      "icon": "fa-file-lines",
+      "url": "/prensa/boletines"
+    },
+    {
+      "id": "comunicados",
+      "titulo": "Comunicados",
+      "descripcion": "Comunicados oficiales de prensa",
+      "icon": "fa-bullhorn",
+      "url": "/prensa/comunicados"
+    },
+    {
+      "id": "videos",
+      "titulo": "Videos",
+      "descripcion": "Contenido audiovisual institucional",
+      "icon": "fa-video",
+      "url": "/prensa/videos"
+    },
+    {
+      "id": "galeria",
+      "titulo": "Galeria",
+      "descripcion": "Galeria fotografica de eventos y actividades",
+      "icon": "fa-images",
+      "url": "/prensa/galeria"
+    },
+    {
+      "id": "capsulas",
+      "titulo": "Capsulas Informativas",
+      "descripcion": "Contenido breve y educativo",
+      "icon": "fa-lightbulb",
+      "url": "/prensa/capsulas"
+    }
+  ]
+}
