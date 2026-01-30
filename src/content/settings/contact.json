@@ -1,0 +1,16 @@
+{
+  "address": "Calle 26 No. 69-63 Piso 6",
+  "city": "Bogota D.C., Colombia",
+  "postalCode": "111071",
+  "phone": "(+57) 601 390 7000",
+  "tollFree": "01 8000 123 004",
+  "email": "contactenos@itrc.gov.co",
+  "emailNotifications": "notificaciones@itrc.gov.co",
+  "schedule": "Lunes a Viernes de 8:00 am a 4:30 pm\nRecepcion de correspondencia: Lunes a Viernes de 8:00 am a 4:00 pm",
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/agenciaitrc/",
+    "twitter": "https://twitter.com/AgenciaITRC",
+    "youtube": "https://www.youtube.com/channel/UCSbSdU7B2qaBcf363tIUi9A",
+    "instagram": ""
+  }
+}

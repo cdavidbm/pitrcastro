@@ -1,0 +1,92 @@
+{
+  "mainMenu": [
+    {
+      "label": "Inicio",
+      "url": "/"
+    },
+    {
+      "label": "Agencia",
+      "url": "#",
+      "children": [
+        { "label": "Mision, Vision y Proposito Estrategico", "url": "/agencia/mision-vision" },
+        { "label": "Nuestra Estructura", "url": "/agencia/organigrama" },
+        { "label": "Equipo Directivo", "url": "/agencia/equipo-directivo" },
+        { "label": "Direccionamiento Estrategico", "url": "/agencia/direccionamiento-estrategico" },
+        { "label": "Sistema Integrado de Gestion", "url": "/agencia/sistema-integrado-de-gestion" },
+        { "label": "Gestion Misional", "url": "/agencia/gestion-misional" },
+        { "label": "Sistema de Control Interno", "url": "/agencia/control-interno" },
+        { "label": "Informacion Financiera", "url": "/agencia/informacion-financiera" }
+      ]
+    },
+    {
+      "label": "Normativa",
+      "url": "#",
+      "children": [
+        { "label": "Normativa Aplicable", "url": "/normativa-aplicada" },
+        { "label": "Unificacion Normativa SUIN Juriscol", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol" },
+        { "label": "Decretos", "url": "/decretos" },
+        { "label": "Resoluciones, circulares y otros actos", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos" },
+        { "label": "Marco Legal", "url": "/marco-legal" }
+      ]
+    },
+    {
+      "label": "Atencion y Servicios",
+      "url": "#",
+      "children": [
+        { "label": "Consulte el estado de su PQRSD", "url": "https://www.itrc.gov.co/denuncias/consulta", "external": true },
+        { "label": "Notificaciones y Traslados", "url": "/notificaciones-y-traslados" },
+        { "label": "Notificaciones por aviso", "url": "/notificaciones-por-aviso" },
+        { "label": "Vinculacion a Terceros", "url": "/vinculacion-a-terceros-cancelacion-de-registro-publico" },
+        { "label": "Correo notificaciones judiciales", "url": "/correo-electronico-para-notificaciones-judiciales" },
+        { "label": "Cartilla al ciudadano", "url": "/cartilla-al-ciudadano" },
+        { "label": "Canales de atencion", "url": "/canales-de-atencion-al-ciudadano" },
+        { "label": "P.Q.R.S", "url": "/tu-p-q-r-s-al-dia" },
+        { "label": "Datos Abiertos", "url": "https://www.datos.gov.co/browse?q=itrc", "external": true },
+        { "label": "Preguntas Frecuentes", "url": "/preguntas-frecuentes" },
+        { "label": "Chat ITRC", "url": "/chat-itrc" },
+        { "label": "Glosario", "url": "/glosario" },
+        { "label": "Carta trato digno al ciudadano", "url": "/carta-trato-digno" }
+      ]
+    },
+    {
+      "label": "Participa",
+      "url": "/participa"
+    },
+    {
+      "label": "Transparencia",
+      "url": "/transparencia"
+    },
+    {
+      "label": "Observatorio ITRC",
+      "url": "https://www.itrc.gov.co/observatorio/",
+      "external": true
+    },
+    {
+      "label": "Prensa",
+      "url": "#",
+      "children": [
+        { "label": "Noticias", "url": "/prensa/noticias" },
+        { "label": "Eventos", "url": "/prensa/eventos" },
+        { "label": "Boletines", "url": "/comunicados-y-boletines-de-prensa" },
+        { "label": "Comunicados", "url": "/comunicados" },
+        { "label": "Videos", "url": "/videos-itrc" },
+        { "label": "Galeria", "url": "/galeria" },
+        { "label": "Capsulas informativas", "url": "/capsulas-informativas" }
+      ]
+    },
+    {
+      "label": "Denuncias",
+      "url": "https://www.itrc.gov.co/denuncias",
+      "external": true,
+      "highlighted": true
+    }
+  ],
+  "footerLinks": [
+    {
+      "label": "Denuncie",
+      "url": "https://www.itrc.gov.co/denuncias",
+      "external": true,
+      "highlighted": true
+    }
+  ]
+}

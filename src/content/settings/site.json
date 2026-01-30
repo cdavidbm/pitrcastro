@@ -1,0 +1,10 @@
+{
+  "name": "Agencia ITRC",
+  "fullName": "Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales",
+  "description": "Portal oficial de la Agencia ITRC - Inspector General de Tributos, Rentas y Contribuciones Parafiscales de Colombia",
+  "keywords": ["ITRC", "tributos", "gobierno", "Colombia", "transparencia", "fiscalizacion"],
+  "featuredVideo": {
+    "url": "https://www.youtube-nocookie.com/embed/aVZdQ40TYjo",
+    "title": "Agencia ITRC - Conoce quienes somos y que hacemos"
+  }
+}

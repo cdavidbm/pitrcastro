@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "label": "Observatorio Anticorrupcion",
+      "url": "/observatorio",
+      "icon": "fa-eye",
+      "external": false,
+      "highlighted": false
+    },
+    {
+      "label": "Notificaciones y traslados",
+      "url": "/atencion/notificaciones-traslados",
+      "icon": "fa-bell",
+      "external": false,
+      "highlighted": false
+    },
+    {
+      "label": "P.Q.R.S.",
+      "url": "/atencion/pqrs",
+      "icon": "fa-comments",
+      "external": false,
+      "highlighted": false
+    },
+    {
+      "label": "Denuncie",
+      "url": "https://www.itrc.gov.co/denuncias",
+      "icon": "fa-bullhorn",
+      "external": true,
+      "highlighted": true
+    },
+    {
+      "label": "Notificaciones Judiciales",
+      "url": "mailto:notificaciones@itrc.gov.co",
+      "icon": "fa-gavel",
+      "external": true,
+      "highlighted": false
+    },
+    {
+      "label": "Carta trato digno",
+      "url": "/documentos/carta-trato-digno.pdf",
+      "icon": "fa-file-pdf",
+      "external": true,
+      "highlighted": false
+    },
+    {
+      "label": "Transparencia",
+      "url": "/transparencia",
+      "icon": "fa-unlock-alt",
+      "external": false,
+      "highlighted": false
+    },
+    {
+      "label": "Encuesta ITRC",
+      "url": "https://forms.office.com/Pages/ResponsePage.aspx?id=3NElp2Q-g0KVXt1OUTYI5u8zJWVyZrRPp4eoX5S-G7lUM0s5UVo2T0pGUlZLQlZFV05PUE01T1lINC4u",
+      "icon": "fa-clipboard-list",
+      "external": true,
+      "highlighted": false
+    }
+  ]
+}
