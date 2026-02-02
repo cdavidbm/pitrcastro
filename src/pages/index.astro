@@ -1,0 +1,389 @@
+---
+/**
+ * Pagina de inicio del sitio ITRC
+ */
+import Base from '../layouts/Base.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import QuickAccess from '../components/QuickAccess.astro';
+import NewsSection from '../components/NewsSection.astro';
+import contactData from '../content/settings/contact.json';
+import siteData from '../content/settings/site.json';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title="Inicio" class="page-home">
+  <HeroSlider slider="home" />
+  <QuickAccess />
+  <NewsSection limit={3} />
+
+  <!-- Video -->
+  <section class="video-section" aria-labelledby="video-title">
+    <div class="container">
+      <h2 id="video-title" class="section-title-decorated">Conoce la Agencia ITRC</h2>
+      <div class="video-wrapper">
+        <iframe
+          src={siteData.featuredVideo.url}
+          title={siteData.featuredVideo.title}
+          frameborder="0"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="ver-mas">
+        <a href={`${base}prensa/videos`} class="btn btn--outline">Ver todos los videos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entidades vigiladas -->
+  <section class="entidades-section" aria-labelledby="entidades-title">
+    <div class="container">
+      <h2 id="entidades-title" class="section-title-decorated">Entidades vigiladas por la ITRC</h2>
+      <div class="entidades-grid">
+        <a href="https://www.dian.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
+          <img src={`${base}images/entidades/dian.png`} alt="DIAN - Direccion de Impuestos y Aduanas Nacionales" loading="lazy">
+          <span class="entidad__nombre">DIAN</span>
+        </a>
+        <a href="https://www.coljuegos.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
+          <img src={`${base}images/entidades/coljuegos.png`} alt="Coljuegos" loading="lazy">
+          <span class="entidad__nombre">Coljuegos</span>
+        </a>
+        <a href="https://www.ugpp.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
+          <img src={`${base}images/entidades/ugpp.png`} alt="UGPP - Unidad de Gestion Pensional y Parafiscales" loading="lazy">
+          <span class="entidad__nombre">UGPP</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="servicios-section" aria-labelledby="servicios-title">
+    <div class="container">
+      <h2 id="servicios-title" class="section-title-decorated section-title-decorated--full">Servicios a la Ciudadania</h2>
+      <div class="servicios-grid">
+        <div class="servicios-columna">
+          <ul class="servicios-lista">
+            <li><a href={`${base}atencion/glosario`}>Glosario</a></li>
+            <li><a href="https://www.datos.gov.co/browse?q=itrc" target="_blank" rel="noopener noreferrer">Datos abiertos <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href={`${base}agencia/ofertas-empleo`}>Ofertas de Empleo / Convocatorias</a></li>
+            <li><a href={`${base}atencion/preguntas-frecuentes`}>Preguntas Frecuentes</a></li>
+            <li><a href={`${base}eventos`}>Calendario de actividades</a></li>
+          </ul>
+        </div>
+        <div class="servicios-columna">
+          <ul class="servicios-lista">
+            <li><a href={`${base}participa/rendicion-cuentas`}>Rendicion de cuentas</a></li>
+            <li><a href={`${base}atencion/pqrs-servidores`}>PQRSDF servidores Agencia ITRC</a></li>
+            <li><a href={`${base}atencion/canales`}>Canales de atencion al ciudadano</a></li>
+            <li><a href={`${base}atencion/pqrs`}>PQRS</a></li>
+            <li><a href={`${base}agencia/contacto`}>Datos de contacto</a></li>
+            <li><a href="https://www.cnsc.gov.co/" target="_blank" rel="noopener noreferrer">Ofertas de empleo CNSC <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="servicios-columna">
+          <ul class="servicios-lista">
+            <li><a href={`${base}agencia/portafolio-servicios`}>Portafolio de servicios</a></li>
+            <li><a href={`mailto:${contactData.emailNotifications}`}>Notificaciones judiciales</a></li>
+            <li><a href={`${base}agencia/avisos-convocatoria`}>Avisos convocatoria publica</a></li>
+            <li><a href="https://www.colombiacompra.gov.co/" target="_blank" rel="noopener noreferrer">Colombia compra eficiente <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.suin-juriscol.gov.co/" target="_blank" rel="noopener noreferrer">Sistema Unico de Informacion Normativa <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href={`${base}transparencia`}>Transparencia y acceso a informacion publica</a></li>
+            <li><a href={`${base}normativa/relatoria`}>Relatoria</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact-section" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title" class="section-title-decorated">Canales de Atencion</h2>
+      <p class="contact-section__intro">Estamos para servirle. Encuentre la mejor forma de comunicarse con nosotros.</p>
+
+      <div class="contact-section__cards">
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          </div>
+          <h3>Telefonos</h3>
+          <p>{contactData.phone}</p>
+          <p class="contact-card__sub">Linea gratuita: {contactData.tollFree}</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </div>
+          <h3>Correo</h3>
+          <p>{contactData.email}</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          </div>
+          <h3>Horario</h3>
+          <p>Lunes a Viernes</p>
+          <p class="contact-card__sub">8:00 am - 4:30 pm</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          </div>
+          <h3>Direccion</h3>
+          <p>{contactData.address}</p>
+          <p class="contact-card__sub">{contactData.city}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Video Section */
+  .video-section {
+    background: var(--gray-50);
+    padding: var(--space-16) var(--space-6);
+    text-align: center;
+  }
+
+  .video-section h2 {
+    margin-bottom: var(--space-8);
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto var(--space-8);
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .ver-mas {
+    margin-top: var(--space-6);
+  }
+
+  /* Entidades Section */
+  .entidades-section {
+    padding: var(--space-16) var(--space-6);
+    text-align: center;
+  }
+
+  .entidades-section h2 {
+    margin-bottom: var(--space-10);
+  }
+
+  .entidades-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-12);
+    flex-wrap: wrap;
+  }
+
+  .entidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    min-width: 180px;
+  }
+
+  .entidad:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .entidad img {
+    height: 80px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+  }
+
+  .entidad__nombre {
+    font-weight: 600;
+    color: var(--itrc-navy);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Servicios Section */
+  .servicios-section {
+    background: var(--itrc-navy);
+    padding: var(--space-16) var(--space-6);
+    color: var(--white);
+  }
+
+  .servicios-section h2 {
+    color: var(--itrc-gold);
+    margin-bottom: var(--space-10);
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .servicios-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .servicios-lista li {
+    margin-bottom: var(--space-3);
+  }
+
+  .servicios-lista a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: color var(--transition-fast);
+  }
+
+  .servicios-lista a:hover {
+    color: var(--itrc-gold);
+  }
+
+  .servicios-lista a i {
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    background: var(--gray-50);
+    padding: var(--space-16) var(--space-6);
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-section__intro {
+    color: var(--gray-600);
+    margin-bottom: var(--space-10);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-section__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .contact-card {
+    background: var(--white);
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .contact-card__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--space-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--itrc-gold-light), var(--itrc-gold));
+    border-radius: var(--radius-full);
+    color: var(--itrc-navy);
+    font-size: var(--font-size-2xl);
+  }
+
+  .contact-card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .contact-card p {
+    margin: 0;
+    color: var(--gray-700);
+  }
+
+  .contact-card__sub {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    margin-top: var(--space-1);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .servicios-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .video-section,
+    .entidades-section,
+    .servicios-section,
+    .contact-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .servicios-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .entidades-grid {
+      gap: var(--space-6);
+    }
+
+    .entidad {
+      min-width: 140px;
+      padding: var(--space-4);
+    }
+
+    .contact-section__cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .contact-card {
+      padding: var(--space-6) var(--space-4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-section__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
