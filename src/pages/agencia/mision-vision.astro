@@ -1,0 +1,624 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import Accordion from '../../components/Accordion.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import pageData from '../../content/pages/agencia/mision-vision.json';
+
+const base = import.meta.env.BASE_URL;
+const { proposito, mision, vision, quienesSomos, queHacemos, comoLoHacemos, funciones, valores, mapaEstrategico } = pageData;
+
+// Breadcrumb
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: 'Misión y Visión' }
+];
+---
+
+<Base title="Misión, Visión y Propósito Estratégico" class="page-mision-vision">
+  <HeroPage
+    title={proposito.titulo}
+    subtitle={proposito.subtitulo}
+    image={`${base}images/logo-itrc.png`}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Misión y Visión -->
+  <section class="mision-vision" aria-labelledby="mv-title">
+    <div class="container">
+      <h2 id="mv-title" class="sr-only">Misión y Visión</h2>
+      <div class="mision-vision__grid">
+        <article class="mv-card mv-card--mision">
+          <div class="mv-card__icon">
+            <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+          </div>
+          <h3 class="mv-card__title">Misión</h3>
+          <p class="mv-card__text" set:html={mision} />
+        </article>
+
+        <article class="mv-card mv-card--vision">
+          <div class="mv-card__icon">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          </div>
+          <h3 class="mv-card__title">Visión</h3>
+          <p class="mv-card__text" set:html={vision} />
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes Somos, Qué Hacemos, Cómo lo Hacemos -->
+  <section class="info-sections" aria-labelledby="info-title">
+    <div class="container">
+      <SectionTitle title="Conozca la Agencia ITRC" />
+
+      <div class="info-tabs">
+        <div class="info-tabs__nav" role="tablist">
+          <button class="info-tabs__tab active" role="tab" aria-selected="true" aria-controls="panel-quienes" id="tab-quienes">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            <span>¿Quiénes somos?</span>
+          </button>
+          <button class="info-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-que" id="tab-que">
+            <i class="fa-solid fa-gavel" aria-hidden="true"></i>
+            <span>¿Qué hacemos?</span>
+          </button>
+          <button class="info-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-como" id="tab-como">
+            <i class="fa-solid fa-cogs" aria-hidden="true"></i>
+            <span>¿Cómo lo hacemos?</span>
+          </button>
+        </div>
+
+        <div class="info-tabs__panels">
+          <div class="info-tabs__panel active" role="tabpanel" id="panel-quienes" aria-labelledby="tab-quienes">
+            {quienesSomos.intro.map((parrafo: string) => (
+              <p set:html={parrafo} />
+            ))}
+            <ul class="info-list">
+              {quienesSomos.capacidades.map((capacidad: string) => (
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> {capacidad}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="info-tabs__panel" role="tabpanel" id="panel-que" aria-labelledby="tab-que" hidden>
+            <p set:html={queHacemos.intro} />
+            <div class="entidades-cards">
+              {queHacemos.entidades.map((entidad: { nombre: string; descripcion: string }) => (
+                <div class="entidad-card">
+                  <strong>{entidad.nombre}</strong>
+                  <span>{entidad.descripcion}</span>
+                </div>
+              ))}
+            </div>
+            <p set:html={queHacemos.cierre} />
+          </div>
+
+          <div class="info-tabs__panel" role="tabpanel" id="panel-como" aria-labelledby="tab-como" hidden>
+            <div class="como-grid">
+              {comoLoHacemos.map((item: { titulo: string; icon: string; descripcion: string }) => (
+                <div class="como-item">
+                  <div class="como-item__icon">
+                    <i class={`fa-solid ${item.icon}`} aria-hidden="true"></i>
+                  </div>
+                  <h4>{item.titulo}</h4>
+                  <p>{item.descripcion}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funciones -->
+  <section class="funciones-section" aria-labelledby="funciones-title">
+    <div class="container">
+      <SectionTitle title="Funciones de la Agencia ITRC" subtitle={funciones.intro} />
+
+      <Accordion items={funciones.items} allowMultiple={true} />
+
+      <div class="funciones-paragrafo">
+        <h4><i class="fa-solid fa-paragraph" aria-hidden="true"></i> Parágrafo</h4>
+        <p>{funciones.paragrafo}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="valores-section" aria-labelledby="valores-title">
+    <div class="container">
+      <SectionTitle title="Código de Integridad" subtitle="Valores de la Agencia ITRC" variant="light" />
+
+      <div class="valores-grid">
+        {valores.map((valor: { nombre: string; icon: string; descripcion: string }) => (
+          <div class="valor-card">
+            <div class="valor-card__icon">
+              <i class={`fa-solid ${valor.icon}`} aria-hidden="true"></i>
+            </div>
+            <h3 class="valor-card__nombre">{valor.nombre}</h3>
+            <p class="valor-card__descripcion">{valor.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa Estratégico -->
+  <section class="mapa-section" aria-labelledby="mapa-title">
+    <div class="container">
+      <SectionTitle title={mapaEstrategico.titulo} />
+
+      <div class="mapa-content">
+        <div class="mapa-image">
+          <img
+            src={mapaEstrategico.imagen}
+            alt={`${mapaEstrategico.titulo} de la Agencia ITRC`}
+            loading="lazy"
+          />
+        </div>
+        <div class="mapa-actions">
+          <a
+            href={mapaEstrategico.pdf}
+            class="btn btn--primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            Descargar Mapa Estratégico (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Misión y Visión */
+  .mision-vision {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .mision-vision__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .mv-card {
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .mv-card--mision::before {
+    background: var(--itrc-gold);
+  }
+
+  .mv-card--vision::before {
+    background: var(--itrc-navy);
+  }
+
+  .mv-card__icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-5);
+    font-size: var(--font-size-2xl);
+  }
+
+  .mv-card--mision .mv-card__icon {
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    color: var(--itrc-gold);
+  }
+
+  .mv-card--vision .mv-card__icon {
+    background: rgba(var(--itrc-navy-rgb, 21, 37, 63), 0.1);
+    color: var(--itrc-navy);
+  }
+
+  .mv-card__title {
+    font-size: var(--font-size-xl);
+    color: var(--itrc-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .mv-card__text {
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+
+  .mv-card__text strong {
+    color: var(--itrc-navy);
+  }
+
+  /* Secciones de información */
+  .info-sections {
+    padding: var(--space-16) var(--space-6);
+  }
+
+  /* Tabs de información */
+  .info-tabs {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .info-tabs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .info-tabs__tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    color: var(--gray-600);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .info-tabs__tab:hover {
+    border-color: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .info-tabs__tab.active {
+    background: var(--itrc-navy);
+    border-color: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .info-tabs__tab i {
+    font-size: 1rem;
+  }
+
+  .info-tabs__panel {
+    display: none;
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .info-tabs__panel.active {
+    display: block;
+    animation: fadeInSlide 0.3s ease;
+  }
+
+  .info-tabs__panel p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .info-tabs__panel p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0;
+  }
+
+  .info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .info-list li i {
+    color: var(--itrc-gold);
+    margin-top: 2px;
+  }
+
+  /* Entidades cards */
+  .entidades-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
+  }
+
+  .entidad-card {
+    background: var(--gray-50);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border-left: 3px solid var(--itrc-gold);
+  }
+
+  .entidad-card strong {
+    display: block;
+    color: var(--itrc-navy);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .entidad-card span {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+  }
+
+  /* Como grid */
+  .como-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .como-item {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+  }
+
+  .como-item__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    color: var(--itrc-gold);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-2xl);
+  }
+
+  .como-item h4 {
+    color: var(--itrc-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .como-item p {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  /* Funciones Section */
+  .funciones-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .funciones-paragrafo {
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+    background: rgba(var(--itrc-gold-rgb), 0.1);
+    border-left: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-lg);
+  }
+
+  .funciones-paragrafo h4 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--itrc-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .funciones-paragrafo h4 i {
+    color: var(--itrc-gold);
+  }
+
+  .funciones-paragrafo p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Valores Section */
+  .valores-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--itrc-navy);
+  }
+
+  .valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-6);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .valor-card {
+    text-align: center;
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  .valor-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .valor-card__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-2xl);
+    color: var(--itrc-gold);
+  }
+
+  .valor-card__nombre {
+    color: var(--white);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .valor-card__descripcion {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  /* Mapa Section */
+  .mapa-section {
+    padding: var(--space-16) var(--space-6);
+  }
+
+  .mapa-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .mapa-image {
+    margin-bottom: var(--space-8);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .mapa-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .mapa-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  /* Animations */
+  @keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .mision-vision,
+    .info-sections,
+    .funciones-section,
+    .valores-section,
+    .mapa-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .info-tabs__tab {
+      flex: 1 1 100%;
+      justify-content: center;
+    }
+
+    .info-tabs__tab span {
+      display: inline;
+    }
+
+    .info-tabs__panel {
+      padding: var(--space-5);
+    }
+
+    .mv-card {
+      padding: var(--space-6);
+    }
+
+    .valores-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .valor-card {
+      padding: var(--space-4);
+    }
+
+    .valor-card__icon {
+      width: 52px;
+      height: 52px;
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .valores-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .entidades-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  function initTabs() {
+    const tabs = document.querySelectorAll('.info-tabs__tab');
+    const panels = document.querySelectorAll('.info-tabs__panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('aria-controls');
+
+        // Deactivate all tabs and panels
+        tabs.forEach((t) => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach((p) => {
+          p.classList.remove('active');
+          p.hidden = true;
+        });
+
+        // Activate clicked tab and its panel
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const panel = document.getElementById(targetId || '');
+        if (panel) {
+          panel.classList.add('active');
+          panel.hidden = false;
+        }
+      });
+    });
+  }
+
+  initTabs();
+  document.addEventListener('astro:after-swap', initTabs);
+</script>

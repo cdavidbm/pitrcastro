@@ -1,0 +1,342 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import pageData from '../../content/pages/agencia/organigrama.json';
+
+const base = import.meta.env.BASE_URL;
+const { title, subtitle, organigrama, funcionesPorArea, resolucionesSeccion, resoluciones, ctaDirectorio } = pageData;
+
+// Breadcrumb
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: title }
+];
+---
+
+<Base title={title} class="page-organigrama">
+  <HeroPage
+    title={title}
+    subtitle={subtitle}
+    icon="fa-sitemap"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Organigrama Image -->
+  <section class="organigrama-section" aria-labelledby="organigrama-title">
+    <div class="container">
+      <h2 id="organigrama-title" class="sr-only">Organigrama de la Agencia ITRC</h2>
+
+      <div class="organigrama-image">
+        <img
+          src={organigrama.imagen}
+          alt={organigrama.alt}
+          loading="lazy"
+        />
+      </div>
+
+      <div class="organigrama-actions">
+        <a
+          href={organigrama.pdf}
+          class="btn btn--primary btn--lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
+          Descargar Organigrama (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funciones por Área -->
+  <section class="funciones-area" aria-labelledby="funciones-area-title">
+    <div class="container">
+      <div class="funciones-card">
+        <div class="funciones-card__icon">
+          <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+        </div>
+        <div class="funciones-card__content">
+          <h2 id="funciones-area-title">{funcionesPorArea.titulo}</h2>
+          <p>{funcionesPorArea.descripcion}</p>
+          <a
+            href={funcionesPorArea.matrizUrl}
+            class="btn btn--outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            Ver Matriz de Funciones por Dependencia
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resoluciones -->
+  <section class="resoluciones-section" aria-labelledby="resoluciones-title">
+    <div class="container">
+      <SectionTitle title={resolucionesSeccion.titulo} subtitle={resolucionesSeccion.descripcion} size="lg" />
+
+      <div class="resoluciones-grid">
+        {resoluciones.map((res: { titulo: string; descripcion: string; url: string }) => (
+          <a href={res.url} class="resolucion-card" target="_blank" rel="noopener noreferrer">
+            <div class="resolucion-card__icon">
+              <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+            </div>
+            <div class="resolucion-card__content">
+              <h3 class="resolucion-card__titulo">{res.titulo}</h3>
+              <p class="resolucion-card__descripcion">{res.descripcion}</p>
+            </div>
+            <div class="resolucion-card__arrow">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Directorio -->
+  <section class="cta-directorio">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-card__content">
+          <h2>{ctaDirectorio.titulo}</h2>
+          <p>{ctaDirectorio.descripcion}</p>
+        </div>
+        <a href={`${base}agencia/directorio`} class="btn btn--gold">
+          Ver Directorio
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Organigrama Section */
+  .organigrama-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .organigrama-image {
+    max-width: 1200px;
+    margin: 0 auto var(--space-8);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    background: var(--white);
+  }
+
+  .organigrama-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .organigrama-actions {
+    text-align: center;
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-lg);
+  }
+
+  /* Funciones por Área */
+  .funciones-area {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  .funciones-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-8);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border-left: 4px solid var(--itrc-gold);
+  }
+
+  .funciones-card__icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-navy-medium) 100%);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-3xl);
+    color: var(--itrc-gold);
+  }
+
+  .funciones-card__content h2 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .funciones-card__content p {
+    color: var(--gray-600);
+    margin-bottom: var(--space-4);
+  }
+
+  /* Resoluciones Section */
+  .resoluciones-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .resoluciones-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .resolucion-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .resolucion-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateX(4px);
+  }
+
+  .resolucion-card__icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    border-radius: var(--radius-md);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xl);
+  }
+
+  .resolucion-card__content {
+    flex: 1;
+  }
+
+  .resolucion-card__titulo {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+
+  .resolucion-card__descripcion {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  .resolucion-card__arrow {
+    color: var(--gray-400);
+    transition: all var(--transition-fast);
+  }
+
+  .resolucion-card:hover .resolucion-card__arrow {
+    color: var(--itrc-gold);
+    transform: translateX(4px);
+  }
+
+  /* CTA Directorio */
+  .cta-directorio {
+    padding: var(--space-12) var(--space-6);
+    background: var(--itrc-navy);
+  }
+
+  .cta-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    padding: var(--space-8);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+  }
+
+  .cta-card__content h2 {
+    color: var(--white);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-card__content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .organigrama-section,
+    .resoluciones-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .funciones-area {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .funciones-card {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-6);
+      border-left: none;
+      border-top: 4px solid var(--itrc-gold);
+    }
+
+    .funciones-card__icon {
+      width: 64px;
+      height: 64px;
+      font-size: var(--font-size-2xl);
+    }
+
+    .resolucion-card {
+      padding: var(--space-4);
+    }
+
+    .resolucion-card__icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+
+    .cta-directorio {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .cta-card {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-6);
+    }
+
+    .btn--lg {
+      padding: var(--space-3) var(--space-6);
+      font-size: var(--font-size-base);
+    }
+  }
+</style>
