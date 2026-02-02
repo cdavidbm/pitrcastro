@@ -1,0 +1,502 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+
+import pageData from '../../content/pages/agencia/informacion-financiera.json';
+
+const base = import.meta.env.BASE_URL;
+
+const { title, subtitle, tabs: tabsData, infoCards, ctaSection } = pageData;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: title }
+];
+---
+
+<Base title={title} class="page-informacion-financiera">
+  <HeroPage
+    title={title}
+    subtitle={subtitle}
+    icon="fa-chart-line"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Contenido Principal con Tabs Verticales -->
+  <section class="tabs-section" aria-labelledby="tabs-title">
+    <div class="container">
+      <h2 id="tabs-title" class="sr-only">Documentos financieros por categoría</h2>
+
+      <div class="vertical-tabs">
+        <!-- Navegación de Tabs (Sidebar) -->
+        <nav class="vertical-tabs__nav" role="tablist" aria-label="Categorías de documentos financieros">
+          {tabsData.map((tab, index) => (
+            <button
+              class={`vertical-tabs__tab ${index === 0 ? 'active' : ''}`}
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${tab.id}`}
+              id={`tab-${tab.id}`}
+              data-tab={tab.id}
+            >
+              <i class="fa-solid fa-folder" aria-hidden="true"></i>
+              <span>{tab.label}</span>
+              <span class="vertical-tabs__count">{tab.items.length}</span>
+            </button>
+          ))}
+        </nav>
+
+        <!-- Paneles de Contenido -->
+        <div class="vertical-tabs__content">
+          {tabsData.map((tab, index) => (
+            <div
+              class={`vertical-tabs__panel ${index === 0 ? 'active' : ''}`}
+              role="tabpanel"
+              id={`panel-${tab.id}`}
+              aria-labelledby={`tab-${tab.id}`}
+              hidden={index !== 0}
+            >
+              <div class="panel-header">
+                <h3 class="panel-header__title">{tab.label}</h3>
+                <span class="panel-header__count">{tab.items.length} documentos</span>
+              </div>
+
+              <div class="documents-list">
+                {tab.items.map((item, idx) => (
+                  <a
+                    href={item.url}
+                    class={`document-item ${idx % 2 === 0 ? 'document-item--alt' : ''}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div class="document-item__icon">
+                      <i class={`fa-solid ${item.tipo === 'xls' ? 'fa-file-excel' : 'fa-file-pdf'}`} aria-hidden="true"></i>
+                    </div>
+                    <span class="document-item__title">{item.titulo}</span>
+                    <span class="document-item__action">
+                      <i class="fa-solid fa-download" aria-hidden="true"></i>
+                      Descargar
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informacion Adicional -->
+  <section class="info-section" aria-labelledby="info-title">
+    <div class="container">
+      <SectionTitle title="Marco Normativo" />
+
+      <div class="info-cards">
+        {infoCards.map((card: { icon: string; titulo: string; descripcion: string }) => (
+          <div class="info-card">
+            <div class="info-card__icon">
+              <i class={`fa-solid ${card.icon}`} aria-hidden="true"></i>
+            </div>
+            <h3>{card.titulo}</h3>
+            <p>{card.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-card__icon">
+          <i class={`fa-solid ${ctaSection.icon}`} aria-hidden="true"></i>
+        </div>
+        <div class="cta-card__content">
+          <h2>{ctaSection.titulo}</h2>
+          <p>{ctaSection.descripcion}</p>
+        </div>
+        <a
+          href={ctaSection.linkUrl}
+          class="btn btn--gold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {ctaSection.linkText}
+          <i class="fa-solid fa-external-link-alt" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Tabs Section */
+  .tabs-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  /* Vertical Tabs Layout */
+  .vertical-tabs {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-6);
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 600px;
+  }
+
+  /* Tab Navigation (Sidebar) */
+  .vertical-tabs__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: var(--white);
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+    position: sticky;
+    top: var(--space-6);
+  }
+
+  .vertical-tabs__tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+    width: 100%;
+  }
+
+  .vertical-tabs__tab i {
+    color: var(--gray-400);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .vertical-tabs__tab span:first-of-type {
+    flex: 1;
+  }
+
+  .vertical-tabs__count {
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+  }
+
+  .vertical-tabs__tab:hover {
+    background: var(--gray-50);
+    color: var(--itrc-navy);
+  }
+
+  .vertical-tabs__tab:hover i {
+    color: var(--itrc-gold);
+  }
+
+  .vertical-tabs__tab.active {
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .vertical-tabs__tab.active i {
+    color: var(--itrc-gold);
+  }
+
+  .vertical-tabs__tab.active .vertical-tabs__count {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+  }
+
+  /* Tab Panels */
+  .vertical-tabs__content {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .vertical-tabs__panel {
+    display: none;
+  }
+
+  .vertical-tabs__panel.active {
+    display: block;
+  }
+
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--gray-100);
+    background: var(--gray-50);
+  }
+
+  .panel-header__title {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-xl);
+    margin: 0;
+  }
+
+  .panel-header__count {
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Documents List */
+  .documents-list {
+    max-height: 550px;
+    overflow-y: auto;
+  }
+
+  .document-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border-bottom: 1px solid var(--gray-50);
+  }
+
+  .document-item--alt {
+    background: var(--gray-50);
+  }
+
+  .document-item:hover {
+    background: rgba(var(--itrc-gold-rgb), 0.1);
+  }
+
+  .document-item__icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    color: var(--file-pdf);
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .document-item__icon .fa-file-excel {
+    color: var(--file-excel);
+  }
+
+  .document-item__title {
+    flex: 1;
+    color: var(--gray-700);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+
+  .document-item__action {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  .document-item:hover .document-item__action {
+    opacity: 1;
+  }
+
+  /* Info Section */
+  .info-section {
+    padding: var(--space-16) var(--space-6);
+  }
+
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .info-card {
+    background: var(--white);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+
+  .info-card__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    border-radius: var(--radius-full);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-2xl);
+  }
+
+  .info-card h3 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .info-card p {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--itrc-navy);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .vertical-tabs {
+      grid-template-columns: 220px 1fr;
+    }
+
+    .vertical-tabs__tab {
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tabs-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .vertical-tabs {
+      grid-template-columns: 1fr;
+    }
+
+    .vertical-tabs__nav {
+      position: static;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .vertical-tabs__nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .vertical-tabs__tab {
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: var(--space-2) var(--space-3);
+    }
+
+    .vertical-tabs__tab i {
+      display: none;
+    }
+
+    .documents-list {
+      max-height: 400px;
+    }
+
+    .document-item {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .document-item__action {
+      opacity: 1;
+    }
+
+    .document-item__action span {
+      display: none;
+    }
+
+    .info-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .cta-section {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .panel-header {
+      flex-direction: column;
+      gap: var(--space-2);
+      text-align: center;
+    }
+
+    .document-item__icon {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+    }
+
+    .document-item__title {
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>
+
+<script>
+  function initVerticalTabs() {
+    const tabs = document.querySelectorAll('.vertical-tabs__tab');
+    const panels = document.querySelectorAll('.vertical-tabs__panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-tab');
+
+        // Deactivate all tabs and panels
+        tabs.forEach((t) => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach((p) => {
+          p.classList.remove('active');
+          p.hidden = true;
+        });
+
+        // Activate clicked tab and its panel
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const panel = document.getElementById(`panel-${targetId}`);
+        if (panel) {
+          panel.classList.add('active');
+          panel.hidden = false;
+        }
+      });
+    });
+  }
+
+  initVerticalTabs();
+  document.addEventListener('astro:after-swap', initVerticalTabs);
+</script>

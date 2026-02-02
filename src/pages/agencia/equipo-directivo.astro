@@ -1,0 +1,548 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import pageData from '../../content/pages/agencia/equipo-directivo.json';
+
+const base = import.meta.env.BASE_URL;
+const { title, subtitle, directora, subdirectores } = pageData;
+
+// Breadcrumb
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: title }
+];
+---
+
+<Base title={title} class="page-equipo-directivo">
+  <HeroPage
+    title={title}
+    subtitle={subtitle}
+    icon="fa-users-line"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Directora General -->
+  <section class="directora-section" aria-labelledby="directora-title">
+    <div class="container">
+      <h2 id="directora-title" class="section-label">Directora General</h2>
+
+      <article class="perfil-directora">
+        <button class="perfil-directora__imagen imagen-zoom" type="button" data-imagen={directora.imagen} data-nombre={directora.nombre} aria-label={`Ver foto de ${directora.nombre}`}>
+          <img src={directora.imagen} alt={directora.nombre} loading="lazy" />
+          <span class="imagen-zoom__hint"><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
+        </button>
+        <div class="perfil-directora__info">
+          <h3 class="perfil-directora__nombre">{directora.nombre}</h3>
+          <p class="perfil-directora__cargo">{directora.cargo}</p>
+          <div class="perfil-directora__bio">
+            {directora.bio.map((parrafo) => (
+              <p>{parrafo}</p>
+            ))}
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Subdirectores -->
+  <section class="subdirectores-section" aria-labelledby="subdirectores-title">
+    <div class="container">
+      <SectionTitle title="Subdirectores" subtitle="Equipo de liderazgo que acompaña la gestión institucional" size="lg" />
+
+      <div class="subdirectores-grid">
+        {subdirectores.map((sub) => (
+          <article class="perfil-subdirector">
+            <div class="perfil-subdirector__header">
+              <button class="perfil-subdirector__imagen imagen-zoom" type="button" data-imagen={sub.imagen} data-nombre={sub.nombre} aria-label={`Ver foto de ${sub.nombre}`}>
+                <img src={sub.imagen} alt={sub.nombre} loading="lazy" />
+                <span class="imagen-zoom__hint"><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
+              </button>
+              <div class="perfil-subdirector__titulo">
+                <h3 class="perfil-subdirector__nombre">{sub.nombre}</h3>
+                <p class="perfil-subdirector__cargo">{sub.area}</p>
+              </div>
+            </div>
+            <div class="perfil-subdirector__bio">
+              {sub.bio.map((parrafo) => (
+                <p set:html={parrafo} />
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Estructura -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-card__icon">
+          <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+        </div>
+        <div class="cta-card__content">
+          <h2>Conoce nuestra estructura organizacional</h2>
+          <p>Consulta el organigrama completo y las funciones de cada dependencia de la Agencia ITRC.</p>
+        </div>
+        <a href={`${base}agencia/organigrama`} class="btn btn--primary">
+          Ver Organigrama
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal para ver imágenes ampliadas -->
+  <div class="imagen-modal" id="imagenModal" role="dialog" aria-modal="true" aria-labelledby="modalNombre" hidden>
+    <div class="imagen-modal__overlay"></div>
+    <div class="imagen-modal__content">
+      <button class="imagen-modal__close" type="button" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <img class="imagen-modal__img" src="" alt="" id="modalImagen" />
+      <p class="imagen-modal__nombre" id="modalNombre"></p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* Section Label */
+  .section-label {
+    text-align: center;
+    color: var(--itrc-gold);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-8);
+  }
+
+  /* Directora Section */
+  .directora-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--white);
+  }
+
+  .perfil-directora {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-10);
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .perfil-directora__imagen {
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+  }
+
+  .perfil-directora__imagen img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    transition: transform var(--transition-base);
+  }
+
+  .perfil-directora__imagen:hover img {
+    transform: scale(1.02);
+  }
+
+  .perfil-directora__imagen::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: 12px;
+    bottom: 12px;
+    background: var(--itrc-gold);
+    border-radius: var(--radius-xl);
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .perfil-directora__info {
+    padding-top: var(--space-4);
+  }
+
+  .perfil-directora__nombre {
+    color: var(--itrc-navy);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--space-2);
+  }
+
+  .perfil-directora__cargo {
+    color: var(--itrc-gold);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 2px solid var(--gray-100);
+  }
+
+  .perfil-directora__bio p {
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .perfil-directora__bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Subdirectores Section */
+  .subdirectores-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .subdirectores-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .perfil-subdirector {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .perfil-subdirector:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+
+  .perfil-subdirector__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-navy-medium) 100%);
+  }
+
+  .perfil-subdirector__imagen {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .perfil-subdirector__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform var(--transition-base);
+  }
+
+  .perfil-subdirector__imagen:hover img {
+    transform: scale(1.05);
+  }
+
+  .perfil-subdirector__titulo {
+    flex: 1;
+  }
+
+  .perfil-subdirector__nombre {
+    color: var(--white);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .perfil-subdirector__cargo {
+    color: var(--itrc-gold);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .perfil-subdirector__bio {
+    padding: var(--space-6);
+  }
+
+  .perfil-subdirector__bio p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .perfil-subdirector__bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  .perfil-subdirector__bio em {
+    font-style: italic;
+    color: var(--itrc-navy);
+  }
+
+  /* Imagen Zoom (común) */
+  .imagen-zoom {
+    position: relative;
+  }
+
+  .imagen-zoom__hint {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  .imagen-zoom:hover .imagen-zoom__hint {
+    opacity: 1;
+  }
+
+  /* Modal de Imagen */
+  .imagen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+  }
+
+  .imagen-modal[hidden] {
+    display: none;
+  }
+
+  .imagen-modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.2s ease;
+  }
+
+  .imagen-modal__content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: zoomIn 0.3s ease;
+  }
+
+  .imagen-modal__close {
+    position: absolute;
+    top: -48px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--white);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .imagen-modal__close:hover {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .imagen-modal__img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .imagen-modal__nombre {
+    color: var(--white);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-top: var(--space-4);
+    text-align: center;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--white);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .perfil-directora {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .perfil-directora__imagen {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .perfil-directora__info {
+      text-align: center;
+      padding-top: 0;
+    }
+
+    .perfil-directora__bio p {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .directora-section,
+    .subdirectores-section {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .perfil-subdirector__header {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-5);
+    }
+
+    .perfil-subdirector__imagen {
+      width: 180px;
+      height: 180px;
+    }
+
+    .perfil-subdirector__bio {
+      padding: var(--space-5);
+    }
+
+    .cta-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .cta-card {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-6);
+    }
+
+    .cta-card__icon {
+      width: 60px;
+      height: 60px;
+      font-size: var(--font-size-2xl);
+    }
+
+    .imagen-zoom__hint {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .perfil-directora__imagen {
+      max-width: 220px;
+    }
+
+    .perfil-directora__imagen::before {
+      top: -8px;
+      left: -8px;
+      right: 8px;
+      bottom: 8px;
+    }
+
+    .perfil-subdirector__imagen {
+      width: 150px;
+      height: 150px;
+    }
+  }
+</style>
+
+<script>
+  let modalAbort: AbortController | null = null;
+
+  function initImageModal() {
+    modalAbort?.abort();
+    modalAbort = new AbortController();
+    const modal = document.getElementById('imagenModal');
+    const modalImg = document.getElementById('modalImagen') as HTMLImageElement;
+    const modalNombre = document.getElementById('modalNombre');
+    const closeBtn = modal?.querySelector('.imagen-modal__close');
+    const overlay = modal?.querySelector('.imagen-modal__overlay');
+
+    // Abrir modal al hacer clic en las imágenes
+    document.querySelectorAll('.imagen-zoom').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const imagen = btn.getAttribute('data-imagen');
+        const nombre = btn.getAttribute('data-nombre');
+
+        if (modal && modalImg && modalNombre && imagen && nombre) {
+          modalImg.src = imagen;
+          modalImg.alt = nombre;
+          modalNombre.textContent = nombre;
+          modal.hidden = false;
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Cerrar modal
+    function closeModal() {
+      if (modal) {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
+    }
+
+    closeBtn?.addEventListener('click', closeModal);
+    overlay?.addEventListener('click', closeModal);
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.hidden) {
+        closeModal();
+      }
+    }, { signal: modalAbort!.signal });
+  }
+
+  initImageModal();
+  document.addEventListener('astro:after-swap', initImageModal);
+</script>
