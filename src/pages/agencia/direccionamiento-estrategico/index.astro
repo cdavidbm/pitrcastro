@@ -1,0 +1,473 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import pageData from '../../../content/pages/agencia/direccionamiento-estrategico.json';
+
+interface SeccionCard {
+  id: string;
+  titulo: string;
+  descripcion: string;
+  icon: string;
+  color: string;
+  documentos: number;
+}
+
+const base = import.meta.env.BASE_URL;
+const { title, subtitle, intro, sections: secciones, marcoNormativo, enlacesRelacionados } = pageData;
+
+// Breadcrumb
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: title }
+];
+---
+
+<Base title={title} class="page-direccionamiento">
+  <HeroPage
+    title={title}
+    subtitle={subtitle}
+    icon="fa-compass"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Introducción -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-card">
+        <div class="intro-card__icon">
+          <i class="fa-solid fa-compass" aria-hidden="true"></i>
+        </div>
+        <div class="intro-card__content">
+          <p>{intro}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarjetas de Secciones -->
+  <section class="secciones-section" aria-labelledby="secciones-title">
+    <div class="container">
+      <h2 id="secciones-title" class="sr-only">Secciones disponibles</h2>
+
+      <div class="secciones-grid">
+        {secciones.map((seccion: SeccionCard) => (
+          <a
+            href={`${base}agencia/direccionamiento-estrategico/${seccion.id}`}
+            class={`seccion-card seccion-card--${seccion.color}`}
+          >
+            <div class="seccion-card__icon">
+              <i class={`fa-solid ${seccion.icon}`} aria-hidden="true"></i>
+            </div>
+            <div class="seccion-card__content">
+              <h3 class="seccion-card__titulo">{seccion.titulo}</h3>
+              <p class="seccion-card__descripcion">{seccion.descripcion}</p>
+              <span class="seccion-card__count">
+                <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                +{seccion.documentos} documentos
+              </span>
+            </div>
+            <div class="seccion-card__arrow">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Marco Legal -->
+  <section class="marco-legal" aria-labelledby="marco-legal-title">
+    <div class="container">
+      <SectionTitle title={marcoNormativo.titulo} subtitle={marcoNormativo.descripcion} size="lg" />
+
+      <div class="normas-grid">
+        {marcoNormativo.normas.map((norma: { titulo: string; descripcion: string; icon: string }) => (
+          <div class="norma-item">
+            <div class="norma-item__icon">
+              <i class={`fa-solid ${norma.icon}`} aria-hidden="true"></i>
+            </div>
+            <h3>{norma.titulo}</h3>
+            <p>{norma.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Enlaces Relacionados -->
+  <section class="related-section">
+    <div class="container">
+      <div class="related-grid">
+        {enlacesRelacionados.map((enlace: { titulo: string; descripcion: string; icon: string; url: string }) => (
+          <a href={`${base}${enlace.url}`} class="related-card">
+            <div class="related-card__icon">
+              <i class={`fa-solid ${enlace.icon}`} aria-hidden="true"></i>
+            </div>
+            <div class="related-card__content">
+              <h3>{enlace.titulo}</h3>
+              <p>{enlace.descripcion}</p>
+            </div>
+            <i class="fa-solid fa-arrow-right related-card__arrow" aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Intro Section */
+  .intro-section {
+    padding: var(--space-10) var(--space-6);
+    background: var(--white);
+  }
+
+  .intro-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--itrc-gold);
+  }
+
+  .intro-card__icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    border-radius: var(--radius-lg);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-2xl);
+  }
+
+  .intro-card__content p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Secciones Grid */
+  .secciones-section {
+    padding: var(--space-16) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .secciones-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .seccion-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .seccion-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+  }
+
+  .seccion-card--navy::before { background: var(--itrc-navy); }
+  .seccion-card--gold::before { background: var(--itrc-gold); }
+  .seccion-card--green::before { background: var(--green-accent); }
+
+  .seccion-card:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .seccion-card__icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    font-size: 1.75rem;
+    transition: all var(--transition-base);
+  }
+
+  .seccion-card--navy .seccion-card__icon {
+    background: rgba(21, 37, 63, 0.1);
+    color: var(--itrc-navy);
+  }
+
+  .seccion-card--gold .seccion-card__icon {
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    color: var(--itrc-gold);
+  }
+
+  .seccion-card--green .seccion-card__icon {
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--green-accent);
+  }
+
+  .seccion-card:hover .seccion-card__icon {
+    transform: scale(1.1);
+  }
+
+  .seccion-card--navy:hover .seccion-card__icon {
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .seccion-card--gold:hover .seccion-card__icon {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .seccion-card--green:hover .seccion-card__icon {
+    background: var(--green-accent);
+    color: var(--white);
+  }
+
+  .seccion-card__content {
+    flex: 1;
+  }
+
+  .seccion-card__titulo {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .seccion-card__descripcion {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+  }
+
+  .seccion-card__count {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+    background: var(--gray-100);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+  }
+
+  .seccion-card__arrow {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    transition: all var(--transition-fast);
+  }
+
+  .seccion-card:hover .seccion-card__arrow {
+    color: var(--itrc-gold);
+    transform: translateX(4px);
+  }
+
+  /* Marco Legal */
+  .marco-legal {
+    padding: var(--space-16) var(--space-6);
+    background: var(--white);
+  }
+
+  .normas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .norma-item {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+  }
+
+  .norma-item__icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    border-radius: var(--radius-full);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xl);
+  }
+
+  .norma-item h3 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-2);
+  }
+
+  .norma-item p {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Related Section */
+  .related-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-5);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .related-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .related-card__icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    border-radius: var(--radius-md);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xl);
+  }
+
+  .related-card__content {
+    flex: 1;
+  }
+
+  .related-card__content h3 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-1);
+  }
+
+  .related-card__content p {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  .related-card__arrow {
+    color: var(--gray-400);
+    transition: all var(--transition-fast);
+  }
+
+  .related-card:hover .related-card__arrow {
+    color: var(--itrc-gold);
+    transform: translateX(4px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .intro-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .intro-card {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-5);
+      border-left: none;
+      border-top: 4px solid var(--itrc-gold);
+    }
+
+    .intro-card__icon {
+      width: 56px;
+      height: 56px;
+      font-size: var(--font-size-xl);
+    }
+
+    .secciones-section,
+    .marco-legal {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .seccion-card {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-5);
+    }
+
+    .seccion-card::before {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: auto;
+      width: auto;
+      height: 4px;
+    }
+
+    .seccion-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .seccion-card__icon {
+      width: 64px;
+      height: 64px;
+      font-size: var(--font-size-2xl);
+    }
+
+    .seccion-card__arrow {
+      display: none;
+    }
+
+    .related-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .related-card {
+      padding: var(--space-4);
+    }
+  }
+</style>

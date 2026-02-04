@@ -1,0 +1,302 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import Accordion from '../../../components/Accordion.astro';
+import Tabs from '../../../components/Tabs.astro';
+import DocumentItem from '../../../components/DocumentItem.astro';
+import type { DocumentPage } from '../../../types/content';
+
+const base = import.meta.env.BASE_URL;
+
+export function getStaticPaths() {
+  const pageFiles = import.meta.glob<DocumentPage>(
+    '../../../content/pages/agencia/direccionamiento/*.json',
+    { eager: true, import: 'default' }
+  );
+
+  return Object.entries(pageFiles).map(([path, data]) => {
+    const slug = path.split('/').pop()?.replace('.json', '') || '';
+    return { params: { slug }, props: { pageData: data } };
+  });
+}
+
+const { slug } = Astro.params;
+const { pageData } = Astro.props;
+
+const sectionConfig: Record<string, { color: string; icon: string }> = {
+  politicas: { color: 'navy', icon: 'fa-scale-balanced' },
+  planes: { color: 'gold', icon: 'fa-clipboard-list' },
+  informes: { color: 'green', icon: 'fa-chart-line' },
+};
+
+const config = sectionConfig[slug as string] || { color: 'navy', icon: 'fa-folder-open' };
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Direccionamiento Estratégico', href: `${base}agencia/direccionamiento-estrategico` },
+  { label: pageData.title },
+];
+
+const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length, 0);
+---
+
+<Base title={pageData.title} class={`page-documentos page-documentos--${config.color}`}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={config.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="actions-bar">
+    <div class="container">
+      <a href={`${base}agencia/direccionamiento-estrategico`} class="back-link">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Volver a Direccionamiento Estratégico
+      </a>
+      <div class="doc-count">
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+        {totalDocs} documentos
+      </div>
+    </div>
+  </section>
+
+  <section class="documents-section">
+    <div class="container">
+      {pageData.sections.map((section, idx) => (
+        <div class="doc-section">
+          {section.displayMode === 'accordion' && (
+            <Accordion
+              variant="document"
+              sections={[{
+                sectionTitle: section.sectionTitle,
+                sectionIcon: section.sectionIcon,
+                documents: section.documents,
+              }]}
+              defaultOpen={0}
+            />
+          )}
+
+          {section.displayMode === 'tabs' && (
+            <Tabs
+              documents={section.documents}
+              id={`tabs-${idx}`}
+            />
+          )}
+
+          {section.displayMode === 'list' && (
+            <div>
+              {section.sectionTitle && (
+                <h2 class="doc-section__title">{section.sectionTitle}</h2>
+              )}
+              <ul class="doc-list" role="list">
+                {section.documents.map((doc) => (
+                  <li>
+                    <DocumentItem document={doc} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="nav-secciones">
+    <div class="container">
+      <h2 class="sr-only">Otras secciones</h2>
+      <div class="nav-secciones__grid">
+        {slug !== 'politicas' && (
+          <a href={`${base}agencia/direccionamiento-estrategico/politicas`} class="nav-seccion nav-seccion--navy">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+            <span>Políticas</span>
+          </a>
+        )}
+        {slug !== 'planes' && (
+          <a href={`${base}agencia/direccionamiento-estrategico/planes`} class="nav-seccion nav-seccion--gold">
+            <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+            <span>Planes</span>
+          </a>
+        )}
+        {slug !== 'informes' && (
+          <a href={`${base}agencia/direccionamiento-estrategico/informes`} class="nav-seccion nav-seccion--green">
+            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+            <span>Informes</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .actions-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: var(--space-4) var(--space-6);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .actions-bar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--itrc-navy);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--itrc-gold);
+    gap: var(--space-3);
+  }
+
+  .doc-count {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    background: var(--gray-100);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .documents-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--gray-50);
+    min-height: 50vh;
+  }
+
+  .documents-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .doc-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .doc-section__title {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .doc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .doc-list li {
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .doc-list li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-secciones {
+    padding: var(--space-10) var(--space-6);
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .nav-secciones__grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .nav-seccion {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+  }
+
+  .nav-seccion--navy {
+    background: rgba(21, 37, 63, 0.1);
+    color: var(--itrc-navy);
+  }
+
+  .nav-seccion--navy:hover {
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .nav-seccion--gold {
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    color: var(--itrc-gold);
+  }
+
+  .nav-seccion--gold:hover {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .nav-seccion--green {
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--green-accent);
+  }
+
+  .nav-seccion--green:hover {
+    background: var(--green-accent);
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .actions-bar {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .actions-bar .container {
+      flex-direction: column;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+
+    .documents-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .nav-secciones {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .nav-secciones__grid {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .nav-seccion {
+      justify-content: center;
+    }
+  }
+</style>
