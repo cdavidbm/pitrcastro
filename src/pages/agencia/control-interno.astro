@@ -1,0 +1,655 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Accordion from '../../components/Accordion.astro';
+import pageData from '../../content/pages/agencia/sistema-de-control-interno.json';
+
+const base = import.meta.env.BASE_URL;
+
+const {
+  title, subtitle, icon,
+  introTitle, introContent,
+  entidadesExternas, controlPolitico, controlInterno, contactoInterno,
+  informesLegales, planesMejoramiento, enlacesRelacionados
+} = pageData;
+
+const formattedIntro = introContent.split('\n\n').map((p: string) =>
+  `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>`
+).join('');
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: title }
+];
+---
+
+<Base title={title} class="page-control-interno">
+  <HeroPage
+    title={title}
+    subtitle={subtitle}
+    icon={icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Que es -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-card">
+        <div class="intro-card__icon">
+          <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+        </div>
+        <div class="intro-card__content">
+          <h2>{introTitle}</h2>
+          <Fragment set:html={formattedIntro} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegación de secciones -->
+  <section class="nav-sections">
+    <div class="container">
+      <div class="nav-sections__grid">
+        <a href="#supervision" class="nav-section-card">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          <span>Supervisión y Vigilancia</span>
+        </a>
+        <a href="#informes" class="nav-section-card">
+          <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+          <span>Informes Legales</span>
+        </a>
+        <a href="#mejoramiento" class="nav-section-card">
+          <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+          <span>Planes de Mejoramiento</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supervisión y Vigilancia -->
+  <section id="supervision" class="supervision-section">
+    <div class="container">
+      <SectionTitle
+        title="Supervisión y Vigilancia"
+        icon="fa-eye"
+        size="lg"
+        align="center"
+        subtitle="La UAE Agencia ITRC como entidad sin personería jurídica, adscrita al Ministerio de Hacienda y Crédito Público, está sometida a la vigilancia y control de los siguientes entes y autoridades:"
+      />
+
+      <!-- Entidades Externas -->
+      <h3 class="subsection-title">Entidades de Control Externo</h3>
+      <div class="entidades-grid">
+        {entidadesExternas.map((entidad) => (
+          <div class="entidad-card">
+            <div class="entidad-card__header">
+              <div class="entidad-card__icon">
+                <i class={`fa-solid ${entidad.icon}`} aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4 class="entidad-card__nombre">{entidad.nombre}</h4>
+                <span class="entidad-card__tipo">{entidad.control}</span>
+              </div>
+            </div>
+            <div class="entidad-card__body">
+              <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {entidad.direccion}</p>
+              <p><i class="fa-solid fa-phone" aria-hidden="true"></i> {entidad.telefono}</p>
+              {entidad.lineaNacional && (
+                <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Línea nacional: {entidad.lineaNacional}</p>
+              )}
+              {entidad.email && (
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> {entidad.email}</p>
+              )}
+            </div>
+            <a href={entidad.web} target="_blank" rel="noopener noreferrer" class="entidad-card__link">
+              Visitar sitio web
+              <i class="fa-solid fa-external-link" aria-hidden="true"></i>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Control Político -->
+      <h3 class="subsection-title">Control Político - Congreso de la República</h3>
+      <div class="congreso-grid">
+        {controlPolitico.map((entidad) => (
+          <div class="congreso-card">
+            <h4>{entidad.nombre}</h4>
+            <div class="congreso-card__info">
+              <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {entidad.direccion}</p>
+              <p><i class="fa-solid fa-phone" aria-hidden="true"></i> {entidad.telefono}</p>
+              <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> {entidad.lineaNacional}</p>
+            </div>
+            <a href={entidad.web} target="_blank" rel="noopener noreferrer" class="congreso-card__link">
+              Sitio web <i class="fa-solid fa-external-link" aria-hidden="true"></i>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Mecanismos Internos -->
+      <h3 class="subsection-title">Mecanismos Internos de Supervisión</h3>
+      <div class="interno-grid">
+        {controlInterno.map((mecanismo) => (
+          <div class="interno-card">
+            <div class="interno-card__icon">
+              <i class={`fa-solid ${mecanismo.icon}`} aria-hidden="true"></i>
+            </div>
+            <div>
+              <h4>{mecanismo.nombre}</h4>
+              <span class="interno-card__tipo">{mecanismo.control}</span>
+            </div>
+          </div>
+        ))}
+        <div class="interno-contact">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {contactoInterno.direccion}</p>
+          <p><i class="fa-solid fa-phone" aria-hidden="true"></i> {contactoInterno.telefono}</p>
+          <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Linea nacional: {contactoInterno.lineaNacional}</p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> {contactoInterno.email}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informes Legales -->
+  <section id="informes" class="informes-section">
+    <div class="container">
+      <SectionTitle
+        title="Informes Legales"
+        icon="fa-file-lines"
+        size="lg"
+        align="center"
+      />
+
+      <Accordion
+        variant="document"
+        sections={(informesLegales as Array<{ titulo: string; documentos: Array<{ name: string; file: string; anio?: string }> }>).map((cat) => ({
+          sectionTitle: cat.titulo,
+          sectionIcon: 'fa-folder',
+          documents: cat.documentos
+        }))}
+        id="informes-legales"
+        defaultOpen={0}
+      />
+    </div>
+  </section>
+
+  <!-- Planes de Mejoramiento -->
+  <section id="mejoramiento" class="mejoramiento-section">
+    <div class="container">
+      <SectionTitle
+        title="Planes de Mejoramiento"
+        icon="fa-chart-line"
+        size="lg"
+        align="center"
+        subtitle="Los planes de mejoramiento documentan las acciones correctivas y preventivas derivadas de las auditorías y evaluaciones realizadas por los entes de control."
+      />
+
+      <div class="mejoramiento-cta">
+        <div class="mejoramiento-cta__icon">
+          <i class="fa-solid fa-tasks" aria-hidden="true"></i>
+        </div>
+        <div class="mejoramiento-cta__content">
+          <h3>{planesMejoramiento.titulo}</h3>
+          <p>{planesMejoramiento.descripcion}</p>
+        </div>
+        <a href={`${base}${planesMejoramiento.linkUrl}`} class="btn btn--primary">
+          {planesMejoramiento.linkText}
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} />
+</Base>
+
+<style>
+  /* Intro Section */
+  .intro-section {
+    padding: var(--space-10) var(--space-6);
+    background: var(--white);
+  }
+
+  .intro-card {
+    display: flex;
+    gap: var(--space-6);
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--itrc-gold);
+  }
+
+  .intro-card__icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    border-radius: var(--radius-lg);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xl);
+  }
+
+  .intro-card__content h2 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .intro-card__content p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+  }
+
+  .intro-card__content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Nav Sections */
+  .nav-sections {
+    background: var(--white);
+    padding: 0 var(--space-6) var(--space-8);
+  }
+
+  .nav-sections__grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .nav-section-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--itrc-navy);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+    flex: 1;
+    text-align: center;
+  }
+
+  .nav-section-card i {
+    font-size: var(--font-size-2xl);
+    color: var(--itrc-gold);
+  }
+
+  .nav-section-card:hover {
+    background: var(--itrc-navy);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .nav-section-card:hover i {
+    color: var(--itrc-gold);
+  }
+
+  /* Subsection Titles */
+  .subsection-title {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-lg);
+    margin: var(--space-8) 0 var(--space-5);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  /* Supervision Section */
+  .supervision-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--gray-50);
+    scroll-margin-top: 20px;
+  }
+
+  .supervision-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Entidades Grid */
+  .entidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-5);
+  }
+
+  .entidad-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entidad-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--itrc-navy);
+  }
+
+  .entidad-card__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--itrc-gold);
+    font-size: 1.1rem;
+  }
+
+  .entidad-card__nombre {
+    color: var(--white);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    line-height: 1.3;
+  }
+
+  .entidad-card__tipo {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    color: var(--itrc-gold);
+    background: rgba(var(--itrc-gold-rgb), 0.2);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  .entidad-card__body {
+    padding: var(--space-4);
+    flex: 1;
+  }
+
+  .entidad-card__body p {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+    line-height: 1.4;
+  }
+
+  .entidad-card__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .entidad-card__body i {
+    color: var(--gray-400);
+    margin-top: 2px;
+    width: 14px;
+    flex-shrink: 0;
+  }
+
+  .entidad-card__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: var(--gray-50);
+    color: var(--itrc-navy);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+
+  .entidad-card__link:hover {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  /* Congreso Grid */
+  .congreso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .congreso-card {
+    background: var(--white);
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .congreso-card h4 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-3);
+  }
+
+  .congreso-card__info p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+  }
+
+  .congreso-card__info i {
+    color: var(--gray-400);
+    width: 16px;
+  }
+
+  .congreso-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    color: var(--itrc-gold);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
+
+  .congreso-card__link:hover {
+    text-decoration: underline;
+  }
+
+  /* Interno Grid */
+  .interno-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .interno-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--white);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .interno-card__icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    border-radius: var(--radius-md);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xl);
+  }
+
+  .interno-card h4 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-1);
+  }
+
+  .interno-card__tipo {
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+  }
+
+  .interno-contact {
+    grid-column: 1 / -1;
+    background: var(--itrc-navy);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+  }
+
+  .interno-contact p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .interno-contact i {
+    color: var(--itrc-gold);
+  }
+
+  /* Informes Section */
+  .informes-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--white);
+    scroll-margin-top: 20px;
+  }
+
+  .informes-section .container {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  /* Mejoramiento Section */
+  .mejoramiento-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--gray-50);
+    scroll-margin-top: 20px;
+  }
+
+  .mejoramiento-section .container {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .mejoramiento-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .mejoramiento-cta__icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    border-radius: var(--radius-lg);
+    color: var(--itrc-gold);
+    font-size: 1.75rem;
+  }
+
+  .mejoramiento-cta__content {
+    flex: 1;
+  }
+
+  .mejoramiento-cta__content h3 {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .mejoramiento-cta__content p {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .intro-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .intro-card {
+      flex-direction: column;
+      text-align: center;
+      border-left: none;
+      border-top: 4px solid var(--itrc-gold);
+    }
+
+    .nav-sections {
+      padding: 0 var(--space-4) var(--space-6);
+    }
+
+    .nav-sections__grid {
+      flex-direction: column;
+    }
+
+    .nav-section-card {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .supervision-section,
+    .informes-section,
+    .mejoramiento-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .entidades-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .congreso-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .interno-contact {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .mejoramiento-cta {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .mejoramiento-cta__icon {
+      width: 64px;
+      height: 64px;
+      font-size: var(--font-size-2xl);
+    }
+  }
+</style>

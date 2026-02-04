@@ -1,0 +1,297 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import Accordion from '../../components/Accordion.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+import pageData from '../../content/pages/agencia/gestion-misional.json';
+
+const base = import.meta.env.BASE_URL;
+const subdirecciones = pageData.subdirecciones;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  {
+    titulo: 'Observatorio ITRC',
+    descripcion: 'Estadísticas y análisis sobre fraude y corrupción',
+    url: 'https://www.itrc.gov.co/observatorio/',
+    icon: 'fa-chart-pie'
+  },
+  {
+    titulo: 'Informes de Gestión',
+    descripcion: 'Informes institucionales y de seguimiento',
+    url: 'agencia/direccionamiento-estrategico/informes',
+    icon: 'fa-chart-line'
+  },
+  {
+    titulo: 'Estructura Orgánica',
+    descripcion: 'Organigrama y funciones por dependencia',
+    url: 'agencia/organigrama',
+    icon: 'fa-sitemap'
+  }
+];
+---
+
+<Base title={pageData.title} class="page-gestion-misional">
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon || 'fa-briefcase'}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Navegación rápida -->
+  <section class="quick-nav">
+    <div class="container">
+      <div class="quick-nav__grid">
+        {subdirecciones.map((sub) => (
+          <a href={`#${sub.id}`} class={`quick-nav__item quick-nav__item--${sub.color}`}>
+            <i class={`fa-solid ${sub.icon}`} aria-hidden="true"></i>
+            <span>{sub.sigla}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Subdirecciones -->
+  {subdirecciones.map((sub, subIndex) => (
+    <section id={sub.id} class={`subdireccion-section subdireccion-section--${sub.color}`}>
+      <div class="container">
+        <!-- Header de la subdirección -->
+        <div class="subdireccion-header">
+          <div class={`subdireccion-header__icon subdireccion-header__icon--${sub.color}`}>
+            <i class={`fa-solid ${sub.icon}`} aria-hidden="true"></i>
+          </div>
+          <div class="subdireccion-header__content">
+            <h2 class="subdireccion-header__title">{sub.titulo}</h2>
+            <p class="subdireccion-header__descripcion">{sub.descripcion}</p>
+            {sub.observatorio && (
+              <div class="subdireccion-header__cta">
+                <span>{sub.observatorio.texto}</span>
+                <a href={sub.observatorio.url} target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">
+                  <i class="fa-solid fa-external-link" aria-hidden="true"></i>
+                  {sub.observatorio.label}
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Acordeones de documentos -->
+        <Accordion
+          variant="document"
+          sections={sub.categorias.map((cat: { titulo: string; documentos: Array<{ name: string; file: string; anio?: string }> }) => ({
+            sectionTitle: cat.titulo,
+            sectionIcon: 'fa-folder',
+            documents: cat.documentos
+          }))}
+          id={`accordion-${sub.id}`}
+          defaultOpen={0}
+        />
+      </div>
+    </section>
+  ))}
+
+  <RelatedLinks links={enlacesRelacionados} title="Recursos Relacionados" />
+</Base>
+
+<style>
+  /* Quick Nav */
+  .quick-nav {
+    background: var(--white);
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .quick-nav__grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .quick-nav__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+  }
+
+  .quick-nav__item--navy {
+    background: rgba(21, 37, 63, 0.1);
+    color: var(--itrc-navy);
+  }
+
+  .quick-nav__item--navy:hover {
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .quick-nav__item--gold {
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    color: var(--itrc-gold);
+  }
+
+  .quick-nav__item--gold:hover {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .quick-nav__item--green {
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--green-accent);
+  }
+
+  .quick-nav__item--green:hover {
+    background: var(--green-accent);
+    color: var(--white);
+  }
+
+  /* Subdirección Section */
+  .subdireccion-section {
+    padding: var(--space-12) var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .subdireccion-section:nth-child(odd) {
+    background: var(--gray-50);
+  }
+
+  .subdireccion-section:nth-child(even) {
+    background: var(--white);
+  }
+
+  .subdireccion-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Subdirección Header */
+  .subdireccion-header {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  .subdireccion-header__icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+    font-size: 1.75rem;
+  }
+
+  .subdireccion-header__icon--navy {
+    background: var(--itrc-navy);
+    color: var(--itrc-gold);
+  }
+
+  .subdireccion-header__icon--gold {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  .subdireccion-header__icon--green {
+    background: var(--green-accent);
+    color: var(--white);
+  }
+
+  .subdireccion-header__content {
+    flex: 1;
+  }
+
+  .subdireccion-header__title {
+    color: var(--itrc-navy);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .subdireccion-header__descripcion {
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .subdireccion-header__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: rgba(var(--itrc-gold-rgb), 0.1);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  .subdireccion-header__cta span {
+    color: var(--gray-700);
+  }
+
+  .btn--sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .quick-nav {
+      padding: var(--space-4);
+    }
+
+    .quick-nav__item {
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--font-size-xs);
+    }
+
+    .quick-nav__item span {
+      display: none;
+    }
+
+    .quick-nav__item i {
+      font-size: var(--font-size-xl);
+    }
+
+    .subdireccion-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .subdireccion-header {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-4);
+    }
+
+    .subdireccion-header__icon {
+      margin: 0 auto;
+      width: 64px;
+      height: 64px;
+      font-size: var(--font-size-2xl);
+    }
+
+    .subdireccion-header__cta {
+      flex-direction: column;
+      text-align: center;
+    }
+
+  }
+</style>

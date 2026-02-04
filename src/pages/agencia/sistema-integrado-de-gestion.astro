@@ -1,0 +1,155 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import Accordion from '../../components/Accordion.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+import type { DocumentSection } from '../../types/content';
+import pageData from '../../content/pages/agencia/sistema-integrado-de-gestion.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: 'Sistema Integrado de Gestión' }
+];
+
+const accordionSections = (pageData.sections as DocumentSection[]).map((section) => ({
+  sectionTitle: section.sectionTitle,
+  sectionIcon: section.sectionIcon || 'fa-folder',
+  sectionDescription: section.sectionDescription || '',
+  documents: section.documents.map((doc) => ({
+    name: doc.name,
+    file: doc.file,
+    externo: doc.externo || false
+  }))
+}));
+const enlacesRelacionados = [
+  {
+    titulo: 'Políticas Institucionales',
+    descripcion: 'Marco normativo de políticas de la Agencia',
+    url: 'agencia/direccionamiento-estrategico/politicas',
+    icon: 'fa-scale-balanced'
+  },
+  {
+    titulo: 'Planes Institucionales',
+    descripcion: 'Planes estratégicos y de gestión',
+    url: 'agencia/direccionamiento-estrategico/planes',
+    icon: 'fa-clipboard-list'
+  },
+  {
+    titulo: 'Estructura Orgánica',
+    descripcion: 'Organigrama y funciones por dependencia',
+    url: 'agencia/organigrama',
+    icon: 'fa-sitemap'
+  }
+];
+---
+
+<Base title={pageData.title} class="page-sig">
+  <HeroPage
+    title={pageData.title}
+    subtitle="Marco de gestión institucional que integra calidad, ética y sostenibilidad ambiental"
+    icon={pageData.icon || 'fa-diagram-project'}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Introducción -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-card">
+        <div class="intro-card__icon">
+          <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+        </div>
+        <div class="intro-card__content">
+          <p>{pageData.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secciones del SIG -->
+  <section class="sig-section" aria-labelledby="sig-title">
+    <div class="container">
+      <h2 id="sig-title" class="sr-only">Componentes del Sistema Integrado de Gestión</h2>
+      <Accordion
+        variant="document"
+        sections={accordionSections}
+        id="sig-accordion"
+        defaultOpen={0}
+      />
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Recursos Relacionados" />
+</Base>
+
+<style>
+  /* Intro Section */
+  .intro-section {
+    padding: var(--space-10) var(--space-6);
+    background: var(--white);
+  }
+
+  .intro-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-6);
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--itrc-gold);
+  }
+
+  .intro-card__icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    border-radius: var(--radius-lg);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xl);
+  }
+
+  .intro-card__content p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* SIG Section */
+  .sig-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--gray-50);
+  }
+
+  .sig-section .container {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .intro-section {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .intro-card {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-5);
+      border-left: none;
+      border-top: 4px solid var(--itrc-gold);
+    }
+
+    .sig-section {
+      padding: var(--space-8) var(--space-4);
+    }
+  }
+</style>
