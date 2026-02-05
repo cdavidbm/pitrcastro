@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import Accordion from '../components/Accordion.astro';
+import Tabs from '../components/Tabs.astro';
+
+import pageData from '../content/pages/transparencia.json';
+
+const base = import.meta.env.BASE_URL;
+
+// Breadcrumb
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon || 'fa-folder-open'}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="page-documents">
+    <div class="container">
+
+      <div class="documents-content">
+        {pageData.sections.map((section, index) => (
+          <section class="document-section" aria-labelledby={`section-${index}-title`}>
+            {section.displayMode === 'accordion' && (
+              <Accordion
+                variant="document"
+                sections={[section]}
+                id={`section-${index}`}
+                defaultOpen={0}
+              />
+            )}
+
+            {section.displayMode === 'tabs' && (
+              <>
+                <h2 id={`section-${index}-title`}>{section.sectionTitle}</h2>
+                <Tabs
+                  documents={section.documents}
+                  id={`section-${index}`}
+                />
+              </>
+            )}
+
+            {section.displayMode === 'list' && (
+              <>
+                <h2 id={`section-${index}-title`}>{section.sectionTitle}</h2>
+                <div class="document-list">
+                  {section.documents.map((doc) => (
+                    <a href={doc.file} class="document-list__item" target="_blank" rel="noopener">
+                      <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                      <span>{doc.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-documents {
+    padding: var(--space-12) 0 var(--space-20);
+  }
+
+  .documents-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+  }
+
+  .document-section h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-4);
+    border-left: 3px solid var(--itrc-gold);
+  }
+
+  .document-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    background: var(--gray-50);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+  }
+
+  .document-list__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--gray-700);
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+  }
+
+  .document-list__item:hover {
+    border-color: var(--itrc-gold);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+
+  .document-list__item i {
+    color: var(--file-pdf);
+    font-size: var(--font-size-xl);
+  }
+
+  @media (max-width: 768px) {
+    .page-documents {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+  }
+</style>

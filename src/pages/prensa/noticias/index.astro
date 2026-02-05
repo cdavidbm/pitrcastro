@@ -1,0 +1,69 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroSlider from '../../../components/HeroSlider.astro';
+import NewsCard from '../../../components/NewsCard.astro';
+import type { MarkdownModule } from '../../../types/content';
+
+const newsFiles = import.meta.glob<MarkdownModule>('../../../content/news/*.md', { eager: true });
+
+const news = Object.entries(newsFiles)
+  .map(([path, file]) => {
+    const slug = path.split('/').pop()?.replace('.md', '') || '';
+    return {
+      slug,
+      data: file.frontmatter,
+    };
+  })
+  .filter(item => !item.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Base title="Noticias" description="Ultimas noticias y novedades de la Agencia ITRC">
+  <HeroSlider slider="noticias" />
+
+  <section class="page-noticias">
+    <div class="container">
+
+      {news.length > 0 ? (
+        <div class="news-grid stagger-children">
+          {news.map((item) => (
+            <NewsCard
+              title={item.data.title}
+              date={item.data.date}
+              image={item.data.image}
+              excerpt={item.data.excerpt}
+              slug={item.slug}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+          <p>No hay noticias disponibles en este momento.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-noticias {
+    padding: var(--space-12) 0 var(--space-20);
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .page-noticias {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

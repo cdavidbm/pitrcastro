@@ -1,0 +1,251 @@
+---
+import Base from '../../../layouts/Base.astro';
+import type { MarkdownModule } from '../../../types/content';
+
+export async function getStaticPaths() {
+  const newsFiles = import.meta.glob<MarkdownModule>('../../../content/news/*.md', { eager: true });
+
+  return Object.entries(newsFiles).map(([path, file]) => {
+    const slug = path.split('/').pop()?.replace('.md', '') || '';
+    return {
+      params: { slug },
+      props: {
+        title: file.frontmatter.title,
+        date: file.frontmatter.date,
+        image: file.frontmatter.image,
+        excerpt: file.frontmatter.excerpt,
+        tags: file.frontmatter.tags || [],
+        Content: file.Content,
+      },
+    };
+  });
+}
+
+const { title, date, image, excerpt, tags, Content } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const formattedDate = new Date(date).toLocaleDateString('es-CO', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Base title={title} description={excerpt}>
+  <article class="article">
+    <div class="container container--narrow">
+      <header class="article__header">
+        <a href={`${base}prensa/noticias`} class="article__back">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          Volver a noticias
+        </a>
+
+        <h1 class="article__title">{title}</h1>
+
+        <div class="article__meta">
+          <time datetime={date}>
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+            {formattedDate}
+          </time>
+        </div>
+
+        {tags.length > 0 && (
+          <div class="article__tags">
+            {tags.map((tag: string) => (
+              <span class="article__tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {image && (
+        <figure class="article__image">
+          <img src={image} alt={title} />
+        </figure>
+      )}
+
+      <div class="article__content">
+        <Content />
+      </div>
+
+      <footer class="article__footer">
+        <div class="article__share">
+          <span>Compartir:</span>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compartir en Facebook"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${Astro.url}&text=${encodeURIComponent(title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compartir en Twitter"
+          >
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent(title + ' ' + Astro.url)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compartir en WhatsApp"
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article {
+    padding: var(--space-12) 0 var(--space-20);
+  }
+
+  .article__back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-6);
+    transition: color var(--transition-fast);
+  }
+
+  .article__back:hover {
+    color: var(--itrc-gold);
+  }
+
+  .article__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .article__title {
+    font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+  }
+
+  .article__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .article__meta time {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .article__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .article__tag {
+    padding: var(--space-1) var(--space-3);
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    color: var(--gray-600);
+  }
+
+  .article__image {
+    margin: 0 0 var(--space-8);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .article__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article__content {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--gray-700);
+  }
+
+  .article__content :global(h2) {
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-2xl);
+  }
+
+  .article__content :global(h3) {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-xl);
+  }
+
+  .article__content :global(p) {
+    margin-bottom: var(--space-5);
+  }
+
+  .article__content :global(ul),
+  .article__content :global(ol) {
+    margin-bottom: var(--space-5);
+    padding-left: var(--space-6);
+  }
+
+  .article__content :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .article__content :global(strong) {
+    color: var(--itrc-navy);
+  }
+
+  .article__footer {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .article__share {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .article__share span {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+  }
+
+  .article__share a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+    color: var(--gray-600);
+    transition: all var(--transition-base);
+  }
+
+  .article__share a:hover {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+
+  @media (max-width: 768px) {
+    .article {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+  }
+</style>

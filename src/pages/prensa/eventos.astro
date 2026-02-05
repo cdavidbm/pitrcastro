@@ -1,0 +1,440 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import type { EventModule } from '../../types/content';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: 'Eventos' }
+];
+
+const eventFiles = import.meta.glob<EventModule>('../../content/events/*.json', { eager: true });
+
+const now = new Date();
+
+const events = Object.entries(eventFiles)
+  .map(([path, file]) => {
+    const slug = path.split('/').pop()?.replace('.json', '') || '';
+    return {
+      slug,
+      ...file.default
+    };
+  })
+  .filter(event => event.published !== false);
+
+// Separar eventos futuros y pasados
+const futureEvents = events
+  .filter(event => new Date(event.startDate) >= now)
+  .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+
+const pastEvents = events
+  .filter(event => new Date(event.startDate) < now)
+  .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
+  .slice(0, 5);
+
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return {
+    day: date.getDate(),
+    month: date.toLocaleDateString('es-CO', { month: 'short' }).toUpperCase(),
+    full: date.toLocaleDateString('es-CO', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }),
+    time: date.toLocaleTimeString('es-CO', {
+      hour: '2-digit',
+      minute: '2-digit'
+    })
+  };
+};
+---
+
+<Base title="Eventos" description="Agenda de eventos de la Agencia ITRC">
+  <HeroPage
+    title="Agenda de Eventos"
+    subtitle="Consulte los proximos eventos y actividades de la Agencia ITRC"
+    icon="fa-calendar-days"
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="page-events">
+    <div class="container">
+
+      <!-- Proximos Eventos -->
+      <div class="events-section">
+        <h2>
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          Proximos Eventos
+        </h2>
+
+        {futureEvents.length > 0 ? (
+          <div class="events-list">
+            {futureEvents.map((event) => {
+              const dateInfo = formatDate(event.startDate);
+              return (
+                <article class="event-card">
+                  <div class="event-card__date" aria-hidden="true">
+                    <span class="event-card__day">{dateInfo.day}</span>
+                    <span class="event-card__month">{dateInfo.month}</span>
+                  </div>
+
+                  <div class="event-card__content">
+                    <h3 class="event-card__title">{event.title}</h3>
+
+                    <div class="event-card__meta">
+                      <span>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                        {dateInfo.full}
+                      </span>
+                      <span>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                        {dateInfo.time}
+                      </span>
+                      {event.location && (
+                        <span>
+                          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                          {event.location}
+                        </span>
+                      )}
+                    </div>
+
+                    <p class="event-card__description">{event.description}</p>
+
+                    {event.image && (
+                      <img src={event.image} alt={event.title} class="event-card__image event-card__image--large" loading="lazy" />
+                    )}
+
+                    {event.virtualLink && (
+                      <a
+                        href={event.virtualLink}
+                        class="btn btn--primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i class="fa-solid fa-video" aria-hidden="true"></i>
+                        Unirse virtualmente
+                      </a>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="empty-state">
+            <i class="fa-solid fa-calendar-xmark" aria-hidden="true"></i>
+            <p>No hay eventos programados proximamente.</p>
+          </div>
+        )}
+      </div>
+
+      <!-- Eventos Pasados -->
+      {pastEvents.length > 0 && (
+        <div class="events-section events-section--past">
+          <h2>
+            <i class="fa-solid fa-history" aria-hidden="true"></i>
+            Eventos Anteriores
+          </h2>
+
+          <div class="events-list events-list--compact">
+            {pastEvents.map((event) => {
+              const dateInfo = formatDate(event.startDate);
+              return (
+                <article class="event-card event-card--past event-card--expandable">
+                  <button class="event-card__toggle" aria-expanded="false">
+                    <div class="event-card__date" aria-hidden="true">
+                      <span class="event-card__day">{dateInfo.day}</span>
+                      <span class="event-card__month">{dateInfo.month}</span>
+                    </div>
+
+                    <div class="event-card__content">
+                      <h3 class="event-card__title">{event.title}</h3>
+                      <span class="event-card__location">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        {event.location || 'Virtual'}
+                      </span>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down event-card__chevron" aria-hidden="true"></i>
+                  </button>
+
+                  <div class="event-card__details" hidden>
+                    <div class="event-card__meta">
+                      <span>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                        {dateInfo.full}
+                      </span>
+                      <span>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                        {dateInfo.time}
+                      </span>
+                    </div>
+                    {event.description && (
+                      <p class="event-card__description">{event.description}</p>
+                    )}
+                    {event.image && (
+                      <img src={event.image} alt={event.title} class="event-card__image" loading="lazy" />
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-events {
+    padding: var(--space-12) 0 var(--space-20);
+  }
+
+  .events-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .events-section h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  .events-section h2 i {
+    color: var(--itrc-gold);
+  }
+
+  .events-section--past {
+    opacity: 0.8;
+  }
+
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .event-card {
+    display: flex;
+    gap: var(--space-6);
+    padding: var(--space-6);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+
+  .event-card:hover {
+    border-color: var(--itrc-gold);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(4px);
+  }
+
+  .event-card--past {
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .event-card__date {
+    width: 70px;
+    min-width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-navy);
+    color: var(--white);
+    border-radius: var(--radius-md);
+  }
+
+  .event-card--past .event-card__date {
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    background: var(--gray-500);
+  }
+
+  .event-card__day {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .event-card__month {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .event-card__content {
+    flex: 1;
+  }
+
+  .event-card__title {
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--space-3);
+    color: var(--itrc-navy);
+  }
+
+  .event-card--past .event-card__title {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-1);
+  }
+
+  .event-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+  }
+
+  .event-card__meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .event-card__meta i {
+    color: var(--itrc-gold);
+  }
+
+  .event-card__description {
+    color: var(--gray-700);
+    margin-bottom: var(--space-4);
+    line-height: 1.6;
+  }
+
+  .event-card__location {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  /* Expandable event cards */
+  .event-card--expandable {
+    flex-direction: column;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .event-card__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    padding: var(--space-4);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .event-card__toggle .event-card__content {
+    flex: 1;
+  }
+
+  .event-card__chevron {
+    color: var(--gray-400);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .event-card__toggle[aria-expanded="true"] .event-card__chevron {
+    transform: rotate(180deg);
+    color: var(--itrc-gold);
+  }
+
+  .event-card__details {
+    padding: 0 var(--space-4) var(--space-4);
+    border-top: 1px solid var(--gray-200);
+    margin-top: var(--space-2);
+    padding-top: var(--space-4);
+  }
+
+  .event-card__details[hidden] {
+    display: none;
+  }
+
+  .event-card__image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--radius-md);
+    margin-top: var(--space-4);
+  }
+
+  .event-card__image--large {
+    max-width: 600px;
+    margin-bottom: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .page-events {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+
+    .event-card {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .event-card__date {
+      width: 100%;
+      flex-direction: row;
+      gap: var(--space-2);
+      height: auto;
+      padding: var(--space-3);
+    }
+
+    .event-card--past {
+      flex-direction: row;
+    }
+
+    .event-card--past .event-card__date {
+      width: 56px;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  function initEventCards() {
+    const toggleButtons = document.querySelectorAll('.event-card__toggle');
+
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const details = button.nextElementSibling as HTMLElement;
+
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
+
+        if (details) {
+          if (isExpanded) {
+            details.setAttribute('hidden', '');
+          } else {
+            details.removeAttribute('hidden');
+          }
+        }
+      });
+    });
+  }
+
+  initEventCards();
+  document.addEventListener('astro:after-swap', initEventCards);
+</script>
