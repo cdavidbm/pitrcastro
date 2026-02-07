@@ -29,22 +29,6 @@ export interface DocumentPage {
   sections: DocumentSection[];
 }
 
-export interface NavItem {
-  label: string;
-  url: string;
-  external?: boolean;
-  highlighted?: boolean;
-  children?: NavItem[];
-}
-
-export interface QuickAccessItem {
-  label: string;
-  url: string;
-  icon: string;
-  external?: boolean;
-  highlighted?: boolean;
-}
-
 export interface Slide {
   image: string;
   imageAlt: string;
@@ -68,43 +52,6 @@ export interface CalendarEvent {
   image?: string;
   virtualLink?: string;
   published: boolean;
-}
-
-export interface NewsArticle {
-  title: string;
-  date: Date;
-  image?: string;
-  excerpt?: string;
-  tags?: string[];
-  draft: boolean;
-}
-
-export interface ContactConfig {
-  address: string;
-  city: string;
-  postalCode?: string;
-  phone: string;
-  tollFree?: string;
-  email: string;
-  emailNotifications?: string;
-  schedule: string;
-  socialMedia?: {
-    facebook?: string;
-    twitter?: string;
-    youtube?: string;
-    instagram?: string;
-  };
-}
-
-export interface SiteConfig {
-  name: string;
-  fullName: string;
-  description: string;
-  keywords?: string[];
-  featuredVideo?: {
-    url: string;
-    title: string;
-  };
 }
 
 export interface MarkdownModule {

@@ -31,8 +31,6 @@
   --file-pdf: #dc3545;
   --file-excel: #198754;
   --file-word: #0d6efd;
-  --file-default: var(--itrc-gold);
-
   /* Colores adicionales */
   --green-accent: #059669;
   --itrc-navy-dark: #0a1628;
@@ -785,65 +783,6 @@ a:hover {
 }
 
 /* ================================
-   Cards
-   ================================ */
-.card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-  transition: all var(--transition-base);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.card__image {
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-
-.card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.card:hover .card__image img {
-  transform: scale(1.05);
-}
-
-.card__content {
-  padding: var(--space-6);
-}
-
-.card__date {
-  font-size: var(--font-size-sm);
-  color: var(--gray-500);
-  margin-bottom: var(--space-2);
-}
-
-.card__title {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--space-3);
-  color: var(--itrc-navy);
-  transition: color var(--transition-fast);
-}
-
-.card:hover .card__title {
-  color: var(--itrc-gold-dark);
-}
-
-.card__excerpt {
-  color: var(--gray-600);
-  font-size: var(--font-size-sm);
-  line-height: 1.6;
-}
-
-/* ================================
    Footer
    ================================ */
 .footer {
@@ -956,28 +895,7 @@ a:hover {
   to { opacity: 1; }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
-.animate-slide-in {
-  animation: slideInRight 0.5s ease-out forwards;
-}
 
 /* Stagger children */
 .stagger-children > * {
@@ -1032,14 +950,6 @@ a:hover {
   border: 0;
 }
 
-.text-center { text-align: center; }
-.text-gold { color: var(--itrc-gold); }
-.text-navy { color: var(--itrc-navy); }
-
-.mt-4 { margin-top: var(--space-4); }
-.mt-8 { margin-top: var(--space-8); }
-.mb-4 { margin-bottom: var(--space-4); }
-.mb-8 { margin-bottom: var(--space-8); }
 
 /* ================================
    Shared Page Utilities
