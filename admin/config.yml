@@ -154,6 +154,94 @@ collections:
               - name: "descripcion"
                 label: "Descripcion"
                 widget: "string"
+          - name: "quienesSomos"
+            label: "Quienes Somos"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "intro"
+                label: "Parrafos de introduccion"
+                widget: "list"
+                label_singular: "Parrafo"
+                field:
+                  label: "Parrafo"
+                  name: "parrafo"
+                  widget: "text"
+              - name: "capacidades"
+                label: "Capacidades"
+                widget: "list"
+                label_singular: "Capacidad"
+                field:
+                  label: "Capacidad"
+                  name: "capacidad"
+                  widget: "string"
+          - name: "queHacemos"
+            label: "Que Hacemos"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "intro"
+                label: "Texto introductorio"
+                widget: "text"
+                hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
+              - name: "entidades"
+                label: "Entidades vigiladas"
+                widget: "list"
+                label_singular: "Entidad"
+                fields:
+                  - name: "nombre"
+                    label: "Nombre"
+                    widget: "string"
+                  - name: "descripcion"
+                    label: "Descripcion"
+                    widget: "string"
+              - name: "cierre"
+                label: "Texto de cierre"
+                widget: "text"
+                hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
+          - name: "comoLoHacemos"
+            label: "Como lo Hacemos"
+            widget: "list"
+            label_singular: "Metodo"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo"
+                widget: "string"
+              - name: "icon"
+                label: "Icono FontAwesome"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion"
+                widget: "text"
+          - name: "funciones"
+            label: "Funciones de la Agencia"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "intro"
+                label: "Texto introductorio"
+                widget: "text"
+                hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
+              - name: "items"
+                label: "Lista de funciones"
+                widget: "list"
+                label_singular: "Funcion"
+                fields:
+                  - name: "title"
+                    label: "Titulo de la funcion"
+                    widget: "string"
+                  - name: "content"
+                    label: "Descripcion detallada"
+                    widget: "text"
+              - name: "paragrafo"
+                label: "Paragrafo"
+                widget: "text"
+                required: false
           - name: "mapaEstrategico"
             label: "Mapa Estrategico"
             widget: "object"
@@ -206,6 +294,18 @@ collections:
               - name: "matrizUrl"
                 label: "URL de la matriz PDF"
                 widget: "file"
+          - name: "resolucionesSeccion"
+            label: "Seccion de Resoluciones"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo de la seccion"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion de la seccion"
+                widget: "string"
           - name: "resoluciones"
             label: "Resoluciones"
             widget: "list"
@@ -220,6 +320,18 @@ collections:
               - name: "url"
                 label: "URL del documento"
                 widget: "file"
+          - name: "ctaDirectorio"
+            label: "CTA Directorio de Servidores"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion"
+                widget: "string"
 
       # --- Direccionamiento Estrategico ---
       - name: "direccionamiento-estrategico"
@@ -637,6 +749,45 @@ collections:
                       - { label: "Excel", value: "xls" }
                     default: "pdf"
                     required: false
+          - name: "infoCards"
+            label: "Tarjetas informativas"
+            widget: "list"
+            label_singular: "Tarjeta"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion"
+                widget: "text"
+              - name: "icon"
+                label: "Icono FontAwesome"
+                widget: "string"
+                hint: "Ej: fa-scale-balanced, fa-landmark"
+          - name: "ctaSection"
+            label: "Seccion de enlace externo (CTA)"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion"
+                widget: "text"
+              - name: "linkUrl"
+                label: "URL del enlace"
+                widget: "string"
+              - name: "linkText"
+                label: "Texto del boton"
+                widget: "string"
+              - name: "icon"
+                label: "Icono FontAwesome"
+                widget: "string"
+                required: false
 
       # --- Sistema Integrado de Gestion ---
       - name: "sistema-integrado-gestion"
@@ -766,6 +917,70 @@ collections:
               - name: "icon"
                 label: "Icono FontAwesome"
                 widget: "string"
+          - name: "controlPolitico"
+            label: "Organos de Control Politico"
+            widget: "list"
+            label_singular: "Organo"
+            required: false
+            collapsed: true
+            fields:
+              - name: "nombre"
+                label: "Nombre"
+                widget: "string"
+              - name: "direccion"
+                label: "Direccion"
+                widget: "string"
+              - name: "telefono"
+                label: "Telefono"
+                widget: "string"
+              - name: "lineaNacional"
+                label: "Linea nacional"
+                widget: "string"
+                required: false
+              - name: "email"
+                label: "Correo electronico"
+                widget: "string"
+                required: false
+              - name: "web"
+                label: "Sitio web"
+                widget: "string"
+                required: false
+          - name: "controlInterno"
+            label: "Organos de Control Interno"
+            widget: "list"
+            label_singular: "Organo"
+            required: false
+            collapsed: true
+            fields:
+              - name: "nombre"
+                label: "Nombre"
+                widget: "string"
+              - name: "control"
+                label: "Tipo de control"
+                widget: "string"
+              - name: "icon"
+                label: "Icono FontAwesome"
+                widget: "string"
+                required: false
+          - name: "contactoInterno"
+            label: "Datos de Contacto Institucional"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "direccion"
+                label: "Direccion"
+                widget: "string"
+              - name: "telefono"
+                label: "Telefono"
+                widget: "string"
+              - name: "lineaNacional"
+                label: "Linea nacional"
+                widget: "string"
+                required: false
+              - name: "email"
+                label: "Correo electronico"
+                widget: "string"
           - name: "informesLegales"
             label: "Informes Legales"
             widget: "list"
@@ -791,6 +1006,44 @@ collections:
                     label: "Año"
                     widget: "string"
                     required: false
+          - name: "planesMejoramiento"
+            label: "Planes de Mejoramiento"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion"
+                widget: "text"
+              - name: "linkUrl"
+                label: "URL del enlace"
+                widget: "string"
+              - name: "linkText"
+                label: "Texto del boton"
+                widget: "string"
+          - name: "enlacesRelacionados"
+            label: "Enlaces Relacionados"
+            widget: "list"
+            label_singular: "Enlace"
+            required: false
+            collapsed: true
+            fields:
+              - name: "titulo"
+                label: "Titulo"
+                widget: "string"
+              - name: "descripcion"
+                label: "Descripcion"
+                widget: "string"
+              - name: "url"
+                label: "URL"
+                widget: "string"
+              - name: "icon"
+                label: "Icono FontAwesome"
+                widget: "string"
+                required: false
 
   # ==========================================
   # TRANSPARENCIA
@@ -819,6 +1072,11 @@ collections:
             label: "Icono FontAwesome"
             widget: "string"
             default: "fa-folder-open"
+          - name: "order"
+            label: "Orden de aparicion"
+            widget: "number"
+            required: false
+            default: 1
           - name: "published"
             label: "Publicado"
             widget: "boolean"
@@ -862,6 +1120,18 @@ collections:
                     label: "Archivo"
                     widget: "file"
                     required: true
+                  - name: "description"
+                    label: "Descripcion del documento"
+                    widget: "string"
+                    required: false
+                  - name: "category"
+                    label: "Categoria (para tabs)"
+                    widget: "string"
+                    required: false
+                  - name: "anio"
+                    label: "Año"
+                    widget: "string"
+                    required: false
 
   # ==========================================
   # NORMATIVA
@@ -1597,6 +1867,11 @@ collections:
                 widget: "boolean"
                 default: false
                 required: false
+              - name: "highlighted"
+                label: "Destacado (color especial)"
+                widget: "boolean"
+                default: false
+                required: false
               - name: "children"
                 label: "Submenu"
                 widget: "list"
@@ -1613,6 +1888,29 @@ collections:
                     widget: "boolean"
                     default: false
                     required: false
+          - name: "footerLinks"
+            label: "Enlaces del pie de pagina"
+            widget: "list"
+            label_singular: "Enlace"
+            required: false
+            collapsed: true
+            fields:
+              - name: "label"
+                label: "Texto"
+                widget: "string"
+              - name: "url"
+                label: "URL"
+                widget: "string"
+              - name: "external"
+                label: "Enlace externo"
+                widget: "boolean"
+                default: false
+                required: false
+              - name: "highlighted"
+                label: "Destacado"
+                widget: "boolean"
+                default: false
+                required: false
 
       # --- Informacion institucional ---
       - name: "site"
