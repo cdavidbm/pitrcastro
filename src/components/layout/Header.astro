@@ -1,7 +1,15 @@
 ---
 import siteConfig from '../../content/settings/site.json';
+import contactConfig from '../../content/settings/contact.json';
 
 const base = import.meta.env.BASE_URL;
+
+const socialIcons: Record<string, string> = {
+  facebook: 'fa-brands fa-facebook-f',
+  twitter: 'fa-brands fa-x-twitter',
+  youtube: 'fa-brands fa-youtube',
+  instagram: 'fa-brands fa-instagram',
+};
 ---
 
 <header class="header" role="banner" id="main-header">
@@ -20,6 +28,23 @@ const base = import.meta.env.BASE_URL;
       </div>
     </a>
 
+    <div class="header__social">
+      {Object.entries(contactConfig.socialMedia).map(([network, url]) => (
+        url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="header__social-link"
+            aria-label={`Síguenos en ${network}`}
+            title={network.charAt(0).toUpperCase() + network.slice(1)}
+          >
+            <i class={socialIcons[network] || 'fa-solid fa-link'} aria-hidden="true"></i>
+          </a>
+        )
+      ))}
+    </div>
+
     <!-- Botón hamburguesa para desktop (visible solo con scroll) -->
     <button
       class="header__menu-btn"
@@ -35,6 +60,31 @@ const base = import.meta.env.BASE_URL;
 </header>
 
 <style>
+  /* Social links */
+  .header__social {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+
+  .header__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .header__social-link:hover {
+    color: var(--itrc-gold);
+    transform: scale(1.15);
+  }
+
   /* Botón hamburguesa en header (oculto por defecto) */
   .header__menu-btn {
     display: none;
@@ -47,7 +97,6 @@ const base = import.meta.env.BASE_URL;
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-base);
-    margin-left: auto;
   }
 
   .header__menu-btn:hover {
