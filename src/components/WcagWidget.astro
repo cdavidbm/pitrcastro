@@ -21,6 +21,22 @@
     </div>
 
     <div class="wcag-widget__content">
+      <!-- Tema de color -->
+      <div class="wcag-widget__option wcag-widget__option--theme">
+        <span class="wcag-widget__label">Tema de color</span>
+        <div class="wcag-widget__theme-selector">
+          <button class="wcag-widget__theme-btn wcag-widget__theme-btn--active" data-theme="institucional" aria-label="Tema Institucional" title="Institucional">
+            <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--institucional"></span>
+          </button>
+          <button class="wcag-widget__theme-btn" data-theme="claro" aria-label="Tema Claro" title="Claro">
+            <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--claro"></span>
+          </button>
+          <button class="wcag-widget__theme-btn" data-theme="oscuro" aria-label="Tema Oscuro" title="Oscuro">
+            <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--oscuro"></span>
+          </button>
+        </div>
+      </div>
+
       <!-- Tamaño de texto -->
       <div class="wcag-widget__option">
         <span class="wcag-widget__label">Tamaño de texto</span>
@@ -282,6 +298,53 @@
     color: var(--gray-800);
   }
 
+  /* Theme selector */
+  .wcag-widget__theme-selector {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .wcag-widget__theme-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--gray-300);
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    transition: all var(--transition-fast);
+  }
+
+  .wcag-widget__theme-btn:hover {
+    border-color: var(--itrc-gold);
+  }
+
+  .wcag-widget__theme-btn--active {
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 2px rgba(179, 139, 64, 0.3);
+  }
+
+  .wcag-widget__theme-swatch {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .wcag-widget__theme-swatch--institucional {
+    background: linear-gradient(135deg, #002147 50%, #b38b40 50%);
+  }
+
+  .wcag-widget__theme-swatch--claro {
+    background: linear-gradient(135deg, #f0f0f0 50%, #b38b40 50%);
+  }
+
+  .wcag-widget__theme-swatch--oscuro {
+    background: linear-gradient(135deg, #121212 50%, #b38b40 50%);
+  }
+
   /* Estados de accesibilidad globales */
   :global(html.high-contrast) {
     filter: contrast(1.5);
@@ -333,9 +396,35 @@
     const toggle = widget.querySelector('.wcag-widget__toggle') as HTMLElement | null;
     const panel = document.getElementById('wcag-panel');
     const closeBtn = widget.querySelector('.wcag-widget__close');
+    const html = document.documentElement;
 
-    let fontSize = 100;
+    // Restore preferences from localStorage
+    let fontSize = parseInt(localStorage.getItem('itrc-font-size') || '100', 10);
+    if (fontSize !== 100) html.style.fontSize = `${fontSize}%`;
 
+    if (localStorage.getItem('itrc-contrast') === 'true') {
+      html.classList.add('high-contrast');
+      const btn = widget.querySelector('[data-action="contrast-toggle"]');
+      btn?.setAttribute('aria-pressed', 'true');
+    }
+    if (localStorage.getItem('itrc-grayscale') === 'true') {
+      html.classList.add('grayscale');
+      const btn = widget.querySelector('[data-action="grayscale-toggle"]');
+      btn?.setAttribute('aria-pressed', 'true');
+    }
+    if (localStorage.getItem('itrc-underline') === 'true') {
+      html.classList.add('underline-links');
+      const btn = widget.querySelector('[data-action="underline-toggle"]');
+      btn?.setAttribute('aria-pressed', 'true');
+    }
+
+    // Restore theme button active state
+    const currentTheme = localStorage.getItem('itrc-theme') || 'institucional';
+    widget.querySelectorAll('[data-theme]').forEach(btn => {
+      btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === currentTheme);
+    });
+
+    // Panel toggle
     toggle?.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', (!expanded).toString());
@@ -347,6 +436,20 @@
       panel?.setAttribute('hidden', '');
     });
 
+    // Theme buttons
+    widget.querySelectorAll('[data-theme]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = (btn as HTMLElement).dataset.theme!;
+        html.classList.remove('theme-claro', 'theme-oscuro');
+        if (theme !== 'institucional') html.classList.add(`theme-${theme}`);
+        localStorage.setItem('itrc-theme', theme);
+        widget.querySelectorAll('[data-theme]').forEach(b => {
+          b.classList.toggle('wcag-widget__theme-btn--active', (b as HTMLElement).dataset.theme === theme);
+        });
+      });
+    });
+
+    // Action buttons
     widget.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       const button = target.closest('[data-action]') as HTMLElement;
@@ -355,41 +458,52 @@
       switch (button.dataset.action) {
         case 'font-increase':
           fontSize = Math.min(fontSize + 10, 150);
-          document.documentElement.style.fontSize = `${fontSize}%`;
+          html.style.fontSize = `${fontSize}%`;
+          localStorage.setItem('itrc-font-size', String(fontSize));
           break;
         case 'font-decrease':
           fontSize = Math.max(fontSize - 10, 80);
-          document.documentElement.style.fontSize = `${fontSize}%`;
+          html.style.fontSize = `${fontSize}%`;
+          localStorage.setItem('itrc-font-size', String(fontSize));
           break;
         case 'font-reset':
           fontSize = 100;
-          document.documentElement.style.fontSize = '100%';
+          html.style.fontSize = '100%';
+          localStorage.setItem('itrc-font-size', '100');
           break;
         case 'contrast-toggle': {
-          document.documentElement.classList.toggle('high-contrast');
-          const pressed = button.getAttribute('aria-pressed') === 'true';
-          button.setAttribute('aria-pressed', (!pressed).toString());
+          const isOn = html.classList.toggle('high-contrast');
+          button.setAttribute('aria-pressed', String(isOn));
+          localStorage.setItem('itrc-contrast', String(isOn));
           break;
         }
         case 'grayscale-toggle': {
-          document.documentElement.classList.toggle('grayscale');
-          const pressed = button.getAttribute('aria-pressed') === 'true';
-          button.setAttribute('aria-pressed', (!pressed).toString());
+          const isOn = html.classList.toggle('grayscale');
+          button.setAttribute('aria-pressed', String(isOn));
+          localStorage.setItem('itrc-grayscale', String(isOn));
           break;
         }
         case 'underline-toggle': {
-          document.documentElement.classList.toggle('underline-links');
-          const pressed = button.getAttribute('aria-pressed') === 'true';
-          button.setAttribute('aria-pressed', (!pressed).toString());
+          const isOn = html.classList.toggle('underline-links');
+          button.setAttribute('aria-pressed', String(isOn));
+          localStorage.setItem('itrc-underline', String(isOn));
           break;
         }
         case 'reset-all':
           fontSize = 100;
-          document.documentElement.style.fontSize = '100%';
-          document.documentElement.classList.remove('high-contrast', 'grayscale', 'underline-links');
+          html.style.fontSize = '100%';
+          html.classList.remove('high-contrast', 'grayscale', 'underline-links', 'theme-claro', 'theme-oscuro');
           widget.querySelectorAll('[aria-pressed]').forEach(btn => {
             btn.setAttribute('aria-pressed', 'false');
           });
+          widget.querySelectorAll('[data-theme]').forEach(btn => {
+            btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === 'institucional');
+          });
+          localStorage.removeItem('itrc-theme');
+          localStorage.removeItem('itrc-font-size');
+          localStorage.removeItem('itrc-contrast');
+          localStorage.removeItem('itrc-grayscale');
+          localStorage.removeItem('itrc-underline');
           break;
       }
     });

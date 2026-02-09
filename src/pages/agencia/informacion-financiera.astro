@@ -137,7 +137,7 @@ const breadcrumb = [
   /* Tabs Section */
   .tabs-section {
     padding: var(--space-16) var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   /* Vertical Tabs Layout */
@@ -155,7 +155,7 @@ const breadcrumb = [
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    background: var(--white);
+    background: var(--theme-surface);
     padding: var(--space-4);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
@@ -172,7 +172,7 @@ const breadcrumb = [
     background: transparent;
     border: none;
     border-radius: var(--radius-lg);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     font-weight: 500;
     cursor: pointer;
@@ -192,8 +192,8 @@ const breadcrumb = [
   }
 
   .vertical-tabs__count {
-    background: var(--gray-100);
-    color: var(--gray-500);
+    background: var(--theme-surface-alt);
+    color: var(--theme-text-muted);
     font-size: var(--font-size-xs);
     padding: 2px 8px;
     border-radius: var(--radius-full);
@@ -201,7 +201,7 @@ const breadcrumb = [
   }
 
   .vertical-tabs__tab:hover {
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     color: var(--itrc-navy);
   }
 
@@ -210,7 +210,7 @@ const breadcrumb = [
   }
 
   .vertical-tabs__tab.active {
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
     color: var(--white);
   }
 
@@ -225,7 +225,7 @@ const breadcrumb = [
 
   /* Tab Panels */
   .vertical-tabs__content {
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     overflow: hidden;
@@ -244,18 +244,18 @@ const breadcrumb = [
     justify-content: space-between;
     align-items: center;
     padding: var(--space-6);
-    border-bottom: 1px solid var(--gray-100);
-    background: var(--gray-50);
+    border-bottom: 1px solid var(--theme-border-light);
+    background: var(--theme-surface-alt);
   }
 
   .panel-header__title {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-xl);
     margin: 0;
   }
 
   .panel-header__count {
-    color: var(--gray-500);
+    color: var(--theme-text-muted);
     font-size: var(--font-size-sm);
   }
 
@@ -272,11 +272,11 @@ const breadcrumb = [
     padding: var(--space-4) var(--space-6);
     text-decoration: none;
     transition: all var(--transition-fast);
-    border-bottom: 1px solid var(--gray-50);
+    border-bottom: 1px solid var(--theme-surface-alt);
   }
 
   .document-item--alt {
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   .document-item:hover {
@@ -289,7 +289,7 @@ const breadcrumb = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-md);
     color: var(--file-pdf);
     font-size: var(--font-size-xl);
@@ -303,7 +303,7 @@ const breadcrumb = [
 
   .document-item__title {
     flex: 1;
-    color: var(--gray-700);
+    color: var(--theme-text);
     font-size: var(--font-size-sm);
     font-weight: 500;
   }
@@ -337,7 +337,7 @@ const breadcrumb = [
   }
 
   .info-card {
-    background: var(--white);
+    background: var(--theme-surface);
     padding: var(--space-6);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
@@ -358,13 +358,13 @@ const breadcrumb = [
   }
 
   .info-card h3 {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-3);
   }
 
   .info-card p {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     line-height: 1.6;
     margin: 0;
@@ -373,7 +373,7 @@ const breadcrumb = [
   /* CTA Section */
   .cta-section {
     padding: var(--space-12) var(--space-6);
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
   }
 
   /* Responsive */

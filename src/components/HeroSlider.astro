@@ -155,7 +155,7 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
     position: relative;
     width: 100%;
     overflow: hidden;
-    background: var(--itrc-navy);
+    background: var(--theme-hero-from);
   }
 
   .hero-slider__track {
@@ -189,9 +189,8 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(var(--itrc-navy-rgb), 0.85) 0%,
-      rgba(26, 26, 46, 0.75) 50%,
-      rgba(0, 51, 102, 0.7) 100%
+      var(--theme-slider-overlay-from) 0%,
+      var(--theme-slider-overlay-to) 100%
     );
   }
 

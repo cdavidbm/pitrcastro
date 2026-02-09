@@ -111,7 +111,7 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     margin-bottom: var(--space-6);
     transition: color var(--transition-fast);
@@ -135,7 +135,7 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    color: var(--gray-500);
+    color: var(--theme-text-muted);
     font-size: var(--font-size-sm);
     margin-bottom: var(--space-4);
   }
@@ -154,10 +154,10 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
 
   .article__tag {
     padding: var(--space-1) var(--space-3);
-    background: var(--gray-100);
+    background: var(--theme-surface-alt);
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
   }
 
   .article__image {
@@ -176,7 +176,7 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   .article__content {
     font-size: var(--font-size-lg);
     line-height: 1.8;
-    color: var(--gray-700);
+    color: var(--theme-text);
   }
 
   .article__content :global(h2) {
@@ -206,13 +206,13 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   }
 
   .article__content :global(strong) {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
   }
 
   .article__footer {
     margin-top: var(--space-12);
     padding-top: var(--space-8);
-    border-top: 1px solid var(--gray-200);
+    border-top: 1px solid var(--theme-border);
   }
 
   .article__share {
@@ -222,7 +222,7 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   }
 
   .article__share span {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
   }
 
@@ -232,9 +232,9 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gray-100);
+    background: var(--theme-surface-alt);
     border-radius: var(--radius-full);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     transition: all var(--transition-base);
   }
 

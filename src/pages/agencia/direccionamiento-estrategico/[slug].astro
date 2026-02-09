@@ -132,8 +132,8 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
 
 <style>
   .actions-bar {
-    background: var(--white);
-    border-bottom: 1px solid var(--gray-200);
+    background: var(--theme-surface);
+    border-bottom: 1px solid var(--theme-border);
     padding: var(--space-4) var(--space-6);
     position: sticky;
     top: 0;
@@ -152,7 +152,7 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     text-decoration: none;
     font-size: var(--font-size-sm);
     font-weight: 500;
@@ -169,15 +169,15 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
     align-items: center;
     gap: var(--space-2);
     font-size: var(--font-size-sm);
-    color: var(--gray-500);
-    background: var(--gray-100);
+    color: var(--theme-text-muted);
+    background: var(--theme-surface-alt);
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-md);
   }
 
   .documents-section {
     padding: var(--space-12) var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     min-height: 50vh;
   }
 
@@ -191,7 +191,7 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
   }
 
   .doc-section__title {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-6);
   }
@@ -200,7 +200,7 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
     list-style: none;
     margin: 0;
     padding: 0;
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     overflow: hidden;
@@ -208,7 +208,7 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
 
   .doc-list li {
     padding: var(--space-4) var(--space-5);
-    border-bottom: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--theme-border-light);
   }
 
   .doc-list li:last-child {
@@ -217,8 +217,8 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
 
   .nav-secciones {
     padding: var(--space-10) var(--space-6);
-    background: var(--white);
-    border-top: 1px solid var(--gray-200);
+    background: var(--theme-surface);
+    border-top: 1px solid var(--theme-border);
   }
 
   .nav-secciones__grid {
@@ -243,7 +243,7 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
 
   .nav-seccion--navy {
     background: rgba(21, 37, 63, 0.1);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
   }
 
   .nav-seccion--navy:hover {

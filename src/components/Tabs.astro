@@ -66,18 +66,18 @@ const categoryNames = Array.from(grouped.keys());
 
 <style>
   .tabs {
-    border: 1px solid var(--gray-200);
+    border: 1px solid var(--theme-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    background: var(--white);
+    background: var(--theme-surface);
   }
 
   .tabs__list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
-    background: var(--itrc-navy);
+    background: var(--theme-tabs-bar-bg);
     padding: var(--space-3);
   }
 
@@ -90,7 +90,7 @@ const categoryNames = Array.from(grouped.keys());
     border-radius: var(--radius-md);
     border: none;
     background: transparent;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-tabs-text);
     font-family: var(--font-family);
     font-size: var(--font-size-sm);
     font-weight: 500;
@@ -137,7 +137,7 @@ const categoryNames = Array.from(grouped.keys());
 
   .tabs__list-docs li {
     padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--theme-border-light);
   }
 
   .tabs__list-docs li:last-child {

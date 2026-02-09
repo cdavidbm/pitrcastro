@@ -55,9 +55,9 @@ const base = import.meta.env.BASE_URL;
     width: var(--icon-xs);
     height: var(--icon-xs);
     background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid color-mix(in srgb, var(--theme-nav-text) 50%, transparent);
     border-radius: var(--radius-full);
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--theme-nav-text);
     cursor: pointer;
     transition: all var(--transition-fast);
     font-size: 0.85rem;
@@ -78,7 +78,7 @@ const base = import.meta.env.BASE_URL;
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 520px;
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-xl);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     z-index: 10001;
@@ -97,7 +97,7 @@ const base = import.meta.env.BASE_URL;
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-4) var(--space-5);
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--theme-border);
   }
 
   .search-box__input-icon {
@@ -122,10 +122,10 @@ const base = import.meta.env.BASE_URL;
   .search-box__kbd {
     font-size: var(--font-size-xs);
     color: var(--gray-400);
-    background: var(--gray-100);
+    background: var(--theme-surface-alt);
     padding: 2px 6px;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--gray-200);
+    border: 1px solid var(--theme-border);
     font-family: inherit;
   }
 
@@ -153,13 +153,13 @@ const base = import.meta.env.BASE_URL;
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-md);
     text-decoration: none;
-    color: var(--gray-700);
+    color: var(--theme-text);
     transition: background var(--transition-fast);
   }
 
   .search-box__result a:hover,
   .search-box__result a.active {
-    background: var(--gray-100);
+    background: var(--theme-surface-alt);
     color: var(--itrc-navy);
   }
 
@@ -229,7 +229,7 @@ const base = import.meta.env.BASE_URL;
     align-items: center;
     justify-content: space-between;
     padding: var(--space-3) var(--space-5);
-    border-top: 1px solid var(--gray-100);
+    border-top: 1px solid var(--theme-border-light);
     font-size: var(--font-size-xs);
     color: var(--gray-400);
   }
@@ -241,10 +241,10 @@ const base = import.meta.env.BASE_URL;
 
   .search-box__shortcut kbd {
     font-size: 0.65rem;
-    background: var(--gray-100);
+    background: var(--theme-surface-alt);
     padding: 1px 5px;
     border-radius: 3px;
-    border: 1px solid var(--gray-200);
+    border: 1px solid var(--theme-border);
     font-family: inherit;
   }
 
@@ -263,7 +263,7 @@ const base = import.meta.env.BASE_URL;
       width: 100%;
       height: auto;
       border-radius: var(--radius-md);
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: color-mix(in srgb, var(--theme-nav-text) 30%, transparent);
       padding: var(--space-3) var(--space-4);
       justify-content: center;
       gap: var(--space-2);

@@ -121,7 +121,7 @@ const breadcrumb = [
   /* Intro Section */
   .intro-section {
     padding: var(--space-10) var(--space-6);
-    background: var(--white);
+    background: var(--theme-surface);
   }
 
   .intro-card {
@@ -131,7 +131,7 @@ const breadcrumb = [
     max-width: 800px;
     margin: 0 auto;
     padding: var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     border-radius: var(--radius-xl);
     border-left: 4px solid var(--itrc-gold);
   }
@@ -143,14 +143,14 @@ const breadcrumb = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
     border-radius: var(--radius-lg);
     color: var(--itrc-gold);
     font-size: var(--font-size-2xl);
   }
 
   .intro-card__content p {
-    color: var(--gray-700);
+    color: var(--theme-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -158,7 +158,7 @@ const breadcrumb = [
   /* Secciones Grid */
   .secciones-section {
     padding: var(--space-16) var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   .secciones-grid {
@@ -174,7 +174,7 @@ const breadcrumb = [
     align-items: center;
     gap: var(--space-5);
     padding: var(--space-6);
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     text-decoration: none;
@@ -192,7 +192,7 @@ const breadcrumb = [
     width: 4px;
   }
 
-  .seccion-card--navy::before { background: var(--itrc-navy); }
+  .seccion-card--navy::before { background: var(--theme-dark-section-bg); }
   .seccion-card--gold::before { background: var(--itrc-gold); }
   .seccion-card--green::before { background: var(--green-accent); }
 
@@ -215,7 +215,7 @@ const breadcrumb = [
 
   .seccion-card--navy .seccion-card__icon {
     background: rgba(21, 37, 63, 0.1);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
   }
 
   .seccion-card--gold .seccion-card__icon {
@@ -252,13 +252,13 @@ const breadcrumb = [
   }
 
   .seccion-card__titulo {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-2);
   }
 
   .seccion-card__descripcion {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     line-height: 1.6;
     margin-bottom: var(--space-3);
@@ -269,8 +269,8 @@ const breadcrumb = [
     align-items: center;
     gap: var(--space-2);
     font-size: var(--font-size-xs);
-    color: var(--gray-500);
-    background: var(--gray-100);
+    color: var(--theme-text-muted);
+    background: var(--theme-surface-alt);
     padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-full);
   }
@@ -294,7 +294,7 @@ const breadcrumb = [
   /* Marco Legal */
   .marco-legal {
     padding: var(--space-16) var(--space-6);
-    background: var(--white);
+    background: var(--theme-surface);
   }
 
   .normas-grid {
@@ -308,7 +308,7 @@ const breadcrumb = [
   .norma-item {
     text-align: center;
     padding: var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     border-radius: var(--radius-lg);
   }
 
@@ -319,20 +319,20 @@ const breadcrumb = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
     border-radius: var(--radius-full);
     color: var(--itrc-gold);
     font-size: var(--font-size-xl);
   }
 
   .norma-item h3 {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-base);
     margin-bottom: var(--space-2);
   }
 
   .norma-item p {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     line-height: 1.5;
     margin: 0;
@@ -341,7 +341,7 @@ const breadcrumb = [
   /* Related Section */
   .related-section {
     padding: var(--space-12) var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   .related-grid {
@@ -357,7 +357,7 @@ const breadcrumb = [
     align-items: center;
     gap: var(--space-4);
     padding: var(--space-5);
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     text-decoration: none;
@@ -387,13 +387,13 @@ const breadcrumb = [
   }
 
   .related-card__content h3 {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-base);
     margin-bottom: var(--space-1);
   }
 
   .related-card__content p {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     margin: 0;
   }

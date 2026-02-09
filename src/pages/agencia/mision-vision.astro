@@ -178,7 +178,7 @@ const breadcrumb = [
   /* Misión y Visión */
   .mision-vision {
     padding: var(--space-16) var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   .mision-vision__grid {
@@ -190,7 +190,7 @@ const breadcrumb = [
   }
 
   .mv-card {
-    background: var(--white);
+    background: var(--theme-surface);
     padding: var(--space-8);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
@@ -212,7 +212,7 @@ const breadcrumb = [
   }
 
   .mv-card--vision::before {
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
   }
 
   .mv-card__icon {
@@ -233,22 +233,22 @@ const breadcrumb = [
 
   .mv-card--vision .mv-card__icon {
     background: rgba(var(--itrc-navy-rgb, 21, 37, 63), 0.1);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
   }
 
   .mv-card__title {
     font-size: var(--font-size-xl);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     margin-bottom: var(--space-4);
   }
 
   .mv-card__text {
-    color: var(--gray-700);
+    color: var(--theme-text);
     line-height: 1.7;
   }
 
   .mv-card__text strong {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
   }
 
   /* Secciones de información */
@@ -275,10 +275,10 @@ const breadcrumb = [
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-5);
-    background: var(--white);
-    border: 2px solid var(--gray-200);
+    background: var(--theme-surface);
+    border: 2px solid var(--theme-border);
     border-radius: var(--radius-full);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-weight: 600;
     font-size: var(--font-size-sm);
     cursor: pointer;
@@ -291,8 +291,8 @@ const breadcrumb = [
   }
 
   .info-tabs__tab.active {
-    background: var(--itrc-navy);
-    border-color: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
+    border-color: var(--theme-heading);
     color: var(--white);
   }
 
@@ -302,7 +302,7 @@ const breadcrumb = [
 
   .info-tabs__panel {
     display: none;
-    background: var(--white);
+    background: var(--theme-surface);
     padding: var(--space-8);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
@@ -314,7 +314,7 @@ const breadcrumb = [
   }
 
   .info-tabs__panel p {
-    color: var(--gray-700);
+    color: var(--theme-text);
     line-height: 1.7;
     margin-bottom: var(--space-4);
   }
@@ -334,8 +334,8 @@ const breadcrumb = [
     align-items: flex-start;
     gap: var(--space-3);
     padding: var(--space-3) 0;
-    color: var(--gray-700);
-    border-bottom: 1px solid var(--gray-100);
+    color: var(--theme-text);
+    border-bottom: 1px solid var(--theme-border-light);
   }
 
   .info-list li:last-child {
@@ -356,7 +356,7 @@ const breadcrumb = [
   }
 
   .entidad-card {
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     padding: var(--space-4);
     border-radius: var(--radius-lg);
     text-align: center;
@@ -365,14 +365,14 @@ const breadcrumb = [
 
   .entidad-card strong {
     display: block;
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-2);
   }
 
   .entidad-card span {
     font-size: var(--font-size-sm);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
   }
 
   /* Como grid */
@@ -385,7 +385,7 @@ const breadcrumb = [
   .como-item {
     text-align: center;
     padding: var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     border-radius: var(--radius-lg);
   }
 
@@ -396,19 +396,19 @@ const breadcrumb = [
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
     color: var(--itrc-gold);
     border-radius: var(--radius-full);
     font-size: var(--font-size-2xl);
   }
 
   .como-item h4 {
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     margin-bottom: var(--space-3);
   }
 
   .como-item p {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     font-size: var(--font-size-sm);
     margin: 0;
   }
@@ -416,7 +416,7 @@ const breadcrumb = [
   /* Funciones Section */
   .funciones-section {
     padding: var(--space-16) var(--space-6);
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   .funciones-paragrafo {
@@ -431,7 +431,7 @@ const breadcrumb = [
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     margin-bottom: var(--space-3);
   }
 
@@ -440,7 +440,7 @@ const breadcrumb = [
   }
 
   .funciones-paragrafo p {
-    color: var(--gray-700);
+    color: var(--theme-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -448,7 +448,7 @@ const breadcrumb = [
   /* Valores Section */
   .valores-section {
     padding: var(--space-16) var(--space-6);
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
   }
 
   .valores-grid {

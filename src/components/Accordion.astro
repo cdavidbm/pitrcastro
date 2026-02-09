@@ -151,7 +151,7 @@ const renderItems = isDocument ? sections : items;
   }
 
   .accordion__item {
-    background: var(--white);
+    background: var(--theme-surface);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
@@ -180,12 +180,12 @@ const renderItems = isDocument ? sections : items;
     font-family: var(--font-family);
     font-size: var(--font-size-base);
     font-weight: 600;
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
     transition: all var(--transition-fast);
   }
 
   .accordion__header:hover {
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
   }
 
   .accordion__header:focus-visible {
@@ -194,8 +194,8 @@ const renderItems = isDocument ? sections : items;
   }
 
   .accordion__header[aria-expanded="true"] {
-    background: var(--itrc-navy);
-    color: var(--white);
+    background: var(--theme-accordion-expanded-bg);
+    color: var(--theme-accordion-expanded-text);
   }
 
   .accordion__title {
@@ -272,8 +272,8 @@ const renderItems = isDocument ? sections : items;
   .accordion__count {
     font-size: var(--font-size-sm);
     font-weight: 400;
-    color: var(--gray-500);
-    background: var(--gray-100);
+    color: var(--theme-text-muted);
+    background: var(--theme-surface-alt);
     padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-full);
   }
@@ -301,25 +301,25 @@ const renderItems = isDocument ? sections : items;
 
   /* Content variant panel */
   .accordion--content .accordion__panel {
-    border-top: 1px solid var(--gray-100);
+    border-top: 1px solid var(--theme-border-light);
   }
 
   .accordion__content {
     padding: var(--space-5);
     padding-top: var(--space-3);
-    color: var(--gray-700);
+    color: var(--theme-text);
     line-height: 1.7;
     font-size: var(--font-size-sm);
   }
 
   /* Document variant panel */
   .accordion--document .accordion__panel {
-    background: var(--gray-50);
+    background: var(--theme-surface-alt);
     border-top: 2px solid var(--itrc-gold);
   }
 
   .accordion__description {
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
     line-height: 1.7;
     font-size: var(--font-size-sm);
     background: rgba(var(--itrc-gold-rgb), 0.05);
@@ -337,7 +337,7 @@ const renderItems = isDocument ? sections : items;
 
   .accordion__list li {
     padding: var(--space-2) 0;
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--theme-border);
   }
 
   .accordion__list li:last-child {

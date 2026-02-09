@@ -207,7 +207,7 @@ const formatDate = (dateStr: string) => {
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-6);
     padding-bottom: var(--space-3);
-    border-bottom: 2px solid var(--gray-200);
+    border-bottom: 2px solid var(--theme-border);
   }
 
   .events-section h2 i {
@@ -228,8 +228,8 @@ const formatDate = (dateStr: string) => {
     display: flex;
     gap: var(--space-6);
     padding: var(--space-6);
-    background: var(--white);
-    border: 1px solid var(--gray-200);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
@@ -254,7 +254,7 @@ const formatDate = (dateStr: string) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--itrc-navy);
+    background: var(--theme-dark-section-bg);
     color: var(--white);
     border-radius: var(--radius-md);
   }
@@ -285,7 +285,7 @@ const formatDate = (dateStr: string) => {
   .event-card__title {
     font-size: var(--font-size-lg);
     margin: 0 0 var(--space-3);
-    color: var(--itrc-navy);
+    color: var(--theme-heading);
   }
 
   .event-card--past .event-card__title {
@@ -299,7 +299,7 @@ const formatDate = (dateStr: string) => {
     gap: var(--space-4);
     margin-bottom: var(--space-4);
     font-size: var(--font-size-sm);
-    color: var(--gray-600);
+    color: var(--theme-text-secondary);
   }
 
   .event-card__meta span {
@@ -313,14 +313,14 @@ const formatDate = (dateStr: string) => {
   }
 
   .event-card__description {
-    color: var(--gray-700);
+    color: var(--theme-text);
     margin-bottom: var(--space-4);
     line-height: 1.6;
   }
 
   .event-card__location {
     font-size: var(--font-size-sm);
-    color: var(--gray-500);
+    color: var(--theme-text-muted);
     display: flex;
     align-items: center;
     gap: var(--space-2);
@@ -363,7 +363,7 @@ const formatDate = (dateStr: string) => {
 
   .event-card__details {
     padding: 0 var(--space-4) var(--space-4);
-    border-top: 1px solid var(--gray-200);
+    border-top: 1px solid var(--theme-border);
     margin-top: var(--space-2);
     padding-top: var(--space-4);
   }
