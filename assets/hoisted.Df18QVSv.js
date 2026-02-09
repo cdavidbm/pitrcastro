@@ -1,0 +1,1 @@
+import"./hoisted.BBxUWC4t.js";function n(){document.querySelectorAll(".event-card__toggle").forEach(e=>{e.addEventListener("click",()=>{const i=e.getAttribute("aria-expanded")==="true",t=e.nextElementSibling;e.setAttribute("aria-expanded",(!i).toString()),t&&(i?t.setAttribute("hidden",""):t.removeAttribute("hidden"))})})}n();document.addEventListener("astro:after-swap",n);
