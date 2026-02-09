@@ -27,17 +27,6 @@
       "order": 2
     },
     {
-      "image": "/images/news-slide-3.jpg",
-      "imageAlt": "Equipo de trabajo en reunion estrategica",
-      "title": "Alianza con entidades internacionales",
-      "subtitle": "Cooperacion internacional",
-      "description": "La ITRC firma convenio de cooperacion con organismos internacionales para el intercambio de informacion tributaria",
-      "link": "/prensa/noticias/alianza-internacional-2024",
-      "linkText": "Conocer mas",
-      "active": true,
-      "order": 3
-    },
-    {
       "image": "/uploads/Palmira_banner_web.jpg",
       "imageAlt": "Encuentro Regional Palmira",
       "title": "",
@@ -48,7 +37,18 @@
       "external": false,
       "overlay": false,
       "active": true,
-      "order": 4
+      "order": 3
+    },
+    {
+      "image": "/images/news-slide-3.jpg",
+      "imageAlt": "Equipo de trabajo en reunion estrategica",
+      "title": "Alianza con entidades internacionales",
+      "subtitle": "Cooperacion internacional",
+      "description": "La ITRC firma convenio de cooperacion con organismos internacionales para el intercambio de informacion tributaria",
+      "link": "/prensa/noticias/alianza-internacional-2024",
+      "linkText": "Conocer mas",
+      "active": false,
+      "order": 3
     }
   ]
 }
