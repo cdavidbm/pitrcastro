@@ -36,6 +36,19 @@
       "linkText": "Conocer mas",
       "active": true,
       "order": 3
+    },
+    {
+      "image": "/uploads/Palmira_banner_web.jpg",
+      "imageAlt": "Encuentro Regional Palmira",
+      "title": "",
+      "subtitle": "",
+      "description": "",
+      "link": "",
+      "linkText": "Ver mas",
+      "external": false,
+      "overlay": true,
+      "active": true,
+      "order": 0
     }
   ]
 }
