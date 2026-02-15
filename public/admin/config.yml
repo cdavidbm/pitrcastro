@@ -1,6 +1,10 @@
 # ============================================
 # CONFIGURACION SVELTIA CMS - AGENCIA ITRC
 # ============================================
+# ARCHIVO GENERADO AUTOMATICAMENTE
+# No editar directamente. Modificar los archivos en cms/
+# y ejecutar: npm run cms:generate
+# ============================================
 #
 # DESARROLLO LOCAL:
 # Sveltia CMS usa la File System Access API del navegador.
@@ -21,1952 +25,1906 @@ backend:
   repo: cdavidbm/pitrcastro
   branch: main
   base_url: https://sveltia-cms-auth.cdavidbm.workers.dev
-
-# Carpeta donde se guardan los archivos subidos
-media_folder: "public/uploads"
-public_folder: "/uploads"
-
-# URL del sitio
-site_url: "https://cdavidbm.github.io/pitrcastro"
-
-# Slug configuration
+media_folder: public/uploads
+public_folder: /uploads
+site_url: https://cdavidbm.github.io/pitrcastro
 slug:
-  encoding: "ascii"
+  encoding: ascii
   clean_accents: true
   sanitize_replacement: "-"
-
-# ============================================
-# COLECCIONES DE CONTENIDO
-# Organizadas segun menu del sitio web
-# ============================================
 collections:
-
+  
   # ==========================================
   # LA AGENCIA
-  # Paginas institucionales de la Agencia ITRC
+  # # Paginas institucionales de la Agencia ITRC
   # ==========================================
-  - name: "agencia"
-    label: "LA AGENCIA"
-    label_singular: "Pagina Agencia"
-    description: "Paginas institucionales de la Agencia ITRC"
+  - name: agencia
+    label: LA AGENCIA
+    label_singular: Pagina Agencia
+    description: Paginas institucionales de la Agencia ITRC
     files:
-      # --- Equipo Directivo ---
-      - name: "equipo-directivo"
-        label: "Equipo Directivo"
-        file: "src/content/pages/agencia/equipo-directivo.json"
+      - name: equipo-directivo
+        label: Equipo Directivo
+        file: src/content/pages/agencia/equipo-directivo.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
+          - name: subtitle
+            label: Subtitulo
+            widget: string
             required: false
-          - name: "directora"
-            label: "Directora General"
-            widget: "object"
+          - name: directora
+            label: Directora General
+            widget: object
             fields:
-              - name: "nombre"
-                label: "Nombre completo"
-                widget: "string"
-              - name: "cargo"
-                label: "Cargo"
-                widget: "string"
-              - name: "imagen"
-                label: "Foto"
-                widget: "image"
-              - name: "bio"
-                label: "Biografia (parrafos)"
-                widget: "list"
-                field:
-                  label: "Parrafo"
-                  name: "parrafo"
-                  widget: "text"
-          - name: "subdirectores"
-            label: "Subdirectores"
-            widget: "list"
-            label_singular: "Subdirector"
+              - name: nombre
+                label: Nombre completo
+                widget: string
+              - name: cargo
+                label: Cargo
+                widget: string
+              - name: imagen
+                label: Foto
+                widget: image
+              - name: bio
+                label: Biografia (parrafos)
+                widget: list
+                field: &shared_1
+                  label: Parrafo
+                  name: parrafo
+                  widget: text
+          - name: subdirectores
+            label: Subdirectores
+            widget: list
+            label_singular: Subdirector
             collapsed: true
             fields:
-              - name: "nombre"
-                label: "Nombre completo"
-                widget: "string"
-              - name: "cargo"
-                label: "Cargo"
-                widget: "string"
-              - name: "area"
-                label: "Area/Dependencia"
-                widget: "string"
-              - name: "imagen"
-                label: "Foto"
-                widget: "image"
-              - name: "bio"
-                label: "Biografia (parrafos)"
-                widget: "list"
-                field:
-                  label: "Parrafo"
-                  name: "parrafo"
-                  widget: "text"
-
-      # --- Mision, Vision y Proposito ---
-      - name: "mision-vision"
-        label: "Mision y Vision"
-        file: "src/content/pages/agencia/mision-vision.json"
+              - name: nombre
+                label: Nombre completo
+                widget: string
+              - name: cargo
+                label: Cargo
+                widget: string
+              - name: area
+                label: Area/Dependencia
+                widget: string
+              - name: imagen
+                label: Foto
+                widget: image
+              - name: bio
+                label: Biografia (parrafos)
+                widget: list
+                field: *shared_1
+      - name: mision-vision
+        label: Mision y Vision
+        file: src/content/pages/agencia/mision-vision.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "proposito"
-            label: "Proposito Estrategico"
-            widget: "object"
+          - name: proposito
+            label: Proposito Estrategico
+            widget: object
             fields:
-              - name: "badge"
-                label: "Etiqueta"
-                widget: "string"
-              - name: "titulo"
-                label: "Titulo principal"
-                widget: "string"
-              - name: "subtitulo"
-                label: "Subtitulo"
-                widget: "string"
-          - name: "mision"
-            label: "Mision"
-            widget: "text"
+              - name: badge
+                label: Etiqueta
+                widget: string
+              - name: titulo
+                label: Titulo principal
+                widget: string
+              - name: subtitulo
+                label: Subtitulo
+                widget: string
+          - name: mision
+            label: Mision
+            widget: text
             hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
-          - name: "vision"
-            label: "Vision"
-            widget: "text"
+          - name: vision
+            label: Vision
+            widget: text
             hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
-          - name: "valores"
-            label: "Valores Institucionales"
-            widget: "list"
-            label_singular: "Valor"
+          - name: valores
+            label: Valores Institucionales
+            widget: list
+            label_singular: Valor
             fields:
-              - name: "nombre"
-                label: "Nombre del valor"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
+              - name: nombre
+                label: Nombre del valor
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 hint: "Ej: fa-heart, fa-handshake"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "string"
-          - name: "quienesSomos"
-            label: "Quienes Somos"
-            widget: "object"
+              - name: descripcion
+                label: Descripcion
+                widget: string
+          - name: quienesSomos
+            label: Quienes Somos
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "intro"
-                label: "Parrafos de introduccion"
-                widget: "list"
-                label_singular: "Parrafo"
+              - name: intro
+                label: Parrafos de introduccion
+                widget: list
+                label_singular: Parrafo
                 field:
-                  label: "Parrafo"
-                  name: "parrafo"
-                  widget: "text"
-              - name: "capacidades"
-                label: "Capacidades"
-                widget: "list"
-                label_singular: "Capacidad"
+                  label: Parrafo
+                  name: parrafo
+                  widget: text
+              - name: capacidades
+                label: Capacidades
+                widget: list
+                label_singular: Capacidad
                 field:
-                  label: "Capacidad"
-                  name: "capacidad"
-                  widget: "string"
-          - name: "queHacemos"
-            label: "Que Hacemos"
-            widget: "object"
+                  label: Capacidad
+                  name: capacidad
+                  widget: string
+          - name: queHacemos
+            label: Que Hacemos
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "intro"
-                label: "Texto introductorio"
-                widget: "text"
+              - name: intro
+                label: Texto introductorio
+                widget: text
                 hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
-              - name: "entidades"
-                label: "Entidades vigiladas"
-                widget: "list"
-                label_singular: "Entidad"
+              - name: entidades
+                label: Entidades vigiladas
+                widget: list
+                label_singular: Entidad
                 fields:
-                  - name: "nombre"
-                    label: "Nombre"
-                    widget: "string"
-                  - name: "descripcion"
-                    label: "Descripcion"
-                    widget: "string"
-              - name: "cierre"
-                label: "Texto de cierre"
-                widget: "text"
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                  - name: descripcion
+                    label: Descripcion
+                    widget: string
+              - name: cierre
+                label: Texto de cierre
+                widget: text
                 hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
-          - name: "comoLoHacemos"
-            label: "Como lo Hacemos"
-            widget: "list"
-            label_singular: "Metodo"
+          - name: comoLoHacemos
+            label: Como lo Hacemos
+            widget: list
+            label_singular: Metodo
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-          - name: "funciones"
-            label: "Funciones de la Agencia"
-            widget: "object"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: text
+          - name: funciones
+            label: Funciones de la Agencia
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "intro"
-                label: "Texto introductorio"
-                widget: "text"
+              - name: intro
+                label: Texto introductorio
+                widget: text
                 hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
-              - name: "items"
-                label: "Lista de funciones"
-                widget: "list"
-                label_singular: "Funcion"
+              - name: items
+                label: Lista de funciones
+                widget: list
+                label_singular: Funcion
                 fields:
-                  - name: "title"
-                    label: "Titulo de la funcion"
-                    widget: "string"
-                  - name: "content"
-                    label: "Descripcion detallada"
-                    widget: "text"
-              - name: "paragrafo"
-                label: "Paragrafo"
-                widget: "text"
+                  - name: title
+                    label: Titulo de la funcion
+                    widget: string
+                  - name: content
+                    label: Descripcion detallada
+                    widget: text
+              - name: paragrafo
+                label: Paragrafo
+                widget: text
                 required: false
-          - name: "mapaEstrategico"
-            label: "Mapa Estrategico"
-            widget: "object"
+          - name: mapaEstrategico
+            label: Mapa Estrategico
+            widget: object
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "imagen"
-                label: "Imagen del mapa"
-                widget: "image"
-              - name: "pdf"
-                label: "PDF descargable"
-                widget: "file"
-
-      # --- Organigrama ---
-      - name: "organigrama"
-        label: "Organigrama"
-        file: "src/content/pages/agencia/organigrama.json"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: imagen
+                label: Imagen del mapa
+                widget: image
+              - name: pdf
+                label: PDF descargable
+                widget: file
+      - name: organigrama
+        label: Organigrama
+        file: src/content/pages/agencia/organigrama.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
-          - name: "organigrama"
-            label: "Imagen del Organigrama"
-            widget: "object"
+          - name: subtitle
+            label: Subtitulo
+            widget: string
+          - name: organigrama
+            label: Imagen del Organigrama
+            widget: object
             fields:
-              - name: "imagen"
-                label: "Imagen"
-                widget: "image"
-              - name: "pdf"
-                label: "PDF descargable"
-                widget: "file"
-              - name: "alt"
-                label: "Texto alternativo"
-                widget: "string"
-          - name: "funcionesPorArea"
-            label: "Funciones por Area"
-            widget: "object"
+              - name: imagen
+                label: Imagen
+                widget: image
+              - name: pdf
+                label: PDF descargable
+                widget: file
+              - name: alt
+                label: Texto alternativo
+                widget: string
+          - name: funcionesPorArea
+            label: Funciones por Area
+            widget: object
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "string"
-              - name: "matrizUrl"
-                label: "URL de la matriz PDF"
-                widget: "file"
-          - name: "resolucionesSeccion"
-            label: "Seccion de Resoluciones"
-            widget: "object"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: string
+              - name: matrizUrl
+                label: URL de la matriz PDF
+                widget: file
+          - name: resolucionesSeccion
+            label: Seccion de Resoluciones
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo de la seccion"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion de la seccion"
-                widget: "string"
-          - name: "resoluciones"
-            label: "Resoluciones"
-            widget: "list"
-            label_singular: "Resolucion"
+              - name: titulo
+                label: Titulo de la seccion
+                widget: string
+              - name: descripcion
+                label: Descripcion de la seccion
+                widget: string
+          - name: resoluciones
+            label: Resoluciones
+            widget: list
+            label_singular: Resolucion
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "string"
-              - name: "url"
-                label: "URL del documento"
-                widget: "file"
-          - name: "ctaDirectorio"
-            label: "CTA Directorio de Servidores"
-            widget: "object"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: string
+              - name: url
+                label: URL del documento
+                widget: file
+          - name: ctaDirectorio
+            label: CTA Directorio de Servidores
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "string"
-
-      # --- Direccionamiento Estrategico ---
-      - name: "direccionamiento-estrategico"
-        label: "Direccionamiento Estrategico"
-        file: "src/content/pages/agencia/direccionamiento-estrategico.json"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: string
+      - name: direccionamiento-estrategico
+        label: Direccionamiento Estrategico
+        file: src/content/pages/agencia/direccionamiento-estrategico.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
-          - name: "intro"
-            label: "Texto de introduccion"
-            widget: "text"
-          - name: "sections"
-            label: "Secciones principales"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: subtitle
+            label: Subtitulo
+            widget: string
+          - name: intro
+            label: Texto de introduccion
+            widget: text
+          - name: sections
+            label: Secciones principales
+            widget: list
+            label_singular: Seccion
             fields:
-              - name: "id"
-                label: "ID"
-                widget: "string"
-                pattern: ['^[a-z0-9-]+$', "Solo minusculas y guiones"]
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
-              - name: "color"
-                label: "Color"
-                widget: "select"
+              - name: id
+                label: ID
+                widget: string
+                pattern:
+                  - ^[a-z0-9-]+$
+                  - Solo minusculas y guiones
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: text
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+              - name: color
+                label: Color
+                widget: select
                 options:
-                  - { label: "Azul Navy", value: "navy" }
-                  - { label: "Dorado", value: "gold" }
-                  - { label: "Verde", value: "green" }
-              - name: "documentos"
-                label: "Cantidad de documentos"
-                widget: "number"
-
-      # --- Direccionamiento: Politicas ---
-      - name: "direccionamiento-politicas"
+                  - label: Azul Navy
+                    value: navy
+                  - label: Dorado
+                    value: gold
+                  - label: Verde
+                    value: green
+              - name: documentos
+                label: Cantidad de documentos
+                widget: number
+      - name: direccionamiento-politicas
         label: "    > Politicas"
-        file: "src/content/pages/agencia/direccionamiento/politicas.json"
+        file: src/content/pages/agencia/direccionamiento/politicas.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "description"
-            label: "Descripcion"
-            widget: "markdown"
+          - name: description
+            label: Descripcion
+            widget: markdown
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-scale-balanced"
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-scale-balanced
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "sections"
-            label: "Secciones de documentos"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: sections
+            label: Secciones de documentos
+            widget: list
+            label_singular: Seccion
             collapsed: true
             fields:
-              - name: "sectionTitle"
-                label: "Titulo de la seccion"
-                widget: "string"
+              - name: sectionTitle
+                label: Titulo de la seccion
+                widget: string
                 required: true
-              - name: "sectionDescription"
-                label: "Descripcion de la seccion"
-                widget: "text"
+              - name: sectionDescription
+                label: Descripcion de la seccion
+                widget: text
                 required: false
-              - name: "sectionIcon"
-                label: "Icono de la seccion"
-                widget: "string"
+              - name: sectionIcon
+                label: Icono de la seccion
+                widget: string
                 required: false
-              - name: "displayMode"
-                label: "Modo de visualizacion"
-                widget: "select"
+              - &display_mode
+                name: displayMode
+                label: Modo de visualizacion
+                widget: select
                 options:
-                  - { label: "Acordeon", value: "accordion" }
-                  - { label: "Pestanas (Tabs)", value: "tabs" }
-                  - { label: "Lista simple", value: "list" }
-                default: "accordion"
-              - name: "documents"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+                  - label: Acordeon
+                    value: accordion
+                  - label: Pestanas (Tabs)
+                    value: tabs
+                  - label: Lista simple
+                    value: list
+                default: accordion
+              - name: documents
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 fields:
-                  - name: "name"
-                    label: "Nombre del documento"
-                    widget: "string"
+                  - name: name
+                    label: Nombre del documento
+                    widget: string
                     required: true
-                  - name: "file"
-                    label: "Archivo"
-                    widget: "file"
+                  - name: file
+                    label: Archivo
+                    widget: file
                     required: true
-                  - name: "category"
-                    label: "Categoria (para tabs)"
-                    widget: "string"
+                  - name: category
+                    label: Categoria (para tabs)
+                    widget: string
                     required: false
-                  - name: "anio"
-                    label: "Año"
-                    widget: "string"
+                  - name: anio
+                    label: Año
+                    widget: string
                     required: false
-
-      # --- Direccionamiento: Planes ---
-      - name: "direccionamiento-planes"
+      - name: direccionamiento-planes
         label: "    > Planes"
-        file: "src/content/pages/agencia/direccionamiento/planes.json"
+        file: src/content/pages/agencia/direccionamiento/planes.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "description"
-            label: "Descripcion"
-            widget: "markdown"
+          - name: description
+            label: Descripcion
+            widget: markdown
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-clipboard-list"
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-clipboard-list
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "sections"
-            label: "Secciones de documentos"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: sections
+            label: Secciones de documentos
+            widget: list
+            label_singular: Seccion
             collapsed: true
             fields:
-              - name: "sectionTitle"
-                label: "Titulo de la seccion"
-                widget: "string"
+              - name: sectionTitle
+                label: Titulo de la seccion
+                widget: string
                 required: true
-              - name: "sectionDescription"
-                label: "Descripcion de la seccion"
-                widget: "text"
+              - name: sectionDescription
+                label: Descripcion de la seccion
+                widget: text
                 required: false
-              - name: "sectionIcon"
-                label: "Icono de la seccion"
-                widget: "string"
+              - name: sectionIcon
+                label: Icono de la seccion
+                widget: string
                 required: false
-              - name: "displayMode"
-                label: "Modo de visualizacion"
-                widget: "select"
-                options:
-                  - { label: "Acordeon", value: "accordion" }
-                  - { label: "Pestanas (Tabs)", value: "tabs" }
-                  - { label: "Lista simple", value: "list" }
-                default: "accordion"
-              - name: "documents"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+              - *display_mode
+              - name: documents
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 fields:
-                  - name: "name"
-                    label: "Nombre del documento"
-                    widget: "string"
+                  - name: name
+                    label: Nombre del documento
+                    widget: string
                     required: true
-                  - name: "file"
-                    label: "Archivo"
-                    widget: "file"
+                  - name: file
+                    label: Archivo
+                    widget: file
                     required: true
-                  - name: "category"
-                    label: "Categoria (para tabs)"
-                    widget: "string"
+                  - name: category
+                    label: Categoria (para tabs)
+                    widget: string
                     required: false
-                  - name: "anio"
-                    label: "Año"
-                    widget: "string"
+                  - name: anio
+                    label: Año
+                    widget: string
                     required: false
-
-      # --- Direccionamiento: Informes ---
-      - name: "direccionamiento-informes"
+      - name: direccionamiento-informes
         label: "    > Informes"
-        file: "src/content/pages/agencia/direccionamiento/informes.json"
+        file: src/content/pages/agencia/direccionamiento/informes.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "description"
-            label: "Descripcion"
-            widget: "markdown"
+          - name: description
+            label: Descripcion
+            widget: markdown
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-chart-line"
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-chart-line
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "sections"
-            label: "Secciones de documentos"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: sections
+            label: Secciones de documentos
+            widget: list
+            label_singular: Seccion
             collapsed: true
             fields:
-              - name: "sectionTitle"
-                label: "Titulo de la seccion"
-                widget: "string"
+              - name: sectionTitle
+                label: Titulo de la seccion
+                widget: string
                 required: true
-              - name: "sectionDescription"
-                label: "Descripcion de la seccion"
-                widget: "text"
+              - name: sectionDescription
+                label: Descripcion de la seccion
+                widget: text
                 required: false
-              - name: "sectionIcon"
-                label: "Icono de la seccion"
-                widget: "string"
+              - name: sectionIcon
+                label: Icono de la seccion
+                widget: string
                 required: false
-              - name: "displayMode"
-                label: "Modo de visualizacion"
-                widget: "select"
-                options:
-                  - { label: "Acordeon", value: "accordion" }
-                  - { label: "Pestanas (Tabs)", value: "tabs" }
-                  - { label: "Lista simple", value: "list" }
-                default: "accordion"
-              - name: "documents"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+              - *display_mode
+              - name: documents
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 fields:
-                  - name: "name"
-                    label: "Nombre del documento"
-                    widget: "string"
+                  - name: name
+                    label: Nombre del documento
+                    widget: string
                     required: true
-                  - name: "file"
-                    label: "Archivo"
-                    widget: "file"
+                  - name: file
+                    label: Archivo
+                    widget: file
                     required: true
-                  - name: "category"
-                    label: "Categoria (para tabs)"
-                    widget: "string"
+                  - name: category
+                    label: Categoria (para tabs)
+                    widget: string
                     required: false
-                  - name: "anio"
-                    label: "Año"
-                    widget: "string"
+                  - name: anio
+                    label: Año
+                    widget: string
                     required: false
-
-      # --- Gestion Misional ---
-      - name: "gestion-misional"
-        label: "Gestion Misional"
-        file: "src/content/pages/agencia/gestion-misional.json"
+      - name: gestion-misional
+        label: Gestion Misional
+        file: src/content/pages/agencia/gestion-misional.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-            pattern: ['^[a-z0-9-]+$', "Solo minusculas, numeros y guiones"]
-          - name: "description"
-            label: "Descripcion"
-            widget: "text"
+            pattern:
+              - ^[a-z0-9-]+$
+              - Solo minusculas, numeros y guiones
+          - name: description
+            label: Descripcion
+            widget: text
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-briefcase"
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-briefcase
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "subdirecciones"
-            label: "Subdirecciones"
-            widget: "list"
-            label_singular: "Subdireccion"
+          - name: subdirecciones
+            label: Subdirecciones
+            widget: list
+            label_singular: Subdireccion
             collapsed: true
             fields:
-              - name: "id"
-                label: "ID (para anclas)"
-                widget: "string"
-                pattern: ['^[a-z0-9-]+$', "Solo minusculas y guiones"]
-              - name: "titulo"
-                label: "Titulo completo"
-                widget: "string"
-              - name: "sigla"
-                label: "Sigla"
-                widget: "string"
+              - name: id
+                label: ID (para anclas)
+                widget: string
+                pattern:
+                  - ^[a-z0-9-]+$
+                  - Solo minusculas y guiones
+              - name: titulo
+                label: Titulo completo
+                widget: string
+              - name: sigla
+                label: Sigla
+                widget: string
                 hint: "Ej: SAGR, SID, SAL"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
-              - name: "color"
-                label: "Color"
-                widget: "select"
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+              - name: color
+                label: Color
+                widget: select
                 options:
-                  - { label: "Azul Navy", value: "navy" }
-                  - { label: "Dorado", value: "gold" }
-                  - { label: "Verde", value: "green" }
-                default: "navy"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-              - name: "observatorio"
-                label: "Enlace a Observatorio (opcional)"
-                widget: "object"
+                  - label: Azul Navy
+                    value: navy
+                  - label: Dorado
+                    value: gold
+                  - label: Verde
+                    value: green
+                default: navy
+              - name: descripcion
+                label: Descripcion
+                widget: text
+              - name: observatorio
+                label: Enlace a Observatorio (opcional)
+                widget: object
                 required: false
                 collapsed: true
                 fields:
-                  - name: "texto"
-                    label: "Texto introductorio"
-                    widget: "string"
-                  - name: "url"
-                    label: "URL del enlace"
-                    widget: "string"
-                  - name: "label"
-                    label: "Texto del boton"
-                    widget: "string"
-              - name: "categorias"
-                label: "Categorias de documentos"
-                widget: "list"
-                label_singular: "Categoria"
+                  - name: texto
+                    label: Texto introductorio
+                    widget: string
+                  - name: url
+                    label: URL del enlace
+                    widget: string
+                  - name: label
+                    label: Texto del boton
+                    widget: string
+              - name: categorias
+                label: Categorias de documentos
+                widget: list
+                label_singular: Categoria
                 collapsed: true
                 fields:
-                  - name: "titulo"
-                    label: "Titulo de la categoria"
-                    widget: "string"
-                  - name: "documentos"
-                    label: "Documentos"
-                    widget: "list"
-                    label_singular: "Documento"
+                  - name: titulo
+                    label: Titulo de la categoria
+                    widget: string
+                  - name: documentos
+                    label: Documentos
+                    widget: list
+                    label_singular: Documento
                     collapsed: true
                     fields:
-                      - name: "name"
-                        label: "Nombre del documento"
-                        widget: "string"
-                      - name: "file"
-                        label: "URL del archivo"
-                        widget: "string"
-                      - name: "anio"
-                        label: "Año"
-                        widget: "string"
+                      - name: name
+                        label: Nombre del documento
+                        widget: string
+                      - name: file
+                        label: URL del archivo
+                        widget: string
+                      - name: anio
+                        label: Año
+                        widget: string
                         required: false
-
-      # --- Informacion Financiera ---
-      - name: "informacion-financiera"
-        label: "Informacion Financiera"
-        file: "src/content/pages/agencia/informacion-financiera.json"
+      - name: informacion-financiera
+        label: Informacion Financiera
+        file: src/content/pages/agencia/informacion-financiera.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-            pattern: ['^[a-z0-9-]+$', "Solo minusculas, numeros y guiones"]
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
+            pattern:
+              - ^[a-z0-9-]+$
+              - Solo minusculas, numeros y guiones
+          - name: subtitle
+            label: Subtitulo
+            widget: string
             required: false
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "tabs"
-            label: "Categorias (Tabs)"
-            widget: "list"
-            label_singular: "Categoria"
+          - name: tabs
+            label: Categorias (Tabs)
+            widget: list
+            label_singular: Categoria
             collapsed: true
             fields:
-              - name: "id"
-                label: "ID (sin espacios)"
-                widget: "string"
-                pattern: ['^[a-z0-9-]+$', "Solo minusculas, numeros y guiones"]
-              - name: "label"
-                label: "Nombre de la categoria"
-                widget: "string"
-              - name: "items"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+              - name: id
+                label: ID (sin espacios)
+                widget: string
+                pattern:
+                  - ^[a-z0-9-]+$
+                  - Solo minusculas, numeros y guiones
+              - name: label
+                label: Nombre de la categoria
+                widget: string
+              - name: items
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 collapsed: true
                 fields:
-                  - name: "titulo"
-                    label: "Titulo del documento"
-                    widget: "string"
-                  - name: "url"
-                    label: "URL del archivo"
-                    widget: "string"
-                  - name: "tipo"
-                    label: "Tipo de archivo"
-                    widget: "select"
+                  - name: titulo
+                    label: Titulo del documento
+                    widget: string
+                  - name: url
+                    label: URL del archivo
+                    widget: string
+                  - name: tipo
+                    label: Tipo de archivo
+                    widget: select
                     options:
-                      - { label: "PDF", value: "pdf" }
-                      - { label: "Excel", value: "xls" }
-                    default: "pdf"
+                      - label: PDF
+                        value: pdf
+                      - label: Excel
+                        value: xls
+                    default: pdf
                     required: false
-          - name: "infoCards"
-            label: "Tarjetas informativas"
-            widget: "list"
-            label_singular: "Tarjeta"
+          - name: infoCards
+            label: Tarjetas informativas
+            widget: list
+            label_singular: Tarjeta
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: text
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 hint: "Ej: fa-scale-balanced, fa-landmark"
-          - name: "ctaSection"
-            label: "Seccion de enlace externo (CTA)"
-            widget: "object"
+          - name: ctaSection
+            label: Seccion de enlace externo (CTA)
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-              - name: "linkUrl"
-                label: "URL del enlace"
-                widget: "string"
-              - name: "linkText"
-                label: "Texto del boton"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: text
+              - name: linkUrl
+                label: URL del enlace
+                widget: string
+              - name: linkText
+                label: Texto del boton
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 required: false
-
-      # --- Sistema Integrado de Gestion ---
-      - name: "sistema-integrado-gestion"
-        label: "Sistema Integrado de Gestion"
-        file: "src/content/pages/agencia/sistema-integrado-de-gestion.json"
+      - name: sistema-integrado-gestion
+        label: Sistema Integrado de Gestion
+        file: src/content/pages/agencia/sistema-integrado-de-gestion.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "description"
-            label: "Descripcion"
-            widget: "markdown"
+          - name: description
+            label: Descripcion
+            widget: markdown
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-folder-open"
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-folder-open
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "sections"
-            label: "Secciones de documentos"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: sections
+            label: Secciones de documentos
+            widget: list
+            label_singular: Seccion
             collapsed: true
             fields:
-              - name: "sectionTitle"
-                label: "Titulo de la seccion"
-                widget: "string"
+              - name: sectionTitle
+                label: Titulo de la seccion
+                widget: string
                 required: true
-              - name: "sectionDescription"
-                label: "Descripcion de la seccion"
-                widget: "text"
+              - name: sectionDescription
+                label: Descripcion de la seccion
+                widget: text
                 required: false
-              - name: "sectionIcon"
-                label: "Icono de la seccion"
-                widget: "string"
+              - name: sectionIcon
+                label: Icono de la seccion
+                widget: string
                 required: false
-              - name: "displayMode"
-                label: "Modo de visualizacion"
-                widget: "select"
-                options:
-                  - { label: "Acordeon", value: "accordion" }
-                  - { label: "Pestanas (Tabs)", value: "tabs" }
-                  - { label: "Lista simple", value: "list" }
-                default: "accordion"
-              - name: "documents"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+              - *display_mode
+              - name: documents
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 fields:
-                  - name: "name"
-                    label: "Nombre del documento"
-                    widget: "string"
-                  - name: "file"
-                    label: "Archivo"
-                    widget: "file"
-
-      # --- Sistema de Control Interno ---
-      - name: "sistema-control-interno"
-        label: "Sistema de Control Interno"
-        file: "src/content/pages/agencia/sistema-de-control-interno.json"
+                  - name: name
+                    label: Nombre del documento
+                    widget: string
+                  - name: file
+                    label: Archivo
+                    widget: file
+      - name: sistema-control-interno
+        label: Sistema de Control Interno
+        file: src/content/pages/agencia/sistema-de-control-interno.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
+          - name: subtitle
+            label: Subtitulo
+            widget: string
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-shield-halved"
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-shield-halved
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "introTitle"
-            label: "Titulo de introduccion"
-            widget: "string"
+          - name: introTitle
+            label: Titulo de introduccion
+            widget: string
             required: false
-          - name: "introContent"
-            label: "Contenido de introduccion"
-            widget: "markdown"
+          - name: introContent
+            label: Contenido de introduccion
+            widget: markdown
             required: false
-          - name: "entidadesExternas"
-            label: "Entidades de Control Externo"
-            widget: "list"
-            label_singular: "Entidad"
+          - name: entidadesExternas
+            label: Entidades de Control Externo
+            widget: list
+            label_singular: Entidad
             collapsed: true
             fields:
-              - name: "nombre"
-                label: "Nombre de la entidad"
-                widget: "string"
-              - name: "direccion"
-                label: "Direccion"
-                widget: "string"
-              - name: "telefono"
-                label: "Telefono"
-                widget: "string"
-              - name: "lineaNacional"
-                label: "Linea nacional"
-                widget: "string"
+              - name: nombre
+                label: Nombre de la entidad
+                widget: string
+              - name: direccion
+                label: Direccion
+                widget: string
+              - name: telefono
+                label: Telefono
+                widget: string
+              - name: lineaNacional
+                label: Linea nacional
+                widget: string
                 required: false
-              - name: "email"
-                label: "Correo electronico"
-                widget: "string"
+              - name: email
+                label: Correo electronico
+                widget: string
                 required: false
-              - name: "web"
-                label: "Sitio web"
-                widget: "string"
-              - name: "control"
-                label: "Tipo de control"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
-          - name: "controlPolitico"
-            label: "Organos de Control Politico"
-            widget: "list"
-            label_singular: "Organo"
-            required: false
-            collapsed: true
-            fields:
-              - name: "nombre"
-                label: "Nombre"
-                widget: "string"
-              - name: "direccion"
-                label: "Direccion"
-                widget: "string"
-              - name: "telefono"
-                label: "Telefono"
-                widget: "string"
-              - name: "lineaNacional"
-                label: "Linea nacional"
-                widget: "string"
-                required: false
-              - name: "email"
-                label: "Correo electronico"
-                widget: "string"
-                required: false
-              - name: "web"
-                label: "Sitio web"
-                widget: "string"
-                required: false
-          - name: "controlInterno"
-            label: "Organos de Control Interno"
-            widget: "list"
-            label_singular: "Organo"
+              - name: web
+                label: Sitio web
+                widget: string
+              - name: control
+                label: Tipo de control
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+          - name: controlPolitico
+            label: Organos de Control Politico
+            widget: list
+            label_singular: Organo
             required: false
             collapsed: true
             fields:
-              - name: "nombre"
-                label: "Nombre"
-                widget: "string"
-              - name: "control"
-                label: "Tipo de control"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
+              - name: nombre
+                label: Nombre
+                widget: string
+              - name: direccion
+                label: Direccion
+                widget: string
+              - name: telefono
+                label: Telefono
+                widget: string
+              - name: lineaNacional
+                label: Linea nacional
+                widget: string
                 required: false
-          - name: "contactoInterno"
-            label: "Datos de Contacto Institucional"
-            widget: "object"
+              - name: email
+                label: Correo electronico
+                widget: string
+                required: false
+              - name: web
+                label: Sitio web
+                widget: string
+                required: false
+          - name: controlInterno
+            label: Organos de Control Interno
+            widget: list
+            label_singular: Organo
             required: false
             collapsed: true
             fields:
-              - name: "direccion"
-                label: "Direccion"
-                widget: "string"
-              - name: "telefono"
-                label: "Telefono"
-                widget: "string"
-              - name: "lineaNacional"
-                label: "Linea nacional"
-                widget: "string"
+              - name: nombre
+                label: Nombre
+                widget: string
+              - name: control
+                label: Tipo de control
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 required: false
-              - name: "email"
-                label: "Correo electronico"
-                widget: "string"
-          - name: "informesLegales"
-            label: "Informes Legales"
-            widget: "list"
-            label_singular: "Categoria"
+          - name: contactoInterno
+            label: Datos de Contacto Institucional
+            widget: object
+            required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo de la categoria"
-                widget: "string"
-              - name: "documentos"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+              - name: direccion
+                label: Direccion
+                widget: string
+              - name: telefono
+                label: Telefono
+                widget: string
+              - name: lineaNacional
+                label: Linea nacional
+                widget: string
+                required: false
+              - name: email
+                label: Correo electronico
+                widget: string
+          - name: informesLegales
+            label: Informes Legales
+            widget: list
+            label_singular: Categoria
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Titulo de la categoria
+                widget: string
+              - name: documentos
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 collapsed: true
                 fields:
-                  - name: "name"
-                    label: "Nombre del documento"
-                    widget: "string"
-                  - name: "file"
-                    label: "URL del archivo"
-                    widget: "string"
-                  - name: "anio"
-                    label: "Año"
-                    widget: "string"
+                  - name: name
+                    label: Nombre del documento
+                    widget: string
+                  - name: file
+                    label: URL del archivo
+                    widget: string
+                  - name: anio
+                    label: Año
+                    widget: string
                     required: false
-          - name: "planesMejoramiento"
-            label: "Planes de Mejoramiento"
-            widget: "object"
+          - name: planesMejoramiento
+            label: Planes de Mejoramiento
+            widget: object
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-              - name: "linkUrl"
-                label: "URL del enlace"
-                widget: "string"
-              - name: "linkText"
-                label: "Texto del boton"
-                widget: "string"
-          - name: "enlacesRelacionados"
-            label: "Enlaces Relacionados"
-            widget: "list"
-            label_singular: "Enlace"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: text
+              - name: linkUrl
+                label: URL del enlace
+                widget: string
+              - name: linkText
+                label: Texto del boton
+                widget: string
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
             required: false
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "string"
-              - name: "url"
-                label: "URL"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 required: false
-
+  
   # ==========================================
   # TRANSPARENCIA
-  # Indice de informacion clasificada y reservada
+  # # Indice de informacion clasificada y reservada
   # ==========================================
-  - name: "transparencia"
-    label: "TRANSPARENCIA"
+  - name: transparencia
+    label: TRANSPARENCIA
     files:
-      - name: "transparencia-principal"
-        label: "Pagina de Transparencia"
-        file: "src/content/pages/transparencia.json"
+      - name: transparencia-principal
+        label: Pagina de Transparencia
+        file: src/content/pages/transparencia.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "description"
-            label: "Descripcion"
-            widget: "markdown"
+          - name: description
+            label: Descripcion
+            widget: markdown
             required: false
-          - name: "icon"
-            label: "Icono FontAwesome"
-            widget: "string"
-            default: "fa-folder-open"
-          - name: "order"
-            label: "Orden de aparicion"
-            widget: "number"
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-folder-open
+          - name: order
+            label: Orden de aparicion
+            widget: number
             required: false
             default: 1
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "sections"
-            label: "Secciones de documentos"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: sections
+            label: Secciones de documentos
+            widget: list
+            label_singular: Seccion
             collapsed: true
             fields:
-              - name: "sectionTitle"
-                label: "Titulo de la seccion"
-                widget: "string"
+              - name: sectionTitle
+                label: Titulo de la seccion
+                widget: string
                 required: true
-              - name: "sectionDescription"
-                label: "Descripcion de la seccion"
-                widget: "text"
+              - name: sectionDescription
+                label: Descripcion de la seccion
+                widget: text
                 required: false
-              - name: "sectionIcon"
-                label: "Icono de la seccion"
-                widget: "string"
+              - name: sectionIcon
+                label: Icono de la seccion
+                widget: string
                 required: false
-              - name: "displayMode"
-                label: "Modo de visualizacion"
-                widget: "select"
-                options:
-                  - { label: "Acordeon", value: "accordion" }
-                  - { label: "Pestanas (Tabs)", value: "tabs" }
-                  - { label: "Lista simple", value: "list" }
-                default: "accordion"
-              - name: "documents"
-                label: "Documentos"
-                widget: "list"
-                label_singular: "Documento"
+              - *display_mode
+              - name: documents
+                label: Documentos
+                widget: list
+                label_singular: Documento
                 fields:
-                  - name: "name"
-                    label: "Nombre del documento"
-                    widget: "string"
+                  - name: name
+                    label: Nombre del documento
+                    widget: string
                     required: true
-                  - name: "file"
-                    label: "Archivo"
-                    widget: "file"
+                  - name: file
+                    label: Archivo
+                    widget: file
                     required: true
-                  - name: "description"
-                    label: "Descripcion del documento"
-                    widget: "string"
+                  - name: description
+                    label: Descripcion del documento
+                    widget: string
                     required: false
-                  - name: "category"
-                    label: "Categoria (para tabs)"
-                    widget: "string"
+                  - name: category
+                    label: Categoria (para tabs)
+                    widget: string
                     required: false
-                  - name: "anio"
-                    label: "Año"
-                    widget: "string"
+                  - name: anio
+                    label: Año
+                    widget: string
                     required: false
-
+  
   # ==========================================
   # NORMATIVA
-  # Marco legal y normativo de la entidad
+  # # Marco legal y normativo de la entidad
   # ==========================================
-  - name: "normativa"
-    label: "NORMATIVA"
-    label_singular: "Pagina Normativa"
-    folder: "src/content/pages/normativa"
+  - name: normativa
+    label: NORMATIVA
+    label_singular: Pagina Normativa
+    folder: src/content/pages/normativa
     create: true
     slug: "{{slug}}"
-    format: "json"
-    description: "Paginas de normatividad y marco legal"
+    format: json
+    description: Paginas de normatividad y marco legal
     fields:
-      - name: "title"
-        label: "Titulo de la pagina"
-        widget: "string"
+      - name: title
+        label: Titulo de la pagina
+        widget: string
         required: true
-      - name: "slug"
-        label: "URL (slug)"
-        widget: "string"
+      - name: slug
+        label: URL (slug)
+        widget: string
         required: true
-        pattern: ['^[a-z0-9-]+$', "Solo minusculas, numeros y guiones"]
-      - name: "description"
-        label: "Descripcion"
-        widget: "markdown"
+        pattern:
+          - ^[a-z0-9-]+$
+          - Solo minusculas, numeros y guiones
+      - name: description
+        label: Descripcion
+        widget: markdown
         required: false
-      - name: "icon"
-        label: "Icono FontAwesome"
-        widget: "string"
-        default: "fa-gavel"
-      - name: "published"
-        label: "Publicado"
-        widget: "boolean"
+      - name: icon
+        label: Icono FontAwesome
+        widget: string
+        default: fa-gavel
+      - name: published
+        label: Publicado
+        widget: boolean
         default: true
-      - name: "sections"
-        label: "Secciones de documentos"
-        widget: "list"
-        label_singular: "Seccion"
+      - name: sections
+        label: Secciones de documentos
+        widget: list
+        label_singular: Seccion
         collapsed: true
         fields:
-          - name: "sectionTitle"
-            label: "Titulo de la seccion"
-            widget: "string"
+          - name: sectionTitle
+            label: Titulo de la seccion
+            widget: string
             required: true
-          - name: "sectionDescription"
-            label: "Descripcion de la seccion"
-            widget: "text"
+          - name: sectionDescription
+            label: Descripcion de la seccion
+            widget: text
             required: false
-          - name: "sectionIcon"
-            label: "Icono de la seccion"
-            widget: "string"
+          - name: sectionIcon
+            label: Icono de la seccion
+            widget: string
             required: false
-          - name: "displayMode"
-            label: "Modo de visualizacion"
-            widget: "select"
-            options:
-              - { label: "Acordeon", value: "accordion" }
-              - { label: "Pestanas (Tabs)", value: "tabs" }
-              - { label: "Lista simple", value: "list" }
-            default: "accordion"
-          - name: "documents"
-            label: "Documentos"
-            widget: "list"
-            label_singular: "Documento"
+          - *display_mode
+          - name: documents
+            label: Documentos
+            widget: list
+            label_singular: Documento
             fields:
-              - name: "name"
-                label: "Nombre del documento"
-                widget: "string"
+              - name: name
+                label: Nombre del documento
+                widget: string
                 required: true
-              - name: "file"
-                label: "Archivo o URL"
-                widget: "string"
+              - name: file
+                label: Archivo o URL
+                widget: string
                 required: true
-              - name: "anio"
-                label: "Año"
-                widget: "string"
+              - name: anio
+                label: Año
+                widget: string
                 required: false
-              - name: "externo"
-                label: "Es enlace externo"
-                widget: "boolean"
+              - name: externo
+                label: Es enlace externo
+                widget: boolean
                 default: false
-
+  
   # ==========================================
   # ATENCION Y SERVICIOS
-  # Canales de atencion y servicios al ciudadano
+  # # Canales de atencion y servicios al ciudadano
   # ==========================================
-  - name: "atencion-servicios"
-    label: "ATENCION Y SERVICIOS"
-    label_singular: "Pagina de Atencion"
-    folder: "src/content/pages/atencion"
+  - name: atencion-servicios
+    label: ATENCION Y SERVICIOS
+    label_singular: Pagina de Atencion
+    folder: src/content/pages/atencion
     create: true
     slug: "{{slug}}"
-    format: "json"
-    description: "Paginas de atencion al ciudadano y servicios"
+    format: json
+    description: Paginas de atencion al ciudadano y servicios
     fields:
-      - name: "title"
-        label: "Titulo de la pagina"
-        widget: "string"
+      - name: title
+        label: Titulo de la pagina
+        widget: string
         required: true
-      - name: "slug"
-        label: "URL (slug)"
-        widget: "string"
+      - name: slug
+        label: URL (slug)
+        widget: string
         required: true
-        pattern: ['^[a-z0-9-]+$', "Solo minusculas, numeros y guiones"]
-      - name: "description"
-        label: "Descripcion"
-        widget: "markdown"
+        pattern:
+          - ^[a-z0-9-]+$
+          - Solo minusculas, numeros y guiones
+      - name: description
+        label: Descripcion
+        widget: markdown
         required: false
-      - name: "icon"
-        label: "Icono FontAwesome"
-        widget: "string"
-        default: "fa-headset"
-      - name: "published"
-        label: "Publicado"
-        widget: "boolean"
+      - name: icon
+        label: Icono FontAwesome
+        widget: string
+        default: fa-headset
+      - name: published
+        label: Publicado
+        widget: boolean
         default: true
-      - name: "content"
-        label: "Contenido principal"
-        widget: "markdown"
+      - name: content
+        label: Contenido principal
+        widget: markdown
         required: false
-        hint: "Contenido HTML/Markdown de la pagina"
-      - name: "sections"
-        label: "Secciones de documentos (opcional)"
-        widget: "list"
-        label_singular: "Seccion"
+        hint: Contenido HTML/Markdown de la pagina
+      - name: sections
+        label: Secciones de documentos (opcional)
+        widget: list
+        label_singular: Seccion
         collapsed: true
         required: false
         fields:
-          - name: "sectionTitle"
-            label: "Titulo de la seccion"
-            widget: "string"
+          - name: sectionTitle
+            label: Titulo de la seccion
+            widget: string
             required: true
-          - name: "sectionDescription"
-            label: "Descripcion de la seccion"
-            widget: "text"
+          - name: sectionDescription
+            label: Descripcion de la seccion
+            widget: text
             required: false
-          - name: "displayMode"
-            label: "Modo de visualizacion"
-            widget: "select"
+          - name: displayMode
+            label: Modo de visualizacion
+            widget: select
             options:
-              - { label: "Acordeon", value: "accordion" }
-              - { label: "Lista simple", value: "list" }
-            default: "list"
-          - name: "documents"
-            label: "Documentos"
-            widget: "list"
-            label_singular: "Documento"
+              - label: Acordeon
+                value: accordion
+              - label: Lista simple
+                value: list
+            default: list
+          - name: documents
+            label: Documentos
+            widget: list
+            label_singular: Documento
             fields:
-              - name: "name"
-                label: "Nombre del documento"
-                widget: "string"
+              - name: name
+                label: Nombre del documento
+                widget: string
                 required: true
-              - name: "file"
-                label: "Archivo o URL"
-                widget: "string"
+              - name: file
+                label: Archivo o URL
+                widget: string
                 required: true
-      - name: "faqs"
-        label: "Preguntas frecuentes (opcional)"
-        widget: "list"
-        label_singular: "Pregunta"
+      - name: faqs
+        label: Preguntas frecuentes (opcional)
+        widget: list
+        label_singular: Pregunta
         collapsed: true
         required: false
         fields:
-          - name: "pregunta"
-            label: "Pregunta"
-            widget: "string"
-          - name: "respuesta"
-            label: "Respuesta"
-            widget: "markdown"
-
+          - name: pregunta
+            label: Pregunta
+            widget: string
+          - name: respuesta
+            label: Respuesta
+            widget: markdown
+  
   # ==========================================
   # PARTICIPA
-  # Mecanismos de participacion ciudadana
+  # # Mecanismos de participacion ciudadana
   # ==========================================
-  - name: "participa"
-    label: "PARTICIPA"
+  - name: participa
+    label: PARTICIPA
     files:
-      - name: "participa-principal"
-        label: "Pagina Participa"
-        file: "src/content/pages/participa.json"
+      - name: participa-principal
+        label: Pagina Participa
+        file: src/content/pages/participa.json
         fields:
-          - name: "title"
-            label: "Titulo de la pagina"
-            widget: "string"
+          - name: title
+            label: Titulo de la pagina
+            widget: string
             required: true
-          - name: "slug"
-            label: "URL (slug)"
-            widget: "string"
+          - name: slug
+            label: URL (slug)
+            widget: string
             required: true
-          - name: "description"
-            label: "Descripcion introductoria"
-            widget: "markdown"
+          - name: description
+            label: Descripcion introductoria
+            widget: markdown
             required: false
-          - name: "published"
-            label: "Publicado"
-            widget: "boolean"
+          - name: published
+            label: Publicado
+            widget: boolean
             default: true
-          - name: "mecanismos"
-            label: "Mecanismos de participacion"
-            widget: "list"
-            label_singular: "Mecanismo"
+          - name: mecanismos
+            label: Mecanismos de participacion
+            widget: list
+            label_singular: Mecanismo
             collapsed: true
             fields:
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "text"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
-              - name: "url"
-                label: "Enlace (opcional)"
-                widget: "string"
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: text
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+              - name: url
+                label: Enlace (opcional)
+                widget: string
                 required: false
-              - name: "externo"
-                label: "Es enlace externo"
-                widget: "boolean"
+              - name: externo
+                label: Es enlace externo
+                widget: boolean
                 default: false
-          - name: "documentos"
-            label: "Documentos relacionados"
-            widget: "list"
-            label_singular: "Documento"
+          - name: documentos
+            label: Documentos relacionados
+            widget: list
+            label_singular: Documento
             collapsed: true
             required: false
             fields:
-              - name: "name"
-                label: "Nombre"
-                widget: "string"
-              - name: "file"
-                label: "Archivo"
-                widget: "file"
-
+              - name: name
+                label: Nombre
+                widget: string
+              - name: file
+                label: Archivo
+                widget: file
+  
   # ==========================================
   # PRENSA
-  # Noticias, eventos y comunicaciones
+  # # Noticias, eventos y comunicaciones
   # ==========================================
-  - name: "prensa"
-    label: "PRENSA"
+  - name: prensa
+    label: PRENSA
     files:
-      - name: "prensa-principal"
-        label: "Pagina de Prensa"
-        file: "src/content/pages/prensa.json"
+      - name: prensa-principal
+        label: Pagina de Prensa
+        file: src/content/pages/prensa.json
         fields:
-          - name: "title"
-            label: "Titulo"
-            widget: "string"
+          - name: title
+            label: Titulo
+            widget: string
             required: true
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
+          - name: subtitle
+            label: Subtitulo
+            widget: string
             required: false
-          - name: "sections"
-            label: "Secciones"
-            widget: "list"
-            label_singular: "Seccion"
+          - name: sections
+            label: Secciones
+            widget: list
+            label_singular: Seccion
             collapsed: true
             fields:
-              - name: "id"
-                label: "ID"
-                widget: "string"
-              - name: "titulo"
-                label: "Titulo"
-                widget: "string"
-              - name: "descripcion"
-                label: "Descripcion"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
-              - name: "url"
-                label: "URL"
-                widget: "string"
-
-  - name: "news"
+              - name: id
+                label: ID
+                widget: string
+              - name: titulo
+                label: Titulo
+                widget: string
+              - name: descripcion
+                label: Descripcion
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+  - name: news
     label: "    > Noticias"
-    label_singular: "Noticia"
-    folder: "src/content/news"
+    label_singular: Noticia
+    folder: src/content/news
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "frontmatter"
-    sortable_fields: ["date", "title"]
+    format: frontmatter
+    sortable_fields:
+      - date
+      - title
     fields:
-      - name: "title"
-        label: "Titulo"
-        widget: "string"
+      - name: title
+        label: Titulo
+        widget: string
         required: true
-      - name: "date"
-        label: "Fecha de publicacion"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
+      - name: date
+        label: Fecha de publicacion
+        widget: datetime
+        format: YYYY-MM-DD
         required: true
-      - name: "image"
-        label: "Imagen destacada"
-        widget: "image"
+      - name: image
+        label: Imagen destacada
+        widget: image
         required: false
-      - name: "excerpt"
-        label: "Extracto"
-        widget: "text"
+      - name: excerpt
+        label: Extracto
+        widget: text
         required: false
-        hint: "Resumen corto para listados (max 160 caracteres)"
-      - name: "body"
-        label: "Contenido"
-        widget: "markdown"
+        hint: Resumen corto para listados (max 160 caracteres)
+      - name: body
+        label: Contenido
+        widget: markdown
         required: true
-      - name: "tags"
-        label: "Etiquetas"
-        widget: "list"
+      - name: tags
+        label: Etiquetas
+        widget: list
         required: false
         allow_add: true
-      - name: "draft"
-        label: "Borrador"
-        widget: "boolean"
+      - name: draft
+        label: Borrador
+        widget: boolean
         default: false
-        hint: "Los borradores no se publican"
-
-  - name: "events"
+        hint: Los borradores no se publican
+  - name: events
     label: "    > Eventos"
-    label_singular: "Evento"
-    folder: "src/content/events"
+    label_singular: Evento
+    folder: src/content/events
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "json"
-    sortable_fields: ["startDate", "title"]
+    format: json
+    sortable_fields:
+      - startDate
+      - title
     fields:
-      - name: "title"
-        label: "Nombre del evento"
-        widget: "string"
+      - name: title
+        label: Nombre del evento
+        widget: string
         required: true
-      - name: "startDate"
-        label: "Fecha y hora de inicio"
-        widget: "datetime"
-        format: "YYYY-MM-DDTHH:mm:ss"
+      - name: startDate
+        label: Fecha y hora de inicio
+        widget: datetime
+        format: YYYY-MM-DDTHH:mm:ss
         required: true
-      - name: "endDate"
-        label: "Fecha y hora de fin"
-        widget: "datetime"
-        format: "YYYY-MM-DDTHH:mm:ss"
+      - name: endDate
+        label: Fecha y hora de fin
+        widget: datetime
+        format: YYYY-MM-DDTHH:mm:ss
         required: false
-      - name: "location"
-        label: "Lugar"
-        widget: "string"
+      - name: location
+        label: Lugar
+        widget: string
         required: false
-      - name: "description"
-        label: "Descripcion"
-        widget: "markdown"
+      - name: description
+        label: Descripcion
+        widget: markdown
         required: true
-      - name: "image"
-        label: "Imagen del evento"
-        widget: "image"
+      - name: image
+        label: Imagen del evento
+        widget: image
         required: false
-      - name: "virtualLink"
-        label: "Enlace virtual (Meet, Zoom, etc.)"
-        widget: "string"
+      - name: virtualLink
+        label: Enlace virtual (Meet, Zoom, etc.)
+        widget: string
         required: false
-      - name: "published"
-        label: "Publicado"
-        widget: "boolean"
+      - name: published
+        label: Publicado
+        widget: boolean
         default: true
-
-  - name: "boletines"
+  - name: boletines
     label: "    > Boletines"
-    label_singular: "Boletin"
-    folder: "src/content/boletines"
+    label_singular: Boletin
+    folder: src/content/boletines
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "frontmatter"
-    sortable_fields: ["date", "title"]
+    format: frontmatter
+    sortable_fields:
+      - date
+      - title
     fields:
-      - name: "title"
-        label: "Titulo"
-        widget: "string"
+      - name: title
+        label: Titulo
+        widget: string
         required: true
-      - name: "date"
-        label: "Fecha de publicacion"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
+      - name: date
+        label: Fecha de publicacion
+        widget: datetime
+        format: YYYY-MM-DD
         required: true
-      - name: "image"
-        label: "Imagen destacada"
-        widget: "image"
+      - name: image
+        label: Imagen destacada
+        widget: image
         required: false
-      - name: "excerpt"
-        label: "Extracto"
-        widget: "text"
+      - name: excerpt
+        label: Extracto
+        widget: text
         required: false
-      - name: "body"
-        label: "Contenido"
-        widget: "markdown"
+      - name: body
+        label: Contenido
+        widget: markdown
         required: true
-      - name: "archivo"
-        label: "Archivo PDF (opcional)"
-        widget: "file"
+      - &shared_2
+        name: archivo
+        label: Archivo PDF (opcional)
+        widget: file
         required: false
-      - name: "draft"
-        label: "Borrador"
-        widget: "boolean"
+      - name: draft
+        label: Borrador
+        widget: boolean
         default: false
-
-  - name: "comunicados"
+  - name: comunicados
     label: "    > Comunicados"
-    label_singular: "Comunicado"
-    folder: "src/content/comunicados"
+    label_singular: Comunicado
+    folder: src/content/comunicados
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "frontmatter"
-    sortable_fields: ["date", "title"]
+    format: frontmatter
+    sortable_fields:
+      - date
+      - title
     fields:
-      - name: "title"
-        label: "Titulo"
-        widget: "string"
+      - name: title
+        label: Titulo
+        widget: string
         required: true
-      - name: "date"
-        label: "Fecha de publicacion"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
+      - name: date
+        label: Fecha de publicacion
+        widget: datetime
+        format: YYYY-MM-DD
         required: true
-      - name: "image"
-        label: "Imagen destacada"
-        widget: "image"
+      - name: image
+        label: Imagen destacada
+        widget: image
         required: false
-      - name: "excerpt"
-        label: "Extracto"
-        widget: "text"
+      - name: excerpt
+        label: Extracto
+        widget: text
         required: false
-      - name: "body"
-        label: "Contenido"
-        widget: "markdown"
+      - name: body
+        label: Contenido
+        widget: markdown
         required: true
-      - name: "archivo"
-        label: "Archivo PDF (opcional)"
-        widget: "file"
-        required: false
-      - name: "draft"
-        label: "Borrador"
-        widget: "boolean"
+      - *shared_2
+      - name: draft
+        label: Borrador
+        widget: boolean
         default: false
-
-  - name: "videos"
+  - name: videos
     label: "    > Videos"
-    label_singular: "Video"
-    folder: "src/content/videos"
+    label_singular: Video
+    folder: src/content/videos
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "json"
-    sortable_fields: ["date", "title"]
+    format: json
+    sortable_fields:
+      - date
+      - title
     fields:
-      - name: "title"
-        label: "Titulo"
-        widget: "string"
+      - name: title
+        label: Titulo
+        widget: string
         required: true
-      - name: "date"
-        label: "Fecha de publicacion"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
+      - name: date
+        label: Fecha de publicacion
+        widget: datetime
+        format: YYYY-MM-DD
         required: true
-      - name: "videoUrl"
-        label: "URL del video (YouTube embed)"
-        widget: "string"
+      - name: videoUrl
+        label: URL del video (YouTube embed)
+        widget: string
         required: true
         hint: "Usar URL de embed: https://www.youtube.com/embed/VIDEO_ID"
-      - name: "thumbnail"
-        label: "Miniatura (opcional)"
-        widget: "image"
+      - name: thumbnail
+        label: Miniatura (opcional)
+        widget: image
         required: false
-      - name: "description"
-        label: "Descripcion"
-        widget: "text"
+      - name: description
+        label: Descripcion
+        widget: text
         required: false
-      - name: "duration"
-        label: "Duracion"
-        widget: "string"
+      - name: duration
+        label: Duracion
+        widget: string
         required: false
         hint: "Ej: 5:30, 1:02:15"
-      - name: "published"
-        label: "Publicado"
-        widget: "boolean"
+      - name: published
+        label: Publicado
+        widget: boolean
         default: true
-
-  - name: "galeria"
+  - name: galeria
     label: "    > Galeria"
-    label_singular: "Album"
-    folder: "src/content/galeria"
+    label_singular: Album
+    folder: src/content/galeria
     create: true
     slug: "{{slug}}"
-    format: "json"
+    format: json
     fields:
-      - name: "title"
-        label: "Titulo del album"
-        widget: "string"
+      - name: title
+        label: Titulo del album
+        widget: string
         required: true
-      - name: "date"
-        label: "Fecha"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
+      - name: date
+        label: Fecha
+        widget: datetime
+        format: YYYY-MM-DD
         required: true
-      - name: "description"
-        label: "Descripcion"
-        widget: "text"
+      - name: description
+        label: Descripcion
+        widget: text
         required: false
-      - name: "coverImage"
-        label: "Imagen de portada"
-        widget: "image"
+      - name: coverImage
+        label: Imagen de portada
+        widget: image
         required: true
-      - name: "images"
-        label: "Imagenes"
-        widget: "list"
-        label_singular: "Imagen"
+      - name: images
+        label: Imagenes
+        widget: list
+        label_singular: Imagen
         fields:
-          - name: "image"
-            label: "Imagen"
-            widget: "image"
+          - name: image
+            label: Imagen
+            widget: image
             required: true
-          - name: "caption"
-            label: "Descripcion"
-            widget: "string"
+          - name: caption
+            label: Descripcion
+            widget: string
             required: false
-          - name: "alt"
-            label: "Texto alternativo"
-            widget: "string"
+          - name: alt
+            label: Texto alternativo
+            widget: string
             required: true
-      - name: "published"
-        label: "Publicado"
-        widget: "boolean"
+      - name: published
+        label: Publicado
+        widget: boolean
         default: true
-
-  - name: "capsulas"
+  - name: capsulas
     label: "    > Capsulas Informativas"
-    label_singular: "Capsula"
-    folder: "src/content/capsulas"
+    label_singular: Capsula
+    folder: src/content/capsulas
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "json"
-    sortable_fields: ["date", "title"]
+    format: json
+    sortable_fields:
+      - date
+      - title
     fields:
-      - name: "title"
-        label: "Titulo"
-        widget: "string"
+      - name: title
+        label: Titulo
+        widget: string
         required: true
-      - name: "date"
-        label: "Fecha de publicacion"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
+      - name: date
+        label: Fecha de publicacion
+        widget: datetime
+        format: YYYY-MM-DD
         required: true
-      - name: "image"
-        label: "Imagen"
-        widget: "image"
+      - name: image
+        label: Imagen
+        widget: image
         required: false
-      - name: "videoUrl"
-        label: "URL del video (opcional)"
-        widget: "string"
+      - name: videoUrl
+        label: URL del video (opcional)
+        widget: string
         required: false
-      - name: "content"
-        label: "Contenido"
-        widget: "markdown"
+      - name: content
+        label: Contenido
+        widget: markdown
         required: true
-      - name: "category"
-        label: "Categoria"
-        widget: "string"
+      - name: category
+        label: Categoria
+        widget: string
         required: false
-      - name: "published"
-        label: "Publicado"
-        widget: "boolean"
+      - name: published
+        label: Publicado
+        widget: boolean
         default: true
-
+  
   # ==========================================
   # SLIDERS / CARRUSELES
   # ==========================================
-  - name: "sliders"
-    label: "SLIDERS"
-    label_singular: "Slider"
-    folder: "src/content/sliders"
+  - name: sliders
+    label: SLIDERS
+    label_singular: Slider
+    folder: src/content/sliders
     create: true
     slug: "{{slug}}"
-    format: "json"
-    description: "Carruseles de imagenes para diferentes secciones del sitio"
+    format: json
+    description: Carruseles de imagenes para diferentes secciones del sitio
     fields:
-      - name: "name"
-        label: "Nombre del slider"
-        widget: "string"
+      - name: name
+        label: Nombre del slider
+        widget: string
         required: true
         hint: "Nombre descriptivo (ej: Slider Principal, Noticias Destacadas)"
-      - name: "description"
-        label: "Descripcion"
-        widget: "string"
+      - name: description
+        label: Descripcion
+        widget: string
         required: false
-      - name: "autoplay"
-        label: "Reproduccion automatica"
-        widget: "boolean"
+      - name: autoplay
+        label: Reproduccion automatica
+        widget: boolean
         default: true
-      - name: "interval"
-        label: "Intervalo (milisegundos)"
-        widget: "number"
+      - name: interval
+        label: Intervalo (milisegundos)
+        widget: number
         default: 5000
         min: 2000
         max: 15000
-        hint: "Tiempo entre diapositivas (5000 = 5 segundos)"
-      - name: "slides"
-        label: "Diapositivas"
-        widget: "list"
-        label_singular: "Diapositiva"
+        hint: Tiempo entre diapositivas (5000 = 5 segundos)
+      - name: slides
+        label: Diapositivas
+        widget: list
+        label_singular: Diapositiva
         collapsed: false
         fields:
-          - name: "image"
-            label: "Imagen"
-            widget: "image"
+          - name: image
+            label: Imagen
+            widget: image
             required: true
             hint: "Tamano recomendado: 1920x600px"
-          - name: "imageAlt"
-            label: "Texto alternativo (accesibilidad)"
-            widget: "string"
+          - name: imageAlt
+            label: Texto alternativo (accesibilidad)
+            widget: string
             required: true
-          - name: "title"
-            label: "Titulo"
-            widget: "string"
+          - name: title
+            label: Titulo
+            widget: string
             required: false
-          - name: "subtitle"
-            label: "Subtitulo"
-            widget: "string"
+          - name: subtitle
+            label: Subtitulo
+            widget: string
             required: false
-          - name: "description"
-            label: "Descripcion"
-            widget: "text"
+          - name: description
+            label: Descripcion
+            widget: text
             required: false
-          - name: "link"
-            label: "Enlace"
-            widget: "string"
+          - name: link
+            label: Enlace
+            widget: string
             required: false
-          - name: "linkText"
-            label: "Texto del boton"
-            widget: "string"
+          - name: linkText
+            label: Texto del boton
+            widget: string
             required: false
-            default: "Ver mas"
-          - name: "external"
-            label: "Enlace externo"
-            widget: "boolean"
+            default: Ver mas
+          - name: external
+            label: Enlace externo
+            widget: boolean
             default: false
             required: false
-          - name: "overlay"
-            label: "Filtro oscuro sobre imagen"
-            widget: "boolean"
+          - name: overlay
+            label: Filtro oscuro sobre imagen
+            widget: boolean
             default: true
             required: false
-            hint: "Desactivar para mostrar la imagen sin filtro de color"
-          - name: "active"
-            label: "Activo"
-            widget: "boolean"
+            hint: Desactivar para mostrar la imagen sin filtro de color
+          - name: active
+            label: Activo
+            widget: boolean
             default: true
-          - name: "order"
-            label: "Orden"
-            widget: "number"
+          - name: order
+            label: Orden
+            widget: number
             default: 0
-
+  
   # ==========================================
   # CONFIGURACION GLOBAL
   # ==========================================
-  - name: "settings"
-    label: "CONFIGURACION"
+  - name: settings
+    label: CONFIGURACION
     files:
-      # --- Datos de contacto ---
-      - name: "contact"
-        label: "Datos de Contacto"
-        file: "src/content/settings/contact.json"
+      - name: contact
+        label: Datos de Contacto
+        file: src/content/settings/contact.json
         fields:
-          - name: "address"
-            label: "Direccion"
-            widget: "string"
-          - name: "city"
-            label: "Ciudad"
-            widget: "string"
-          - name: "postalCode"
-            label: "Codigo Postal"
-            widget: "string"
+          - name: address
+            label: Direccion
+            widget: string
+          - name: city
+            label: Ciudad
+            widget: string
+          - name: postalCode
+            label: Codigo Postal
+            widget: string
             required: false
-          - name: "phone"
-            label: "Telefono principal"
-            widget: "string"
-          - name: "tollFree"
-            label: "Linea gratuita"
-            widget: "string"
+          - name: phone
+            label: Telefono principal
+            widget: string
+          - name: tollFree
+            label: Linea gratuita
+            widget: string
             required: false
-          - name: "email"
-            label: "Correo electronico"
-            widget: "string"
-          - name: "emailNotifications"
-            label: "Correo notificaciones"
-            widget: "string"
+          - name: email
+            label: Correo electronico
+            widget: string
+          - name: emailNotifications
+            label: Correo notificaciones
+            widget: string
             required: false
-          - name: "schedule"
-            label: "Horario de atencion"
-            widget: "text"
-          - name: "socialMedia"
-            label: "Redes sociales"
-            widget: "object"
+          - name: schedule
+            label: Horario de atencion
+            widget: text
+          - name: socialMedia
+            label: Redes sociales
+            widget: object
             collapsed: true
             fields:
-              - name: "facebook"
-                label: "Facebook"
-                widget: "string"
+              - name: facebook
+                label: Facebook
+                widget: string
                 required: false
-              - name: "twitter"
-                label: "Twitter/X"
-                widget: "string"
+              - name: twitter
+                label: Twitter/X
+                widget: string
                 required: false
-              - name: "youtube"
-                label: "YouTube"
-                widget: "string"
+              - name: youtube
+                label: YouTube
+                widget: string
                 required: false
-              - name: "instagram"
-                label: "Instagram"
-                widget: "string"
+              - name: instagram
+                label: Instagram
+                widget: string
                 required: false
-
-      # --- Menu de navegacion ---
-      - name: "navigation"
-        label: "Menu de Navegacion"
-        file: "src/content/settings/navigation.json"
+      - name: navigation
+        label: Menu de Navegacion
+        file: src/content/settings/navigation.json
         fields:
-          - name: "mainMenu"
-            label: "Menu principal"
-            widget: "list"
+          - name: mainMenu
+            label: Menu principal
+            widget: list
             fields:
-              - name: "label"
-                label: "Texto"
-                widget: "string"
-              - name: "url"
-                label: "URL"
-                widget: "string"
-              - name: "external"
-                label: "Enlace externo"
-                widget: "boolean"
+              - name: label
+                label: Texto
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: external
+                label: Enlace externo
+                widget: boolean
                 default: false
                 required: false
-              - name: "highlighted"
-                label: "Destacado (color especial)"
-                widget: "boolean"
+              - name: highlighted
+                label: Destacado (color especial)
+                widget: boolean
                 default: false
                 required: false
-              - name: "children"
-                label: "Submenu"
-                widget: "list"
+              - name: children
+                label: Submenu
+                widget: list
                 required: false
                 fields:
-                  - name: "label"
-                    label: "Texto"
-                    widget: "string"
-                  - name: "url"
-                    label: "URL"
-                    widget: "string"
-                  - name: "external"
-                    label: "Enlace externo"
-                    widget: "boolean"
+                  - name: label
+                    label: Texto
+                    widget: string
+                  - name: url
+                    label: URL
+                    widget: string
+                  - name: external
+                    label: Enlace externo
+                    widget: boolean
                     default: false
                     required: false
-          - name: "footerLinks"
-            label: "Enlaces del pie de pagina"
-            widget: "list"
-            label_singular: "Enlace"
+          - name: footerLinks
+            label: Enlaces del pie de pagina
+            widget: list
+            label_singular: Enlace
             required: false
             collapsed: true
             fields:
-              - name: "label"
-                label: "Texto"
-                widget: "string"
-              - name: "url"
-                label: "URL"
-                widget: "string"
-              - name: "external"
-                label: "Enlace externo"
-                widget: "boolean"
+              - name: label
+                label: Texto
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: external
+                label: Enlace externo
+                widget: boolean
                 default: false
                 required: false
-              - name: "highlighted"
-                label: "Destacado"
-                widget: "boolean"
+              - name: highlighted
+                label: Destacado
+                widget: boolean
                 default: false
                 required: false
-
-      # --- Informacion institucional ---
-      - name: "site"
-        label: "Informacion del Sitio"
-        file: "src/content/settings/site.json"
+      - name: site
+        label: Informacion del Sitio
+        file: src/content/settings/site.json
         fields:
-          - name: "name"
-            label: "Nombre de la institucion"
-            widget: "string"
-          - name: "fullName"
-            label: "Nombre completo"
-            widget: "string"
-          - name: "description"
-            label: "Descripcion (SEO)"
-            widget: "text"
-            hint: "Descripcion para motores de busqueda"
-          - name: "keywords"
-            label: "Palabras clave (SEO)"
-            widget: "list"
+          - name: name
+            label: Nombre de la institucion
+            widget: string
+          - name: fullName
+            label: Nombre completo
+            widget: string
+          - name: description
+            label: Descripcion (SEO)
+            widget: text
+            hint: Descripcion para motores de busqueda
+          - name: keywords
+            label: Palabras clave (SEO)
+            widget: list
             required: false
-          - name: "featuredVideo"
-            label: "Video destacado (Home)"
-            widget: "object"
+          - name: featuredVideo
+            label: Video destacado (Home)
+            widget: object
             collapsed: true
             fields:
-              - name: "url"
-                label: "URL del video (YouTube embed)"
-                widget: "string"
-              - name: "title"
-                label: "Titulo del video"
-                widget: "string"
-
-      # --- Accesos rapidos home ---
-      - name: "quickAccess"
-        label: "Accesos Rapidos (Home)"
-        file: "src/content/settings/quickAccess.json"
+              - name: url
+                label: URL del video (YouTube embed)
+                widget: string
+              - name: title
+                label: Titulo del video
+                widget: string
+      - name: quickAccess
+        label: Accesos Rapidos (Home)
+        file: src/content/settings/quickAccess.json
         fields:
-          - name: "items"
-            label: "Accesos rapidos"
-            widget: "list"
+          - name: items
+            label: Accesos rapidos
+            widget: list
             fields:
-              - name: "label"
-                label: "Texto"
-                widget: "string"
-              - name: "url"
-                label: "URL"
-                widget: "string"
-              - name: "icon"
-                label: "Icono FontAwesome"
-                widget: "string"
+              - name: label
+                label: Texto
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 hint: "Ejemplo: fa-file-alt, fa-gavel"
-              - name: "external"
-                label: "Enlace externo"
-                widget: "boolean"
+              - name: external
+                label: Enlace externo
+                widget: boolean
                 default: false
-              - name: "highlighted"
-                label: "Destacado"
-                widget: "boolean"
+              - name: highlighted
+                label: Destacado
+                widget: boolean
                 default: false

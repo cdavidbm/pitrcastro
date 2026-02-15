@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "description": "Sitio institucional de la Agencia ITRC - Astro + Sveltia CMS",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "cms:generate": "node cms/generate.js",
+    "dev": "node cms/generate.js && astro dev",
+    "start": "node cms/generate.js && astro dev",
+    "build": "node cms/generate.js && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint 'src/**/*.{astro,ts}'",
@@ -23,6 +24,7 @@
     "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
+    "js-yaml": "^4.1.1",
     "prettier": "^3.4.0",
     "prettier-plugin-astro": "^0.14.0",
     "typescript": "^5.6.0"
