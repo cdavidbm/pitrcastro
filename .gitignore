@@ -9,6 +9,8 @@ dist/
 .idea/
 CLAUDE.md
 .claude
+GEMINI.md
+.gemini/
 
 # OS
 .DS_Store

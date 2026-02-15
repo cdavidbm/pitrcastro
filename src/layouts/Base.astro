@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
   <script is:inline>
     (function() {
       var t = localStorage.getItem('itrc-theme');
-      if (t && t !== 'institucional') document.documentElement.classList.add('theme-' + t);
+      if (t && t !== 'claro') document.documentElement.classList.add('theme-' + t);
       var f = localStorage.getItem('itrc-font-size');
       if (f && f !== '100') document.documentElement.style.fontSize = f + '%';
       if (localStorage.getItem('itrc-contrast') === 'true') document.documentElement.classList.add('high-contrast');

@@ -25,11 +25,11 @@
       <div class="wcag-widget__option wcag-widget__option--theme">
         <span class="wcag-widget__label">Tema de color</span>
         <div class="wcag-widget__theme-selector">
-          <button class="wcag-widget__theme-btn wcag-widget__theme-btn--active" data-theme="institucional" aria-label="Tema Institucional" title="Institucional">
-            <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--institucional"></span>
-          </button>
-          <button class="wcag-widget__theme-btn" data-theme="claro" aria-label="Tema Claro" title="Claro">
+          <button class="wcag-widget__theme-btn wcag-widget__theme-btn--active" data-theme="claro" aria-label="Tema Claro" title="Claro">
             <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--claro"></span>
+          </button>
+          <button class="wcag-widget__theme-btn" data-theme="institucional" aria-label="Tema Institucional" title="Institucional">
+            <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--institucional"></span>
           </button>
           <button class="wcag-widget__theme-btn" data-theme="oscuro" aria-label="Tema Oscuro" title="Oscuro">
             <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--oscuro"></span>
@@ -338,7 +338,7 @@
   }
 
   .wcag-widget__theme-swatch--claro {
-    background: linear-gradient(135deg, #f0f0f0 50%, #b38b40 50%);
+    background: linear-gradient(135deg, #ffffff 50%, #b38b40 50%);
   }
 
   .wcag-widget__theme-swatch--oscuro {
@@ -419,7 +419,7 @@
     }
 
     // Restore theme button active state
-    const currentTheme = localStorage.getItem('itrc-theme') || 'institucional';
+    const currentTheme = localStorage.getItem('itrc-theme') || 'claro';
     widget.querySelectorAll('[data-theme]').forEach(btn => {
       btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === currentTheme);
     });
@@ -440,8 +440,8 @@
     widget.querySelectorAll('[data-theme]').forEach(btn => {
       btn.addEventListener('click', () => {
         const theme = (btn as HTMLElement).dataset.theme!;
-        html.classList.remove('theme-claro', 'theme-oscuro');
-        if (theme !== 'institucional') html.classList.add(`theme-${theme}`);
+        html.classList.remove('theme-institucional', 'theme-oscuro');
+        if (theme !== 'claro') html.classList.add(`theme-${theme}`);
         localStorage.setItem('itrc-theme', theme);
         widget.querySelectorAll('[data-theme]').forEach(b => {
           b.classList.toggle('wcag-widget__theme-btn--active', (b as HTMLElement).dataset.theme === theme);
@@ -492,12 +492,12 @@
         case 'reset-all':
           fontSize = 100;
           html.style.fontSize = '100%';
-          html.classList.remove('high-contrast', 'grayscale', 'underline-links', 'theme-claro', 'theme-oscuro');
+          html.classList.remove('high-contrast', 'grayscale', 'underline-links', 'theme-institucional', 'theme-oscuro');
           widget.querySelectorAll('[aria-pressed]').forEach(btn => {
             btn.setAttribute('aria-pressed', 'false');
           });
           widget.querySelectorAll('[data-theme]').forEach(btn => {
-            btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === 'institucional');
+            btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === 'claro');
           });
           localStorage.removeItem('itrc-theme');
           localStorage.removeItem('itrc-font-size');
