@@ -3,9 +3,19 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import pageData from '../../content/pages/agencia/equipo-directivo.json';
+import gestionData from '../../content/pages/agencia/gestion-misional.json';
 
 const base = import.meta.env.BASE_URL;
 const { title, subtitle, directora, subdirectores } = pageData;
+
+const normalize = (s: string) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+const areaToAnchor = Object.fromEntries(
+  gestionData.subdirecciones.map((sub: { titulo: string; id: string }) => [normalize(sub.titulo), sub.id])
+);
+function getSubdireccionUrl(area: string) {
+  const id = areaToAnchor[normalize(area)];
+  return id ? `${base}agencia/gestion-misional/#${id}` : null;
+}
 
 // Breadcrumb
 const breadcrumb = [
@@ -68,6 +78,12 @@ const breadcrumb = [
               {sub.bio.map((parrafo) => (
                 <p set:html={parrafo} />
               ))}
+              {getSubdireccionUrl(sub.area) && (
+                <a href={getSubdireccionUrl(sub.area)} class="perfil-subdirector__link">
+                  <span>Más información sobre esta subdirección</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              )}
             </div>
           </article>
         ))}
@@ -262,7 +278,7 @@ const breadcrumb = [
   }
 
   .perfil-subdirector__nombre {
-    color: var(--white);
+    color: var(--theme-cta-text);
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-2);
   }
@@ -286,6 +302,34 @@ const breadcrumb = [
 
   .perfil-subdirector__bio p:last-child {
     margin-bottom: 0;
+  }
+
+  .perfil-subdirector__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+    padding: var(--space-3) var(--space-5);
+    border: 2px solid var(--itrc-gold);
+    border-radius: var(--radius-full);
+    color: var(--itrc-gold);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .perfil-subdirector__link:hover {
+    background: var(--itrc-gold);
+    color: var(--white);
+  }
+
+  .perfil-subdirector__link i {
+    transition: transform var(--transition-fast);
+  }
+
+  .perfil-subdirector__link:hover i {
+    transform: translateX(4px);
   }
 
   .perfil-subdirector__bio em {

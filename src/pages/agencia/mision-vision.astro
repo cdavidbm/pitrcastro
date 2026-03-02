@@ -293,7 +293,7 @@ const breadcrumb = [
   .info-tabs__tab.active {
     background: var(--theme-dark-section-bg);
     border-color: var(--theme-heading);
-    color: var(--white);
+    color: var(--theme-dark-section-heading);
   }
 
   .info-tabs__tab i {
@@ -462,14 +462,14 @@ const breadcrumb = [
   .valor-card {
     text-align: center;
     padding: var(--space-6);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--theme-dark-section-item-bg);
+    border: 1px solid var(--theme-dark-section-item-border);
     border-radius: var(--radius-lg);
     transition: all var(--transition-base);
   }
 
   .valor-card:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--theme-dark-section-icon-bg);
     transform: translateY(-4px);
   }
 
@@ -487,13 +487,13 @@ const breadcrumb = [
   }
 
   .valor-card__nombre {
-    color: var(--white);
+    color: var(--theme-dark-section-heading);
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-2);
   }
 
   .valor-card__descripcion {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-dark-section-text);
     font-size: var(--font-size-sm);
     margin: 0;
   }
