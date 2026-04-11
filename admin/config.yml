@@ -40,19 +40,19 @@ collections:
   # ==========================================
   - name: agencia
     label: LA AGENCIA
-    label_singular: Pagina Agencia
-    description: Paginas institucionales de la Agencia ITRC
+    label_singular: Página Agencia
+    description: Páginas institucionales de la Agencia ITRC
     files:
       - name: equipo-directivo
         label: Equipo Directivo
         file: src/content/pages/agencia/equipo-directivo.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: subtitle
-            label: Subtitulo
+            label: Subtítulo
             widget: string
             required: false
           - name: directora
@@ -69,10 +69,10 @@ collections:
                 label: Foto
                 widget: image
               - name: bio
-                label: Biografia (parrafos)
+                label: Biografía (párrafos)
                 widget: list
                 field: &shared_1
-                  label: Parrafo
+                  label: Párrafo
                   name: parrafo
                   widget: text
           - name: subdirectores
@@ -88,42 +88,42 @@ collections:
                 label: Cargo
                 widget: string
               - name: area
-                label: Area/Dependencia
+                label: Área/Dependencia
                 widget: string
               - name: imagen
                 label: Foto
                 widget: image
               - name: bio
-                label: Biografia (parrafos)
+                label: Biografía (párrafos)
                 widget: list
                 field: *shared_1
       - name: mision-vision
-        label: Mision y Vision
+        label: Misión y Visión
         file: src/content/pages/agencia/mision-vision.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: proposito
-            label: Proposito Estrategico
+            label: Propósito Estratégico
             widget: object
             fields:
               - name: badge
                 label: Etiqueta
                 widget: string
               - name: titulo
-                label: Titulo principal
+                label: Título principal
                 widget: string
               - name: subtitulo
-                label: Subtitulo
+                label: Subtítulo
                 widget: string
           - name: mision
-            label: Mision
+            label: Misión
             widget: text
             hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
           - name: vision
-            label: Vision
+            label: Visión
             widget: text
             hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
           - name: valores
@@ -139,20 +139,20 @@ collections:
                 widget: string
                 hint: "Ej: fa-heart, fa-handshake"
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: string
           - name: quienesSomos
-            label: Quienes Somos
+            label: Quiénes Somos
             widget: object
             required: false
             collapsed: true
             fields:
               - name: intro
-                label: Parrafos de introduccion
+                label: Párrafos de introducción
                 widget: list
                 label_singular: Parrafo
                 field:
-                  label: Parrafo
+                  label: Párrafo
                   name: parrafo
                   widget: text
               - name: capacidades
@@ -164,7 +164,7 @@ collections:
                   name: capacidad
                   widget: string
           - name: queHacemos
-            label: Que Hacemos
+            label: Qué Hacemos
             widget: object
             required: false
             collapsed: true
@@ -182,27 +182,27 @@ collections:
                     label: Nombre
                     widget: string
                   - name: descripcion
-                    label: Descripcion
+                    label: Descripción
                     widget: string
               - name: cierre
                 label: Texto de cierre
                 widget: text
                 hint: "Puede incluir HTML para negritas: <strong>texto</strong>"
           - name: comoLoHacemos
-            label: Como lo Hacemos
+            label: Cómo lo Hacemos
             widget: list
-            label_singular: Metodo
+            label_singular: Método
             required: false
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: icon
                 label: Icono FontAwesome
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
           - name: funciones
             label: Funciones de la Agencia
@@ -217,24 +217,24 @@ collections:
               - name: items
                 label: Lista de funciones
                 widget: list
-                label_singular: Funcion
+                label_singular: Función
                 fields:
                   - name: title
-                    label: Titulo de la funcion
+                    label: Título de la función
                     widget: string
                   - name: content
-                    label: Descripcion detallada
+                    label: Descripción detallada
                     widget: text
               - name: paragrafo
-                label: Paragrafo
+                label: Parágrafo
                 widget: text
                 required: false
           - name: mapaEstrategico
-            label: Mapa Estrategico
+            label: Mapa Estratégico
             widget: object
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: imagen
                 label: Imagen del mapa
@@ -247,11 +247,11 @@ collections:
         file: src/content/pages/agencia/organigrama.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: subtitle
-            label: Subtitulo
+            label: Subtítulo
             widget: string
           - name: organigrama
             label: Imagen del Organigrama
@@ -267,40 +267,40 @@ collections:
                 label: Texto alternativo
                 widget: string
           - name: funcionesPorArea
-            label: Funciones por Area
+            label: Funciones por Área
             widget: object
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: string
               - name: matrizUrl
                 label: URL de la matriz PDF
                 widget: file
           - name: resolucionesSeccion
-            label: Seccion de Resoluciones
+            label: Sección de Resoluciones
             widget: object
             required: false
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo de la seccion
+                label: Título de la sección
                 widget: string
               - name: descripcion
-                label: Descripcion de la seccion
+                label: Descripción de la sección
                 widget: string
           - name: resoluciones
             label: Resoluciones
             widget: list
-            label_singular: Resolucion
+            label_singular: Resolución
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: string
               - name: url
                 label: URL del documento
@@ -312,41 +312,41 @@ collections:
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: string
       - name: direccionamiento-estrategico
-        label: Direccionamiento Estrategico
+        label: Direccionamiento Estratégico
         file: src/content/pages/agencia/direccionamiento-estrategico.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: subtitle
-            label: Subtitulo
+            label: Subtítulo
             widget: string
           - name: intro
-            label: Texto de introduccion
+            label: Texto de introducción
             widget: text
           - name: sections
             label: Secciones principales
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             fields:
               - name: id
                 label: ID
                 widget: string
                 pattern:
                   - ^[a-z0-9-]+$
-                  - Solo minusculas y guiones
+                  - Solo minúsculas y guiones
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
               - name: icon
                 label: Icono FontAwesome
@@ -365,11 +365,11 @@ collections:
                 label: Cantidad de documentos
                 widget: number
       - name: direccionamiento-politicas
-        label: "    > Politicas"
+        label: "    > Políticas"
         file: src/content/pages/agencia/direccionamiento/politicas.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -377,7 +377,7 @@ collections:
             widget: string
             required: true
           - name: description
-            label: Descripcion
+            label: Descripción
             widget: markdown
             required: false
           - name: icon
@@ -391,29 +391,29 @@ collections:
           - name: sections
             label: Secciones de documentos
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             collapsed: true
             fields:
               - name: sectionTitle
-                label: Titulo de la seccion
+                label: Título de la sección
                 widget: string
                 required: true
               - name: sectionDescription
-                label: Descripcion de la seccion
+                label: Descripción de la sección
                 widget: text
                 required: false
               - name: sectionIcon
-                label: Icono de la seccion
+                label: Icono de la sección
                 widget: string
                 required: false
               - &display_mode
                 name: displayMode
-                label: Modo de visualizacion
+                label: Modo de visualización
                 widget: select
                 options:
-                  - label: Acordeon
+                  - label: Acordeón
                     value: accordion
-                  - label: Pestanas (Tabs)
+                  - label: Pestañas (Tabs)
                     value: tabs
                   - label: Lista simple
                     value: list
@@ -432,7 +432,7 @@ collections:
                     widget: file
                     required: true
                   - name: category
-                    label: Categoria (para tabs)
+                    label: Categoría (para tabs)
                     widget: string
                     required: false
                   - name: anio
@@ -444,7 +444,7 @@ collections:
         file: src/content/pages/agencia/direccionamiento/planes.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -452,7 +452,7 @@ collections:
             widget: string
             required: true
           - name: description
-            label: Descripcion
+            label: Descripción
             widget: markdown
             required: false
           - name: icon
@@ -466,19 +466,19 @@ collections:
           - name: sections
             label: Secciones de documentos
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             collapsed: true
             fields:
               - name: sectionTitle
-                label: Titulo de la seccion
+                label: Título de la sección
                 widget: string
                 required: true
               - name: sectionDescription
-                label: Descripcion de la seccion
+                label: Descripción de la sección
                 widget: text
                 required: false
               - name: sectionIcon
-                label: Icono de la seccion
+                label: Icono de la sección
                 widget: string
                 required: false
               - *display_mode
@@ -496,7 +496,7 @@ collections:
                     widget: file
                     required: true
                   - name: category
-                    label: Categoria (para tabs)
+                    label: Categoría (para tabs)
                     widget: string
                     required: false
                   - name: anio
@@ -508,7 +508,7 @@ collections:
         file: src/content/pages/agencia/direccionamiento/informes.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -516,7 +516,7 @@ collections:
             widget: string
             required: true
           - name: description
-            label: Descripcion
+            label: Descripción
             widget: markdown
             required: false
           - name: icon
@@ -530,19 +530,19 @@ collections:
           - name: sections
             label: Secciones de documentos
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             collapsed: true
             fields:
               - name: sectionTitle
-                label: Titulo de la seccion
+                label: Título de la sección
                 widget: string
                 required: true
               - name: sectionDescription
-                label: Descripcion de la seccion
+                label: Descripción de la sección
                 widget: text
                 required: false
               - name: sectionIcon
-                label: Icono de la seccion
+                label: Icono de la sección
                 widget: string
                 required: false
               - *display_mode
@@ -560,7 +560,7 @@ collections:
                     widget: file
                     required: true
                   - name: category
-                    label: Categoria (para tabs)
+                    label: Categoría (para tabs)
                     widget: string
                     required: false
                   - name: anio
@@ -568,11 +568,11 @@ collections:
                     widget: string
                     required: false
       - name: gestion-misional
-        label: Gestion Misional
+        label: Gestión Misional
         file: src/content/pages/agencia/gestion-misional.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -581,9 +581,9 @@ collections:
             required: true
             pattern:
               - ^[a-z0-9-]+$
-              - Solo minusculas, numeros y guiones
+              - Solo minúsculas, números y guiones
           - name: description
-            label: Descripcion
+            label: Descripción
             widget: text
             required: false
           - name: icon
@@ -597,7 +597,7 @@ collections:
           - name: subdirecciones
             label: Subdirecciones
             widget: list
-            label_singular: Subdireccion
+            label_singular: Subdirección
             collapsed: true
             fields:
               - name: id
@@ -605,9 +605,9 @@ collections:
                 widget: string
                 pattern:
                   - ^[a-z0-9-]+$
-                  - Solo minusculas y guiones
+                  - Solo minúsculas y guiones
               - name: titulo
-                label: Titulo completo
+                label: Título completo
                 widget: string
               - name: sigla
                 label: Sigla
@@ -628,7 +628,7 @@ collections:
                     value: green
                 default: navy
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
               - name: observatorio
                 label: Enlace a Observatorio (opcional)
@@ -643,16 +643,16 @@ collections:
                     label: URL del enlace
                     widget: string
                   - name: label
-                    label: Texto del boton
+                    label: Texto del botón
                     widget: string
               - name: categorias
-                label: Categorias de documentos
+                label: Categorías de documentos
                 widget: list
-                label_singular: Categoria
+                label_singular: Categoría
                 collapsed: true
                 fields:
                   - name: titulo
-                    label: Titulo de la categoria
+                    label: Título de la categoría
                     widget: string
                   - name: documentos
                     label: Documentos
@@ -671,11 +671,11 @@ collections:
                         widget: string
                         required: false
       - name: informacion-financiera
-        label: Informacion Financiera
+        label: Información Financiera
         file: src/content/pages/agencia/informacion-financiera.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -684,9 +684,9 @@ collections:
             required: true
             pattern:
               - ^[a-z0-9-]+$
-              - Solo minusculas, numeros y guiones
+              - Solo minúsculas, números y guiones
           - name: subtitle
-            label: Subtitulo
+            label: Subtítulo
             widget: string
             required: false
           - name: published
@@ -694,9 +694,9 @@ collections:
             widget: boolean
             default: true
           - name: tabs
-            label: Categorias (Tabs)
+            label: Categorías (Tabs)
             widget: list
-            label_singular: Categoria
+            label_singular: Categoría
             collapsed: true
             fields:
               - name: id
@@ -704,9 +704,9 @@ collections:
                 widget: string
                 pattern:
                   - ^[a-z0-9-]+$
-                  - Solo minusculas, numeros y guiones
+                  - Solo minúsculas, números y guiones
               - name: label
-                label: Nombre de la categoria
+                label: Nombre de la categoría
                 widget: string
               - name: items
                 label: Documentos
@@ -715,7 +715,7 @@ collections:
                 collapsed: true
                 fields:
                   - name: titulo
-                    label: Titulo del documento
+                    label: Título del documento
                     widget: string
                   - name: url
                     label: URL del archivo
@@ -738,43 +738,43 @@ collections:
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
               - name: icon
                 label: Icono FontAwesome
                 widget: string
                 hint: "Ej: fa-scale-balanced, fa-landmark"
           - name: ctaSection
-            label: Seccion de enlace externo (CTA)
+            label: Sección de enlace externo (CTA)
             widget: object
             required: false
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
               - name: linkUrl
                 label: URL del enlace
                 widget: string
               - name: linkText
-                label: Texto del boton
+                label: Texto del botón
                 widget: string
               - name: icon
                 label: Icono FontAwesome
                 widget: string
                 required: false
       - name: sistema-integrado-gestion
-        label: Sistema Integrado de Gestion
+        label: Sistema Integrado de Gestión
         file: src/content/pages/agencia/sistema-integrado-de-gestion.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -782,7 +782,7 @@ collections:
             widget: string
             required: true
           - name: description
-            label: Descripcion
+            label: Descripción
             widget: markdown
             required: false
           - name: icon
@@ -796,19 +796,19 @@ collections:
           - name: sections
             label: Secciones de documentos
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             collapsed: true
             fields:
               - name: sectionTitle
-                label: Titulo de la seccion
+                label: Título de la sección
                 widget: string
                 required: true
               - name: sectionDescription
-                label: Descripcion de la seccion
+                label: Descripción de la sección
                 widget: text
                 required: false
               - name: sectionIcon
-                label: Icono de la seccion
+                label: Icono de la sección
                 widget: string
                 required: false
               - *display_mode
@@ -828,7 +828,7 @@ collections:
         file: src/content/pages/agencia/sistema-de-control-interno.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -836,7 +836,7 @@ collections:
             widget: string
             required: true
           - name: subtitle
-            label: Subtitulo
+            label: Subtítulo
             widget: string
             required: false
           - name: icon
@@ -848,11 +848,11 @@ collections:
             widget: boolean
             default: true
           - name: introTitle
-            label: Titulo de introduccion
+            label: Título de introducción
             widget: string
             required: false
           - name: introContent
-            label: Contenido de introduccion
+            label: Contenido de introducción
             widget: markdown
             required: false
           - name: entidadesExternas
@@ -865,17 +865,17 @@ collections:
                 label: Nombre de la entidad
                 widget: string
               - name: direccion
-                label: Direccion
+                label: Dirección
                 widget: string
               - name: telefono
-                label: Telefono
+                label: Teléfono
                 widget: string
               - name: lineaNacional
-                label: Linea nacional
+                label: Línea nacional
                 widget: string
                 required: false
               - name: email
-                label: Correo electronico
+                label: Correo electrónico
                 widget: string
                 required: false
               - name: web
@@ -888,9 +888,9 @@ collections:
                 label: Icono FontAwesome
                 widget: string
           - name: controlPolitico
-            label: Organos de Control Politico
+            label: Órganos de Control Político
             widget: list
-            label_singular: Organo
+            label_singular: Órgano
             required: false
             collapsed: true
             fields:
@@ -898,17 +898,17 @@ collections:
                 label: Nombre
                 widget: string
               - name: direccion
-                label: Direccion
+                label: Dirección
                 widget: string
               - name: telefono
-                label: Telefono
+                label: Teléfono
                 widget: string
               - name: lineaNacional
-                label: Linea nacional
+                label: Línea nacional
                 widget: string
                 required: false
               - name: email
-                label: Correo electronico
+                label: Correo electrónico
                 widget: string
                 required: false
               - name: web
@@ -916,9 +916,9 @@ collections:
                 widget: string
                 required: false
           - name: controlInterno
-            label: Organos de Control Interno
+            label: Órganos de Control Interno
             widget: list
-            label_singular: Organo
+            label_singular: Órgano
             required: false
             collapsed: true
             fields:
@@ -939,26 +939,26 @@ collections:
             collapsed: true
             fields:
               - name: direccion
-                label: Direccion
+                label: Dirección
                 widget: string
               - name: telefono
-                label: Telefono
+                label: Teléfono
                 widget: string
               - name: lineaNacional
-                label: Linea nacional
+                label: Línea nacional
                 widget: string
                 required: false
               - name: email
-                label: Correo electronico
+                label: Correo electrónico
                 widget: string
           - name: informesLegales
             label: Informes Legales
             widget: list
-            label_singular: Categoria
+            label_singular: Categoría
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo de la categoria
+                label: Título de la categoría
                 widget: string
               - name: documentos
                 label: Documentos
@@ -983,16 +983,16 @@ collections:
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
               - name: linkUrl
                 label: URL del enlace
                 widget: string
               - name: linkText
-                label: Texto del boton
+                label: Texto del botón
                 widget: string
           - name: enlacesRelacionados
             label: Enlaces Relacionados
@@ -1002,10 +1002,10 @@ collections:
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: string
               - name: url
                 label: URL
@@ -1027,7 +1027,7 @@ collections:
         file: src/content/pages/transparencia.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -1035,7 +1035,7 @@ collections:
             widget: string
             required: true
           - name: description
-            label: Descripcion
+            label: Descripción
             widget: markdown
             required: false
           - name: icon
@@ -1054,19 +1054,19 @@ collections:
           - name: sections
             label: Secciones de documentos
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             collapsed: true
             fields:
               - name: sectionTitle
-                label: Titulo de la seccion
+                label: Título de la sección
                 widget: string
                 required: true
               - name: sectionDescription
-                label: Descripcion de la seccion
+                label: Descripción de la sección
                 widget: text
                 required: false
               - name: sectionIcon
-                label: Icono de la seccion
+                label: Icono de la sección
                 widget: string
                 required: false
               - *display_mode
@@ -1084,11 +1084,11 @@ collections:
                     widget: file
                     required: true
                   - name: description
-                    label: Descripcion del documento
+                    label: Descripción del documento
                     widget: string
                     required: false
                   - name: category
-                    label: Categoria (para tabs)
+                    label: Categoría (para tabs)
                     widget: string
                     required: false
                   - name: anio
@@ -1110,7 +1110,7 @@ collections:
     description: Paginas de normatividad y marco legal
     fields:
       - name: title
-        label: Titulo de la pagina
+        label: Título de la página
         widget: string
         required: true
       - name: slug
@@ -1119,9 +1119,9 @@ collections:
         required: true
         pattern:
           - ^[a-z0-9-]+$
-          - Solo minusculas, numeros y guiones
+          - Solo minúsculas, números y guiones
       - name: description
-        label: Descripcion
+        label: Descripción
         widget: markdown
         required: false
       - name: icon
@@ -1135,19 +1135,19 @@ collections:
       - name: sections
         label: Secciones de documentos
         widget: list
-        label_singular: Seccion
+        label_singular: Sección
         collapsed: true
         fields:
           - name: sectionTitle
-            label: Titulo de la seccion
+            label: Título de la sección
             widget: string
             required: true
           - name: sectionDescription
-            label: Descripcion de la seccion
+            label: Descripción de la sección
             widget: text
             required: false
           - name: sectionIcon
-            label: Icono de la seccion
+            label: Icono de la sección
             widget: string
             required: false
           - *display_mode
@@ -1178,16 +1178,16 @@ collections:
   # # Canales de atencion y servicios al ciudadano
   # ==========================================
   - name: atencion-servicios
-    label: ATENCION Y SERVICIOS
-    label_singular: Pagina de Atencion
+    label: ATENCIÓN Y SERVICIOS
+    label_singular: Página de Atención
     folder: src/content/pages/atencion
     create: true
     slug: "{{slug}}"
     format: json
-    description: Paginas de atencion al ciudadano y servicios
+    description: Páginas de atención al ciudadano y servicios
     fields:
       - name: title
-        label: Titulo de la pagina
+        label: Título de la página
         widget: string
         required: true
       - name: slug
@@ -1196,9 +1196,9 @@ collections:
         required: true
         pattern:
           - ^[a-z0-9-]+$
-          - Solo minusculas, numeros y guiones
+          - Solo minúsculas, números y guiones
       - name: description
-        label: Descripcion
+        label: Descripción
         widget: markdown
         required: false
       - name: icon
@@ -1213,27 +1213,27 @@ collections:
         label: Contenido principal
         widget: markdown
         required: false
-        hint: Contenido HTML/Markdown de la pagina
+        hint: Contenido HTML/Markdown de la página
       - name: sections
         label: Secciones de documentos (opcional)
         widget: list
-        label_singular: Seccion
+        label_singular: Sección
         collapsed: true
         required: false
         fields:
           - name: sectionTitle
-            label: Titulo de la seccion
+            label: Título de la sección
             widget: string
             required: true
           - name: sectionDescription
-            label: Descripcion de la seccion
+            label: Descripción de la sección
             widget: text
             required: false
           - name: displayMode
-            label: Modo de visualizacion
+            label: Modo de visualización
             widget: select
             options:
-              - label: Acordeon
+              - label: Acordeón
                 value: accordion
               - label: Lista simple
                 value: list
@@ -1273,11 +1273,11 @@ collections:
     label: PARTICIPA
     files:
       - name: participa-principal
-        label: Pagina Participa
+        label: Página Participa
         file: src/content/pages/participa.json
         fields:
           - name: title
-            label: Titulo de la pagina
+            label: Título de la página
             widget: string
             required: true
           - name: slug
@@ -1285,7 +1285,7 @@ collections:
             widget: string
             required: true
           - name: description
-            label: Descripcion introductoria
+            label: Descripción introductoria
             widget: markdown
             required: false
           - name: published
@@ -1293,16 +1293,16 @@ collections:
             widget: boolean
             default: true
           - name: mecanismos
-            label: Mecanismos de participacion
+            label: Mecanismos de participación
             widget: list
             label_singular: Mecanismo
             collapsed: true
             fields:
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: text
               - name: icon
                 label: Icono FontAwesome
@@ -1337,31 +1337,31 @@ collections:
     label: PRENSA
     files:
       - name: prensa-principal
-        label: Pagina de Prensa
+        label: Página de Prensa
         file: src/content/pages/prensa.json
         fields:
           - name: title
-            label: Titulo
+            label: Título
             widget: string
             required: true
           - name: subtitle
-            label: Subtitulo
+            label: Subtítulo
             widget: string
             required: false
           - name: sections
             label: Secciones
             widget: list
-            label_singular: Seccion
+            label_singular: Sección
             collapsed: true
             fields:
               - name: id
                 label: ID
                 widget: string
               - name: titulo
-                label: Titulo
+                label: Título
                 widget: string
               - name: descripcion
-                label: Descripcion
+                label: Descripción
                 widget: string
               - name: icon
                 label: Icono FontAwesome
@@ -1381,7 +1381,7 @@ collections:
       - title
     fields:
       - name: title
-        label: Titulo
+        label: Título
         widget: string
         required: true
       - name: date
@@ -1442,7 +1442,7 @@ collections:
         widget: string
         required: false
       - name: description
-        label: Descripcion
+        label: Descripción
         widget: markdown
         required: true
       - name: image
@@ -1469,11 +1469,11 @@ collections:
       - title
     fields:
       - name: title
-        label: Titulo
+        label: Título
         widget: string
         required: true
       - name: date
-        label: Fecha de publicacion
+        label: Fecha de publicación
         widget: datetime
         format: YYYY-MM-DD
         required: true
@@ -1510,11 +1510,11 @@ collections:
       - title
     fields:
       - name: title
-        label: Titulo
+        label: Título
         widget: string
         required: true
       - name: date
-        label: Fecha de publicacion
+        label: Fecha de publicación
         widget: datetime
         format: YYYY-MM-DD
         required: true
@@ -1547,7 +1547,7 @@ collections:
       - title
     fields:
       - name: title
-        label: Titulo
+        label: Título
         widget: string
         required: true
       - name: date
@@ -1565,7 +1565,7 @@ collections:
         widget: image
         required: false
       - name: description
-        label: Descripcion
+        label: Descripción
         widget: text
         required: false
       - name: duration
@@ -1595,7 +1595,7 @@ collections:
         format: YYYY-MM-DD
         required: true
       - name: description
-        label: Descripcion
+        label: Descripción
         widget: text
         required: false
       - name: coverImage
@@ -1612,7 +1612,7 @@ collections:
             widget: image
             required: true
           - name: caption
-            label: Descripcion
+            label: Descripción
             widget: string
             required: false
           - name: alt
@@ -1635,7 +1635,7 @@ collections:
       - title
     fields:
       - name: title
-        label: Titulo
+        label: Título
         widget: string
         required: true
       - name: date
@@ -1756,38 +1756,38 @@ collections:
   # CONFIGURACION GLOBAL
   # ==========================================
   - name: settings
-    label: CONFIGURACION
+    label: CONFIGURACIÓN
     files:
       - name: contact
         label: Datos de Contacto
         file: src/content/settings/contact.json
         fields:
           - name: address
-            label: Direccion
+            label: Dirección
             widget: string
           - name: city
             label: Ciudad
             widget: string
           - name: postalCode
-            label: Codigo Postal
+            label: Código Postal
             widget: string
             required: false
           - name: phone
-            label: Telefono principal
+            label: Teléfono principal
             widget: string
           - name: tollFree
-            label: Linea gratuita
+            label: Línea gratuita
             widget: string
             required: false
           - name: email
-            label: Correo electronico
+            label: Correo electrónico
             widget: string
           - name: emailNotifications
             label: Correo notificaciones
             widget: string
             required: false
           - name: schedule
-            label: Horario de atencion
+            label: Horario de atención
             widget: text
           - name: socialMedia
             label: Redes sociales
@@ -1811,11 +1811,11 @@ collections:
                 widget: string
                 required: false
       - name: navigation
-        label: Menu de Navegacion
+        label: Menú de Navegación
         file: src/content/settings/navigation.json
         fields:
           - name: mainMenu
-            label: Menu principal
+            label: Menú principal
             widget: list
             fields:
               - name: label
@@ -1835,7 +1835,7 @@ collections:
                 default: false
                 required: false
               - name: children
-                label: Submenu
+                label: Submenú
                 widget: list
                 required: false
                 fields:
@@ -1851,7 +1851,7 @@ collections:
                     default: false
                     required: false
           - name: footerLinks
-            label: Enlaces del pie de pagina
+            label: Enlaces del pie de página
             widget: list
             label_singular: Enlace
             required: false
@@ -1874,19 +1874,19 @@ collections:
                 default: false
                 required: false
       - name: site
-        label: Informacion del Sitio
+        label: Información del Sitio
         file: src/content/settings/site.json
         fields:
           - name: name
-            label: Nombre de la institucion
+            label: Nombre de la institución
             widget: string
           - name: fullName
             label: Nombre completo
             widget: string
           - name: description
-            label: Descripcion (SEO)
+            label: Descripción (SEO)
             widget: text
-            hint: Descripcion para motores de busqueda
+            hint: Descripción para motores de búsqueda
           - name: keywords
             label: Palabras clave (SEO)
             widget: list
@@ -1900,14 +1900,14 @@ collections:
                 label: URL del video (YouTube embed)
                 widget: string
               - name: title
-                label: Titulo del video
+                label: Título del video
                 widget: string
       - name: quickAccess
         label: Accesos Rapidos (Home)
         file: src/content/settings/quickAccess.json
         fields:
           - name: items
-            label: Accesos rapidos
+            label: Accesos rápidos
             widget: list
             fields:
               - name: label
