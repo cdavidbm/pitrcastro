@@ -1,6 +1,6 @@
 export const settings = {
   name: "settings",
-  label: "CONFIGURACION",
+  label: "CONFIGURACIÓN",
   files: [
     // --- Datos de contacto ---
     {
@@ -8,14 +8,14 @@ export const settings = {
       label: "Datos de Contacto",
       file: "src/content/settings/contact.json",
       fields: [
-        { name: "address", label: "Direccion", widget: "string" },
+        { name: "address", label: "Dirección", widget: "string" },
         { name: "city", label: "Ciudad", widget: "string" },
-        { name: "postalCode", label: "Codigo Postal", widget: "string", required: false },
-        { name: "phone", label: "Telefono principal", widget: "string" },
-        { name: "tollFree", label: "Linea gratuita", widget: "string", required: false },
-        { name: "email", label: "Correo electronico", widget: "string" },
+        { name: "postalCode", label: "Código Postal", widget: "string", required: false },
+        { name: "phone", label: "Teléfono principal", widget: "string" },
+        { name: "tollFree", label: "Línea gratuita", widget: "string", required: false },
+        { name: "email", label: "Correo electrónico", widget: "string" },
         { name: "emailNotifications", label: "Correo notificaciones", widget: "string", required: false },
-        { name: "schedule", label: "Horario de atencion", widget: "text" },
+        { name: "schedule", label: "Horario de atención", widget: "text" },
         {
           name: "socialMedia",
           label: "Redes sociales",
@@ -31,15 +31,15 @@ export const settings = {
       ],
     },
 
-    // --- Menu de navegacion ---
+    // --- Menú de navegación ---
     {
       name: "navigation",
-      label: "Menu de Navegacion",
+      label: "Menú de Navegación",
       file: "src/content/settings/navigation.json",
       fields: [
         {
           name: "mainMenu",
-          label: "Menu principal",
+          label: "Menú principal",
           widget: "list",
           fields: [
             { name: "label", label: "Texto", widget: "string" },
@@ -48,7 +48,7 @@ export const settings = {
             { name: "highlighted", label: "Destacado (color especial)", widget: "boolean", default: false, required: false },
             {
               name: "children",
-              label: "Submenu",
+              label: "Submenú",
               widget: "list",
               required: false,
               fields: [
@@ -61,7 +61,7 @@ export const settings = {
         },
         {
           name: "footerLinks",
-          label: "Enlaces del pie de pagina",
+          label: "Enlaces del pie de página",
           widget: "list",
           label_singular: "Enlace",
           required: false,
@@ -76,15 +76,15 @@ export const settings = {
       ],
     },
 
-    // --- Informacion institucional ---
+    // --- Información institucional ---
     {
       name: "site",
-      label: "Informacion del Sitio",
+      label: "Información del Sitio",
       file: "src/content/settings/site.json",
       fields: [
-        { name: "name", label: "Nombre de la institucion", widget: "string" },
+        { name: "name", label: "Nombre de la institución", widget: "string" },
         { name: "fullName", label: "Nombre completo", widget: "string" },
-        { name: "description", label: "Descripcion (SEO)", widget: "text", hint: "Descripcion para motores de busqueda" },
+        { name: "description", label: "Descripción (SEO)", widget: "text", hint: "Descripción para motores de búsqueda" },
         { name: "keywords", label: "Palabras clave (SEO)", widget: "list", required: false },
         {
           name: "featuredVideo",
@@ -93,7 +93,7 @@ export const settings = {
           collapsed: true,
           fields: [
             { name: "url", label: "URL del video (YouTube embed)", widget: "string" },
-            { name: "title", label: "Titulo del video", widget: "string" },
+            { name: "title", label: "Título del video", widget: "string" },
           ],
         },
       ],
@@ -107,7 +107,7 @@ export const settings = {
       fields: [
         {
           name: "items",
-          label: "Accesos rapidos",
+          label: "Accesos rápidos",
           widget: "list",
           fields: [
             { name: "label", label: "Texto", widget: "string" },

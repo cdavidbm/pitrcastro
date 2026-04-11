@@ -42,7 +42,7 @@ const base = import.meta.env.BASE_URL;
       <h2 id="entidades-title" class="section-title-decorated">Entidades vigiladas por la ITRC</h2>
       <div class="entidades-grid">
         <a href="https://www.dian.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
-          <img src={`${base}images/entidades/dian.png`} alt="DIAN - Direccion de Impuestos y Aduanas Nacionales" loading="lazy">
+          <img src={`${base}images/entidades/dian.png`} alt="DIAN - Dirección de Impuestos y Aduanas Nacionales" loading="lazy">
           <span class="entidad__nombre">DIAN</span>
         </a>
         <a href="https://www.coljuegos.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
@@ -50,7 +50,7 @@ const base = import.meta.env.BASE_URL;
           <span class="entidad__nombre">Coljuegos</span>
         </a>
         <a href="https://www.ugpp.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
-          <img src={`${base}images/entidades/ugpp.png`} alt="UGPP - Unidad de Gestion Pensional y Parafiscales" loading="lazy">
+          <img src={`${base}images/entidades/ugpp.png`} alt="UGPP - Unidad de Gestión Pensional y Parafiscales" loading="lazy">
           <span class="entidad__nombre">UGPP</span>
         </a>
       </div>
@@ -60,7 +60,7 @@ const base = import.meta.env.BASE_URL;
   <!-- Servicios -->
   <section class="servicios-section" aria-labelledby="servicios-title">
     <div class="container">
-      <h2 id="servicios-title" class="section-title-decorated section-title-decorated--full">Servicios a la Ciudadania</h2>
+      <h2 id="servicios-title" class="section-title-decorated section-title-decorated--full">Servicios a la Ciudadanía</h2>
       <div class="servicios-grid">
         <div class="servicios-columna">
           <ul class="servicios-lista">
@@ -73,9 +73,9 @@ const base = import.meta.env.BASE_URL;
         </div>
         <div class="servicios-columna">
           <ul class="servicios-lista">
-            <li><a href={`${base}participa/rendicion-cuentas`}>Rendicion de cuentas</a></li>
+            <li><a href={`${base}participa/rendicion-cuentas`}>Rendición de cuentas</a></li>
             <li><a href={`${base}atencion/pqrs-servidores`}>PQRSDF servidores Agencia ITRC</a></li>
-            <li><a href={`${base}atencion/canales`}>Canales de atencion al ciudadano</a></li>
+            <li><a href={`${base}atencion/canales`}>Canales de atención al ciudadano</a></li>
             <li><a href={`${base}atencion/pqrs`}>PQRS</a></li>
             <li><a href={`${base}agencia/contacto`}>Datos de contacto</a></li>
             <li><a href="https://www.cnsc.gov.co/" target="_blank" rel="noopener noreferrer">Ofertas de empleo CNSC <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
@@ -85,11 +85,11 @@ const base = import.meta.env.BASE_URL;
           <ul class="servicios-lista">
             <li><a href={`${base}agencia/portafolio-servicios`}>Portafolio de servicios</a></li>
             <li><a href={`mailto:${contactData.emailNotifications}`}>Notificaciones judiciales</a></li>
-            <li><a href={`${base}agencia/avisos-convocatoria`}>Avisos convocatoria publica</a></li>
+            <li><a href={`${base}agencia/avisos-convocatoria`}>Avisos convocatoria pública</a></li>
             <li><a href="https://www.colombiacompra.gov.co/" target="_blank" rel="noopener noreferrer">Colombia compra eficiente <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.suin-juriscol.gov.co/" target="_blank" rel="noopener noreferrer">Sistema Unico de Informacion Normativa <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href={`${base}transparencia`}>Transparencia y acceso a informacion publica</a></li>
-            <li><a href={`${base}normativa/relatoria`}>Relatoria</a></li>
+            <li><a href="https://www.suin-juriscol.gov.co/" target="_blank" rel="noopener noreferrer">Sistema Único de Información Normativa <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+            <li><a href={`${base}transparencia`}>Transparencia y acceso a información pública</a></li>
+            <li><a href={`${base}normativa/relatoria`}>Relatoría</a></li>
           </ul>
         </div>
       </div>
@@ -99,7 +99,7 @@ const base = import.meta.env.BASE_URL;
   <!-- Contacto -->
   <section class="contact-section" aria-labelledby="contact-title">
     <div class="container">
-      <h2 id="contact-title" class="section-title-decorated">Canales de Atencion</h2>
+      <h2 id="contact-title" class="section-title-decorated">Canales de Atención</h2>
       <p class="contact-section__intro">Estamos para servirle. Encuentre la mejor forma de comunicarse con nosotros.</p>
 
       <div class="contact-section__cards">
@@ -107,9 +107,9 @@ const base = import.meta.env.BASE_URL;
           <div class="contact-card__icon">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
           </div>
-          <h3>Telefonos</h3>
+          <h3>Teléfonos</h3>
           <p>{contactData.phone}</p>
-          <p class="contact-card__sub">Linea gratuita: {contactData.tollFree}</p>
+          <p class="contact-card__sub">Línea gratuita: {contactData.tollFree}</p>
         </div>
 
         <div class="contact-card">
@@ -133,7 +133,7 @@ const base = import.meta.env.BASE_URL;
           <div class="contact-card__icon">
             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
           </div>
-          <h3>Direccion</h3>
+          <h3>Dirección</h3>
           <p>{contactData.address}</p>
           <p class="contact-card__sub">{contactData.city}</p>
         </div>

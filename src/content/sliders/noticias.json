@@ -1,6 +1,6 @@
 {
   "name": "Noticias Destacadas",
-  "description": "Slider con las noticias mas relevantes de la Agencia ITRC",
+  "description": "Slider con las noticias más relevantes de la Agencia ITRC",
   "autoplay": true,
   "interval": 6000,
   "slides": [
@@ -17,10 +17,10 @@
     },
     {
       "image": "/images/news-slide-2.jpg",
-      "imageAlt": "Periodicos y noticias sobre gestion publica",
-      "title": "Informe de Gestion 2024",
-      "subtitle": "Rendicion de cuentas",
-      "description": "Presentamos los resultados de nuestra labor en la proteccion del patrimonio publico durante el ultimo periodo",
+      "imageAlt": "Periodicos y noticias sobre gestión pública",
+      "title": "Informe de Gestión 2024",
+      "subtitle": "Rendición de cuentas",
+      "description": "Presentamos los resultados de nuestra labor en la protección del patrimonio público durante el último periodo",
       "link": "/prensa/noticias/informe-gestion-2024",
       "linkText": "Ver informe completo",
       "active": true,
@@ -33,7 +33,7 @@
       "subtitle": "",
       "description": "",
       "link": "/prensa/noticias/2026-02-09-encuentro-regional-palmira/",
-      "linkText": "Ver mas",
+      "linkText": "Ver más",
       "external": false,
       "overlay": false,
       "active": true,
@@ -41,12 +41,12 @@
     },
     {
       "image": "/images/news-slide-3.jpg",
-      "imageAlt": "Equipo de trabajo en reunion estrategica",
+      "imageAlt": "Equipo de trabajo en reunión estratégica",
       "title": "Alianza con entidades internacionales",
-      "subtitle": "Cooperacion internacional",
-      "description": "La ITRC firma convenio de cooperacion con organismos internacionales para el intercambio de informacion tributaria",
+      "subtitle": "Cooperación internacional",
+      "description": "La ITRC firma convenio de cooperación con organismos internacionales para el intercambio de información tributaria",
       "link": "/prensa/noticias/alianza-internacional-2024",
-      "linkText": "Conocer mas",
+      "linkText": "Conocer más",
       "active": false,
       "order": 3
     }

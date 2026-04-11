@@ -38,7 +38,7 @@ const socialIcons: Record<string, string> = {
         {contactConfig.tollFree && (
           <li>
             <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
-            Linea gratuita: {contactConfig.tollFree}
+            Línea gratuita: {contactConfig.tollFree}
           </li>
         )}
         <li>
@@ -58,7 +58,7 @@ const socialIcons: Record<string, string> = {
         <li><a href={`${base}transparencia`}>Transparencia</a></li>
         <li><a href={`${base}atencion/pqrs`}>PQRSD</a></li>
         <li><a href={`${base}mapa-del-sitio`}>Mapa del Sitio</a></li>
-        <li><a href={`${base}politicas`}>Politicas</a></li>
+        <li><a href={`${base}politicas`}>Políticas</a></li>
         <li>
           <a href="https://www.itrc.gov.co/denuncias" target="_blank" rel="noopener noreferrer">
             Denuncie
@@ -69,7 +69,7 @@ const socialIcons: Record<string, string> = {
     </div>
 
     <div class="footer__section">
-      <h3>Siguenos</h3>
+      <h3>Síguenos</h3>
       <div class="footer__social">
         {Object.entries(contactConfig.socialMedia).map(([network, url]) => (
           url && (
@@ -78,7 +78,7 @@ const socialIcons: Record<string, string> = {
               target="_blank"
               rel="noopener noreferrer"
               class="footer__social-link"
-              aria-label={`Siguenos en ${network}`}
+              aria-label={`Síguenos en ${network}`}
               title={network.charAt(0).toUpperCase() + network.slice(1)}
             >
               <i class={socialIcons[network] || 'fa-solid fa-link'} aria-hidden="true"></i>

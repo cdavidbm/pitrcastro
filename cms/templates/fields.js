@@ -14,11 +14,11 @@
  */
 export const DISPLAY_MODE = {
   name: "displayMode",
-  label: "Modo de visualizacion",
+  label: "Modo de visualización",
   widget: "select",
   options: [
-    { label: "Acordeon", value: "accordion" },
-    { label: "Pestanas (Tabs)", value: "tabs" },
+    { label: "Acordeón", value: "accordion" },
+    { label: "Pestañas (Tabs)", value: "tabs" },
     { label: "Lista simple", value: "list" },
   ],
   default: "accordion",
@@ -33,7 +33,7 @@ export function docFieldsFull() {
   return [
     { name: "name", label: "Nombre del documento", widget: "string", required: true },
     { name: "file", label: "Archivo", widget: "file", required: true },
-    { name: "category", label: "Categoria (para tabs)", widget: "string", required: false },
+    { name: "category", label: "Categoría (para tabs)", widget: "string", required: false },
     { name: "anio", label: "Año", widget: "string", required: false },
   ];
 }
@@ -43,8 +43,8 @@ export function docFieldsWithDescription() {
   return [
     { name: "name", label: "Nombre del documento", widget: "string", required: true },
     { name: "file", label: "Archivo", widget: "file", required: true },
-    { name: "description", label: "Descripcion del documento", widget: "string", required: false },
-    { name: "category", label: "Categoria (para tabs)", widget: "string", required: false },
+    { name: "description", label: "Descripción del documento", widget: "string", required: false },
+    { name: "category", label: "Categoría (para tabs)", widget: "string", required: false },
     { name: "anio", label: "Año", widget: "string", required: false },
   ];
 }
@@ -100,18 +100,18 @@ export function documentSections(docFieldsFn, opts = {}) {
   } = opts;
 
   const sectionFields = [
-    { name: "sectionTitle", label: "Titulo de la seccion", widget: "string", required: true },
+    { name: "sectionTitle", label: "Título de la sección", widget: "string", required: true },
   ];
 
   if (includeSectionDescription) {
     sectionFields.push(
-      { name: "sectionDescription", label: "Descripcion de la seccion", widget: "text", required: false },
+      { name: "sectionDescription", label: "Descripción de la sección", widget: "text", required: false },
     );
   }
 
   if (includeSectionIcon) {
     sectionFields.push(
-      { name: "sectionIcon", label: "Icono de la seccion", widget: "string", required: false },
+      { name: "sectionIcon", label: "Icono de la sección", widget: "string", required: false },
     );
   }
 
@@ -129,7 +129,7 @@ export function documentSections(docFieldsFn, opts = {}) {
     name: "sections",
     label,
     widget: "list",
-    label_singular: "Seccion",
+    label_singular: "Sección",
     collapsed: true,
     fields: sectionFields,
   };
@@ -162,18 +162,18 @@ export function pageHeader(opts = {}) {
     icon,
     slugPattern = false,
     descriptionWidget = "markdown",
-    descriptionLabel = "Descripcion",
+    descriptionLabel = "Descripción",
     noIcon = false,
     extraFields = [],
   } = opts;
 
   const fields = [
-    { name: "title", label: "Titulo de la pagina", widget: "string", required: true },
+    { name: "title", label: "Título de la página", widget: "string", required: true },
   ];
 
   const slugField = { name: "slug", label: "URL (slug)", widget: "string", required: true };
   if (slugPattern) {
-    slugField.pattern = ["^[a-z0-9-]+$", "Solo minusculas, numeros y guiones"];
+    slugField.pattern = ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"];
   }
   fields.push(slugField);
 
@@ -202,7 +202,7 @@ export function pageHeader(opts = {}) {
 // ============================================================
 
 /** CTA (call to action) object with titulo, descripcion, linkUrl, linkText, icon */
-export function ctaSection(name = "ctaSection", label = "Seccion de enlace externo (CTA)") {
+export function ctaSection(name = "ctaSection", label = "Sección de enlace externo (CTA)") {
   return {
     name,
     label,
@@ -210,10 +210,10 @@ export function ctaSection(name = "ctaSection", label = "Seccion de enlace exter
     required: false,
     collapsed: true,
     fields: [
-      { name: "titulo", label: "Titulo", widget: "string" },
-      { name: "descripcion", label: "Descripcion", widget: "text" },
+      { name: "titulo", label: "Título", widget: "string" },
+      { name: "descripcion", label: "Descripción", widget: "text" },
       { name: "linkUrl", label: "URL del enlace", widget: "string" },
-      { name: "linkText", label: "Texto del boton", widget: "string" },
+      { name: "linkText", label: "Texto del botón", widget: "string" },
       { name: "icon", label: "Icono FontAwesome", widget: "string", required: false },
     ],
   };
@@ -244,8 +244,8 @@ export function publicationCollection({ name, label, labelSingular, folder, extr
     format: "frontmatter",
     sortable_fields: ["date", "title"],
     fields: [
-      { name: "title", label: "Titulo", widget: "string", required: true },
-      { name: "date", label: "Fecha de publicacion", widget: "datetime", format: "YYYY-MM-DD", required: true },
+      { name: "title", label: "Título", widget: "string", required: true },
+      { name: "date", label: "Fecha de publicación", widget: "datetime", format: "YYYY-MM-DD", required: true },
       { name: "image", label: "Imagen destacada", widget: "image", required: false },
       { name: "excerpt", label: "Extracto", widget: "text", required: false },
       { name: "body", label: "Contenido", widget: "markdown", required: true },

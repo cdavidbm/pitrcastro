@@ -5,7 +5,7 @@
     {
       "id": "noticias",
       "titulo": "Noticias",
-      "descripcion": "Ultimas noticias y novedades de la Agencia",
+      "descripcion": "Últimas noticias y novedades de la Agencia",
       "icon": "fa-newspaper",
       "url": "/prensa/noticias"
     },
@@ -19,7 +19,7 @@
     {
       "id": "boletines",
       "titulo": "Boletines",
-      "descripcion": "Boletines informativos periodicos",
+      "descripcion": "Boletines informativos periódicos",
       "icon": "fa-file-lines",
       "url": "/prensa/boletines"
     },
@@ -39,14 +39,14 @@
     },
     {
       "id": "galeria",
-      "titulo": "Galeria",
-      "descripcion": "Galeria fotografica de eventos y actividades",
+      "titulo": "Galería",
+      "descripcion": "Galería fotográfica de eventos y actividades",
       "icon": "fa-images",
       "url": "/prensa/galeria"
     },
     {
       "id": "capsulas",
-      "titulo": "Capsulas Informativas",
+      "titulo": "Cápsulas Informativas",
       "descripcion": "Contenido breve y educativo",
       "icon": "fa-lightbulb",
       "url": "/prensa/capsulas"
