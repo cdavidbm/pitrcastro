@@ -2,41 +2,77 @@
   "name": "Slider Principal",
   "description": "Slider del banner principal de la página de inicio",
   "autoplay": true,
-  "interval": 5000,
+  "interval": 6000,
   "slides": [
     {
-      "image": "/images/hero-1.jpg",
-      "imageAlt": "Sede de la Agencia ITRC",
-      "title": "Agencia ITRC",
-      "subtitle": "Control eficiente para un recaudo transparente",
-      "description": "Protegemos el patrimonio público frente a acciones de fraude y corrupción",
-      "link": "/agencia/mision-vision",
-      "linkText": "Conoce nuestra misión",
+      "image": "/images/slider-transparencia.jpg",
+      "imageAlt": "Participa en la construcción del Programa de Transparencia",
+      "title": "Programa de Transparencia y Ética Pública",
+      "subtitle": "",
+      "description": "Participa en la construcción del Programa de Transparencia y Ética Pública de la Agencia ITRC",
+      "link": "/transparencia",
+      "linkText": "Ir a Transparencia",
       "active": true,
       "order": 1
     },
     {
-      "image": "/images/hero-2.jpg",
-      "imageAlt": "Transparencia y acceso a la información",
-      "title": "Transparencia y Acceso a la Información",
+      "image": "/images/slider-plan-accion.jpg",
+      "imageAlt": "Participa en la construcción del Plan de Acción 2025",
+      "title": "Plan de Acción 2025",
       "subtitle": "",
-      "description": "Consulta toda la información publica de la Agencia ITRC",
-      "link": "/transparencia",
-      "linkText": "Ir a Transparencia",
+      "description": "Participa en la construcción del Plan de Acción 2025 de la Agencia ITRC. Envíanos tus comentarios o sugerencias al correo oficinadeplanificacion@itrc.gov.co",
+      "link": "",
+      "linkText": "",
       "active": true,
       "order": 2
     },
     {
-      "image": "/images/hero-3.jpg",
-      "imageAlt": "Denuncie actos de corrupción",
-      "title": "Denuncie actos de corrupción",
+      "image": "/images/slider-observatorio.jpg",
+      "imageAlt": "Observatorio ITRC de Fraude y Corrupción",
+      "title": "Observatorio de Fraude y Corrupción",
       "subtitle": "",
-      "description": "Ayúdenos a proteger los recursos públicos",
-      "link": "https://www.itrc.gov.co/denuncias",
-      "linkText": "Realizar denuncia",
+      "description": "Conozca los indicadores de la labor misional de la Agencia ITRC a través del Observatorio de Fraude y Corrupción de la entidad",
+      "link": "https://www.itrc.gov.co/observatorio/eje-de-medicion/",
+      "linkText": "Ir al Observatorio",
       "external": true,
       "active": true,
       "order": 3
+    },
+    {
+      "image": "/images/slider-notificaciones.png",
+      "imageAlt": "Consulta Notificaciones y Traslados",
+      "title": "Notificaciones y Traslados",
+      "subtitle": "",
+      "description": "Consulte los Estados, Edictos y Traslados de los procesos disciplinarios",
+      "link": "/notificaciones-y-traslados",
+      "linkText": "Consultar notificaciones",
+      "active": true,
+      "order": 4
+    },
+    {
+      "image": "/images/slider-entidades-vigiladas.png",
+      "imageAlt": "Entidades vigiladas: Coljuegos, DIAN y UGPP",
+      "title": "Entidades Vigiladas",
+      "subtitle": "",
+      "description": "En la Agencia ITRC vigilamos a Coljuegos, DIAN y UGPP",
+      "link": "/agencia/mision-vision",
+      "linkText": "Más información",
+      "active": true,
+      "order": 5
+    },
+    {
+      "image": "/images/slider-14-anios.jpg",
+      "imageAlt": "La Agencia ITRC cumple 14 años",
+      "overlay": false,
+      "active": true,
+      "order": 6
+    },
+    {
+      "image": "/images/slider-dia-agua.jpg",
+      "imageAlt": "Día Mundial del Agua",
+      "overlay": false,
+      "active": true,
+      "order": 7
     }
   ]
 }
