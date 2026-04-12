@@ -1,0 +1,80 @@
+{
+  "title": "Canales de Atención",
+  "slug": "canales-de-atencion-al-ciudadano",
+  "description": "La Agencia ITRC dispone los siguientes canales de atención para la ciudadanía",
+  "icon": "fa-headset",
+  "published": true,
+  "intro": "La Agencia del Inspector General de Tributos Rentas y Contribuciones Parafiscales — ITRC, dispone para usted los siguientes canales de atención:",
+  "canales": [
+    {
+      "nombre": "Atención Presencial",
+      "icon": "fa-building",
+      "color": "gold",
+      "items": [
+        { "label": "Dirección", "valor": "Calle 26 No. 69-63 Piso 6, Bogotá D.C.", "icon": "fa-location-dot" },
+        { "label": "Horario", "valor": "Lunes a Viernes de 8:00 a.m. a 4:30 p.m., jornada continua", "icon": "fa-clock" },
+        { "label": "Código Postal", "valor": "111071", "icon": "fa-mailbox" }
+      ]
+    },
+    {
+      "nombre": "Recepción de Correspondencia",
+      "icon": "fa-envelope",
+      "color": "gold",
+      "items": [
+        { "label": "Dirección", "valor": "Calle 26 No. 69-63 Piso 6, Bogotá D.C.", "icon": "fa-location-dot" },
+        { "label": "Horario", "valor": "Días hábiles de lunes a viernes de 8:00 a.m. a 4:00 p.m., en jornada continua", "icon": "fa-clock" }
+      ]
+    },
+    {
+      "nombre": "Atención Telefónica",
+      "icon": "fa-phone",
+      "color": "blue",
+      "items": [
+        { "label": "Línea gratuita nacional", "valor": "018000 123 004", "icon": "fa-phone-volume", "destacado": true },
+        { "label": "PBX desde Bogotá", "valor": "+57 (601) 390 7000", "icon": "fa-phone", "destacado": true },
+        { "label": "Horario", "valor": "Días hábiles de lunes a viernes de 8:00 a.m. a 4:30 p.m., jornada continua", "icon": "fa-clock" },
+        { "label": "Fuera de horario", "valor": "Contestador automático: todos los días fuera del horario habitual. Por favor deje su mensaje y nos comunicaremos con usted.", "icon": "fa-voicemail" }
+      ]
+    },
+    {
+      "nombre": "Atención Virtual",
+      "icon": "fa-globe",
+      "color": "green",
+      "items": [
+        { "label": "Página web", "valor": "www.itrc.gov.co", "url": "https://www.itrc.gov.co", "icon": "fa-globe" },
+        { "label": "Disponibilidad", "valor": "El portal web se encuentra activo las 24 horas. Los requerimientos se gestionarán dentro del horario indicado por la entidad.", "icon": "fa-clock" }
+      ]
+    },
+    {
+      "nombre": "Denuncia Virtual",
+      "icon": "fa-shield-halved",
+      "color": "red",
+      "items": [
+        { "label": "Portal de denuncias", "valor": "Denuncias ITRC", "url": "https://www.itrc.gov.co/denuncias/", "icon": "fa-arrow-up-right-from-square" },
+        { "label": "Descripción", "valor": "Los ciudadanos pueden realizar denuncia virtual contra funcionarios públicos de las entidades vigiladas (DIAN, Coljuegos y la UGPP), que cometan faltas disciplinarias gravísimas de fraude y corrupción.", "icon": "fa-circle-info" }
+      ]
+    },
+    {
+      "nombre": "Petición, Queja, Reclamo o Sugerencia (PQRS)",
+      "icon": "fa-comments",
+      "color": "purple",
+      "items": [
+        { "label": "Formulario PQRS", "valor": "Tu PQRS al Día", "url": "https://www.itrc.gov.co/Itrc/tu-p-q-r-s-al-dia/", "icon": "fa-arrow-up-right-from-square" }
+      ]
+    },
+    {
+      "nombre": "Correo Electrónico",
+      "icon": "fa-at",
+      "color": "blue",
+      "items": [
+        { "label": "Contacto general", "valor": "contactenos@itrc.gov.co", "url": "mailto:contactenos@itrc.gov.co", "icon": "fa-envelope" },
+        { "label": "Notificaciones judiciales", "valor": "notificaciones@itrc.gov.co", "url": "mailto:notificaciones@itrc.gov.co", "icon": "fa-envelope-open-text" },
+        { "label": "Horario", "valor": "Días hábiles de lunes a viernes de 8:00 a.m. a 4:30 p.m., en jornada continua", "icon": "fa-clock" }
+      ]
+    }
+  ],
+  "portafolio": {
+    "nombre": "Portafolio de servicios",
+    "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/Portafolio-de-servicios-Agencia-ITRC.pdf"
+  }
+}

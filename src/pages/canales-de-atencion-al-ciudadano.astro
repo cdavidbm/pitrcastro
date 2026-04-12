@@ -1,0 +1,300 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/atencion/canales-de-atencion.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: pageData.title }
+];
+
+const colorMap: Record<string, string> = {
+  gold: 'var(--itrc-gold)',
+  blue: 'var(--itrc-blue)',
+  green: '#198754',
+  red: '#dc3545',
+  purple: '#6f42c1',
+};
+
+const enlacesRelacionados = [
+  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
+  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
+  { titulo: 'Correo para Notificaciones Judiciales', descripcion: 'Correo electrónico exclusivo para despachos judiciales', url: '/correo-electronico-para-notificaciones-judiciales', icon: 'fa-envelope-open-text' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="canales-section">
+    <div class="container">
+      <p class="canales-intro">{pageData.intro}</p>
+
+      <div class="canales-grid">
+        {pageData.canales.map((canal) => {
+          const accentColor = colorMap[canal.color] || 'var(--itrc-gold)';
+          return (
+            <div class="canal-card" style={`--canal-accent: ${accentColor}`}>
+              <div class="canal-card__header">
+                <div class="canal-card__icon">
+                  <i class={`fa-solid ${canal.icon}`} aria-hidden="true"></i>
+                </div>
+                <h3 class="canal-card__title">{canal.nombre}</h3>
+              </div>
+              <div class="canal-card__body">
+                {canal.items.map((item) => (
+                  <div class="canal-item">
+                    <div class="canal-item__icon">
+                      <i class={`fa-solid ${item.icon}`} aria-hidden="true"></i>
+                    </div>
+                    <div class="canal-item__content">
+                      <span class="canal-item__label">{item.label}</span>
+                      {item.url ? (
+                        <a href={item.url} target={item.url.startsWith('mailto:') ? undefined : '_blank'} rel={item.url.startsWith('mailto:') ? undefined : 'noopener'} class="canal-item__valor canal-item__valor--link">
+                          {item.destacado && <strong>{item.valor}</strong>}
+                          {!item.destacado && item.valor}
+                        </a>
+                      ) : (
+                        <span class={`canal-item__valor ${item.destacado ? 'canal-item__valor--destacado' : ''}`}>
+                          {item.valor}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {pageData.portafolio && (
+        <div class="portafolio-section">
+          <a href={pageData.portafolio.file} target="_blank" rel="noopener" class="portafolio-link">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            <span>{pageData.portafolio.nombre}</span>
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Atención y Servicios" />
+</Base>
+
+<style>
+  .canales-section {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .canales-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .canales-intro {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--theme-text);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-10);
+  }
+
+  /* ====== Grid ====== */
+  .canales-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* ====== Card ====== */
+  .canal-card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .canal-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--canal-accent);
+  }
+
+  .canal-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    background: var(--theme-surface-alt);
+    border-bottom: 2px solid var(--canal-accent);
+  }
+
+  .canal-card__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--canal-accent);
+    border-radius: var(--radius-lg);
+    color: var(--white);
+    font-size: var(--font-size-xl);
+  }
+
+  .canal-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 800;
+    color: var(--theme-heading);
+    margin: 0;
+  }
+
+  .canal-card__body {
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* ====== Item ====== */
+  .canal-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .canal-item__icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--canal-accent);
+    font-size: var(--font-size-sm);
+    margin-top: 2px;
+  }
+
+  .canal-item__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .canal-item__label {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--theme-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+
+  .canal-item__valor {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--theme-text);
+    line-height: 1.5;
+  }
+
+  .canal-item__valor--destacado {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    color: var(--theme-heading);
+    letter-spacing: 0.02em;
+  }
+
+  .canal-item__valor--link {
+    color: var(--canal-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity var(--transition-fast);
+  }
+
+  .canal-item__valor--link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  .canal-item__valor--link strong {
+    font-size: var(--font-size-lg);
+    letter-spacing: 0.02em;
+  }
+
+  /* ====== Portafolio ====== */
+  .portafolio-section {
+    text-align: center;
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+    border-top: 2px solid var(--theme-border-light);
+  }
+
+  .portafolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-8);
+    background: var(--itrc-navy);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    transition: all var(--transition-base);
+  }
+
+  .portafolio-link:hover {
+    background: var(--itrc-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .canales-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .canales-intro {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--space-8);
+    }
+
+    .canales-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .canal-card__header {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .canal-card__body {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .canal-item__valor--destacado {
+      font-size: var(--font-size-base);
+    }
+
+    .portafolio-link {
+      font-size: var(--font-size-sm);
+      padding: var(--space-3) var(--space-6);
+    }
+  }
+</style>

@@ -1,0 +1,208 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/atencion/correo-notificaciones-judiciales.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
+  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
+  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="correo-section">
+    <div class="container">
+      <div class="correo-content">
+        <div class="correo-icon-block">
+          <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
+        </div>
+
+        <p class="correo-texto">{pageData.texto}</p>
+
+        <div class="correo-email-card">
+          <div class="correo-email-card__icon">
+            <i class="fa-solid fa-at" aria-hidden="true"></i>
+          </div>
+          <a href={`mailto:${pageData.email}`} class="correo-email-card__email">
+            {pageData.email}
+          </a>
+          <p class="correo-email-card__note">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Uso exclusivo para notificaciones judiciales
+          </p>
+        </div>
+
+        <div class="correo-legal-refs">
+          <div class="correo-legal-ref">
+            <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+            <span>Artículo 197, Ley 1437 de 2011</span>
+          </div>
+          <div class="correo-legal-ref">
+            <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+            <span>Directiva Presidencial 05 de 2012</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Atención y Servicios" />
+</Base>
+
+<style>
+  .correo-section {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .correo-section .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .correo-content {
+    text-align: center;
+  }
+
+  .correo-icon-block {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.1);
+    border-radius: var(--radius-full);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-3xl);
+  }
+
+  .correo-texto {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--theme-text);
+    margin-bottom: var(--space-10);
+    text-align: left;
+  }
+
+  /* ====== Email Card ====== */
+  .correo-email-card {
+    background: var(--theme-surface-alt);
+    border: 2px solid var(--itrc-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10) var(--space-8);
+    margin-bottom: var(--space-10);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .correo-email-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--itrc-gold), var(--itrc-navy));
+  }
+
+  .correo-email-card__icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--space-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-gold);
+    border-radius: var(--radius-full);
+    color: var(--white);
+    font-size: var(--font-size-2xl);
+  }
+
+  .correo-email-card__email {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--itrc-navy);
+    text-decoration: none;
+    margin-bottom: var(--space-4);
+    transition: color var(--transition-fast);
+    word-break: break-all;
+  }
+
+  .correo-email-card__email:hover {
+    color: var(--itrc-gold);
+  }
+
+  .correo-email-card__note {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-muted);
+    font-weight: 600;
+  }
+
+  /* ====== Legal references ====== */
+  .correo-legal-refs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .correo-legal-ref {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-muted);
+  }
+
+  .correo-legal-ref i {
+    color: var(--itrc-gold);
+    font-size: var(--font-size-xs);
+  }
+
+  @media (max-width: 768px) {
+    .correo-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .correo-texto {
+      font-size: var(--font-size-base);
+    }
+
+    .correo-email-card {
+      padding: var(--space-8) var(--space-5);
+    }
+
+    .correo-email-card__email {
+      font-size: var(--font-size-xl);
+    }
+
+    .correo-legal-refs {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+  }
+</style>

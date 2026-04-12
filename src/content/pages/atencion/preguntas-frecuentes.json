@@ -1,0 +1,61 @@
+{
+  "title": "Preguntas Frecuentes",
+  "slug": "preguntas-frecuentes",
+  "description": "Respuestas a las preguntas más frecuentes sobre la Agencia ITRC, sus funciones y servicios al ciudadano",
+  "icon": "fa-circle-question",
+  "published": true,
+  "faqs": [
+    {
+      "pregunta": "¿Qué es la Agencia ITRC y cuál es su misión?",
+      "respuesta": "La Agencia ITRC es la Unidad Administrativa Especial Agencia del Inspector de Tributos, Rentas y Contribuciones Parafiscales, adscrita al Ministerio de Hacienda y Crédito Público.\n\nLa misión de la Agencia ITRC es: proteger el patrimonio público frente a acciones de fraude y corrupción, mediante un modelo especializado e innovador de prevención, aseguramiento e investigación disciplinaria, para fortalecer la transparencia y la efectividad en la DIAN, Coljuegos y la UGPP."
+    },
+    {
+      "pregunta": "¿Qué hace la Agencia ITRC?",
+      "respuesta": "La Agencia ITRC tiene la facultad de investigar y sancionar las conductas por faltas disciplinarias gravísimas, generando fallos en primera y segunda instancia dentro de los procesos que se adelanten contra los empleados públicos encargados de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la Unidad de Gestión Pensional y Parafiscales — UGPP, y rentas de la nación a cargo de Coljuegos, por conductas que se relacionen con las faltas disciplinarias gravísimas.\n\nTambién, la entidad tiene la facultad de auditar los procesos operativos, tecnológicos y administrativos de estas entidades, partiendo de la identificación, análisis y valoración de riesgos que amenacen los procesos y áreas de las entidades objeto de control, promoviendo las buenas prácticas y detectando fallas en los procesos y procedimientos, en la seguridad informática y en los recaudos e ingresos que administran las entidades auditadas."
+    },
+    {
+      "pregunta": "¿Qué servidores públicos investiga y sanciona la Agencia ITRC?",
+      "respuesta": "Sin perjuicio del poder preferente de la Procuraduría General de la Nación, tendrá competencia para adelantar investigaciones a los funcionarios de la administración de tributos, aduanas, control del régimen cambiario de importaciones y exportaciones a cargo de la DIAN, contribuciones parafiscales a cargo de la Unidad de Gestión Pensional y Parafiscales — UGPP y rentas de la Nación a cargo de la entidad administradora del monopolio rentístico de los juegos de suerte y azar, por conductas que por su trascendencia estén relacionadas con las faltas disciplinarias gravísimas establecidas en los numerales 1, 3, 17, 20, 30, 35, 42, 43, 44, 45, 46, 47, 50, 56, 58 y 60 del artículo 48 de la Ley 734 de 2002; subrogados por la Ley 1952 de 2019 modificada por la Ley 2094 de 2021."
+    },
+    {
+      "pregunta": "¿Cómo puede la ciudadanía poner en conocimiento de la Agencia ITRC las posibles faltas cometidas por un servidor público de la DIAN, UGPP o Coljuegos?",
+      "respuesta": "Cualquier persona podrá presentar queja en forma presencial, escrita, telefónica o a través de la página web, contra servidores públicos de la DIAN, UGPP o Coljuegos, por conductas disciplinarias descritas en la norma."
+    },
+    {
+      "pregunta": "¿Qué es un reclamo?",
+      "respuesta": "Es toda manifestación particular o general de inconformidad frente a la prestación de un servicio o a la no atención de una solicitud por parte de la entidad o servidor público."
+    },
+    {
+      "pregunta": "¿Qué es el derecho de petición?",
+      "respuesta": "Es el derecho que tiene toda persona natural o jurídica a presentar solicitudes respetuosas ante las autoridades competentes, por motivos de interés general o particular, de manera verbal o escrita y a obtener respuesta a sus solicitudes en los asuntos de competencia de la entidad."
+    },
+    {
+      "pregunta": "¿Cuáles son los requisitos que debe reunir un derecho de petición?",
+      "respuesta": "• Indicar la entidad y/o autoridad a la que remite el derecho de petición.\n• Los nombres y apellidos completos del solicitante, representante y/o apoderado, si es el caso, con indicación de su documento de identidad y de la dirección donde recibirá correspondencia. El peticionario podrá agregar dirección de correo electrónico.\n• Agregar el asunto de la petición.\n• Indicar las razones de la solicitud.\n• Anexar los documentos que desee presentar."
+    },
+    {
+      "pregunta": "¿Qué se puede solicitar mediante derecho de petición?",
+      "respuesta": "**Petición de información:** es el requerimiento que hace una persona natural o jurídica, pública o privada, con el fin de que se le brinde información y orientación relacionada con los servicios de la Entidad.\n\n**Petición de documentación:** es el requerimiento que hace una persona natural o jurídica, pública o privada, para obtener copias o fotocopias de documentación que repose en la Entidad.\n\n**Petición de consultas:** es el requerimiento que hace persona natural o jurídica, pública o privada, relacionado con la entidad y dentro del marco de su competencia."
+    },
+    {
+      "pregunta": "¿Qué es una queja?",
+      "respuesta": "Manifestación que puede hacer toda persona natural o jurídica de denuncia contra un servidor público en ejercicio de sus funciones por una presunta acción u omisión irregular."
+    },
+    {
+      "pregunta": "¿Cuál debe ser el contenido de la queja?",
+      "respuesta": "Describir los hechos, indicando cuándo, cómo y dónde sucedieron. En caso de tener pruebas se deben adjuntar e indicar el nombre de los servidores públicos si los sabe."
+    },
+    {
+      "pregunta": "¿Se puede presentar una queja anónima?",
+      "respuesta": "Sí, pero es importante que la queja contenga información suficiente que permita llevar a cabo la investigación."
+    },
+    {
+      "pregunta": "¿Cuáles son los derechos del quejoso?",
+      "respuesta": "Según el parágrafo 1 artículo 110 de la Ley 1952 de 2019, la intervención del quejoso, que no es sujeto procesal, se limita únicamente a presentar y ampliar la queja bajo la gravedad del juramento, a aportar las pruebas que tenga en su poder y a presentar recursos en contra de la decisión de archivo y el fallo absolutorio."
+    },
+    {
+      "pregunta": "¿Cómo puede hacer seguimiento a su queja ante la Agencia ITRC?",
+      "respuesta": "En el portal de consultas de la Agencia ITRC (https://www.itrc.gov.co/denuncias/consulta) puede consultar el estado de su queja, ingresando el número de «Radicado» o el número de documento si lo registró al momento de realizarla.\n\nTambién puede hacerlo de manera presencial en la entidad ubicada en la Calle 26 No. 69-63 Piso 6, Bogotá D.C."
+    }
+  ]
+}

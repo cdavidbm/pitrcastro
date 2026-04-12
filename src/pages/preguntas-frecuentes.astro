@@ -1,0 +1,305 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/atencion/preguntas-frecuentes.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
+  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
+  { titulo: 'Vinculación a Terceros', descripcion: 'Cancelación de Registro Público de Carrera Administrativa', url: '/vinculacion-a-terceros-cancelacion-de-registro-publico', icon: 'fa-user-xmark' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-count">
+        <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+        {pageData.faqs.length} preguntas frecuentes
+      </div>
+
+      <div class="faq-list" data-faq-list>
+        {pageData.faqs.map((faq, index) => (
+          <div class="faq-item" data-faq-item>
+            <button
+              class="faq-item__header"
+              aria-expanded="false"
+              aria-controls={`faq-panel-${index}`}
+              data-faq-toggle
+            >
+              <span class="faq-item__number">{(index + 1).toString().padStart(2, '0')}</span>
+              <span class="faq-item__question">{faq.pregunta}</span>
+              <span class="faq-item__icon">
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </span>
+            </button>
+            <div
+              class="faq-item__panel"
+              id={`faq-panel-${index}`}
+              role="region"
+              hidden
+            >
+              <div class="faq-item__answer">
+                {faq.respuesta.split('\n\n').map((paragraph) => {
+                  if (paragraph.startsWith('•')) {
+                    const items = paragraph.split('\n').filter(l => l.trim());
+                    return (
+                      <ul class="faq-list-items">
+                        {items.map(item => <li>{item.replace(/^•\s*/, '')}</li>)}
+                      </ul>
+                    );
+                  }
+                  if (paragraph.includes('**')) {
+                    const parts = paragraph.split(/\*\*(.*?)\*\*/g);
+                    return (
+                      <p>
+                        {parts.map((part, i) =>
+                          i % 2 === 1 ? <strong>{part}</strong> : part
+                        )}
+                      </p>
+                    );
+                  }
+                  return <p>{paragraph}</p>;
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Atención y Servicios" />
+</Base>
+
+<style>
+  .faq-section {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .faq-section .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .faq-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--itrc-gold);
+    margin-bottom: var(--space-8);
+  }
+
+  /* ====== FAQ List ====== */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  /* ====== FAQ Item ====== */
+  .faq-item {
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .faq-item:hover {
+    border-color: rgba(var(--itrc-gold-rgb), 0.3);
+  }
+
+  .faq-item.open {
+    border-color: var(--itrc-gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq-item__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    padding: var(--space-5) var(--space-6);
+    background: var(--theme-surface);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-family);
+    text-align: left;
+    transition: background var(--transition-fast);
+  }
+
+  .faq-item__header:hover {
+    background: var(--theme-surface-alt);
+  }
+
+  .faq-item.open .faq-item__header {
+    background: var(--theme-surface-alt);
+  }
+
+  .faq-item__number {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.1);
+    color: var(--itrc-gold);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    transition: all var(--transition-fast);
+  }
+
+  .faq-item.open .faq-item__number {
+    background: var(--itrc-gold);
+    color: var(--white);
+  }
+
+  .faq-item__question {
+    flex: 1;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--theme-heading);
+    line-height: 1.4;
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .faq-item__icon {
+    transform: rotate(180deg);
+    color: var(--itrc-gold);
+  }
+
+  /* ====== Panel ====== */
+  .faq-item__panel {
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    max-height: 0;
+  }
+
+  .faq-item__panel[hidden] {
+    display: block !important;
+    max-height: 0;
+  }
+
+  .faq-item.open .faq-item__panel {
+    max-height: 1000px;
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-6) var(--space-6);
+    padding-left: calc(var(--space-6) + 36px + var(--space-4));
+    color: var(--theme-text);
+    font-size: var(--font-size-sm);
+    line-height: 1.8;
+  }
+
+  .faq-item__answer p {
+    margin: 0 0 var(--space-4);
+  }
+
+  .faq-item__answer p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-item__answer strong {
+    color: var(--theme-heading);
+  }
+
+  .faq-list-items {
+    margin: 0 0 var(--space-4);
+    padding-left: var(--space-5);
+  }
+
+  .faq-list-items li {
+    margin-bottom: var(--space-2);
+    color: var(--theme-text);
+  }
+
+  .faq-list-items li::marker {
+    color: var(--itrc-gold);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .faq-item__header {
+      padding: var(--space-4) var(--space-4);
+      gap: var(--space-3);
+    }
+
+    .faq-item__number {
+      width: 30px;
+      height: 30px;
+      font-size: 0.65rem;
+    }
+
+    .faq-item__question {
+      font-size: var(--font-size-sm);
+    }
+
+    .faq-item__answer {
+      padding: 0 var(--space-4) var(--space-5);
+      padding-left: calc(var(--space-4) + 30px + var(--space-3));
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>
+
+<script>
+  function initFaqs() {
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+
+    faqItems.forEach(item => {
+      const toggle = item.querySelector('[data-faq-toggle]');
+      const panel = item.querySelector('.faq-item__panel') as HTMLElement;
+
+      toggle?.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        if (isOpen) {
+          item.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          panel.hidden = true;
+        } else {
+          item.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+        }
+      });
+    });
+  }
+
+  initFaqs();
+  document.addEventListener('astro:after-swap', initFaqs);
+</script>

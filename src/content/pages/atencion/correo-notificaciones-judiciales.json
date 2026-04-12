@@ -1,0 +1,9 @@
+{
+  "title": "Correo Electrónico para Notificaciones Judiciales",
+  "slug": "correo-electronico-para-notificaciones-judiciales",
+  "description": "Correo electrónico exclusivo para recibir notificaciones judiciales de la Agencia ITRC",
+  "icon": "fa-envelope-open-text",
+  "published": true,
+  "texto": "La Agencia ITRC le informa a todos los despachos judiciales que el correo electrónico implementado para dar cumplimiento a lo dispuesto en el artículo 197 de la Ley 1437 de 2011 y la Directiva Presidencial 05 de 2012, el cual es de uso exclusivo para recibir las notificaciones judiciales que competen a esta Entidad es el siguiente:",
+  "email": "notificaciones@itrc.gov.co"
+}

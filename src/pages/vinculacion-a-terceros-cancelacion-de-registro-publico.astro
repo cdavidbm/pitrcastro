@@ -1,0 +1,212 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/atencion/vinculacion-a-terceros.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
+  { titulo: 'Notificaciones por Aviso', descripcion: 'Notificaciones conforme a la Ley 1437 de 2011', url: '/notificaciones-por-aviso', icon: 'fa-bullhorn' },
+  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="vinculacion-section">
+    <div class="container">
+      <div class="vinculacion-header">
+        <span class="vinculacion-badge">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          {pageData.documentos.length} documentos
+        </span>
+      </div>
+
+      <div class="vinculacion-list">
+        {pageData.documentos.map((doc) => (
+          <a href={doc.file} target="_blank" rel="noopener" class="vinculacion-card">
+            <div class="vinculacion-card__icon">
+              <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            </div>
+            <div class="vinculacion-card__content">
+              <h3 class="vinculacion-card__title">{doc.nombre}</h3>
+              <span class="vinculacion-card__fecha">
+                <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                {doc.fecha}
+              </span>
+            </div>
+            <div class="vinculacion-card__action">
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              <span>Descargar</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Atención y Servicios" />
+</Base>
+
+<style>
+  .vinculacion-section {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .vinculacion-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .vinculacion-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .vinculacion-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    background: rgba(220, 53, 69, 0.08);
+    color: var(--file-pdf);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+  }
+
+  .vinculacion-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* ====== Card ====== */
+  .vinculacion-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-5) var(--space-6);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vinculacion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--file-pdf);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .vinculacion-card:hover {
+    border-color: rgba(220, 53, 69, 0.3);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .vinculacion-card:hover::before { opacity: 1; }
+
+  .vinculacion-card__icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(220, 53, 69, 0.08);
+    border-radius: var(--radius-lg);
+    color: var(--file-pdf);
+    font-size: var(--font-size-2xl);
+    transition: all var(--transition-base);
+  }
+
+  .vinculacion-card:hover .vinculacion-card__icon {
+    background: var(--file-pdf);
+    color: var(--white);
+  }
+
+  .vinculacion-card__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .vinculacion-card__title {
+    color: var(--theme-heading);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+    transition: color var(--transition-fast);
+  }
+
+  .vinculacion-card:hover .vinculacion-card__title { color: var(--file-pdf); }
+
+  .vinculacion-card__fecha {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+
+  .vinculacion-card__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    flex-shrink: 0;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    opacity: 0.5;
+    transition: all var(--transition-fast);
+  }
+
+  .vinculacion-card__action i { font-size: var(--font-size-lg); }
+  .vinculacion-card:hover .vinculacion-card__action { opacity: 1; color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .vinculacion-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .vinculacion-card {
+      padding: var(--space-4);
+      gap: var(--space-4);
+    }
+
+    .vinculacion-card__icon {
+      width: 44px;
+      height: 44px;
+      font-size: var(--font-size-xl);
+    }
+
+    .vinculacion-card__title { font-size: var(--font-size-sm); }
+    .vinculacion-card__action span { display: none; }
+  }
+</style>
