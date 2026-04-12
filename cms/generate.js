@@ -6,7 +6,7 @@ import yaml from "js-yaml";
 import { base } from "./base.js";
 import { agencia } from "./collections/agencia.js";
 import { transparencia } from "./collections/transparencia.js";
-import { normativa } from "./collections/normativa.js";
+import { normativaCollections } from "./collections/normativa.js";
 import { atencion } from "./collections/atencion.js";
 import { participa } from "./collections/participa.js";
 import { prensaCollections } from "./collections/prensa.js";
@@ -28,7 +28,7 @@ const COLLECTION_GROUPS = [
   },
   {
     header: "NORMATIVA\n# Marco legal y normativo de la entidad",
-    collections: [normativa],
+    collections: normativaCollections,
   },
   {
     header: "ATENCION Y SERVICIOS\n# Canales de atencion y servicios al ciudadano",

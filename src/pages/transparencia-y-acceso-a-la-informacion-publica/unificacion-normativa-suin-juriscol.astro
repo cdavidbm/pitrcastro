@@ -1,0 +1,426 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+import pageData from '../../content/pages/normativa/unificacion-suin-juriscol.json';
+
+const base = import.meta.env.BASE_URL;
+const normas = pageData.normas;
+
+const totalNormas = normas.length;
+const decretos = normas.filter(n => n.tipo.includes('Decreto')).length;
+const leyes = normas.filter(n => n.tipo === 'Ley').length;
+
+function tipoClass(tipo: string) {
+  if (tipo === 'Decreto Único') return 'decreto-unico';
+  if (tipo === 'Decreto') return 'decreto';
+  if (tipo === 'Ley') return 'ley';
+  return 'otro';
+}
+
+function estadoClass(estado: string) {
+  if (estado === 'VIGENTE') return 'vigente';
+  if (estado.includes('DEROGADO')) return 'derogando';
+  return 'vigente';
+}
+
+function estadoLabel(estado: string) {
+  if (estado === 'VIGENTE') return 'Vigente';
+  if (estado.includes('DEROGADO')) return 'Próximamente derogado';
+  return estado;
+}
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Normativa', href: '#' },
+  { label: 'Unificación Normativa SUIN Juriscol' }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Normativa Aplicable', descripcion: 'Normograma institucional completo', url: '/normativa-aplicada', icon: 'fa-scale-balanced' },
+  { titulo: 'Decretos', descripcion: 'Decretos expedidos por la ITRC', url: '/decretos', icon: 'fa-file-lines' },
+  { titulo: 'Marco Legal', descripcion: 'Marco legal de la entidad', url: '/marco-legal', icon: 'fa-landmark' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Estadísticas -->
+  <section class="suin-stats">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-pill">
+          <i class="fa-solid fa-book" aria-hidden="true"></i>
+          <strong>{totalNormas}</strong> normas registradas
+        </div>
+        <div class="stat-pill">
+          <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
+          <strong>{decretos}</strong> decretos
+        </div>
+        <div class="stat-pill">
+          <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+          <strong>{leyes}</strong> leyes
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listado de normas -->
+  <section class="suin-normas">
+    <div class="container">
+      <div class="normas-list">
+        {normas.map((norma, index) => (
+          <article class="norma-card" style={`--delay: ${index * 40}ms`}>
+            <div class="norma-card__header">
+              <div class="norma-card__title-row">
+                <span class={`tipo-badge tipo--${tipoClass(norma.tipo)}`}>{norma.tipo}</span>
+                <h3 class="norma-card__nombre">
+                  {norma.tipo} {norma.numero} de {norma.anio}
+                </h3>
+              </div>
+              <span class={`estado-badge estado--${estadoClass(norma.estado)}`}>
+                {estadoLabel(norma.estado)}
+              </span>
+            </div>
+
+            <p class="norma-card__epigrafe">{norma.epigrafe}</p>
+
+            <div class="norma-card__meta">
+              <div class="norma-card__meta-item">
+                <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+                <span>{norma.entidadEmisora}</span>
+              </div>
+              <div class="norma-card__meta-item">
+                <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+                <span>Diario Oficial {norma.diarioOficial}</span>
+              </div>
+            </div>
+
+            <div class="norma-card__actions">
+              {norma.pdfUrl && (
+                <a href={norma.pdfUrl} target="_blank" rel="noopener" class="norma-btn norma-btn--pdf">
+                  <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                  Descargar PDF
+                </a>
+              )}
+              {norma.suinUrl && (
+                <a href={norma.suinUrl} target="_blank" rel="noopener" class="norma-btn norma-btn--suin">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Consultar en SUIN Juriscol
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Normativa Relacionada" />
+</Base>
+
+<style>
+  /* ====== Stats ====== */
+  .suin-stats {
+    padding: var(--space-6) var(--space-6);
+    background: var(--theme-surface-alt);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .stat-pill {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--theme-surface);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stat-pill i {
+    color: var(--itrc-gold);
+  }
+
+  .stat-pill strong {
+    color: var(--theme-heading);
+    font-size: var(--font-size-lg);
+  }
+
+  /* ====== Normas List ====== */
+  .suin-normas {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .suin-normas .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .normas-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  /* ====== Norma Card ====== */
+  .norma-card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .norma-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--itrc-gold);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .norma-card:hover {
+    border-color: rgba(var(--itrc-gold-rgb), 0.3);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .norma-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Card header */
+  .norma-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .norma-card__title-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .norma-card__nombre {
+    font-size: var(--font-size-lg);
+    color: var(--theme-heading);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  /* Tipo badges */
+  .tipo-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .tipo--decreto { background: rgba(0, 33, 71, 0.1); color: var(--itrc-navy); }
+  .tipo--decreto-unico { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold-dark); }
+  .tipo--ley { background: rgba(5, 150, 105, 0.1); color: var(--green-accent); }
+  .tipo--otro { background: var(--gray-100); color: var(--gray-600); }
+
+  :global(html.theme-oscuro) .tipo--decreto { background: rgba(100, 149, 237, 0.15); color: #93b5f5; }
+  :global(html.theme-oscuro) .tipo--decreto-unico { background: rgba(var(--itrc-gold-rgb), 0.2); color: var(--itrc-gold-light); }
+  :global(html.theme-oscuro) .tipo--ley { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+
+  /* Estado badges */
+  .estado-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .estado--vigente { background: rgba(5, 150, 105, 0.12); color: #059669; }
+  .estado--derogando { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+
+  :global(html.theme-oscuro) .estado--vigente { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+  :global(html.theme-oscuro) .estado--derogando { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+
+  /* Epígrafe */
+  .norma-card__epigrafe {
+    color: var(--theme-text);
+    line-height: 1.7;
+    margin: 0 0 var(--space-4);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Meta info */
+  .norma-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    padding: var(--space-4);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-lg);
+  }
+
+  .norma-card__meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+  }
+
+  .norma-card__meta-item i {
+    color: var(--itrc-gold);
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+  }
+
+  /* Actions */
+  .norma-card__actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .norma-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+  }
+
+  .norma-btn--pdf {
+    background: rgba(220, 53, 69, 0.08);
+    color: var(--file-pdf);
+    border-color: rgba(220, 53, 69, 0.15);
+  }
+
+  .norma-btn--pdf:hover {
+    background: var(--file-pdf);
+    color: var(--white);
+    border-color: var(--file-pdf);
+  }
+
+  .norma-btn--suin {
+    background: rgba(var(--itrc-gold-rgb), 0.08);
+    color: var(--itrc-gold-dark);
+    border-color: rgba(var(--itrc-gold-rgb), 0.2);
+  }
+
+  .norma-btn--suin:hover {
+    background: var(--itrc-gold);
+    color: var(--white);
+    border-color: var(--itrc-gold);
+  }
+
+  :global(html.theme-oscuro) .norma-btn--pdf {
+    background: rgba(248, 113, 113, 0.1);
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.2);
+  }
+
+  :global(html.theme-oscuro) .norma-btn--suin {
+    background: rgba(var(--itrc-gold-rgb), 0.1);
+    color: var(--itrc-gold-light);
+    border-color: rgba(var(--itrc-gold-rgb), 0.2);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .suin-stats {
+      padding: var(--space-4);
+    }
+
+    .stats-row {
+      gap: var(--space-2);
+    }
+
+    .stat-pill {
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--font-size-xs);
+    }
+
+    .stat-pill strong {
+      font-size: var(--font-size-base);
+    }
+
+    .suin-normas {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .normas-list {
+      gap: var(--space-4);
+    }
+
+    .norma-card {
+      padding: var(--space-4);
+    }
+
+    .norma-card__header {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .norma-card__nombre {
+      font-size: var(--font-size-base);
+    }
+
+    .norma-card__meta {
+      padding: var(--space-3);
+    }
+
+    .norma-card__actions {
+      flex-direction: column;
+    }
+
+    .norma-btn {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stat-pill span {
+      display: none;
+    }
+  }
+</style>

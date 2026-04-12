@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/normativa/decretos.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Normativa', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Normativa Aplicable', descripcion: 'Normograma institucional completo', url: '/normativa-aplicada', icon: 'fa-scale-balanced' },
+  { titulo: 'Unificación Normativa', descripcion: 'Normas registradas en SUIN Juriscol', url: '/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol', icon: 'fa-landmark-dome' },
+  { titulo: 'Marco Legal', descripcion: 'Marco legal de la entidad', url: '/marco-legal', icon: 'fa-landmark' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="decretos-section">
+    <div class="container">
+      <div class="decretos-list">
+        {pageData.decretos.map((decreto, index) => (
+          <a href={decreto.file} target="_blank" rel="noopener" class="decreto-card">
+            <div class="decreto-card__icon">
+              <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            </div>
+            <div class="decreto-card__content">
+              <h3 class="decreto-card__title">{decreto.nombre}</h3>
+              {decreto.descripcion && (
+                <p class="decreto-card__descripcion">{decreto.descripcion}</p>
+              )}
+              <span class="decreto-card__fecha">
+                <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                {decreto.fecha}
+              </span>
+            </div>
+            <div class="decreto-card__action">
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              <span>Descargar</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Normativa Relacionada" />
+</Base>
+
+<style>
+  .decretos-section {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .decretos-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .decretos-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* ====== Card ====== */
+  .decreto-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-5) var(--space-6);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .decreto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--file-pdf);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .decreto-card:hover {
+    border-color: rgba(220, 53, 69, 0.3);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .decreto-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Icon */
+  .decreto-card__icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(220, 53, 69, 0.08);
+    border-radius: var(--radius-lg);
+    color: var(--file-pdf);
+    font-size: var(--font-size-2xl);
+    transition: all var(--transition-base);
+  }
+
+  .decreto-card:hover .decreto-card__icon {
+    background: var(--file-pdf);
+    color: var(--white);
+  }
+
+  /* Content */
+  .decreto-card__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .decreto-card__title {
+    color: var(--theme-heading);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+    transition: color var(--transition-fast);
+  }
+
+  .decreto-card:hover .decreto-card__title {
+    color: var(--file-pdf);
+  }
+
+  .decreto-card__descripcion {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 0 0 var(--space-2);
+  }
+
+  .decreto-card__fecha {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+
+  /* Action */
+  .decreto-card__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    flex-shrink: 0;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    opacity: 0.5;
+    transition: all var(--transition-fast);
+  }
+
+  .decreto-card__action i {
+    font-size: var(--font-size-lg);
+  }
+
+  .decreto-card:hover .decreto-card__action {
+    opacity: 1;
+    color: var(--itrc-gold);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .decretos-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .decreto-card {
+      padding: var(--space-4);
+      gap: var(--space-4);
+    }
+
+    .decreto-card__icon {
+      width: 44px;
+      height: 44px;
+      font-size: var(--font-size-xl);
+    }
+
+    .decreto-card__title {
+      font-size: var(--font-size-sm);
+    }
+
+    .decreto-card__descripcion {
+      font-size: var(--font-size-xs);
+    }
+
+    .decreto-card__action span {
+      display: none;
+    }
+  }
+</style>

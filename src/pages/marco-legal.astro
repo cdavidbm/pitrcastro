@@ -1,0 +1,286 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/normativa/marco-legal.json';
+
+const base = import.meta.env.BASE_URL;
+
+const totalDocs = pageData.secciones.reduce((sum, s) => sum + s.documentos.length, 0);
+
+function fileIcon(file: string) {
+  if (file.endsWith('.doc') || file.endsWith('.docx')) return 'fa-file-word';
+  if (file.endsWith('.xls') || file.endsWith('.xlsx')) return 'fa-file-excel';
+  return 'fa-file-pdf';
+}
+
+function fileColor(file: string) {
+  if (file.endsWith('.doc') || file.endsWith('.docx')) return 'word';
+  if (file.endsWith('.xls') || file.endsWith('.xlsx')) return 'excel';
+  return 'pdf';
+}
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Normativa', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Normativa Aplicable', descripcion: 'Normograma institucional completo', url: '/normativa-aplicada', icon: 'fa-scale-balanced' },
+  { titulo: 'Decretos', descripcion: 'Decretos de creación y estructura', url: '/decretos', icon: 'fa-file-lines' },
+  { titulo: 'Resoluciones y Circulares', descripcion: 'Actos administrativos por vigencia', url: '/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos', icon: 'fa-file-signature' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="marco-legal">
+    <div class="container">
+      {pageData.secciones.map((seccion, sIdx) => (
+        <div class="seccion" id={`seccion-${sIdx}`}>
+          <div class="seccion__header">
+            <div class="seccion__icon">
+              <i class={`fa-solid ${seccion.icon}`} aria-hidden="true"></i>
+            </div>
+            <h2 class="seccion__titulo">{seccion.titulo}</h2>
+            <span class="seccion__count">{seccion.documentos.length}</span>
+          </div>
+
+          <div class="seccion__docs">
+            {seccion.documentos.map((doc) => (
+              <a
+                href={doc.file}
+                target="_blank"
+                rel="noopener"
+                class="doc-card"
+              >
+                <div class={`doc-card__icon doc-card__icon--${fileColor(doc.file)}`}>
+                  <i class={`fa-solid ${fileIcon(doc.file)}`} aria-hidden="true"></i>
+                </div>
+                <div class="doc-card__content">
+                  <h3 class="doc-card__title">{doc.nombre}</h3>
+                  {doc.descripcion && (
+                    <p class="doc-card__descripcion">{doc.descripcion}</p>
+                  )}
+                  {doc.externo && (
+                    <span class="doc-card__externo">
+                      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                      Enlace externo
+                    </span>
+                  )}
+                </div>
+                <div class="doc-card__action">
+                  <i class={`fa-solid ${doc.externo ? 'fa-external-link' : 'fa-download'}`} aria-hidden="true"></i>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Normativa Relacionada" />
+</Base>
+
+<style>
+  .marco-legal {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .marco-legal .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  /* ====== Sección ====== */
+  .seccion {
+    margin-bottom: var(--space-10);
+  }
+
+  .seccion:last-child {
+    margin-bottom: 0;
+  }
+
+  .seccion__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--theme-border);
+  }
+
+  .seccion__icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.12);
+    border-radius: var(--radius-md);
+    color: var(--itrc-gold);
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+  }
+
+  .seccion__titulo {
+    flex: 1;
+    font-size: var(--font-size-xl);
+    color: var(--theme-heading);
+    margin: 0;
+  }
+
+  .seccion__count {
+    padding: 2px 10px;
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--theme-text-muted);
+  }
+
+  /* ====== Document Card ====== */
+  .seccion__docs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .doc-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .doc-card:hover {
+    border-color: rgba(var(--itrc-gold-rgb), 0.3);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+
+  .doc-card__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xl);
+    transition: all var(--transition-base);
+  }
+
+  .doc-card__icon--pdf {
+    background: rgba(220, 53, 69, 0.08);
+    color: var(--file-pdf);
+  }
+
+  .doc-card__icon--word {
+    background: rgba(13, 110, 253, 0.08);
+    color: var(--file-word);
+  }
+
+  .doc-card__icon--excel {
+    background: rgba(25, 135, 84, 0.08);
+    color: var(--file-excel);
+  }
+
+  .doc-card:hover .doc-card__icon--pdf { background: var(--file-pdf); color: var(--white); }
+  .doc-card:hover .doc-card__icon--word { background: var(--file-word); color: var(--white); }
+  .doc-card:hover .doc-card__icon--excel { background: var(--file-excel); color: var(--white); }
+
+  .doc-card__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .doc-card__title {
+    color: var(--theme-heading);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    margin: 0 0 var(--space-1);
+    transition: color var(--transition-fast);
+  }
+
+  .doc-card:hover .doc-card__title {
+    color: var(--itrc-gold);
+  }
+
+  .doc-card__descripcion {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .doc-card__externo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-top: var(--space-1);
+    font-size: 0.65rem;
+    color: var(--theme-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .doc-card__action {
+    flex-shrink: 0;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-base);
+    opacity: 0.4;
+    transition: all var(--transition-fast);
+  }
+
+  .doc-card:hover .doc-card__action {
+    opacity: 1;
+    color: var(--itrc-gold);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .marco-legal {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .seccion {
+      margin-bottom: var(--space-8);
+    }
+
+    .doc-card {
+      padding: var(--space-3) var(--space-4);
+      gap: var(--space-3);
+    }
+
+    .doc-card__icon {
+      width: 36px;
+      height: 36px;
+      font-size: var(--font-size-base);
+    }
+
+    .doc-card__title {
+      font-size: var(--font-size-xs);
+    }
+
+    .doc-card__descripcion {
+      display: none;
+    }
+  }
+</style>

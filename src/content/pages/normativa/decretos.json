@@ -1,0 +1,49 @@
+{
+  "title": "Decretos",
+  "description": "La normatividad y documentación que soporta el proceso de creación y estructura de la Agencia ITRC.",
+  "icon": "fa-file-lines",
+  "decretos": [
+    {
+      "nombre": "Decreto No. 664 de 2024",
+      "fecha": "24 de mayo de 2024",
+      "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
+      "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Decreto_664_de_2024-1.pdf"
+    },
+    {
+      "nombre": "Decreto No. 075 de 2022",
+      "fecha": "21 de enero de 2022",
+      "descripcion": "Por el cual se modifica la planta de personal de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
+      "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/DECRETO-075-DEL-21-DE-ENERO-DE-2022.pdf"
+    },
+    {
+      "nombre": "Decreto No. 074 de 2022",
+      "fecha": "21 de enero de 2022",
+      "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales.",
+      "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/DECRETO-074-DEL-21-DE-ENERO-DE-2022.pdf"
+    },
+    {
+      "nombre": "Decreto No. 1068 de 2015",
+      "fecha": "26 de mayo de 2015",
+      "descripcion": "Por medio del cual se expide el Decreto Único Reglamentario del Sector Hacienda y Crédito Público.",
+      "file": "https://bit.ly/2GkEDIy"
+    },
+    {
+      "nombre": "Decreto No. 0985 de 2012",
+      "fecha": "14 de mayo de 2012",
+      "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC).",
+      "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Decreto-0985.pdf"
+    },
+    {
+      "nombre": "Decreto No. 0986 de 2012",
+      "fecha": "14 de mayo de 2012",
+      "descripcion": "Por el cual se establece la planta de personal de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) y se dictan otras disposiciones.",
+      "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Decreto-0986.pdf"
+    },
+    {
+      "nombre": "Decreto No. 4173 de 2011",
+      "fecha": "3 de noviembre de 2011",
+      "descripcion": "Por el cual se crea la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
+      "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Decreto-4173.pdf"
+    }
+  ]
+}

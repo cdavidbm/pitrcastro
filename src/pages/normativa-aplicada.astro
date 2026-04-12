@@ -1,0 +1,969 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import normograma from '../content/pages/normograma.json';
+
+const base = import.meta.env.BASE_URL;
+const normas = [...normograma.normas].sort((a, b) => b.anio - a.anio);
+
+// Stats
+const totalNormas = normas.length;
+const vigentes = normas.filter(n => n.vigencia === 'VIGENTE').length;
+const tiposList = [...new Set(normas.map(n => n.tipo))].sort();
+const anioMin = Math.min(...normas.map(n => n.anio));
+const anioMax = Math.max(...normas.map(n => n.anio));
+const procesosList = [...new Set(
+  normas.flatMap(n => n.proceso.split(/\s+-\s+/).map(p => p.trim()).filter(Boolean))
+)].sort();
+
+function tipoClass(tipo: string) {
+  if (tipo.includes('Decreto')) return 'decreto';
+  if (tipo.includes('Ley')) return 'ley';
+  if (tipo.includes('Circular')) return 'circular';
+  if (tipo.startsWith('Resoluci') || tipo.startsWith('Resolución')) return 'resolucion';
+  if (tipo.includes('Directiva')) return 'directiva';
+  if (tipo.includes('Acuerdo')) return 'acuerdo';
+  return 'otro';
+}
+
+function vigenciaClass(v: string) {
+  if (v === 'VIGENTE') return 'vigente';
+  if (v === 'DERROGADA') return 'derrogada';
+  return 'parcial';
+}
+
+function vigenciaLabel(v: string) {
+  if (v === 'VIGENTE') return 'Vigente';
+  if (v === 'DERROGADA') return 'Derrogada';
+  return 'Parcial';
+}
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Normativa', href: '#' },
+  { label: 'Normativa Aplicable' }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Decretos', descripcion: 'Decretos expedidos por la ITRC', url: '/decretos', icon: 'fa-file-lines' },
+  { titulo: 'Marco Legal', descripcion: 'Marco legal de la entidad', url: '/marco-legal', icon: 'fa-landmark' },
+  { titulo: 'Transparencia', descripcion: 'Transparencia y acceso a la información', url: '/transparencia', icon: 'fa-eye' },
+];
+---
+
+<Base title="Normativa Aplicable" description="Normograma institucional de la ITRC - Ley 1712 de 2014">
+  <HeroPage
+    title="Normativa Aplicable"
+    subtitle="Normograma institucional conforme a la Ley 1712 de 2014 y la Resolución 3564 de 2015"
+    icon="fa-scale-balanced"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Estadísticas -->
+  <section class="normograma-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--navy">
+            <i class="fa-solid fa-book" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{totalNormas}</span>
+          <span class="stat-card__label">Normas registradas</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--green">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{vigentes}</span>
+          <span class="stat-card__label">Vigentes</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--gold">
+            <i class="fa-solid fa-tags" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{tiposList.length}</span>
+          <span class="stat-card__label">Tipos de norma</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--blue">
+            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{anioMin}–{anioMax}</span>
+          <span class="stat-card__label">Período cubierto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controles -->
+  <section class="normograma-controls-section">
+    <div class="container">
+      <div class="normograma-controls">
+        <div class="controls-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="normSearch" placeholder="Buscar en el normograma..." aria-label="Buscar normas" />
+        </div>
+        <div class="controls-filters">
+          <select id="filterTipo" aria-label="Filtrar por tipo de norma">
+            <option value="">Todos los tipos</option>
+            {tiposList.map(t => <option value={t}>{t}</option>)}
+          </select>
+          <select id="filterVigencia" aria-label="Filtrar por vigencia">
+            <option value="">Toda vigencia</option>
+            <option value="VIGENTE">Vigente</option>
+            <option value="DERROGADA">Derrogada</option>
+            <option value="VIGENTE-PARCIALMENTE">Parcialmente vigente</option>
+          </select>
+          <select id="filterProceso" aria-label="Filtrar por proceso">
+            <option value="">Todos los procesos</option>
+            {procesosList.map(p => <option value={p}>{p}</option>)}
+          </select>
+          <select id="perPageSelect" aria-label="Filas por página">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="0">Todos</option>
+          </select>
+          <button type="button" id="clearFilters" class="btn-clear" title="Limpiar filtros">
+            <i class="fa-solid fa-filter-circle-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="normograma-info">
+        <span id="resultsCount"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabla -->
+  <section class="normograma-section">
+    <div class="container">
+      <div class="normograma-table-wrapper">
+        <table class="normograma-table" id="normogramaTable">
+          <thead>
+            <tr>
+              <th class="col-tipo sortable" data-sort="tipo">
+                Tipo <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-numero sortable" data-sort="numero">
+                Número <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-anio sortable sort-active sort-desc" data-sort="anio">
+                Año <i class="fa-solid fa-sort-down" aria-hidden="true"></i>
+              </th>
+              <th class="col-vigencia sortable" data-sort="vigencia">
+                Vigencia <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-descripcion">Descripción</th>
+              <th class="col-proceso sortable" data-sort="proceso">
+                Proceso <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-ficha">Ficha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {normas.map((n) => (
+              <tr
+                data-tipo={n.tipo}
+                data-numero={n.numero}
+                data-anio={String(n.anio)}
+                data-vigencia={n.vigencia}
+                data-proceso={n.proceso}
+              >
+                <td data-label="Tipo">
+                  <span class={`tipo-badge tipo--${tipoClass(n.tipo)}`}>{n.tipo}</span>
+                </td>
+                <td data-label="Número">
+                  {n.normaUrl ? (
+                    <a href={n.normaUrl} target="_blank" rel="noopener" class="norma-link">
+                      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                      {n.numero}
+                    </a>
+                  ) : (
+                    <span>{n.numero}</span>
+                  )}
+                </td>
+                <td data-label="Año" class="td-center">{n.anio}</td>
+                <td data-label="Vigencia">
+                  <span class={`vigencia-badge badge--${vigenciaClass(n.vigencia)}`}>
+                    {vigenciaLabel(n.vigencia)}
+                  </span>
+                </td>
+                <td data-label="Descripción" class="td-descripcion">{n.descripcion}</td>
+                <td data-label="Proceso" class="td-proceso">{n.proceso}</td>
+                <td data-label="Ficha" class="td-center">
+                  {n.fichaUrl && (
+                    <a href={n.fichaUrl} target="_blank" rel="noopener" class="ficha-link" title="Ver ficha técnica">
+                      <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                    </a>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <nav class="normograma-pagination" id="pagination" aria-label="Paginación del normograma"></nav>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Normativa Relacionada" />
+</Base>
+
+<style>
+  /* ====== Stats ====== */
+  .normograma-stats {
+    padding: var(--space-8) var(--space-6);
+    background: var(--theme-surface-alt);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--theme-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .stat-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xl);
+  }
+
+  .stat-card__icon--navy { background: rgba(0, 33, 71, 0.1); color: var(--itrc-navy); }
+  .stat-card__icon--green { background: rgba(5, 150, 105, 0.12); color: var(--green-accent); }
+  .stat-card__icon--gold { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold); }
+  .stat-card__icon--blue { background: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+
+  .stat-card__number {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--theme-heading);
+    line-height: 1;
+  }
+
+  .stat-card__label {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* ====== Controls ====== */
+  .normograma-controls-section {
+    padding: var(--space-6) var(--space-6) var(--space-3);
+    background: var(--theme-surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--theme-border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .normograma-controls {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .controls-search {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+  }
+
+  .controls-search i {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .controls-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .controls-search input:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15);
+  }
+
+  .controls-filters {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .controls-filters select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    cursor: pointer;
+    max-width: 180px;
+    transition: border-color var(--transition-fast);
+  }
+
+  .controls-filters select:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+  }
+
+  .btn-clear {
+    padding: var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    background: var(--theme-surface);
+    color: var(--theme-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-clear:hover {
+    border-color: var(--file-pdf);
+    color: var(--file-pdf);
+    background: rgba(220, 53, 69, 0.05);
+  }
+
+  .normograma-info {
+    padding: var(--space-2) 0;
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+
+  /* ====== Table ====== */
+  .normograma-section {
+    padding: 0 var(--space-6) var(--space-12);
+    background: var(--theme-surface);
+  }
+
+  .normograma-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--theme-border-light);
+  }
+
+  .normograma-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+    min-width: 900px;
+  }
+
+  .normograma-table thead {
+    background: var(--theme-dark-section-bg);
+  }
+
+  .normograma-table th {
+    padding: var(--space-4) var(--space-3);
+    text-align: left;
+    font-weight: 700;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--theme-dark-section-heading);
+    white-space: nowrap;
+    border-bottom: 2px solid var(--itrc-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .normograma-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: color var(--transition-fast);
+  }
+
+  .normograma-table th.sortable:hover {
+    color: var(--itrc-gold);
+  }
+
+  .normograma-table th .sort-icon,
+  .normograma-table th i.fa-sort,
+  .normograma-table th i.fa-sort-up,
+  .normograma-table th i.fa-sort-down {
+    margin-left: var(--space-1);
+    font-size: 0.7em;
+    opacity: 0.4;
+    transition: opacity var(--transition-fast);
+  }
+
+  .normograma-table th.sort-active i {
+    opacity: 1;
+    color: var(--itrc-gold);
+  }
+
+  .normograma-table td {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--theme-border-light);
+    color: var(--theme-text);
+    vertical-align: top;
+  }
+
+  .normograma-table tbody tr {
+    transition: background var(--transition-fast);
+  }
+
+  .normograma-table tbody tr:nth-child(even) {
+    background: var(--theme-surface-alt);
+  }
+
+  .normograma-table tbody tr:hover {
+    background: rgba(var(--itrc-gold-rgb), 0.08);
+  }
+
+  /* Column widths */
+  .col-tipo { width: 140px; }
+  .col-numero { width: 120px; }
+  .col-anio { width: 60px; text-align: center; }
+  .col-vigencia { width: 100px; text-align: center; }
+  .col-descripcion { min-width: 280px; }
+  .col-proceso { width: 180px; }
+  .col-ficha { width: 55px; text-align: center; }
+
+  .td-center { text-align: center; }
+
+  .td-descripcion {
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    color: var(--theme-text-secondary);
+  }
+
+  .td-proceso {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+  }
+
+  /* ====== Badges ====== */
+  .tipo-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1.6;
+  }
+
+  .tipo--decreto { background: rgba(0, 33, 71, 0.1); color: var(--itrc-navy); }
+  .tipo--ley { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold-dark); }
+  .tipo--circular { background: rgba(0, 128, 128, 0.1); color: #008080; }
+  .tipo--resolucion { background: rgba(111, 66, 193, 0.1); color: #6f42c1; }
+  .tipo--directiva { background: rgba(253, 126, 20, 0.1); color: #d97706; }
+  .tipo--acuerdo { background: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+  .tipo--otro { background: var(--gray-100); color: var(--gray-600); }
+
+  .vigencia-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1.6;
+  }
+
+  .badge--vigente { background: rgba(5, 150, 105, 0.12); color: #059669; }
+  .badge--derrogada { background: rgba(220, 53, 69, 0.12); color: #dc3545; }
+  .badge--parcial { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+
+  /* Dark theme badge adjustments */
+  :global(html.theme-oscuro) .tipo--decreto { background: rgba(100, 149, 237, 0.15); color: #93b5f5; }
+  :global(html.theme-oscuro) .tipo--ley { background: rgba(var(--itrc-gold-rgb), 0.2); color: var(--itrc-gold-light); }
+  :global(html.theme-oscuro) .tipo--circular { background: rgba(0, 200, 200, 0.12); color: #4dd9d9; }
+  :global(html.theme-oscuro) .tipo--resolucion { background: rgba(160, 120, 240, 0.15); color: #b89af5; }
+  :global(html.theme-oscuro) .tipo--directiva { background: rgba(253, 186, 116, 0.15); color: #fbbf24; }
+  :global(html.theme-oscuro) .tipo--acuerdo { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+  :global(html.theme-oscuro) .badge--vigente { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+  :global(html.theme-oscuro) .badge--derrogada { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+  :global(html.theme-oscuro) .badge--parcial { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+
+  /* Links */
+  .norma-link {
+    color: var(--theme-link);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-size-xs);
+    transition: color var(--transition-fast);
+  }
+
+  .norma-link i {
+    font-size: 0.65em;
+    margin-right: 3px;
+    opacity: 0.6;
+  }
+
+  .norma-link:hover {
+    color: var(--itrc-gold);
+    text-decoration: underline;
+  }
+
+  .ficha-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    color: var(--file-pdf);
+    background: rgba(220, 53, 69, 0.08);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-base);
+  }
+
+  .ficha-link:hover {
+    background: var(--file-pdf);
+    color: var(--white);
+    transform: scale(1.1);
+  }
+
+  /* ====== No results ====== */
+  .no-results {
+    display: none;
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
+    color: var(--theme-text-muted);
+  }
+
+  .no-results.visible {
+    display: block;
+  }
+
+  .no-results i {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-4);
+    display: block;
+    opacity: 0.4;
+  }
+
+  /* ====== Pagination ====== */
+  .normograma-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-6) 0;
+    flex-wrap: wrap;
+  }
+
+  .normograma-pagination button {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    cursor: pointer;
+    min-width: 36px;
+    text-align: center;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+  }
+
+  .normograma-pagination button:hover:not(:disabled) {
+    border-color: var(--itrc-gold);
+    color: var(--itrc-gold);
+    background: rgba(var(--itrc-gold-rgb), 0.05);
+  }
+
+  .normograma-pagination button.active {
+    background: var(--itrc-gold);
+    color: var(--white);
+    border-color: var(--itrc-gold);
+    font-weight: 700;
+  }
+
+  .normograma-pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .normograma-pagination .pagination-ellipsis {
+    padding: var(--space-2) var(--space-1);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 1024px) {
+    .controls-filters select {
+      max-width: 150px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .normograma-stats {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+
+    .stat-card {
+      padding: var(--space-4) var(--space-3);
+    }
+
+    .stat-card__icon {
+      width: 40px;
+      height: 40px;
+      font-size: var(--font-size-base);
+    }
+
+    .stat-card__number {
+      font-size: var(--font-size-xl);
+    }
+
+    .normograma-controls-section {
+      padding: var(--space-4) var(--space-4) var(--space-2);
+      position: static;
+    }
+
+    .normograma-controls {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .controls-search {
+      min-width: unset;
+      width: 100%;
+    }
+
+    .controls-filters {
+      width: 100%;
+      gap: var(--space-2);
+    }
+
+    .controls-filters select {
+      flex: 1;
+      min-width: 0;
+      max-width: unset;
+      font-size: 0.7rem;
+      padding: var(--space-2) var(--space-3);
+    }
+
+    .normograma-section {
+      padding: 0 var(--space-4) var(--space-8);
+    }
+
+    .normograma-table {
+      min-width: 750px;
+    }
+
+    .col-descripcion {
+      min-width: 200px;
+    }
+
+    .col-proceso {
+      width: 140px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-card__number {
+      font-size: var(--font-size-lg);
+    }
+
+    .controls-filters {
+      flex-wrap: wrap;
+    }
+
+    .controls-filters select {
+      flex: 1 1 calc(50% - var(--space-1));
+    }
+  }
+</style>
+
+<script>
+  function initNormograma() {
+    const table = document.getElementById('normogramaTable');
+    const tbody = table?.querySelector('tbody');
+    const searchInput = document.getElementById('normSearch') as HTMLInputElement;
+    const filterTipo = document.getElementById('filterTipo') as HTMLSelectElement;
+    const filterVigencia = document.getElementById('filterVigencia') as HTMLSelectElement;
+    const filterProceso = document.getElementById('filterProceso') as HTMLSelectElement;
+    const perPageSelect = document.getElementById('perPageSelect') as HTMLSelectElement;
+    const clearBtn = document.getElementById('clearFilters');
+    const paginationNav = document.getElementById('pagination');
+    const resultsCount = document.getElementById('resultsCount');
+
+    if (!table || !tbody) return;
+
+    const allRows = Array.from(tbody.querySelectorAll('tr'));
+    let filteredIndices: number[] = [];
+    let currentPage = 1;
+    let perPage = 25;
+    let sortCol = 'anio';
+    let sortDir: 'asc' | 'desc' = 'desc';
+
+    function matchesFilters(row: HTMLTableRowElement): boolean {
+      const tipo = row.dataset.tipo || '';
+      const vigencia = row.dataset.vigencia || '';
+      const proceso = row.dataset.proceso || '';
+      const text = row.textContent?.toLowerCase() || '';
+
+      const searchVal = searchInput?.value.toLowerCase().trim() || '';
+      const tipoVal = filterTipo?.value || '';
+      const vigenciaVal = filterVigencia?.value || '';
+      const procesoVal = filterProceso?.value || '';
+
+      if (searchVal && !text.includes(searchVal)) return false;
+      if (tipoVal && tipo !== tipoVal) return false;
+      if (vigenciaVal && vigencia !== vigenciaVal) return false;
+      if (procesoVal && !proceso.includes(procesoVal)) return false;
+
+      return true;
+    }
+
+    function getSortValue(row: HTMLTableRowElement, col: string): string | number {
+      if (col === 'anio') return parseInt(row.dataset.anio || '0', 10);
+      if (col === 'tipo') return (row.dataset.tipo || '').toLowerCase();
+      if (col === 'numero') return (row.dataset.numero || '').toLowerCase();
+      if (col === 'vigencia') return (row.dataset.vigencia || '').toLowerCase();
+      if (col === 'proceso') return (row.dataset.proceso || '').toLowerCase();
+      return '';
+    }
+
+    function filterAndSort() {
+      filteredIndices = allRows
+        .map((_, i) => i)
+        .filter(i => matchesFilters(allRows[i]));
+
+      filteredIndices.sort((a, b) => {
+        const va = getSortValue(allRows[a], sortCol);
+        const vb = getSortValue(allRows[b], sortCol);
+        let cmp = 0;
+        if (typeof va === 'number' && typeof vb === 'number') {
+          cmp = va - vb;
+        } else {
+          cmp = String(va).localeCompare(String(vb), 'es');
+        }
+        return sortDir === 'asc' ? cmp : -cmp;
+      });
+
+      currentPage = 1;
+      render();
+    }
+
+    function render() {
+      const total = filteredIndices.length;
+      const pageSize = perPage === 0 ? total : perPage;
+      const start = (currentPage - 1) * pageSize;
+      const end = Math.min(start + pageSize, total);
+
+      // Build DOM in sorted/filtered order
+      const fragment = document.createDocumentFragment();
+      const filteredSet = new Set(filteredIndices);
+
+      filteredIndices.forEach((idx, i) => {
+        const row = allRows[idx];
+        row.style.display = (i >= start && i < end) ? '' : 'none';
+        fragment.appendChild(row);
+      });
+
+      // Append non-filtered rows (hidden)
+      allRows.forEach((row, idx) => {
+        if (!filteredSet.has(idx)) {
+          row.style.display = 'none';
+          fragment.appendChild(row);
+        }
+      });
+
+      tbody.replaceChildren(fragment);
+
+      // Update count
+      if (resultsCount) {
+        if (total === 0) {
+          resultsCount.textContent = 'No se encontraron normas con los filtros aplicados';
+        } else if (perPage === 0) {
+          resultsCount.textContent = `Mostrando ${total} norma${total !== 1 ? 's' : ''}`;
+        } else {
+          resultsCount.textContent = `Mostrando ${start + 1}–${end} de ${total} norma${total !== 1 ? 's' : ''}`;
+        }
+      }
+
+      renderPagination(total, pageSize);
+    }
+
+    function renderPagination(total: number, pageSize: number) {
+      if (!paginationNav) return;
+      if (perPage === 0 || total <= pageSize) {
+        paginationNav.innerHTML = '';
+        return;
+      }
+
+      const totalPages = Math.ceil(total / pageSize);
+      let html = '';
+
+      // Prev button
+      html += `<button ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}" aria-label="Página anterior">&laquo;</button>`;
+
+      // Page numbers with ellipsis
+      const pages = generatePageNumbers(currentPage, totalPages);
+      for (const p of pages) {
+        if (p === '...') {
+          html += '<span class="pagination-ellipsis">…</span>';
+        } else {
+          const num = Number(p);
+          html += `<button class="${num === currentPage ? 'active' : ''}" data-page="${num}" aria-label="Página ${num}">${num}</button>`;
+        }
+      }
+
+      // Next button
+      html += `<button ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}" aria-label="Página siguiente">&raquo;</button>`;
+
+      paginationNav.innerHTML = html;
+
+      // Bind page buttons
+      paginationNav.querySelectorAll('button[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const page = parseInt((btn as HTMLElement).dataset.page || '1', 10);
+          if (page >= 1 && page <= totalPages) {
+            currentPage = page;
+            render();
+            // Scroll to table top
+            table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+
+    function generatePageNumbers(current: number, total: number): (number | string)[] {
+      if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+
+      const pages: (number | string)[] = [1];
+      if (current > 3) pages.push('...');
+
+      const rangeStart = Math.max(2, current - 1);
+      const rangeEnd = Math.min(total - 1, current + 1);
+      for (let i = rangeStart; i <= rangeEnd; i++) pages.push(i);
+
+      if (current < total - 2) pages.push('...');
+      pages.push(total);
+
+      return pages;
+    }
+
+    // Update sort header UI
+    function updateSortUI() {
+      const headers = table.querySelectorAll('th.sortable');
+      headers.forEach(th => {
+        const icon = th.querySelector('i');
+        if (!icon) return;
+        const col = (th as HTMLElement).dataset.sort;
+        th.classList.remove('sort-active', 'sort-asc', 'sort-desc');
+        icon.className = 'fa-solid fa-sort';
+        if (col === sortCol) {
+          th.classList.add('sort-active', sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+          icon.className = `fa-solid ${sortDir === 'asc' ? 'fa-sort-up' : 'fa-sort-down'}`;
+        }
+      });
+    }
+
+    // ====== Event Listeners ======
+
+    // Debounce search
+    let searchTimeout: ReturnType<typeof setTimeout>;
+    searchInput?.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(filterAndSort, 300);
+    });
+
+    // Filters
+    [filterTipo, filterVigencia, filterProceso].forEach(el => {
+      el?.addEventListener('change', filterAndSort);
+    });
+
+    // Per page
+    perPageSelect?.addEventListener('change', () => {
+      perPage = parseInt(perPageSelect.value, 10);
+      currentPage = 1;
+      render();
+    });
+
+    // Clear filters
+    clearBtn?.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      if (filterTipo) filterTipo.value = '';
+      if (filterVigencia) filterVigencia.value = '';
+      if (filterProceso) filterProceso.value = '';
+      perPage = 25;
+      if (perPageSelect) perPageSelect.value = '25';
+      sortCol = 'anio';
+      sortDir = 'desc';
+      updateSortUI();
+      filterAndSort();
+    });
+
+    // Sort headers
+    table.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = (th as HTMLElement).dataset.sort || '';
+        if (col === sortCol) {
+          sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          sortCol = col;
+          sortDir = 'asc';
+        }
+        updateSortUI();
+        filterAndSort();
+      });
+    });
+
+    // Initial render
+    filterAndSort();
+  }
+
+  initNormograma();
+  document.addEventListener('astro:after-swap', initNormograma);
+</script>

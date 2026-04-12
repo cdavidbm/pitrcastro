@@ -1,0 +1,110 @@
+{
+  "title": "Marco Legal",
+  "description": "Marco normativo y legal que rige la creación, estructura y funcionamiento de la Agencia ITRC.",
+  "icon": "fa-landmark",
+  "secciones": [
+    {
+      "titulo": "Constitución",
+      "icon": "fa-scroll",
+      "documentos": [
+        {
+          "nombre": "Constitución Política de Colombia",
+          "descripcion": "Constitución Política de 1991 — Asamblea Nacional Constituyente.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Constitucion_Politica_1_de_1991_Asamblea_Nacional_Constituyente.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Leyes",
+      "icon": "fa-gavel",
+      "documentos": [
+        {
+          "nombre": "Ley 2094 de 2021",
+          "descripcion": "Por medio de la cual se reforma la Ley 1952 de 2019 y se dictan otras disposiciones.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ley_2094_de_2021.pdf"
+        },
+        {
+          "nombre": "Ley 2080 de 2021",
+          "descripcion": "Por medio de la cual se reforma el Código de Procedimiento Administrativo y de lo Contencioso Administrativo — Ley 1437 de 2011.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ley_2080_de_2021.pdf"
+        },
+        {
+          "nombre": "Ley 1952 de 2019",
+          "descripcion": "Por medio de la cual se expide el Código General Disciplinario.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ley_1952_de_2019.pdf"
+        },
+        {
+          "nombre": "Ley 1474 de 2011",
+          "descripcion": "Por la cual se dictan normas orientadas a fortalecer los mecanismos de prevención, investigación y sanción de actos de corrupción y la efectividad del control de la gestión pública.",
+          "file": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1681594",
+          "externo": true
+        },
+        {
+          "nombre": "Ley 1437 de 2011",
+          "descripcion": "Por la cual se expide el Código de Procedimiento Administrativo y de lo Contencioso Administrativo.",
+          "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/ley-1437.pdf"
+        },
+        {
+          "nombre": "Ley 734 de 2002",
+          "descripcion": "Por la cual se expide el Código Disciplinario Único.",
+          "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Ley-734.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Decretos",
+      "icon": "fa-file-lines",
+      "documentos": [
+        {
+          "nombre": "Decreto 074 de 2022",
+          "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Decreto_074_de_2022.pdf"
+        },
+        {
+          "nombre": "Decreto 075 de 2022",
+          "descripcion": "Por el cual se modifica la planta de personal de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Decreto_075_de_2022.pdf"
+        },
+        {
+          "nombre": "Decreto 985 de 2012",
+          "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC).",
+          "file": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1859963",
+          "externo": true
+        },
+        {
+          "nombre": "Decreto 986 de 2012",
+          "descripcion": "Por el cual se establece la planta de personal de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC).",
+          "file": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1859990",
+          "externo": true
+        },
+        {
+          "nombre": "Decreto 4452 de 2011",
+          "descripcion": "Por el cual se corrigen los yerros identificados en los artículos 2 y 16 del Decreto 4173 de 2011.",
+          "file": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normasd4452.pdf"
+        },
+        {
+          "nombre": "Decreto 4173 de 2011",
+          "descripcion": "Por el cual se crea la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
+          "file": "https://www.secretariasenado.gov.co/senado/basedoc/decreto_4173_2011.html",
+          "externo": true
+        }
+      ]
+    },
+    {
+      "titulo": "Documentos CONPES",
+      "icon": "fa-file-contract",
+      "documentos": [
+        {
+          "nombre": "Modelo de Servicio al Ciudadano 2018 — CONPES 3785 de 2013",
+          "descripcion": "Política Nacional de Eficiencia Administrativa al Servicio del Ciudadano.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/12/Modelo-de-Servicio-al-Ciudadano-2018-Conpes-3785-de-2013.doc"
+        },
+        {
+          "nombre": "Eficiencia Administrativa — CONPES 3785 de 2013",
+          "descripcion": "Documento CONPES sobre eficiencia administrativa.",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/12/conpes_3785_de_2013_eficiencia_administrativa.pdf"
+        }
+      ]
+    }
+  ]
+}

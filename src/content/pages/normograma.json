@@ -1,0 +1,2644 @@
+{
+  "normas": [
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "01 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/DIRECTIVA-PRESIDENCIAL-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Ficha-Normograma-Directiva-Presidencial-1-de-abril-de-2024.pdf",
+      "descripcion": "Directrices y lineamientos con el propósito de fortalecer las medidas de ahorro de agua y energía en todas las entidades públicas del Ejecutivo.",
+      "proceso": "Transversal a toda la entidad"
+    },
+    {
+      "tipo": "Acuerdo",
+      "numero": "1",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Acuerdo-001-2024-AGN.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-1.-Acuerdo-001-de-2024.pdf",
+      "descripcion": "Por el cual se establece el Acuerdo Único de la Función Archivística, se definen los criterios técnicos y jurídicos para su implementación en el Estado Colombiano y se fijan otras disposiciones.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "14",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/circular_externa_14_17_junio_20.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Circular-Externa-014-de-2024.pdf",
+      "descripcion": "Protocolo para la coordinacion de la estrategia institucional para la defensa juridica del estado por hechos de corrupcion y la recepcion de documentos procedentes de las entidades, en el marco de la directiva presidencial 04 de 2024",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Acuerdo",
+      "numero": "PCSJA24-12185",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/ACUERDO-PCSJA24-12185-2.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Ficha-Tecnica-Normograma-ACUERDO-PCSJA24-12185.pdf",
+      "descripcion": "Por el cual se adopta el protocolo de audiencias judiciales de la Rama Judicial y se dictan otras disposiciones.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "13 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Circular-externa-No.-13-del-20-de-mayo-de-2024-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Ficha-Tecnica-Normograma-Circular-externa-No.13-del-20-de-mayo-de-2024.pdf",
+      "descripcion": "Lineamiento en Materia de violaciones de derechos de las personas defensoras de derechos humanos (DDHH).",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0664 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/DECRETO-0664-DE-24-DE-MAYO-DE-2024-2.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Ficha-Tecnica-Normograma-Decreto-0664-de-2024.pdf",
+      "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones parafiscales- ITRC.",
+      "proceso": "Gestión Jurídica - Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0500 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/DECRETO-0500-DE-18-DE-ABRIL-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/FICHA-NORMOGRAMA-DECRETO-500-DE-2024.pdf",
+      "descripcion": "Por la cual se declara un día cívico",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0313 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/DECRETO-0313-DE-6-DE-MARZO-DE-2024-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Ficha-Normograma-Decreto-No.-0313-de-2024.pdf",
+      "descripcion": "Por el cual se modifica el Decreto 1068 de 2015 Único Reglamentario de Sector Hacienda y Crédito Público.",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0303 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/DECRETO-0303-DE-5-DE-MARZO-DE-2024-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Ficha-Normograma-Decreto-No.-0303-de-2024.pdf",
+      "descripcion": "Por el cual se fijan las escalas de viáticos.",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "06 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Circular-externa-No.-06-Lineamiento-llamamiento-en-garantia-y-medio-de-control-de-repeticion-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Ficha-Normograma-Circular-No.-6.pdf",
+      "descripcion": "Lineamiento para el uso adecuado del llamamiento en garantía con fines de repetición y el medio de control de repetición.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "04 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Circular-externa-No.-04-Lineamiento-uso-recurso-de-unificacion-jurisprudencia-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Ficha-Normograma-Circular-No.-4.pdf",
+      "descripcion": "Lineamiento sobre el uso adecuado del recurso extraordinario de unificación de jurisprudencia.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2347 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/LEY-2347-DEL-8-DE-FEBRERO-DE-2024-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Normograma-Ley-2347-del-8-de-Feb-de-2024.pdf",
+      "descripcion": "Por medio de la cual se establece el 12 de octubre de cada año como el día de la diversidad étnica y cultural de la nación colombiana.",
+      "proceso": "TransversalGestión de Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "199 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/DECRETO-0199-DEL-20-DE-FEBRERO-DE-2024-2-Austeridad-1.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Normograma-Decreto-0199-de-2024.pdf",
+      "descripcion": "Por el cual se establece el Plan de Austeridad del Gasto 2024 para los órganos del Presupuesto General de la Nación.",
+      "proceso": "Transversal"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "17",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Circular-externa-No.-17-del-03-de-julio-de-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Ficha-Circular-externa-N0.-17-del-03-de-julio-de-2024.pdf",
+      "descripcion": "Actualización lineamientos y recomendaciones para la expedición del acto administrativo que declara la insubsistencia de funcionario en provisionalidad",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "26",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Circular-Externa-No.26-del-06-de-Noviembre-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Ficha-Normograma-Circular-Externa-No.26.pdf",
+      "descripcion": "Recomendaciones para el ejercicio de una representación judicial respetuosa de los derechos humanos.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "12",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/DIRECTIVA-PRESIDENCIAL-No.-12-DEL-22-DE-NOVIEMBRE-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Ficha-Normograma-DIRECTIVA-PRESIDENCIAL-No.-12-DEL-22-DE-NOVIEMBRE-DE-2024.pdf",
+      "descripcion": "Directrices para la conmemoración del día internacional de la eliminación de la violencia contra la mujer en sus diversidades – 25 de noviembre y los 16 días de activismo contra la violencia de género",
+      "proceso": "Transversal"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "7",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/DIRECTIVA-PRESIDENCIAL-No.-07-DEL-9-DE-SEPTIEMBRE-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Ficha-Tecnica-Normograma-DIRECTIVA-PRESIDENCIAL-07-DE-20241.pdf",
+      "descripcion": "“Deberes de las y los Funcionarios Públicos en el Ejercicio de la Libertad de Expresión y el Respeto a la Libertad de Prensa”",
+      "proceso": "Transversal"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "301 de 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/DECRETO-0301-DE-5-DE-MARZO-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Ficha-Normograma-Decreto-0301-de-2024.pdf",
+      "descripcion": "Por el cual se fijan las remuneraciones de los empleos que sean desempeñados por empleados públicos de la Rama Ejecutiva, Corporaciones Autónomas Regionales y de Desarrollo Sostenible, y se dictan otras disposiciones.",
+      "proceso": "Gestión de Talento Humano - Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2365",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Ficha_Tecnica_Normograma-Ley-2365-de-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-1.-Acuerdo-001-de-2024.pdf",
+      "descripcion": "Por medio de la cual se adoptan medidas de prevención, protección y atención del acoso sexual en el ámbito laboral y en las instituciones de educación superior en Colombia y se dictan otras disposiciones.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1605 del 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/DECRETO-1605-DE-27-DE-DICIEMBRE-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/FICHA-NORMOGRAMA-DECRETO-1605-DE-DICIEMBRE-DE-2024.pdf",
+      "descripcion": "Por medio del cual se adiciona el Capítulo 5 del Título 5 de la Parte 2 del Libro 2 del Decreto 1083 de 2015 Único Reglamentario del Sector de la Función Pública, con el fin de reglamentar parcialmente la Ley 2114 de 2021, en lo relacionado con la licencia parental compartida y la licencia parental flexible de tiempo parcial",
+      "proceso": "Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1573 del 2024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/DECRETO-1573-DE-24-DE-DICIEMBRE-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/FICHA-NORMOGRAMA-DECRETO-1573-DE-24-DICIEMBRE-DE-2024.pdf",
+      "descripcion": "Por el cual se fija el auxilio de transporte para la vigencia 2025",
+      "proceso": "Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2407",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/LEY-2407-DEL-5-DE-AGOSTO-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Normograma-Ley-2407-del-5-de-Agosto-de-2024.pdf",
+      "descripcion": "Por medio de la cual se adoptan medidas para promover el uso racional y eficiente de energía, se establecen lineamientos para los planes de eficiencia energética de las entidades públicas, se incentivan construcciones sostenibles y se dictan otras disposiciones.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2418",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/LEY-2418-DEL-9-DE-AGOSTO-DE-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Normograma-Ley-2418-del-9-de-Agosto-de-2024.pdf",
+      "descripcion": "Por medio de la cual se modifica el régimen de acceso y ascenso en el sistema general de carrera administrativa, se crea la reserva de plazas para las personas con discapacidad, se establece la gratuidad de la inscripción para este segmento poblacional y se dictan otras disposiciones.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "19",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Ficha-Circular-externa-No.-19-del-05-de-julio-de-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Circular-externa-No.-19-del-05-de-julio-de-2024.pdf",
+      "descripcion": "Protocolo para la gestión óptima de las peticiones en el marco de la prevención del daño antijurídico y la defensa judicial",
+      "proceso": "Gestión Jurídica - Gestion Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "18",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Ficha-Circular-externa-No.-18-del-03-de-julio-de-2024.pdf",
+      "anio": 2024,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Circular-externa-No.-18-del-03-de-julio-de-2024.pdf",
+      "descripcion": "Lineamiento para la prevención del daño antijurídico derivado de la ilegalidad del acto administrativo que adjudica contrato",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Conjunta",
+      "numero": "01 de 2023",
+      "normaUrl": "https://www.colombiacompra.gov.co/sites/cce_public/files/cce_circulares/circular_conjunta_colombia_compra.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Circular-conjunta-01-de-2023-Colombia-Compra-Eficiente..pdf",
+      "descripcion": "LINEAMIENTOS PARA LA CELEBRACION DE CONTRATOS DE PRESTACION DE SERVICIOS PREVISTOS EN EL ARTICULO 2, NUMERAL 4 LITERAL H, DE LA LEY 1150 DE 2007.",
+      "proceso": "Gestión Contractual, Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "035 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/RESOLUCION-035-DE-27-DE-ENERO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Resolucion-035-del-2023-PGN.pdf",
+      "descripcion": "Por medio de la cual se imparten instrucciones administrativas para la implementación de la Ley 2220 de 2022 en el trámite de los procedimientos de conciliación extrajudicial en asuntos de lo contencioso administrativo y se dictan otras disposiciones",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0142",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/DECRETO-0142-DEL-1-DE-FEBRERO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Ficha-Decreto-0142-del-2023.pdf",
+      "descripcion": "Por el cual se modifica y adiciona el Decreto 1082 de 2015, Único Reglamentario del Sector Administrativo de Planeación Nacional para promover el acceso al sistema de Compras Públicas de las Mipymes, las Cooperativas y demás entidades de la economía solidaria, se incorporan criterios sociales y ambientales en los Procesos de Contratación de las Entidades Estatales, se incluye el Título de emprendimiento comunal y se dictan otras disposiciones",
+      "proceso": "Gestión Contractual"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "01 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/DIRECTIVA-PRESIDENCIAL-No-01-DE-2023-1.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/Ficha-Directiva-Presidencial-01-del-2023.pdf",
+      "descripcion": "Protocolo para la prevención, atención y medidas de protección de todas las formas de violencia contra las mujeres y basadas en género y/o discriminación por razón de raza, etnia, religión, nacionalidad, ideología política o filosófica, sexo u orientación sexual o discapacidad, y demás razones de discriminación en el ámbito laboral y contractual del sector público; y la participación efectiva de la mujer en las diferentes instancias de la administración pública.",
+      "proceso": "Talento Humano"
+    },
+    {
+      "tipo": "Circular Presidencial",
+      "numero": "01 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/CIRCULAR-No-01-DEL-29-DE-MARZO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Ficha-Tecnica-circular-01-de2023.pdf",
+      "descripcion": "Instrucciones para la defensa en las acciones públicas de inconstitucionalidad de las leyes de iniciativa gubernamental",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Presidencial",
+      "numero": "02 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/CIRCULAR-No-02-DEL-29-DE-MARZO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Ficha-Tecnica-circular-02-de-2023.pdf",
+      "descripcion": "Cumplimiento órdenes judiciales.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "444 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/DECRETO-444-DEL-29-DE-MARZO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Ficha-Tecnica-Decreto-444-de-2023.pdf",
+      "descripcion": "Por el cual se establece el Plan de Austeridad del Gasto 2023 para los órganos que hacen parte del Presupuesto General de la Nación",
+      "proceso": "Gestión Administrativa - Gestión Financiera - Gestión Contractual"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "465 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/DECRETO-465-DEL-30-DE-MARZO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Ficha-Tecnica-Decreto-465-de-2023.pdf",
+      "descripcion": "Por el cual se corrige un yerro en el artículo 2.2.11.1.5 del Decreto 1083 de 2015 Único Reglamentario del Sector de Función Pública.",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0541 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/DECRETO-0541-DEL-13-DE-ABRIL-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Ficha-Tecnica-Decreto-0541-de-2023.pdf",
+      "descripcion": "Por el cual se realiza una depuración normativa del Decreto 1069 de 2015, Decreto Único Reglamentario del Sector Justicia y del Derecho.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "02 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/DIRECTIVA-02-DEL-30-DE-MARZO-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Ficha-Tecnica-Directiva-02-de-2023.pdf",
+      "descripcion": "Directrices de austeridad hacia un gasto publico eficiente.",
+      "proceso": "Gestión Administrativa - Gestión Financiera - Gestión Contractual"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2294 de 2023",
+      "normaUrl": "https://colaboracion.dnp.gov.co/CDT/portalDNP/PND-2023/Ley_2294_del_19_de_mayo_de_2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/06/Ficha-Ley-2294-de-2023.pdf",
+      "descripcion": "Por el cual se expide el Plan Nacional de Desarrollo 2022 – 2026 “Colombia Potencia Mundial de la Vida”",
+      "proceso": "Transversal a toda la entidad"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "0905 de 2023",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormat\n ivo/norma.php?i=210830",
+      "anio": 2023,
+      "vigencia": "DERROGADA",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/6.-Ficha-Tecnica-Normograma-DECRETO-905-DE-2023.pdf",
+      "descripcion": "Por el cual se fijan las remuneraciones de los empleos que sean desempeñados por empleados públicos de la Rama Ejecutiva, Corporaciones Autónomas Regionales y de Desarrollo Sostenible, y se dictan otras disposiciones.",
+      "proceso": "Gestión Talento Humano - Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "920 de 2023",
+      "normaUrl": "https://incp.org.co/wpcontent/\n uploads/2023/06/Decreto-Ley-0920-\n 2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/6.-Ficha-Tecnica-Normograma-decreto-0920-de-2023.pdf",
+      "descripcion": "Por medio del cual se expide el nuevo régimen sancionatorio de decomiso de mercancías en materia aduanera, así como el procedimiento aplicable.",
+      "proceso": "Gestión Instrucción Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "09 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Circular-Externa-No.-09-del-24-de-Julio-de-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Ficha-Normograma-Circular-Externa-ANDJE-09-de-2023.pdf",
+      "descripcion": "Lineamientos para la formulación, aprobación, implementación y seguimiento de las Políticas de Prevención del Daño Antijurídico.",
+      "proceso": "Transversal a toda la entidad"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1903 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/DECRETO-1903-DEL-8-DE-NOVIEMBRE-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Normograma-Decreto-1903-del-2023.pdf",
+      "descripcion": "\"Por el cual se modifica el Decreto 1068 de 2015 Decreto Único Reglamentario del Sector Hacienda y Crédito Público, en lo relacionado con el Fondo de contingencias de las Entidades Estatales de que trata la Ley 448 de 1998”",
+      "proceso": "Gestión Jurídica - Gestión Financiera"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "06 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/DIRECTIVA-PRESIDENCIAL-No-06-DEL-14-DE-NOVIEMBRE-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Normograma-Directiva-presidencial-002.pdf",
+      "descripcion": "Uso eficiente de los recursos públicos",
+      "proceso": "Gestión contractual y Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Interna",
+      "numero": "017 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Circular-017-Recomendaciones-en-materia-Administrativa-y-de-Seguridad-y-Salud-en-el-Trabajo-por-motivo-del-cambio-de-sede-para-su-informacion.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-Normograma-circular-017-de-2023.pdf",
+      "descripcion": "Recomendaciones en materia Administrativa y de Seguridad y Salud en el trabajo, por motivo del cambio de sede.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "0327 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/circular-externa-0327-de-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-Normograma-circular-externa-0327-de-2023.pdf",
+      "descripcion": "Ejercicio de las funciones de inspección, vigilancia y control respecto del cumplimiento de la obligación prevista en el artículo 6 de la ley 2283 de 2023.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "07 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/DIRECTIVA-PRESIDENCIAL-No-07-DEL-13-DE-DICIEMBRE-DE-2023-TRANSVERSAL.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Ficha-Normograma-Directiva-07-de-Presidencia.pdf",
+      "descripcion": "Respaldo y Reconocimiento a la labor de defensa de los derechos humanos en Colombia.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "08 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/DIRECTIVA-PRESIDENCIAL-No-08-DEL-29-DE-DICIEMBRE-DE-2023-TRANSVERSAL.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Ficha-Normograma-Directiva-presidencial.pdf",
+      "descripcion": "Estrategia Nacional de Cooperación Internacional 2023-2026.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2345 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/LEY-2345-DEL-30-DE-DICIEMBRE-DE-2023-COMUNICACIONES.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Ficha-Normograma-Ley-2345.pdf",
+      "descripcion": "Por medio de la cual se implementa el manual de identidad visual de las entidades estatales, se prohíben las marcas de gobierno y se establecen medidas para la austeridad en la publicidad estatal.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "5178 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/RESOLUCION-5178-DE-2023.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-RESOLUCION-5178-DE-2023.pdf",
+      "descripcion": "Por la cual se adiciona el Título VI a la Circular Única de Infraestructura y Transporte y se dictan otras disposiciones.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "509 de 2023",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/No.509-Por-medio-de-la-cual-se-adopta-el-plan-estrategio-de-seguridad-Vial-PESV-en-la-Agencia-ITRC.pdf",
+      "anio": 2023,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-Normograma-Resolucion-509-de-15-de-diciembre-de-2023.pdf",
+      "descripcion": "Por medio de la cual se adopta el Plan Estratégico de Seguridad Vial (PESV), en la Unidad Administrativa Especial Agencia del Inspector General de Tributos Rentas y Contribuciones Parafiscales ITRC.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "3077",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucio-3077-de-2022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-9.-Resolucion-3077-de-2022.pdf",
+      "descripcion": "Por la cual se adopta el Plan Nacional de Seguridad y Salud en el Trabajo 2022 - 2031",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2191",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_2191_de_2022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-2191-de-2022-act.pdf",
+      "descripcion": "Por medio de la cual se regula la desconexión laboral- Ley de desconexión Laboral",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "666",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion_666_de_2022_Ministerio_de_Salud_y_Proteccion_Social.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-6.-Resolucion-666-de-2022.pdf",
+      "descripcion": "Por la cual se prorroga la emergencia sanitaria por el coronavirus COVID-19, declarada mediante Resolución 385 de 2020, prorrogada por las Resoluciones 844, 1462, 2230 de 2020, 222, 738, 1315, 1913 de 2021 y 304 de 2022",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "40595 de 2022",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/RESOLUCION-40595-de-2022-Ministerio-de-Transporte.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-RESOLUCION-40595-DE-2022.pdf",
+      "descripcion": "Por la cual se adopta la metodología para el diseño, implementación y verificación de los Planes Estratégicos de Seguridad Vial y se dictan otras disposiciones.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2195",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/LEY%202195%20DEL%2018%20DE%20ENERO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-2195-de-2022-.pdf",
+      "descripcion": "POR MEDIO DE LA CUAL SE ADOPTAN MEDIDAS EN MATERIA DE. TRANSPARENCIA, PREVENCiÓN Y LUCHA CONTRA LA CORRUPCION.",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2207",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/LEY%202207%20DEL%2017%20DE%20MAYO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-2207.pdf",
+      "descripcion": "Por medio del cual se modifica el decreto legislativo 491 de 2020",
+      "proceso": "Gestión Estratégica - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "473 de 2022",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20473%20DEL%2029%20DE%20MARZO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/473-de-2022.pdf",
+      "descripcion": "Por el cual se fjjan las remuneraciones de los empleos que sean desempeñados por empleados públicos de la Rama Ejecutiva, Corporaciones Autónomas Regionales y de Desarrollo Sostenible, y se dictan otras disposiciones.",
+      "proceso": "Gestión de Talento Humano- Gestión Administrativa - Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "298",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20298%20DEL%2028%20DE%20FEBRERO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/dec-298-2022.pdf",
+      "descripcion": "Por el cual se imparten instrucciones en virtud de la emergencia sanitaria generada por la pandemia del Coronavirus COVID -19, Y el mantenimiento del orden público, se decreta el aislamiento selectivo con distanciamiento individual responsable y la reactivación económica segura",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "338",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20338%20DEL%208%20DE%20MARZO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/dec-338-2022.pdf",
+      "descripcion": "Por el cual se adiciona el Titulo 21 a la parte 2 del Libro 2 del Decreto Único 1078 de 2015, Reglamentario del Sector de Tecnologías de la Información y las Comunicaciones, con el fin de establecer los lineamientos generales para fortalecer la gobernanza de la seguridad digital, se crea el Modelo y las instancias de Gobernanza de Seguridad Digital y se dictan otras disposiciones",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "397",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20397%20DEL%2017%20DE%20MARZO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/dec-397-2022.pdf",
+      "descripcion": "Por el cual se establece el Plan de Austeridad del Gasto 2022 para los órganos que hacen parte del Presupuesto General de la Nación",
+      "proceso": "Gestión Administrativa - Gestión Financiera - Gestión Contractual"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "442",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=184707#:~:text=Es%20una%20herramienta%20de%20pol%C3%ADtica%20de%20innovaci%C3%B3n%20a%20trav%C3%A9s%20de,estas%20requieren%20ajustes%20o%20mejoras.",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/dec-442-2022.pdf",
+      "descripcion": "Por el cual se modifica el Decreto 1082 de 2015, Único Reglamentario del Sector Administrativo de Planeación Nacional, con el fin de reglamentar el artículo 36 de la Ley 2069 de 2020 en lo relativo a la promoción de las compras públicas de tecnología e innovación",
+      "proceso": "Gestión Administrativa - Gestión Financiera - Gestión Contractual"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "655",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=186066#:~:text=Que%20algunas%20autoridades%20territoriales%2C%20en,extensi%C3%B3n%20del%20Coronavirus%20COVID%2D19.",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Decreto-655-de-2022.pdf",
+      "descripcion": "Por el cual se imparten instrucciones en virtud de la emergencia sanitaria generada por la pandemia del Coronavirus COVID-19, y el mantenimiento del orden público, se decreta el aislamiento selectivo con distanciamiento individual responsable y la reactivación económica segura.",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "#VALUE!",
+      "normaUrl": "",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circ.-010-de-2022-1.pdf",
+      "descripcion": "Recomendaciones Administrativas y de Seguridad y Salud en el Trabajo, para su información.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "01 de 2022",
+      "normaUrl": "https://conocimientojuridico.defensajuridica.gov.co/lineamiento-frente-a-controversias-entre-entidades-publicas/",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Circular-Externa-01-de-2022.pdf",
+      "descripcion": "Agencia Nacional de Defensa Jurídica del Estado -ANDJE- Lineamientos para la atención y prevención de controversias entre entidades y organismos públicos",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Presidencial",
+      "numero": "01 de 2022",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/CIRCULAR%2001%20DEL%2017%20DE%20FEBRERO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Circular-Presidencial-1.pdf",
+      "descripcion": "Recomendaciones de uso de servicios en la nube como medida para mitigar riesgos de seguridad digital",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "02 de 2022",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DIRECTIVA%20PRESIDENCIAL%2002%20DEL%2024%20DE%20FEBRERO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/D.Presidencial-02-de-2022-1.pdf",
+      "descripcion": "Reiteración de la política pública en materia de seguridad digital.",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "03 de 2022",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DIRECTIVA%20PRESIDENCIAL%2003%20DEL%2008%20DE%20MARZO%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/D.Presidencial-03-de-2022-1.pdf",
+      "descripcion": "Protocolos para la prevención y atención de acoso sexual y/o discriminación por razón del sexo en el ámbito laboral.",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "25",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/No.025-Por-la-cual-se-adiciona-y-modifica-el-Manual-Especifico-de-Funciones-y-Competencias-Laborales-de-la-UAE-Agencia-ITRC.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Resolucion-025.pdf",
+      "descripcion": "Por la cual se adiciona y modificar el Manual Específico de Funciones y Competencias Laborales de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales - ITRC",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "073 de 2022",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/No.073-Por-la-cual-se-crea-el-Comite-Asesor-de-Contratacion-y-se-dictan-otras-disposiciones.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/FICHA-TECNICA-RESOLUCION-INTERNA-073-DE-2022-_-1.pdf",
+      "descripcion": "Por la cual se crea el Comité Asesor de Contratación y se dictan otras disposiciones",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "024",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/No.024-Por-la-cual-se-distribuyen-unos-cargos-de-la-planta-de-personal.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Resolucion-Interna-024-de-2022.pdf",
+      "descripcion": "Por la cual se distribuyen unos cargos de la planta de personal",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "006",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/No.006-Por-la-cual-se-adopta-el-Plan-Institucional-de-Capacitacion-de-la-Agencia-ITRC-para-la-vigencia-2022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Resolucion-I-06-de-2022-1.pdf",
+      "descripcion": "Por la cual se adopta el Plan Institucional de Capacitación de la Agencia ITRC para la vigencia 2022",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "061",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/No.061-Por-la-cual-se-adopta-la-codificacion-de-las-dependencias-de-la-Unidad-Administrativa-Especial-Agencia-ITRC.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Resolucion-I-061-de-2022.pdf",
+      "descripcion": "Por la cual se adopta la codificación de las dependencias de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales –ITRC",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "184",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/RESOLUCION-184-2022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Resolucion-I-184-de-2022-1.pdf",
+      "descripcion": "Por la cual se fijan los costos de reproducción de documentos por la U.A.E Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales –ITRC",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "1",
+      "normaUrl": "https://www.defensajuridica.gov.co/normatividad/circulares/Lists/Circulares%202022/Attachments/1/circular_externa_01_17_marzo_2022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-01-2022.pdf",
+      "descripcion": "Lineamiento para la atención y prevención de controversias entre entidades y organismos públicos.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "Unica",
+      "normaUrl": "https://colombiacompra.gov.co/sites/cce_public/files/cce_circulares/circular_externa_unica.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-Unica-.pdf",
+      "descripcion": "Circular Externa Única de Colombia Compra Eficiente.",
+      "proceso": "Gestión Administrativa - Gestión Financiera - Gestión Contractual"
+    },
+    {
+      "tipo": "Circular Interna",
+      "numero": "#VALUE!",
+      "normaUrl": "",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-internia-22-de-2022-1.pdf",
+      "descripcion": "Comisiones y Viaticos",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa - Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "88",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30043814",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/088-2022-1.pdf",
+      "descripcion": "Por el cual se adiciona el Título 20 a la Parte 2 del Libro 2 del Decreto Único Reglamentario del Sector de Tecnologías de la Información y las Comunicaciones, Decreto 1078 de 2015, para reglamentar los artículos 3, 5 y 6 de la Ley 2052 de 2020, estableciendo los conceptos, lineamientos, plazos y condiciones para la digitalización y automatización de trámites y su realización en línea.",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2209",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2209_2022.html",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/ley-2209-22-2.pdf",
+      "descripcion": "Por medio de la cual se modifica el artículo 18 de la Ley 1010 de 2006.",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2213",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=187626#:~:text=Esta%20Ley%20tiene%20por%20objeto,ante%20la%20jurisdicci%C3%B3n%20ordinaria%20en",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/ley-2213-22-2.pdf",
+      "descripcion": "POR MEDIO DE LA CUAL SE ESTABLECE LA VIGENCIA PERMANENTE DEL DECRETO LEGISLATIVO 806 DE 2020 Y SE ADOPTAN MEDIDAS PARA IMPLEMENTAR LAS TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES EN LAS ACTUACIONES JUDICIALES, AGILIZAR LOS PROCESOS JUDICIALES Y FLEXIBILIZAR LA ATENCIÓN A LOS USUARIOS DEL SERVICIO DE JUSTICIA Y SE DICTAN OTRAS DISPOSICIONES",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2220",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=188766",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/ley-2220-22-2.pdf",
+      "descripcion": "POR MEDIO DE LA CUAL SE EXPIDE EL ESTATUTO DE CONCILIACIÓN Y SE DICTAN OTRAS DISPOSICIONES",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2214",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=188266",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/ley-2214-22-2.pdf",
+      "descripcion": "POR MEDIO DE LA CUAL SE REGLAMENTA EL ARTÍCULO 196 DE LA LEY 1955 DE 2019, SE TOMAN MEDIDAS PARA FORTALECER LAS MEDIDAS QUE PROMUEVEN EL EMPLEO JUVENIL Y SE DICTAN OTRAS DISPOSICIONES",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Presidencial",
+      "numero": "3",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=180886#:~:text=FECHA%3A%208%20DE%20MARZO%20DE%202022&text=1.,en%20el%20%C3%A1mbito%20del%20trabajo.",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Circular-Presidencial-03-2022-2.pdf",
+      "descripcion": "PROTOCOLOS PARA LA PREVENCIÓN Y ATENCIÓN DE ACOSO SEXUAL Y/O DISCRIMINACIÓN POR RAZON DEL SEXO EN EL AMBITO LABORAL.",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "768",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=186926",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/dect-768-22-2.pdf",
+      "descripcion": "Por el cual se actualiza la Tabla de Clasificación de Actividades Económicas para el Sistema General de Riesgos Laborales y se Dictan otras Disposiciones.",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "075",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30043795",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Decreto-075-de-2022-1.pdf",
+      "descripcion": "Por el cual se modifica la planta de personal de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC).",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión de Talento Humano - Gestión Administrativa - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "194",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/No.194-Por-la-cual-se-adopta-el-Manual-Especifico-de-Funciones-y-Competencias-Laborales.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Resolucion-Interna-194-de-2022-1.pdf",
+      "descripcion": "Por la cual se adopta el manual especifico de funciones y competencias laborales.",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "58",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/No.058-Por-medio-de-la-cual-se-delegan-facultades-de-Representacion-Judicial-y-Extrajudicial-de-la-Unidad-Administrativa-Especial-Agencia-ITRC.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Resolucion-Interna-058-de-2022-1.pdf",
+      "descripcion": "Por medio de la cual se delegan facultades de Representación Judicial y Extrajudicial de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales _ITRC, y se deroga la resolución No 000574 del 17 de diciembre de 2013.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "6",
+      "normaUrl": "https://www.asocapitales.co/nueva/2022/06/17/directiva-presidencial-06-del-16-de-junio-de-2022/",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Directiva-Presidencial-06-2022-1.pdf",
+      "descripcion": "Directrices Para La Transición del Gobierno Nacional.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "074",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=175786",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Decreto-074-de-2022-1.pdf",
+      "descripcion": "Por la cual se modifica la estructura de la Unidad Administrativa Especial de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales -ITRC.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "30",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/No.030-Por-la-cual-se-adopta-el-Plan-de-Bienestar-Estimulos-e-Incentivos-de-la-Agencia-ITRC-para-la-Vigencia-2022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Resolucion-Interna-030-de-2022-1.pdf",
+      "descripcion": "Por la cual se adopta el plan de bienestar, estímulos e incentivos de la Agencia ITRC para la vigencia 2022",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "193",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/RESOLUCION-193.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Resolucion-Interna-193-de-2022-1.pdf",
+      "descripcion": "Por la cual se adopta la Política de Prevención del Daño Antijurídico de la U.A.E Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales -ITRC para las vigencias 2022 - 2023.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "59",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/No.059-Por-la-cual-se-deroga-la-Resolucion-093-del-10-de-marzo-de-2016-y-se-actualiza-la-codificacion-de-las-dependencias-de-la-UAE-Agencia-ITRC-1.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-0059-2022.pdf",
+      "descripcion": "Por la cual se deroga la Resolución 093 del 10 de marzo de 2016 y se actualiza la codificación de las dependencias de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "53",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/No.053-Por-medio-de-la-cual-se-suspenden-terminos-en-las-actuaciones-disciplinarias-de-la-U.A.E.-Agencia-ITRC.pdf",
+      "anio": 2022,
+      "vigencia": "DERROGADA",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-053-2022.pdf",
+      "descripcion": "Por medio de la cual se suspenden términos en las actuaciones disciplinarias de la U.A.E. Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales - ITRC",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Administrativa - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "08",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DIRECTIVA%20PRESIDENCIAL%2008%20DEL%2017%20DE%20SEPTIEMBRE%20DE%202022.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/FICHA-TECNICA-DIRECTIVA-PRESIDENCIAL-08-DE-2022.pdf",
+      "descripcion": "Por la cual se imparten medidas para fortalecer la racionalización, la probidad y la eficiencia del gasto público, en desarrollo de los principios que rigen la\n función pública, consagrados en el artículo 209 de la Constitución Política.",
+      "proceso": "Gestión Admininstrativa - Gestión contractual"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2442",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%202442%20DEL%2012%20DE%20DICIEMBRE%20DE%202022.pd.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Ficha-Decreto-2442-de-2022.pdf",
+      "descripcion": "Por el cual se otorga un nuevo plazo para que las entidades estatales de las que trata el artículo 53 de la Ley 1955 de 2019, en el marco del Decreto 642 de 2020",
+      "proceso": "Gestión Jurídica- Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2614",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%202614%20DEL%2028%20DE%20DICIEMBRE%20DE%202022.pd.pdf",
+      "anio": 2022,
+      "vigencia": "DERROGADA",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Ficha-Decreto-2614-de-2022.pdf",
+      "descripcion": "Por el cual se fija el auxilio de transporte",
+      "proceso": "Gestión de Talento Humano- Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Conjunta",
+      "numero": "100-005-2022",
+      "normaUrl": "https://www.funcionpublica.gov.co/documents/418537/616038/circular-conjunta-100-005-2022-formalizacion-laboral.pdf",
+      "anio": 2022,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Circular-conjunta-100-005-2022.pdf",
+      "descripcion": "LINEAMIENTOS DEL PLAN DE FORMALIZACIÓN DEL EMPLEO PUBLICO EN EQUIDAD -VIGENCIA 2023",
+      "proceso": "Gestión Contractual, Talento Humano y Gestión Jurídica"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2094",
+      "normaUrl": "http://secretariasenado.gov.co/senado/basedoc/ley_2094_2021.html",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-2094.pdf",
+      "descripcion": "Por medio de la cual se reforma la Ley 1952 de 2019 y se dictan otras disposiciones.",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "190 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20190%20DEL%2023%20DE%20FEBRERO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/190-de-2021.pdf",
+      "descripcion": "Por el cual se integra el Consejo Nacional de Riesgos Laborales",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "230 de 2021",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=159747#:~:text=DECRETA%3A,con%20la%20rendici%C3%B3n%20de%20cuentas.",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/230-de-2021.pdf",
+      "descripcion": "Por el cual se crea y organiza el Sistema Nacional de Rendición de Cuentas",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "333 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20333%20DEL%206%20DE%20ABRIL%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/333-de-2021.pdf",
+      "descripcion": "Por el cual se modifican los artículos 2.2.3.1.2. 1, 2.2.3.1.2.4 Y 2.2.3. 1.2.5 del Decreto 1069 de 2015, Único Reglamentario del sector Justicia y del Derecho, referente a las reglas de reparto de la acción de tutela",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "400 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20400%20DEL%2013%20DE%20ABRIL%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/400-de-2021.pdf",
+      "descripcion": "Por el cual se adicionan unos artículos al Capítulo 3 del Título 1 de la Parte 2 del Libro 2 del Decreto 1083 de 2015, Único Reglamentario del Sector de Función Pública, en lo relacionado con la jornada laboral mediante el sistema de turnos",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "526 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20526%20DEL%2019%20DE%20MAYO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/526-de-2021.pdf",
+      "descripcion": "Por el cual se adicionan unos artículos al capítulo 1 del Título 1, de la Parte 2 del libro 2 del Decreto 1072 de 2015, Decreto Único Reglamentario del Sector Trabajo, para regular la firma electrónica del contrato individual de trabajo",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "616 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20618%20DEL%209%20DE%20JUNIO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-616-de-2021.pdf",
+      "descripcion": "Por el cual se adiciona el Parágrafo 2° al artículo 2.2.6.3.25 y la Sección 5 al Capítulo 2 del Título 6 de la Parte 2 del Libro 2 del Decreto 1072 de 2015, Decreto Único Reglamentario del Sector Trabajo, en lo relacionado con la equivalencia de experiencia profesional previa y se dictan otras disposiciones",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "680 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20680%20DEL%2022%20DE%20JUNIO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-680-de-2021.pdf",
+      "descripcion": "Por el cual se modifica parcialmente el artículo 2.2.1.1.1.3.1. y se adiciona el artículo 2.2.1.2.4.2.9. al Decreto 1082 de 2015, Único Reglamentario del Sector Administrativo de Planeación Nacional, en relación con la regla de origen de servicios en el Sistema de Compra Pública",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "742 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20742%20DEL%202%20DE%20JULIO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-742-de-2021.pdf",
+      "descripcion": "Por medio del cual se modifica el artículo 2.2.22.2.1. del Decreto 1083 de 2015, Único Reglamentario del Sector de Función Pública, con el fin de incorporar la política de Compras y Contratación Pública a las políticas de gestión y desempeño institucional.",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "770 de 2021",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20770%20DEL%2013%20DE%20JULIO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-770-de-2021.pdf",
+      "descripcion": "Por el cual se sustituye el Título 18 de la Parte 2 del Libro 2 del Decreto 1083 de 2015, Único Reglamentario del Sector Función Pública, y se modifican otras de sus disposiciones.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1415",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%201415%20DEL%2004%20DE%20NOVIEMBRE%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Decreto-1415-de-2021.pdf",
+      "descripcion": "Por medio del cual se modifica y adiciona el Decreto 1083 de 2015 en lo relacionado a la Protección en caso de reestructuración administrativa o provisión definitiva de cargos para el personal que ostenten la condición de prepensionados",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa - Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1656",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%201656%20DEL%206%20DE%20DICIEMBRE%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Decreto-1656-de-2021.pdf",
+      "descripcion": "Por el cual se corrigen unos yerros en la Ley 2094 de 2021 \"Por medio de la cual se reforma la Ley 1952 de 2019 y se dictan otras disposiciones\"",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1662",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%201662%20DEL%206%20DE%20DICIEMBRE%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Decreto-1662-de-2021.pdf",
+      "descripcion": "Por el cual se adiciona el Decreto 1083 de 2015 Único Reglamentario del Sector de la Función Pública, en relación con la habilitación del trabajo en casa para los servidores públicos de los organismos y entidades que conforman las ramas del poder público en sus distintos órdenes, sectores y niveles, órganos de control, órganos autónomos e independientes del Estado",
+      "proceso": "Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "952",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20952%20DEL%2019%20DE%20AGOSTO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Decreto-952-de-2021.pdf",
+      "descripcion": "Por el cual se reglamenta el artículo 2° de la Ley 2039 del 2020 y se adiciona el capítulo 6 al título 5 de la parte 2 del libro 2 del Decreto número 1083 del 2015, en lo “relacionado con el reconocimiento de la experiencia previa como experiencia profesional válida para la inserción laboral de jóvenes en el sector público.",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "#VALUE!",
+      "normaUrl": "",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-circular-49.pdf",
+      "descripcion": "Uso de firmas en documentos de la Agencia ITRC",
+      "proceso": "Gestión documental"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "100-002 de 2021",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=156647",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Lineamientos-Circular-100-002-de-2022.pdf",
+      "descripcion": "Lineamiento sobre el uso adecuado de los documentos en actuaciones administrativas",
+      "proceso": "Gestión  de Tecnologías de Información - Gestión Administrativa"
+    },
+    {
+      "tipo": "Otra",
+      "numero": "1",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=155852",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Directiva-001-del-4-de-enero-de-2021-PGN-1.pdf",
+      "descripcion": "Directiva Procuraduría General de la Nación  - Uso adecuado del contrato de prestación de servicios",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa - Gestión Contractual"
+    },
+    {
+      "tipo": "Otra",
+      "numero": "1",
+      "normaUrl": "https://www.apccolombia.gov.co/sites/default/files/2021-03/Lineamiento%20costas%20procesales%20ANDJE.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-LINEAMIENTO-DE-DEFENSA-JURIDICA-N°-01-DE-2021-1.pdf",
+      "descripcion": "Lineamiento de defensa jurídica Agencia Nacional de Defensa Juridica del Estado - garantizar la defensa de los intereses litigiosos del Estado cuando se condena en costas o se reconocen a su favor.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "3",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DIRECTIVA%20PRESIDENCIAL%2003%20DEL%2015%20DE%20MARZO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Directiva-Presidencial-3.pdf",
+      "descripcion": "Lineamientos para el uso de servicios en la nube, inteligencia artificial, seguridad digital y gestión de datos.",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Directiva Presidencial",
+      "numero": "5",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DIRECTIVA%20PRESIDENCIAL%2005%20DEL%2017%20DE%20JUNIO%20DE%202021.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Directiva-Presidencial-5.pdf",
+      "descripcion": "Austeridad en arrendamiento y comodato de bienes inmuebles",
+      "proceso": "Gestión Administrativa - Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "16",
+      "normaUrl": "https://www.minhacienda.gov.co/webcenter/ShowProperty?nodeId=%2FConexionContent%2FWCC_CLUSTER-151813%2F%2FidcPrimaryFile&revision=latestreleased",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-016-2021-1.pdf",
+      "descripcion": "Modificación de la Circular 031 de 2020. - Reconocimiento y pago de sentencias o conciliaciones que se encuentren en mora en su pago de que trata el Artículo 53 de la Ley 1955 de 2019, reglamentada por el Decreto 642 del 11 de mayo de 2020. Eliminación literal b) numeral 1.",
+      "proceso": "Gestión Jurídica - Gestión Administrativa - Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Conjunta",
+      "numero": "100-002",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=156647",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-conjunta-100-02-2021-1.pdf",
+      "descripcion": "DIRECTRICES PARA FORTALECER EL MÉRITO, LA TRANSPARENCIA Y LA EQUIDAD EN EL EMPLEO PÚBLICO.",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "COMUNICACIÓN INTER INSTITUCIONAL",
+      "normaUrl": "https://www.defensajuridica.gov.co/docs/BibliotecaDigital/Documentos%20compartidos/0370.pdf",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-Comunicacion-Interinstitucional-1.pdf",
+      "descripcion": "Lineamiento sobre la interpretación y aplicación de la Sentencia de Unificación No. 2013- 01143 proferida por el Consejo de Estado en relación con la configuración del contrato realidad.",
+      "proceso": "Gestión Jurídica - Gestión de Talento Humano - Gestión Administrativa - Gestión Contractual"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "344",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=161270",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Decreto-344-2021.pdf",
+      "descripcion": "Por la cual se modifica y adiciona el Capitulo 5 del Título 2 de la Parte 2 del Libro 2 del Decreto 1072 de 2015, Único Reglamento del Sector Trabajo, referente a los permisos sindicales.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1860",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=175187",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Decreto-1860-de-2021-1.pdf",
+      "descripcion": "Por el cual se modifica y adiciona el Decreto 1082 de 2015, Único Reglamentario del Sector Administrativo de Planeación Nacional, con el fin reglamentar los artículos 30, 31, 32, 34 y 35 de la Ley 2069 de 2020, en lo relativo al sistema de compras públicas y se dictan otras disposiciones.",
+      "proceso": "Gestión Administrativa - Gestión Contractual"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "81",
+      "normaUrl": "https://www.contaduria.gov.co/documents/20127/2375773/RESOLUCI%C3%93N+No.+081+DE+2021+Modificaci%C3%B3n+CGC+procesos+judiciales+para+la+firma+%281%29+%282%29.pdf/d09e82a1-bded-0283-9d12-9cd37cb10b74",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-081-2021.pdf",
+      "descripcion": "Por la cual se modifican los catálogos generales de cuentas de los marcos normativos del Régimen de Contabilidad Pública en lo relativo al registro contable de los procesos judiciales, arbitrajes y conciliaciones extrajudiciales",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "80",
+      "normaUrl": "https://www.contaduria.gov.co/documents/20127/2375773/RESOLUCI%C3%93N+No.+080+DE+2021+-+Procedimiento+procesos+judiciales+MNG+para+la+firma+%281%29.pdf/e5f6385d-3439-823d-8009-de02879757f0",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-080-2021.pdf",
+      "descripcion": "Por la cual se modifican el Procedimiento contable para el registro de los procesos judiciales arbitrajes, conciliaciones extrajudiciales, y embargos sobre cuentas bancarias, del Marco Normativo para Entidades de Gobierno",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "REG-OGZ 0047-2020",
+      "normaUrl": "https://jurinfo.jep.gov.co/normograma/compilacion/docs/resolucion_contraloria_reg0047_2021.htm",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-0047-2021.pdf",
+      "descripcion": "Por la cual se adiciona el capítulo IV “Información de la acción de Repetición de las Entidades Públicas” al Título III de la Resolución Orgánica 0042 del 25 de agosto de 2020",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2088",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=162970",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Ley-2088-de-2021.pdf",
+      "descripcion": "Por la cual se regula el trabajo en casa y se dictan otras disposiciones",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Interna",
+      "numero": "#VALUE!",
+      "normaUrl": "",
+      "anio": 2021,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Circular-049-del-2021.pdf",
+      "descripcion": "Uso de firmas en documentos de la Agencia ITRC",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "454 de 2020",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20454%20DEL%2021%20DE%20MARZO%20DE%202020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/454-DE-2020.pdf",
+      "descripcion": "Por medio del cual se modifica el Decreto 1083 de 2015, Decreto Único Reglamentario del Sector Función Pública, con la incorporación de la política de gestión de la información estadística a las políticas de gestión y desempeño institucional.",
+      "proceso": "Gestión Estratégica - Gestión Administrativa - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "642 de 2020",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20642%20DEL%2011%20DE%20MAYO%20DE%202020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/642-DE-2020.pdf",
+      "descripcion": "Por el cual se reglamenta el artículo 53 de la Ley 1955 de 2019 ·Plan Nacional de Desarrollo 2018-2022-, en lo relacionado con las gestiones que deben adelantar las entidades que hagan parte del Presupuesto General de la Nación para el reconocimiento como deuda pública y pago de las sentencias o conciliaciones que se encuentren en mora.",
+      "proceso": "Gestión Estratégica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "806 de 2020",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20806%20DEL%204%20DE%20JUNIO%20DE%202020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/806-de-2020.pdf",
+      "descripcion": "Por el cual se adoptan medidas para implementar las tecnologías de la información y las comunicaciones en las actuaciones judiciales, agilizar los procesos judiciales y flexibilizar la atención a los usuarios del servicio de justicia, en el marco del Estado de Emergencia Económica, Social y Ecológica.",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Otra",
+      "numero": "39",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/DIRECTIVA-039-PUBLICIDAD-CONTRATACIOiN-2020-12-21-Firma-PGN.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Directiva-039-del-24-de-diciembre-de-2021-PGN-1.pdf",
+      "descripcion": "Directiva Procuraduría General de la Nación  - Publicidad de la actividad contractual en el SECOP",
+      "proceso": "Gestión Contractual"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "666",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=119938",
+      "anio": 2020,
+      "vigencia": "DERROGADA",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Normograma-SDL-Resolucion-666-de-2020.pdf",
+      "descripcion": "Por medio de la cual se adopta el protocolo general de bioseguridad para mitigar, controlar y realizar el adecuado manejo de la pandemia del Coronavirus COVID-19",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "1",
+      "normaUrl": "https://www.suin-juriscol.gov.co/clp/contenidos.dll/Circular/30039177?fn=document-frame.htm$f=templates$3.0",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-01-2021.pdf",
+      "descripcion": "Recomendaciones para las entidades públicas del orden nacional, en cuanto a la suspensión de los términos procesales, preparación de la defensa ante posibles demandas y otras disposiciones, con ocasión del COVID -19.",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Administrativa - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "14",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20642%20DEL%2011%20DE%20MAYO%20DE%202020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-014-2020.pdf",
+      "descripcion": "Proceso para la atención de solicitudes de reconocimiento y pago de sentencias o conciliaciones que se encuentren en mora, Decreto 642 del 11 de mayo de 2020",
+      "proceso": "Gestión Jurídica - Gestión Administrativa - Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "4",
+      "normaUrl": "https://www.suin-juriscol.gov.co/archivo/boletin3/CIRCULAR_004_2020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-04-2020.pdf",
+      "descripcion": "Control Automático de Legalidad",
+      "proceso": "Gestión Jurídica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2069",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/LEY%202069%20DEL%2031%20DE%20DICIEMBRE%20DE%202020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Ficha-Ley-2069-de-2020.pdf",
+      "descripcion": "Por medio de la cual se impulsa el emprendimiento en Colombia",
+      "proceso": "Gestión contractual"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "63",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Circular-063-de-2020.pdf",
+      "anio": 2020,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-3.-Circular-063-de-2020.pdf",
+      "descripcion": "Actualización de la capacitación virtual de carácter gratuito en el sistema de gestión de seguridad y salud en el trabajo conforme a la resolución 4927 de 2016",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "89",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/resolucion-089-de-2019.pdf",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-5.-Resolucion-089-de-2019.pdf",
+      "descripcion": "Por la cual se adopta la Política Integral para la Prevención y Atención del Consumo de Sustancias Psicoactivas",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1952",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019.html#:~:text=Leyes%20desde%201992%20%2D%20Vigencia%20expresa%20y%20control%20de%20constitucionalidad%20%5BLEY_1952_2019%5D&text=Por%20medio%20de%20la%20cual,LIBRO%20I",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/FICHA-1952-1.pdf",
+      "descripcion": "Por medio de la cual se expide el Código General Disciplinario, se derogan la Ley 734 de 2002 y algunas disposiciones de la Ley 1474 de 2011, relacionadas con el derecho disciplinario.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Gestión Disciplinaria <br>Gestión Jurídica - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "2013",
+      "normaUrl": "https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=104572",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-2013.pdf",
+      "descripcion": "Por medio del cual se busca garantizar  el cumplimiento de los principios de transparencia y publicidad  mediante la publicación de las declaraciones de bienes y renta y el registro de los  conflictos de interés",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1955",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1955_2019.html",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1955.pdf",
+      "descripcion": "Por la  cual se  expide  el Plan Nacional de Desarrollo  2018-2022 \" PACTO POR  COLOMBIA PACTO POR LA  EQUIDAD\"",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "338 de 2019",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=90730",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/338-DE-2019-.pdf",
+      "descripcion": "Por el  cual se  modifica el Decreto 1083 de 2015, único reglamentario del  sector  de  función publica  en lo relacionado con el sistema de  control interno  y se crea la Red Anticorrupción",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1007 DE 2019",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%201007%20DEL%2006%20DE%20JUNIO%20DE%202019.pdf",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1007-DE-2019.pdf",
+      "descripcion": "Por el cual se establece la escala salarial de los empleos públicos de las Agencias Estatales de Naturaleza Especial, del sector descentralizado de la Rama Ejecutiva del Orden Nacional y se dictan otras disposiciones",
+      "proceso": "Gestión Estratégica - Gestión Financiera"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "100-006",
+      "normaUrl": "https://dapre.presidencia.gov.co/oci/normograma/Circular-externa-100-006-2019_lineamientos_informe_evaluacion_independiente_control_interno.pdf",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-100-006-de-2019-1.pdf",
+      "descripcion": "Lineamientos generales para el informe semestral de evaluación independiente del estado del sistema de control interno – Decreto 2106 de 2019",
+      "proceso": "Gestión Administrativa - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "312",
+      "normaUrl": "https://www.mintrabajo.gov.co/documents/20147/59995826/Resolucion+0312-2019-+Estandares+minimos+del+Sistema+de+la+Seguridad+y+Salud.pdf",
+      "anio": 2019,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-0312-2019.pdf",
+      "descripcion": "Por la cual se definen los Estándares Mínimos del Sistema de Gestión de la Seguridad y Salud en el Trabajo SG-SST",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1414 DE 2018",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%201414%20DEL%2003%20DE%20AGOSTO%20DE%202018.pdf",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-1414-de-2018.pdf",
+      "descripcion": "Por el cual se adiciona un capítulo al Título 10 de la Parte 2 del Libro 2 del Decreto 1833 de 2016 compilatorio de las normas del Sistema General de Pensiones a efectos de asignar competencias en materia pensional del extinto Focine y del Ministerio de Comunicaciones, hoy Ministerio de Tecnologías de la Información y las Comunicaciones, y se dictan otras disposiciones",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "612 de 2018",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=85742",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/612-DE-2018-.pdf",
+      "descripcion": "Por el cual se fijan directrices para la integración de los planes institucionales y estratégicos al Plan de Acción por parte de las entidades del Estado",
+      "proceso": "Gestión Estratégica - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1008 de 2018",
+      "normaUrl": "https://www.mintic.gov.co/portal/604/w3-article-74903.html",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1008-de-2018.pdf",
+      "descripcion": "Por el cual se establecen los lineamientos generales de la política de Gobierno Digital y se subroga el capítulo 1 del título 9 de la parte 2 del libro 2 del Decreto 1078 de 2015, Decreto Único Reglamentario del sector de Tecnologías de la Información y las Comunicaciones",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Acuerdo",
+      "numero": "1000006176",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=90685",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Ficha-Tecnica-Acuerdo-6176-de-2018.pdf",
+      "descripcion": "Comisión Nacional del Servicio Civil - Por el cual se establece el Sistema Tipo de Evaluación del Desempeño Laboral de los Empleados Públicos de Carrera Administrativa y en Período de Prueba.",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Conjunta",
+      "numero": "100-001",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=85563#:~:text=Nuestra%20legislaci%C3%B3n%20proh%C3%ADbe%20cualquier%20medida,una%20acci%C3%B3n%20o%20una%20omisi%C3%B3n",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Conjunta-100-001-de-2018-1.pdf",
+      "descripcion": "PREVENCIÓN DE PRACTICAS DE DICRIMINACIÓN LABORAL CONTRA PERSONAS DIAGNOSTICADAS COMO PORTADORES DE VIH EN CUMPLIMIENTO DEL NUMERAL 130 DEL ACUERDO NACIONAL ESTATAL 2017.",
+      "proceso": "Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Circular Conjunta",
+      "numero": "100-003",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=88039#:~:text=En%20consecuencia%2C%20esta%20circular%20constituye,g%C3%A9nero%20frente%20a%20los%20ODS",
+      "anio": 2018,
+      "vigencia": "VIGENTE-PARCIALMENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Conjunta-100-003-de-2018-1.pdf",
+      "descripcion": "Aplicación Ley 581 del 2000 - Ley de Cuotas/ Vigilancia Preventiva.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "22",
+      "normaUrl": "https://www.urf.gov.co/webcenter/ShowProperty?nodeId=%2FConexionContent%2FWCC_CLUSTER-173985%2F%2FidcPrimaryFile&revision=latestreleased.pdf",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-022-2021-1-1.pdf",
+      "descripcion": "Modificaciones realizadas al Decreto 642 de 2020 por el Decreto 960 del 22 de agosto de 2021 y obligación pago a beneficiario final.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "2423",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-No.-2423-de-2018.pdf",
+      "anio": 2018,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-8.-Resolucion-2423-de-2018.pdf",
+      "descripcion": "Por la cual se establecen los parámetros técnicos para la operación de la estrategia Salas Amigas de la Familia Lactante del Entorno Laboral",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "321 DE 2017",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20321%20DEL%2028%20FEBRERO%20DE%202017.pdf",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-321-de-2017.pdf",
+      "descripcion": "Por el cual se corrigen unos yerros en la Ley 1821 de 2016 \"Por medio de la cual se modifica la edad máxima para el retiro forzoso de las personas que desempeñan funciones públicas",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "220 de 2017",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20220%20DEL%2007%20FEBRERO%20DE%202017.pdf",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-220-de-2017.pdf",
+      "descripcion": "Por el cual se modifica y adiciona la Sección 2 del Capítulo 13, Título 1, Parte 6 del Libro 1 del Decreto 1625 de 2016 Único Reglamentario en Materia Tributaria",
+      "proceso": "Gestión Jurídica - Gestión  de Tecnologías de Información - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "052 de 2017",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%2052%20DEL%2012%20ENERO%20DE%202017.pdf",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-052-de-2017.pdf",
+      "descripcion": "“Por medio del cual se modifica el artículo 2.2.4.6.37, del Decreto 1072 de 2015, Decreto único Reglamentario del Sector Trabajo, sobre la transición para la implementación del Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST)\".",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "484 de 2017",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20484%20DEL%2024%20DE%20MARZO%20DE%202017.pdf",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/484-de-2017.pdf",
+      "descripcion": "Por el cual se modifican unos artículos del Título 16 del Decreto 1083 de 2015, Único Reglamentario del Sector de Función Pública",
+      "proceso": "Gestión Jurídica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "648 de 2017",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80915",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/648-DE-2017-.pdf",
+      "descripcion": "Por el cual se modifica y adiciona el Decreto 1083 de 2015, Reglamentario Único del Sector de la Función Pública",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "11",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=84399#:~:text=Por%20la%20cual%20se%20expiden%20normas%20que%20regulan%20el%20Empleo,y%20se%20dictan%20otras%20disposiciones.&text=Por%20la%20cual%20se%20otorgan,el%20C%C3%B3digo%20Nacional%20de%20Tr%C3%A1nsito.",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-11-2017.pdf",
+      "descripcion": "CUMPLIMIENTO ACUERDOS ALCANZADOS COMO RESULTADO DE LA NEGOCIACIÓN COLECTIVA ADELANTADA CON LAS ORGANIZACIONES SINDICALES DE EMPLEADOS PUBLICOS.",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "116",
+      "normaUrl": "https://www.mincit.gov.co/ministerio/normograma-sig/procesos-de-apoyo/gestion-juridica/resoluciones/resolucion-116-de-2017-2.aspx",
+      "anio": 2017,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-116-2017.pdf",
+      "descripcion": "Por la cual incorpora, al Marco Normativo para Entidades de Gobierno, el Procedimiento contable para el registro de los procesos judiciales, arbitrajes, conciliaciones extrajudiciales y embargos sobre cuentas bancarias, y se modifica el Catálogo General de Cuentas de dicho Marco Normativo.",
+      "proceso": "Gestión Jurídica - Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1778",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1778_2016.html",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1778-de-2016.pdf",
+      "descripcion": "Por la cual se dictan normas sobre la responsabilidad de las personas jurídicas por actos de corrupción transnacional y se dictan otras disposiciones en materia de lucha contra la corrupción",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "171 de 2016",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20171%20DEL%2001%20DE%20FEBRERO%20DE%202016.pdf",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/171-de-2016.pdf",
+      "descripcion": "Por medio de la cual se modifica el artículo 2.2.4.6.37 del Capítulo 6 del Título 4 de la Parte 2 del Libro 2 del Decreto 1072 de 2015, Decreto único Reglamentario del Sector Trabajo, sobre la transición para la implementación del Sistema de Gestión de la seguridad y salud en el trabajo (SG-SST)",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "417 de 2016",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20417%20DEL%2007%20DE%20MARZO%20DE%202016.pdf",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/417-de-2016.pdf",
+      "descripcion": "Por el cual se modifica el Decreto 508 de 2012",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "780 de 2016",
+      "normaUrl": "https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20780%20DEL%2006%20DE%20MAYO%20DE%202016.pdf",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Decreto-780-de-2016.pdf",
+      "descripcion": "Por medio de la cual se expide el Decreto único reglamentario del sector salud y protección social",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión  de Tecnologías de Información - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "693",
+      "normaUrl": "https://normativa.colpensiones.gov.co/colpens/docs/resolucion_contaduria_0693_2016.htm",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-693-2016.pdf",
+      "descripcion": "Por la cual se modifica el cronograma de aplicación del Marco Normativo para Entidades de Gobierno, Incorporado al Régimen de Contabilidad Pública mediante la Resolución 533 de 2015, y la regulación emitida en concordancia con el cronograma de aplicación de dicho Marco Normativo",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "193",
+      "normaUrl": "https://dapre.presidencia.gov.co/oci/normograma/Resolucion-193-2016-CONTROL-INTERNO-CONTABLE.pdf",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-193-2016.pdf",
+      "descripcion": "Por la cual se incorpora, en los Procedimientos Transversales del Régimen de Contabilidad Pública, el Procedimiento para la evaluación del control interno contable",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1625",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Decreto-1625-de-2016-Materia-Tributaria-Gestor-Normativo-Funcion-Publica-1.pdf",
+      "anio": 2016,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Decreto-1625-de-2016.pdf",
+      "descripcion": "“Por medio del cual se expide el Decreto Único Reglamentario en materia tributaria.”",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1752",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1752_de_2015.pdf",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1752-de-2015-act.pdf",
+      "descripcion": "Por medio de la cual se modifica la Ley 1482 de 2011, para sancionar penalmente la discriminación contra las personas con discapacidad",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1755",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=65334",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1755-de-2015-2.pdf",
+      "descripcion": "Por medio del cual se regula el derecho fundamental de petición y se sustituye el título del código de procedimiento administrativo y de los contencioso administrativo",
+      "proceso": "Gestión Jurídica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1753",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1753_2015.html",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1753-Clau.pdf",
+      "descripcion": "Por la cual se expide el Plan Nacional de Desarrollo 2014¬2018 “Todos por un nuevo país\"",
+      "proceso": "Gestión Estratégica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1412 de 2015",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=62886",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1412-de-2015.pdf",
+      "descripcion": "\"Por el cual se modifica el Decreto 1083 de 2015, Reglamentario único del Sector Función Pública, en lo que hace referencia a las comisiones al exterior\".",
+      "proceso": "Gestión Estratégica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1072 de 2015",
+      "normaUrl": "https://www.mintrabajo.gov.co/documents/20147/0/DUR+Sector+Trabajo+Actualizado+a+15+de+abril++de+2016.pdf/a32b1dcf-7a4e-8a37-ac16-c121928719c8",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1072-de-2015.pdf",
+      "descripcion": "“Por medio del cual se expide el Decreto Único Reglamentario del Sector trabajo”.",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2353 de 2015",
+      "normaUrl": "https://www.minsalud.gov.co/Normatividad_Nuevo/Decreto%202353%20de%202015.pdf",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2353-de-2015.pdf",
+      "descripcion": "Por el cual se unifican y actualizan las reglas de afiliación al sistema general de seguridad social en salud, se crea el sistema de afiliación transaccional y se definen los instrumentos para garantizar la continuidad en la afiliación y el goce efectivo del derecho a la salud",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1083 de 2015",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=62866",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1083-DE-2015-.pdf",
+      "descripcion": "Por medio del cual se expide el Decreto Único Reglamentario del Sector de Función Pública.",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento - Gestión de Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1078 de 2015",
+      "normaUrl": "https://www.mintic.gov.co/portal/604/w3-article-9528.html",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1078-de-2015.pdf",
+      "descripcion": "Por medio del cual se expide el Decreto Único Reglamentario del Sector de Tecnologías de la Información y las Comunicaciones",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "103 de 2015",
+      "normaUrl": "http://wsp.presidencia.gov.co/secretaria-transparencia/Prensa/2015/Documents/decreto_presidencial_103_del_20_de_enero_2015.pdf",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/103-de-2015.pdf",
+      "descripcion": "Por el cual se reglamenta parcialmente la Ley 1712 de 2014 y se dictan otras\n disposiciones",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Acuerdo",
+      "numero": "03 de 2015",
+      "normaUrl": "https://normativa.archivogeneral.gov.co/acuerdo-003-de-2015/?pdf=489%2003%20del%2017%20de%20febrero%20de%20%202015",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/FICHA-TECNICA-ACUERDO-No.-003-DE-2015-_-1.pdf",
+      "descripcion": "Por el cual se establecen lineamientos generales para las entidades del Estado en cuanto a la gestión de documentos electrónicos generados como resultado del uso de medios electrónicos (entendidos como mecanismos tecnológicos, ópticos, telemáticos, informáticos o similar, conocidos o por conocerse que permiten producir, almacenar o transmitir documentos, datos o información), de conformidad con lo establecido en el capítulo IV de la Ley 1437 de 2011, se reglamenta el artículo 21 de la Ley 594 de 2000 y el capítulo IV del Decreto 2609 de 2012.”",
+      "proceso": "Gestión Jurídica - Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1068",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Decreto_1068_de_2015_Sector_Hacienda_y_Credito_Publico-1-1.pdf",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Decreto-1068-de-2015.pdf",
+      "descripcion": "“Por medio del cual se expide el Decreto Único Reglamentario del Sector Hacienda y Crédito Público”",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "533",
+      "normaUrl": "https://www.contaduria.gov.co/documents/20127/36444/Res_%2B533.pdf/b513cc87-7726-04ab-02e4-8691544220c6",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-533-2015.pdf",
+      "descripcion": "Por la cual se incorpora, en el Régimen de Contabilidad Pública, el marco normativo aplicable a entidades de gobierno y se dictan otras disposiciones",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "01 de 2015",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Circular-01-2015.pdf",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ficha-Normograma-Circular-01-de-2015.pdf",
+      "descripcion": "Fortalecimiento del sistema de control interno frente a su función preventiva",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1080 de 2015",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Decreto_1080_de_2015_Sector_Cultura.pdf",
+      "anio": 2015,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-Normograma-Decreto-1080-de-2015.pdf",
+      "descripcion": "Por medio del cual se expide el Decreto Único Reglamentario del Sector Cultura.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1712",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1712_2014.html",
+      "anio": 2014,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1712-Clau.pdf",
+      "descripcion": "Por medio de la cual se crea la Ley de Transparencia y del Derecho de Acceso a la Información Pública Nacional y se dictan otras disposiciones.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2716 de 2014",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=64679",
+      "anio": 2014,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2716-de-2014.pdf",
+      "descripcion": "Por el cual se autoriza el reconocimiento en dinero de días compensatorios",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1508 de 2014",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=58943",
+      "anio": 2014,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1508-de-2014.pdf",
+      "descripcion": "Por el cual se adiciona el Decreto No. 2852 de 2013 y se dictan otras disposiciones",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Financiera - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Circular Externa",
+      "numero": "7",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Circular/4000692",
+      "anio": 2014,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Circular-Externa-07-2014-1.pdf",
+      "descripcion": "Lineamientos jurisprudenciales en materia de conciliación judicial y extrajudicial en lo contencioso administrativo.",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1477",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Decreto_1477_de_2014.pdf",
+      "anio": 2014,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Decreto-1477-de-2014-act.pdf",
+      "descripcion": "Por el cual se expide la tabla de Enfermedades Laborales",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1618",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1618_de_2013-1.pdf",
+      "anio": 2013,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1618-de-2013..pdf",
+      "descripcion": "Por medio de la cual se establecen las disposiciones para garantizar el pleno ejercicio de los derechos de las personas con discapacidad",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1618",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1618_de_2013-1.pdf",
+      "anio": 2013,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1618-de-2013..pdf",
+      "descripcion": "Por medio de la cual se establecen las disposiciones para garantizar el pleno ejercicio de los derechos de las personas con discapacidad.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1616",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1616_de_2013.pdf",
+      "anio": 2013,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1616-de-2013..pdf",
+      "descripcion": "Promueve, proteger y asegurar el goce pleno y en condiciones de igualdad de todos los derechos humanos y libertades fundamentales por todas las personas con discapacidad, y promover el respeto de su dignidad inherente.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1377 de 2013",
+      "normaUrl": "http://wsp.presidencia.gov.co/Normativa/Decretos/2013/Documents/JUNIO/27/DECRETO%201377%20DEL%2027%20DE%20JUNIO%20DE%202013.pdf",
+      "anio": 2013,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1377-de-2013.pdf",
+      "descripcion": "Por el cual se reglamenta parcialmente la Ley 1581 de 2012",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "7350",
+      "normaUrl": "https://www.cvc.gov.co/sites/default/files/Sistema_Gestion_de_Calidad/Procesos%20y%20procedimientos%20Vigente/Normatividad_Gnl/Resolucion%20organica%207350%20de%202013-Nov-29.pdf",
+      "anio": 2013,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Resolución-7350-2013.pdf",
+      "descripcion": "CONTRALORIA GENERAL DE LA REPUBLICA- Que establece el Sistema de Rendición Electrónica de la cuenta e informes (SIRECI), que deben utilizar los sujetos de control fiscal para la presentación de la Rendición de Cuentas e Informes a la Contraloría General de la República",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1564",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1564_2012.html",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-1564-alejandro-1.pdf",
+      "descripcion": "Por medio de la cual se expide el Código General del Proceso y se dictan otras disposiciones",
+      "proceso": "Gestión Jurídica"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1581",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1581-de-2012-2.pdf",
+      "descripcion": "Por la cual se dictan disposiciones generales para la protección de datos personales",
+      "proceso": "Gestión Jurídica - Gestión  de Tecnologías de Información - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "985 de 2012",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=67880",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/985-de-2012.pdf",
+      "descripcion": "Por el cual se modifica la estructura de la Unidad Administrativa Especial Agencia del Inspector General de Tributps, Rentas y Contribuciones Parafiscales-ITRC.",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "986 de 2012",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1859990",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/986-de-2012.pdf",
+      "descripcion": "Por el cual se establece la planta de personal de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales -ITRC, y se dictan otras disposiciones.",
+      "proceso": "Gestión Estratégica - Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1428 de 2012",
+      "normaUrl": "http://wsp.presidencia.gov.co/Normativa/Decretos/2012/Documents/Julio/03/dec142803072012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1428-de-2012.pdf",
+      "descripcion": "Por el cual se modifica el Decreto 508 de 2012",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "884 de 2012",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=47216",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/884-de-2012.pdf",
+      "descripcion": "“Por medio del cual se reglamenta la Ley 1221 de 2008 y se dictan otras disposiciones.”",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Resolución Interna",
+      "numero": "016",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/RESOL-16-2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Resolucion-I-16-de-2012-1.pdf",
+      "descripcion": "Por la cual se establecen los niveles mínimos de exigencia de las competencias gerenciales en la Unidad Administrativa Especial Agencia del Inspector General de Tributos Rentas y Contribuciones Parafiscales",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "19 de 2012",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Decreto_19_de_2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ficha-Normograma-Decreto-19-de-2012.pdf",
+      "descripcion": "\"Por el cual se dictan normas para suprimir o reformar regulaciones, procedimientos y trámites innecesarios existentes en la Administración Pública”",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "984 de 2012",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Decreto_984_de_2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ficha-Normograma-Decreto-984-de-2012.pdf",
+      "descripcion": "\"Por el cual se modifica el artículo 22 del Decreto 1737 de 1998”",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2364 de 2012",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Decreto_2364_de_2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-Normograma-Decreto-2364-de-2012.pdf",
+      "descripcion": "Que se hace necesario reglamentar la firma electrónica para generar mayor entendimiento sobre la misma, dar seguridad jurídica a los negocios que se realicen a través de medios electrónicos, así como facilitar y promover el uso masivo de la firma electrónica en todo tipo de transacciones.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2609 de 2012",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Decreto_2609_de_2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-Normograma-2609-de-2012.pdf",
+      "descripcion": "Por el cual se Reglamenta el Título V de la Ley 594 de 2000, parcialmente los artículos 58 y 59 de la Ley 1437 de 2011 y se dictan otras disposiciones en materia de Gestión Documental para todas las Entidades del Estado.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2674",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Decreto_2674_de_2012-1.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Decreto-2674-de-2012.pdf",
+      "descripcion": "“Por el cual se reglamenta el Sistema Integrado de Información Financiera (SIIF) Nación”",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "652",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion_652_de_2012_Ministerio_de_Trabajo.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Resolucion-652-de-2012-act.pdf",
+      "descripcion": "Por la cual se establece la conformación y funcionamiento del Comité de Convivencia Laboral en entidades públicas y empresas privadas y se dictan otras disposiciones",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "4502",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-4502-DE-2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-10.-Resolucion-4502-de-2012.pdf",
+      "descripcion": "Por la cual se reglamenta el procedimiento, requisitos para el otorgamiento y renovación de las licencias de salud ocupacional y se dictan otras disposiciones",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1562",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1562_de_2012.pdf",
+      "anio": 2012,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1562-de-2012-act.pdf",
+      "descripcion": "Por la cual se modifica el Sistema de Riesgos Laborales y se dictan otras disposiciones en materia de Salud Ocupacional",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1474",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1474_2011.html",
+      "anio": 2011,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/FICHA-Ley-1474.pdf",
+      "descripcion": "“Por la cual se dictan normas orientadas a fortalecer los mecanismos de prevención, investigación y sanción de actos de corrupción y la efectividad del control de la gestión pública”.",
+      "proceso": "Gestión Estratégica <br>Gestión SIG <br>Gestión Disciplinaria <br>Gestión Jurídica <br>Gestión Contractual <br>Gestión Juzgamiento <br>Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "4173 de 2011",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=66943",
+      "anio": 2011,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4173-de-2011.pdf",
+      "descripcion": "Por el  cual se crea la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales-ITRC, se fija su estructura y se señalan sus funciones.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1437",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=41249",
+      "anio": 2011,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Ley-1437-de-2011-1.pdf",
+      "descripcion": "Por la cual se expide el Código de Procedimiento Administrativo y de lo Contencioso Administrativo.",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2842",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=40096",
+      "anio": 2010,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Decreto-2842-2010.pdf",
+      "descripcion": "Por la cual se dictan disposiciones relacionadas con la operación del Sistema de Información y Gestión del Empleo Público (SIGEP) y se deroga el decreto 1145 de 2004",
+      "proceso": "Gestión Administrativa - Gestión Contractual"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "38",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/circular-0038-de-2010.pdf",
+      "anio": 2010,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-2.-Circular-038-de-2010.pdf",
+      "descripcion": "Espacios libres de Humo y de Sustancias Psicoactivas (SPA) en las empresas",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1346",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1346_de_2009.pdf",
+      "anio": 2009,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1346-de-2009..pdf",
+      "descripcion": "Por medio de la cual se aprueba la \"Convención sobre los Derechos de las personas con Discapacidad\", adoptada por la Asamblea General de la Naciones Unidas el 13 de diciembre de 2006.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1306",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/LEY_1306_2009.pdf",
+      "anio": 2009,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1306-de-2009..pdf",
+      "descripcion": "Por la cual se dictan normas para la protección de personas con discapacidad mental y se establece el régimen de la representación legal de incapaces emancipados",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1273",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1273_2009.html",
+      "anio": 2009,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1273-Clau.pdf",
+      "descripcion": "Por medio de la cual se modifica el Código Penal, se crea un nuevo bien jurídico tutelado - denominado “de la protección de la información y de los datos”- y se preservan integralmente los sistemas que utilicen las tecnologías de la información y las comunicaciones, entre otras disposiciones",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión  de Tecnologías de Información - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "3905 DE 2009",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1878859",
+      "anio": 2009,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3905-DE-2009-.pdf",
+      "descripcion": "Por el cual se reglamenta la Ley 909 de 2004 y se dictan normas en materia de carrera administrativa.",
+      "proceso": "Gestión Estratégica - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "2646",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/resolucion_minproteccion_2646_2008.pdf",
+      "anio": 2008,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-4.-Resolucion-2646-de-2008.pdf",
+      "descripcion": "Por la cual se establecen disposiciones y se definen responsabilidades para la identificación, evaluación, prevención, intervención y monitoreo permanente de la exposición a factores de riesgo psicosocial en el trabajo y para la determinación del origen de las patologías causadas por el estrés ocupacional",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1145",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_1145_de_2007.pdf",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-1145-de-2007..pdf",
+      "descripcion": "Por medio de la cual se organiza el Sistema Nacional de Discapacidad y se dictan otras disposiciones.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "1401",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/resolicion-1401_2007.pdf",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Resolucion-1401-de-2007-act.pdf",
+      "descripcion": "Por la cual se reglamenta la investigación de incidentes y accidentes de trabajo",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "2346",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion_2346_de_2007_Ministerio_de_la_Proteccion_Social.pdf",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Resolucion-2346-de-2007-act.pdf",
+      "descripcion": "Por la cual se regula la práctica de evaluaciones medicas ocupacionales y el manejo y contenido de las historias clínicas ocupacionales",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1123",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1123_2007.html",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-1123-alejandro-1.pdf",
+      "descripcion": "Por la cual se establece el código disciplinario del abogado.",
+      "proceso": "Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1221",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=31431",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1221.pdf",
+      "descripcion": "Por la cual se establecen normas para promover y regular el Teletrabajo y se dictan otras disposiciones.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2411",
+      "normaUrl": "https://suin-juriscol.gov.co/viewDocument.asp?id=1447942",
+      "anio": 2007,
+      "vigencia": "VIGENTE-PARCIALMENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Decreto-2411-2007.pdf",
+      "descripcion": "Por el cual se modifica el artículo 17 del Decreto 26 de 1998",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Resolución Externa",
+      "numero": "354",
+      "normaUrl": "https://www.cancilleria.gov.co/sites/default/files/Normograma/docs/resolucion_contaduria_0354_2007.htm",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.cancilleria.gov.co/sites/default/files/Normograma/docs/resolucion_contaduria_0354_2007.htm",
+      "descripcion": "Por la cual se adopta el Régimen de Contabilidad Pública, se establece su conformación y se define el ámbito de aplicación",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "12 de 2007",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Circular-12-de-2007.pdf",
+      "anio": 2007,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ficha-Normograma-Circular-12-de-2007.pdf",
+      "descripcion": "\"Verificación, recomendaciones, seguimiento y resultados sobre el cumplimiento de las normas en materia de derecho de autor sobre programas de computador (software)”",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "1010",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1010_2006.html",
+      "anio": 2006,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-1010-de-2006-2.pdf",
+      "descripcion": "Por medio de la cual se adoptan medidas para prevenir, corregir y sancionar el acoso laboral y otros hostigamientos en el marco de las relaciones de trabajo.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "962",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0962_2005.html",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-962-de-2005-.pdf",
+      "descripcion": "Por la cual se dictan disposiciones sobre racionalización de trámites y procedimientos administrativos de los organismos y entidades del Estado y de los particulares que ejercen funciones públicas o prestan servicios públicos.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "785",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=16127",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Decreto-785-2005.pdf",
+      "descripcion": "Por la cual se establece el sistema de nomenclatura y clasificación y de funciones y requisitos generales de los empleos de las entidades territoriales que se regulan por las disposiciones de la Ley 909 de 2004",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "760 de 2005",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=16124",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/760-de-2005.pdf",
+      "descripcion": "Por el cual se establece el procedimiento que debe surtirse ante y por la Comisión Nacional del Servicio Civil para el cumplimiento de sus funciones.",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "770 de 2005",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=16126",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/770-de-2005.pdf",
+      "descripcion": "Por el cual se establece el sistema de funciones y de requisitos generales para los empleos públicos correspondientes a los niveles jerárquicos pertenecientes a los organismos y entidades del Orden Nacional, a que se refiere la Ley 909 de 2004.",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Circular",
+      "numero": "07 de 2005",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Circular_7_de_2005_Departamento_Administrativo_de_la_Funcion_Publica.pdf",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ficha-Normograma-Circular-7-de-2005.pdf",
+      "descripcion": "Verificación, recomendaciones, seguimiento y resultados sobre el cumplimiento de las leyes de derechos de autor sobre software",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "951 de 2005",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ley_951_de_2005.pdf",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Ficha-Normograma-Ley-951-de-2005.pdf",
+      "descripcion": "\"Ley 951 de 2005 (marzo 31) Por la cual se crea el acta de informe de gestión.”",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "982",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_982_de_2005.pdf",
+      "anio": 2005,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-982-de-2005..pdf",
+      "descripcion": "Por la cual se establecen normas tendientes a la equiparación de oportunidades para las personas sordas y sordociegas y se dictan otras disposiciones.",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "906",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0906_2004.html",
+      "anio": 2004,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-906-Alejandro-1.pdf",
+      "descripcion": "Por medio de la cual se expide el Código de Procedimiento Penal.",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "909",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=14861",
+      "anio": 2004,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-909-julie.pdf",
+      "descripcion": "Por la cual se expiden normas que regulan el empleo público, la carrera administrativa, gerencia pública y se dictan otras disposiciones.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "819",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0819_2003.html",
+      "anio": 2003,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-819-de-2003.pdf",
+      "descripcion": "Por la cual se dictan normas orgánicas en materia de presupuesto,responsabilidad y transparencia fiscal y se dictan otras disposiciones",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Financiera - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "850",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0850_2003.html",
+      "anio": 2003,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-850-de-2003.pdf",
+      "descripcion": "Por medio de la cual se reglamentan las veedurías ciudadanas",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "734",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4589#:~:text=El%20sujeto%20disciplinable%2C%20para%20salvaguardar,ejercer%C3%A1%20los%20derechos%2C%20cumplir%C3%A1%20los",
+      "anio": 2002,
+      "vigencia": "DERROGADA",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/FICHA-Ley-734-Julie.pdf",
+      "descripcion": "Por la cual se expide el Código Disciplinario Único.",
+      "proceso": "Gestión Disciplinaria - Gestión de Talento Humano - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "769 de 2002",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/LEY-769-2002.pdf",
+      "anio": 2002,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/FICHA-LEY-769-2002.pdf",
+      "descripcion": "Por la cual se expide el Código Nacional de Tránsito Terrestre y se dictan otras disposiciones.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "762",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_762_de_2002.pdf",
+      "anio": 2002,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-762-de-2002..pdf",
+      "descripcion": "Por medio de la cual se aprueba la \"Convención Interamericana para la Eliminación de todas las Formas de Discriminación contra las Personas con Discapacidad\", suscrita en la ciudad de Guatemala, Guatemala, el siete (7) de junio de mil novecientos noventa y nueve (1999)",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "352",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Decreto-352-de-2002-Alcaldia-Mayor-de-Bogota-D.C_-1.pdf",
+      "anio": 2002,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Decreto-352-de-2002.pdf",
+      "descripcion": "“Por el cual se compila y actualiza la normativa sustantiva tributaria vigente, incluyendo las modificaciones generadas por la aplicación de nuevas normas nacionales que se deban aplicar a los tributos del Distrito Capital, y las generadas por acuerdos del orden distrital”",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "617",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0617_2000.html",
+      "anio": 2000,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-617-Julie-1.pdf",
+      "descripcion": "Por la cual se reforma parcialmente la Ley 136 de 1994, el Decreto Extraordinario 1222 de 1986; se adiciona la Ley Orgánica de Presupuesto, el Decreto 1421 de 1993; se dictan otras normas tendientes a fortalecer la descentralización y se dictan normas para la racionalización del gasto público nacional",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "594",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4275",
+      "anio": 2000,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-594-Alejandro-1.pdf",
+      "descripcion": "Por medio de la cual se dicta la Ley General de Archivos y se dictan otras disposiciones",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "600",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0600_2000.html",
+      "anio": 2000,
+      "vigencia": "VIGENTE-PARCIALMENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-600.pdf",
+      "descripcion": "Por la cual se expide el Código de Procedimiento Penal",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "599",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6388",
+      "anio": 2000,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-599-DE-1999-1.pdf",
+      "descripcion": "Por la cual se expide el Código Penal",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "610",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0610_2000_pr001.html",
+      "anio": 2000,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-610-de-2000-.pdf",
+      "descripcion": "Por la cual se establece el trámite de los procesos de responsabilidad fiscal de competencia de las contralorías.",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Juzgamiento"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "527",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0527_1999.html",
+      "anio": 1999,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-527-DE-1999-1.pdf",
+      "descripcion": "Por medio de la cual se define y reglamenta el acceso y uso de los mensajes de datos, del comercio electrónico y de las firmas digitales, y se establecen las entidades de certificación y se dictan otras disposiciones.",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "489",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=186",
+      "anio": 1998,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/LEY-489-Alejandro-1.pdf",
+      "descripcion": "Por la cual se dictan normas sobre la organización y funcionamiento de las entidades del orden nacional, se expiden las disposiciones, principios y reglas generales para el ejercicio de las atribuciones previstas en los numerales 15 y 16 del artículo 189 de la Constitución Política y se dictan otras disposiciones.",
+      "proceso": "Gestión Estratégica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1567 DE 1998",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1246#:~:text=Subtema%3A%20Rama%20Ejecutiva-,Crea%20el%20sistema%20nacional%20de%20capacitaci%C3%B3n%20y%20el%20sistema,para%20los%20empleados%20del%20Estado.&text=(Agosto%205)-,Por%20el%20cual%20se%20crea%20el%20sistema%20nacional%20de%20capacitaci%C3%B3n,para%20los%20empleados%20del%20Estado.",
+      "anio": 1998,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1567-DE-1998.pdf",
+      "descripcion": "Por el cual se crea el sistema nacional de capacitación y el sistema de estímulos para los empleados del Estado",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "361",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_361_de_1997.pdf",
+      "anio": 1997,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-361-de-1997..pdf",
+      "descripcion": "Por la cual se establecen mecanismos de integración social de las personas con limitación y se dictan otras disposiciones",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2197",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1536#:~:text=Que%20el%20C%C3%B3digo%20%C3%9Anico%20Disciplinario,el%20resultado%20de%20la%20gesti%C3%B3n.%20",
+      "anio": 1996,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Decreto-2197-1996.pdf",
+      "descripcion": "Por la cual se modifica parcialmente el Decreto 1950 de 1973",
+      "proceso": "Gestión de Talento Humano - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1530 de 1996",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=8804",
+      "anio": 1996,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1530-de-1996.pdf",
+      "descripcion": "Por el cual se reglamentan parcialmente la Ley 100 de 1993 y el Decreto-Ley 1295 de 1994.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "111",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Decreto_111_de_1996-1.pdf",
+      "anio": 1996,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Decreto-111-de-1996.pdf",
+      "descripcion": "“Por el cual se compilan la Ley 38 de 1989, la Ley 179 de 1994 y la Ley 225 de 1995 que conforman el estatuto orgánico del presupuesto”",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "190",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0190_1995.html",
+      "anio": 1995,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-190-de-1995-2.pdf",
+      "descripcion": "Por la cual se dictan normas tendientes a preservar la moralidad en la Administración Pública y se fijan disposiciones con el fin de erradicar la corrupción administrativa.",
+      "proceso": "Gestión Estratégica - Gestión Administrativa - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "152",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0152_1994.html",
+      "anio": 1994,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-152.pdf",
+      "descripcion": "Por la cual se establece la Ley Orgánica del Plan de Desarrollo",
+      "proceso": "Gestión Estratégica - Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "42",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0042_1993.html",
+      "anio": 1993,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-42-Julie.pdf",
+      "descripcion": "Sobre la organización del sistema de control fiscal financiero y los organismos que lo ejercen.",
+      "proceso": "Gestión Estratégica - Gestión SIG - Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión de Talento Humano - Gestión  de Tecnologías de Información - Gestión Administrativa - Gestión Financiera - Gestión Contractual - Gestión Juzgamiento - Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "87",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0087_1993.html",
+      "anio": 1993,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Ley-87.pdf",
+      "descripcion": "Por la cual se establecen normas para el ejercicio del control interno en las entidades y organismos del estado y se dictan otras disposiciones",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "80 de 1993",
+      "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0080_1993.html",
+      "anio": 1993,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Ficha-Tecnica-Normograma-Ley-80-de-1993.pdf",
+      "descripcion": "Por la cual se expide el Estatuto General de Contratación de la Administración Pública",
+      "proceso": "Gestión Administrativa - Gestión Jurídica- Gestión Contractual"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1666 DE 1991",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=1748292",
+      "anio": 1991,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1666-de-1991.pdf",
+      "descripcion": "Por el cual se dictan disposiciones sobre comisiones en el exterior.",
+      "proceso": "Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2591",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/DECRETO-2591-de-1991.pdf",
+      "anio": 1991,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2591-DE-1991.pdf",
+      "descripcion": "Por el cual se reglamenta la acción de tutela consagrada en el artículo 86 de la Constitución Política",
+      "proceso": "Gestión de Evaluación y Control"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "624",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Decreto_Ley_624_de_1989-1.pdf",
+      "anio": 1989,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Ficha-Decreto-Ley-624-de-1989.pdf",
+      "descripcion": "“Por el cual se expide el Estatuto Tributario de los impuestos administrados por la Dirección General de Impuesto Nacionales.”",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Ley",
+      "numero": "12",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ley_12_de_1987.pdf",
+      "anio": 1987,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Ley-12-de-1987-act.pdf",
+      "descripcion": "Por la cual se suprimen algunas barreras arquitectónicas y se dictan otras disposiciones",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "2013",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-2013-1986.pdf",
+      "anio": 1986,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-Resolucion-2013-de-1986-act.pdf",
+      "descripcion": "Por la cual se reglamenta la organización y funcionamiento de los Comités de Medicina, Higiene y Seguridad Industrial en los lugares de trabajo",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Resolución",
+      "numero": "2400",
+      "normaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-2400-de-1979.pdf",
+      "anio": 1979,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Ficha-Tecnica-Normograma-7.-Resolucion-2400-de-1979.pdf",
+      "descripcion": "Por la cual se establecen algunas disposiciones sobre vivienda, higiene y seguridad en los establecimientos de trabajo",
+      "proceso": "Gestión Talento Humano"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1045 de 1978",
+      "normaUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/1213842",
+      "anio": 1978,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1045-de-1978.pdf",
+      "descripcion": "Por el cual se fijan las reglas generales para la aplicación de las normas sobre prestaciones sociales de los empleados públicos y trabajadores oficiales del sector nacional",
+      "proceso": "Gestión Financiera"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "1848 de 1969",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1291",
+      "anio": 1969,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1848-de-1969.pdf",
+      "descripcion": "Por el cual se reglamenta el Decreto 3135 de 1968.",
+      "proceso": "Gestión  de Tecnologías de Información"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "3135 de 1968",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1567",
+      "anio": 1968,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3135-de-1968.pdf",
+      "descripcion": "Por el cual se prevé la integración de la seguridad social entre el sector público y el privado y se regula el régimen prestacional de los empleados públicos y trabajadores oficiales.",
+      "proceso": "Gestión Estratégica - Gestión Administrativa"
+    },
+    {
+      "tipo": "Decreto",
+      "numero": "2400 de 1968",
+      "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1198&msclkid=cd461600d14411ec825dd2d1c7c5c7c0",
+      "anio": 1968,
+      "vigencia": "VIGENTE",
+      "fichaUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2400-de-1968.pdf",
+      "descripcion": "Por el cual se modifican las normas que regulan la administración del personal civil y se dictan otras disposiciones.",
+      "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
+    }
+  ]
+}

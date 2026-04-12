@@ -1,0 +1,763 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+import pageData from '../../content/pages/normativa/resoluciones.json';
+
+const base = import.meta.env.BASE_URL;
+const actos = [...pageData.actos].sort((a, b) => {
+  if (b.vigencia !== a.vigencia) return b.vigencia - a.vigencia;
+  return parseInt(b.numero) - parseInt(a.numero);
+});
+
+// Stats
+const totalActos = actos.length;
+const resoluciones = actos.filter(a => a.tipo === 'RESOLUCION').length;
+const circulares = actos.filter(a => a.tipo === 'CIRCULAR').length;
+const vigencias = [...new Set(actos.map(a => a.vigencia))].sort((a, b) => b - a);
+const dependencias = [...new Set(actos.map(a => a.dependencia))].sort();
+
+function tipoClass(tipo: string) {
+  if (tipo === 'RESOLUCION') return 'resolucion';
+  if (tipo === 'CIRCULAR') return 'circular';
+  return 'otro';
+}
+
+function tipoLabel(tipo: string) {
+  if (tipo === 'RESOLUCION') return 'Resolución';
+  if (tipo === 'CIRCULAR') return 'Circular';
+  return tipo;
+}
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Normativa', href: '#' },
+  { label: 'Resoluciones, Circulares y Otros Actos' }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Normativa Aplicable', descripcion: 'Normograma institucional completo', url: '/normativa-aplicada', icon: 'fa-scale-balanced' },
+  { titulo: 'Decretos', descripcion: 'Decretos de creación y estructura', url: '/decretos', icon: 'fa-file-lines' },
+  { titulo: 'Marco Legal', descripcion: 'Marco legal de la entidad', url: '/marco-legal', icon: 'fa-landmark' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Estadísticas -->
+  <section class="actos-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--navy">
+            <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{totalActos}</span>
+          <span class="stat-card__label">Actos administrativos</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--purple">
+            <i class="fa-solid fa-stamp" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{resoluciones}</span>
+          <span class="stat-card__label">Resoluciones</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--teal">
+            <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{circulares}</span>
+          <span class="stat-card__label">Circulares</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--gold">
+            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+          </div>
+          <span class="stat-card__number">{vigencias[vigencias.length - 1]}–{vigencias[0]}</span>
+          <span class="stat-card__label">Vigencias</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controles -->
+  <section class="actos-controls-section">
+    <div class="container">
+      <div class="actos-controls">
+        <div class="controls-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="actosSearch" placeholder="Buscar por número, descripción..." aria-label="Buscar actos administrativos" />
+        </div>
+        <div class="controls-filters">
+          <select id="filterVigencia" aria-label="Filtrar por vigencia">
+            <option value="">Todas las vigencias</option>
+            {vigencias.map(v => <option value={String(v)}>{v}</option>)}
+          </select>
+          <select id="filterTipo" aria-label="Filtrar por tipo">
+            <option value="">Todos los tipos</option>
+            <option value="RESOLUCION">Resolución</option>
+            <option value="CIRCULAR">Circular</option>
+          </select>
+          <select id="filterDependencia" aria-label="Filtrar por dependencia">
+            <option value="">Todas las dependencias</option>
+            {dependencias.map(d => <option value={d}>{d}</option>)}
+          </select>
+          <select id="filterInteres" aria-label="Filtrar por interés">
+            <option value="">Todo interés</option>
+            <option value="GENERAL">General</option>
+            <option value="PARTICULAR">Particular</option>
+          </select>
+          <select id="perPageSelect" aria-label="Filas por página">
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="0">Todos</option>
+          </select>
+          <button type="button" id="clearFilters" class="btn-clear" title="Limpiar filtros">
+            <i class="fa-solid fa-filter-circle-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="actos-info">
+        <span id="resultsCount"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabla -->
+  <section class="actos-section">
+    <div class="container">
+      <div class="actos-table-wrapper">
+        <table class="actos-table" id="actosTable">
+          <thead>
+            <tr>
+              <th class="col-vigencia sortable sort-active sort-desc" data-sort="vigencia">
+                Vigencia <i class="fa-solid fa-sort-down" aria-hidden="true"></i>
+              </th>
+              <th class="col-tipo sortable" data-sort="tipo">
+                Tipo <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-numero sortable" data-sort="numero">
+                No. <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-fecha">Fecha</th>
+              <th class="col-dependencia">Dependencia</th>
+              <th class="col-motivacion">Motivación</th>
+              <th class="col-interes sortable" data-sort="interes">
+                Interés <i class="fa-solid fa-sort" aria-hidden="true"></i>
+              </th>
+              <th class="col-pdf">PDF</th>
+            </tr>
+          </thead>
+          <tbody>
+            {actos.map((a) => (
+              <tr
+                data-vigencia={String(a.vigencia)}
+                data-tipo={a.tipo}
+                data-numero={a.numero}
+                data-dependencia={a.dependencia}
+                data-interes={a.interes}
+              >
+                <td data-label="Vigencia" class="td-center">
+                  <span class="vigencia-pill">{a.vigencia}</span>
+                </td>
+                <td data-label="Tipo">
+                  <span class={`tipo-badge tipo--${tipoClass(a.tipo)}`}>{tipoLabel(a.tipo)}</span>
+                </td>
+                <td data-label="No." class="td-center td-numero">{a.numero}</td>
+                <td data-label="Fecha" class="td-fecha">{a.fecha}</td>
+                <td data-label="Dependencia" class="td-dependencia">{a.dependencia}</td>
+                <td data-label="Motivación" class="td-motivacion">{a.motivacion}</td>
+                <td data-label="Interés" class="td-center">
+                  <span class={`interes-badge interes--${a.interes.toLowerCase()}`}>{a.interes}</span>
+                </td>
+                <td data-label="PDF" class="td-center">
+                  {a.pdfUrl && (
+                    <a href={a.pdfUrl} target="_blank" rel="noopener" class="pdf-link" title="Descargar PDF">
+                      <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                    </a>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <nav class="actos-pagination" id="pagination" aria-label="Paginación"></nav>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Normativa Relacionada" />
+</Base>
+
+<style>
+  /* ====== Stats ====== */
+  .actos-stats {
+    padding: var(--space-8) var(--space-6);
+    background: var(--theme-surface-alt);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--theme-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .stat-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xl);
+  }
+
+  .stat-card__icon--navy { background: rgba(0, 33, 71, 0.1); color: var(--itrc-navy); }
+  .stat-card__icon--purple { background: rgba(111, 66, 193, 0.1); color: #6f42c1; }
+  .stat-card__icon--teal { background: rgba(0, 128, 128, 0.1); color: #008080; }
+  .stat-card__icon--gold { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold); }
+
+  .stat-card__number {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--theme-heading);
+    line-height: 1;
+  }
+
+  .stat-card__label {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* ====== Controls ====== */
+  .actos-controls-section {
+    padding: var(--space-6) var(--space-6) var(--space-3);
+    background: var(--theme-surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--theme-border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .actos-controls {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .controls-search {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+  }
+
+  .controls-search i {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .controls-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .controls-search input:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15);
+  }
+
+  .controls-filters {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .controls-filters select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    cursor: pointer;
+    max-width: 170px;
+    transition: border-color var(--transition-fast);
+  }
+
+  .controls-filters select:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+  }
+
+  .btn-clear {
+    padding: var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    background: var(--theme-surface);
+    color: var(--theme-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-clear:hover {
+    border-color: var(--file-pdf);
+    color: var(--file-pdf);
+    background: rgba(220, 53, 69, 0.05);
+  }
+
+  .actos-info {
+    padding: var(--space-2) 0;
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+
+  /* ====== Table ====== */
+  .actos-section {
+    padding: 0 var(--space-6) var(--space-12);
+    background: var(--theme-surface);
+  }
+
+  .actos-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--theme-border-light);
+  }
+
+  .actos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+    min-width: 950px;
+  }
+
+  .actos-table thead {
+    background: var(--theme-dark-section-bg);
+  }
+
+  .actos-table th {
+    padding: var(--space-4) var(--space-3);
+    text-align: left;
+    font-weight: 700;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--theme-dark-section-heading);
+    white-space: nowrap;
+    border-bottom: 2px solid var(--itrc-gold);
+  }
+
+  .actos-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: color var(--transition-fast);
+  }
+
+  .actos-table th.sortable:hover { color: var(--itrc-gold); }
+
+  .actos-table th i {
+    margin-left: var(--space-1);
+    font-size: 0.7em;
+    opacity: 0.4;
+  }
+
+  .actos-table th.sort-active i {
+    opacity: 1;
+    color: var(--itrc-gold);
+  }
+
+  .actos-table td {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--theme-border-light);
+    color: var(--theme-text);
+    vertical-align: top;
+  }
+
+  .actos-table tbody tr {
+    transition: background var(--transition-fast);
+  }
+
+  .actos-table tbody tr:nth-child(even) {
+    background: var(--theme-surface-alt);
+  }
+
+  .actos-table tbody tr:hover {
+    background: rgba(var(--itrc-gold-rgb), 0.08);
+  }
+
+  /* Column widths */
+  .col-vigencia { width: 80px; text-align: center; }
+  .col-tipo { width: 100px; }
+  .col-numero { width: 55px; text-align: center; }
+  .col-fecha { width: 130px; }
+  .col-dependencia { width: 130px; }
+  .col-motivacion { min-width: 280px; }
+  .col-interes { width: 80px; text-align: center; }
+  .col-pdf { width: 50px; text-align: center; }
+
+  .td-center { text-align: center; }
+  .td-numero { font-weight: 700; color: var(--theme-heading); }
+
+  .td-fecha, .td-dependencia {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+  }
+
+  .td-motivacion {
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    color: var(--theme-text-secondary);
+  }
+
+  /* ====== Badges ====== */
+  .vigencia-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: rgba(0, 33, 71, 0.08);
+    color: var(--theme-heading);
+  }
+
+  .tipo-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .tipo--resolucion { background: rgba(111, 66, 193, 0.1); color: #6f42c1; }
+  .tipo--circular { background: rgba(0, 128, 128, 0.1); color: #008080; }
+  .tipo--otro { background: var(--gray-100); color: var(--gray-600); }
+
+  .interes-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .interes--general { background: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+  .interes--particular { background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold-dark); }
+
+  /* Dark theme */
+  :global(html.theme-oscuro) .tipo--resolucion { background: rgba(160, 120, 240, 0.15); color: #b89af5; }
+  :global(html.theme-oscuro) .tipo--circular { background: rgba(0, 200, 200, 0.12); color: #4dd9d9; }
+  :global(html.theme-oscuro) .interes--general { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+  :global(html.theme-oscuro) .interes--particular { background: rgba(var(--itrc-gold-rgb), 0.2); color: var(--itrc-gold-light); }
+  :global(html.theme-oscuro) .vigencia-pill { background: rgba(255, 255, 255, 0.08); }
+
+  /* PDF link */
+  .pdf-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    color: var(--file-pdf);
+    background: rgba(220, 53, 69, 0.08);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-base);
+  }
+
+  .pdf-link:hover {
+    background: var(--file-pdf);
+    color: var(--white);
+    transform: scale(1.1);
+  }
+
+  /* ====== Pagination ====== */
+  .actos-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-6) 0;
+    flex-wrap: wrap;
+  }
+
+  .actos-pagination button {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    cursor: pointer;
+    min-width: 36px;
+    text-align: center;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+  }
+
+  .actos-pagination button:hover:not(:disabled) {
+    border-color: var(--itrc-gold);
+    color: var(--itrc-gold);
+  }
+
+  .actos-pagination button.active {
+    background: var(--itrc-gold);
+    color: var(--white);
+    border-color: var(--itrc-gold);
+    font-weight: 700;
+  }
+
+  .actos-pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .actos-pagination .pagination-ellipsis {
+    padding: var(--space-2) var(--space-1);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .actos-stats { padding: var(--space-6) var(--space-4); }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+
+    .stat-card { padding: var(--space-4) var(--space-3); }
+    .stat-card__icon { width: 40px; height: 40px; font-size: var(--font-size-base); }
+    .stat-card__number { font-size: var(--font-size-xl); }
+
+    .actos-controls-section {
+      padding: var(--space-4) var(--space-4) var(--space-2);
+      position: static;
+    }
+
+    .actos-controls { flex-direction: column; gap: var(--space-3); }
+    .controls-search { min-width: unset; width: 100%; }
+    .controls-filters { width: 100%; }
+
+    .controls-filters select {
+      flex: 1;
+      min-width: 0;
+      max-width: unset;
+      font-size: 0.7rem;
+      padding: var(--space-2) var(--space-3);
+    }
+
+    .actos-section { padding: 0 var(--space-4) var(--space-8); }
+    .actos-table { min-width: 800px; }
+    .col-motivacion { min-width: 200px; }
+  }
+</style>
+
+<script>
+  function initActos() {
+    const table = document.getElementById('actosTable');
+    const tbody = table?.querySelector('tbody');
+    const searchInput = document.getElementById('actosSearch') as HTMLInputElement;
+    const filterVigencia = document.getElementById('filterVigencia') as HTMLSelectElement;
+    const filterTipo = document.getElementById('filterTipo') as HTMLSelectElement;
+    const filterDependencia = document.getElementById('filterDependencia') as HTMLSelectElement;
+    const filterInteres = document.getElementById('filterInteres') as HTMLSelectElement;
+    const perPageSelect = document.getElementById('perPageSelect') as HTMLSelectElement;
+    const clearBtn = document.getElementById('clearFilters');
+    const paginationNav = document.getElementById('pagination');
+    const resultsCount = document.getElementById('resultsCount');
+
+    if (!table || !tbody) return;
+
+    const allRows = Array.from(tbody.querySelectorAll('tr'));
+    let filteredIndices: number[] = [];
+    let currentPage = 1;
+    let perPage = 25;
+    let sortCol = 'vigencia';
+    let sortDir: 'asc' | 'desc' = 'desc';
+
+    function matchesFilters(row: HTMLTableRowElement): boolean {
+      const text = row.textContent?.toLowerCase() || '';
+      const searchVal = searchInput?.value.toLowerCase().trim() || '';
+      if (searchVal && !text.includes(searchVal)) return false;
+      if (filterVigencia?.value && row.dataset.vigencia !== filterVigencia.value) return false;
+      if (filterTipo?.value && row.dataset.tipo !== filterTipo.value) return false;
+      if (filterDependencia?.value && row.dataset.dependencia !== filterDependencia.value) return false;
+      if (filterInteres?.value && row.dataset.interes !== filterInteres.value) return false;
+      return true;
+    }
+
+    function getSortValue(row: HTMLTableRowElement, col: string): string | number {
+      if (col === 'vigencia') return parseInt(row.dataset.vigencia || '0', 10);
+      if (col === 'numero') return parseInt(row.dataset.numero || '0', 10);
+      if (col === 'tipo') return (row.dataset.tipo || '').toLowerCase();
+      if (col === 'interes') return (row.dataset.interes || '').toLowerCase();
+      return '';
+    }
+
+    function filterAndSort() {
+      filteredIndices = allRows.map((_, i) => i).filter(i => matchesFilters(allRows[i]));
+      filteredIndices.sort((a, b) => {
+        const va = getSortValue(allRows[a], sortCol);
+        const vb = getSortValue(allRows[b], sortCol);
+        let cmp = typeof va === 'number' && typeof vb === 'number' ? va - vb : String(va).localeCompare(String(vb), 'es');
+        return sortDir === 'asc' ? cmp : -cmp;
+      });
+      currentPage = 1;
+      render();
+    }
+
+    function render() {
+      const total = filteredIndices.length;
+      const pageSize = perPage === 0 ? total : perPage;
+      const start = (currentPage - 1) * pageSize;
+      const end = Math.min(start + pageSize, total);
+
+      const fragment = document.createDocumentFragment();
+      const filteredSet = new Set(filteredIndices);
+
+      filteredIndices.forEach((idx, i) => {
+        const row = allRows[idx];
+        row.style.display = (i >= start && i < end) ? '' : 'none';
+        fragment.appendChild(row);
+      });
+
+      allRows.forEach((row, idx) => {
+        if (!filteredSet.has(idx)) {
+          row.style.display = 'none';
+          fragment.appendChild(row);
+        }
+      });
+
+      tbody.replaceChildren(fragment);
+
+      if (resultsCount) {
+        if (total === 0) resultsCount.textContent = 'No se encontraron actos con los filtros aplicados';
+        else if (perPage === 0) resultsCount.textContent = `Mostrando ${total} acto${total !== 1 ? 's' : ''}`;
+        else resultsCount.textContent = `Mostrando ${start + 1}–${end} de ${total} acto${total !== 1 ? 's' : ''}`;
+      }
+
+      renderPagination(total, pageSize);
+    }
+
+    function renderPagination(total: number, pageSize: number) {
+      if (!paginationNav) return;
+      if (perPage === 0 || total <= pageSize) { paginationNav.innerHTML = ''; return; }
+
+      const totalPages = Math.ceil(total / pageSize);
+      let html = `<button ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">&laquo;</button>`;
+
+      const pages = generatePageNumbers(currentPage, totalPages);
+      for (const p of pages) {
+        if (p === '...') html += '<span class="pagination-ellipsis">…</span>';
+        else html += `<button class="${Number(p) === currentPage ? 'active' : ''}" data-page="${p}">${p}</button>`;
+      }
+
+      html += `<button ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">&raquo;</button>`;
+      paginationNav.innerHTML = html;
+
+      paginationNav.querySelectorAll('button[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const page = parseInt((btn as HTMLElement).dataset.page || '1', 10);
+          if (page >= 1 && page <= totalPages) { currentPage = page; render(); table.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+      });
+    }
+
+    function generatePageNumbers(current: number, total: number): (number | string)[] {
+      if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+      const pages: (number | string)[] = [1];
+      if (current > 3) pages.push('...');
+      for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) pages.push(i);
+      if (current < total - 2) pages.push('...');
+      pages.push(total);
+      return pages;
+    }
+
+    function updateSortUI() {
+      table.querySelectorAll('th.sortable').forEach(th => {
+        const icon = th.querySelector('i');
+        if (!icon) return;
+        th.classList.remove('sort-active', 'sort-asc', 'sort-desc');
+        icon.className = 'fa-solid fa-sort';
+        if ((th as HTMLElement).dataset.sort === sortCol) {
+          th.classList.add('sort-active', sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+          icon.className = `fa-solid ${sortDir === 'asc' ? 'fa-sort-up' : 'fa-sort-down'}`;
+        }
+      });
+    }
+
+    let searchTimeout: ReturnType<typeof setTimeout>;
+    searchInput?.addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(filterAndSort, 300); });
+
+    [filterVigencia, filterTipo, filterDependencia, filterInteres].forEach(el => el?.addEventListener('change', filterAndSort));
+
+    perPageSelect?.addEventListener('change', () => { perPage = parseInt(perPageSelect.value, 10); currentPage = 1; render(); });
+
+    clearBtn?.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      [filterVigencia, filterTipo, filterDependencia, filterInteres].forEach(el => { if (el) el.value = ''; });
+      perPage = 25; if (perPageSelect) perPageSelect.value = '25';
+      sortCol = 'vigencia'; sortDir = 'desc';
+      updateSortUI(); filterAndSort();
+    });
+
+    table.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = (th as HTMLElement).dataset.sort || '';
+        if (col === sortCol) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        else { sortCol = col; sortDir = 'asc'; }
+        updateSortUI(); filterAndSort();
+      });
+    });
+
+    filterAndSort();
+  }
+
+  initActos();
+  document.addEventListener('astro:after-swap', initActos);
+</script>
