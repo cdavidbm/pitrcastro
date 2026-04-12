@@ -1,0 +1,593 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/atencion/pqrs.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: pageData.title }
+];
+
+const colorMap: Record<string, string> = {
+  blue: 'var(--itrc-blue)',
+  gold: 'var(--itrc-gold)',
+  red: '#dc3545',
+  green: '#198754',
+};
+
+function fileIcon(tipo: string) {
+  if (tipo === 'xlsx') return 'fa-file-excel';
+  if (tipo === 'pptx') return 'fa-file-powerpoint';
+  return 'fa-file-pdf';
+}
+
+function fileColorClass(tipo: string) {
+  if (tipo === 'xlsx') return 'file--excel';
+  if (tipo === 'pptx') return 'file--pptx';
+  return 'file--pdf';
+}
+
+const totalInformes = pageData.informes.reduce((sum, g) => sum + g.reportes.length, 0);
+
+const enlacesRelacionados = [
+  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
+  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
+  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- ====== Sección Intro + Definiciones ====== -->
+  <section class="pqrs-intro-section">
+    <div class="container">
+      <div class="pqrs-intro">
+        <p class="pqrs-intro__text">{pageData.intro}</p>
+      </div>
+
+      <div class="pqrs-cards">
+        {pageData.definiciones.map((def) => {
+          const accent = colorMap[def.color] || 'var(--itrc-gold)';
+          return (
+            <div class="pqrs-card" style={`--card-accent: ${accent}`}>
+              <div class="pqrs-card__letter">{def.letra}</div>
+              <h3 class="pqrs-card__title">{def.titulo}</h3>
+              <p class="pqrs-card__desc">{def.descripcion}</p>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- CTAs -->
+      <div class="pqrs-ctas">
+        <a href={pageData.tramitesUrl} target="_blank" rel="noopener" class="pqrs-cta pqrs-cta--primary">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          Iniciar una PQRS
+        </a>
+        <a href={pageData.consultaUrl} target="_blank" rel="noopener" class="pqrs-cta pqrs-cta--secondary">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          Consultar estado de su PQRSD
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Sección Informes ====== -->
+  <section class="pqrs-informes-section">
+    <div class="container">
+      <div class="informes-header">
+        <h2 class="informes-header__title">
+          <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
+          Informes de Peticiones, Quejas, Reclamos y Sugerencias
+        </h2>
+        <span class="informes-header__count">{totalInformes} informes</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="informes-tabs" role="tablist" aria-label="Informes PQRS por año">
+        {pageData.informes.map((grupo, i) => (
+          <button
+            class={`informes-tab ${i === 0 ? 'active' : ''}`}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`panel-${grupo.anio}`}
+            data-tab={grupo.anio}
+          >
+            {grupo.label}
+            <span class="informes-tab__count">{grupo.reportes.length}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Paneles -->
+      {pageData.informes.map((grupo, i) => (
+        <div
+          class={`informes-panel ${i === 0 ? 'active' : ''}`}
+          id={`panel-${grupo.anio}`}
+          role="tabpanel"
+          hidden={i !== 0}
+        >
+          <div class="informes-list">
+            {grupo.reportes.map((reporte) => (
+              <a href={reporte.file} target="_blank" rel="noopener" class={`informe-card ${fileColorClass(reporte.tipo)}`}>
+                <div class="informe-card__icon">
+                  <i class={`fa-solid ${fileIcon(reporte.tipo)}`} aria-hidden="true"></i>
+                </div>
+                <div class="informe-card__content">
+                  <h4 class="informe-card__title">{reporte.nombre}</h4>
+                  <span class="informe-card__type">{reporte.tipo.toUpperCase()}</span>
+                </div>
+                <div class="informe-card__action">
+                  <i class="fa-solid fa-download" aria-hidden="true"></i>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Atención y Servicios" />
+</Base>
+
+<style>
+  /* ====== Intro Section ====== */
+  .pqrs-intro-section {
+    padding: var(--space-10) var(--space-6) var(--space-12);
+    background: var(--theme-surface);
+  }
+
+  .pqrs-intro-section .container {
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+
+  .pqrs-intro__text {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--theme-text);
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto var(--space-10);
+  }
+
+  /* ====== Definition Cards ====== */
+  .pqrs-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-10);
+  }
+
+  .pqrs-card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: 4px solid var(--card-accent);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6) var(--space-5);
+    text-align: center;
+    transition: all var(--transition-base);
+  }
+
+  .pqrs-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--card-accent);
+  }
+
+  .pqrs-card__letter {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-accent);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-2xl);
+    font-weight: 900;
+  }
+
+  .pqrs-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    color: var(--theme-heading);
+    margin: 0 0 var(--space-3);
+  }
+
+  .pqrs-card__desc {
+    font-size: var(--font-size-xs);
+    line-height: 1.7;
+    color: var(--theme-text-secondary);
+    margin: 0;
+  }
+
+  /* ====== CTAs ====== */
+  .pqrs-ctas {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .pqrs-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .pqrs-cta--primary {
+    background: var(--itrc-navy);
+    color: var(--white);
+  }
+
+  .pqrs-cta--primary:hover {
+    background: var(--itrc-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .pqrs-cta--secondary {
+    background: var(--theme-surface);
+    color: var(--itrc-navy);
+    border: 2px solid var(--itrc-navy);
+  }
+
+  .pqrs-cta--secondary:hover {
+    background: var(--itrc-navy);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ====== Informes Section ====== */
+  .pqrs-informes-section {
+    padding: var(--space-10) var(--space-6) var(--space-16);
+    background: var(--theme-surface-alt);
+  }
+
+  .pqrs-informes-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .informes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .informes-header__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-xl);
+    color: var(--theme-heading);
+    margin: 0;
+  }
+
+  .informes-header__title i {
+    color: var(--itrc-gold);
+  }
+
+  .informes-header__count {
+    padding: var(--space-1) var(--space-4);
+    background: rgba(var(--itrc-gold-rgb), 0.12);
+    color: var(--itrc-gold);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+  }
+
+  /* ====== Tabs ====== */
+  .informes-tabs {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--theme-border);
+    padding-bottom: var(--space-2);
+  }
+
+  .informes-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: transparent;
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .informes-tab:hover {
+    background: var(--theme-surface);
+    color: var(--itrc-gold);
+  }
+
+  .informes-tab.active {
+    background: var(--theme-surface);
+    color: var(--itrc-gold);
+    border-color: var(--theme-border);
+    border-bottom-color: var(--theme-surface);
+    font-weight: 800;
+  }
+
+  .informes-tab__count {
+    padding: 1px 7px;
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+
+  .informes-tab.active .informes-tab__count {
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    color: var(--itrc-gold);
+  }
+
+  /* ====== Panels ====== */
+  .informes-panel { display: none; }
+  .informes-panel.active { display: block; }
+
+  .informes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  /* ====== Informe Card ====== */
+  .informe-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .informe-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+
+  .informe-card__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xl);
+    transition: all var(--transition-base);
+  }
+
+  /* File type colors */
+  .file--pdf .informe-card__icon {
+    background: rgba(220, 53, 69, 0.08);
+    color: var(--file-pdf);
+  }
+  .file--pdf:hover .informe-card__icon {
+    background: var(--file-pdf);
+    color: var(--white);
+  }
+  .file--pdf:hover { border-color: rgba(220, 53, 69, 0.3); }
+
+  .file--excel .informe-card__icon {
+    background: rgba(25, 135, 84, 0.08);
+    color: var(--file-excel);
+  }
+  .file--excel:hover .informe-card__icon {
+    background: var(--file-excel);
+    color: var(--white);
+  }
+  .file--excel:hover { border-color: rgba(25, 135, 84, 0.3); }
+
+  .file--pptx .informe-card__icon {
+    background: rgba(253, 126, 20, 0.08);
+    color: #fd7e14;
+  }
+  .file--pptx:hover .informe-card__icon {
+    background: #fd7e14;
+    color: var(--white);
+  }
+  .file--pptx:hover { border-color: rgba(253, 126, 20, 0.3); }
+
+  .informe-card__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .informe-card__title {
+    color: var(--theme-heading);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    margin: 0 0 var(--space-1);
+    transition: color var(--transition-fast);
+  }
+
+  .informe-card:hover .informe-card__title {
+    color: var(--itrc-gold);
+  }
+
+  .informe-card__type {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--theme-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .informe-card__action {
+    flex-shrink: 0;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-base);
+    opacity: 0.4;
+    transition: all var(--transition-fast);
+  }
+
+  .informe-card:hover .informe-card__action {
+    opacity: 1;
+    color: var(--itrc-gold);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 900px) {
+    .pqrs-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pqrs-intro-section {
+      padding: var(--space-6) var(--space-4) var(--space-8);
+    }
+
+    .pqrs-intro__text {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--space-8);
+    }
+
+    .pqrs-cards {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    .pqrs-card {
+      padding: var(--space-5) var(--space-4);
+      text-align: left;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      column-gap: var(--space-4);
+      row-gap: var(--space-2);
+    }
+
+    .pqrs-card__letter {
+      width: 42px;
+      height: 42px;
+      font-size: var(--font-size-xl);
+      margin: 0;
+      grid-row: 1 / 3;
+      align-self: center;
+    }
+
+    .pqrs-card__title {
+      font-size: var(--font-size-base);
+      margin: 0;
+      align-self: end;
+    }
+
+    .pqrs-card__desc {
+      grid-column: 2;
+    }
+
+    .pqrs-ctas {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .pqrs-cta {
+      justify-content: center;
+      font-size: var(--font-size-sm);
+      padding: var(--space-3) var(--space-6);
+    }
+
+    .pqrs-informes-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .informes-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .informes-header__title {
+      font-size: var(--font-size-lg);
+    }
+
+    .informes-tabs {
+      gap: var(--space-1);
+    }
+
+    .informes-tab {
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-xs);
+    }
+
+    .informe-card {
+      padding: var(--space-3) var(--space-4);
+      gap: var(--space-3);
+    }
+
+    .informe-card__icon {
+      width: 36px;
+      height: 36px;
+      font-size: var(--font-size-base);
+    }
+
+    .informe-card__title {
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>
+
+<script>
+  function initPqrsTabs() {
+    const tabButtons = document.querySelectorAll('.informes-tab');
+    const panels = document.querySelectorAll('.informes-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = (btn as HTMLElement).dataset.tab;
+
+        tabButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        panels.forEach(panel => {
+          const isActive = panel.id === `panel-${tabId}`;
+          panel.classList.toggle('active', isActive);
+          (panel as HTMLElement).hidden = !isActive;
+        });
+      });
+    });
+  }
+
+  initPqrsTabs();
+  document.addEventListener('astro:after-swap', initPqrsTabs);
+</script>

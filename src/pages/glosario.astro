@@ -1,0 +1,417 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/atencion/glosario.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: 'Glosario' }
+];
+
+// Agrupar términos por letra inicial
+function normalize(char: string) {
+  return char.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+}
+
+const grouped = new Map<string, typeof pageData.terminos>();
+for (const t of pageData.terminos) {
+  const letter = normalize(t.termino.charAt(0));
+  if (!grouped.has(letter)) grouped.set(letter, []);
+  grouped.get(letter)!.push(t);
+}
+
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const activeLetters = new Set(grouped.keys());
+
+const enlacesRelacionados = [
+  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
+  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
+  { titulo: 'P.Q.R.S', descripcion: 'Peticiones, Quejas, Reclamos y Sugerencias', url: '/tu-p-q-r-s-al-dia', icon: 'fa-comments' },
+];
+---
+
+<Base title="Glosario" description={pageData.description}>
+  <HeroPage
+    title="Glosario"
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="glosario-section">
+    <div class="container">
+      <!-- Buscador -->
+      <div class="glosario-search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input
+          type="text"
+          id="glosarioSearch"
+          placeholder="Buscar término..."
+          aria-label="Buscar en el glosario"
+        />
+        <span class="glosario-search__count" id="searchCount">{pageData.terminos.length} términos</span>
+      </div>
+
+      <!-- Índice alfabético -->
+      <nav class="glosario-alpha" aria-label="Índice alfabético">
+        {alphabet.map(letter => (
+          <a
+            href={activeLetters.has(letter) ? `#letra-${letter}` : undefined}
+            class={`alpha-letter ${activeLetters.has(letter) ? 'active' : 'disabled'}`}
+            aria-disabled={!activeLetters.has(letter) ? 'true' : undefined}
+          >
+            {letter}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mensaje sin resultados -->
+      <div class="glosario-no-results" id="noResults" hidden>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <p>No se encontraron términos que coincidan con la búsqueda.</p>
+      </div>
+
+      <!-- Términos agrupados -->
+      <div class="glosario-content" id="glosarioContent">
+        {[...grouped.entries()].map(([letter, terms]) => (
+          <div class="glosario-group" id={`letra-${letter}`} data-letter={letter}>
+            <div class="glosario-group__header">
+              <span class="glosario-group__letter">{letter}</span>
+              <span class="glosario-group__count">{terms.length}</span>
+              <div class="glosario-group__line"></div>
+            </div>
+
+            <div class="glosario-terms">
+              {terms.map((term) => (
+                <div class="term-card" data-term={term.termino.toLowerCase()}>
+                  <h3 class="term-card__title">{term.termino}</h3>
+                  <p class="term-card__def">{term.definicion}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Atención y Servicios" />
+</Base>
+
+<style>
+  .glosario-section {
+    padding: var(--space-8) var(--space-6) var(--space-16);
+    background: var(--theme-surface);
+  }
+
+  .glosario-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ====== Search ====== */
+  .glosario-search {
+    position: relative;
+    margin-bottom: var(--space-6);
+  }
+
+  .glosario-search > i {
+    position: absolute;
+    left: var(--space-5);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-base);
+  }
+
+  .glosario-search input {
+    width: 100%;
+    padding: var(--space-4) var(--space-5) var(--space-4) var(--space-12);
+    border: 2px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .glosario-search input:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15);
+  }
+
+  .glosario-search__count {
+    position: absolute;
+    right: var(--space-5);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    font-weight: 600;
+  }
+
+  /* ====== Alphabet Nav ====== */
+  .glosario-alpha {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-1);
+    margin-bottom: var(--space-8);
+    padding: var(--space-4);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-xl);
+  }
+
+  .alpha-letter {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .alpha-letter.active {
+    color: var(--theme-heading);
+    cursor: pointer;
+  }
+
+  .alpha-letter.active:hover {
+    background: var(--itrc-gold);
+    color: var(--white);
+  }
+
+  .alpha-letter.disabled {
+    color: var(--theme-text-muted);
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  /* ====== No Results ====== */
+  .glosario-no-results {
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
+    color: var(--theme-text-muted);
+  }
+
+  .glosario-no-results i {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-4);
+    opacity: 0.3;
+  }
+
+  .glosario-no-results p {
+    font-size: var(--font-size-base);
+  }
+
+  /* ====== Groups ====== */
+  .glosario-group {
+    margin-bottom: var(--space-8);
+  }
+
+  .glosario-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .glosario-group__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    scroll-margin-top: var(--space-6);
+  }
+
+  .glosario-group__letter {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--itrc-gold);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xl);
+    font-weight: 900;
+  }
+
+  .glosario-group__count {
+    padding: 2px 10px;
+    background: rgba(var(--itrc-gold-rgb), 0.12);
+    color: var(--itrc-gold);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .glosario-group__line {
+    flex: 1;
+    height: 2px;
+    background: var(--theme-border-light);
+  }
+
+  /* ====== Term Cards ====== */
+  .glosario-terms {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-left: var(--space-3);
+  }
+
+  .term-card {
+    padding: var(--space-5) var(--space-6);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-left: 3px solid var(--itrc-gold);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    transition: all var(--transition-fast);
+  }
+
+  .term-card:hover {
+    border-left-color: var(--itrc-navy);
+    box-shadow: var(--shadow-sm);
+    background: var(--theme-surface-alt);
+  }
+
+  .term-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 800;
+    color: var(--theme-heading);
+    margin: 0 0 var(--space-2);
+  }
+
+  .term-card__def {
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    color: var(--theme-text-secondary);
+    margin: 0;
+  }
+
+  /* ====== Hidden state for search ====== */
+  .term-card.hidden,
+  .glosario-group.hidden {
+    display: none;
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .glosario-section {
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .glosario-search input {
+      font-size: var(--font-size-sm);
+      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+    }
+
+    .glosario-alpha {
+      gap: 2px;
+      padding: var(--space-3);
+    }
+
+    .alpha-letter {
+      width: 30px;
+      height: 30px;
+      font-size: var(--font-size-xs);
+    }
+
+    .glosario-group__letter {
+      width: 36px;
+      height: 36px;
+      font-size: var(--font-size-lg);
+    }
+
+    .glosario-terms {
+      padding-left: 0;
+    }
+
+    .term-card {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    .term-card__title {
+      font-size: var(--font-size-sm);
+    }
+
+    .term-card__def {
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>
+
+<script>
+  function initGlosario() {
+    const searchInput = document.getElementById('glosarioSearch') as HTMLInputElement;
+    const searchCount = document.getElementById('searchCount');
+    const noResults = document.getElementById('noResults');
+    const groups = document.querySelectorAll('.glosario-group');
+    const terms = document.querySelectorAll('.term-card');
+
+    let searchTimeout: ReturnType<typeof setTimeout>;
+
+    function filterTerms() {
+      const query = searchInput?.value.toLowerCase().trim() || '';
+      let visibleCount = 0;
+
+      groups.forEach(group => {
+        const groupTerms = group.querySelectorAll('.term-card');
+        let groupVisible = 0;
+
+        groupTerms.forEach(term => {
+          const termText = (term as HTMLElement).dataset.term || '';
+          const defText = term.querySelector('.term-card__def')?.textContent?.toLowerCase() || '';
+          const matches = !query || termText.includes(query) || defText.includes(query);
+
+          term.classList.toggle('hidden', !matches);
+          if (matches) {
+            groupVisible++;
+            visibleCount++;
+          }
+        });
+
+        group.classList.toggle('hidden', groupVisible === 0);
+      });
+
+      if (searchCount) {
+        searchCount.textContent = query
+          ? `${visibleCount} resultado${visibleCount !== 1 ? 's' : ''}`
+          : `${terms.length} términos`;
+      }
+
+      if (noResults) {
+        noResults.hidden = visibleCount > 0;
+      }
+    }
+
+    searchInput?.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(filterTerms, 200);
+    });
+
+    // Smooth scroll for alphabet links
+    document.querySelectorAll('.alpha-letter.active').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = (link as HTMLAnchorElement).getAttribute('href');
+        if (!href) return;
+        const target = document.querySelector(href + ' .glosario-group__header');
+        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  initGlosario();
+  document.addEventListener('astro:after-swap', initGlosario);
+</script>

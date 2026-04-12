@@ -43,7 +43,6 @@
         { "label": "P.Q.R.S", "url": "/tu-p-q-r-s-al-dia" },
         { "label": "Datos Abiertos", "url": "https://www.datos.gov.co/browse?q=itrc", "external": true },
         { "label": "Preguntas Frecuentes", "url": "/preguntas-frecuentes" },
-        { "label": "Chat ITRC", "url": "/chat-itrc" },
         { "label": "Glosario", "url": "/glosario" },
         { "label": "Carta trato digno al ciudadano", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/CARTA-TRATO-DIGNO.pdf", "external": true }
       ]

@@ -83,6 +83,28 @@ const notificaciones = {
         },
       ],
     },
+    {
+      name: "glosario",
+      label: "Glosario Institucional",
+      file: "src/content/pages/atencion/glosario.json",
+      fields: [
+        { name: "title", label: "Título de la página", widget: "string", required: true },
+        { name: "description", label: "Descripción", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-book" },
+        {
+          name: "terminos",
+          label: "Términos del glosario",
+          widget: "list",
+          label_singular: "Término",
+          collapsed: true,
+          summary: "{{fields.termino}}",
+          fields: [
+            { name: "termino", label: "Término", widget: "string", required: true },
+            { name: "definicion", label: "Definición", widget: "text", required: true },
+          ],
+        },
+      ],
+    },
   ],
 };
 

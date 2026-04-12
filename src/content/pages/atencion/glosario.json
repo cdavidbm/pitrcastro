@@ -1,0 +1,205 @@
+{
+  "title": "Glosario Institucional",
+  "slug": "glosario",
+  "description": "Glosario de términos utilizados por la Agencia ITRC en materia de inspección, prevención de fraude y corrupción, y gestión disciplinaria",
+  "icon": "fa-book",
+  "published": true,
+  "terminos": [
+    {
+      "termino": "Abuso de Función Pública",
+      "definicion": "Cuando el servidor público que abusando de su cargo realice funciones diversas a las que legalmente le correspondan."
+    },
+    {
+      "termino": "Celebración indebida de contratos",
+      "definicion": "Cuando un servidor público interviene en el trámite, aprobación o celebración de un contrato buscando un beneficio personal o de un tercero."
+    },
+    {
+      "termino": "Código Único Disciplinario",
+      "definicion": "Normas que establecen la manera como se investiga al servidor público que incumple con sus obligaciones. Contiene además un catálogo de deberes, prohibiciones, conflictos de intereses, faltas y sanciones, así como un único procedimiento disciplinario para todos los funcionarios y servidores públicos. Este garantiza que la investigación y la sanción disciplinaria que se realice sea la adecuada."
+    },
+    {
+      "termino": "Cohecho",
+      "definicion": "Cuando el servidor público recibe para sí o para otro, dinero u otra utilidad, o acepte promesa remuneratoria, directa o indirecta, por un acto propio de su cargo, (retarde u omita) o para ejecutar uno contrario a sus deberes oficiales (Cohecho Propio), o por acto que deba ejecutar en desempeño de sus funciones (Cohecho Impropio)."
+    },
+    {
+      "termino": "Concusión",
+      "definicion": "Cuando un servidor público constriñe o induce a alguien para dar o prometer dinero o cualquier otra utilidad."
+    },
+    {
+      "termino": "Contrato sin cumplimiento de requisitos legales",
+      "definicion": "Cuando el servidor por razón del ejercicio de sus funciones tramite contrato sin observancia de los requisitos legales esenciales o lo celebre sin verificar el cumplimiento de los mismos."
+    },
+    {
+      "termino": "Contribuciones parafiscales",
+      "definicion": "Son los gravámenes establecidos con carácter obligatorio por la Ley, que afectan a un determinado y único grupo social y económico y se utilizan para beneficio del propio sector. Para el caso de las contribuciones parafiscales de la protección social, debe entenderse aquellas destinadas a la financiación del funcionamiento y las prestaciones derivadas de la protección social, ya sea que estén a cargo de los empleadores, de los trabajadores o de ambos. Estas incluyen las contribuciones de Salud, Pensión, Riesgos Profesionales, Cajas de Compensación, SENA e ICBF."
+    },
+    {
+      "termino": "Corrupción",
+      "definicion": "Uso del poder para desviar la gestión de lo público hacia el beneficio privado, donde las prácticas corruptas son realizadas por actores públicos y/o privados con poder e incidencia en la toma de decisiones y la administración de los bienes públicos."
+    },
+    {
+      "termino": "Debido proceso",
+      "definicion": "Es el derecho fundamental que tienen las personas que están siendo investigadas penal o disciplinariamente a que el procedimiento que se sigue para evaluar su conducta responda a los principios de legalidad, favorabilidad, derecho a la defensa, igualdad ante la ley y respeto a la dignidad humana."
+    },
+    {
+      "termino": "Delitos contra la administración pública",
+      "definicion": "Delitos que se materializan con conductas que atentan contra la gestión pública, los bienes públicos, los servicios y funciones que las ramas del poder público están obligadas a ofrecer por medio de servidores públicos a los miembros de la comunidad, con arreglo a principios y criterios marcados por la Constitución y la Ley."
+    },
+    {
+      "termino": "Denuncia (o queja)",
+      "definicion": "Noticia o aviso por escrito o de palabra, que se hace o entrega a una autoridad acerca de un delito o falta disciplinaria, para que ésta proceda a la consiguiente averiguación del hecho y castigo del responsable."
+    },
+    {
+      "termino": "Destitución",
+      "definicion": "Sanción disciplinaria contra un funcionario o servidor público que determina que éste no continúe en su cargo."
+    },
+    {
+      "termino": "Documento fiscal",
+      "definicion": "Documento de la autoridad competente o del ciudadano que sirve como evidencia para generar derechos a favor u obligaciones económicas al Estado. Su contenido se asume como válido, cuando cumpla con los requisitos legales y reglamentarios exigidos por la entidad y por la norma."
+    },
+    {
+      "termino": "Elementos sensibles",
+      "definicion": "Componentes que, al ser identificados, permiten analizar aspectos tributarios y/o rentísticos de las operaciones a través de las cuales se determina una obligación, se reconoce un derecho, se determina el resultado final de una operación de control o se administra un ingreso recaudado y, frente a los cuales, al desarrollar acciones concretas se contribuye al aseguramiento ante la corrupción. Se estructuran en decisiones sensibles, datos y documentos sensibles y criterios o reglas de negocio sensibles."
+    },
+    {
+      "termino": "Enriquecimiento ilícito del Servidor público",
+      "definicion": "Delito en el que incurre un servidor público o quien desempeñe funciones públicas que durante su vinculación con la administración o dentro de los 5 años posteriores a su desvinculación, obtenga, para sí o para otro, incremento patrimonial sin justa causa. Tiene carácter subsidiario, en cuanto a que la ley supedita su aplicación a que la conducta típica no configure otro delito en el que hubiere podido incurrir el sujeto cualificado."
+    },
+    {
+      "termino": "Estructura criminal",
+      "definicion": "Grupo de personas que desarrollan una actividad permanente en el tiempo y que de manera concertada y coordinada se reparten diversas tareas o funciones, encaminadas a cometer delitos alrededor de los tributos, rentas o contribuciones parafiscales."
+    },
+    {
+      "termino": "Falsedad ideológica en documento público",
+      "definicion": "Cuando el servidor público en ejercicio de sus funciones, extienda documento público que pueda servir de prueba, consigne una falsedad o calle total o parcialmente la verdad."
+    },
+    {
+      "termino": "Falsedad material en documento público",
+      "definicion": "El que falsifique documento público que pueda servir de prueba."
+    },
+    {
+      "termino": "Fraude",
+      "definicion": "Actividad deshonesta que causa una pérdida financiera real o potencial para cualquier persona o entidad asociado al abuso de la oportunidad que tienen actores públicos y/o privados en ejecución de actividades que afectan los intereses de la administración pública."
+    },
+    {
+      "termino": "Función disciplinaria",
+      "definicion": "Función de la Agencia ITRC por medio de la cual se imponen sanciones a los servidores públicos que han actuado de manera irregular o negligente en el cumplimiento de su deber."
+    },
+    {
+      "termino": "Hallazgo",
+      "definicion": "Resultado de la evaluación de la evidencia recopilada durante la inspección frente a los criterios. El hallazgo debe ser claro, preciso, verificable y útil para el aseguramiento de los ingresos."
+    },
+    {
+      "termino": "Incentivo, Presión o Necesidad",
+      "definicion": "Debe existir una necesidad o incentivo (interna) o presiones (externas), que generan que el individuo sea llevado a cometer la irregularidad o la acción de fraude. Ejemplos de motivos para cometer fraude, puede ser el mantener el puesto demostrando ficticios buenos resultados o deudas personales."
+    },
+    {
+      "termino": "Indicio",
+      "definicion": "Son circunstancias, situaciones y/o conductas identificadas a partir del análisis de los riesgos y la evaluación de sensibilidad al fraude y la corrupción que pueden contribuir al descubrimiento de un hecho oculto o no claramente percibido."
+    },
+    {
+      "termino": "Inhabilidad",
+      "definicion": "Imposibilidad jurídica para ejercer derechos, asumir funciones y ejercer cargos públicos."
+    },
+    {
+      "termino": "Inspección",
+      "definicion": "Proceso sistemático, independiente y documentado que ejecuta la Subdirección de Auditoría y Gestión del Riesgo (SAGR) ante cualquier proceso o asunto a evaluar para obtener evidencias y evaluarlas de manera objetiva. El ciclo de inspección consiste en la identificación y valoración de riesgos, la planeación y ejecución de inspecciones, la detección e informe de hallazgos, la formulación de recomendaciones de aseguramiento del fraude y la corrupción."
+    },
+    {
+      "termino": "Interés indebido en la celebración de contratos",
+      "definicion": "Cuando un servidor público que se interese en provecho suyo o de un tercero, en cualquier clase de contrato u operación que deba intervenir."
+    },
+    {
+      "termino": "Modelo de Gestión del Riesgo de Fraude y Corrupción",
+      "definicion": "Modelo que permite establecer reglas y perfiles del fraude y la corrupción a partir de la identificación, clasificación, automatización de información y análisis de controles, para detectar anomalías, gestionar y almacenar alertas e identificar espacios de fraude y corrupción, con el fin de determinar niveles de exposición de las entidades al fraude y la corrupción y recomendar acciones que mitiguen los escenarios identificados."
+    },
+    {
+      "termino": "Modelo de Investigación Disciplinaria",
+      "definicion": "Modelo de investigación implementado en la Agencia ITRC, con el fin de investigar y sancionar disciplinariamente a servidores DIAN, Coljuegos y UGPP, en aquellos casos taxativamente señalados por la norma (faltas gravísimas) y que involucran posibles fenómenos de corrupción, asociados a actividades tributarias, de rentas y parafiscal. El Modelo se erige bajo una estructura organizacional propia y la adopción de una dinámica de investigación que garantiza una respuesta oportuna y especializada. Este paradigma único en el sector público combina un conjunto sistemático e integral de saberes, acciones y actividades interdisciplinarias de carácter jurídico, investigativo, técnico y operativo."
+    },
+    {
+      "termino": "Modelo Integral para la Prevención de Actos de Fraude y Corrupción",
+      "definicion": "Modelo fundado en el enfoque basado en procesos de la Agencia ITRC; que permite de manera integral prevenir y sancionar actos de fraude y corrupción en la administración de tributos, rentas y contribuciones parafiscales, basado en la evaluación de los sistemas de riesgo e investigación disciplinaria."
+    },
+    {
+      "termino": "Negligencia",
+      "definicion": "Comportamiento de un funcionario o servidor público que ejerce sus funciones con descuido, flojedad o indolencia."
+    },
+    {
+      "termino": "Observatorio",
+      "definicion": "Herramienta de medición, estudio, reflexión, promoción, intercambio y análisis de información relacionada con el aseguramiento de los recursos de la Nación recaudados por Coljuegos, DIAN y la UGPP, que permite el mejoramiento de los procesos, la prevención y detección de escenarios de fraude y corrupción en la administración de tributos, rentas y contribuciones parafiscales del país, así como la generación de recomendaciones para la lucha contra la corrupción."
+    },
+    {
+      "termino": "Omisión",
+      "definicion": "Descuido u olvido en el cumplimiento o ejecución de los deberes. En los funcionarios y servidores públicos se considera como una falta grave ya que suele dañar los intereses de los particulares y del Estado."
+    },
+    {
+      "termino": "Oportunidad",
+      "definicion": "Para que ocurra el fraude o una irregularidad al interior de una entidad, deben existir debilidades, ausencia de controles o desidia en alguna parte del proceso en el que ocurre el evento. Los delincuentes perciben un entorno favorable para cometer actos irregulares, esta oportunidad de cometer fraude se presenta cuando alguien tiene el acceso, conocimiento y tiempo para realizar sus acciones irregulares. Las debilidades del control interno o la posibilidad de ponerse de acuerdo con otros directivos o empleados para cometer fraude (colusión), son ejemplos de oportunidades para comportamientos irregulares."
+    },
+    {
+      "termino": "Peculado",
+      "definicion": "Cuando un servidor público se apropia para sí o para un tercero de bienes del Estado (Por apropiación), o el servidor público que indebidamente use o permita que otro use bienes del Estado (por uso), el que dé a los bienes del Estado aplicación oficial diferente de aquella a que están destinados (por aplicación oficial diferente)."
+    },
+    {
+      "termino": "Práctica referente",
+      "definicion": "Entendida como una experiencia que solucionó un problema, atendió una necesidad de servicio en la ciudadanía, o que disminuyó la posibilidad de materializar un riesgo de fraude u otras prácticas no apropiadas, a través de métodos o mecanismos novedosos, presentando resultados demostrables superiores a las de otras entidades u organizaciones similares, sobrepasando objetivos trazados y con sostenibilidad en el tiempo."
+    },
+    {
+      "termino": "Prevaricato",
+      "definicion": "Cuando un servidor público profiere decisión manifiestamente contraria a la Ley (por acción), o cuando omita, retarde, rehúse, deniegue un acto propio de sus funciones (por omisión)."
+    },
+    {
+      "termino": "Proceso disciplinario",
+      "definicion": "Asunto en investigación o juicio sobre la actuación laboral de un funcionario o servidor público."
+    },
+    {
+      "termino": "Programa Anual de Inspecciones",
+      "definicion": "Documento público suscrito por el/la Director/a General de la Agencia ITRC, en el que se dan a conocer los procedimientos, procesos o asuntos a inspeccionar por la SAGR durante un año calendario."
+    },
+    {
+      "termino": "Racionalización",
+      "definicion": "Corresponde a un mecanismo psicológico para enfrentar una disonancia cognoscitiva (es decir la falta de congruencia entre su propia percepción de honestidad y la naturaleza engañosa de sus acciones), necesitar una excusa. Ejemplos de racionalización para justificar el fraude cometido pueden ser: alegar baja remuneración (convencerse de que no es fraude sino una compensación salarial, un préstamo), falta de reconocimiento en la organización (convencerse de que es una bonificación), fraude cometido por otros empleados y/o directivos (convencerse de que si otros cometen fraudes el fraude propio está justificado)."
+    },
+    {
+      "termino": "Riesgo",
+      "definicion": "Efecto de la incertidumbre sobre los objetivos. Está asociado a uno o más eventos."
+    },
+    {
+      "termino": "Riesgo de negocio",
+      "definicion": "Partiendo de la definición de Riesgo de la NTC ISO 31000:2011, los riesgos de negocio se definen como los efectos de la incertidumbre sobre los objetivos de política fiscal y tributaria con los que se encuentran comprometidas las entidades."
+    },
+    {
+      "termino": "Riesgo financiero",
+      "definicion": "Se define como la posibilidad de que se produzca un hecho generador de pérdidas que afecten el valor económico de las instituciones; o la posibilidad de pérdida en que incurre una entidad al ser sancionada u obligada a indemnizar daños como resultado del incumplimiento de normas o regulaciones y obligaciones contractuales."
+    },
+    {
+      "termino": "Riesgo Institucional",
+      "definicion": "Partiendo de la definición de Riesgo de la NTC ISO 31000:2011 y de la Guía de Gestión del Riesgo del Departamento Administrativo de la Función Pública (DAFP), los riesgos institucionales se definen como los efectos de la incertidumbre sobre los objetivos de la entidad, expresados en metas estratégicas."
+    },
+    {
+      "termino": "Riesgos de Corrupción",
+      "definicion": "Evento o condición incierta que tiene un efecto negativo sobre los objetivos de un proceso que está asociado al abuso de poder."
+    },
+    {
+      "termino": "Riesgos de fraude",
+      "definicion": "Evento o condición incierta que tiene un efecto negativo sobre los objetivos de un proceso que está asociado al abuso de la oportunidad."
+    },
+    {
+      "termino": "Servidor público",
+      "definicion": "Son todas las personas empleadas o vinculadas a las diferentes instituciones, ramas y órganos del Estado que prestan sus servicios a la sociedad. Son básicamente de diferentes clases: empleados o funcionarios públicos, trabajadores oficiales y miembros de corporaciones públicas."
+    },
+    {
+      "termino": "Sistema de Prevención de Fraude y Corrupción — SPFC",
+      "definicion": "Herramienta de gestión pública que permite dar a conocer aquellos espacios de fraude y corrupción y prácticas sancionables que pueden prevenirse en las entidades que administran los ingresos tributarios de la Nación, junto con las recomendaciones que ha generado la Agencia ITRC para articular controles, fortalecer las instituciones auditadas, promoviendo la adopción de mejores prácticas en la administración de los tributos, las rentas y las contribuciones parafiscales, que aseguren los ingresos de la Nación. El SPFC recopila los riesgos a los que se encuentran expuestas las entidades, los cuales se actualizan producto de las inspecciones ejecutadas, de tal manera que se ofrezca un mayor conocimiento sobre el fenómeno, y se incentive el control social."
+    },
+    {
+      "termino": "Tráfico de influencias",
+      "definicion": "Cuando un servidor público utiliza indebidamente en provecho suyo o de un tercero, influencias derivadas del cargo o de la función con el fin de obtener cualquier beneficio de parte de servidor en asunto que éste conociendo o haya de conocer."
+    },
+    {
+      "termino": "Triángulo del fraude",
+      "definicion": "La teoría del Triángulo del Fraude explica las razones por las que una persona puede cometer un fraude y determina tres factores: presión, oportunidad, y justificación o racionalización."
+    }
+  ]
+}

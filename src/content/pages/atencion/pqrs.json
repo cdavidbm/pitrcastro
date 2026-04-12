@@ -1,0 +1,115 @@
+{
+  "title": "P.Q.R.S",
+  "slug": "tu-p-q-r-s-al-dia",
+  "description": "Peticiones, Quejas, Reclamos y Sugerencias de la Agencia ITRC",
+  "icon": "fa-comments",
+  "published": true,
+  "intro": "La Agencia ITRC pone a disposición su sistema de PQRS donde podrá presentar sugerencias o peticiones, que permitan realizar mejoras en la manera como se presta el servicio público o alguna queja o reclamo que se relacione con el cumplimiento de la misión de la entidad; así como actos de corrupción de funcionarios de la Agencia ITRC.",
+  "tramitesUrl": "https://tramites.itrc.gov.co/webfileAgenciaITRC/",
+  "consultaUrl": "https://www.itrc.gov.co/denuncias/consulta",
+  "definiciones": [
+    {
+      "letra": "P",
+      "titulo": "Petición",
+      "color": "blue",
+      "icon": "fa-file-pen",
+      "descripcion": "Es el derecho que tiene toda persona natural o jurídica a presentar peticiones respetuosas ante las autoridades competentes, por motivos de interés general o particular, de manera verbal o escrita y a obtener pronta resolución, completa y de fondo en los asuntos de su competencia."
+    },
+    {
+      "letra": "Q",
+      "titulo": "Queja",
+      "color": "gold",
+      "icon": "fa-triangle-exclamation",
+      "descripcion": "Es la manifestación, protesta, censura, descontento o inconformidad que eleva un ciudadano con relación a la conducta irregular de uno o varios servidores públicos en desarrollo de sus funciones."
+    },
+    {
+      "letra": "R",
+      "titulo": "Reclamo",
+      "color": "red",
+      "icon": "fa-circle-exclamation",
+      "descripcion": "Es toda manifestación particular o general de inconformidad frente a la prestación de un servicio o a la no atención de una solicitud por parte de la Agencia ITRC y que el ciudadano reclamante considera lo perjudica, es injusta o ilegal."
+    },
+    {
+      "letra": "S",
+      "titulo": "Sugerencia",
+      "color": "green",
+      "icon": "fa-lightbulb",
+      "descripcion": "Manifestación verbal, escrita o a través de un medio electrónico que realiza un ciudadano, con el fin de contribuir al mejoramiento del servicio que presta cada una de las dependencias de la Agencia ITRC, racionalizar el empleo de los recursos, hacer más participativa la gestión pública y generar recomendaciones en la lucha contra la corrupción."
+    }
+  ],
+  "informes": [
+    {
+      "anio": "2025",
+      "label": "2025",
+      "reportes": [
+        { "nombre": "Informe Primer Trimestre 2025 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe-P.Q.R.S.D.F-I-Trimestre-2025-002.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2025 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Informe-P.Q.R.S.D.F-II-Trimestre-2025.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2025 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Informe-P.Q.R.S.D.F-III-Trimestre-2025-V2.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2025 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Informe-P.Q.R.S.D.F-IV-Trimestre-2025.pptx", "tipo": "pptx" },
+        { "nombre": "PQRSDF Unificado 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/PQRSDF-unificado.xlsx", "tipo": "xlsx" }
+      ]
+    },
+    {
+      "anio": "2024",
+      "label": "2024",
+      "reportes": [
+        { "nombre": "Informe Primer Trimestre 2024 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Informe-P.Q.R.S.D.F-1o.-Trimestre-2024-.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2024 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-P.Q.R.S.D.F-2do-Trimestre-2024.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2024 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Informe-P.Q.R.S.D.F-III-Trimestre-2024.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2024 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/01/Informe-P.Q.R.S.D.F-IV-Trimestre-2024-V2.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2023",
+      "label": "2023",
+      "reportes": [
+        { "nombre": "Informe Primer Trimestre 2023 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2023 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-2do.-Trimestre.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2023 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-3er.-Trimestre.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2023 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-Cuarto-trimestre.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2022",
+      "label": "2022",
+      "reportes": [
+        { "nombre": "Informe Primer Trimestre 2022 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Informe-Atencion-al-Ciudadano-f3-2-1.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2022 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F-Segundo-trimestre-2022..pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2022 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Informe-Atención-al-Ciudadano-P.Q.R.S.D.F-Tercer-trimestre-2022..pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2022 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Informe-Atención-al-Ciudadano-P.Q.R.S.D.F.-4to.-Trimestre.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2021",
+      "label": "2021",
+      "reportes": [
+        { "nombre": "Informe Primer Trimestre 2021 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/Informe-Primer-Trimestre-2021-PQRSDF..pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2021 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/08/Informe-Segundo-Trimestre-2021-PQRSDF.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2021 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/Informe-3-Trimestre-2021-PQRSDF-AGENCIA-ITRC-.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2021 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/Informe-Cuarto-Trimestre-2021-PQRSDF-version-7-01-2022.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2020-anteriores",
+      "label": "2020 y Anteriores",
+      "reportes": [
+        { "nombre": "Informe Cuarto Trimestre 2020 PQRSDF", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Informe-Cuarto-Trimestre-2020-PQRSDF.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2020 PQRSDF", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/Informe-Tercer-Trimestre-2020-PQRSDF-Definitivo-Correcciones.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2020 PQRSDF", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Informe-Segundo-Trimestre-2020-PQRSDF-Versi%C3%B3n-para-publicar.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Primer Trimestre 2020 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/Informe-Primer-Trimestre-2020-PQRSDF-versi%C3%B3n-para-la-publicaci%C3%B3n.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2019 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/01/Informe-Cuarto-Trimestre-2019-PQRSDF.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2019 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/11/Informe-Tercer-Trimestre-2019-PQRSDF-1.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2019 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/08/Informe-PQRSDF-Segundo-Trimestre-2019.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Primer Trimestre 2019 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/04/Informe-Primer-Trimestre-2019-PQRSDF.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre Atención al Ciudadano P.Q.R.S 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/INFORME-PQRS-CUARTO-TRIMESTRE-29-01-2019-PUBLICAR.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre Atención al Ciudadano 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/INFORME-PQRS-TERCER-TRIMESTRE-FORMATO-16-10-2018.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre Atención al Ciudadano 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/pqrs-2-trimestre-formato.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Primer Trimestre 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-TRIMESTRAL-DE-PETICIONES.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Cuarto Trimestre 2017", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-DE-PETICIONES-4to-trimestre-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Tercer Trimestre 2017", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-TRIMESTRAL-DE-PETICIONES-3ER-TRIMESTRE-2-version.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Segundo Trimestre 2017", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-TRIMESTRAL-DE-PETICIONES-2-TRIMESTRE.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Primer Trimestre 2017", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/Informe-Primer-Trimeste-2017.pdf", "tipo": "pdf" }
+      ]
+    }
+  ]
+}
