@@ -49,7 +49,15 @@
     },
     {
       "label": "Participa",
-      "url": "/participa"
+      "url": "/participa",
+      "children": [
+        { "label": "Diagnóstico e Identificación de Problemas", "url": "/participa/diagnostico-e-identificacion-de-problemas" },
+        { "label": "Planeación y Presupuesto Participativo", "url": "/participa/planeacion-y-presupuesto-participativo" },
+        { "label": "Consulta Ciudadana", "url": "/participa/consulta-ciudadana" },
+        { "label": "Colaboración e Innovación", "url": "/participa/colaboracion-e-innovacion" },
+        { "label": "Rendición de Cuentas", "url": "/participa/rendicion-de-cuentas" },
+        { "label": "Control Social", "url": "/participa/control-social" }
+      ]
     },
     {
       "label": "Transparencia",
