@@ -1,0 +1,567 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+import edictosData from '../content/notificaciones/edictos.json';
+import estadosData from '../content/notificaciones/estados.json';
+import trasladosData from '../content/notificaciones/traslados.json';
+
+const base = import.meta.env.BASE_URL;
+
+const tabs = [
+  { id: 'edictos', label: 'Edictos', icon: 'fa-scroll', entries: edictosData.entries, count: edictosData.entries.length },
+  { id: 'estados', label: 'Estados', icon: 'fa-file-circle-check', entries: estadosData.entries, count: estadosData.entries.length },
+  { id: 'traslados', label: 'Traslados', icon: 'fa-file-export', entries: trasladosData.entries, count: trasladosData.entries.length },
+];
+
+const allEntries = [...edictosData.entries, ...estadosData.entries, ...trasladosData.entries];
+const vigencias = [...new Set(allEntries.map(e => e.vigencia))].sort((a, b) => b - a);
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: '#' },
+  { label: 'Notificaciones y Traslados' }
+];
+---
+
+<Base title="Notificaciones y Traslados" description="Notificaciones supletorias, estados y traslados de la Agencia ITRC.">
+  <HeroPage
+    title="Notificaciones y Traslados"
+    subtitle="Notificaciones supletorias, estados y traslados de actos administrativos de la Agencia ITRC"
+    icon="fa-bell"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Tabs de categoría -->
+  <section class="notif-tabs-section">
+    <div class="container">
+      <div class="notif-tabs" role="tablist" aria-label="Categorías de notificaciones">
+        {tabs.map((tab, i) => (
+          <button
+            class={`notif-tab ${i === 0 ? 'active' : ''}`}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`panel-${tab.id}`}
+            data-tab={tab.id}
+          >
+            <i class={`fa-solid ${tab.icon}`} aria-hidden="true"></i>
+            <span class="notif-tab__label">{tab.label}</span>
+            <span class="notif-tab__count">{tab.count}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Controles -->
+  <section class="notif-controls-section">
+    <div class="container">
+      <div class="notif-controls">
+        <div class="controls-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="notifSearch" placeholder="Buscar por expediente, tipo de auto..." aria-label="Buscar notificaciones" />
+        </div>
+        <div class="controls-filters">
+          <select id="filterVigencia" aria-label="Filtrar por vigencia">
+            <option value="">Todas las vigencias</option>
+            {vigencias.map(v => (
+              <option value={String(v)}>{v === 2023 ? '2024 y anteriores' : v === 2024 ? '2024' : String(v)}</option>
+            ))}
+          </select>
+          <select id="perPageSelect" aria-label="Filas por página">
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="0">Todos</option>
+          </select>
+          <button type="button" id="clearFilters" class="btn-clear" title="Limpiar filtros">
+            <i class="fa-solid fa-filter-circle-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="notif-info"><span id="resultsCount"></span></div>
+    </div>
+  </section>
+
+  <!-- Paneles -->
+  <section class="notif-section">
+    <div class="container">
+      {tabs.map((tab, i) => (
+        <div
+          class={`notif-panel ${i === 0 ? 'active' : ''}`}
+          id={`panel-${tab.id}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${tab.id}`}
+          hidden={i !== 0}
+        >
+          <div class="notif-table-wrapper">
+            <table class="notif-table" data-category={tab.id}>
+              <thead>
+                <tr>
+                  <th class="col-expediente">Expediente</th>
+                  <th class="col-tipo-auto">Tipo de Auto</th>
+                  <th class="col-tipo-notif">{tab.id === 'traslados' ? 'Tipo de Traslado' : 'Tipo'}</th>
+                  <th class="col-dependencia">Dependencia</th>
+                  <th class="col-fecha">Fecha</th>
+                  <th class="col-desde">Desde</th>
+                  <th class="col-hasta">Hasta</th>
+                  <th class="col-pdf">Auto</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tab.entries.map((e) => (
+                  <tr data-vigencia={String(e.vigencia)}>
+                    <td data-label="Expediente" class="td-expediente">{e.expediente}</td>
+                    <td data-label="Tipo de Auto" class="td-tipo-auto">{e.tipoAuto}</td>
+                    <td data-label="Tipo">{e.tipoNotificacion}</td>
+                    <td data-label="Dependencia" class="td-dependencia">{e.dependencia}</td>
+                    <td data-label="Fecha" class="td-fecha">{e.fechaAuto}</td>
+                    <td data-label="Desde" class="td-fecha">{e.desde}</td>
+                    <td data-label="Hasta" class="td-fecha">{e.hasta}</td>
+                    <td data-label="Auto" class="td-center">
+                      {e.pdfUrl && (
+                        <a href={e.pdfUrl} target="_blank" rel="noopener" class="pdf-link" title="Ver auto">
+                          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                        </a>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <nav class="notif-pagination" data-pagination={tab.id} aria-label={`Paginación ${tab.label}`}></nav>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ====== Tabs ====== */
+  .notif-tabs-section {
+    background: var(--theme-surface-alt);
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+
+  .notif-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .notif-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border: 2px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    background: var(--theme-surface);
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .notif-tab i { font-size: var(--font-size-base); }
+
+  .notif-tab__count {
+    background: var(--theme-surface-alt);
+    padding: 1px 8px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .notif-tab:hover {
+    border-color: var(--itrc-gold);
+    color: var(--itrc-gold);
+  }
+
+  .notif-tab.active {
+    background: var(--itrc-gold);
+    border-color: var(--itrc-gold);
+    color: var(--white);
+  }
+
+  .notif-tab.active .notif-tab__count {
+    background: rgba(255, 255, 255, 0.25);
+    color: var(--white);
+  }
+
+  /* ====== Controls ====== */
+  .notif-controls-section {
+    padding: var(--space-5) var(--space-6) var(--space-3);
+    background: var(--theme-surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--theme-border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .notif-controls {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .controls-search {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+  }
+
+  .controls-search i {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .controls-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .controls-search input:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15);
+  }
+
+  .controls-filters {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .controls-filters select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    cursor: pointer;
+  }
+
+  .controls-filters select:focus { outline: none; border-color: var(--itrc-gold); }
+
+  .btn-clear {
+    padding: var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    background: var(--theme-surface);
+    color: var(--theme-text-muted);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .btn-clear:hover { border-color: var(--file-pdf); color: var(--file-pdf); }
+
+  .notif-info {
+    padding: var(--space-2) 0;
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+
+  /* ====== Table ====== */
+  .notif-section {
+    padding: 0 var(--space-6) var(--space-12);
+    background: var(--theme-surface);
+  }
+
+  .notif-panel { display: none; }
+  .notif-panel.active { display: block; }
+
+  .notif-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--theme-border-light);
+  }
+
+  .notif-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+    min-width: 850px;
+  }
+
+  .notif-table thead { background: var(--theme-dark-section-bg); }
+
+  .notif-table th {
+    padding: var(--space-3) var(--space-3);
+    text-align: left;
+    font-weight: 700;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--theme-dark-section-heading);
+    white-space: nowrap;
+    border-bottom: 2px solid var(--itrc-gold);
+  }
+
+  .notif-table td {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--theme-border-light);
+    color: var(--theme-text);
+    vertical-align: top;
+    font-size: var(--font-size-xs);
+  }
+
+  .notif-table tbody tr { transition: background var(--transition-fast); }
+  .notif-table tbody tr:nth-child(even) { background: var(--theme-surface-alt); }
+  .notif-table tbody tr:hover { background: rgba(var(--itrc-gold-rgb), 0.08); }
+
+  .col-expediente { width: 140px; }
+  .col-tipo-auto { min-width: 160px; }
+  .col-tipo-notif { width: 100px; }
+  .col-dependencia { width: 160px; }
+  .col-fecha { width: 85px; }
+  .col-desde { width: 85px; }
+  .col-hasta { width: 85px; }
+  .col-pdf { width: 50px; text-align: center; }
+
+  .td-expediente { font-weight: 600; color: var(--theme-heading); font-family: monospace; font-size: 0.7rem; }
+  .td-tipo-auto { font-size: var(--font-size-xs); color: var(--theme-text-secondary); }
+  .td-dependencia { font-size: 0.65rem; color: var(--theme-text-muted); }
+  .td-fecha { font-size: var(--font-size-xs); white-space: nowrap; }
+  .td-center { text-align: center; }
+
+  .pdf-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-md);
+    color: var(--file-pdf);
+    background: rgba(220, 53, 69, 0.08);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-sm);
+  }
+
+  .pdf-link:hover { background: var(--file-pdf); color: var(--white); transform: scale(1.1); }
+
+  /* ====== Pagination ====== */
+  .notif-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-6) 0;
+    flex-wrap: wrap;
+  }
+
+  .notif-pagination button {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    cursor: pointer;
+    min-width: 36px;
+    text-align: center;
+    transition: all var(--transition-fast);
+  }
+
+  .notif-pagination button:hover:not(:disabled) { border-color: var(--itrc-gold); color: var(--itrc-gold); }
+  .notif-pagination button.active { background: var(--itrc-gold); color: var(--white); border-color: var(--itrc-gold); font-weight: 700; }
+  .notif-pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .notif-pagination .pagination-ellipsis {
+    padding: var(--space-2) var(--space-1);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .notif-tabs-section { padding: var(--space-4); }
+    .notif-tabs { gap: var(--space-2); }
+    .notif-tab { padding: var(--space-2) var(--space-4); font-size: var(--font-size-xs); }
+    .notif-tab__label { display: none; }
+    .notif-tab i { font-size: var(--font-size-lg); }
+
+    .notif-controls-section { padding: var(--space-4) var(--space-4) var(--space-2); position: static; }
+    .notif-controls { flex-direction: column; gap: var(--space-3); }
+    .controls-search { min-width: unset; width: 100%; }
+    .controls-filters { width: 100%; }
+    .controls-filters select { flex: 1; min-width: 0; padding: var(--space-2) var(--space-3); }
+
+    .notif-section { padding: 0 var(--space-4) var(--space-8); }
+    .notif-table { min-width: 700px; }
+  }
+</style>
+
+<script>
+  function initNotificaciones() {
+    const tabButtons = document.querySelectorAll('.notif-tab');
+    const panels = document.querySelectorAll('.notif-panel');
+    const searchInput = document.getElementById('notifSearch') as HTMLInputElement;
+    const filterVigencia = document.getElementById('filterVigencia') as HTMLSelectElement;
+    const perPageSelect = document.getElementById('perPageSelect') as HTMLSelectElement;
+    const clearBtn = document.getElementById('clearFilters');
+    const resultsCount = document.getElementById('resultsCount');
+
+    let activeTab = 'edictos';
+    let perPage = 25;
+
+    function getActiveTable() {
+      const panel = document.getElementById(`panel-${activeTab}`);
+      return panel?.querySelector('table');
+    }
+
+    function getActivePagination() {
+      return document.querySelector(`[data-pagination="${activeTab}"]`);
+    }
+
+    function switchTab(tabId: string) {
+      activeTab = tabId;
+      tabButtons.forEach(btn => {
+        const isActive = (btn as HTMLElement).dataset.tab === tabId;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+      });
+      panels.forEach(panel => {
+        const isActive = panel.id === `panel-${tabId}`;
+        panel.classList.toggle('active', isActive);
+        (panel as HTMLElement).hidden = !isActive;
+      });
+      filterAndRender();
+    }
+
+    function filterAndRender() {
+      const table = getActiveTable();
+      if (!table) return;
+
+      const tbody = table.querySelector('tbody');
+      if (!tbody) return;
+
+      const allRows = Array.from(tbody.querySelectorAll('tr'));
+      const searchVal = searchInput?.value.toLowerCase().trim() || '';
+      const vigVal = filterVigencia?.value || '';
+
+      let visibleCount = 0;
+      const filteredRows: HTMLTableRowElement[] = [];
+
+      allRows.forEach(row => {
+        const text = row.textContent?.toLowerCase() || '';
+        const vig = row.dataset.vigencia || '';
+        const matchSearch = !searchVal || text.includes(searchVal);
+        const matchVig = !vigVal || vig === vigVal;
+
+        if (matchSearch && matchVig) {
+          filteredRows.push(row);
+        }
+        row.style.display = 'none';
+      });
+
+      visibleCount = filteredRows.length;
+      const pageSize = perPage === 0 ? visibleCount : perPage;
+      const currentPage = 1;
+      const start = 0;
+      const end = Math.min(pageSize, visibleCount);
+
+      filteredRows.slice(start, end).forEach(row => { row.style.display = ''; });
+
+      if (resultsCount) {
+        if (visibleCount === 0) resultsCount.textContent = 'No se encontraron registros';
+        else if (perPage === 0) resultsCount.textContent = `Mostrando ${visibleCount} registro${visibleCount !== 1 ? 's' : ''}`;
+        else resultsCount.textContent = `Mostrando 1–${end} de ${visibleCount} registro${visibleCount !== 1 ? 's' : ''}`;
+      }
+
+      renderPagination(filteredRows, 1);
+    }
+
+    function renderPagination(filteredRows: HTMLTableRowElement[], currentPage: number) {
+      const paginationNav = getActivePagination();
+      if (!paginationNav) return;
+
+      const total = filteredRows.length;
+      const pageSize = perPage === 0 ? total : perPage;
+      if (perPage === 0 || total <= pageSize) { paginationNav.innerHTML = ''; return; }
+
+      const totalPages = Math.ceil(total / pageSize);
+      let html = `<button ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">&laquo;</button>`;
+
+      const pages = genPages(currentPage, totalPages);
+      for (const p of pages) {
+        if (p === '...') html += '<span class="pagination-ellipsis">…</span>';
+        else html += `<button class="${Number(p) === currentPage ? 'active' : ''}" data-page="${p}">${p}</button>`;
+      }
+      html += `<button ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">&raquo;</button>`;
+      paginationNav.innerHTML = html;
+
+      paginationNav.querySelectorAll('button[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const page = parseInt((btn as HTMLElement).dataset.page || '1', 10);
+          if (page < 1 || page > totalPages) return;
+          const start = (page - 1) * pageSize;
+          const end = Math.min(start + pageSize, total);
+          filteredRows.forEach((row, i) => { row.style.display = (i >= start && i < end) ? '' : 'none'; });
+          if (resultsCount) resultsCount.textContent = `Mostrando ${start + 1}–${end} de ${total} registros`;
+          renderPagination(filteredRows, page);
+          getActiveTable()?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    }
+
+    function genPages(cur: number, tot: number): (number | string)[] {
+      if (tot <= 7) return Array.from({ length: tot }, (_, i) => i + 1);
+      const p: (number | string)[] = [1];
+      if (cur > 3) p.push('...');
+      for (let i = Math.max(2, cur - 1); i <= Math.min(tot - 1, cur + 1); i++) p.push(i);
+      if (cur < tot - 2) p.push('...');
+      p.push(tot);
+      return p;
+    }
+
+    // Events
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => switchTab((btn as HTMLElement).dataset.tab || 'edictos'));
+    });
+
+    let searchTimeout: ReturnType<typeof setTimeout>;
+    searchInput?.addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(filterAndRender, 300); });
+    filterVigencia?.addEventListener('change', filterAndRender);
+    perPageSelect?.addEventListener('change', () => { perPage = parseInt(perPageSelect.value, 10); filterAndRender(); });
+
+    clearBtn?.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      if (filterVigencia) filterVigencia.value = '';
+      perPage = 25;
+      if (perPageSelect) perPageSelect.value = '25';
+      filterAndRender();
+    });
+
+    filterAndRender();
+  }
+
+  initNotificaciones();
+  document.addEventListener('astro:after-swap', initNotificaciones);
+</script>

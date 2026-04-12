@@ -11,9 +11,88 @@ const DISPLAY_MODE_SIMPLE = {
   default: "list",
 };
 
-export const atencion = {
-  name: "atencion-servicios",
+// ============================================================
+// Campos compartidos para notificaciones (edictos, estados, traslados)
+// ============================================================
+
+const notificacionFields = [
+  { name: "expediente", label: "Número del expediente", widget: "string", required: true },
+  { name: "tipoAuto", label: "Tipo de auto", widget: "string", required: true },
+  { name: "tipoNotificacion", label: "Tipo de notificación / traslado", widget: "string", required: true },
+  { name: "dependencia", label: "Dependencia que profiere el acto", widget: "string", required: true },
+  { name: "fechaAuto", label: "Fecha del auto", widget: "string", required: false, hint: "Formato: DD/MM/AAAA" },
+  { name: "desde", label: "Desde", widget: "string", required: false, hint: "Formato: DD/MM/AAAA" },
+  { name: "hasta", label: "Hasta", widget: "string", required: false, hint: "Formato: DD/MM/AAAA" },
+  { name: "pdfUrl", label: "URL del auto (PDF)", widget: "string", required: false },
+  { name: "vigencia", label: "Vigencia (Año)", widget: "number", value_type: "int", required: true, hint: "Año de la vigencia: 2026, 2025, etc." },
+];
+
+// ============================================================
+// Notificaciones y Traslados (file collection)
+// ============================================================
+
+const notificaciones = {
+  name: "notificaciones-traslados",
   label: "ATENCIÓN Y SERVICIOS",
+  files: [
+    {
+      name: "edictos",
+      label: "Edictos (Notificaciones Supletorias)",
+      file: "src/content/notificaciones/edictos.json",
+      fields: [
+        {
+          name: "entries",
+          label: "Edictos",
+          widget: "list",
+          label_singular: "Edicto",
+          collapsed: true,
+          summary: "{{fields.expediente}} — {{fields.tipoAuto}} ({{fields.vigencia}})",
+          fields: notificacionFields,
+        },
+      ],
+    },
+    {
+      name: "estados",
+      label: "Estados (Notificaciones Supletorias)",
+      file: "src/content/notificaciones/estados.json",
+      fields: [
+        {
+          name: "entries",
+          label: "Estados",
+          widget: "list",
+          label_singular: "Estado",
+          collapsed: true,
+          summary: "{{fields.expediente}} — {{fields.tipoAuto}} ({{fields.vigencia}})",
+          fields: notificacionFields,
+        },
+      ],
+    },
+    {
+      name: "traslados",
+      label: "Traslados",
+      file: "src/content/notificaciones/traslados.json",
+      fields: [
+        {
+          name: "entries",
+          label: "Traslados",
+          widget: "list",
+          label_singular: "Traslado",
+          collapsed: true,
+          summary: "{{fields.expediente}} — {{fields.tipoAuto}} ({{fields.vigencia}})",
+          fields: notificacionFields,
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Páginas genéricas de Atención (folder collection)
+// ============================================================
+
+const atencionGeneral = {
+  name: "atencion-servicios",
+  label: "    > Otras Páginas de Atención",
   label_singular: "Página de Atención",
   folder: "src/content/pages/atencion",
   create: true,
@@ -61,3 +140,5 @@ export const atencion = {
     },
   ],
 };
+
+export const atencionCollections = [notificaciones, atencionGeneral];

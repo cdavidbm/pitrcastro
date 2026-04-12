@@ -7,7 +7,7 @@ import { base } from "./base.js";
 import { agencia } from "./collections/agencia.js";
 import { transparencia } from "./collections/transparencia.js";
 import { normativaCollections } from "./collections/normativa.js";
-import { atencion } from "./collections/atencion.js";
+import { atencionCollections } from "./collections/atencion.js";
 import { participa } from "./collections/participa.js";
 import { prensaCollections } from "./collections/prensa.js";
 import { sliders } from "./collections/sliders.js";
@@ -32,7 +32,7 @@ const COLLECTION_GROUPS = [
   },
   {
     header: "ATENCION Y SERVICIOS\n# Canales de atencion y servicios al ciudadano",
-    collections: [atencion],
+    collections: atencionCollections,
   },
   {
     header: "PARTICIPA\n# Mecanismos de participacion ciudadana",
