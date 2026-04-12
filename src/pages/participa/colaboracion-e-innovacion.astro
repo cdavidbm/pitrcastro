@@ -1,0 +1,132 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { resolveUrl } from '../../utils/url';
+
+import pageData from '../../content/pages/participa/colaboracion.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Participa', href: resolveUrl('/participa') },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Planeación y Presupuesto', descripcion: 'Formulación e implementación de políticas', url: '/participa/planeacion-y-presupuesto-participativo', icon: 'fa-chart-pie' },
+  { titulo: 'Consulta Ciudadana', descripcion: 'Mecanismos de participación', url: '/participa/consulta-ciudadana', icon: 'fa-comments' },
+  { titulo: 'Rendición de Cuentas', descripcion: 'Informes de gestión y resultados', url: '/participa/rendicion-de-cuentas', icon: 'fa-file-contract' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="colab-section">
+    <div class="container">
+      <p class="colab-intro">{pageData.intro}</p>
+
+      {pageData.textoAdicional.split('\n\n').map((p) => (
+        <p class="colab-text">{p}</p>
+      ))}
+
+      <div class="colab-iniciativas">
+        {pageData.iniciativas.map((ini) => (
+          <div class="iniciativa-card">
+            <h3 class="iniciativa-card__title">
+              <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+              {ini.titulo}
+            </h3>
+            {ini.imagen && (
+              <div class="iniciativa-card__image">
+                <img src={ini.imagen} alt={ini.descripcion} loading="lazy" />
+              </div>
+            )}
+            <p class="iniciativa-card__desc">{ini.descripcion}</p>
+            <a
+              href={ini.interno ? resolveUrl(ini.enlace) : ini.enlace}
+              target={ini.interno ? undefined : '_blank'}
+              rel={ini.interno ? undefined : 'noopener'}
+              class="iniciativa-card__cta"
+            >
+              <i class={`fa-solid ${ini.interno ? 'fa-arrow-right' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+              {ini.textoEnlace}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Más secciones de Participa" />
+</Base>
+
+<style>
+  .colab-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .colab-section .container { max-width: 900px; margin: 0 auto; }
+
+  .colab-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-4); }
+  .colab-text { font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-4); }
+
+  .colab-iniciativas {
+    display: flex; flex-direction: column; gap: var(--space-8);
+    margin-top: var(--space-10); padding-top: var(--space-8);
+    border-top: 2px solid var(--theme-border-light);
+  }
+
+  .iniciativa-card {
+    background: var(--theme-surface); border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl); overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .iniciativa-card:hover { box-shadow: var(--shadow-lg); }
+
+  .iniciativa-card__title {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-5) var(--space-6); margin: 0;
+    font-size: var(--font-size-lg); color: var(--theme-heading);
+    background: var(--theme-surface-alt);
+    border-bottom: 2px solid var(--itrc-gold);
+  }
+
+  .iniciativa-card__title i { color: var(--itrc-gold); }
+
+  .iniciativa-card__image {
+    width: 100%; overflow: hidden;
+  }
+
+  .iniciativa-card__image img {
+    width: 100%; height: auto; display: block;
+    transition: transform var(--transition-base);
+  }
+
+  .iniciativa-card:hover .iniciativa-card__image img { transform: scale(1.02); }
+
+  .iniciativa-card__desc {
+    padding: var(--space-4) var(--space-6) var(--space-2);
+    font-size: var(--font-size-sm); color: var(--theme-text-secondary);
+    line-height: 1.6; margin: 0;
+  }
+
+  .iniciativa-card__cta {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    margin: var(--space-3) var(--space-6) var(--space-5);
+    padding: var(--space-3) var(--space-6);
+    background: var(--itrc-gold); color: var(--white);
+    border-radius: var(--radius-full); text-decoration: none;
+    font-weight: 700; font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+  }
+
+  .iniciativa-card__cta:hover { background: var(--itrc-navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  @media (max-width: 768px) {
+    .colab-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .colab-intro { font-size: var(--font-size-base); }
+    .iniciativa-card__title { padding: var(--space-4) var(--space-5); font-size: var(--font-size-base); }
+    .iniciativa-card__cta { margin: var(--space-3) var(--space-5) var(--space-4); font-size: var(--font-size-xs); }
+  }
+</style>

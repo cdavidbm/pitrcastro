@@ -1,0 +1,11 @@
+{
+  "title": "Control Social",
+  "slug": "control-social",
+  "description": "Derecho y deber de los ciudadanos a participar en la vigilancia de la gestión pública",
+  "icon": "fa-shield-halved",
+  "intro": "El control social es un derecho y deber de los ciudadanos a participar en la vigilancia de la gestión pública buscando la correcta utilización de los recursos públicos y la gestión institucional.",
+  "enlaces": [
+    { "texto": "Plan de participación ciudadana", "url": "/agencia/direccionamiento-estrategico/planes", "tipo": "internal", "icon": "fa-list-check" },
+    { "texto": "Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal", "icon": "fa-comments" }
+  ]
+}

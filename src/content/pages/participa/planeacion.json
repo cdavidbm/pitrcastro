@@ -1,0 +1,16 @@
+{
+  "title": "Planeación y Presupuesto Participativo",
+  "slug": "planeacion-y-presupuesto-participativo",
+  "description": "Participación ciudadana en la formulación, implementación y seguimiento de políticas y planes de la Agencia ITRC",
+  "icon": "fa-chart-pie",
+  "intro": "En la sección de Planeación y presupuesto participativo, los ciudadanos y grupos de valor de la entidad, pueden participar en la formulación, implementación y seguimiento de las políticas, planes, programas o proyectos, a partir de la identificación y atención a las necesidades.",
+  "nota": "El Presupuesto Participativo es obligatorio para territorio, alcaldías y gobernaciones y no para entidades nacionales (Art 90, 91, 92 y 93 Ley 1557 de 2015). La Agencia ITRC es una entidad del orden nacional, por lo que no aplica este ítem.",
+  "enlaces": [
+    { "texto": "Acciones Estratégicas del Programa de Transparencia y Ética Pública", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Acciones-Estrategicas-del-Programa-de-Transparencia-y-Etica-Publica-1.xlsx", "tipo": "xlsx", "icon": "fa-file-excel" },
+    { "texto": "Programa de Transparencia y Ética Pública", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Programa-de-Transparencia-y-Etica-Publica-ITRC.pdf", "tipo": "pdf", "icon": "fa-file-pdf" },
+    { "texto": "Planes Anticorrupción y de Atención al Ciudadano", "url": "/agencia/direccionamiento-estrategico", "tipo": "internal", "icon": "fa-sitemap" },
+    { "texto": "Plan de gasto público", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Plan-de-gasto-Publico-2025.pdf", "tipo": "pdf", "icon": "fa-file-pdf" },
+    { "texto": "Participe en la construcción del Plan de Acción 2024", "url": "https://www.itrc.gov.co/Itrc/events/participacion-construccion-plan-de-accion-2024/", "tipo": "external", "icon": "fa-calendar-check" },
+    { "texto": "Participe en la Construcción del Plan Anticorrupción y de Atención al Ciudadano", "url": "https://www.itrc.gov.co/Itrc/events/participe-en-la-construccion-del-plan-anticorrupcion-y-de-atencion-al-ciudadano/", "tipo": "external", "icon": "fa-calendar-check" }
+  ]
+}

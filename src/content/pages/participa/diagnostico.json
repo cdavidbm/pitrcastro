@@ -1,0 +1,16 @@
+{
+  "title": "Diagnóstico e Identificación de Problemas",
+  "slug": "diagnostico-e-identificacion-de-problemas",
+  "description": "Participación para el diagnóstico de necesidades e identificación de problemas de la Agencia ITRC",
+  "icon": "fa-magnifying-glass-chart",
+  "intro": "En esta sección los ciudadanos y grupos de valor podrán vincularse con la identificación de problemáticas, necesidades u oportunidades de mejora a través de sus ideas, experiencias y valoraciones sobre dichas problemáticas y necesidades, relacionadas con la labor institucional de la entidad.",
+  "enlaces": [
+    { "texto": "Calendario de Actividades", "url": "/prensa/eventos", "tipo": "internal", "icon": "fa-calendar-days" },
+    { "texto": "Plan de Participación Ciudadana 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/PLAN-DE-PARTICIPACION-CIUDADANA-EN-LA-GESTION-2024.xlsx", "tipo": "xlsx", "icon": "fa-file-excel" },
+    { "texto": "Resultados de la Encuesta de Temas de Interés para Audiencia Pública de Rendición de Cuentas 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2023.pdf", "tipo": "pdf", "icon": "fa-file-pdf" }
+  ],
+  "cajaHerramientas": [
+    { "texto": "Preguntas Frecuentes", "url": "/preguntas-frecuentes", "tipo": "internal", "icon": "fa-circle-question" },
+    { "texto": "Observatorio Anticorrupción de la Agencia ITRC", "url": "https://www.itrc.gov.co/observatorio/", "tipo": "external", "icon": "fa-chart-line" }
+  ]
+}

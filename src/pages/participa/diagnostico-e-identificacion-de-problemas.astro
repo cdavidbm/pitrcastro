@@ -1,0 +1,144 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { resolveUrl } from '../../utils/url';
+
+import pageData from '../../content/pages/participa/diagnostico.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Participa', href: resolveUrl('/participa') },
+  { label: pageData.title }
+];
+
+function linkIcon(tipo: string) {
+  if (tipo === 'pdf') return 'fa-file-pdf';
+  if (tipo === 'xlsx') return 'fa-file-excel';
+  if (tipo === 'external') return 'fa-arrow-up-right-from-square';
+  return 'fa-link';
+}
+
+function linkColor(tipo: string) {
+  if (tipo === 'pdf') return 'var(--file-pdf)';
+  if (tipo === 'xlsx') return 'var(--file-excel)';
+  return 'var(--itrc-gold)';
+}
+
+const enlacesRelacionados = [
+  { titulo: 'Planeación y Presupuesto', descripcion: 'Formulación e implementación de políticas', url: '/participa/planeacion-y-presupuesto-participativo', icon: 'fa-chart-pie' },
+  { titulo: 'Consulta Ciudadana', descripcion: 'Mecanismos de participación ciudadana', url: '/participa/consulta-ciudadana', icon: 'fa-comments' },
+  { titulo: 'Rendición de Cuentas', descripcion: 'Informes de gestión y resultados', url: '/participa/rendicion-de-cuentas', icon: 'fa-file-contract' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="subpage-section">
+    <div class="container">
+      <p class="subpage-intro">{pageData.intro}</p>
+
+      <div class="subpage-links">
+        {pageData.enlaces.map((enlace) => (
+          <a href={enlace.tipo === 'internal' ? resolveUrl(enlace.url) : enlace.url} target={enlace.tipo !== 'internal' ? '_blank' : undefined} rel={enlace.tipo !== 'internal' ? 'noopener' : undefined} class="subpage-link" style={`--link-color: ${linkColor(enlace.tipo)}`}>
+            <div class="subpage-link__icon">
+              <i class={`fa-solid ${enlace.icon || linkIcon(enlace.tipo)}`} aria-hidden="true"></i>
+            </div>
+            <span class="subpage-link__text">{enlace.texto}</span>
+            <i class={`fa-solid ${enlace.tipo === 'internal' ? 'fa-chevron-right' : 'fa-download'}`} aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+
+      {pageData.cajaHerramientas && pageData.cajaHerramientas.length > 0 && (
+        <div class="caja-herramientas">
+          <h2 class="caja-herramientas__title">
+            <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+            Caja de Herramientas
+          </h2>
+          <div class="subpage-links">
+            {pageData.cajaHerramientas.map((enlace) => (
+              <a href={enlace.tipo === 'internal' ? resolveUrl(enlace.url) : enlace.url} target={enlace.tipo !== 'internal' ? '_blank' : undefined} rel={enlace.tipo !== 'internal' ? 'noopener' : undefined} class="subpage-link" style={`--link-color: ${linkColor(enlace.tipo)}`}>
+                <div class="subpage-link__icon">
+                  <i class={`fa-solid ${enlace.icon || linkIcon(enlace.tipo)}`} aria-hidden="true"></i>
+                </div>
+                <span class="subpage-link__text">{enlace.texto}</span>
+                <i class={`fa-solid ${enlace.tipo === 'internal' ? 'fa-chevron-right' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Más secciones de Participa" />
+</Base>
+
+<style>
+  .subpage-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .subpage-section .container { max-width: 850px; margin: 0 auto; }
+
+  .subpage-intro {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--theme-text);
+    margin-bottom: var(--space-8);
+  }
+
+  .subpage-links { display: flex; flex-direction: column; gap: var(--space-3); }
+
+  .subpage-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .subpage-link:hover {
+    border-color: var(--link-color);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+
+  .subpage-link__icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.04); border-radius: var(--radius-md);
+    color: var(--link-color); font-size: var(--font-size-lg);
+    transition: all var(--transition-base);
+  }
+
+  .subpage-link:hover .subpage-link__icon { background: var(--link-color); color: var(--white); }
+
+  .subpage-link__text { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); transition: color var(--transition-fast); }
+  .subpage-link:hover .subpage-link__text { color: var(--link-color); }
+
+  .subpage-link > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.5; transition: all var(--transition-fast); }
+  .subpage-link:hover > i:last-child { opacity: 1; color: var(--link-color); }
+
+  .caja-herramientas { margin-top: var(--space-10); padding-top: var(--space-8); border-top: 2px solid var(--theme-border-light); }
+
+  .caja-herramientas__title {
+    display: flex; align-items: center; gap: var(--space-3);
+    font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-5);
+  }
+
+  .caja-herramientas__title i { color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .subpage-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .subpage-intro { font-size: var(--font-size-base); }
+    .subpage-link { padding: var(--space-3) var(--space-4); gap: var(--space-3); }
+    .subpage-link__icon { width: 36px; height: 36px; font-size: var(--font-size-base); }
+    .subpage-link__text { font-size: var(--font-size-xs); }
+  }
+</style>

@@ -1,0 +1,32 @@
+{
+  "title": "Colaboración e Innovación",
+  "slug": "colaboracion-e-innovacion",
+  "description": "Colaboración e innovación abierta para la solución de problemáticas públicas",
+  "icon": "fa-lightbulb",
+  "intro": "La colaboración e innovación es la interacción de las entidades con la ciudadanía, partes interesadas y grupos de valor para la búsqueda de soluciones a problemáticas públicas con el fin de crear redes de cooperación que permitan comprender y respondan a las necesidades de la población.",
+  "textoAdicional": "La gestión del conocimiento y la innovación tiene como propósito facilitar el aprendizaje y la adaptación de las entidades a los cambios y a la evolución de su entorno, a través de la gestión de un conocimiento colectivo que permita generar productos y/o servicios adecuados a las necesidades de los ciudadanos.\n\nAdicionalmente, se busca tener interacción con los grupos de valor y de interés para buscar soluciones a problemáticas públicas o temas de interés de la entidad con el conocimiento y aporte de estos; para lo cual se abren canales de comunicación para recibir ideas y propuestas de solución.",
+  "iniciativas": [
+    {
+      "titulo": "Open Hacienda 2025",
+      "descripcion": "Ejercicio de innovación abierta a la ciudadanía",
+      "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/web-banner-Banner-Planeaci%C3%B3n-Estrat%C3%A9gica-2025-06.png",
+      "enlace": "https://docs.google.com/forms/d/e/1FAIpQLScApitWfovz-ruoVF9HdQ5yKnQ6qyKa2J5NgP2XZcDTKo9DpA/viewform",
+      "textoEnlace": "Participe en Open Hacienda 2025"
+    },
+    {
+      "titulo": "Open Hacienda 2024",
+      "descripcion": "Ejercicio de innovación abierta a la ciudadanía",
+      "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/OPEN-HACIENDA-2024.png",
+      "enlace": "https://forms.gle/b6MeCxF8kxHmNxon7",
+      "textoEnlace": "Participe en Open Hacienda 2024"
+    },
+    {
+      "titulo": "Plan Anticorrupción y de Atención al Ciudadano",
+      "descripcion": "Participe en la construcción del Plan Anticorrupción",
+      "imagen": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/FACEBOOK-Plan-Anticorrupci%C3%B3n.png",
+      "enlace": "/agencia/direccionamiento-estrategico/planes",
+      "textoEnlace": "Conozca la versión final del Plan Anticorrupción",
+      "interno": true
+    }
+  ]
+}

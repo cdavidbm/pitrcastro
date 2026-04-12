@@ -1,8 +1,52 @@
 {
   "title": "Participa",
   "slug": "participa",
-  "description": "Mecanismos de participación ciudadana de la Agencia ITRC",
-  "published": false,
-  "mecanismos": [],
-  "documentos": []
+  "description": "Mecanismos de participación ciudadana en la gestión pública de la Agencia ITRC",
+  "icon": "fa-people-group",
+  "published": true,
+  "intro": "En el Menú Participa encontrará la información sobre los diferentes espacios, acciones y mecanismos que la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC, implementa para el relacionamiento y la participación de la ciudadanía, partes interesadas y grupos de valor, en las fases de diagnóstico e identificación de problemas, planeación, formulación, implementación, evaluación y seguimiento de la entidad de acuerdo con los lineamientos sobre participación ciudadana en la gestión pública.",
+  "secciones": [
+    {
+      "titulo": "Diagnóstico e Identificación de Problemas",
+      "descripcion": "Vincúlese con la identificación de problemáticas, necesidades u oportunidades de mejora",
+      "icon": "fa-magnifying-glass-chart",
+      "url": "/participa/diagnostico-e-identificacion-de-problemas",
+      "color": "blue"
+    },
+    {
+      "titulo": "Planeación y Presupuesto Participativo",
+      "descripcion": "Participe en la formulación, implementación y seguimiento de políticas y planes",
+      "icon": "fa-chart-pie",
+      "url": "/participa/planeacion-y-presupuesto-participativo",
+      "color": "green"
+    },
+    {
+      "titulo": "Consulta Ciudadana",
+      "descripcion": "Conozca los mecanismos para aportar opiniones y propuestas sobre planes y políticas",
+      "icon": "fa-comments",
+      "url": "/participa/consulta-ciudadana",
+      "color": "gold"
+    },
+    {
+      "titulo": "Colaboración e Innovación",
+      "descripcion": "Interactúe con la entidad para buscar soluciones a problemáticas públicas",
+      "icon": "fa-lightbulb",
+      "url": "/participa/colaboracion-e-innovacion",
+      "color": "purple"
+    },
+    {
+      "titulo": "Rendición de Cuentas",
+      "descripcion": "Conozca los informes de gestión y resultados de la Agencia ITRC",
+      "icon": "fa-file-contract",
+      "url": "/participa/rendicion-de-cuentas",
+      "color": "navy"
+    },
+    {
+      "titulo": "Control Social",
+      "descripcion": "Participe en la vigilancia de la gestión pública y la utilización de recursos",
+      "icon": "fa-shield-halved",
+      "url": "/participa/control-social",
+      "color": "red"
+    }
+  ]
 }

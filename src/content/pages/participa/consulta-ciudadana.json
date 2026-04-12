@@ -1,0 +1,23 @@
+{
+  "title": "Consulta Ciudadana",
+  "slug": "consulta-ciudadana",
+  "description": "Mecanismos de consulta y participación ciudadana de la Agencia ITRC",
+  "icon": "fa-comments",
+  "intro": "La consulta a la ciudadanía es un mecanismo de participación para conocer las opiniones, propuestas, comentarios, sugerencias y aportes de los ciudadanos, grupos de valor y partes interesadas sobre los planes, proyectos, normas, políticas, o programas de la entidad.",
+  "contenido": [
+    {
+      "subtitulo": "Sujetos que pueden participar",
+      "texto": "La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC, cuenta con mecanismos de participación ciudadana, que pueden ser ejercidos por todas las personas sin importar su sexo, raza o condición. Asimismo, pueden participar todas las partes interesadas de la Agencia ITRC y la sociedad civil."
+    },
+    {
+      "subtitulo": "Áreas responsables de la orientación y vigilancia para su cumplimiento",
+      "texto": "La Secretaría General y la Oficina Asesora de Planeación: Asesoran y orientan el ejercicio de participación ciudadana.\n\nOficina Asesora de Control Interno: Ejerce la vigilancia y evaluación del cumplimiento de los procedimientos y controles establecidos por la Entidad para el ejercicio de la participación ciudadana."
+    }
+  ],
+  "enlaces": [
+    { "texto": "Canales de atención al ciudadano", "url": "/canales-de-atencion-al-ciudadano", "tipo": "internal", "icon": "fa-headset" },
+    { "texto": "Normativa", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol", "tipo": "internal", "icon": "fa-scale-balanced" },
+    { "texto": "Medición de la experiencia de las ciudadanías", "url": "https://www.funcionpublica.gov.co/participacion-transparencia-y-servicio-al-ciudadano/evaluacion-experiencia-ciudadana", "tipo": "external", "icon": "fa-chart-bar" },
+    { "texto": "Conozca y envíe sus comentarios del nuevo Manual de Identidad Visual ITRC", "url": "https://www.itrc.gov.co/Itrc/manual-de-identidad-visual-itrc/", "tipo": "external", "icon": "fa-palette" }
+  ]
+}

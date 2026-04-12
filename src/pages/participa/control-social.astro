@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { resolveUrl } from '../../utils/url';
+
+import pageData from '../../content/pages/participa/control-social.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Participa', href: resolveUrl('/participa') },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Rendición de Cuentas', descripcion: 'Informes de gestión y resultados', url: '/participa/rendicion-de-cuentas', icon: 'fa-file-contract' },
+  { titulo: 'Consulta Ciudadana', descripcion: 'Mecanismos de participación', url: '/participa/consulta-ciudadana', icon: 'fa-comments' },
+  { titulo: 'Diagnóstico de Problemas', descripcion: 'Identificación de necesidades', url: '/participa/diagnostico-e-identificacion-de-problemas', icon: 'fa-magnifying-glass-chart' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="subpage-section">
+    <div class="container">
+      <div class="control-intro">
+        <div class="control-intro__icon">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        </div>
+        <p>{pageData.intro}</p>
+      </div>
+
+      <div class="subpage-links">
+        {pageData.enlaces.map((enlace) => (
+          <a href={resolveUrl(enlace.url)} class="subpage-link" style="--link-color: var(--itrc-gold)">
+            <div class="subpage-link__icon">
+              <i class={`fa-solid ${enlace.icon}`} aria-hidden="true"></i>
+            </div>
+            <span class="subpage-link__text">{enlace.texto}</span>
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Más secciones de Participa" />
+</Base>
+
+<style>
+  .subpage-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .subpage-section .container { max-width: 850px; margin: 0 auto; }
+
+  .control-intro {
+    text-align: center; margin-bottom: var(--space-10);
+  }
+  .control-intro__icon {
+    width: 72px; height: 72px; margin: 0 auto var(--space-6);
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.1); border-radius: var(--radius-full);
+    color: var(--itrc-gold); font-size: var(--font-size-3xl);
+  }
+  .control-intro p { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); max-width: 700px; margin: 0 auto; }
+
+  .subpage-links { display: flex; flex-direction: column; gap: var(--space-3); max-width: 600px; margin: 0 auto; }
+  .subpage-link {
+    display: flex; align-items: center; gap: var(--space-4);
+    padding: var(--space-5) var(--space-6); background: var(--theme-surface);
+    border: 1px solid var(--theme-border); border-radius: var(--radius-xl);
+    text-decoration: none; transition: all var(--transition-base);
+  }
+  .subpage-link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .subpage-link__icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.1); border-radius: var(--radius-lg);
+    color: var(--itrc-gold); font-size: var(--font-size-xl); transition: all var(--transition-base);
+  }
+  .subpage-link:hover .subpage-link__icon { background: var(--itrc-gold); color: var(--white); }
+  .subpage-link__text { flex: 1; font-size: var(--font-size-base); font-weight: 700; color: var(--theme-heading); }
+  .subpage-link:hover .subpage-link__text { color: var(--itrc-gold); }
+  .subpage-link > i:last-child { color: var(--theme-text-muted); opacity: 0.5; }
+  .subpage-link:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .subpage-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .control-intro p { font-size: var(--font-size-base); }
+    .subpage-link { padding: var(--space-4) var(--space-5); }
+  }
+</style>

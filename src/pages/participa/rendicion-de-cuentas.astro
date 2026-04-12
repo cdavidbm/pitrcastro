@@ -1,0 +1,215 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+import pageData from '../../content/pages/participa/rendicion-de-cuentas.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Participa', href: `${base}participa` },
+  { label: pageData.title }
+];
+
+function docIcon(tipo: string) {
+  if (tipo === 'pdf') return 'fa-file-pdf';
+  if (tipo === 'xlsx') return 'fa-file-excel';
+  if (tipo === 'video') return 'fa-video';
+  if (tipo === 'form') return 'fa-clipboard-list';
+  if (tipo === 'external') return 'fa-arrow-up-right-from-square';
+  return 'fa-file';
+}
+
+function docColorClass(tipo: string) {
+  if (tipo === 'pdf') return 'doc--pdf';
+  if (tipo === 'xlsx') return 'doc--excel';
+  if (tipo === 'video') return 'doc--video';
+  if (tipo === 'form') return 'doc--form';
+  return 'doc--default';
+}
+
+const totalDocs = pageData.anios.reduce((sum, a) => sum + a.documentos.length, 0);
+
+const enlacesRelacionados = [
+  { titulo: 'Control Social', descripcion: 'Vigilancia de la gestión pública', url: '/participa/control-social', icon: 'fa-shield-halved' },
+  { titulo: 'Diagnóstico de Problemas', descripcion: 'Identificación de necesidades', url: '/participa/diagnostico-e-identificacion-de-problemas', icon: 'fa-magnifying-glass-chart' },
+  { titulo: 'Colaboración e Innovación', descripcion: 'Soluciones a problemáticas públicas', url: '/participa/colaboracion-e-innovacion', icon: 'fa-lightbulb' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="rendicion-section">
+    <div class="container">
+      <p class="rendicion-intro">{pageData.intro}</p>
+
+      {pageData.textoAdicional.split('\n\n').map((p) => (
+        <p class="rendicion-text">{p}</p>
+      ))}
+
+      <div class="rendicion-header">
+        <h2>
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+          Documentos por vigencia
+        </h2>
+        <span class="rendicion-header__count">{totalDocs} documentos</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="rendicion-tabs" role="tablist" aria-label="Rendición de cuentas por año">
+        {pageData.anios.map((grupo, i) => (
+          <button
+            class={`rendicion-tab ${i === 0 ? 'active' : ''}`}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`panel-rc-${grupo.anio}`}
+            data-tab={grupo.anio}
+          >
+            {grupo.anio}
+            <span class="rendicion-tab__count">{grupo.documentos.length}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Paneles -->
+      {pageData.anios.map((grupo, i) => (
+        <div
+          class={`rendicion-panel ${i === 0 ? 'active' : ''}`}
+          id={`panel-rc-${grupo.anio}`}
+          role="tabpanel"
+          hidden={i !== 0}
+        >
+          <div class="doc-list">
+            {grupo.documentos.map((doc) => (
+              <a href={doc.url} target="_blank" rel="noopener" class={`doc-item ${docColorClass(doc.tipo)}`}>
+                <div class="doc-item__icon">
+                  <i class={`fa-solid ${docIcon(doc.tipo)}`} aria-hidden="true"></i>
+                </div>
+                <div class="doc-item__content">
+                  <span class="doc-item__name">{doc.nombre}</span>
+                  <span class="doc-item__type">{doc.tipo.toUpperCase()}</span>
+                </div>
+                <div class="doc-item__action">
+                  <i class={`fa-solid ${doc.tipo === 'video' ? 'fa-play' : doc.tipo === 'form' ? 'fa-arrow-up-right-from-square' : 'fa-download'}`} aria-hidden="true"></i>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Más secciones de Participa" />
+</Base>
+
+<style>
+  .rendicion-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .rendicion-section .container { max-width: 900px; margin: 0 auto; }
+
+  .rendicion-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-4); }
+  .rendicion-text { font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-4); }
+
+  .rendicion-header {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+    margin: var(--space-10) 0 var(--space-5); padding-top: var(--space-6);
+    border-top: 2px solid var(--theme-border-light); flex-wrap: wrap;
+  }
+  .rendicion-header h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0; }
+  .rendicion-header h2 i { color: var(--itrc-gold); }
+  .rendicion-header__count { padding: var(--space-1) var(--space-4); background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 700; }
+
+  /* ====== Tabs ====== */
+  .rendicion-tabs { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-bottom: var(--space-5); border-bottom: 2px solid var(--theme-border); padding-bottom: var(--space-2); }
+  .rendicion-tab {
+    display: flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-4); border: 1px solid transparent;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: transparent;
+    color: var(--theme-text-secondary); font-size: var(--font-size-sm); font-weight: 600;
+    font-family: var(--font-family); cursor: pointer; transition: all var(--transition-fast);
+  }
+  .rendicion-tab:hover { background: var(--theme-surface-alt); color: var(--itrc-gold); }
+  .rendicion-tab.active { background: var(--theme-surface-alt); color: var(--itrc-gold); border-color: var(--theme-border); border-bottom-color: var(--theme-surface-alt); font-weight: 800; }
+  .rendicion-tab__count { padding: 1px 7px; background: var(--theme-surface-alt); border-radius: var(--radius-full); font-size: var(--font-size-xs); color: var(--theme-text-muted); }
+  .rendicion-tab.active .rendicion-tab__count { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold); }
+
+  /* ====== Panel ====== */
+  .rendicion-panel { display: none; }
+  .rendicion-panel.active { display: block; }
+
+  .doc-list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+  .doc-item {
+    display: flex; align-items: center; gap: var(--space-4);
+    padding: var(--space-4) var(--space-5); background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg);
+    text-decoration: none; transition: all var(--transition-base);
+  }
+  .doc-item:hover { box-shadow: var(--shadow-md); transform: translateX(4px); }
+
+  .doc-item__icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-md); font-size: var(--font-size-lg); transition: all var(--transition-base);
+  }
+
+  .doc--pdf .doc-item__icon { background: rgba(220, 53, 69, 0.08); color: var(--file-pdf); }
+  .doc--pdf:hover .doc-item__icon { background: var(--file-pdf); color: var(--white); }
+  .doc--pdf:hover { border-color: rgba(220, 53, 69, 0.3); }
+
+  .doc--excel .doc-item__icon { background: rgba(25, 135, 84, 0.08); color: var(--file-excel); }
+  .doc--excel:hover .doc-item__icon { background: var(--file-excel); color: var(--white); }
+
+  .doc--video .doc-item__icon { background: rgba(220, 53, 69, 0.08); color: #c4302b; }
+  .doc--video:hover .doc-item__icon { background: #c4302b; color: var(--white); }
+  .doc--video:hover { border-color: rgba(196, 48, 43, 0.3); }
+
+  .doc--form .doc-item__icon { background: rgba(var(--itrc-gold-rgb), 0.1); color: var(--itrc-gold); }
+  .doc--form:hover .doc-item__icon { background: var(--itrc-gold); color: var(--white); }
+  .doc--form:hover { border-color: rgba(var(--itrc-gold-rgb), 0.3); }
+
+  .doc--default .doc-item__icon { background: rgba(0,0,0,0.04); color: var(--theme-text-muted); }
+
+  .doc-item__content { flex: 1; min-width: 0; }
+  .doc-item__name { display: block; font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-heading); transition: color var(--transition-fast); }
+  .doc-item:hover .doc-item__name { color: var(--itrc-gold); }
+  .doc-item__type { font-size: var(--font-size-xs); font-weight: 700; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .doc-item__action { flex-shrink: 0; color: var(--theme-text-muted); font-size: var(--font-size-base); opacity: 0.4; transition: all var(--transition-fast); }
+  .doc-item:hover .doc-item__action { opacity: 1; color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .rendicion-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .rendicion-intro { font-size: var(--font-size-base); }
+    .rendicion-tabs { gap: 2px; }
+    .rendicion-tab { padding: var(--space-1) var(--space-3); font-size: var(--font-size-xs); }
+    .doc-item { padding: var(--space-3) var(--space-4); gap: var(--space-3); }
+    .doc-item__icon { width: 34px; height: 34px; font-size: var(--font-size-base); }
+    .doc-item__name { font-size: var(--font-size-xs); }
+  }
+</style>
+
+<script>
+  function initRendicionTabs() {
+    const tabs = document.querySelectorAll('.rendicion-tab');
+    const panels = document.querySelectorAll('.rendicion-panel');
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = (btn as HTMLElement).dataset.tab;
+        tabs.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+        panels.forEach(p => {
+          const isActive = p.id === `panel-rc-${tabId}`;
+          p.classList.toggle('active', isActive);
+          (p as HTMLElement).hidden = !isActive;
+        });
+      });
+    });
+  }
+  initRendicionTabs();
+  document.addEventListener('astro:after-swap', initRendicionTabs);
+</script>

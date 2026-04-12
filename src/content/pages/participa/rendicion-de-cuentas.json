@@ -1,0 +1,132 @@
+{
+  "title": "Rendición de Cuentas",
+  "slug": "rendicion-de-cuentas",
+  "description": "Informes de rendición de cuentas y gestión de la Agencia ITRC",
+  "icon": "fa-file-contract",
+  "intro": "Para la Agencia ITRC la rendición de cuentas a la ciudadanía es un proceso permanente de comunicación pública y diálogo con los ciudadanos, a través del cual informamos, explicamos y sustentamos la gestión realizada, la forma en que administramos los recursos públicos que nos han sido asignados y los resultados que hemos alcanzado; además, vemos este proceso como la capacidad y el derecho de la ciudadanía a pedir información, explicaciones y retroalimentar a nuestra entidad con evaluaciones y propuestas de mejora.",
+  "textoAdicional": "Bajo esos postulados, ponemos a disposición de la comunidad en general los siguientes documentos y mecanismos para que construyamos en doble vía nuestro proceso de Rendición de Cuentas.\n\nTambién se debe resaltar, que de esta manera, alineamos nuestro actuar a las disposiciones de los Decretos 1474 de 2011 y 2482 de 2012, y a las directrices emitidas por el Ministerio de Hacienda y Crédito Público para sus entidades adscritas y vinculadas en lo atinente a la Política de Desarrollo Administrativo, Transparencia, Participación y Servicio al Ciudadano.",
+  "anios": [
+    {
+      "anio": "2025",
+      "documentos": [
+        { "nombre": "Informe de Rendición de Cuentas 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Informe-rendicion-de-cuenta-2024-2025_V4.pdf", "tipo": "pdf" },
+        { "nombre": "Estrategia de Rendición de Cuentas 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/Estrategia-de-Rendicion-de-Cuentas-2025-1.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Ejercicio de Rendición de Cuentas 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2025_Vf-1.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2024",
+      "documentos": [
+        { "nombre": "Informe Ejercicio Rendición de Cuentas 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/01/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2024.pdf", "tipo": "pdf" },
+        { "nombre": "Estrategia de Rendición de Cuentas 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Estrategia-de-Rendicion-de-Cuentas-2024.pdf", "tipo": "pdf" },
+        { "nombre": "Postule los temas de interés", "url": "https://forms.office.com/Pages/ResponsePage.aspx?id=3NElp2Q-g0KVXt1OUTYI5gbCc8LBmRNAmFGKsXYVOalUNlg1Slk4S1cyUlpCRFFNVlZISDNMOEFGRC4u", "tipo": "form" },
+        { "nombre": "Informe de Rendición de Cuentas 2023-2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/INFORME-RENDICION-DE-CUENTAS-AGENCIA-ITRC-2023-2024.pdf", "tipo": "pdf" },
+        { "nombre": "Envíenos sus preguntas para la Audiencia Pública", "url": "https://forms.office.com/r/hFkWigHZ3z", "tipo": "form" },
+        { "nombre": "Conoce sobre la Audiencia Pública de Rendición de Cuentas", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Piezas-graficas-sobre-la-Rendicion-de-Cuentas-2024-Agencia-ITRC.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2023",
+      "documentos": [
+        { "nombre": "Informe del ejercicio de rendición de cuentas 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2023.pdf", "tipo": "pdf" },
+        { "nombre": "¿Qué es la rendición de cuentas?", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Rendicion-de-Cuentas.pdf", "tipo": "pdf" },
+        { "nombre": "Informe de Rendición de Cuentas Agencia ITRC 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/INFORME-RENDICION-DE-CUENTAS-2023_AGENCIA-ITRC.pdf", "tipo": "pdf" },
+        { "nombre": "Estrategia de Rendición de Cuentas 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Estrategia-de-Rendicion-de-Cuentas-2023.pdf", "tipo": "pdf" },
+        { "nombre": "Postule los temas de interés", "url": "https://forms.office.com/r/v9Ec11ZUbe", "tipo": "form" },
+        { "nombre": "Evalúe la Audiencia Pública de Rendición de Cuentas", "url": "https://forms.office.com/pages/responsepage.aspx?id=3NElp2Q-g0KVXt1OUTYI5gbCc8LBmRNAmFGKsXYVOalURjBKOVNNVlRMMEkwOElSRjhPRTVNUVg0Sy4u", "tipo": "form" }
+      ]
+    },
+    {
+      "anio": "2022",
+      "documentos": [
+        { "nombre": "Informe del ejercicio de rendición de cuentas 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2022_vf.pdf", "tipo": "pdf" },
+        { "nombre": "Informe de Rendición de Cuentas 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/Informe-Rendicion-de-Cuentas-2022.pdf", "tipo": "pdf" },
+        { "nombre": "Estrategia de Rendición de Cuentas 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/05/DOCUMENTO-ESTRATEGIA-DE-RENDICIOiN-DE-CUENTAS-2022.pdf", "tipo": "pdf" },
+        { "nombre": "¿Qué es la Rendición de Cuentas?", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/Qu%C3%A9-es-la-Rendici%C3%B3n-de-Cuentas.pdf", "tipo": "pdf" },
+        { "nombre": "Postule los temas de interés", "url": "https://docs.google.com/forms/d/e/1FAIpQLSfp8nCq8IwuEUz08DtOyZCEEtVcPLxAMckK2p_LLpcjZZdx1A/viewform", "tipo": "form" }
+      ]
+    },
+    {
+      "anio": "2021",
+      "documentos": [
+        { "nombre": "Audiencia Pública de Rendición de Cuentas 2021", "url": "https://www.youtube.com/watch?v=ODU9FULys9U", "tipo": "video" },
+        { "nombre": "Informe del Ejercicio de Rendición de Cuentas 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2021-FINAL.pdf", "tipo": "pdf" },
+        { "nombre": "Informe de Rendición de Cuentas 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/11/Informe-de-rendicioiIn-de-cuentas-AGENCIA-ITRC-2021-v2-1.pdf", "tipo": "pdf" },
+        { "nombre": "Cartilla de Rendición de Cuentas", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/11/RENDICIOiN-DE-CUENTA-CARTILLA.pdf", "tipo": "pdf" },
+        { "nombre": "Encuesta temas de interés Rendición de Cuentas 2021", "url": "https://forms.office.com/Pages/ResponsePage.aspx?id=3NElp2Q-g0KVXt1OUTYI5u8zJWVyZrRPp4eoX5S-G7lURFJVV0E1QVBQT01STzg3WktJUjNKSFA5TS4u", "tipo": "form" },
+        { "nombre": "Estrategia de Rendición de Cuentas 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/DOCUMENTO-ESTRATEGIA-DE-RENDICIOiN-DE-CUENTAS-2021-vf.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2020",
+      "documentos": [
+        { "nombre": "Ejercicio de rendición de cuentas 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/08/EJERCICIO-DE-RENDICIOiN-DE-CUENTAS-2020-VF.pdf", "tipo": "pdf" },
+        { "nombre": "Audiencia Pública de Rendición de Cuentas 2020", "url": "https://www.youtube.com/watch?v=nzUIGWi5Lgw", "tipo": "video" },
+        { "nombre": "Informe de Rendición de Cuentas 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/INFORME-DE-RENDICI%C3%93N-DE-CUENTAS-AGENCIA-ITRC-2020.pdf", "tipo": "pdf" },
+        { "nombre": "Cartilla de Rendición de Cuentas 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/cartilla-rendicio%C3%ACn-de-cuentas.pdf", "tipo": "pdf" },
+        { "nombre": "Cronograma de Rendición de Cuentas 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Cronograma-Rendicio%C3%ACn-de-Cuentas-2020Ajustado.xlsx", "tipo": "xlsx" },
+        { "nombre": "Estrategia de Rendición de Cuentas 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/03/DOCUMENTO-ESTRATEGIA_RC_2020.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2019",
+      "documentos": [
+        { "nombre": "Informe de gestión rendición de cuentas ITRC 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/11/INFORME-DE-GESTI%C3%93N-RENDICI%C3%93N-DE-CUENTAS-AGENCIA-ITRC-2019.pdf", "tipo": "pdf" },
+        { "nombre": "Informe rendición de cuentas primer trimestre 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/04/GESTION-PRIMER-TRIMESTRE-CONSOLIDADO.pdf", "tipo": "pdf" },
+        { "nombre": "Audiencia pública de Rendición de Cuentas 2019", "url": "https://www.youtube.com/watch?v=9m8TsFOS610", "tipo": "video" }
+      ]
+    },
+    {
+      "anio": "2018",
+      "documentos": [
+        { "nombre": "Informe Rendición de Cuentas Cuarto Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/01/INFORME-CUARTO-TRIMESTRE-2018-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Tercer Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/INFORME-TERCER-TRIMESTRE-2018-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Segundo Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/INFORME-SEGUNDO-TRIMESTRE-2018.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Primer Trimestre 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/INFORME-PRIMER-TRIMESTRE-2018-PDF.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2017",
+      "documentos": [
+        { "nombre": "Informe Rendición de Cuentas Cuarto Trimestre 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/bgitrc4tri2017.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Tercer Trimestre 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Balance-Gestin-ITRC-tercer-trimestre-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Segundo Trimestre 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/1.-Balance-Gestin-ITRC-segundo-trimestre-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Primer Trimestre 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Balance-Gestin-ITRC-primer-trimestre-20171.pdf", "tipo": "pdf" },
+        { "nombre": "Informe de Gestión Primer Trimestre 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Balance-Gestin-ITRC-primer-trimestre-2017.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2016",
+      "documentos": [
+        { "nombre": "Observaciones Recibidas Rendición de Cuentas 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Observaciones-recibidas-Rendicin-de-Cuentas-ITRC-2016.pdf", "tipo": "pdf" },
+        { "nombre": "Balance Cuarto Trimestre 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/4.-Balance-Gestin-ITRC-cuarto-trimestre-2016.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Informe-de-Rendicion-de-Cuentas-vigencia-2016.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Tercer Trimestre 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/3.-Balance-Gestin-ITRC-tercer-trimestre-2016.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Segundo Trimestre 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Balance-Gestin-ITRC-segundo-trimestre-2016.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Primer Trimestre 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Balance-Gestin-ITRC-primer-trimestre-2016.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2015",
+      "documentos": [
+        { "nombre": "Informe Rendición de Cuentas Cuarto Trimestre 2015", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/Balance-Gestion-ITRC-cuarto-trimestre-2015.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Tercer Trimestre 2015", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/Balance-Gestin-ITRC-tercer-trimestre-2015.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Segundo Trimestre 2015", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/07/Informe-MHCP-segundo-trimestre-2015.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Primer Trimestre 2015", "url": "https://www.minhacienda.gov.co/HomeMinhacienda/elministerio/RendicionCuentas/BalanceSectorHacienda", "tipo": "external" }
+      ]
+    },
+    {
+      "anio": "2014",
+      "documentos": [
+        { "nombre": "Informe Rendición de Cuentas Primer Trimestre 2014", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/1.-Reporte-a-la-ciudadanEURa-primer-semestre-2014.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2013",
+      "documentos": [
+        { "nombre": "Informe Rendición de Cuentas Segundo Trimestre 2013", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/2.-Informe-SS-2013.pdf", "tipo": "pdf" },
+        { "nombre": "Informe Rendición de Cuentas Primer Trimestre 2013", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/05/1.Informe-PS-Ver-3-31-07-2013.pdf", "tipo": "pdf" }
+      ]
+    }
+  ]
+}
