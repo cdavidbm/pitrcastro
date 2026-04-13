@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Información para Mujeres' }];
+const secciones = [
+  { titulo: 'Presidencia de la República', links: [
+    { nombre: 'Presidencia de la República', url: 'https://www.presidencia.gov.co/' },
+    { nombre: 'Consejería Presidencial para la Equidad de la Mujer', url: 'https://www.equidadmujer.gov.co/' },
+    { nombre: 'Consejería Presidencial para los Derechos Humanos', url: 'https://derechoshumanos.gov.co/' },
+  ]},
+  { titulo: 'Banca de Oportunidades', links: [
+    { nombre: 'Bancóldex', url: 'https://www.bancoldex.com/' },
+    { nombre: 'Programa de Garantías Banca de las Oportunidades', url: 'https://www.bancadelasoportunidades.gov.co/' },
+  ]},
+  { titulo: 'Ministerio de Hacienda', links: [
+    { nombre: 'Ministerio de Hacienda', url: 'https://www.minhacienda.gov.co/' },
+    { nombre: 'Sistema de Información Presupuestal para Víctimas', url: 'https://www.unidadvictimas.gov.co/' },
+  ]},
+];
+---
+<Base title="Información para Mujeres" description="Recursos e información de interés para mujeres">
+  <HeroPage title="Información para Mujeres" subtitle="Recursos e información de interés" icon="fa-venus" breadcrumb={breadcrumb} />
+  <section class="mujeres-page"><div class="container">
+    {secciones.map((sec) => (<div class="sec-group"><h2 class="sec-title"><i class="fa-solid fa-landmark" aria-hidden="true"></i> {sec.titulo}</h2><div class="sec-links">{sec.links.map((l) => (<a href={l.url} target="_blank" rel="noopener" class="sec-link"><i class="fa-solid fa-building" aria-hidden="true"></i><span>{l.nombre}</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>))}</div></div>))}
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+<style>.mujeres-page{padding:var(--space-8) var(--space-6) var(--space-16);background:var(--theme-surface)}.mujeres-page .container{max-width:800px;margin:0 auto}.sec-group{margin-bottom:var(--space-6)}.sec-title{display:flex;align-items:center;gap:var(--space-3);font-size:var(--font-size-lg);color:var(--theme-heading);margin:0 0 var(--space-3);padding-bottom:var(--space-2);border-bottom:2px solid var(--theme-border-light)}.sec-title i{color:var(--itrc-gold)}.sec-links{display:flex;flex-direction:column;gap:var(--space-2)}.sec-link{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);border:1px solid var(--theme-border-light);border-radius:var(--radius-lg);text-decoration:none;transition:all var(--transition-fast)}.sec-link:hover{border-color:rgba(var(--itrc-gold-rgb),0.3);box-shadow:var(--shadow-sm);transform:translateX(3px)}.sec-link>i:first-child{color:var(--itrc-navy)}.sec-link span{flex:1;font-size:var(--font-size-sm);font-weight:600;color:var(--theme-heading)}.sec-link:hover span{color:var(--itrc-gold)}.sec-link>i:last-child{color:var(--theme-text-muted);font-size:var(--font-size-xs);opacity:0.4}.back-link{margin-top:var(--space-8);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}</style>

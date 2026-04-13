@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Programa de Gestión Documental' }];
+const docs = [
+  { nombre: 'Programa de Gestión Documental 2023-2026', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/GAD-RE-005_Programa_de_gestion_documental_PGD_2023-2026.pdf' },
+  { nombre: 'Resolución adopción Programa de Gestión Documental', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-Adopcion-Programa-de-Gestion-Documental.pdf' },
+];
+---
+<Base title="Programa de Gestión Documental" description="Programa de gestión documental de la Agencia ITRC">
+  <HeroPage title="Programa de Gestión Documental" subtitle="Instrumentos de gestión de la información" icon="fa-folder-open" breadcrumb={breadcrumb} />
+  <section class="docs-page"><div class="container">
+    <div class="docs-list">{docs.map((d) => (<a href={d.url} target="_blank" rel="noopener" class="doc-item"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>))}</div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+<style>.docs-page{padding:var(--space-10) var(--space-6) var(--space-16);background:var(--theme-surface)}.docs-page .container{max-width:750px;margin:0 auto}.docs-list{display:flex;flex-direction:column;gap:var(--space-4)}.doc-item{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);border:2px solid var(--file-pdf);border-radius:var(--radius-xl);text-decoration:none;color:var(--file-pdf);font-weight:700;transition:all var(--transition-base)}.doc-item:hover{background:var(--file-pdf);color:var(--white);transform:translateY(-2px);box-shadow:var(--shadow-md)}.doc-item span{flex:1;font-size:var(--font-size-base)}.back-link{margin-top:var(--space-8);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}@media(max-width:768px){.doc-item span{font-size:var(--font-size-sm)}}</style>

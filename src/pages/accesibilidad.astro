@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Accesibilidad Web' }];
+const docs = [
+  { nombre: 'Accesibilidad Web', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/ANEXO-2-ACCESIBILIDAD-WEB-fdo.pdf', icon: 'fa-file-pdf', tipo: 'pdf' },
+  { nombre: 'Autodiagnóstico MSPI — Instrumento de Evaluación', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx', icon: 'fa-file-excel', tipo: 'xlsx' },
+  { nombre: 'Seguridad Digital — Lineamientos y Cumplimiento', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Lineamientos-y-Cumplimiento-Seguridad-Digital.pdf', icon: 'fa-file-pdf', tipo: 'pdf' },
+];
+---
+<Base title="Accesibilidad Web" description="Accesibilidad web y seguridad digital de la Agencia ITRC">
+  <HeroPage title="Accesibilidad Web" subtitle="Cumplimiento de estándares de accesibilidad" icon="fa-universal-access" breadcrumb={breadcrumb} />
+  <section class="acc-page"><div class="container">
+    <p class="acc-intro">La página web de la Agencia ITRC fue revisada a través de la herramienta TAW para el análisis de accesibilidad. La página web de la entidad obtuvo una calificación y cumplimiento de nivel AA. La Agencia ITRC seguirá mejorando en los niveles de accesibilidad y usabilidad de nuestra página web.</p>
+    <div class="acc-list">{docs.map((d) => (
+      <a href={d.url} target="_blank" rel="noopener" class={`acc-item acc--${d.tipo}`}><i class={`fa-solid ${d.icon}`} aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>
+    ))}</div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+<style>.acc-page{padding:var(--space-10) var(--space-6) var(--space-16);background:var(--theme-surface)}.acc-page .container{max-width:800px;margin:0 auto}.acc-intro{font-size:var(--font-size-base);line-height:1.8;color:var(--theme-text);margin-bottom:var(--space-8)}.acc-list{display:flex;flex-direction:column;gap:var(--space-3)}.acc-item{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-4) var(--space-5);border:1px solid var(--theme-border-light);border-radius:var(--radius-lg);text-decoration:none;transition:all var(--transition-base)}.acc-item:hover{box-shadow:var(--shadow-md);transform:translateX(4px)}.acc--pdf>i:first-child{color:var(--file-pdf)}.acc--pdf:hover{border-color:rgba(220,53,69,0.3)}.acc--xlsx>i:first-child{color:var(--file-excel)}.acc--xlsx:hover{border-color:rgba(25,135,84,0.3)}.acc-item span{flex:1;font-size:var(--font-size-sm);font-weight:600;color:var(--theme-heading)}.acc-item:hover span{color:var(--itrc-gold)}.acc-item>i:last-child{color:var(--theme-text-muted);opacity:0.4}.back-link{margin-top:var(--space-8);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}</style>

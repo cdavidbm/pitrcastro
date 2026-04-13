@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Normatividad Especial' }];
+const secciones = [
+  { titulo: 'Reporte de Austeridad en el Gasto Público', url: 'https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/normatividad-especial/reporte-austeridad-en-el-gasto/', icon: 'fa-money-bill-trend-up' },
+  { titulo: 'Decretos de estructura, salarios, leyes marco y otros', url: 'https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/decretos-de-estructura-salarios-leyes-marco-y-otros/', icon: 'fa-file-lines' },
+];
+---
+<Base title="Normatividad Especial" description="Normatividad especial de la Agencia ITRC">
+  <HeroPage title="Normatividad Especial" subtitle="Obligación de reporte de información específica" icon="fa-file-circle-check" breadcrumb={breadcrumb} />
+  <section class="norm-page"><div class="container">
+    <div class="norm-links">{secciones.map((s) => (
+      <a href={s.url} target="_blank" rel="noopener" class="norm-link"><div class="norm-link__icon"><i class={`fa-solid ${s.icon}`} aria-hidden="true"></i></div><span>{s.titulo}</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    ))}</div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+<style>.norm-page{padding:var(--space-10) var(--space-6) var(--space-16);background:var(--theme-surface)}.norm-page .container{max-width:750px;margin:0 auto}.norm-links{display:flex;flex-direction:column;gap:var(--space-4)}.norm-link{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-6);border:1px solid var(--theme-border);border-radius:var(--radius-xl);text-decoration:none;transition:all var(--transition-base)}.norm-link:hover{border-color:var(--itrc-gold);box-shadow:var(--shadow-md);transform:translateY(-2px)}.norm-link__icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(var(--itrc-gold-rgb),0.1);border-radius:var(--radius-lg);color:var(--itrc-gold);font-size:var(--font-size-xl);transition:all var(--transition-base)}.norm-link:hover .norm-link__icon{background:var(--itrc-gold);color:var(--white)}.norm-link span{flex:1;font-size:var(--font-size-base);font-weight:700;color:var(--theme-heading)}.norm-link:hover span{color:var(--itrc-gold)}.norm-link>i:last-child{color:var(--theme-text-muted);opacity:0.4}.back-link{margin-top:var(--space-8);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}</style>

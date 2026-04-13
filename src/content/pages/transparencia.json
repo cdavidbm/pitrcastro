@@ -136,14 +136,14 @@
       "items": [
         { "num": "7.1", "texto": "Instrumentos de gestión de la información", "tipo": "label",
           "children": [
-            { "num": "7.1.1", "texto": "Registro de Activos de Información", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/registro-de-activos-de-informacion/", "tipo": "external" },
-            { "num": "7.1.2", "texto": "Índice de Información Clasificada y Reservada", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/indice-de-informacion-clasificada-y-reservada/", "tipo": "external" },
-            { "num": "7.1.3", "texto": "Esquema de publicación de la información", "url": "https://www.itrc.gov.co/Itrc/esquema-de-publicacion-de-la-informacion/", "tipo": "external" },
-            { "num": "7.1.4", "texto": "Programa de Gestión Documental", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/programa-de-gestion-documental/", "tipo": "external" },
-            { "num": "7.1.5", "texto": "Tablas de Retención Documental", "url": "https://www.itrc.gov.co/Itrc/tablas-de-retencion-documental/", "tipo": "external" }
+            { "num": "7.1.1", "texto": "Registro de Activos de Información", "url": "/registro-activos-informacion", "tipo": "internal" },
+            { "num": "7.1.2", "texto": "Índice de Información Clasificada y Reservada", "url": "/indice-informacion-clasificada-reservada", "tipo": "internal" },
+            { "num": "7.1.3", "texto": "Esquema de publicación de la información", "url": "/esquema-publicacion-informacion", "tipo": "internal" },
+            { "num": "7.1.4", "texto": "Programa de Gestión Documental", "url": "/programa-gestion-documental", "tipo": "internal" },
+            { "num": "7.1.5", "texto": "Tablas de Retención Documental", "url": "/tablas-retencion-documental", "tipo": "internal" }
           ]
         },
-        { "num": "7.2", "texto": "Sección de datos abiertos", "url": "https://www.itrc.gov.co/Itrc/publicacion-de-datos-abiertos/", "tipo": "external" }
+        { "num": "7.2", "texto": "Sección de datos abiertos", "url": "/publicacion-datos-abiertos", "tipo": "internal" }
       ]
     },
     {
@@ -154,8 +154,8 @@
         { "num": "8.1", "texto": "Información para Grupos Específicos", "tipo": "label",
           "children": [
             { "num": "8.1.1", "texto": "Información para niños, niñas y adolescentes", "url": "https://www.itrc.gov.co/observatorio/eje-de-educacion/itrc-para-ninos-ninas-adolescentes/", "tipo": "external" },
-            { "num": "8.1.2", "texto": "Información para mujeres", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/informacion-para-mujeres/", "tipo": "external" },
-            { "num": "8.1.3", "texto": "Otros grupos de interés", "url": "https://www.itrc.gov.co/Itrc/participa/otros-de-grupos-de-interes/", "tipo": "external" }
+            { "num": "8.1.2", "texto": "Información para mujeres", "url": "/informacion-para-mujeres", "tipo": "internal" },
+            { "num": "8.1.3", "texto": "Otros grupos de interés", "url": "/otros-grupos-de-interes", "tipo": "internal" }
           ]
         }
       ]
@@ -165,9 +165,9 @@
       "titulo": "Obligación de Reporte de Información Específica",
       "icon": "fa-file-circle-check",
       "items": [
-        { "num": "9.1", "texto": "Normatividad Especial", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/normatividad-especial/", "tipo": "external" },
-        { "num": "9.2", "texto": "Accesibilidad", "url": "https://www.itrc.gov.co/Itrc/accesibilidad/", "tipo": "external" },
-        { "num": "9.3", "texto": "Informes de gestión, evaluación y auditoría", "url": "https://www.itrc.gov.co/Itrc/informes-a-organismos-de-inspeccion-vigilancia-y-control/", "tipo": "external" },
+        { "num": "9.1", "texto": "Normatividad Especial", "url": "/normatividad-especial", "tipo": "internal" },
+        { "num": "9.2", "texto": "Accesibilidad", "url": "/accesibilidad", "tipo": "internal" },
+        { "num": "9.3", "texto": "Informes de gestión, evaluación y auditoría", "url": "/informes-organismos-inspeccion", "tipo": "internal" },
         { "num": "9.4", "texto": "Reportes de control interno", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" }
       ]
     },

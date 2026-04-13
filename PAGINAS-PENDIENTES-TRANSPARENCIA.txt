@@ -67,37 +67,30 @@ SECCIÓN 5 — Trámites ✓ COMPLETADA
 [x] /tramites
     → Página principal de trámites (sin trámites, enlaza a canales)
 
-SECCIÓN 7 — Datos Abiertos
+SECCIÓN 7 — Datos Abiertos ✓ COMPLETADA
 --------------------------------------
-[ ] /registro-activos-informacion
-    → Registro de Activos de Información
-[ ] /indice-informacion-clasificada-reservada
-    → Índice de Información Clasificada y Reservada
-[ ] /esquema-publicacion-informacion
-    → Esquema de publicación de la información
-[ ] /programa-gestion-documental
-    → Programa de Gestión Documental
-[ ] /tablas-retencion-documental
-    → Tablas de Retención Documental
-[ ] /publicacion-datos-abiertos
-    → Sección de datos abiertos
+[x] /registro-activos-informacion
+[x] /indice-informacion-clasificada-reservada
+[x] /esquema-publicacion-informacion
+[x] /programa-gestion-documental
+[x] /tablas-retencion-documental (13 docs en 2 versiones)
+[x] /publicacion-datos-abiertos
 
-SECCIÓN 8 — Información para Grupos de Interés
+SECCIÓN 8 — Información para Grupos de Interés ✓ COMPLETADA
 --------------------------------------
-[ ] /informacion-para-mujeres
-    → Información para mujeres
-[ ] /otros-grupos-de-interes
-    → Otros grupos de interés
+[x] /informacion-para-mujeres
+[x] /otros-grupos-de-interes
 
-SECCIÓN 9 — Obligación de Reporte
+SECCIÓN 9 — Obligación de Reporte ✓ COMPLETADA
 --------------------------------------
-[ ] /normatividad-especial
+[x] /normatividad-especial
     → Normatividad Especial
-[ ] /accesibilidad
+[x] /accesibilidad
     → Accesibilidad web
-[ ] /informes-organismos-inspeccion
+[x] /informes-organismos-inspeccion
     → Informes a organismos de inspección, vigilancia y control
 
 ============================================================
-TOTAL: 31 páginas pendientes
+TOTAL: 31 páginas — TODAS COMPLETADAS ✓
+============================================================
 ============================================================
