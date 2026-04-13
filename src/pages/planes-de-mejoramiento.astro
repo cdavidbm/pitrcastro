@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Planes de Mejoramiento' }];
+const secciones = [
+  { titulo: 'Planes de mejoramiento interno', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/2024_07_04-Planes_Mejoramiento_Internos.xlsx', icon: 'fa-file-excel', tipo: 'xlsx', desc: 'Planes de mejoramiento interno de la Agencia ITRC' },
+  { titulo: 'Planes de mejoramiento externo — AGN', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Plan-de-Mejoramiento-Externos-AGN.xlsx', icon: 'fa-file-excel', tipo: 'xlsx', desc: 'Plan de mejoramiento con el Archivo General de la Nación' },
+  { titulo: 'Planes de mejoramiento externo — CGR 2019', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/03/Plan-de-Mejoramiento-Externo-CGR.xlsx', icon: 'fa-file-excel', tipo: 'xlsx', desc: 'Plan de mejoramiento con la Contraloría General (2019)' },
+  { titulo: 'Planes de mejoramiento externo — CGR 2021', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Reporte-PM-CGR-2023-I.xlsx', icon: 'fa-file-excel', tipo: 'xlsx', desc: 'Plan de mejoramiento con la Contraloría General (2021)' },
+  { titulo: 'Auditorías por parte de la Contraloría', url: 'https://www.itrc.gov.co/Itrc/sistema-de-control-interno/planes-de-mejoramiento-2/auditorias-por-parte-de-la-contraloria/', icon: 'fa-landmark', tipo: 'ext', desc: 'Informes de auditoría de la Contraloría General' },
+];
+---
+<Base title="Planes de Mejoramiento" description="Planes de mejoramiento interno y externo de la Agencia ITRC">
+  <HeroPage title="Planes de Mejoramiento" subtitle="Planes de mejoramiento interno y externo" icon="fa-chart-line" breadcrumb={breadcrumb} />
+  <section class="pm-section"><div class="container">
+    <div class="pm-list">{secciones.map((s) => (
+      <a href={s.url} target="_blank" rel="noopener" class="pm-item">
+        <div class={`pm-item__icon ${s.tipo === 'xlsx' ? 'pm--excel' : 'pm--ext'}`}><i class={`fa-solid ${s.icon}`} aria-hidden="true"></i></div>
+        <div class="pm-item__content"><h3>{s.titulo}</h3><p>{s.desc}</p></div>
+        <i class={`fa-solid ${s.tipo === 'xlsx' ? 'fa-download' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+      </a>
+    ))}</div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+<style>
+  .pm-section{padding:var(--space-8) var(--space-6) var(--space-16);background:var(--theme-surface)}.pm-section .container{max-width:850px;margin:0 auto}
+  .pm-list{display:flex;flex-direction:column;gap:var(--space-4)}
+  .pm-item{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);border:1px solid var(--theme-border);border-radius:var(--radius-xl);text-decoration:none;transition:all var(--transition-base)}
+  .pm-item:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--itrc-gold)}
+  .pm-item__icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-lg);font-size:var(--font-size-xl);transition:all var(--transition-base)}
+  .pm--excel{background:rgba(25,135,84,0.08);color:var(--file-excel)}.pm-item:hover .pm--excel{background:var(--file-excel);color:var(--white)}
+  .pm--ext{background:rgba(var(--itrc-gold-rgb),0.1);color:var(--itrc-gold)}.pm-item:hover .pm--ext{background:var(--itrc-gold);color:var(--white)}
+  .pm-item__content{flex:1}.pm-item__content h3{font-size:var(--font-size-sm);font-weight:700;color:var(--theme-heading);margin:0 0 var(--space-1)}.pm-item:hover h3{color:var(--itrc-gold)}
+  .pm-item__content p{font-size:var(--font-size-xs);color:var(--theme-text-secondary);margin:0}
+  .pm-item>i:last-child{color:var(--theme-text-muted);opacity:0.4}.pm-item:hover>i:last-child{opacity:1;color:var(--itrc-gold)}
+  .back-link{margin-top:var(--space-8);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}
+  @media(max-width:768px){.pm-section{padding:var(--space-6) var(--space-4) var(--space-12)}.pm-item{padding:var(--space-4)}}
+</style>

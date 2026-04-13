@@ -30,7 +30,7 @@
         { "num": "1.10", "texto": "Mecanismos para presentar quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" },
         { "num": "1.11", "texto": "Calendario de actividades", "url": "/prensa/eventos", "tipo": "internal" },
         { "num": "1.12", "texto": "Información sobre decisiones que pueden afectar al público", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos", "tipo": "internal" },
-        { "num": "1.13", "texto": "Entes y autoridades que vigilan a la Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/supervision-y-vigilancia/", "tipo": "external" },
+        { "num": "1.13", "texto": "Entes y autoridades que vigilan a la Agencia ITRC", "url": "/supervision-y-vigilancia", "tipo": "internal" },
         { "num": "1.14", "texto": "Publicación de hojas de vida", "url": "/publicacion-hojas-de-vida", "tipo": "internal" },
         { "num": "1.15", "texto": "Integridad", "tipo": "label",
           "children": [
@@ -92,14 +92,14 @@
             { "num": "4.7.1", "texto": "Informe de Gestión", "url": "/agencia/direccionamiento-estrategico/informes", "tipo": "internal" },
             { "num": "4.7.2", "texto": "Informe de rendición de cuentas ante la Contraloría General de la República", "url": "/informe-rendicion-cuenta-contraloria", "tipo": "internal" },
             { "num": "4.7.3", "texto": "Informe de Rendición de Cuentas a la ciudadanía", "url": "/participa/rendicion-de-cuentas", "tipo": "internal" },
-            { "num": "4.7.4", "texto": "Informes a organismos de inspección, vigilancia y control", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" },
-            { "num": "4.7.5", "texto": "Planes de mejoramiento", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/planes-de-mejoramiento-2/", "tipo": "external" }
+            { "num": "4.7.4", "texto": "Informes a organismos de inspección, vigilancia y control", "url": "/informes-legales", "tipo": "internal" },
+            { "num": "4.7.5", "texto": "Planes de mejoramiento", "url": "/planes-de-mejoramiento", "tipo": "internal" }
           ]
         },
         { "num": "4.8", "texto": "Informes de la Oficina de Control Interno", "tipo": "label",
           "children": [
             { "num": "4.8.1", "texto": "Informe de evaluación independiente del estado del Sistema de Control Interno", "url": "/evaluacion-independiente-control-interno", "tipo": "internal" },
-            { "num": "4.8.2", "texto": "Informes de Evaluación y Auditoría de la Agencia (3LD)", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" }
+            { "num": "4.8.2", "texto": "Informes de Evaluación y Auditoría de la Agencia (3LD)", "url": "/informes-legales", "tipo": "internal" }
           ]
         },
         { "num": "4.9", "texto": "Informes de Defensa Judicial", "tipo": "label",
@@ -168,7 +168,7 @@
         { "num": "9.1", "texto": "Normatividad Especial", "url": "/normatividad-especial", "tipo": "internal" },
         { "num": "9.2", "texto": "Accesibilidad", "url": "/accesibilidad", "tipo": "internal" },
         { "num": "9.3", "texto": "Informes de gestión, evaluación y auditoría", "url": "/informes-organismos-inspeccion", "tipo": "internal" },
-        { "num": "9.4", "texto": "Reportes de control interno", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" }
+        { "num": "9.4", "texto": "Reportes de control interno", "url": "/informes-legales", "tipo": "internal" }
       ]
     },
     {

@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Informes Legales' }];
+function fi(u: string) { return u.endsWith('.xls') || u.endsWith('.xlsx') ? 'fa-file-excel' : 'fa-file-pdf'; }
+function fc(u: string) { return u.endsWith('.xls') || u.endsWith('.xlsx') ? 'excel' : 'pdf'; }
+
+const secciones = [
+  { titulo: '2026', docs: [
+    { cat: 'Evaluación Control Interno Contable', items: [
+      { n: 'Vigencia 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Reporte_Evaluacion_SCIC_2025_CHIP-1.xls' },
+      { n: 'Evaluación Control Interno Contable Vigencia 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Evaluacion_ControlI_Contable_V2025_CHIP-1.xls' },
+    ]},
+    { cat: 'Evaluación Sistema de Control Interno', items: [
+      { n: 'Evaluación Anual SCI 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Evaluacion_SAnual_SCI_2025.pdf' },
+    ]},
+    { cat: 'Informes PTEP', items: [
+      { n: 'Seguimiento PTEP 31 Dic 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-Seguimiento-PTEP-31-Dic-2025.pdf' },
+    ]},
+    { cat: 'Software Legal', items: [
+      { n: 'Vigencia 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-derechos-de-autor-publicacion.pdf' },
+    ]},
+  ]},
+  { titulo: '2025', docs: [
+    { cat: 'Evaluación SCI', items: [
+      { n: 'Semestre I 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Evaluacion_SCI_Sem1-2025.pdf' },
+      { n: 'Semestre II 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Evaluacion_SCI_Sem_II_2025.pdf' },
+    ]},
+    { cat: 'Control Interno Contable', items: [
+      { n: 'Vigencia 2024', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Evalucion_ContorlI_contable_2024.xls' },
+    ]},
+    { cat: 'Informes de Austeridad', items: [
+      { n: '4to Trimestre 2024', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-Austeridad-4to-Trim-2024.pdf' },
+      { n: '1er Trimestre 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-Austeridad-1er-Trim-2025.pdf' },
+      { n: '2do Trimestre 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-Austeridad-2do-Trim-2025.pdf' },
+      { n: '3er Trimestre 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-Austeridad-3er-Trim-2025.pdf' },
+    ]},
+    { cat: 'PAAC / PTEP', items: [
+      { n: 'PAAC 3er Cuatrimestre 2024', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-PAAC-3er-Cuatrimestre-2024.pdf' },
+      { n: 'PTEP 1er Cuatrimestre 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-PTEP-1er-Cuatrimestre-2025.pdf' },
+      { n: 'PTEP 2do Cuatrimestre 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe-PTEP-2do-Cuatrimestre-2025.pdf' },
+    ]},
+    { cat: 'PQRSDF', items: [
+      { n: 'II Semestre 2024', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe_PQRSDFIIsem2024Web.pdf' },
+      { n: 'I Semestre 2025', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informe_PQRSDF_1Sem2025.pdf' },
+    ]},
+    { cat: 'Riesgos de Corrupción', items: [
+      { n: 'Seguimiento Riesgos de Corrupción', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Informes-Seguimiento-Riesgos-Corrupcion.pdf' },
+    ]},
+  ]},
+  { titulo: 'Años anteriores', docs: [
+    { cat: 'Control Interno Contable (2018-2024)', items: [
+      { n: 'Vigencia 2024', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Evaluacion_Control_Interno_Contable_Vigencia_2024-1.xls' },
+      { n: 'Vigencia 2023', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Matriz-Eval-CIC-Vigencia-2023-.xls' },
+      { n: 'Vigencia 2022', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Evaluacion-Control-Interno-Contable-Vigencia-2022.xlsx' },
+      { n: 'Vigencia 2021', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2021.xls' },
+      { n: 'Vigencia 2020', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2020.xls' },
+      { n: 'Vigencia 2019', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2019.xls' },
+      { n: 'Vigencia 2018', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2018.xls' },
+    ]},
+    { cat: 'Software Legal (2022-2024)', items: [
+      { n: 'Vigencia 2024', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe-derechos-de-autor-publicacion-1.pdf' },
+      { n: 'Vigencia 2023', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Inf-Software-Legal-ITRC-2023.pdf' },
+      { n: 'Vigencia 2022', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Inf-Software-Legal-ITRC-2022.pdf' },
+    ]},
+  ]},
+];
+---
+<Base title="Informes Legales" description="Informes legales de la Oficina de Control Interno de la Agencia ITRC">
+  <HeroPage title="Informes Legales" subtitle="Oficina de Control Interno" icon="fa-file-circle-check" breadcrumb={breadcrumb} />
+  <section class="il-section"><div class="container">
+    {secciones.map((sec, si) => (
+      <details class="il-accordion" open={si === 0}>
+        <summary class="il-accordion__header"><span>{sec.titulo}</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="il-accordion__body">
+          {sec.docs.map((grupo) => (
+            <div class="il-cat">
+              <h3 class="il-cat__title">{grupo.cat}</h3>
+              <div class="il-docs">{grupo.items.map((d) => (
+                <a href={d.u} target="_blank" rel="noopener" class={`il-doc il--${fc(d.u)}`}><i class={`fa-solid ${fi(d.u)}`} aria-hidden="true"></i><span>{d.n}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>
+              ))}</div>
+            </div>
+          ))}
+        </div>
+      </details>
+    ))}
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+<style>
+  .il-section{padding:var(--space-8) var(--space-6) var(--space-16);background:var(--theme-surface)}.il-section .container{max-width:900px;margin:0 auto}
+  .il-accordion{border:1px solid var(--theme-border);border-radius:var(--radius-xl);margin-bottom:var(--space-4);overflow:hidden}
+  .il-accordion__header{display:flex;align-items:center;justify-content:space-between;padding:var(--space-5) var(--space-6);background:var(--theme-surface-alt);cursor:pointer;font-size:var(--font-size-lg);font-weight:800;color:var(--theme-heading);list-style:none}
+  .il-accordion__header::-webkit-details-marker{display:none}
+  .il-accordion__header i{transition:transform 0.3s;color:var(--itrc-gold)}
+  .il-accordion[open] .il-accordion__header i{transform:rotate(180deg)}
+  .il-accordion[open] .il-accordion__header{border-bottom:2px solid var(--itrc-gold)}
+  .il-accordion__body{padding:var(--space-5) var(--space-6)}
+  .il-cat{margin-bottom:var(--space-5)}.il-cat:last-child{margin-bottom:0}
+  .il-cat__title{font-size:var(--font-size-sm);font-weight:700;color:var(--itrc-gold);margin:0 0 var(--space-3);text-transform:uppercase;letter-spacing:0.03em}
+  .il-docs{display:flex;flex-direction:column;gap:var(--space-2)}
+  .il-doc{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-3);border:1px solid var(--theme-border-light);border-radius:var(--radius-md);text-decoration:none;transition:all var(--transition-fast)}
+  .il-doc:hover{box-shadow:var(--shadow-sm);transform:translateX(3px)}
+  .il--pdf>i:first-child{color:var(--file-pdf)}.il--pdf:hover{border-color:rgba(220,53,69,0.3)}
+  .il--excel>i:first-child{color:var(--file-excel)}.il--excel:hover{border-color:rgba(25,135,84,0.3)}
+  .il-doc span{flex:1;font-size:var(--font-size-xs);font-weight:600;color:var(--theme-heading)}.il-doc:hover span{color:var(--itrc-gold)}
+  .il-doc>i:last-child{color:var(--theme-text-muted);opacity:0.4;font-size:var(--font-size-xs)}
+  .back-link{margin-top:var(--space-8);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}
+  @media(max-width:768px){.il-section{padding:var(--space-6) var(--space-4) var(--space-12)}.il-accordion__header{padding:var(--space-4);font-size:var(--font-size-base)}}
+</style>
