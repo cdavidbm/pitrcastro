@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+import pageData from '../content/pages/transparencia/directorio-entidades.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="dir-section">
+    <div class="container">
+      {pageData.grupos.map((grupo) => (
+        <div class="dir-group">
+          <h2 class="dir-group__title">
+            <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+            {grupo.nombre}
+            <span class="dir-group__count">{grupo.entidades.length}</span>
+          </h2>
+          <div class="dir-list">
+            {grupo.entidades.map((ent) => (
+              <a href={ent.url} target="_blank" rel="noopener" class="dir-item">
+                <i class="fa-solid fa-building" aria-hidden="true"></i>
+                <span>{ent.nombre}</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .dir-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .dir-section .container { max-width: 900px; margin: 0 auto; }
+  .dir-group { margin-bottom: var(--space-8); }
+  .dir-group:last-child { margin-bottom: 0; }
+  .dir-group__title { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0 0 var(--space-4); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
+  .dir-group__title i { color: var(--itrc-gold); }
+  .dir-group__count { padding: 2px 10px; background: var(--theme-surface-alt); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700; color: var(--theme-text-muted); }
+  .dir-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .dir-item { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-fast); }
+  .dir-item:hover { border-color: rgba(var(--itrc-gold-rgb), 0.3); box-shadow: var(--shadow-sm); transform: translateX(3px); }
+  .dir-item > i:first-child { color: var(--itrc-navy); font-size: var(--font-size-sm); }
+  .dir-item span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .dir-item:hover span { color: var(--itrc-gold); }
+  .dir-item > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.4; }
+  .dir-item:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+  @media (max-width: 768px) { .dir-section { padding: var(--space-6) var(--space-4) var(--space-12); } .dir-item span { font-size: var(--font-size-xs); } }
+</style>

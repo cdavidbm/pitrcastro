@@ -8,21 +8,21 @@ WordPress original (https://www.itrc.gov.co/Itrc/...).
 Fecha: 2026-04-12
 ============================================================
 
-SECCIÓN 1 — Información de la Entidad
+SECCIÓN 1 — Información de la Entidad ✓ COMPLETADA
 --------------------------------------
-[ ] /directorio-de-entidades
+[x] /directorio-de-entidades
     → Directorio de entidades del sector
-[ ] /directorio-de-agremiaciones
+[x] /directorio-de-agremiaciones
     → Directorio de agremiaciones, asociaciones y otros grupos de interés
-[ ] /normas-servicio-publico
+[x] /normas-servicio-publico
     → Normas de servicio al público que los sustentan
-[ ] /formatos-y-formularios
+[x] /formatos-y-formularios
     → Formatos y formularios asociados
-[ ] /protocolo-de-atencion-al-ciudadano
+[x] /protocolo-de-atencion-al-ciudadano
     → Protocolos de atención al ciudadano
-[ ] /procedimientos-decisiones
+[x] /procedimientos-decisiones
     → Procedimientos que se siguen para tomar decisiones en las diferentes áreas
-[ ] /publicacion-hojas-de-vida
+[x] /publicacion-hojas-de-vida
     → Publicación de hojas de vida
 
 SECCIÓN 2 — Normativa

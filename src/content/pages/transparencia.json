@@ -17,21 +17,21 @@
         { "num": "1.3", "texto": "Mapas y cartas descriptivas de los procesos", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Procesos-y-Procedimientos-de-la-Agencia-ITRC.pdf", "tipo": "pdf" },
         { "num": "1.4", "texto": "Directorio Institucional", "url": "/canales-de-atencion-al-ciudadano", "tipo": "internal" },
         { "num": "1.5", "texto": "Directorio de servidores públicos, empleados o contratistas", "url": "/agencia/directorio", "tipo": "internal" },
-        { "num": "1.6", "texto": "Directorio de entidades", "url": "https://www.itrc.gov.co/Itrc/directorio-de-entidades/", "tipo": "external" },
-        { "num": "1.7", "texto": "Directorio de agremiaciones, asociaciones y otros grupos de interés", "url": "https://www.itrc.gov.co/Itrc/directorio-de-agremiaciones-asociaciones-y-otros-grupos-de-interes/", "tipo": "external" },
+        { "num": "1.6", "texto": "Directorio de entidades", "url": "/directorio-de-entidades", "tipo": "internal" },
+        { "num": "1.7", "texto": "Directorio de agremiaciones, asociaciones y otros grupos de interés", "url": "/directorio-de-agremiaciones", "tipo": "internal" },
         { "num": "1.8", "texto": "Servicio al público, normas, formularios y protocolos de atención", "tipo": "label",
           "children": [
-            { "num": "1.8.1", "texto": "Normas", "url": "https://www.itrc.gov.co/Itrc/normas-que-los-sustentan/", "tipo": "external" },
-            { "num": "1.8.2", "texto": "Formularios", "url": "https://www.itrc.gov.co/Itrc/formatos-y-formularios/", "tipo": "external" },
-            { "num": "1.8.3", "texto": "Protocolos de atención", "url": "https://www.itrc.gov.co/Itrc/protocolo-de-atencion-al-ciudadano/", "tipo": "external" }
+            { "num": "1.8.1", "texto": "Normas", "url": "/normas-servicio-publico", "tipo": "internal" },
+            { "num": "1.8.2", "texto": "Formularios", "url": "/formatos-y-formularios", "tipo": "internal" },
+            { "num": "1.8.3", "texto": "Protocolos de atención", "url": "/protocolo-de-atencion-al-ciudadano", "tipo": "internal" }
           ]
         },
-        { "num": "1.9", "texto": "Procedimientos que se siguen para tomar decisiones en las diferentes áreas", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas/", "tipo": "external" },
+        { "num": "1.9", "texto": "Procedimientos que se siguen para tomar decisiones en las diferentes áreas", "url": "/procedimientos-decisiones", "tipo": "internal" },
         { "num": "1.10", "texto": "Mecanismos para presentar quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" },
         { "num": "1.11", "texto": "Calendario de actividades", "url": "/prensa/eventos", "tipo": "internal" },
         { "num": "1.12", "texto": "Información sobre decisiones que pueden afectar al público", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos", "tipo": "internal" },
         { "num": "1.13", "texto": "Entes y autoridades que vigilan a la Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/supervision-y-vigilancia/", "tipo": "external" },
-        { "num": "1.14", "texto": "Publicación de hojas de vida", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/publicacion-hojas-de-vida/", "tipo": "external" },
+        { "num": "1.14", "texto": "Publicación de hojas de vida", "url": "/publicacion-hojas-de-vida", "tipo": "internal" },
         { "num": "1.15", "texto": "Integridad", "tipo": "label",
           "children": [
             { "texto": "Consulta Ciudadana — Declaraciones Ley 2013 de 2019", "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/index", "tipo": "external" },

@@ -1,0 +1,50 @@
+{
+  "title": "Directorio de Entidades",
+  "description": "Entidades adscritas y vinculadas al Ministerio de Hacienda y Crédito Público",
+  "icon": "fa-building",
+  "grupos": [
+    {
+      "nombre": "Entidades adscritas al Ministerio de Hacienda y Crédito Público",
+      "entidades": [
+        { "nombre": "Fondo de Garantías de Instituciones Financieras (Fogafín)", "url": "https://www.fogafin.gov.co/" },
+        { "nombre": "Unidad de Gestión Pensional y Parafiscales (UGPP)", "url": "https://www.ugpp.gov.co/" },
+        { "nombre": "Contaduría General de La Nación", "url": "https://www.contaduria.gov.co" },
+        { "nombre": "Superintendencia de Economía Solidaria (Supersolidaria)", "url": "https://www.supersolidaria.gov.co/" },
+        { "nombre": "Superintendencia Financiera de Colombia (Superfinanciera)", "url": "https://www.superfinanciera.gov.co/" },
+        { "nombre": "Dirección de Impuestos y Aduanas Nacionales (DIAN)", "url": "https://www.dian.gov.co/" },
+        { "nombre": "Fondo Adaptación", "url": "https://www.fondoadaptacion.gov.co/" },
+        { "nombre": "Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC)", "url": "https://www.itrc.gov.co" },
+        { "nombre": "Unidad de Información y Análisis Financiero (UIAF)", "url": "https://www.uiaf.gov.co/" },
+        { "nombre": "Unidad de Proyección Normativa y Estudios de Regulación Financiera (URF)", "url": "https://www.urf.gov.co/" }
+      ]
+    },
+    {
+      "nombre": "Entidades vinculadas al Ministerio de Hacienda y Crédito Público",
+      "entidades": [
+        { "nombre": "Financiera de Desarrollo Territorial S.A. (Findeter)", "url": "https://www.findeter.gov.co/" },
+        { "nombre": "Previsora S.A. Compañía de Seguros", "url": "https://www.previsora.gov.co/" },
+        { "nombre": "Fondo de Garantías de Entidades Cooperativas (Fogacoop)", "url": "https://www.fogacoop.gov.co/" },
+        { "nombre": "Financiera de Desarrollo Nacional (FDN)", "url": "https://www.fdn.com.co/" },
+        { "nombre": "Coljuegos", "url": "https://www.coljuegos.gov.co/" },
+        { "nombre": "Fiduciaria La Previsora (Fiduprevisora)", "url": "https://www.fiduprevisora.com.co" },
+        { "nombre": "Central de Inversiones S.A. (CISA)", "url": "https://www.cisa.gov.co/" },
+        { "nombre": "Positiva Compañía de Seguros", "url": "https://www.positiva.gov.co/" },
+        { "nombre": "Sociedad de Activos Especiales S.A.S. (SAE)", "url": "https://www.saesas.gov.co/" }
+      ]
+    },
+    {
+      "nombre": "Grupo Bicentenario",
+      "entidades": [
+        { "nombre": "Bancóldex", "url": "https://www.bancoldex.com/" },
+        { "nombre": "Empresa Nacional Promotora del Desarrollo Territorial (ENTerritorio)", "url": "https://www.enterritorio.gov.co/" },
+        { "nombre": "Banco Agrario de Colombia", "url": "https://www.bancoagrario.gov.co/" },
+        { "nombre": "Sociedad Fiduciaria de Desarrollo Agropecuario S.A. (Fiduagraria)", "url": "https://www.fiduagraria.gov.co/" },
+        { "nombre": "Fondo Nacional del Ahorro (FNA)", "url": "https://www.fna.gov.co/" },
+        { "nombre": "Fondo Nacional de Garantías (FNG)", "url": "https://www.fng.gov.co/" },
+        { "nombre": "ICETEX", "url": "https://web.icetex.gov.co/" },
+        { "nombre": "Fondo para el Financiamiento del Sector Agropecuario (Finagro)", "url": "https://www.finagro.com.co/" },
+        { "nombre": "Fiduciaria Colombiana de Comercio Exterior S.A. (Fiducóldex)", "url": "https://www.fiducoldex.com.co/" }
+      ]
+    }
+  ]
+}

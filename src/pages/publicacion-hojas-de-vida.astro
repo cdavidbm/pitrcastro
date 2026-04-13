@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+import pageData from '../content/pages/transparencia/hojas-de-vida.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="hojas-section">
+    <div class="container">
+      <a href={pageData.enlaceExterno} target="_blank" rel="noopener" class="enlace-presidencia">
+        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        Enlace Publicación de Hojas de Vida — Presidencia de la República
+      </a>
+
+      <h2 class="aspirantes-title">
+        <i class="fa-solid fa-users" aria-hidden="true"></i>
+        Aspirantes
+        <span class="aspirantes-count">{pageData.aspirantes.length}</span>
+      </h2>
+
+      <div class="table-wrapper">
+        <table class="hojas-table">
+          <thead>
+            <tr>
+              <th>Aspirante</th>
+              <th>Cargo</th>
+              <th>Fecha de fijación</th>
+              <th>Fecha de desfijación</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pageData.aspirantes.map((asp) => (
+              <tr>
+                <td data-label="Aspirante">
+                  <a href={asp.pdf} target="_blank" rel="noopener" class="aspirante-link">
+                    <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                    {asp.nombre}
+                  </a>
+                </td>
+                <td data-label="Cargo" class="td-cargo">{asp.cargo}</td>
+                <td data-label="Fijación" class="td-fecha">{asp.fechaFijacion}</td>
+                <td data-label="Desfijación" class="td-fecha">{asp.fechaDesfijacion || '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hojas-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .hojas-section .container { max-width: 1000px; margin: 0 auto; }
+
+  .enlace-presidencia { display: inline-flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-6); background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: var(--font-size-sm); transition: all var(--transition-base); margin-bottom: var(--space-8); }
+  .enlace-presidencia:hover { background: var(--itrc-gold); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  .aspirantes-title { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-5); }
+  .aspirantes-title i { color: var(--itrc-gold); }
+  .aspirantes-count { padding: 2px 10px; background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700; }
+
+  .table-wrapper { overflow-x: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--theme-border-light); }
+
+  .hojas-table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); min-width: 700px; }
+  .hojas-table thead { background: var(--theme-dark-section-bg); }
+  .hojas-table th { padding: var(--space-3) var(--space-4); text-align: left; font-weight: 700; font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: 0.04em; color: var(--theme-dark-section-heading); border-bottom: 2px solid var(--itrc-gold); white-space: nowrap; }
+  .hojas-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--theme-border-light); color: var(--theme-text); vertical-align: top; }
+  .hojas-table tbody tr:nth-child(even) { background: var(--theme-surface-alt); }
+  .hojas-table tbody tr:hover { background: rgba(var(--itrc-gold-rgb), 0.08); }
+
+  .aspirante-link { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--file-pdf); text-decoration: none; font-weight: 700; font-size: var(--font-size-sm); }
+  .aspirante-link:hover { text-decoration: underline; }
+  .aspirante-link i { font-size: var(--font-size-xs); }
+
+  .td-cargo { font-size: var(--font-size-xs); color: var(--theme-text-secondary); }
+  .td-fecha { font-size: var(--font-size-xs); white-space: nowrap; }
+
+  @media (max-width: 768px) {
+    .hojas-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .enlace-presidencia { font-size: var(--font-size-xs); padding: var(--space-3) var(--space-5); }
+  }
+</style>

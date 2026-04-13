@@ -1,0 +1,19 @@
+{
+  "title": "Publicación Hojas de Vida",
+  "description": "Publicación de hojas de vida de aspirantes a cargos de la Agencia ITRC",
+  "icon": "fa-id-card",
+  "enlaceExterno": "https://aspirantes.presidencia.gov.co/",
+  "aspirantes": [
+    { "nombre": "Martha Carolina Perea Moreno", "cargo": "Experto Código G3 Grado 08", "fechaFijacion": "28 de noviembre del 2025", "fechaDesfijacion": "1 de diciembre del 2025", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/HOJA-DE-VIDA-FUNCION-PUBLICA-Martha-Perea-1.pdf" },
+    { "nombre": "José Alexis Mahecha Acosta", "cargo": "Secretario General", "fechaFijacion": "28 de noviembre del 2025", "fechaDesfijacion": "1 de diciembre del 2025", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Hoja-de-Vida-Sigep-Jose-Mahecha.pdf" },
+    { "nombre": "Andrés Fernando Marín", "cargo": "Subdirector Técnico de Agencia Código E5 Grado 02 — Subdirección de Instrucción Disciplinaria", "fechaFijacion": "30 de septiembre del 2025", "fechaDesfijacion": "", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/Hoja-de-vida-funcion-publica-Andres-Fernando-Marin.1.pdf" },
+    { "nombre": "Astrid Omaira Navarro Rodríguez", "cargo": "Jefe de Oficina de Planeación", "fechaFijacion": "29 de septiembre del 2025", "fechaDesfijacion": "", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Hoja-de-vida-sigep-Omaira-Navarro.pdf" },
+    { "nombre": "Diana Patricia Díaz Olivera", "cargo": "Experta Misional Código G3 Grado 08", "fechaFijacion": "26 de julio del 2025", "fechaDesfijacion": "28 de julio del 2025", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Hoja-de-vida-Diana-Diaz.pdf" },
+    { "nombre": "Marisol Niño Vargas", "cargo": "Subdirector Técnico de Agencia Código E5 Grado 02 — Subdirección de Asuntos Legales", "fechaFijacion": "14 de enero del 2025", "fechaDesfijacion": "17 de enero del 2025", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Hoja-de-vida-Sigep-Marisol-Nino.1.pdf" },
+    { "nombre": "Numa Rafael Ortiz Fernández", "cargo": "Subdirector Técnico de Agencia Código E5 Grado 02 — Subdirección de Instrucción Disciplinaria", "fechaFijacion": "7 de enero del 2025", "fechaDesfijacion": "10 de enero del 2025", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Hoja-de-Vida-Numa-Rafael-Ortiz.1-23-12-2024.pdf" },
+    { "nombre": "Martha Lucía Agámez Villegas", "cargo": "Experto Código G3 Grado 08 — Dirección General", "fechaFijacion": "27 de diciembre de 2024", "fechaDesfijacion": "30 de diciembre de 2024", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Hoja-de-Vida-Martha-Lucia-Agamez.1.pdf" },
+    { "nombre": "Ángela María Lasso Molina", "cargo": "Jefe de Oficina de Agencia Código G1 Grado 05 — Oficina Asesora de Planeación", "fechaFijacion": "27 de diciembre de 2024", "fechaDesfijacion": "30 de diciembre de 2024", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Hoja-de-Vida-Sigep-Angela-Lasso.1.pdf" },
+    { "nombre": "Eva Carolina Madrid Torres", "cargo": "Director General de Agencia Código E3 Grado 07", "fechaFijacion": "3 de octubre de 2024", "fechaDesfijacion": "7 de octubre de 2024", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/hoja-de-vida.pdf" },
+    { "nombre": "Mary Luz Muñoz Durán", "cargo": "Jefe de Oficina de Agencia Código G1 Grado 05", "fechaFijacion": "1 de octubre de 2024", "fechaDesfijacion": "4 de octubre de 2024", "pdf": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/hoja_de_vida.pdf" }
+  ]
+}

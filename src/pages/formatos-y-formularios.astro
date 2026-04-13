@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Formatos y Formularios' }
+];
+---
+
+<Base title="Formatos y Formularios Requeridos" description="Formatos y formularios para trámites ante la Agencia ITRC">
+  <HeroPage title="Formatos y Formularios" subtitle="Formularios requeridos para trámites ante la Agencia ITRC" icon="fa-file-pen" breadcrumb={breadcrumb} />
+
+  <section class="formatos-page">
+    <div class="container">
+      <div class="formato-card">
+        <div class="formato-card__icon formato-card__icon--red">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        </div>
+        <div class="formato-card__content">
+          <h2>Denuncias</h2>
+          <p>A través del sistema de denuncia virtual de la Agencia ITRC, se recepcionan las denuncias que se presenten en contra de los servidores públicos de la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscal — UGPP.</p>
+          <a href="https://www.itrc.gov.co/denuncias" target="_blank" rel="noopener" class="formato-btn">
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ir al Sistema de Denuncias
+          </a>
+        </div>
+      </div>
+
+      <div class="formato-card">
+        <div class="formato-card__icon formato-card__icon--gold">
+          <i class="fa-solid fa-comments" aria-hidden="true"></i>
+        </div>
+        <div class="formato-card__content">
+          <h2>P.Q.R.S.F</h2>
+          <p>Las Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones (P.Q.R.S.F.) son únicamente dirigidas a los servidores y contratistas que integran la Agencia ITRC.</p>
+          <a href={resolveUrl('/tu-p-q-r-s-al-dia')} class="formato-btn">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Ir a P.Q.R.S
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .formatos-page { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .formatos-page .container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-6); }
+  .formato-card { display: flex; gap: var(--space-6); padding: var(--space-8); background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .formato-card:hover { box-shadow: var(--shadow-lg); }
+  .formato-card__icon { width: 64px; height: 64px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); font-size: var(--font-size-2xl); color: var(--white); }
+  .formato-card__icon--red { background: #dc3545; }
+  .formato-card__icon--gold { background: var(--itrc-gold); }
+  .formato-card__content h2 { font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .formato-card__content p { font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); margin: 0 0 var(--space-5); }
+  .formato-btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: var(--font-size-sm); transition: all var(--transition-base); }
+  .formato-btn:hover { background: var(--itrc-gold); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  @media (max-width: 768px) {
+    .formatos-page { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .formato-card { flex-direction: column; padding: var(--space-5); gap: var(--space-4); }
+    .formato-card__icon { width: 48px; height: 48px; font-size: var(--font-size-xl); }
+  }
+</style>

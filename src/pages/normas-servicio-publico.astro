@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Normas de Servicio al Público' }
+];
+
+const normas = [
+  { nombre: 'Ley 962 de 2005', url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0962_2005.html' },
+  { nombre: 'Constitución Política de 1991', url: 'http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html' },
+  { nombre: 'Ley 1755 de 2015', url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_1755_2015.html' },
+  { nombre: 'Decreto 2106 de 2019', url: 'http://www.secretariasenado.gov.co/senado/basedoc/decreto_2106_2019_pr003.html' },
+];
+---
+
+<Base title="Normas que los sustentan" description="Normas legales que sustentan los servicios al público de la Agencia ITRC">
+  <HeroPage title="Normas que los sustentan" subtitle="Normas legales aplicables a los servicios al público" icon="fa-scale-balanced" breadcrumb={breadcrumb} />
+
+  <section class="normas-page">
+    <div class="container">
+      <p class="normas-intro">La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC no cuenta con trámites o servicios; sin embargo, los trámites que puede desarrollar son Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones.</p>
+
+      <h2 class="normas-heading"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Normas que los sustentan</h2>
+
+      <div class="normas-list">
+        {normas.map((norma) => (
+          <a href={norma.url} target="_blank" rel="noopener" class="norma-item">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+            <span>{norma.nombre}</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+
+      <div class="back-link">
+        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .normas-page { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .normas-page .container { max-width: 800px; margin: 0 auto; }
+  .normas-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); }
+  .normas-heading { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-5); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
+  .normas-heading i { color: var(--itrc-gold); }
+  .normas-list { display: flex; flex-direction: column; gap: var(--space-3); }
+  .norma-item { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .norma-item:hover { border-color: rgba(var(--itrc-gold-rgb), 0.3); box-shadow: var(--shadow-md); transform: translateX(4px); }
+  .norma-item > i:first-child { color: var(--itrc-gold); font-size: var(--font-size-lg); }
+  .norma-item span { flex: 1; font-size: var(--font-size-base); font-weight: 700; color: var(--theme-heading); }
+  .norma-item:hover span { color: var(--itrc-gold); }
+  .norma-item > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.4; }
+  .norma-item:hover > i:last-child { opacity: 1; }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
