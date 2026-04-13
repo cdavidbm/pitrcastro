@@ -6,7 +6,7 @@
     },
     {
       "label": "Agencia",
-      "url": "#",
+      "url": "/agencia",
       "children": [
         { "label": "Misión, Visión y Propósito Estratégico", "url": "/agencia/mision-vision" },
         { "label": "Nuestra Estructura", "url": "/agencia/organigrama" },
@@ -20,7 +20,7 @@
     },
     {
       "label": "Normativa",
-      "url": "#",
+      "url": "/normativa",
       "children": [
         { "label": "Normativa Aplicable", "url": "/normativa-aplicada" },
         { "label": "Unificación Normativa SUIN Juriscol", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol" },
@@ -31,7 +31,7 @@
     },
     {
       "label": "Atención y Servicios",
-      "url": "#",
+      "url": "/atencion-y-servicios",
       "children": [
         { "label": "Consulte el estado de su PQRSD", "url": "https://www.itrc.gov.co/denuncias/consulta", "external": true },
         { "label": "Notificaciones y Traslados", "url": "/notificaciones-y-traslados" },
@@ -70,7 +70,7 @@
     },
     {
       "label": "Prensa",
-      "url": "#",
+      "url": "/prensa",
       "children": [
         { "label": "Noticias", "url": "/prensa/noticias" },
         { "label": "Eventos", "url": "/prensa/eventos" },

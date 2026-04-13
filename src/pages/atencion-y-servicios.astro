@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios' }
+];
+
+const secciones = [
+  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', icon: 'fa-bell', url: '/notificaciones-y-traslados', color: 'var(--itrc-gold)' },
+  { titulo: 'Notificaciones por Aviso', descripcion: 'Publicación de notificaciones conforme a la Ley 1437 de 2011', icon: 'fa-bullhorn', url: '/notificaciones-por-aviso', color: 'var(--itrc-navy)' },
+  { titulo: 'Vinculación a Terceros', descripcion: 'Cancelación de Registro Público de Carrera Administrativa', icon: 'fa-user-xmark', url: '/vinculacion-a-terceros-cancelacion-de-registro-publico', color: '#0943b5' },
+  { titulo: 'Correo Notificaciones Judiciales', descripcion: 'Correo electrónico exclusivo para despachos judiciales', icon: 'fa-envelope-open-text', url: '/correo-electronico-para-notificaciones-judiciales', color: '#198754' },
+  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', icon: 'fa-headset', url: '/canales-de-atencion-al-ciudadano', color: '#6f42c1' },
+  { titulo: 'P.Q.R.S', descripcion: 'Peticiones, Quejas, Reclamos y Sugerencias', icon: 'fa-comments', url: '/tu-p-q-r-s-al-dia', color: '#dc3545' },
+  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', icon: 'fa-circle-question', url: '/preguntas-frecuentes', color: '#fd7e14' },
+  { titulo: 'Glosario', descripcion: 'Términos utilizados por la Agencia ITRC', icon: 'fa-book', url: '/glosario', color: '#0dcaf0' },
+];
+
+const enlacesExternos = [
+  { titulo: 'Consulte el estado de su PQRSD', url: 'https://www.itrc.gov.co/denuncias/consulta', icon: 'fa-magnifying-glass' },
+  { titulo: 'Datos Abiertos', url: 'https://www.datos.gov.co/browse?q=itrc', icon: 'fa-database' },
+  { titulo: 'Cartilla al ciudadano', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/Cartilla-al-ciudadano.pdf', icon: 'fa-file-pdf' },
+  { titulo: 'Carta trato digno al ciudadano', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/CARTA-TRATO-DIGNO.pdf', icon: 'fa-file-pdf' },
+];
+---
+
+<Base title="Atención y Servicios" description="Canales de atención y servicios al ciudadano de la Agencia ITRC">
+  <HeroPage title="Atención y Servicios" subtitle="Canales de atención y servicios al ciudadano" icon="fa-headset" breadcrumb={breadcrumb} />
+
+  <section class="hub-section">
+    <div class="container">
+      <div class="hub-grid">
+        {secciones.map((sec) => (
+          <a href={resolveUrl(sec.url)} class="hub-card" style={`--card-accent: ${sec.color}`}>
+            <div class="hub-card__icon">
+              <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
+            </div>
+            <h3 class="hub-card__title">{sec.titulo}</h3>
+            <p class="hub-card__desc">{sec.descripcion}</p>
+            <span class="hub-card__arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+        ))}
+      </div>
+
+      <div class="ext-section">
+        <h2 class="ext-title"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Enlaces externos</h2>
+        <div class="ext-links">
+          {enlacesExternos.map((e) => (
+            <a href={e.url} target="_blank" rel="noopener" class="ext-link">
+              <i class={`fa-solid ${e.icon}`} aria-hidden="true"></i>
+              <span>{e.titulo}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hub-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .hub-section .container { max-width: 1050px; margin: 0 auto; }
+  .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-5); }
+  .hub-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--space-10) var(--space-6); background: var(--theme-surface); border: 1px solid var(--theme-border); border-top: 4px solid var(--card-accent); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .hub-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--card-accent); }
+  .hub-card__icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: var(--card-accent); color: var(--white); border-radius: var(--radius-full); font-size: var(--font-size-2xl); margin-bottom: var(--space-4); transition: transform var(--transition-base); }
+  .hub-card:hover .hub-card__icon { transform: scale(1.1); }
+  .hub-card__title { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-2); transition: color var(--transition-fast); }
+  .hub-card:hover .hub-card__title { color: var(--card-accent); }
+  .hub-card__desc { font-size: var(--font-size-sm); line-height: 1.6; color: var(--theme-text-secondary); margin: 0; flex: 1; }
+  .hub-card__arrow { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin-top: var(--space-4); border-radius: var(--radius-full); background: rgba(0,0,0,0.04); color: var(--theme-text-muted); font-size: var(--font-size-sm); transition: all var(--transition-fast); }
+  .hub-card:hover .hub-card__arrow { background: var(--card-accent); color: var(--white); }
+
+  .ext-section { margin-top: var(--space-10); padding-top: var(--space-8); border-top: 2px solid var(--theme-border-light); }
+  .ext-title { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0 0 var(--space-5); }
+  .ext-title i { color: var(--itrc-gold); }
+  .ext-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-3); }
+  .ext-link { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .ext-link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-sm); }
+  .ext-link > i:first-child { color: var(--itrc-gold); font-size: var(--font-size-base); }
+  .ext-link span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .ext-link:hover span { color: var(--itrc-gold); }
+  .ext-link > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.4; }
+
+  @media (max-width: 768px) {
+    .hub-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .hub-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+    .hub-card { flex-direction: row; text-align: left; padding: var(--space-4); gap: var(--space-4); border-top: none; border-left: 4px solid var(--card-accent); }
+    .hub-card__icon { width: 44px; height: 44px; font-size: var(--font-size-xl); margin-bottom: 0; flex-shrink: 0; }
+    .hub-card__arrow { display: none; }
+    .ext-links { grid-template-columns: 1fr; }
+  }
+</style>

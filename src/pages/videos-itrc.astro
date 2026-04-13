@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/prensa/videos.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Cápsulas Informativas', descripcion: 'Videos cortos sobre la gestión de la ITRC', url: '/capsulas-informativas', icon: 'fa-play-circle' },
+  { titulo: 'Galería', descripcion: 'Galería fotográfica de eventos', url: '/galeria', icon: 'fa-images' },
+  { titulo: 'Noticias', descripcion: 'Noticias de la Agencia ITRC', url: '/prensa/noticias', icon: 'fa-newspaper' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="videos-section">
+    <div class="container">
+      <div class="videos-grid">
+        {pageData.videos.map((video) => (
+          <div class="video-card">
+            <div class="video-card__player">
+              <video controls preload="metadata">
+                <source src={video.url} type="video/mp4" />
+                Su navegador no soporta la reproducción de video.
+              </video>
+            </div>
+            <div class="video-card__info">
+              <h3>{video.titulo}</h3>
+              {video.transcripcion && (
+                <a href={video.transcripcion} target="_blank" rel="noopener" class="video-card__transcript">
+                  <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                  Texto del contenido audiovisual (accesibilidad)
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="videos-links">
+        <h2><i class="fa-brands fa-youtube" aria-hidden="true"></i> Canal de YouTube</h2>
+        <div class="links-grid">
+          {pageData.enlaces.map((enlace) => (
+            <a href={enlace.url} target="_blank" rel="noopener" class="yt-link">
+              <i class={`fa-brands ${enlace.icon}`} aria-hidden="true"></i>
+              <span>{enlace.texto}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Prensa" />
+</Base>
+
+<style>
+  .videos-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .videos-section .container { max-width: 900px; margin: 0 auto; }
+
+  .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-10); }
+
+  .video-card { background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); overflow: hidden; }
+  .video-card__player { background: #000; }
+  .video-card__player video { width: 100%; height: auto; display: block; }
+  .video-card__info { padding: var(--space-4) var(--space-5); }
+  .video-card__info h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .video-card__transcript { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-xs); color: var(--file-pdf); text-decoration: none; font-weight: 600; }
+  .video-card__transcript:hover { text-decoration: underline; }
+
+  .videos-links { padding-top: var(--space-8); border-top: 2px solid var(--theme-border-light); }
+  .videos-links h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-5); }
+  .videos-links h2 i { color: #c4302b; }
+
+  .links-grid { display: flex; flex-direction: column; gap: var(--space-3); }
+  .yt-link { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .yt-link:hover { border-color: rgba(196,48,43,0.3); box-shadow: var(--shadow-md); transform: translateX(4px); }
+  .yt-link > i:first-child { font-size: var(--font-size-2xl); color: #c4302b; }
+  .yt-link span { flex: 1; font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-heading); }
+  .yt-link:hover span { color: #c4302b; }
+  .yt-link > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+
+  @media (max-width: 768px) {
+    .videos-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .videos-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/prensa/comunicados.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Comunicados y Boletines', descripcion: 'Boletines de prensa por año', url: '/comunicados-y-boletines-de-prensa', icon: 'fa-newspaper' },
+  { titulo: 'Noticias', descripcion: 'Noticias de la Agencia ITRC', url: '/prensa/noticias', icon: 'fa-newspaper' },
+  { titulo: 'Videos ITRC', descripcion: 'Videos institucionales', url: '/videos-itrc', icon: 'fa-video' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="comunicados-section">
+    <div class="container">
+      {pageData.anios.map((grupo) => (
+        <div class="com-group">
+          <h2 class="com-group__title">
+            <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+            Comunicados {grupo.anio}
+            <span class="com-group__count">{grupo.items.length}</span>
+          </h2>
+          <div class="com-list">
+            {grupo.items.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener" class="com-item">
+                <div class="com-item__icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></div>
+                <span class="com-item__name">{item.nombre}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Prensa" />
+</Base>
+
+<style>
+  .comunicados-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .comunicados-section .container { max-width: 850px; margin: 0 auto; }
+  .com-group { margin-bottom: var(--space-8); }
+  .com-group:last-child { margin-bottom: 0; }
+  .com-group__title { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0 0 var(--space-4); padding-bottom: var(--space-3); border-bottom: 2px solid var(--theme-border); }
+  .com-group__title i { color: var(--itrc-gold); }
+  .com-group__count { padding: 2px 10px; background: var(--theme-surface-alt); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700; color: var(--theme-text-muted); }
+  .com-list { display: flex; flex-direction: column; gap: var(--space-3); }
+  .com-item { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .com-item:hover { border-color: rgba(220,53,69,0.3); box-shadow: var(--shadow-md); transform: translateX(4px); }
+  .com-item__icon { width: 40px; height: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(220,53,69,0.08); border-radius: var(--radius-md); color: var(--file-pdf); font-size: var(--font-size-lg); transition: all var(--transition-base); }
+  .com-item:hover .com-item__icon { background: var(--file-pdf); color: var(--white); }
+  .com-item__name { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .com-item:hover .com-item__name { color: var(--file-pdf); }
+  .com-item > i:last-child { color: var(--theme-text-muted); opacity: 0.4; }
+  .com-item:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+  @media (max-width: 768px) { .comunicados-section { padding: var(--space-6) var(--space-4) var(--space-12); } .com-item__name { font-size: var(--font-size-xs); } }
+</style>

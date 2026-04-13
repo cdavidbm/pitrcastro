@@ -1,0 +1,18 @@
+{
+  "title": "Cápsulas Informativas",
+  "slug": "capsulas-informativas",
+  "description": "Cápsulas informativas sobre la gestión y funciones de la Agencia ITRC",
+  "icon": "fa-play-circle",
+  "capsulas": [
+    { "titulo": "¿Qué es la contratación?", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap01-Que-es-la-contratacion-WebHD.mp4" },
+    { "titulo": "Actividades principales", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap02-Actividades-principales-WebHD.mp4" },
+    { "titulo": "Supervisión contractual", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap03-Supervision-contractual-WebHD.mp4" },
+    { "titulo": "Misión, Visión y Valores", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap04-Mision-Vision-y-Valores-WebHD.mp4" },
+    { "titulo": "Política de calidad", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap05-Politica-de-calidad-WebHD.mp4" },
+    { "titulo": "Objetivos de calidad", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap06-Objetivos-de-calidad-WebHD.mp4" },
+    { "titulo": "Auditoría de seguimiento", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap08-Auditoria-de-seguimiento-WebHD.mp4" },
+    { "titulo": "¿Cómo vamos?", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap10-Como-vamos-WebHD.mp4" },
+    { "titulo": "Modelo de investigación", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap11-Modelo-de-investigacion-WebHD.mp4" },
+    { "titulo": "Canales de atención", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/ITRC-Cap12-Canales-de-atencion-WebHD.mp4" }
+  ]
+}

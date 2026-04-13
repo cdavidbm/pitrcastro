@@ -1,0 +1,133 @@
+{
+  "title": "Comunicados y Boletines de Prensa",
+  "slug": "comunicados-y-boletines-de-prensa",
+  "description": "Comunicados de prensa y boletines informativos de la Agencia ITRC",
+  "icon": "fa-newspaper",
+  "anios": [
+    {
+      "anio": "2024",
+      "label": "Comunicados 2024",
+      "items": [
+        { "nombre": "Comunicado de Prensa — Manual de Identidad Visual de la Agencia ITRC", "url": "/prensa/noticias/2024-12-03-comunicado-de-prensa-manual-de-identidad-visual-de-la", "tipo": "page" },
+        { "nombre": "Comunicado de Prensa 02 — Directora General", "url": "/prensa/noticias/2024-12-03-comunicado-de-prensa-02-directora-general", "tipo": "page" },
+        { "nombre": "Comunicado de Prensa 03 — Agencia ITRC participa en el Congreso FIC-2024", "url": "/prensa/noticias/2024-12-03-la-agencia-itrc-participa-en-el-congreso-internacional-fic", "tipo": "page" },
+        { "nombre": "Comunicado de Prensa 04 — La Agencia ITRC se tecnifica frente a la lucha contra el contrabando", "url": "/prensa/noticias/2024-12-05-comunicado-de-prensa-04-la-agencia-itrc-se-tecnifica-frente", "tipo": "page" },
+        { "nombre": "Comunicado de Prensa 05 — Invitación Rendición de Cuentas", "url": "/prensa/noticias/2024-12-09-comunicado-de-prensa-05-invitacion-rendicion-de-cuentas", "tipo": "page" },
+        { "nombre": "Comunicado de Prensa 06 — Rendición de cuentas: Agencia ITRC alertó para proteger 248.000 millones de pesos", "url": "/prensa/noticias/2024-12-20-en-rendicion-de-cuentas-gracias-a-su-gestion-la-agencia", "tipo": "page" }
+      ]
+    },
+    {
+      "anio": "2023",
+      "label": "Boletines 2023",
+      "items": [
+        { "nombre": "Boletín 003 — Rendición de Cuentas Agencia ITRC", "url": "/prensa/noticias/2023-12-21-boletin-de-prensa-no-003-2023", "tipo": "page" },
+        { "nombre": "Rendición de Cuentas Agencia ITRC", "url": "/prensa/noticias/2023-12-13-boletin-de-prensa-no-001-2023-2", "tipo": "page" },
+        { "nombre": "Boletín 001 — La Agencia ITRC cambia de sede", "url": "/prensa/noticias/2023-02-21-boletin-de-prensa-no-001-2023", "tipo": "page" }
+      ]
+    },
+    {
+      "anio": "2022",
+      "label": "Boletines 2022",
+      "items": [
+        { "nombre": "Boletín 003 — Agencia ITRC realizará su audiencia pública de Rendición de Cuentas 2022", "url": "/prensa/noticias/2022-12-13-boletin-de-prensa-no-003-2022", "tipo": "page" },
+        { "nombre": "Boletín 002 — La Agencia ITRC presentó los resultados del proceso de consolidación de su Observatorio de Fraude y Corrupción", "url": "/prensa/noticias/2022-07-29-boletin-de-prensa-no-002-2022", "tipo": "page" },
+        { "nombre": "Boletín 001 — Agencia ITRC realiza modificación de estructura misional disciplinaria", "url": "/prensa/noticias/2022-02-14-boletin-de-prensa-no-001-2022", "tipo": "page" }
+      ]
+    },
+    {
+      "anio": "2021",
+      "label": "Boletines 2021",
+      "items": [
+        { "nombre": "Boletín 001 — La Agencia ITRC confirmó sanción de destitución e inhabilidad por 18 años a funcionario de la DIAN", "url": "/prensa/noticias/2021-03-19-boletin-de-prensa-no-001", "tipo": "page" },
+        { "nombre": "Boletín 002 — La Agencia ITRC destituyó e inhabilitó por 20 años a funcionario de la DIAN", "url": "/prensa/noticias/2021-07-26-boletin-de-prensa-no-002", "tipo": "page" },
+        { "nombre": "Boletín 003 — Agencia ITRC avanza en su gestión de investigación disciplinaria", "url": "/prensa/noticias/2021-08-12-boletin-de-prensa-no-003", "tipo": "page" },
+        { "nombre": "Boletín 004 — Boletín de Prensa octubre 5 de 2021", "url": "/prensa/noticias/2021-10-05-boletin-de-prensa-no-004", "tipo": "page" },
+        { "nombre": "Boletín 005 — Boletín de Prensa diciembre 1 de 2021", "url": "/prensa/noticias/2021-12-01-boletin-de-prensa-no-005", "tipo": "page" }
+      ]
+    },
+    {
+      "anio": "2020",
+      "label": "Boletines 2020",
+      "items": [
+        { "nombre": "Boletín 011 — La Agencia ITRC confirmó destitución e inhabilidad por 10 años a funcionaria de la UGPP", "url": "/prensa/noticias/2020-02-03-boletin-de-prensa-no-011", "tipo": "page" },
+        { "nombre": "Boletín 012 — Pliego de cargos a exfuncionario de la DIAN por presunto incremento patrimonial injustificado", "url": "/prensa/noticias/2020-03-10-boletin-de-prensa-no-012", "tipo": "page" },
+        { "nombre": "Boletín 013 — Controles para prevenir irregularidades durante COVID-19", "url": "/prensa/noticias/2020-04-22-boletin-013", "tipo": "page" },
+        { "nombre": "Boletín 014 — ITRC vigilará distribución de recursos destinados a la salud", "url": "/prensa/noticias/2020-05-04-boletin-de-prensa-n-014", "tipo": "page" },
+        { "nombre": "Boletín 015 — Pliego de cargos contra Omar Ambuila", "url": "/prensa/noticias/2020-05-15-boletin-de-prensa-n-015", "tipo": "page" },
+        { "nombre": "Boletín 016 — Vigilancia de medidas cautelares en la DIAN", "url": "/prensa/noticias/2020-05-27-boletin-de-prensa-n-016", "tipo": "page" },
+        { "nombre": "Boletín 017 — Charlas virtuales de prevención disciplinaria para Coljuegos y UGPP", "url": "/prensa/noticias/2020-06-03-boletin-de-prensa-n-017", "tipo": "page" },
+        { "nombre": "Boletín 018 — Suspensión provisional a Omar Ambuila, funcionario de la DIAN", "url": "/prensa/noticias/2020-06-30-boletin-de-prensa-n-018", "tipo": "page" },
+        { "nombre": "Boletín 019 — Destitución e inhabilidad por 11 años a funcionario de la DIAN", "url": "/prensa/noticias/2020-07-16-boletin-de-prensa-n-019", "tipo": "page" },
+        { "nombre": "Boletín 020 — Evento virtual: rol de la ITRC en la lucha contra la corrupción", "url": "/prensa/noticias/2020-08-12-boletin-de-prensa-020", "tipo": "page" },
+        { "nombre": "Boletín 021 — Sistema de denuncia virtual para actos de fraude y corrupción", "url": "/prensa/noticias/2020-10-20-boletin-de-prensa-no-021", "tipo": "page" },
+        { "nombre": "Boletín 022 — Controles en Coljuegos por COVID-19", "url": "/prensa/noticias/2020-11-17-boletin-de-prensa-no-022", "tipo": "page" },
+        { "nombre": "Boletín 023 — Audiencia virtual de rendición de cuentas", "url": "/prensa/noticias/2020-11-25-boletin-de-prensa-no-023", "tipo": "page" },
+        { "nombre": "Boletín 024 — Convenio de cooperación Policía Nacional y Agencia ITRC", "url": "/prensa/noticias/2020-11-30-boletin-de-prensa-no-024", "tipo": "page" },
+        { "nombre": "Boletín 025 — Destitución e inhabilidad por 18 años a Omar Ambuila", "url": "/prensa/noticias/2020-12-17-boletin-de-prensa-no-025", "tipo": "page" },
+        { "nombre": "Boletín 026 — Charlas de prevención disciplinaria en entidades de control", "url": "/prensa/noticias/2020-12-18-boletin-de-prensa-no-026", "tipo": "page" }
+      ]
+    },
+    {
+      "anio": "2019",
+      "label": "Boletines 2019",
+      "items": [
+        { "nombre": "Boletín 001 — Primer feria de atención al ciudadano Aracataca (Magdalena)", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/BOLETIN-001.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 002 — Diana Patricia Richardson nueva Directora de la Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/04/BOLETIN-002-1.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 003 — Cae red de corrupción de 9 funcionarios de la DIAN y 2 particulares", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/04/BOLETIN-003.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 004 — ITRC y FITAC firman convenio de cooperación", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/05/BOLET%C3%8DN-004-FIRMA-DE-CONVENIO-ITRC-FITAC.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 005 — La Agencia ITRC destituyó a funcionaria de la UGPP", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/12/Copia-de-Copia-de-Bolet%C3%ADn-de-prensa-005.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 008 — Encuentro anticorrupción: Estrategias de cooperación interinstitucional", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/12/Copia-de-Copia-de-Bolet%C3%ADn-de-prensa-008.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 009 — Agencia ITRC y U. Externado de Colombia firman convenio de cooperación", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/12/Copia-de-Copia-de-Bolet%C3%ADn-de-prensa-009.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 010 — Audiencia a funcionario de la DIAN por favorecimiento al contrabando", "url": "/prensa/noticias/2019-11-26-agencia-itrc-cito-a-audiencia-a-funcionario-de-la-dian-por", "tipo": "page" }
+      ]
+    },
+    {
+      "anio": "2018",
+      "label": "Boletines 2018",
+      "items": [
+        { "nombre": "Boletín 001 — La Agencia ITRC rindió cuentas de su gestión", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-001-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 002 — Firma del pacto por la legalidad de juegos de azar en Ibagué", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-002-PDF-1.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 003 — Firma del pacto por la legalidad en Ibagué", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-003-PDF-1.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 004 — Lanzamiento del Observatorio de Fraude y Corrupción", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-004-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 005 — Feria nacional de servicio al ciudadano La Guajira", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-005-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 006 — Participación en FADJA", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-006-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 007 — Segunda feria de servicio al ciudadano en Necoclí", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-007-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 008 — ITRC atendió a más de 50 ciudadanos en Necoclí", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-008-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 009 — ITRC participará en la 4.ª feria de atención al ciudadano", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-009-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 010 — Firma del pacto por la legalidad del sector de juegos de azar", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/BOLETIN-010-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 011 — ITRC recibirá visita de representantes de alto gobierno", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/12/BOLETIN-011-PDF.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2017",
+      "label": "Boletines 2017",
+      "items": [
+        { "nombre": "Boletín 001 — Cae red de lavadores de activos y contrabandistas", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/BOLETIN-DE-PRENSA-012017.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 002 — ITRC entregó información misional a 150 ciudadanos en Carmen de Bolívar", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/comunicados/boletin002-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 005 — ITRC participará en la segunda feria 2017 en Ipiales (Nariño)", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/comunicados/boletin005-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 006 — ITRC entregó información a más de 200 ciudadanos en Ipiales", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/comunicados/boletin006-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 007 — ITRC participará en la tercera feria en La Dorada (Caldas)", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/comunicados/boletin007-2017.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 009 — Firma del pacto por la transparencia en Riohacha (La Guajira)", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/BOLETIN-DE-PRENSA-009-PACTO-POR-LA-LEGALIDAD-RIOHACHA-1.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 010 — Pacto por la legalidad en Barranquilla", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/BOLETIN-DE-PRENSA-010-PACTO-POR-LA-LEGALIDAD-BARRANQUILLA-1.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 011 — ITRC participará en la cuarta feria en Santa Rosa de Cabal", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-011-PARTICIPACION-FERIA-STA-ROSA.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 013 — Pacto por la legalidad en juegos de suerte y azar en Cundinamarca", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-013-PACTO-LEGALIDAD-CUNDINAMARCA-DEF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 015 — Pacto por la transparencia en Armenia, Quindío", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-PACTO-ARMENIA.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 016 — Participación en feria en Tibú, Norte de Santander", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-015-ATENCION-TIBU.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 017 — Feria nacional en Sogamoso (Boyacá)", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-016-FERIA-SOGAMOSO-PDF.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 018 — ITRC atendió cerca de 100 personas en Sogamoso", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-017-FERIA-SOGAMOSO.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 019 — Noveno pacto por la legalidad en juegos de suerte y azar", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/BOLETIN-DE-PRENSA-018-PACTO-LEGALIDAD-MEDELLIN-PDF.docx.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2015-2016",
+      "label": "2015–2016",
+      "items": [
+        { "nombre": "Boletín 025 — La Agencia ITRC celebra su quinto aniversario (2016)", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/boletines/BOLETIN-025.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 001 de 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/boletines/boletin001-2015.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 002 de 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/boletines/boletin002-2015.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 003 de 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/boletines/boletin003-2015.pdf", "tipo": "pdf" },
+        { "nombre": "Boletín 004 de 2015", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/boletines/boletin004-2015-1.pdf", "tipo": "pdf" }
+      ]
+    }
+  ]
+}

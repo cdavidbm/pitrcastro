@@ -1,0 +1,29 @@
+{
+  "title": "Comunicados Institucionales",
+  "slug": "comunicados",
+  "description": "Comunicados institucionales de la Agencia ITRC",
+  "icon": "fa-bullhorn",
+  "anios": [
+    {
+      "anio": "2021",
+      "items": [
+        { "nombre": "Comunicado Institucional N.1 — Horario de atención presencial al público", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Comunicado-institucional-No-01-2021.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.2 — Cambio de sede", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/Comunicado-institucional-No-02.pdf", "tipo": "pdf" }
+      ]
+    },
+    {
+      "anio": "2020",
+      "items": [
+        { "nombre": "Comunicado Institucional N.1 — Lineamientos Institucionales", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Comunicado-institucional-No-01-Lineamientos-Institucionales.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.2 — Lineamientos para el uso de tecnologías - Contingencia COVID-19", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Comunicado-Institucional-N%C2%B02-Lineamientos-para-el-uso-de-tecnologias-Contingencia-COVID19.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.3 — Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/COMUNICADO-INSTITUCIONAL-03-AGENCIA-ITRC.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.4 — Dirección General", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Comunicado-institucional-No-04-Direccion-General.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.5 — Dirección General", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Comunicado-institucional-No-05-Direccion-General.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.6 — Atención presencial al público", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/06/Comunicado-institucional-No-06-Direcci%C3%B3n-General-Agencia-ITRC.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.7 — Atención al público", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Comunicado-institucional-No-07-Direcci%C3%B3n-General-Agencia-ITRC.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.8 — Reanudación de términos y atención al público - Procesos disciplinarios", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/08/Comunicado-institucional-No-08-Direcci%C3%B3n-General-Agencia-ITRC.pdf", "tipo": "pdf" },
+        { "nombre": "Comunicado Institucional N.9 — Atención al público", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/08/Comunicado-institucional-No-09-Direcci%C3%B2n-General.pdf", "tipo": "pdf" }
+      ]
+    }
+  ]
+}

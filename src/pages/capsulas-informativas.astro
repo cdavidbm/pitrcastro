@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/prensa/capsulas.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Videos ITRC', descripcion: 'Videos institucionales', url: '/videos-itrc', icon: 'fa-video' },
+  { titulo: 'Galería', descripcion: 'Galería fotográfica de eventos', url: '/galeria', icon: 'fa-images' },
+  { titulo: 'Noticias', descripcion: 'Noticias de la Agencia ITRC', url: '/prensa/noticias', icon: 'fa-newspaper' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="capsulas-section">
+    <div class="container">
+      <div class="capsulas-count">
+        <i class="fa-solid fa-play-circle" aria-hidden="true"></i>
+        {pageData.capsulas.length} cápsulas informativas
+      </div>
+
+      <div class="capsulas-grid">
+        {pageData.capsulas.map((cap, i) => (
+          <div class="capsula-card">
+            <div class="capsula-card__player">
+              <video controls preload="metadata">
+                <source src={cap.url} type="video/mp4" />
+                Su navegador no soporta la reproducción de video.
+              </video>
+            </div>
+            <div class="capsula-card__info">
+              <span class="capsula-card__number">{(i + 1).toString().padStart(2, '0')}</span>
+              <h3>{cap.titulo}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Prensa" />
+</Base>
+
+<style>
+  .capsulas-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .capsulas-section .container { max-width: 1100px; margin: 0 auto; }
+
+  .capsulas-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-8); }
+
+  .capsulas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-5); }
+
+  .capsula-card { background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); }
+  .capsula-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+  .capsula-card__player { background: #000; }
+  .capsula-card__player video { width: 100%; height: auto; display: block; }
+
+  .capsula-card__info { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); }
+  .capsula-card__number { width: 32px; height: 32px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--itrc-gold); color: var(--white); border-radius: var(--radius-md); font-size: var(--font-size-xs); font-weight: 800; }
+  .capsula-card__info h3 { font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-heading); margin: 0; }
+
+  @media (max-width: 768px) {
+    .capsulas-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .capsulas-grid { grid-template-columns: 1fr; }
+  }
+</style>

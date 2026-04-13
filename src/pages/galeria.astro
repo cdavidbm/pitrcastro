@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+import pageData from '../content/pages/prensa/galeria.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Videos ITRC', descripcion: 'Videos institucionales', url: '/videos-itrc', icon: 'fa-video' },
+  { titulo: 'Cápsulas Informativas', descripcion: 'Videos cortos sobre la gestión', url: '/capsulas-informativas', icon: 'fa-play-circle' },
+  { titulo: 'Noticias', descripcion: 'Noticias de la Agencia ITRC', url: '/prensa/noticias', icon: 'fa-newspaper' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="galeria-section">
+    <div class="container">
+      <div class="galeria-count">
+        <i class="fa-solid fa-images" aria-hidden="true"></i>
+        {pageData.albums.length} álbumes fotográficos
+      </div>
+
+      <div class="galeria-grid">
+        {pageData.albums.map((album) => (
+          <div class="album-card">
+            <div class="album-card__image">
+              <img src={album.imagen} alt={album.titulo} loading="lazy" />
+              <div class="album-card__overlay">
+                <i class="fa-solid fa-images" aria-hidden="true"></i>
+              </div>
+            </div>
+            <h3 class="album-card__title">{album.titulo}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Prensa" />
+</Base>
+
+<style>
+  .galeria-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .galeria-section .container { max-width: 1100px; margin: 0 auto; }
+
+  .galeria-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-8); }
+
+  .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-5); }
+
+  .album-card { background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); }
+  .album-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--itrc-gold); }
+
+  .album-card__image { position: relative; aspect-ratio: 3/2; overflow: hidden; background: var(--theme-surface-alt); }
+  .album-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
+  .album-card:hover .album-card__image img { transform: scale(1.05); }
+
+  .album-card__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--transition-base); }
+  .album-card:hover .album-card__overlay { opacity: 1; }
+  .album-card__overlay i { font-size: var(--font-size-3xl); color: var(--white); }
+
+  .album-card__title { padding: var(--space-3) var(--space-4); font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-heading); margin: 0; line-height: 1.4; }
+
+  @media (max-width: 768px) {
+    .galeria-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .galeria-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
+    .album-card__title { font-size: var(--font-size-xs); }
+  }
+</style>

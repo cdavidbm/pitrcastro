@@ -1,0 +1,22 @@
+{
+  "title": "Videos ITRC",
+  "slug": "videos-itrc",
+  "description": "Videos institucionales de la Agencia ITRC",
+  "icon": "fa-video",
+  "videos": [
+    {
+      "titulo": "Comercial Agencia ITRC",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/COMERCIAL-DE-TV-AGENCIA-ITRC-2019.mp4",
+      "transcripcion": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Texto-del-contenido-audiovisual-.pdf"
+    },
+    {
+      "titulo": "ITRC para Niños",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/06/video-ITRC-ninos.mp4",
+      "transcripcion": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Texto-contenido-aundiovisual-ITRC-para-ninos.pdf"
+    }
+  ],
+  "enlaces": [
+    { "texto": "Galería de videos de Rendición de Cuentas", "url": "https://www.youtube.com/@agenciaitrc5599/streams", "icon": "fa-youtube", "tipo": "external" },
+    { "texto": "Canal de YouTube Agencia ITRC", "url": "https://www.youtube.com/channel/UCSbSdU7B2qaBcf363tIUi9A", "icon": "fa-youtube", "tipo": "external" }
+  ]
+}

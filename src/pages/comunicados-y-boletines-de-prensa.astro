@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { resolveUrl } from '../utils/url';
+
+import pageData from '../content/pages/prensa/boletines.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: pageData.title }
+];
+
+function itemIcon(tipo: string) {
+  if (tipo === 'pdf') return 'fa-file-pdf';
+  return 'fa-newspaper';
+}
+
+function itemColorClass(tipo: string) {
+  if (tipo === 'pdf') return 'item--pdf';
+  return 'item--page';
+}
+
+const totalItems = pageData.anios.reduce((s, a) => s + a.items.length, 0);
+
+const enlacesRelacionados = [
+  { titulo: 'Noticias', descripcion: 'Noticias de la Agencia ITRC', url: '/prensa/noticias', icon: 'fa-newspaper' },
+  { titulo: 'Comunicados Institucionales', descripcion: 'Comunicados oficiales de la entidad', url: '/comunicados', icon: 'fa-bullhorn' },
+  { titulo: 'Videos ITRC', descripcion: 'Videos institucionales', url: '/videos-itrc', icon: 'fa-video' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="boletines-section">
+    <div class="container">
+      <div class="boletines-header">
+        <span class="boletines-count">{totalItems} comunicados y boletines</span>
+      </div>
+
+      <div class="boletines-tabs" role="tablist">
+        {pageData.anios.map((grupo, i) => (
+          <button class={`bol-tab ${i === 0 ? 'active' : ''}`} role="tab" aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`panel-bol-${grupo.anio}`} data-tab={grupo.anio}>
+            {grupo.label || grupo.anio}
+            <span class="bol-tab__count">{grupo.items.length}</span>
+          </button>
+        ))}
+      </div>
+
+      {pageData.anios.map((grupo, i) => (
+        <div class={`bol-panel ${i === 0 ? 'active' : ''}`} id={`panel-bol-${grupo.anio}`} role="tabpanel" hidden={i !== 0}>
+          <div class="bol-list">
+            {grupo.items.map((item) => (
+              <a href={item.tipo === 'page' ? resolveUrl(item.url) : item.url} target={item.tipo === 'pdf' ? '_blank' : undefined} rel={item.tipo === 'pdf' ? 'noopener' : undefined} class={`bol-item ${itemColorClass(item.tipo)}`}>
+                <div class="bol-item__icon">
+                  <i class={`fa-solid ${itemIcon(item.tipo)}`} aria-hidden="true"></i>
+                </div>
+                <span class="bol-item__name">{item.nombre}</span>
+                <i class={`fa-solid ${item.tipo === 'pdf' ? 'fa-download' : 'fa-chevron-right'}`} aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Prensa" />
+</Base>
+
+<style>
+  .boletines-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .boletines-section .container { max-width: 900px; margin: 0 auto; }
+  .boletines-header { text-align: center; margin-bottom: var(--space-6); }
+  .boletines-count { padding: var(--space-1) var(--space-5); background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold); border-radius: var(--radius-full); font-size: var(--font-size-sm); font-weight: 700; }
+
+  .boletines-tabs { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-bottom: var(--space-5); border-bottom: 2px solid var(--theme-border); padding-bottom: var(--space-2); }
+  .bol-tab { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border: 1px solid transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: transparent; color: var(--theme-text-secondary); font-size: var(--font-size-sm); font-weight: 600; font-family: var(--font-family); cursor: pointer; transition: all var(--transition-fast); }
+  .bol-tab:hover { background: var(--theme-surface-alt); color: var(--itrc-gold); }
+  .bol-tab.active { background: var(--theme-surface-alt); color: var(--itrc-gold); border-color: var(--theme-border); border-bottom-color: var(--theme-surface-alt); font-weight: 800; }
+  .bol-tab__count { padding: 1px 7px; background: var(--theme-surface-alt); border-radius: var(--radius-full); font-size: var(--font-size-xs); color: var(--theme-text-muted); }
+  .bol-tab.active .bol-tab__count { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold); }
+
+  .bol-panel { display: none; }
+  .bol-panel.active { display: block; }
+
+  .bol-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .bol-item { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .bol-item:hover { box-shadow: var(--shadow-sm); transform: translateX(3px); }
+  .bol-item__icon { width: 36px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); font-size: var(--font-size-base); transition: all var(--transition-base); }
+  .item--pdf .bol-item__icon { background: rgba(220,53,69,0.08); color: var(--file-pdf); }
+  .item--pdf:hover .bol-item__icon { background: var(--file-pdf); color: var(--white); }
+  .item--pdf:hover { border-color: rgba(220,53,69,0.3); }
+  .item--page .bol-item__icon { background: rgba(var(--itrc-gold-rgb),0.1); color: var(--itrc-gold); }
+  .item--page:hover .bol-item__icon { background: var(--itrc-gold); color: var(--white); }
+  .item--page:hover { border-color: rgba(var(--itrc-gold-rgb),0.3); }
+  .bol-item__name { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); transition: color var(--transition-fast); }
+  .bol-item:hover .bol-item__name { color: var(--itrc-gold); }
+  .bol-item > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.4; }
+  .bol-item:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .boletines-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .boletines-tabs { gap: 2px; }
+    .bol-tab { padding: var(--space-1) var(--space-3); font-size: var(--font-size-xs); }
+    .bol-item__name { font-size: var(--font-size-xs); }
+  }
+</style>
+
+<script>
+  function initBolTabs() {
+    const tabs = document.querySelectorAll('.bol-tab');
+    const panels = document.querySelectorAll('.bol-panel');
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = (btn as HTMLElement).dataset.tab;
+        tabs.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+        panels.forEach(p => { const a = p.id === `panel-bol-${id}`; p.classList.toggle('active',a); (p as HTMLElement).hidden = !a; });
+      });
+    });
+  }
+  initBolTabs();
+  document.addEventListener('astro:after-swap', initBolTabs);
+</script>
