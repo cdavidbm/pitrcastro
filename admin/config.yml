@@ -1132,6 +1132,95 @@ collections:
                           - pdf
                           - xlsx
                         default: internal
+      - name: directorio-entidades
+        label: Directorio de Entidades
+        file: src/content/pages/transparencia/directorio-entidades.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-building
+          - name: grupos
+            label: Grupos de entidades
+            widget: list
+            label_singular: Grupo
+            collapsed: true
+            summary: "{{fields.nombre}} ({{fields.entidades.length}})"
+            fields:
+              - name: nombre
+                label: Nombre del grupo
+                widget: string
+                required: true
+              - name: entidades
+                label: Entidades
+                widget: list
+                label_singular: Entidad
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del sitio web
+                    widget: string
+                    required: true
+      - name: hojas-de-vida
+        label: Publicación Hojas de Vida
+        file: src/content/pages/transparencia/hojas-de-vida.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-id-card
+          - name: enlaceExterno
+            label: URL enlace Presidencia
+            widget: string
+            required: false
+          - name: aspirantes
+            label: Aspirantes
+            widget: list
+            label_singular: Aspirante
+            collapsed: true
+            summary: "{{fields.nombre}} — {{fields.cargo}}"
+            fields:
+              - name: nombre
+                label: Nombre completo
+                widget: string
+                required: true
+              - name: cargo
+                label: Cargo
+                widget: string
+                required: true
+              - name: fechaFijacion
+                label: Fecha de fijación
+                widget: string
+                required: true
+              - name: fechaDesfijacion
+                label: Fecha de desfijación
+                widget: string
+                required: false
+              - name: pdf
+                label: URL del PDF de hoja de vida
+                widget: string
+                required: true
   
   # ==========================================
   # NORMATIVA
