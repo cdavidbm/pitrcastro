@@ -1,0 +1,13 @@
+{
+  "title": "Eje de Participación",
+  "description": "Encuestas, noticias, videos tutoriales y mecanismos de participación ciudadana",
+  "icon": "fa-people-group",
+  "intro": "Este Eje, complementario a los de Medición y Educación, facilita espacios para el diálogo entre ciudadanía en general, academia y/o entidades públicas, relacionados con los fenómenos del fraude y la corrupción, en la administración de tributos, rentas y contribuciones parafiscales, mediante talleres, foros, conversatorios y similares.",
+  "secciones": [
+    { "titulo": "Material Educativo y Pedagógico", "descripcion": "Cartillas divulgativas e informativas", "icon": "fa-book-open", "url": "/observatorio/eje-de-participacion/cartillas-divulgativas", "color": "#0943b5" },
+    { "titulo": "Videos Tutoriales", "descripcion": "Videos explicativos sobre fraude y corrupción", "icon": "fa-video", "url": "/observatorio/eje-de-participacion/videos-tutoriales", "color": "#dc3545" },
+    { "titulo": "Encuesta Ciudadana", "descripcion": "Participe en la encuesta de percepción ciudadana", "icon": "fa-clipboard-list", "url": "/observatorio/eje-de-participacion/encuesta-ciudadana", "color": "var(--itrc-gold)" },
+    { "titulo": "Noticias del Observatorio", "descripcion": "Noticias y novedades del Observatorio", "icon": "fa-newspaper", "url": "/observatorio/eje-de-participacion/noticias", "color": "#198754" },
+    { "titulo": "Memorias Eje de Participación", "descripcion": "Registro de actividades y eventos del eje participativo", "icon": "fa-photo-film", "url": "/observatorio/eje-de-participacion/memorias", "color": "#6f42c1" }
+  ]
+}

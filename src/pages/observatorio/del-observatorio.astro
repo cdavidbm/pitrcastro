@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { resolveUrl } from '../../utils/url';
+
+import pageData from '../../content/pages/observatorio/del-observatorio.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Eje de Medición', descripcion: 'Indicadores y dashboards', url: '/observatorio/eje-de-medicion', icon: 'fa-chart-bar' },
+  { titulo: 'Eje de Educación', descripcion: 'Material pedagógico y publicaciones', url: '/observatorio/eje-de-educacion', icon: 'fa-graduation-cap' },
+  { titulo: 'Eje de Participación', descripcion: 'Encuestas y participación ciudadana', url: '/observatorio/eje-de-participacion', icon: 'fa-people-group' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="obs-page">
+    <div class="container">
+      <div class="obs-tabs" data-obs-tabs>
+        <div class="obs-tabs__nav" role="tablist">
+          {pageData.tabs.map((tab, i) => (
+            <button class={`obs-tabs__btn ${i === 0 ? 'active' : ''}`} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-tab={i}>
+              {tab.titulo}
+            </button>
+          ))}
+        </div>
+
+        {pageData.tabs.map((tab, i) => (
+          <div class={`obs-tabs__panel ${i === 0 ? 'active' : ''}`} role="tabpanel" data-panel={i} hidden={i !== 0}>
+            <div class="obs-content">
+              {tab.contenido.split('\n\n').map((p) => {
+                if (p.startsWith('## ')) return <h2 class="obs-h2">{p.replace('## ', '')}</h2>;
+                if (p.startsWith('- ')) {
+                  const items = p.split('\n').filter(l => l.startsWith('- '));
+                  return <ul class="obs-list">{items.map(item => <li>{item.replace('- ', '')}</li>)}</ul>;
+                }
+                if (p.startsWith('**') && p.includes(':**')) {
+                  const parts = p.split(':**');
+                  return <p><strong>{parts[0].replace(/\*\*/g, '')}:</strong>{parts[1]}</p>;
+                }
+                return <p>{p}</p>;
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Ejes del Observatorio" />
+</Base>
+
+<style>
+  .obs-page { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .obs-page .container { max-width: 900px; margin: 0 auto; }
+
+  .obs-tabs__nav { display: flex; gap: var(--space-2); margin-bottom: var(--space-6); border-bottom: 2px solid var(--theme-border); padding-bottom: var(--space-2); flex-wrap: wrap; }
+  .obs-tabs__btn { padding: var(--space-3) var(--space-5); border: 1px solid transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: transparent; color: var(--theme-text-secondary); font-size: var(--font-size-sm); font-weight: 600; font-family: var(--font-family); cursor: pointer; transition: all var(--transition-fast); }
+  .obs-tabs__btn:hover { background: var(--theme-surface-alt); color: var(--itrc-gold); }
+  .obs-tabs__btn.active { background: var(--theme-surface-alt); color: var(--itrc-gold); border-color: var(--theme-border); border-bottom-color: var(--theme-surface-alt); font-weight: 800; }
+
+  .obs-tabs__panel { display: none; }
+  .obs-tabs__panel.active { display: block; }
+
+  .obs-content p { font-size: var(--font-size-base); line-height: 1.9; color: var(--theme-text); margin-bottom: var(--space-4); }
+  .obs-h2 { font-size: var(--font-size-xl); color: var(--theme-heading); margin: var(--space-8) 0 var(--space-4); padding-bottom: var(--space-2); border-bottom: 2px solid var(--itrc-gold); }
+  .obs-list { margin: 0 0 var(--space-4); padding-left: var(--space-6); }
+  .obs-list li { margin-bottom: var(--space-2); font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text); }
+  .obs-list li::marker { color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .obs-page { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .obs-tabs__btn { padding: var(--space-2) var(--space-3); font-size: var(--font-size-xs); }
+    .obs-content p { font-size: var(--font-size-sm); }
+  }
+</style>
+
+<script>
+  function initObsTabs() {
+    const container = document.querySelector('[data-obs-tabs]');
+    if (!container) return;
+    const btns = container.querySelectorAll('[data-tab]');
+    const panels = container.querySelectorAll('[data-panel]');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = (btn as HTMLElement).dataset.tab;
+        btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+        panels.forEach(p => {
+          const active = (p as HTMLElement).dataset.panel === idx;
+          p.classList.toggle('active', active);
+          (p as HTMLElement).hidden = !active;
+        });
+      });
+    });
+  }
+  initObsTabs();
+  document.addEventListener('astro:after-swap', initObsTabs);
+</script>

@@ -32,9 +32,8 @@
       "title": "Observatorio de Fraude y Corrupción",
       "subtitle": "",
       "description": "Conozca los indicadores de la labor misional de la Agencia ITRC a través del Observatorio de Fraude y Corrupción de la entidad",
-      "link": "https://www.itrc.gov.co/observatorio/eje-de-medicion/",
+      "link": "/observatorio/eje-de-medicion",
       "linkText": "Ir al Observatorio",
-      "external": true,
       "active": true,
       "order": 3
     },

@@ -1,0 +1,26 @@
+{
+  "title": "Eje de Medición",
+  "description": "Indicadores y dashboards sobre la labor preventiva y sancionatoria de la Agencia ITRC",
+  "icon": "fa-chart-bar",
+  "intro": "En este Eje se recopila, analiza y visibiliza la información, mediante indicadores estructurados a partir de los resultados de la labor misional preventiva y sancionatoria de la Agencia ITRC relacionados con la administración de tributos, rentas y contribuciones parafiscales.",
+  "dashboards": [
+    {
+      "titulo": "Resultados Agencia ITRC",
+      "descripcion": "Dashboard general de resultados de la Agencia ITRC",
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiZjI0YTJkZDgtYzljMy00NTcyLWI1NWItNmU5NDI4ZTk0YWRiIiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9",
+      "icon": "fa-chart-pie"
+    },
+    {
+      "titulo": "Labor Preventiva",
+      "descripcion": "Indicadores de la labor preventiva de la Agencia ITRC",
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNTlkOGI3NDMtODFjNi00MzliLWIzYzgtNjVlZDhkNTIwM2U0IiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9",
+      "icon": "fa-shield-halved"
+    },
+    {
+      "titulo": "Labor Sancionatoria",
+      "descripcion": "Indicadores de la labor sancionatoria de la Agencia ITRC",
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiMmQ1NWIxZTQtM2RlMC00YmQ3LWFmYjItZDAzNmE3YWI2NTMyIiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9&pageName=ReportSection5a551728860be3021900",
+      "icon": "fa-gavel"
+    }
+  ]
+}

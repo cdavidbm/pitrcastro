@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { resolveUrl } from '../../utils/url';
+
+import pageData from '../../content/pages/observatorio/eje-de-medicion.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: pageData.title }
+];
+
+const enlacesRelacionados = [
+  { titulo: 'Del Observatorio', descripcion: 'Antecedentes y objetivos', url: '/observatorio/del-observatorio', icon: 'fa-landmark' },
+  { titulo: 'Eje de Educación', descripcion: 'Material pedagógico', url: '/observatorio/eje-de-educacion', icon: 'fa-graduation-cap' },
+  { titulo: 'Eje de Participación', descripcion: 'Participación ciudadana', url: '/observatorio/eje-de-participacion', icon: 'fa-people-group' },
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="medicion-section">
+    <div class="container">
+      <p class="medicion-intro">{pageData.intro}</p>
+
+      <div class="dashboards-grid">
+        {pageData.dashboards.map((db) => (
+          <a href={db.url} target="_blank" rel="noopener" class="dashboard-card">
+            <div class="dashboard-card__icon">
+              <i class={`fa-solid ${db.icon}`} aria-hidden="true"></i>
+            </div>
+            <div class="dashboard-card__content">
+              <h3>{db.titulo}</h3>
+              <p>{db.descripcion}</p>
+            </div>
+            <div class="dashboard-card__action">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              <span>Ver dashboard</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={enlacesRelacionados} title="Ejes del Observatorio" />
+</Base>
+
+<style>
+  .medicion-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .medicion-section .container { max-width: 900px; margin: 0 auto; }
+  .medicion-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-10); }
+
+  .dashboards-grid { display: flex; flex-direction: column; gap: var(--space-5); }
+
+  .dashboard-card { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: var(--theme-surface); border: 2px solid var(--itrc-gold); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .dashboard-card:hover { background: var(--itrc-gold); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+  .dashboard-card__icon { width: 64px; height: 64px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--itrc-gold); color: var(--white); border-radius: var(--radius-lg); font-size: var(--font-size-2xl); transition: all var(--transition-base); }
+  .dashboard-card:hover .dashboard-card__icon { background: rgba(255,255,255,0.2); }
+
+  .dashboard-card__content { flex: 1; }
+  .dashboard-card__content h3 { font-size: var(--font-size-lg); color: var(--itrc-navy); margin: 0 0 var(--space-1); font-weight: 800; }
+  .dashboard-card:hover .dashboard-card__content h3 { color: var(--white); }
+  .dashboard-card__content p { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin: 0; }
+  .dashboard-card:hover .dashboard-card__content p { color: rgba(255,255,255,0.85); }
+
+  .dashboard-card__action { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); flex-shrink: 0; color: var(--itrc-gold); font-size: var(--font-size-xs); font-weight: 700; }
+  .dashboard-card:hover .dashboard-card__action { color: var(--white); }
+  .dashboard-card__action i { font-size: var(--font-size-lg); }
+
+  @media (max-width: 768px) {
+    .medicion-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .medicion-intro { font-size: var(--font-size-base); }
+    .dashboard-card { padding: var(--space-4); gap: var(--space-3); }
+    .dashboard-card__icon { width: 48px; height: 48px; font-size: var(--font-size-xl); }
+    .dashboard-card__action span { display: none; }
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+import pageData from '../content/pages/observatorio/observatorio.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: pageData.title }
+];
+
+const colorMap: Record<string, string> = {
+  navy: 'var(--itrc-navy)',
+  gold: 'var(--itrc-gold)',
+  green: '#198754',
+  purple: '#6f42c1',
+};
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="obs-section">
+    <div class="container">
+      <p class="obs-intro">{pageData.intro}</p>
+
+      <div class="obs-grid">
+        {pageData.secciones.map((sec) => {
+          const accent = colorMap[sec.color] || 'var(--itrc-gold)';
+          return (
+            <a href={resolveUrl(sec.url)} class="obs-card" style={`--card-accent: ${accent}`}>
+              <div class="obs-card__icon">
+                <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
+              </div>
+              <h3 class="obs-card__title">{sec.titulo}</h3>
+              <p class="obs-card__desc">{sec.descripcion}</p>
+              <span class="obs-card__arrow">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .obs-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .obs-section .container { max-width: 1050px; margin: 0 auto; }
+
+  .obs-intro {
+    font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text);
+    text-align: center; max-width: 900px; margin: 0 auto var(--space-10);
+  }
+
+  .obs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+
+  .obs-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: var(--space-10) var(--space-6); background: var(--theme-surface);
+    border: 1px solid var(--theme-border); border-top: 4px solid var(--card-accent);
+    border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base);
+  }
+  .obs-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--card-accent); }
+
+  .obs-card__icon {
+    width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;
+    background: var(--card-accent); color: var(--white); border-radius: var(--radius-full);
+    font-size: var(--font-size-3xl); margin-bottom: var(--space-5); transition: transform var(--transition-base);
+  }
+  .obs-card:hover .obs-card__icon { transform: scale(1.1); }
+
+  .obs-card__title { font-size: var(--font-size-lg); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-3); transition: color var(--transition-fast); }
+  .obs-card:hover .obs-card__title { color: var(--card-accent); }
+
+  .obs-card__desc { font-size: var(--font-size-sm); line-height: 1.6; color: var(--theme-text-secondary); margin: 0; flex: 1; }
+
+  .obs-card__arrow {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; margin-top: var(--space-5);
+    border-radius: var(--radius-full); background: rgba(0,0,0,0.04);
+    color: var(--theme-text-muted); font-size: var(--font-size-sm); transition: all var(--transition-fast);
+  }
+  .obs-card:hover .obs-card__arrow { background: var(--card-accent); color: var(--white); }
+
+  @media (max-width: 768px) {
+    .obs-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .obs-intro { font-size: var(--font-size-base); }
+    .obs-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .obs-card {
+      flex-direction: row; text-align: left; padding: var(--space-5); gap: var(--space-4);
+      border-top: none; border-left: 4px solid var(--card-accent);
+    }
+    .obs-card__icon { width: 52px; height: 52px; font-size: var(--font-size-2xl); margin-bottom: 0; flex-shrink: 0; }
+    .obs-card__arrow { display: none; }
+  }
+</style>

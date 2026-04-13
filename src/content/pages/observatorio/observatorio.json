@@ -1,0 +1,38 @@
+{
+  "title": "Observatorio de Fraude y Corrupción",
+  "slug": "observatorio",
+  "description": "Observatorio de Fraude y Corrupción de la Agencia ITRC — Herramienta de medición, educación y participación ciudadana para la lucha contra la corrupción",
+  "icon": "fa-chart-line",
+  "published": true,
+  "intro": "El Observatorio de Fraude y Corrupción es una herramienta de gestión pública que permite dar a conocer los espacios de fraude y corrupción, así como las prácticas sancionables que pueden prevenirse en las entidades que administran los ingresos tributarios de la Nación, junto con las recomendaciones que ha generado la Agencia ITRC.",
+  "secciones": [
+    {
+      "titulo": "Del Observatorio",
+      "descripcion": "Conozca los antecedentes, objetivos y alcance del Observatorio de Fraude y Corrupción",
+      "icon": "fa-landmark",
+      "url": "/observatorio/del-observatorio",
+      "color": "navy"
+    },
+    {
+      "titulo": "Eje de Medición",
+      "descripcion": "Indicadores y dashboards sobre la labor preventiva y sancionatoria de la Agencia ITRC",
+      "icon": "fa-chart-bar",
+      "url": "/observatorio/eje-de-medicion",
+      "color": "gold"
+    },
+    {
+      "titulo": "Eje de Educación",
+      "descripcion": "Material educativo, publicaciones, glosarios y recursos pedagógicos para la ciudadanía",
+      "icon": "fa-graduation-cap",
+      "url": "/observatorio/eje-de-educacion",
+      "color": "green"
+    },
+    {
+      "titulo": "Eje de Participación",
+      "descripcion": "Encuestas, noticias, videos tutoriales y mecanismos de participación ciudadana",
+      "icon": "fa-people-group",
+      "url": "/observatorio/eje-de-participacion",
+      "color": "purple"
+    }
+  ]
+}

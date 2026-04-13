@@ -65,8 +65,13 @@
     },
     {
       "label": "Observatorio ITRC",
-      "url": "https://www.itrc.gov.co/observatorio/",
-      "external": true
+      "url": "/observatorio",
+      "children": [
+        { "label": "Del Observatorio", "url": "/observatorio/del-observatorio" },
+        { "label": "Eje de Medición", "url": "/observatorio/eje-de-medicion" },
+        { "label": "Eje de Educación", "url": "/observatorio/eje-de-educacion" },
+        { "label": "Eje de Participación", "url": "/observatorio/eje-de-participacion" }
+      ]
     },
     {
       "label": "Prensa",

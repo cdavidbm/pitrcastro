@@ -1,0 +1,15 @@
+{
+  "title": "Eje de Educación",
+  "description": "Material educativo, publicaciones, glosarios y recursos pedagógicos para la ciudadanía",
+  "icon": "fa-graduation-cap",
+  "intro": "Este Eje brinda herramientas a la ciudadanía para que pueda fortalecer su conocimiento y comprensión en los temas relativos a la lucha contra el fraude y la corrupción, en la administración de tributos, rentas y contribuciones parafiscales, por medio de material pedagógico.",
+  "secciones": [
+    { "titulo": "Artículos y Publicaciones", "descripcion": "Investigaciones y publicaciones sobre anticorrupción", "icon": "fa-book-open", "url": "/observatorio/eje-de-educacion/articulos-y-publicaciones", "color": "#0943b5" },
+    { "titulo": "Conociendo más de ITRC", "descripcion": "Videos e infografías sobre la Agencia ITRC", "icon": "fa-circle-info", "url": "/observatorio/eje-de-educacion/conociendo-mas-del-itrc", "color": "var(--itrc-gold)" },
+    { "titulo": "Juego de Roles", "descripcion": "Experiencia interactiva sobre el rol ciudadano contra la corrupción", "icon": "fa-gamepad", "url": "/observatorio/eje-de-educacion/juego-de-roles", "color": "#dc3545" },
+    { "titulo": "ITRC para Niños, Niñas y Adolescentes", "descripcion": "Material educativo adaptado para el público infantil y juvenil", "icon": "fa-children", "url": "/observatorio/eje-de-educacion/itrc-para-ninos", "color": "#fd7e14" },
+    { "titulo": "Repositorio Jurídico", "descripcion": "Normatividad y jurisprudencia relevante", "icon": "fa-scale-balanced", "url": "/observatorio/eje-de-educacion/repositorio-juridico", "color": "var(--itrc-navy)" },
+    { "titulo": "Glosario", "descripcion": "Términos y conceptos sobre fraude y corrupción", "icon": "fa-book", "url": "/glosario", "color": "#198754" },
+    { "titulo": "Memorias Eje de Educación", "descripcion": "Registro de actividades y eventos del eje educativo", "icon": "fa-photo-film", "url": "/observatorio/eje-de-educacion/memorias", "color": "#6f42c1" }
+  ]
+}
