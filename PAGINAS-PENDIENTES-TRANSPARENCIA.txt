@@ -62,10 +62,10 @@ SECCIÓN 4 — Planeación ✓ COMPLETADA
 [x] /informe-comite-conciliacion
     → Comité de Conciliación (6 informes: 2023-2025)
 
-SECCIÓN 5 — Trámites
+SECCIÓN 5 — Trámites ✓ COMPLETADA
 --------------------------------------
-[ ] /tramites
-    → Página principal de trámites
+[x] /tramites
+    → Página principal de trámites (sin trámites, enlaza a canales)
 
 SECCIÓN 7 — Datos Abiertos
 --------------------------------------

@@ -115,9 +115,9 @@
       "numero": "5",
       "titulo": "Trámites",
       "icon": "fa-clipboard-list",
-      "tituloUrl": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/tramites/",
+      "tituloUrl": "/tramites",
       "items": [
-        { "num": "5.1", "texto": "Formatos y/o Formularios Asociados", "url": "https://www.itrc.gov.co/Itrc/formatos-y-formularios/", "tipo": "external" }
+        { "num": "5.1", "texto": "Formatos y/o Formularios Asociados", "url": "/formatos-y-formularios", "tipo": "internal" }
       ]
     },
     {

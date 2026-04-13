@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Trámites' }
+];
+---
+
+<Base title="Trámites" description="Información sobre trámites de la Agencia ITRC">
+  <HeroPage title="Trámites" subtitle="Información sobre trámites ante la Agencia ITRC" icon="fa-clipboard-list" breadcrumb={breadcrumb} />
+
+  <section class="tramites-page">
+    <div class="container">
+      <div class="tramites-notice">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        <p>La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC <strong>no cuenta con trámites</strong>. Si requiere realizar una Petición, Queja, Reclamo o Sugerencia, podrá hacerlo a través de nuestros canales de atención.</p>
+      </div>
+
+      <div class="tramites-links">
+        <a href={resolveUrl('/canales-de-atencion-al-ciudadano')} class="tramites-link">
+          <i class="fa-solid fa-headset" aria-hidden="true"></i>
+          <span>Canales de Atención</span>
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a href={resolveUrl('/tu-p-q-r-s-al-dia')} class="tramites-link">
+          <i class="fa-solid fa-comments" aria-hidden="true"></i>
+          <span>P.Q.R.S</span>
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/RESOLUCION-184-2022.pdf" target="_blank" rel="noopener" class="tramites-link tramites-link--pdf">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>Costos asociados (Resolución 184 de 2022)</span>
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .tramites-page { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .tramites-page .container { max-width: 750px; margin: 0 auto; }
+  .tramites-notice { display: flex; gap: var(--space-4); padding: var(--space-6); background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: 0 var(--radius-xl) var(--radius-xl) 0; margin-bottom: var(--space-8); }
+  .tramites-notice i { color: var(--itrc-gold); font-size: var(--font-size-xl); margin-top: 2px; flex-shrink: 0; }
+  .tramites-notice p { margin: 0; font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); }
+  .tramites-links { display: flex; flex-direction: column; gap: var(--space-4); }
+  .tramites-link { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-6); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .tramites-link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .tramites-link > i:first-child { color: var(--itrc-gold); font-size: var(--font-size-xl); }
+  .tramites-link--pdf > i:first-child { color: var(--file-pdf); }
+  .tramites-link span { flex: 1; font-size: var(--font-size-base); font-weight: 700; color: var(--theme-heading); }
+  .tramites-link:hover span { color: var(--itrc-gold); }
+  .tramites-link > i:last-child { color: var(--theme-text-muted); opacity: 0.4; }
+  .tramites-link:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
