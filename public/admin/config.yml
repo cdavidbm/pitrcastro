@@ -1023,78 +1023,115 @@ collections:
     label: TRANSPARENCIA
     files:
       - name: transparencia-principal
-        label: Pagina de Transparencia
+        label: Página de Transparencia
         file: src/content/pages/transparencia.json
         fields:
           - name: title
-            label: Título de la página
-            widget: string
-            required: true
-          - name: slug
-            label: URL (slug)
+            label: Título
             widget: string
             required: true
           - name: description
-            label: Descripción
-            widget: markdown
+            label: Descripción SEO
+            widget: text
             required: false
           - name: icon
             label: Icono FontAwesome
             widget: string
-            default: fa-folder-open
-          - name: order
-            label: Orden de aparicion
-            widget: number
+            default: fa-eye
+          - name: introTexto
+            label: Texto introductorio
+            widget: text
+            required: true
+          - name: ley1712Url
+            label: URL del PDF Ley 1712
+            widget: string
             required: false
-            default: 1
-          - name: published
-            label: Publicado
-            widget: boolean
-            default: true
-          - name: sections
-            label: Secciones de documentos
+          - name: secciones
+            label: Secciones de Transparencia
             widget: list
             label_singular: Sección
             collapsed: true
+            summary: "{{fields.numero}}. {{fields.titulo}}"
             fields:
-              - name: sectionTitle
-                label: Título de la sección
+              - name: numero
+                label: Número de sección
                 widget: string
                 required: true
-              - name: sectionDescription
-                label: Descripción de la sección
-                widget: text
-                required: false
-              - name: sectionIcon
-                label: Icono de la sección
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: icon
+                label: Icono FontAwesome
                 widget: string
                 required: false
-              - *display_mode
-              - name: documents
-                label: Documentos
+              - name: tituloUrl
+                label: URL del título (opcional)
+                widget: string
+                required: false
+              - name: descripcion
+                label: Descripción (opcional)
+                widget: text
+                required: false
+              - name: items
+                label: Items
                 widget: list
-                label_singular: Documento
+                label_singular: Item
+                collapsed: true
+                summary: "{{fields.num}} {{fields.texto}}"
                 fields:
-                  - name: name
-                    label: Nombre del documento
+                  - name: num
+                    label: "Número (ej: 1.1)"
+                    widget: string
+                    required: false
+                  - name: texto
+                    label: Texto del enlace
                     widget: string
                     required: true
-                  - name: file
-                    label: Archivo
-                    widget: file
-                    required: true
-                  - name: description
-                    label: Descripción del documento
+                  - name: url
+                    label: URL
                     widget: string
                     required: false
-                  - name: category
-                    label: Categoría (para tabs)
-                    widget: string
+                    hint: Dejar vacío si es solo etiqueta (label)
+                  - name: tipo
+                    label: Tipo
+                    widget: select
+                    options:
+                      - internal
+                      - external
+                      - pdf
+                      - xlsx
+                      - label
+                    default: internal
+                  - name: children
+                    label: Sub-items (opcional)
+                    widget: list
+                    label_singular: Sub-item
+                    collapsed: true
                     required: false
-                  - name: anio
-                    label: Año
-                    widget: string
-                    required: false
+                    summary: "{{fields.num}} {{fields.texto}}"
+                    fields:
+                      - name: num
+                        label: Número
+                        widget: string
+                        required: false
+                      - name: texto
+                        label: Texto
+                        widget: string
+                        required: true
+                      - name: url
+                        label: URL
+                        widget: string
+                        required: true
+                      - name: tipo
+                        label: Tipo
+                        widget: select
+                        options:
+                          - internal
+                          - external
+                          - pdf
+                          - xlsx
+                        default: internal
   
   # ==========================================
   # NORMATIVA

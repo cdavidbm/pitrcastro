@@ -1,0 +1,103 @@
+============================================================
+PÁGINAS PENDIENTES POR CREAR — Transparencia
+============================================================
+Estas páginas son referenciadas desde la página de Transparencia
+pero aún no existen en el sitio. Actualmente enlazan al sitio
+WordPress original (https://www.itrc.gov.co/Itrc/...).
+
+Fecha: 2026-04-12
+============================================================
+
+SECCIÓN 1 — Información de la Entidad
+--------------------------------------
+[ ] /directorio-de-entidades
+    → Directorio de entidades del sector
+[ ] /directorio-de-agremiaciones
+    → Directorio de agremiaciones, asociaciones y otros grupos de interés
+[ ] /normas-servicio-publico
+    → Normas de servicio al público que los sustentan
+[ ] /formatos-y-formularios
+    → Formatos y formularios asociados
+[ ] /protocolo-de-atencion-al-ciudadano
+    → Protocolos de atención al ciudadano
+[ ] /procedimientos-decisiones
+    → Procedimientos que se siguen para tomar decisiones en las diferentes áreas
+[ ] /publicacion-hojas-de-vida
+    → Publicación de hojas de vida
+
+SECCIÓN 2 — Normativa
+--------------------------------------
+[ ] /leyes
+    → Leyes aplicables a la entidad
+[ ] /decreto-unico-reglamentario
+    → Decreto Único Reglamentario
+[ ] /politicas-lineamientos-y-manuales
+    → Políticas, lineamientos y manuales
+
+SECCIÓN 3 — Contratación
+--------------------------------------
+[ ] /plan-de-adquisiciones
+    → Plan Anual de Adquisiciones
+[ ] /contratacion-suscrita
+    → Publicación de la información contractual
+[ ] /publicacion-ejecucion-contratos
+    → Publicación de la ejecución de contratos
+[ ] /manual-contratacion
+    → Manual de contratación, adquisición y/o compras
+[ ] /formatos-contratos-pliego-tipo
+    → Formatos o modelos de contratos o pliego tipo
+
+SECCIÓN 4 — Planeación
+--------------------------------------
+[ ] /programas-y-proyectos-en-ejecucion
+    → Proyectos de Inversión
+[ ] /informes-de-empalme
+    → Informes de empalme
+[ ] /informe-rendicion-cuenta-contraloria
+    → Informe de rendición de la cuenta fiscal a la Contraloría
+[ ] /evaluacion-independiente-control-interno
+    → Informe de evaluación independiente del sistema de control interno
+[ ] /informe-defensa-publica
+    → Informe sobre Defensa Pública y Prevención del Daño Antijurídico
+[ ] /informe-comite-conciliacion
+    → Informe de Gestión del Comité de Conciliación
+
+SECCIÓN 5 — Trámites
+--------------------------------------
+[ ] /tramites
+    → Página principal de trámites
+
+SECCIÓN 7 — Datos Abiertos
+--------------------------------------
+[ ] /registro-activos-informacion
+    → Registro de Activos de Información
+[ ] /indice-informacion-clasificada-reservada
+    → Índice de Información Clasificada y Reservada
+[ ] /esquema-publicacion-informacion
+    → Esquema de publicación de la información
+[ ] /programa-gestion-documental
+    → Programa de Gestión Documental
+[ ] /tablas-retencion-documental
+    → Tablas de Retención Documental
+[ ] /publicacion-datos-abiertos
+    → Sección de datos abiertos
+
+SECCIÓN 8 — Información para Grupos de Interés
+--------------------------------------
+[ ] /informacion-para-mujeres
+    → Información para mujeres
+[ ] /otros-grupos-de-interes
+    → Otros grupos de interés
+
+SECCIÓN 9 — Obligación de Reporte
+--------------------------------------
+[ ] /normatividad-especial
+    → Normatividad Especial
+[ ] /accesibilidad
+    → Accesibilidad web
+[ ] /informes-organismos-inspeccion
+    → Informes a organismos de inspección, vigilancia y control
+
+============================================================
+TOTAL: 31 páginas pendientes
+============================================================

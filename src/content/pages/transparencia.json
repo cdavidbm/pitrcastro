@@ -3,61 +3,180 @@
   "slug": "transparencia",
   "description": "En cumplimiento de la Ley 1712 de 2014, la Agencia ITRC pone a disposición de la ciudadanía la información relacionada con su gestión institucional.",
   "icon": "fa-eye",
-  "order": 1,
   "published": true,
-  "sections": [
+  "introTexto": "En cumplimiento a la Ley 1712 del 6 de marzo de 2014, la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) pone a disposición de la ciudadanía la siguiente información.",
+  "ley1712Url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/LEY-1712-DEL-06-DE-MARZO-DE-2014.pdf",
+  "secciones": [
     {
-      "sectionTitle": "Información de la Entidad",
-      "displayMode": "accordion",
-      "documents": [
-        {
-          "name": "Misión y Visión Institucional",
-          "file": "/uploads/documents/mision-vision-2024.pdf",
-          "anio": "2024",
-          "description": "Documento con la misión, visión y objetivos estratégicos"
+      "numero": "1",
+      "titulo": "Información de la Entidad",
+      "icon": "fa-building-columns",
+      "items": [
+        { "num": "1.1", "texto": "Misión, visión, funciones y deberes", "url": "/agencia/mision-vision", "tipo": "internal" },
+        { "num": "1.2", "texto": "Estructura orgánica — Organigrama", "url": "/agencia/organigrama", "tipo": "internal" },
+        { "num": "1.3", "texto": "Mapas y cartas descriptivas de los procesos", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Procesos-y-Procedimientos-de-la-Agencia-ITRC.pdf", "tipo": "pdf" },
+        { "num": "1.4", "texto": "Directorio Institucional", "url": "/canales-de-atencion-al-ciudadano", "tipo": "internal" },
+        { "num": "1.5", "texto": "Directorio de servidores públicos, empleados o contratistas", "url": "/agencia/directorio", "tipo": "internal" },
+        { "num": "1.6", "texto": "Directorio de entidades", "url": "https://www.itrc.gov.co/Itrc/directorio-de-entidades/", "tipo": "external" },
+        { "num": "1.7", "texto": "Directorio de agremiaciones, asociaciones y otros grupos de interés", "url": "https://www.itrc.gov.co/Itrc/directorio-de-agremiaciones-asociaciones-y-otros-grupos-de-interes/", "tipo": "external" },
+        { "num": "1.8", "texto": "Servicio al público, normas, formularios y protocolos de atención", "tipo": "label",
+          "children": [
+            { "num": "1.8.1", "texto": "Normas", "url": "https://www.itrc.gov.co/Itrc/normas-que-los-sustentan/", "tipo": "external" },
+            { "num": "1.8.2", "texto": "Formularios", "url": "https://www.itrc.gov.co/Itrc/formatos-y-formularios/", "tipo": "external" },
+            { "num": "1.8.3", "texto": "Protocolos de atención", "url": "https://www.itrc.gov.co/Itrc/protocolo-de-atencion-al-ciudadano/", "tipo": "external" }
+          ]
         },
-        {
-          "name": "Estructura Organizacional",
-          "file": "/uploads/documents/organigrama-2024.pdf",
-          "anio": "2024",
-          "description": "Organigrama institucional actualizado"
+        { "num": "1.9", "texto": "Procedimientos que se siguen para tomar decisiones en las diferentes áreas", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas/", "tipo": "external" },
+        { "num": "1.10", "texto": "Mecanismos para presentar quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" },
+        { "num": "1.11", "texto": "Calendario de actividades", "url": "/prensa/eventos", "tipo": "internal" },
+        { "num": "1.12", "texto": "Información sobre decisiones que pueden afectar al público", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos", "tipo": "internal" },
+        { "num": "1.13", "texto": "Entes y autoridades que vigilan a la Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/supervision-y-vigilancia/", "tipo": "external" },
+        { "num": "1.14", "texto": "Publicación de hojas de vida", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/publicacion-hojas-de-vida/", "tipo": "external" },
+        { "num": "1.15", "texto": "Integridad", "tipo": "label",
+          "children": [
+            { "texto": "Consulta Ciudadana — Declaraciones Ley 2013 de 2019", "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/index", "tipo": "external" },
+            { "texto": "Consulta Ciudadana — Personas Expuestas Políticamente (PEP)", "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/consultaPEP", "tipo": "external" }
+          ]
         }
       ]
     },
     {
-      "sectionTitle": "Normatividad",
-      "displayMode": "tabs",
-      "documents": [
-        {
-          "name": "Decreto de Creación",
-          "file": "/uploads/documents/decreto-creacion.pdf",
-          "category": "Decretos",
-          "anio": "2020"
+      "numero": "2",
+      "titulo": "Normativa",
+      "icon": "fa-gavel",
+      "items": [
+        { "num": "2.1", "texto": "Normativa de la entidad", "tipo": "label",
+          "children": [
+            { "num": "2.1.1", "texto": "Leyes", "url": "https://www.itrc.gov.co/Itrc/leyes/", "tipo": "external" },
+            { "num": "2.1.2", "texto": "Decreto Único Reglamentario", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/decreto-unico-reglamentario/", "tipo": "external" },
+            { "num": "2.1.3", "texto": "Normativa Aplicable", "url": "/normativa-aplicada", "tipo": "internal" },
+            { "num": "2.1.4", "texto": "Diario o Gaceta Oficial", "url": "http://svrpubindc.imprenta.gov.co/diario/index.xhtml", "tipo": "external" },
+            { "num": "2.1.5", "texto": "Políticas, lineamientos y manuales", "url": "https://www.itrc.gov.co/Itrc/politicas-lineamientos-y-manuales/", "tipo": "external" },
+            { "num": "2.1.6", "texto": "Agenda Regulatoria", "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025", "tipo": "external" }
+          ]
         },
-        {
-          "name": "Resolución Funciones",
-          "file": "/uploads/documents/resolucion-funciones.pdf",
-          "category": "Resoluciones",
-          "anio": "2023"
+        { "num": "2.2", "texto": "Búsqueda de normas", "tipo": "label",
+          "children": [
+            { "num": "2.2.1", "texto": "Sistema Único de Información Normativa — SUIN", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol", "tipo": "internal" },
+            { "num": "2.2.2", "texto": "Sistema de Búsquedas de Normas — Agencia ITRC", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos", "tipo": "internal" }
+          ]
+        },
+        { "num": "2.3", "texto": "Proyectos de normas para comentarios", "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025", "tipo": "external" }
+      ]
+    },
+    {
+      "numero": "3",
+      "titulo": "Contratación",
+      "icon": "fa-file-contract",
+      "items": [
+        { "num": "3.1", "texto": "Plan Anual de Adquisiciones", "url": "https://www.itrc.gov.co/Itrc/plan-de-adquisiciones/", "tipo": "external" },
+        { "num": "3.2", "texto": "Publicación de la información contractual", "url": "https://www.itrc.gov.co/Itrc/contratacion-suscrita/", "tipo": "external" },
+        { "num": "3.3", "texto": "Publicación de la ejecución de contratos", "url": "https://www.itrc.gov.co/Itrc/publicacion-de-la-ejecucion-de-contratos/", "tipo": "external" },
+        { "num": "3.4", "texto": "Manual de contratación, adquisición y/o compras", "url": "https://www.itrc.gov.co/Itrc/publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras/", "tipo": "external" },
+        { "num": "3.5", "texto": "Formatos o modelos de contratos o pliego tipo", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/formatos-o-modelos-de-contratos-o-pliego-tipo/", "tipo": "external" }
+      ]
+    },
+    {
+      "numero": "4",
+      "titulo": "Planeación",
+      "icon": "fa-chart-pie",
+      "items": [
+        { "num": "4.1", "texto": "Presupuesto general de ingresos, gastos e inversión", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/Plan-de-Gasto-2026.pdf", "tipo": "pdf" },
+        { "num": "4.2", "texto": "Ejecución presupuestal", "url": "/agencia/informacion-financiera", "tipo": "internal" },
+        { "num": "4.3", "texto": "Planes estratégicos, sectoriales e institucionales", "url": "/agencia/direccionamiento-estrategico/planes", "tipo": "internal" },
+        { "num": "4.3.1", "texto": "Plan de acción anual", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Plan-de-Accion-Anual-2026-1.xlsx", "tipo": "xlsx" },
+        { "num": "4.4", "texto": "Proyectos de Inversión", "url": "https://www.itrc.gov.co/Itrc/programas-y-proyectos-en-ejecucion/", "tipo": "external" },
+        { "num": "4.5", "texto": "Informes de empalme", "url": "https://www.itrc.gov.co/Itrc/informes-de-empalme/", "tipo": "external" },
+        { "num": "4.7", "texto": "Informes de gestión, evaluación y auditoría", "tipo": "label",
+          "children": [
+            { "num": "4.7.1", "texto": "Informe de Gestión", "url": "/agencia/direccionamiento-estrategico/informes", "tipo": "internal" },
+            { "num": "4.7.2", "texto": "Informe de rendición de cuentas ante la Contraloría General de la República", "url": "https://www.itrc.gov.co/Itrc/informe-de-rendicion-de-la-cuenta-fiscal-a-la-contraloria-general-de-la-republica-informes-a-organismos-de-inspeccion-vigilancia-y-control/", "tipo": "external" },
+            { "num": "4.7.3", "texto": "Informe de Rendición de Cuentas a la ciudadanía", "url": "/participa/rendicion-de-cuentas", "tipo": "internal" },
+            { "num": "4.7.4", "texto": "Informes a organismos de inspección, vigilancia y control", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" },
+            { "num": "4.7.5", "texto": "Planes de mejoramiento", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/planes-de-mejoramiento-2/", "tipo": "external" }
+          ]
+        },
+        { "num": "4.8", "texto": "Informes de la Oficina de Control Interno", "tipo": "label",
+          "children": [
+            { "num": "4.8.1", "texto": "Informe de evaluación independiente del estado del Sistema de Control Interno", "url": "https://www.itrc.gov.co/Itrc/evaluacion-independiente-sistema-de-control-interno/", "tipo": "external" },
+            { "num": "4.8.2", "texto": "Informes de Evaluación y Auditoría de la Agencia (3LD)", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" }
+          ]
+        },
+        { "num": "4.9", "texto": "Informes de Defensa Judicial", "tipo": "label",
+          "children": [
+            { "num": "4.9.1", "texto": "Informe sobre Defensa Pública y Prevención del Daño Antijurídico", "url": "https://www.itrc.gov.co/Itrc/participa/informe-defensa-publica-y-prevencion-del-dano-antijuridico/", "tipo": "external" },
+            { "num": "4.9.2", "texto": "Informe de Gestión del Comité de Conciliación", "url": "https://www.itrc.gov.co/Itrc/participa/informe-de-gestion-del-comite-de-conciliacion/", "tipo": "external" }
+          ]
+        },
+        { "num": "4.10", "texto": "Informes trimestrales sobre acceso a información, quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" }
+      ]
+    },
+    {
+      "numero": "5",
+      "titulo": "Trámites",
+      "icon": "fa-clipboard-list",
+      "tituloUrl": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/tramites/",
+      "items": [
+        { "num": "5.1", "texto": "Formatos y/o Formularios Asociados", "url": "https://www.itrc.gov.co/Itrc/formatos-y-formularios/", "tipo": "external" }
+      ]
+    },
+    {
+      "numero": "6",
+      "titulo": "Menú Participa",
+      "icon": "fa-people-group",
+      "descripcion": "En el siguiente enlace será dirigido a los mecanismos de participación ciudadana proporcionados por la Agencia ITRC.",
+      "items": [
+        { "texto": "Ir a Participa", "url": "/participa", "tipo": "internal" }
+      ]
+    },
+    {
+      "numero": "7",
+      "titulo": "Datos Abiertos",
+      "icon": "fa-database",
+      "items": [
+        { "num": "7.1", "texto": "Instrumentos de gestión de la información", "tipo": "label",
+          "children": [
+            { "num": "7.1.1", "texto": "Registro de Activos de Información", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/registro-de-activos-de-informacion/", "tipo": "external" },
+            { "num": "7.1.2", "texto": "Índice de Información Clasificada y Reservada", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/indice-de-informacion-clasificada-y-reservada/", "tipo": "external" },
+            { "num": "7.1.3", "texto": "Esquema de publicación de la información", "url": "https://www.itrc.gov.co/Itrc/esquema-de-publicacion-de-la-informacion/", "tipo": "external" },
+            { "num": "7.1.4", "texto": "Programa de Gestión Documental", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/programa-de-gestion-documental/", "tipo": "external" },
+            { "num": "7.1.5", "texto": "Tablas de Retención Documental", "url": "https://www.itrc.gov.co/Itrc/tablas-de-retencion-documental/", "tipo": "external" }
+          ]
+        },
+        { "num": "7.2", "texto": "Sección de datos abiertos", "url": "https://www.itrc.gov.co/Itrc/publicacion-de-datos-abiertos/", "tipo": "external" }
+      ]
+    },
+    {
+      "numero": "8",
+      "titulo": "Información específica para Grupos de Interés",
+      "icon": "fa-users",
+      "items": [
+        { "num": "8.1", "texto": "Información para Grupos Específicos", "tipo": "label",
+          "children": [
+            { "num": "8.1.1", "texto": "Información para niños, niñas y adolescentes", "url": "https://www.itrc.gov.co/observatorio/eje-de-educacion/itrc-para-ninos-ninas-adolescentes/", "tipo": "external" },
+            { "num": "8.1.2", "texto": "Información para mujeres", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/informacion-para-mujeres/", "tipo": "external" },
+            { "num": "8.1.3", "texto": "Otros grupos de interés", "url": "https://www.itrc.gov.co/Itrc/participa/otros-de-grupos-de-interes/", "tipo": "external" }
+          ]
         }
       ]
     },
     {
-      "sectionTitle": "Presupuesto",
-      "displayMode": "accordion",
-      "documents": [
-        {
-          "name": "Presupuesto Vigencia 2024",
-          "file": "/uploads/documents/presupuesto-2024.pdf",
-          "anio": "2024",
-          "description": "Presupuesto aprobado para la vigencia fiscal 2024"
-        },
-        {
-          "name": "Ejecución Presupuestal 2023",
-          "file": "/uploads/documents/ejecucion-2023.xlsx",
-          "anio": "2023",
-          "description": "Informe de ejecución presupuestal"
-        }
+      "numero": "9",
+      "titulo": "Obligación de Reporte de Información Específica",
+      "icon": "fa-file-circle-check",
+      "items": [
+        { "num": "9.1", "texto": "Normatividad Especial", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/normatividad-especial/", "tipo": "external" },
+        { "num": "9.2", "texto": "Accesibilidad", "url": "https://www.itrc.gov.co/Itrc/accesibilidad/", "tipo": "external" },
+        { "num": "9.3", "texto": "Informes de gestión, evaluación y auditoría", "url": "https://www.itrc.gov.co/Itrc/informes-a-organismos-de-inspeccion-vigilancia-y-control/", "tipo": "external" },
+        { "num": "9.4", "texto": "Reportes de control interno", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" }
+      ]
+    },
+    {
+      "numero": "10",
+      "titulo": "Implementación Modelo de Seguridad y Privacidad de la Información (MSPI)",
+      "icon": "fa-shield-halved",
+      "items": [
+        { "texto": "Autodiagnóstico MSPI — Instrumento de evaluación", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx", "tipo": "xlsx" }
       ]
     }
   ]

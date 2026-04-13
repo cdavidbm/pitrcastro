@@ -1,67 +1,136 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-import Accordion from '../components/Accordion.astro';
-import Tabs from '../components/Tabs.astro';
+import { resolveUrl } from '../utils/url';
 
 import pageData from '../content/pages/transparencia.json';
 
 const base = import.meta.env.BASE_URL;
 
-// Breadcrumb
 const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: pageData.title }
 ];
+
+function itemIcon(tipo: string) {
+  if (tipo === 'pdf') return 'fa-file-pdf';
+  if (tipo === 'xlsx') return 'fa-file-excel';
+  if (tipo === 'external') return 'fa-arrow-up-right-from-square';
+  if (tipo === 'internal') return 'fa-link';
+  return '';
+}
+
+function itemColorClass(tipo: string) {
+  if (tipo === 'pdf') return 'tipo--pdf';
+  if (tipo === 'xlsx') return 'tipo--excel';
+  if (tipo === 'external') return 'tipo--ext';
+  return 'tipo--int';
+}
+
+function buildHref(url: string, tipo: string) {
+  if (tipo === 'internal') return resolveUrl(url);
+  return url;
+}
+
+function isExternal(tipo: string) {
+  return tipo !== 'internal';
+}
 ---
 
 <Base title={pageData.title} description={pageData.description}>
   <HeroPage
     title={pageData.title}
     subtitle={pageData.description}
-    icon={pageData.icon || 'fa-folder-open'}
+    icon={pageData.icon}
     breadcrumb={breadcrumb}
   />
 
-  <section class="page-documents">
+  <section class="transp-section">
     <div class="container">
+      <!-- Intro -->
+      <div class="transp-intro">
+        <p>
+          {pageData.introTexto}
+          <a href={pageData.ley1712Url} target="_blank" rel="noopener" class="ley-link">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Ley 1712 de 2014
+          </a>
+        </p>
+      </div>
 
-      <div class="documents-content">
-        {pageData.sections.map((section, index) => (
-          <section class="document-section" aria-labelledby={`section-${index}-title`}>
-            {section.displayMode === 'accordion' && (
-              <Accordion
-                variant="document"
-                sections={[section]}
-                id={`section-${index}`}
-                defaultOpen={0}
-              />
+      <!-- Navegación rápida -->
+      <nav class="transp-nav" aria-label="Secciones de transparencia">
+        {pageData.secciones.map((sec) => (
+          <a href={`#seccion-${sec.numero}`} class="transp-nav__item">
+            <span class="transp-nav__num">{sec.numero}</span>
+            <span class="transp-nav__label">{sec.titulo}</span>
+          </a>
+        ))}
+      </nav>
+
+      <!-- Secciones -->
+      <div class="transp-content">
+        {pageData.secciones.map((sec) => (
+          <div class="transp-seccion" id={`seccion-${sec.numero}`}>
+            <div class="seccion-header">
+              <div class="seccion-header__icon">
+                <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
+              </div>
+              <h2 class="seccion-header__title">
+                <span class="seccion-header__num">{sec.numero}.</span>
+                {sec.tituloUrl ? (
+                  <a href={sec.tituloUrl} target="_blank" rel="noopener">{sec.titulo}</a>
+                ) : sec.titulo}
+              </h2>
+            </div>
+
+            {sec.descripcion && (
+              <p class="seccion-desc">{sec.descripcion}</p>
             )}
 
-            {section.displayMode === 'tabs' && (
-              <>
-                <h2 id={`section-${index}-title`}>{section.sectionTitle}</h2>
-                <Tabs
-                  documents={section.documents}
-                  id={`section-${index}`}
-                />
-              </>
-            )}
-
-            {section.displayMode === 'list' && (
-              <>
-                <h2 id={`section-${index}-title`}>{section.sectionTitle}</h2>
-                <div class="document-list">
-                  {section.documents.map((doc) => (
-                    <a href={doc.file} class="document-list__item" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-                      <span>{doc.name}</span>
+            <ul class="transp-list">
+              {sec.items.map((item) => (
+                <li class={`transp-item ${item.tipo === 'label' ? 'transp-item--label' : ''}`}>
+                  {item.tipo === 'label' ? (
+                    <>
+                      <div class="transp-item__label">
+                        {item.num && <span class="item-num">{item.num}</span>}
+                        <strong>{item.texto}</strong>
+                      </div>
+                      {item.children && (
+                        <ul class="transp-sublist">
+                          {item.children.map((child) => (
+                            <li class="transp-item">
+                              <a
+                                href={buildHref(child.url, child.tipo)}
+                                target={isExternal(child.tipo) ? '_blank' : undefined}
+                                rel={isExternal(child.tipo) ? 'noopener' : undefined}
+                                class={`transp-link ${itemColorClass(child.tipo)}`}
+                              >
+                                {child.num && <span class="item-num">{child.num}</span>}
+                                <span class="item-text">{child.texto}</span>
+                                <i class={`fa-solid ${itemIcon(child.tipo)}`} aria-hidden="true"></i>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={buildHref(item.url, item.tipo)}
+                      target={isExternal(item.tipo) ? '_blank' : undefined}
+                      rel={isExternal(item.tipo) ? 'noopener' : undefined}
+                      class={`transp-link ${itemColorClass(item.tipo)}`}
+                    >
+                      {item.num && <span class="item-num">{item.num}</span>}
+                      <span class="item-text">{item.texto}</span>
+                      <i class={`fa-solid ${itemIcon(item.tipo)}`} aria-hidden="true"></i>
                     </a>
-                  ))}
-                </div>
-              </>
-            )}
-          </section>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
       </div>
     </div>
@@ -69,59 +138,128 @@ const breadcrumb = [
 </Base>
 
 <style>
-  .page-documents {
-    padding: var(--space-12) 0 var(--space-20);
-  }
+  .transp-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .transp-section .container { max-width: 950px; margin: 0 auto; }
 
-  .documents-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-10);
-  }
-
-  .document-section h2 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--space-4);
-    padding-left: var(--space-4);
-    border-left: 3px solid var(--itrc-gold);
-  }
-
-  .document-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+  /* ====== Intro ====== */
+  .transp-intro {
+    margin-bottom: var(--space-8);
+    padding: var(--space-5) var(--space-6);
     background: var(--theme-surface-alt);
-    padding: var(--space-6);
-    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--itrc-gold);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   }
-
-  .document-list__item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    background: var(--theme-surface);
-    border-radius: var(--radius-md);
+  .transp-intro p { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin: 0; }
+  .ley-link {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    margin-left: var(--space-2); font-weight: 700; color: var(--file-pdf);
     text-decoration: none;
-    color: var(--theme-text);
-    transition: all var(--transition-base);
-    border: 1px solid transparent;
+  }
+  .ley-link:hover { text-decoration: underline; }
+
+  /* ====== Quick Nav ====== */
+  .transp-nav {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-2); margin-bottom: var(--space-10);
+    padding: var(--space-5); background: var(--theme-surface-alt);
+    border-radius: var(--radius-xl);
+  }
+  .transp-nav__item {
+    display: flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-3); border-radius: var(--radius-md);
+    text-decoration: none; transition: all var(--transition-fast);
+  }
+  .transp-nav__item:hover { background: var(--theme-surface); }
+  .transp-nav__num {
+    width: 28px; height: 28px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--itrc-gold); color: var(--white);
+    border-radius: var(--radius-md); font-size: var(--font-size-xs); font-weight: 800;
+  }
+  .transp-nav__item:hover .transp-nav__num { background: var(--itrc-navy); }
+  .transp-nav__label { font-size: var(--font-size-xs); font-weight: 600; color: var(--theme-heading); line-height: 1.3; }
+
+  /* ====== Sections ====== */
+  .transp-content { display: flex; flex-direction: column; gap: var(--space-8); }
+
+  .transp-seccion { scroll-margin-top: var(--space-6); }
+
+  .seccion-header {
+    display: flex; align-items: center; gap: var(--space-4);
+    padding-bottom: var(--space-4); margin-bottom: var(--space-4);
+    border-bottom: 2px solid var(--itrc-gold);
+  }
+  .seccion-header__icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--itrc-gold); color: var(--white);
+    border-radius: var(--radius-lg); font-size: var(--font-size-xl);
+  }
+  .seccion-header__title { font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0; flex: 1; }
+  .seccion-header__num { color: var(--itrc-gold); margin-right: var(--space-2); }
+  .seccion-header__title a { color: var(--theme-heading); text-decoration: none; }
+  .seccion-header__title a:hover { color: var(--itrc-gold); }
+
+  .seccion-desc { font-size: var(--font-size-sm); color: var(--theme-text-secondary); line-height: 1.7; margin: 0 0 var(--space-4); }
+
+  /* ====== Lists ====== */
+  .transp-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .transp-sublist { list-style: none; padding: 0; margin: var(--space-2) 0 0 var(--space-8); display: flex; flex-direction: column; gap: var(--space-2); }
+
+  .transp-item--label { margin-top: var(--space-2); }
+  .transp-item__label {
+    display: flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm); color: var(--theme-heading);
   }
 
-  .document-list__item:hover {
-    border-color: var(--itrc-gold);
-    box-shadow: var(--shadow-md);
-    transform: translateX(4px);
+  /* ====== Links ====== */
+  .transp-link {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-fast);
   }
+  .transp-link:hover { box-shadow: var(--shadow-sm); transform: translateX(3px); }
 
-  .document-list__item i {
-    color: var(--file-pdf);
-    font-size: var(--font-size-xl);
+  .item-num {
+    flex-shrink: 0; font-size: var(--font-size-xs); font-weight: 800;
+    color: var(--theme-text-muted); min-width: 36px;
   }
+  .item-text { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); transition: color var(--transition-fast); }
+  .transp-link > i { flex-shrink: 0; font-size: var(--font-size-xs); opacity: 0.5; transition: all var(--transition-fast); }
+  .transp-link:hover > i { opacity: 1; }
 
+  /* Type colors */
+  .tipo--int:hover { border-color: rgba(var(--itrc-gold-rgb), 0.3); }
+  .tipo--int:hover .item-text { color: var(--itrc-gold); }
+  .tipo--int > i { color: var(--itrc-gold); }
+
+  .tipo--pdf:hover { border-color: rgba(220,53,69,0.3); }
+  .tipo--pdf:hover .item-text { color: var(--file-pdf); }
+  .tipo--pdf > i { color: var(--file-pdf); }
+
+  .tipo--excel:hover { border-color: rgba(25,135,84,0.3); }
+  .tipo--excel:hover .item-text { color: var(--file-excel); }
+  .tipo--excel > i { color: var(--file-excel); }
+
+  .tipo--ext:hover { border-color: rgba(var(--itrc-gold-rgb), 0.3); }
+  .tipo--ext:hover .item-text { color: var(--itrc-navy); }
+  .tipo--ext > i { color: var(--itrc-navy); }
+
+  /* ====== Responsive ====== */
   @media (max-width: 768px) {
-    .page-documents {
-      padding: var(--space-8) 0 var(--space-12);
-    }
+    .transp-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .transp-nav { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); padding: var(--space-3); }
+    .transp-nav__label { font-size: 0.65rem; }
+    .seccion-header { gap: var(--space-3); }
+    .seccion-header__icon { width: 36px; height: 36px; font-size: var(--font-size-base); }
+    .seccion-header__title { font-size: var(--font-size-base); }
+    .transp-sublist { margin-left: var(--space-4); }
+    .transp-link { padding: var(--space-2) var(--space-3); gap: var(--space-2); }
+    .item-text { font-size: var(--font-size-xs); }
+    .item-num { min-width: 30px; font-size: 0.65rem; }
   }
 </style>
