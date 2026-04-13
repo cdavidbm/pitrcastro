@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Plan de Adquisiciones' }
+];
+
+const anios = [
+  { anio: '2026', docs: [
+    { nombre: 'Plan de Adquisiciones Vigencia 2026 — Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/PLAN-DE-ADQUISICIONES-ITRC-2026-%E2%80%93-enero.pdf' },
+  ]},
+  { anio: '2025', docs: [
+    { nombre: 'Diciembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/PLAN-DE-ADQUISICIONES-ITRC-2025-%E2%80%93-diciembre.pdf' },
+    { nombre: 'Septiembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/PLAN-DE-ADQUISICIONES-ITRC-2025-%E2%80%93-septiembre.pdf' },
+    { nombre: 'Junio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/PLAN-DE-ADQUISICIONES-ITRC-2025-%E2%80%93-junio.pdf' },
+    { nombre: 'Marzo', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/PLAN-DE-ADQUISICIONES-ITRC-2025-%E2%80%93-marzo.pdf' },
+    { nombre: 'Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Plan-de-Adquisiciones-Vigencia-2025-%E2%80%93-Enero.pdf' },
+  ]},
+  { anio: '2024', docs: [
+    { nombre: 'Diciembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Plan-de-Adquisiciones-Vigencia-2024-%E2%80%93-Diciembre.pdf' },
+    { nombre: 'Septiembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Publicacion-Septiembre-2024-web-agencia.pdf' },
+    { nombre: 'Junio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Publicacion-Junio-2024-web-agencia-V1.pdf' },
+    { nombre: 'Marzo', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Publicacion-Marzo-2024-web-agencia-V2pag.pdf' },
+    { nombre: 'Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/PAA-Agencia-ITRC_-Enero-2024.pdf' },
+  ]},
+  { anio: '2023', docs: [
+    { nombre: 'Diciembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/PLAN-DE-ADQUISICIONES-ITRC-2023-DICIEMBRE.pdf' },
+    { nombre: 'Septiembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/PLAN-DE-ADQUISICIONES-ITRC-2023-SEPTIEMBRE.pdf' },
+    { nombre: 'Junio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/PLAN-DE-ADQUISICIONES-ITRC-2023-JUNIO.pdf' },
+    { nombre: 'Marzo', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/PLAN-DE-ADQUISICIONES-ITRC-2023-MARZO.pdf' },
+    { nombre: 'Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/PLAN-DE-ADQUISICIONES-ITRC-2023-enero.pdf' },
+  ]},
+  { anio: '2022', docs: [
+    { nombre: 'Diciembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/PLAN-DE-ADQUISICIONES-ITRC-2022-diciembre-31...pdf' },
+    { nombre: 'Septiembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/PLAN-DE-ADQUISICIONES-ITRC-2022-septiembre-1.pdf' },
+    { nombre: 'Junio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/PLAN-DE-ADQUISICIONES-ITRC-2022-JUNIO-30.pdf' },
+    { nombre: 'Marzo', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/PLAN-DE-ADQUISICIONES-ITRC-2022-MARZO-31.pdf' },
+    { nombre: 'Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/PLAN-DE-ADQUISICIONES-ITRC-2022-enero.pdf' },
+  ]},
+  { anio: '2021', docs: [
+    { nombre: 'Diciembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/PLAN-DE-ADQUISICIONES-ITRC-2021-diciembre-.pdf' },
+    { nombre: 'Septiembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/PLAN-DE-ADQUISICIONES-ITRC-2021-septiembre.pdf' },
+    { nombre: 'Junio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/PLAN-DE-ADQUISICIONES-ITRC-2021-Junio.pdf' },
+    { nombre: 'Marzo', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/PLAN-DE-ADQUISICIONES-ITRC-2021-Marzo.pdf' },
+    { nombre: 'Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/PLAN-DE-ADQUISICIONES-ITRC-2021-Enero.pdf' },
+  ]},
+  { anio: '2020', docs: [
+    { nombre: 'Diciembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/PLAN-DE-ADQUISICIONES-ITRC-2020-Diciembre.pdf' },
+    { nombre: 'Septiembre', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/PLAN-DE-ADQUISICIONES-ITRC-2020-Septiembre-30-de-2020.pdf' },
+    { nombre: 'Junio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/PLAN-DE-ADQUISICIONES-ITRC-2020-junio.pdf' },
+    { nombre: 'Marzo', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/04/PLAN-DE-ADQUISICIONES-ITRC-2020-marzo-1.pdf' },
+    { nombre: 'Enero', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/04/PLAN-DE-ADQUISICIONES-ITRC-2020.pdf' },
+  ]},
+];
+
+const secopUrl = 'https://community.secop.gov.co/Public/App/AnnualPurchasingPlanEditPublic/View?id=725408';
+---
+
+<Base title="Plan Anual de Adquisiciones" description="Plan Anual de Adquisiciones de la Agencia ITRC publicado en SECOP II">
+  <HeroPage title="Plan Anual de Adquisiciones" subtitle="Consulte el Plan Anual de Adquisiciones publicado en SECOP II" icon="fa-cart-shopping" breadcrumb={breadcrumb} />
+
+  <section class="paa-section">
+    <div class="container">
+      <a href={secopUrl} target="_blank" rel="noopener" class="secop-cta">
+        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        Ir a SECOP II — Plan Anual de Adquisiciones
+      </a>
+
+      <div class="paa-tabs" role="tablist">
+        {anios.map((g, i) => (
+          <button class={`paa-tab ${i === 0 ? 'active' : ''}`} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-tab={g.anio}>{g.anio}<span class="paa-tab__count">{g.docs.length}</span></button>
+        ))}
+      </div>
+
+      {anios.map((g, i) => (
+        <div class={`paa-panel ${i === 0 ? 'active' : ''}`} id={`panel-paa-${g.anio}`} role="tabpanel" hidden={i !== 0}>
+          <div class="paa-list">
+            {g.docs.map((doc) => (
+              <a href={doc.url} target="_blank" rel="noopener" class="paa-item">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                <span>{doc.nombre}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .paa-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .paa-section .container { max-width: 850px; margin: 0 auto; }
+  .secop-cta { display: flex; align-items: center; justify-content: center; gap: var(--space-3); padding: var(--space-4) var(--space-6); background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: var(--font-size-sm); transition: all var(--transition-base); margin-bottom: var(--space-8); }
+  .secop-cta:hover { background: var(--itrc-gold); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .paa-tabs { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-bottom: var(--space-5); border-bottom: 2px solid var(--theme-border); padding-bottom: var(--space-2); }
+  .paa-tab { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border: 1px solid transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: transparent; color: var(--theme-text-secondary); font-size: var(--font-size-sm); font-weight: 600; font-family: var(--font-family); cursor: pointer; transition: all var(--transition-fast); }
+  .paa-tab:hover { background: var(--theme-surface-alt); color: var(--itrc-gold); }
+  .paa-tab.active { background: var(--theme-surface-alt); color: var(--itrc-gold); border-color: var(--theme-border); border-bottom-color: var(--theme-surface-alt); font-weight: 800; }
+  .paa-tab__count { padding: 1px 7px; background: var(--theme-surface-alt); border-radius: var(--radius-full); font-size: var(--font-size-xs); color: var(--theme-text-muted); }
+  .paa-tab.active .paa-tab__count { background: rgba(var(--itrc-gold-rgb), 0.15); color: var(--itrc-gold); }
+  .paa-panel { display: none; }
+  .paa-panel.active { display: block; }
+  .paa-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .paa-item { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-fast); }
+  .paa-item:hover { border-color: rgba(220,53,69,0.3); box-shadow: var(--shadow-sm); transform: translateX(3px); }
+  .paa-item > i:first-child { color: var(--file-pdf); }
+  .paa-item span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .paa-item:hover span { color: var(--file-pdf); }
+  .paa-item > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .paa-item:hover > i:last-child { opacity: 1; }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+  @media (max-width: 768px) { .paa-section { padding: var(--space-6) var(--space-4) var(--space-12); } .paa-tabs { gap: 2px; } .paa-tab { padding: var(--space-1) var(--space-3); font-size: var(--font-size-xs); } }
+</style>
+
+<script>
+  function initPaaTabs() {
+    const tabs = document.querySelectorAll('.paa-tab');
+    const panels = document.querySelectorAll('.paa-panel');
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = (btn as HTMLElement).dataset.tab;
+        tabs.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+        panels.forEach(p => { const a = p.id === `panel-paa-${id}`; p.classList.toggle('active',a); (p as HTMLElement).hidden = !a; });
+      });
+    });
+  }
+  initPaaTabs();
+  document.addEventListener('astro:after-swap', initPaaTabs);
+</script>

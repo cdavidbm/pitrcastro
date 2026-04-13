@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Contratación Suscrita' }
+];
+
+const secopI = 'https://www.contratos.gov.co/consultas/inicioConsulta.do';
+const secopII = 'https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index';
+---
+
+<Base title="Publicación de la Información Contractual" description="Información sobre procesos de selección y contratos suscritos de la Agencia ITRC">
+  <HeroPage title="Información Contractual" subtitle="Procesos de selección y contratos suscritos" icon="fa-file-signature" breadcrumb={breadcrumb} />
+
+  <section class="contratacion-section">
+    <div class="container">
+      <p class="intro">En esta página podrá encontrar información sobre los procesos de selección y los contratos suscritos en la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.</p>
+
+      <div class="secop-links">
+        <a href={secopI} target="_blank" rel="noopener" class="secop-card">
+          <div class="secop-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+          <div class="secop-card__content">
+            <h3>SECOP I</h3>
+            <p>Consulte los procesos de contratación en el Sistema Electrónico de Contratación Pública</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a href={secopII} target="_blank" rel="noopener" class="secop-card">
+          <div class="secop-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+          <div class="secop-card__content">
+            <h3>SECOP II</h3>
+            <p>Plataforma transaccional para la gestión de procesos de contratación pública</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="info-note">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        <p>La información detallada de convocatorias a procesos públicos de selección (licitaciones, selecciones abreviadas, mínima cuantía y contratación directa con ofertas), así como los reportes mensuales de contratos suscritos, se encuentra disponible en las plataformas SECOP I y SECOP II.</p>
+      </div>
+
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contratacion-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .contratacion-section .container { max-width: 850px; margin: 0 auto; }
+  .intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); text-align: center; }
+
+  .secop-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: var(--space-5); margin-bottom: var(--space-8); }
+  .secop-card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--theme-surface); border: 2px solid var(--itrc-navy); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .secop-card:hover { background: var(--itrc-navy); color: var(--white); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .secop-card__icon { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-lg); font-size: var(--font-size-2xl); }
+  .secop-card:hover .secop-card__icon { background: rgba(255,255,255,0.2); }
+  .secop-card__content h3 { font-size: var(--font-size-lg); color: var(--itrc-navy); margin: 0 0 var(--space-1); }
+  .secop-card:hover .secop-card__content h3 { color: var(--white); }
+  .secop-card__content p { font-size: var(--font-size-xs); color: var(--theme-text-secondary); margin: 0; line-height: 1.5; }
+  .secop-card:hover .secop-card__content p { color: rgba(255,255,255,0.8); }
+  .secop-card > i:last-child { color: var(--itrc-navy); opacity: 0.4; }
+  .secop-card:hover > i:last-child { color: var(--white); opacity: 1; }
+
+  .info-note { display: flex; gap: var(--space-3); padding: var(--space-5); background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin-bottom: var(--space-8); }
+  .info-note i { color: var(--itrc-gold); margin-top: 3px; flex-shrink: 0; }
+  .info-note p { margin: 0; font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); }
+
+  .back-link { text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+  @media (max-width: 768px) { .contratacion-section { padding: var(--space-6) var(--space-4) var(--space-12); } .secop-links { grid-template-columns: 1fr; } }
+</style>

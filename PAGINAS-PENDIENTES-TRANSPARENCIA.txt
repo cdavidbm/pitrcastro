@@ -34,18 +34,18 @@ SECCIÓN 2 — Normativa ✓ COMPLETADA
 [x] /politicas-lineamientos-y-manuales
     → Políticas, lineamientos y manuales
 
-SECCIÓN 3 — Contratación
+SECCIÓN 3 — Contratación ✓ COMPLETADA
 --------------------------------------
-[ ] /plan-de-adquisiciones
-    → Plan Anual de Adquisiciones
-[ ] /contratacion-suscrita
-    → Publicación de la información contractual
-[ ] /publicacion-ejecucion-contratos
-    → Publicación de la ejecución de contratos
-[ ] /manual-contratacion
-    → Manual de contratación, adquisición y/o compras
-[ ] /formatos-contratos-pliego-tipo
-    → Formatos o modelos de contratos o pliego tipo
+[x] /plan-de-adquisiciones
+    → Plan Anual de Adquisiciones (tabs por año, 36 PDFs 2020-2026)
+[x] /contratacion-suscrita
+    → Publicación de la información contractual (enlaza a SECOP I y II)
+[x] /publicacion-ejecucion-contratos
+    → Publicación de la ejecución de contratos (enlaza a SECOP I y II)
+[x] /manual-contratacion
+    → Manual de contratación, adquisición y/o compras (8 PDFs)
+[x] /formatos-contratos-pliego-tipo
+    → Formatos o modelos de contratos o pliego tipo (9 DOCX + 1 XLSX)
 
 SECCIÓN 4 — Planeación
 --------------------------------------

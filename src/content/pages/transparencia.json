@@ -69,11 +69,11 @@
       "titulo": "Contratación",
       "icon": "fa-file-contract",
       "items": [
-        { "num": "3.1", "texto": "Plan Anual de Adquisiciones", "url": "https://www.itrc.gov.co/Itrc/plan-de-adquisiciones/", "tipo": "external" },
-        { "num": "3.2", "texto": "Publicación de la información contractual", "url": "https://www.itrc.gov.co/Itrc/contratacion-suscrita/", "tipo": "external" },
-        { "num": "3.3", "texto": "Publicación de la ejecución de contratos", "url": "https://www.itrc.gov.co/Itrc/publicacion-de-la-ejecucion-de-contratos/", "tipo": "external" },
-        { "num": "3.4", "texto": "Manual de contratación, adquisición y/o compras", "url": "https://www.itrc.gov.co/Itrc/publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras/", "tipo": "external" },
-        { "num": "3.5", "texto": "Formatos o modelos de contratos o pliego tipo", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/formatos-o-modelos-de-contratos-o-pliego-tipo/", "tipo": "external" }
+        { "num": "3.1", "texto": "Plan Anual de Adquisiciones", "url": "/plan-de-adquisiciones", "tipo": "internal" },
+        { "num": "3.2", "texto": "Publicación de la información contractual", "url": "/contratacion-suscrita", "tipo": "internal" },
+        { "num": "3.3", "texto": "Publicación de la ejecución de contratos", "url": "/publicacion-ejecucion-contratos", "tipo": "internal" },
+        { "num": "3.4", "texto": "Manual de contratación, adquisición y/o compras", "url": "/manual-contratacion", "tipo": "internal" },
+        { "num": "3.5", "texto": "Formatos o modelos de contratos o pliego tipo", "url": "/formatos-contratos-pliego-tipo", "tipo": "internal" }
       ]
     },
     {
