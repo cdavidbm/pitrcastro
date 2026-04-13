@@ -1,39 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-
+import pageData from '../content/pages/transparencia/protocolo-atencion.json';
 const base = import.meta.env.BASE_URL;
-const breadcrumb = [
-  { label: 'Inicio', href: base },
-  { label: 'Transparencia', href: `${base}transparencia` },
-  { label: 'Protocolo de Atención al Ciudadano' }
-];
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
+const isExcel = 'pdf' === 'xlsx' || pageData.pdfUrl?.endsWith('.xlsx');
 ---
-
-<Base title="Protocolo de Atención al Ciudadano" description="Protocolo de atención al ciudadano de la Agencia ITRC">
-  <HeroPage title="Protocolo de Atención al Ciudadano" subtitle="Lineamientos para la atención al ciudadano" icon="fa-handshake-angle" breadcrumb={breadcrumb} />
-
-  <section class="simple-page">
-    <div class="container">
-      <a href="https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Protocolo-Atencion-al-Ciudadano.pdf" target="_blank" rel="noopener" class="doc-cta">
-        <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-        <span>Protocolo de Atención al Ciudadano</span>
-        <i class="fa-solid fa-download" aria-hidden="true"></i>
-      </a>
-      <div class="back-link">
-        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
-      </div>
-    </div>
-  </section>
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="simple-page"><div class="container">
+    <a href={pageData.pdfUrl} target="_blank" rel="noopener" class={`doc-cta doc-cta--${isExcel ? 'excel' : 'pdf'}`}>
+      <i class={`fa-solid ${isExcel ? 'fa-file-excel' : 'fa-file-pdf'}`} aria-hidden="true"></i>
+      <span>{pageData.pdfNombre}</span>
+      <i class="fa-solid fa-download" aria-hidden="true"></i>
+    </a>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
 </Base>
-
-<style>
-  .simple-page { padding: var(--space-12) var(--space-6) var(--space-16); background: var(--theme-surface); }
-  .simple-page .container { max-width: 700px; margin: 0 auto; text-align: center; }
-  .doc-cta { display: inline-flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-8); background: var(--theme-surface); border: 2px solid var(--file-pdf); border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: var(--font-size-base); color: var(--file-pdf); transition: all var(--transition-base); }
-  .doc-cta:hover { background: var(--file-pdf); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-  .back-link { margin-top: var(--space-8); }
-  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
-  .back-link a:hover { color: var(--itrc-gold); }
-  @media (max-width: 768px) { .doc-cta { font-size: var(--font-size-sm); padding: var(--space-4) var(--space-6); } }
-</style>
+<style>.simple-page{padding:var(--space-12) var(--space-6) var(--space-16);background:var(--theme-surface)}.simple-page .container{max-width:700px;margin:0 auto;text-align:center}.doc-cta{display:inline-flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-8);border:2px solid;border-radius:var(--radius-full);text-decoration:none;font-weight:700;font-size:var(--font-size-base);transition:all var(--transition-base)}.doc-cta:hover{color:var(--white);transform:translateY(-2px);box-shadow:var(--shadow-md)}.doc-cta--pdf{border-color:var(--file-pdf);color:var(--file-pdf)}.doc-cta--pdf:hover{background:var(--file-pdf)}.doc-cta--excel{border-color:var(--file-excel);color:var(--file-excel)}.doc-cta--excel:hover{background:var(--file-excel)}.back-link{margin-top:var(--space-8)}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}@media(max-width:768px){.doc-cta{font-size:var(--font-size-sm);padding:var(--space-4) var(--space-6)}}</style>
