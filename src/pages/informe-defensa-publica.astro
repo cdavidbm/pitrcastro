@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Defensa Pública' }];
+
+const enlaces = [
+  { titulo: 'Defensa Judicial — Informes Trimestrales', url: 'https://www.itrc.gov.co/Itrc/defensa-judicial/', icon: 'fa-gavel', tipo: 'external' },
+  { titulo: 'Comité de Conciliación y Defensa Jurídica', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Resolucion-No.404-Por-medio-de-la-cual-se-adopta-el-Reglamento-Interno-del-Comite-de-Conciliacion-y-Defensa-Juridica_compressed-2.pdf', icon: 'fa-file-pdf', tipo: 'pdf' },
+  { titulo: 'Política de Prevención del Daño Antijurídico', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Resoluci%C3%B3n-No.-011-de-23-de-enero-de-2024-Adopta-PPDA-Agencia-ITRC-2024-2025v.pdf', icon: 'fa-file-pdf', tipo: 'pdf' },
+  { titulo: 'Informe de Gestión del Comité de Conciliación', url: '/informe-comite-conciliacion', icon: 'fa-handshake', tipo: 'internal' },
+];
+---
+
+<Base title="Defensa Pública y Prevención del Daño Antijurídico" description="Informes sobre defensa pública y prevención del daño antijurídico de la Agencia ITRC">
+  <HeroPage title="Defensa Pública" subtitle="Prevención del Daño Antijurídico" icon="fa-shield-halved" breadcrumb={breadcrumb} />
+  <section class="defense-section"><div class="container">
+    <div class="defense-links">
+      {enlaces.map((e) => (
+        <a href={e.tipo === 'internal' ? resolveUrl(e.url) : e.url} target={e.tipo !== 'internal' ? '_blank' : undefined} rel={e.tipo !== 'internal' ? 'noopener' : undefined} class="defense-link">
+          <div class="defense-link__icon"><i class={`fa-solid ${e.icon}`} aria-hidden="true"></i></div>
+          <span>{e.titulo}</span>
+          <i class={`fa-solid ${e.tipo === 'internal' ? 'fa-chevron-right' : e.tipo === 'pdf' ? 'fa-download' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+        </a>
+      ))}
+    </div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+
+<style>
+  .defense-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .defense-section .container { max-width: 800px; margin: 0 auto; }
+  .defense-links { display: flex; flex-direction: column; gap: var(--space-4); }
+  .defense-link { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-6); background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .defense-link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .defense-link__icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(var(--itrc-gold-rgb), 0.1); border-radius: var(--radius-lg); color: var(--itrc-gold); font-size: var(--font-size-xl); transition: all var(--transition-base); }
+  .defense-link:hover .defense-link__icon { background: var(--itrc-gold); color: var(--white); }
+  .defense-link span { flex: 1; font-size: var(--font-size-base); font-weight: 700; color: var(--theme-heading); }
+  .defense-link:hover span { color: var(--itrc-gold); }
+  .defense-link > i:last-child { color: var(--theme-text-muted); opacity: 0.4; }
+  .defense-link:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+  @media (max-width: 768px) { .defense-section { padding: var(--space-6) var(--space-4) var(--space-12); } .defense-link span { font-size: var(--font-size-sm); } }
+</style>

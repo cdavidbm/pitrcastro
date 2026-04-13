@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Proyectos de Inversión' }
+];
+
+const subpaginas = [
+  { titulo: 'Resumen Ejecutivo Proyecto de Inversión', url: 'https://www.itrc.gov.co/Itrc/programas-y-proyectos-en-ejecucion/resumen-ejecutivo-proyecto-de-inversion/', icon: 'fa-file-lines' },
+  { titulo: 'Fichas EBI Proyecto de Inversión', url: 'https://www.itrc.gov.co/Itrc/programas-y-proyectos-en-ejecucion/ficha-ebi-proyecto-de-inversion/', icon: 'fa-table' },
+  { titulo: 'Consulta Proyecto de Inversión por Sector y Entidad', url: 'https://spi.dnp.gov.co/', icon: 'fa-magnifying-glass-chart' },
+];
+
+const informes = [
+  { anio: '2025', docs: [
+    { nombre: 'Informe Proyecto 202400000000069 — IV Trimestre 2025', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Informe-ejecutivo-2025-BPIN-202400000000069.pdf' },
+    { nombre: 'Informe Proyecto 2018011000796 — IV Trimestre 2025', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Informe-ejecutivo-2025-BPIN-2018011000796.pdf' },
+  ]},
+  { anio: '2024', docs: [
+    { nombre: 'Informe Gestión Documental — I Trimestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Informe-Proyecto-de-Inversion-gESTION-DOCUMENTAL-I-TRIM-2024.pdf' },
+    { nombre: 'Informe Proyecto 2018011000796 — I Trimestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Informe-Proyecto-de-inversion-2018011000796-I-Trimestre-2024.pdf' },
+    { nombre: 'Informe Proyecto 2018011000796 — II Trimestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-Proyecto-de-inversion-2018011000796-II-Trimestre-2024.pdf' },
+    { nombre: 'Informe Proyecto 2018011000796 — IV Trimestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Informe-ejecutivo-2024-BPIN-2018011000796.pdf' },
+    { nombre: 'Informe Proyecto 2020011000032 — IV Trimestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Informe-ejecutivo-2024-BPIN-2020011000032.pdf' },
+  ]},
+  { anio: '2023', docs: [
+    { nombre: 'Informe Proyecto 2020011000032 — IV Trimestre 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Informe-proyecto-2020011000032-IV-trim-2023.pdf' },
+  ]},
+];
+---
+
+<Base title="Proyectos de Inversión" description="Proyectos de inversión de la Agencia ITRC">
+  <HeroPage title="Proyectos de Inversión" subtitle="Programas y proyectos en ejecución" icon="fa-chart-line" breadcrumb={breadcrumb} />
+
+  <section class="proy-section">
+    <div class="container">
+      <div class="sub-links">
+        {subpaginas.map((sp) => (
+          <a href={sp.url} target="_blank" rel="noopener" class="sub-link">
+            <i class={`fa-solid ${sp.icon}`} aria-hidden="true"></i>
+            <span>{sp.titulo}</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="section-heading"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Informes Proyectos de Inversión</h2>
+
+      {informes.map((g) => (
+        <div class="year-group">
+          <h3 class="year-title">{g.anio}<span class="year-count">{g.docs.length}</span></h3>
+          <div class="doc-list">
+            {g.docs.map((doc) => (
+              <a href={doc.url} target="_blank" rel="noopener" class="doc-item">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                <span>{doc.nombre}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .proy-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .proy-section .container { max-width: 850px; margin: 0 auto; }
+  .sub-links { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-8); }
+  .sub-link { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .sub-link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateX(4px); }
+  .sub-link > i:first-child { color: var(--itrc-gold); font-size: var(--font-size-lg); }
+  .sub-link span { flex: 1; font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-heading); }
+  .sub-link:hover span { color: var(--itrc-gold); }
+  .sub-link > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.4; }
+  .section-heading { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-6); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
+  .section-heading i { color: var(--itrc-gold); }
+  .year-group { margin-bottom: var(--space-6); }
+  .year-title { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-base); color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .year-count { padding: 1px 8px; background: var(--theme-surface-alt); border-radius: var(--radius-full); font-size: var(--font-size-xs); color: var(--theme-text-muted); }
+  .doc-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .doc-item { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-fast); }
+  .doc-item:hover { border-color: rgba(220,53,69,0.3); box-shadow: var(--shadow-sm); transform: translateX(3px); }
+  .doc-item > i:first-child { color: var(--file-pdf); }
+  .doc-item span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .doc-item:hover span { color: var(--file-pdf); }
+  .doc-item > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+  @media (max-width: 768px) { .proy-section { padding: var(--space-6) var(--space-4) var(--space-12); } }
+</style>

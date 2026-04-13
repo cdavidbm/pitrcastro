@@ -47,20 +47,20 @@ SECCIÓN 3 — Contratación ✓ COMPLETADA
 [x] /formatos-contratos-pliego-tipo
     → Formatos o modelos de contratos o pliego tipo (9 DOCX + 1 XLSX)
 
-SECCIÓN 4 — Planeación
+SECCIÓN 4 — Planeación ✓ COMPLETADA
 --------------------------------------
-[ ] /programas-y-proyectos-en-ejecucion
-    → Proyectos de Inversión
-[ ] /informes-de-empalme
-    → Informes de empalme
-[ ] /informe-rendicion-cuenta-contraloria
-    → Informe de rendición de la cuenta fiscal a la Contraloría
-[ ] /evaluacion-independiente-control-interno
-    → Informe de evaluación independiente del sistema de control interno
-[ ] /informe-defensa-publica
-    → Informe sobre Defensa Pública y Prevención del Daño Antijurídico
-[ ] /informe-comite-conciliacion
-    → Informe de Gestión del Comité de Conciliación
+[x] /programas-y-proyectos-en-ejecucion
+    → Proyectos de Inversión (8 informes + 3 sub-enlaces)
+[x] /informes-de-empalme
+    → Informes de empalme (2 PDFs)
+[x] /informe-rendicion-cuenta-contraloria
+    → Rendición cuenta fiscal CGR (13 archivos: 2012-2023)
+[x] /evaluacion-independiente-control-interno
+    → Evaluación independiente SCI (12 informes: 2020-2025)
+[x] /informe-defensa-publica
+    → Defensa Pública (4 enlaces + sub-página Defensa Judicial)
+[x] /informe-comite-conciliacion
+    → Comité de Conciliación (6 informes: 2023-2025)
 
 SECCIÓN 5 — Trámites
 --------------------------------------

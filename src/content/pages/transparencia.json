@@ -85,12 +85,12 @@
         { "num": "4.2", "texto": "Ejecución presupuestal", "url": "/agencia/informacion-financiera", "tipo": "internal" },
         { "num": "4.3", "texto": "Planes estratégicos, sectoriales e institucionales", "url": "/agencia/direccionamiento-estrategico/planes", "tipo": "internal" },
         { "num": "4.3.1", "texto": "Plan de acción anual", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Plan-de-Accion-Anual-2026-1.xlsx", "tipo": "xlsx" },
-        { "num": "4.4", "texto": "Proyectos de Inversión", "url": "https://www.itrc.gov.co/Itrc/programas-y-proyectos-en-ejecucion/", "tipo": "external" },
-        { "num": "4.5", "texto": "Informes de empalme", "url": "https://www.itrc.gov.co/Itrc/informes-de-empalme/", "tipo": "external" },
+        { "num": "4.4", "texto": "Proyectos de Inversión", "url": "/programas-y-proyectos-en-ejecucion", "tipo": "internal" },
+        { "num": "4.5", "texto": "Informes de empalme", "url": "/informes-de-empalme", "tipo": "internal" },
         { "num": "4.7", "texto": "Informes de gestión, evaluación y auditoría", "tipo": "label",
           "children": [
             { "num": "4.7.1", "texto": "Informe de Gestión", "url": "/agencia/direccionamiento-estrategico/informes", "tipo": "internal" },
-            { "num": "4.7.2", "texto": "Informe de rendición de cuentas ante la Contraloría General de la República", "url": "https://www.itrc.gov.co/Itrc/informe-de-rendicion-de-la-cuenta-fiscal-a-la-contraloria-general-de-la-republica-informes-a-organismos-de-inspeccion-vigilancia-y-control/", "tipo": "external" },
+            { "num": "4.7.2", "texto": "Informe de rendición de cuentas ante la Contraloría General de la República", "url": "/informe-rendicion-cuenta-contraloria", "tipo": "internal" },
             { "num": "4.7.3", "texto": "Informe de Rendición de Cuentas a la ciudadanía", "url": "/participa/rendicion-de-cuentas", "tipo": "internal" },
             { "num": "4.7.4", "texto": "Informes a organismos de inspección, vigilancia y control", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" },
             { "num": "4.7.5", "texto": "Planes de mejoramiento", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/planes-de-mejoramiento-2/", "tipo": "external" }
@@ -98,14 +98,14 @@
         },
         { "num": "4.8", "texto": "Informes de la Oficina de Control Interno", "tipo": "label",
           "children": [
-            { "num": "4.8.1", "texto": "Informe de evaluación independiente del estado del Sistema de Control Interno", "url": "https://www.itrc.gov.co/Itrc/evaluacion-independiente-sistema-de-control-interno/", "tipo": "external" },
+            { "num": "4.8.1", "texto": "Informe de evaluación independiente del estado del Sistema de Control Interno", "url": "/evaluacion-independiente-control-interno", "tipo": "internal" },
             { "num": "4.8.2", "texto": "Informes de Evaluación y Auditoría de la Agencia (3LD)", "url": "https://www.itrc.gov.co/Itrc/sistema-de-control-interno/informes-legales/", "tipo": "external" }
           ]
         },
         { "num": "4.9", "texto": "Informes de Defensa Judicial", "tipo": "label",
           "children": [
-            { "num": "4.9.1", "texto": "Informe sobre Defensa Pública y Prevención del Daño Antijurídico", "url": "https://www.itrc.gov.co/Itrc/participa/informe-defensa-publica-y-prevencion-del-dano-antijuridico/", "tipo": "external" },
-            { "num": "4.9.2", "texto": "Informe de Gestión del Comité de Conciliación", "url": "https://www.itrc.gov.co/Itrc/participa/informe-de-gestion-del-comite-de-conciliacion/", "tipo": "external" }
+            { "num": "4.9.1", "texto": "Informe sobre Defensa Pública y Prevención del Daño Antijurídico", "url": "/informe-defensa-publica", "tipo": "internal" },
+            { "num": "4.9.2", "texto": "Informe de Gestión del Comité de Conciliación", "url": "/informe-comite-conciliacion", "tipo": "internal" }
           ]
         },
         { "num": "4.10", "texto": "Informes trimestrales sobre acceso a información, quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" }

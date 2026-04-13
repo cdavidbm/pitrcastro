@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Informes de Empalme' }];
+
+const docs = [
+  { nombre: 'Informe de Empalme — Dra. Marcela Moncada Barrera', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/Informe-de-Empalme-Dra-Marcela-Moncada-Barrera.pdf' },
+  { nombre: 'Informe de Empalme — Dra. Diana Richardson Peña', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/Informe-de-Empalme-Agencia-ITRC.pdf' },
+];
+---
+
+<Base title="Informes de Empalme" description="Informes de empalme de la Agencia ITRC">
+  <HeroPage title="Informes de Empalme" subtitle="Informes de empalme de la dirección" icon="fa-handshake" breadcrumb={breadcrumb} />
+  <section class="simple-page"><div class="container">
+    <div class="docs-list">
+      {docs.map((d) => (
+        <a href={d.url} target="_blank" rel="noopener" class="doc-cta">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i>
+        </a>
+      ))}
+    </div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+
+<style>
+  .simple-page { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .simple-page .container { max-width: 750px; margin: 0 auto; }
+  .docs-list { display: flex; flex-direction: column; gap: var(--space-4); }
+  .doc-cta { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-6); border: 2px solid var(--file-pdf); border-radius: var(--radius-xl); text-decoration: none; color: var(--file-pdf); font-weight: 700; transition: all var(--transition-base); }
+  .doc-cta:hover { background: var(--file-pdf); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .doc-cta span { flex: 1; font-size: var(--font-size-base); }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+  @media (max-width: 768px) { .simple-page { padding: var(--space-6) var(--space-4) var(--space-12); } .doc-cta span { font-size: var(--font-size-sm); } }
+</style>
