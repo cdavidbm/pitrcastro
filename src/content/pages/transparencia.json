@@ -47,11 +47,11 @@
       "items": [
         { "num": "2.1", "texto": "Normativa de la entidad", "tipo": "label",
           "children": [
-            { "num": "2.1.1", "texto": "Leyes", "url": "https://www.itrc.gov.co/Itrc/leyes/", "tipo": "external" },
-            { "num": "2.1.2", "texto": "Decreto Único Reglamentario", "url": "https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/decreto-unico-reglamentario/", "tipo": "external" },
+            { "num": "2.1.1", "texto": "Leyes", "url": "/leyes", "tipo": "internal" },
+            { "num": "2.1.2", "texto": "Decreto Único Reglamentario", "url": "/decreto-unico-reglamentario", "tipo": "internal" },
             { "num": "2.1.3", "texto": "Normativa Aplicable", "url": "/normativa-aplicada", "tipo": "internal" },
             { "num": "2.1.4", "texto": "Diario o Gaceta Oficial", "url": "http://svrpubindc.imprenta.gov.co/diario/index.xhtml", "tipo": "external" },
-            { "num": "2.1.5", "texto": "Políticas, lineamientos y manuales", "url": "https://www.itrc.gov.co/Itrc/politicas-lineamientos-y-manuales/", "tipo": "external" },
+            { "num": "2.1.5", "texto": "Políticas, lineamientos y manuales", "url": "/politicas-lineamientos-y-manuales", "tipo": "internal" },
             { "num": "2.1.6", "texto": "Agenda Regulatoria", "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025", "tipo": "external" }
           ]
         },

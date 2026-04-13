@@ -25,13 +25,13 @@ SECCIÓN 1 — Información de la Entidad ✓ COMPLETADA
 [x] /publicacion-hojas-de-vida
     → Publicación de hojas de vida
 
-SECCIÓN 2 — Normativa
+SECCIÓN 2 — Normativa ✓ COMPLETADA
 --------------------------------------
-[ ] /leyes
+[x] /leyes
     → Leyes aplicables a la entidad
-[ ] /decreto-unico-reglamentario
+[x] /decreto-unico-reglamentario
     → Decreto Único Reglamentario
-[ ] /politicas-lineamientos-y-manuales
+[x] /politicas-lineamientos-y-manuales
     → Políticas, lineamientos y manuales
 
 SECCIÓN 3 — Contratación

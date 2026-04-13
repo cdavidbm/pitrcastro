@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Políticas, Lineamientos y Manuales' }
+];
+
+const secciones = [
+  { titulo: 'Políticas y Lineamientos', url: '/agencia/direccionamiento-estrategico/politicas', icon: 'fa-list-check', interno: true },
+  { titulo: 'Manuales', url: 'https://www.itrc.gov.co/Itrc/manuales-internos/', icon: 'fa-book', interno: false },
+  { titulo: 'Políticas y Lineamientos Sectoriales', url: 'https://www.itrc.gov.co/Itrc/politicas-y-lineamientos-sectoriales/', icon: 'fa-landmark', interno: false },
+];
+---
+
+<Base title="Políticas, Lineamientos y Manuales" description="Políticas, lineamientos y manuales de la Agencia ITRC">
+  <HeroPage title="Políticas, Lineamientos y Manuales" subtitle="Documentos normativos internos de la Agencia ITRC" icon="fa-book-open" breadcrumb={breadcrumb} />
+
+  <section class="pol-page">
+    <div class="container">
+      <div class="pol-links">
+        {secciones.map((sec) => (
+          <a href={sec.interno ? resolveUrl(sec.url) : sec.url} target={sec.interno ? undefined : '_blank'} rel={sec.interno ? undefined : 'noopener'} class="pol-link">
+            <div class="pol-link__icon"><i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i></div>
+            <span>{sec.titulo}</span>
+            <i class={`fa-solid ${sec.interno ? 'fa-chevron-right' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+
+      <div class="pol-derechos">
+        <h3><i class="fa-solid fa-copyright" aria-hidden="true"></i> Política de Derechos de Autor</h3>
+        <p>La Agencia ITRC no cuenta con una política propia para derechos de autor, aplica las existentes a nivel nacional:</p>
+        <ul>
+          <li>Ley 23 de 1982</li>
+          <li>Ley 1450 de 2011</li>
+          <li>Decisión Andina 351 de 1993</li>
+        </ul>
+      </div>
+
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pol-page { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .pol-page .container { max-width: 800px; margin: 0 auto; }
+  .pol-links { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-10); }
+  .pol-link { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-6); background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .pol-link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .pol-link__icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(var(--itrc-gold-rgb), 0.1); border-radius: var(--radius-lg); color: var(--itrc-gold); font-size: var(--font-size-xl); transition: all var(--transition-base); }
+  .pol-link:hover .pol-link__icon { background: var(--itrc-gold); color: var(--white); }
+  .pol-link span { flex: 1; font-size: var(--font-size-lg); font-weight: 700; color: var(--theme-heading); }
+  .pol-link:hover span { color: var(--itrc-gold); }
+  .pol-link > i:last-child { color: var(--theme-text-muted); opacity: 0.4; }
+  .pol-link:hover > i:last-child { opacity: 1; color: var(--itrc-gold); }
+
+  .pol-derechos { padding: var(--space-6); background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin-bottom: var(--space-8); }
+  .pol-derechos h3 { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-base); color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .pol-derechos h3 i { color: var(--itrc-gold); }
+  .pol-derechos p { font-size: var(--font-size-sm); color: var(--theme-text-secondary); line-height: 1.7; margin: 0 0 var(--space-3); }
+  .pol-derechos ul { margin: 0; padding-left: var(--space-5); }
+  .pol-derechos li { font-size: var(--font-size-sm); color: var(--theme-text); margin-bottom: var(--space-1); }
+  .pol-derechos li::marker { color: var(--itrc-gold); }
+
+  .back-link { text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+  @media (max-width: 768px) { .pol-page { padding: var(--space-6) var(--space-4) var(--space-12); } .pol-link span { font-size: var(--font-size-base); } }
+</style>
