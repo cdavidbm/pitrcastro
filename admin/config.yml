@@ -2316,6 +2316,203 @@ collections:
               - name: url
                 label: URL
                 widget: string
+      - name: boletines-pagina
+        label: Página Comunicados y Boletines
+        file: src/content/pages/prensa/boletines.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: anios
+            label: Años
+            widget: list
+            label_singular: Año
+            collapsed: true
+            summary: "{{fields.label}} ({{fields.items.length}})"
+            fields:
+              - name: anio
+                label: Identificador
+                widget: string
+                required: true
+              - name: label
+                label: Etiqueta visible
+                widget: string
+                required: true
+              - name: items
+                label: Items
+                widget: list
+                label_singular: Item
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL
+                    widget: string
+                    required: true
+                  - name: tipo
+                    label: Tipo
+                    widget: select
+                    options:
+                      - pdf
+                      - page
+                    default: pdf
+      - name: comunicados-pagina
+        label: Página Comunicados Institucionales
+        file: src/content/pages/prensa/comunicados.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: anios
+            label: Años
+            widget: list
+            label_singular: Año
+            collapsed: true
+            summary: "{{fields.anio}} ({{fields.items.length}})"
+            fields:
+              - name: anio
+                label: Año
+                widget: string
+                required: true
+              - name: items
+                label: Comunicados
+                widget: list
+                label_singular: Comunicado
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
+                  - name: tipo
+                    label: Tipo
+                    widget: select
+                    options:
+                      - pdf
+                    default: pdf
+      - name: videos-pagina
+        label: Página Videos ITRC
+        file: src/content/pages/prensa/videos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: videos
+            label: Videos
+            widget: list
+            label_singular: Video
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del video (MP4)
+                widget: string
+                required: true
+              - name: transcripcion
+                label: URL transcripción (PDF)
+                widget: string
+                required: false
+          - name: enlaces
+            label: Enlaces externos
+            widget: list
+            label_singular: Enlace
+            collapsed: true
+            summary: "{{fields.texto}}"
+            fields:
+              - name: texto
+                label: Texto
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: icon
+                label: Icono
+                widget: string
+                default: fa-youtube
+      - name: galeria-pagina
+        label: Página Galería
+        file: src/content/pages/prensa/galeria.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: albums
+            label: Álbumes
+            widget: list
+            label_singular: Álbum
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: imagen
+                label: URL imagen de portada
+                widget: string
+                required: true
+      - name: capsulas-pagina
+        label: Página Cápsulas Informativas
+        file: src/content/pages/prensa/capsulas.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: capsulas
+            label: Cápsulas
+            widget: list
+            label_singular: Cápsula
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del video (MP4)
+                widget: string
+                required: true
   - name: news
     label: "    > Noticias"
     label_singular: Noticia
