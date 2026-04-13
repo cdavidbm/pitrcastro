@@ -1,20 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/accesibilidad.json';
+
 const base = import.meta.env.BASE_URL;
-const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Accesibilidad Web' }];
-const docs = [
-  { nombre: 'Accesibilidad Web', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/ANEXO-2-ACCESIBILIDAD-WEB-fdo.pdf', icon: 'fa-file-pdf', tipo: 'pdf' },
-  { nombre: 'Autodiagnóstico MSPI — Instrumento de Evaluación', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx', icon: 'fa-file-excel', tipo: 'xlsx' },
-  { nombre: 'Seguridad Digital — Lineamientos y Cumplimiento', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Lineamientos-y-Cumplimiento-Seguridad-Digital.pdf', icon: 'fa-file-pdf', tipo: 'pdf' },
-];
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
+
+const iconMap: Record<string, string> = { pdf: 'fa-file-pdf', xlsx: 'fa-file-excel' };
 ---
-<Base title="Accesibilidad Web" description="Accesibilidad web y seguridad digital de la Agencia ITRC">
-  <HeroPage title="Accesibilidad Web" subtitle="Cumplimiento de estándares de accesibilidad" icon="fa-universal-access" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="acc-page"><div class="container">
-    <p class="acc-intro">La página web de la Agencia ITRC fue revisada a través de la herramienta TAW para el análisis de accesibilidad. La página web de la entidad obtuvo una calificación y cumplimiento de nivel AA. La Agencia ITRC seguirá mejorando en los niveles de accesibilidad y usabilidad de nuestra página web.</p>
-    <div class="acc-list">{docs.map((d) => (
-      <a href={d.url} target="_blank" rel="noopener" class={`acc-item acc--${d.tipo}`}><i class={`fa-solid ${d.icon}`} aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>
+    <p class="acc-intro">{pageData.texto}</p>
+    <div class="acc-list">{pageData.documentos.map((d) => (
+      <a href={d.url} target="_blank" rel="noopener" class={`acc-item acc--${d.tipo}`}><i class={`fa-solid ${iconMap[d.tipo] || 'fa-file-pdf'}`} aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>
     ))}</div>
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
   </div></section>

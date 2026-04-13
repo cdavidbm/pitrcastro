@@ -1,17 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/programa-gestion-documental.json';
+
 const base = import.meta.env.BASE_URL;
-const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Programa de Gestión Documental' }];
-const docs = [
-  { nombre: 'Programa de Gestión Documental 2023-2026', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/GAD-RE-005_Programa_de_gestion_documental_PGD_2023-2026.pdf' },
-  { nombre: 'Resolución adopción Programa de Gestión Documental', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-Adopcion-Programa-de-Gestion-Documental.pdf' },
-];
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 ---
-<Base title="Programa de Gestión Documental" description="Programa de gestión documental de la Agencia ITRC">
-  <HeroPage title="Programa de Gestión Documental" subtitle="Instrumentos de gestión de la información" icon="fa-folder-open" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle="Instrumentos de gestión de la información" icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="docs-page"><div class="container">
-    <div class="docs-list">{docs.map((d) => (<a href={d.url} target="_blank" rel="noopener" class="doc-item"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>))}</div>
+    <div class="docs-list">{pageData.documentos.map((d) => (<a href={d.url} target="_blank" rel="noopener" class="doc-item"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>))}</div>
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
   </div></section>
 </Base>

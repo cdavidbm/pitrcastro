@@ -1,14 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/datos-abiertos.json';
+
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Datos Abiertos' }];
 ---
-<Base title="Publicación de Datos Abiertos" description="Datos abiertos de la Agencia ITRC">
-  <HeroPage title="Datos Abiertos" subtitle="Datos abiertos de la Agencia ITRC" icon="fa-database" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title="Datos Abiertos" subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="datos-page"><div class="container">
-    <p class="datos-intro">Conozca los datos abiertos que la Agencia ITRC pone a disposición de todos los ciudadanos para que puedan acceder de forma libre y abierta.</p>
-    <a href="https://www.datos.gov.co/browse?q=itrc" target="_blank" rel="noopener" class="datos-cta"><i class="fa-solid fa-database" aria-hidden="true"></i> Ir a Datos Abiertos — datos.gov.co <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    <p class="datos-intro">{pageData.texto}</p>
+    <a href={pageData.enlace} target="_blank" rel="noopener" class="datos-cta"><i class="fa-solid fa-database" aria-hidden="true"></i> Ir a Datos Abiertos — datos.gov.co <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
   </div></section>
 </Base>

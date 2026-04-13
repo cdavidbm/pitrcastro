@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/contratacion/formatos.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
@@ -19,29 +20,16 @@ function fileColor(url: string) {
   if (url.endsWith('.docx') || url.endsWith('.doc')) return 'word';
   return 'pdf';
 }
-
-const formatos = [
-  { nombre: 'Formato Acto Administrativo de la Contratación Directa', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/1-Acto-Administrativo-de-la-Contratacion-Directa-codigo-GCO-FT-012-version-6.docx' },
-  { nombre: 'Formato verificación especificaciones técnicas de bienes a recibir', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/2-Verificacion-Especificaciones-Tecnicas-codigo-GCO-FT-001-version-3.docx' },
-  { nombre: 'Formato Aviso de Convocatoria Pública', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/3-Formato-Aviso-convocatoria-publica-codigo-GCO-FT-006-version-5.docx' },
-  { nombre: 'Formato Adenda', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/4-Formato-Adenda-codigo-GCO-FT-007-version-4.docx' },
-  { nombre: 'Formato Aprobación de garantías', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/5-Formato-aprobacion-de-garantia-codigo-GCO-FT-008-version-5.docx' },
-  { nombre: 'Formato Acta de Inicio', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/6-Formato-Acta-de-inicio-codigo-GCO-FT-009-version-5.docx' },
-  { nombre: 'Formato Aceptación de la Oferta', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/7-Formato-aceptacion-oferta-codigo-GCO-FT-011-version-6.docx' },
-  { nombre: 'Formato Estudios Previos', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/8-Estudios-Previos-codigo-GCO-FT-010-version-8.docx' },
-  { nombre: 'Formato Certificación Contractual', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/9-Certificacion-contractual-codigo-GCO-FT-004-version-2.docx' },
-  { nombre: 'Formato Matriz de Riesgos', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/10-Matriz-de-riesgos-codigo-GCO-FT-005-version-4.xlsx' },
-];
 ---
 
-<Base title="Formatos o Modelos de Contratos o Pliego Tipo" description="Formatos y modelos de documentos contractuales de la Agencia ITRC">
-  <HeroPage title="Formatos de Contratos y Pliego Tipo" subtitle="Modelos de documentos contractuales" icon="fa-file-pen" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="docs-section">
     <div class="container">
-      <div class="docs-count"><i class="fa-solid fa-file" aria-hidden="true"></i> {formatos.length} formatos disponibles</div>
+      <div class="docs-count"><i class="fa-solid fa-file" aria-hidden="true"></i> {pageData.formatos.length} formatos disponibles</div>
       <div class="docs-list">
-        {formatos.map((f) => (
+        {pageData.formatos.map((f) => (
           <a href={f.url} target="_blank" rel="noopener" class={`doc-item doc--${fileColor(f.url)}`}>
             <div class="doc-item__icon"><i class={`fa-solid ${fileIcon(f.url)}`} aria-hidden="true"></i></div>
             <span>{f.nombre}</span>

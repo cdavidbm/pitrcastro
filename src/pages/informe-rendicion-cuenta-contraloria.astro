@@ -1,36 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/rendicion-cuenta-contraloria.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Rendición Cuenta Fiscal CGR' }];
 
 function fileIcon(url: string) { return url.endsWith('.xls') || url.endsWith('.xlsx') ? 'fa-file-excel' : 'fa-file-pdf'; }
 function fileColor(url: string) { return url.endsWith('.xls') || url.endsWith('.xlsx') ? 'excel' : 'pdf'; }
-
-const docs = [
-  { nombre: 'Certificación Rendición de cuenta anual consolidada CGR 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Certificacion-Cuenta-CGR-ITRC-2023.pdf' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/CuentaRendida-CGR-2023.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2022', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Rendicion-Cuenta-Fiscal-2022-CGR.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2021', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Rendicion-Cuenta-Fiscal-2021-CGR.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2020', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Rendicion-cuenta-CGR-2020.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2019', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2019.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2018', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2018.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2017', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2017.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2016', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2016.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2015', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2015.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2014', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2014.xlsx' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2013', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2013.xls' },
-  { nombre: 'Rendición de cuenta anual consolidada CGR 2012', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2012.xls' },
-];
 ---
 
-<Base title="Rendición Cuenta Fiscal — Contraloría General" description="Informe de rendición de la cuenta fiscal a la Contraloría General de la República">
-  <HeroPage title="Rendición Cuenta Fiscal — CGR" subtitle="Informes a la Contraloría General de la República" icon="fa-landmark" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title="Rendición Cuenta Fiscal — CGR" subtitle="Informes a la Contraloría General de la República" icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="docs-section"><div class="container">
-    <div class="docs-count"><i class="fa-solid fa-file" aria-hidden="true"></i> {docs.length} informes</div>
+    <div class="docs-count"><i class="fa-solid fa-file" aria-hidden="true"></i> {pageData.documentos.length} informes</div>
     <div class="docs-list">
-      {docs.map((d) => (
+      {pageData.documentos.map((d) => (
         <a href={d.url} target="_blank" rel="noopener" class={`doc-item doc--${fileColor(d.url)}`}>
           <div class="doc-item__icon"><i class={`fa-solid ${fileIcon(d.url)}`} aria-hidden="true"></i></div>
           <span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i>

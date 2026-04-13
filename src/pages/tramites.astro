@@ -2,23 +2,24 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/transparencia/tramites.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Transparencia', href: `${base}transparencia` },
-  { label: 'Trámites' }
+  { label: pageData.title }
 ];
 ---
 
-<Base title="Trámites" description="Información sobre trámites de la Agencia ITRC">
-  <HeroPage title="Trámites" subtitle="Información sobre trámites ante la Agencia ITRC" icon="fa-clipboard-list" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="tramites-page">
     <div class="container">
       <div class="tramites-notice">
         <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-        <p>La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC <strong>no cuenta con trámites</strong>. Si requiere realizar una Petición, Queja, Reclamo o Sugerencia, podrá hacerlo a través de nuestros canales de atención.</p>
+        <p>{pageData.texto}</p>
       </div>
 
       <div class="tramites-links">
@@ -32,7 +33,7 @@ const breadcrumb = [
           <span>P.Q.R.S</span>
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </a>
-        <a href="https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/RESOLUCION-184-2022.pdf" target="_blank" rel="noopener" class="tramites-link tramites-link--pdf">
+        <a href={pageData.costosUrl} target="_blank" rel="noopener" class="tramites-link tramites-link--pdf">
           <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
           <span>Costos asociados (Resolución 184 de 2022)</span>
           <i class="fa-solid fa-download" aria-hidden="true"></i>

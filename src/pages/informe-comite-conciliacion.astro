@@ -1,32 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/comite-conciliacion.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Comité de Conciliación' }];
-
-const anios = [
-  { anio: '2025', docs: [
-    { nombre: 'Informe de Gestión — Primer Semestre 2025', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Informe-de-Gestion-Comite-de-Conciliacion-Primer-Semestre-2025-.pdf' },
-    { nombre: 'Informe de Gestión — Segundo Semestre 2025', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/Informe-de-Gestion-Comite-de-Conciliacion-Segundo-Semestre-2025.pdf' },
-  ]},
-  { anio: '2024', docs: [
-    { nombre: 'Informe de Gestión — Primer Semestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-de-Gestio%CC%81n-Comite%CC%81-de-Conciliacio%CC%81n-Primer-Semestre-2024.pdf' },
-    { nombre: 'Informe de Gestión — Segundo Semestre 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/01/Informe-de-Gestion-Comite-de-Conciliacion-segundo-semestre-2024.pdf' },
-  ]},
-  { anio: '2023', docs: [
-    { nombre: 'Informe de Gestión — Primer Semestre 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Informe-de-Gesti%C3%B3n-Comit%C3%A9-de-Conciliaci%C3%B3n-Primer-Semestre-2023.pdf' },
-    { nombre: 'Informe de Gestión — Segundo Semestre 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/Informe-de-Gesti%C3%B3n-Comit%C3%A9-de-Conciliaci%C3%B3n-Segundo-Semestre-2023.pdf' },
-  ]},
-];
 ---
 
-<Base title="Informe de Gestión del Comité de Conciliación" description="Informes del Comité de Conciliación y Defensa Jurídica de la Agencia ITRC">
-  <HeroPage title="Comité de Conciliación" subtitle="Informes de gestión del Comité de Conciliación y Defensa Jurídica" icon="fa-handshake" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title="Comité de Conciliación" subtitle="Informes de gestión del Comité de Conciliación y Defensa Jurídica" icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="comite-section"><div class="container">
-    <p class="comite-intro">La Secretaría Técnica del Comité de Conciliación de la Agencia ITRC presenta el informe de gestión en cumplimiento a lo dispuesto en el artículo 127 de la Ley 2220 de 2022 (Estatuto de Conciliación).</p>
+    <p class="comite-intro">{pageData.intro}</p>
 
-    {anios.map((g) => (
+    {pageData.anios.map((g) => (
       <div class="year-group">
         <h2 class="year-title"><i class="fa-solid fa-calendar" aria-hidden="true"></i> {g.anio}</h2>
         <div class="doc-list">

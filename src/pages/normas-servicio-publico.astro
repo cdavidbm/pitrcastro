@@ -1,33 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/normas-servicio.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Transparencia', href: `${base}transparencia` },
-  { label: 'Normas de Servicio al Público' }
-];
-
-const normas = [
-  { nombre: 'Ley 962 de 2005', url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0962_2005.html' },
-  { nombre: 'Constitución Política de 1991', url: 'http://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html' },
-  { nombre: 'Ley 1755 de 2015', url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_1755_2015.html' },
-  { nombre: 'Decreto 2106 de 2019', url: 'http://www.secretariasenado.gov.co/senado/basedoc/decreto_2106_2019_pr003.html' },
+  { label: pageData.title }
 ];
 ---
 
-<Base title="Normas que los sustentan" description="Normas legales que sustentan los servicios al público de la Agencia ITRC">
-  <HeroPage title="Normas que los sustentan" subtitle="Normas legales aplicables a los servicios al público" icon="fa-scale-balanced" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="normas-page">
     <div class="container">
-      <p class="normas-intro">La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC no cuenta con trámites o servicios; sin embargo, los trámites que puede desarrollar son Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones.</p>
+      <p class="normas-intro">{pageData.intro}</p>
 
       <h2 class="normas-heading"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Normas que los sustentan</h2>
 
       <div class="normas-list">
-        {normas.map((norma) => (
+        {pageData.normas.map((norma) => (
           <a href={norma.url} target="_blank" rel="noopener" class="norma-item">
             <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
             <span>{norma.nombre}</span>

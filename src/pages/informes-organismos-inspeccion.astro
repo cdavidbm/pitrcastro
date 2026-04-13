@@ -2,18 +2,15 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/transparencia/informes-organismos.json';
+
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Informes a Organismos de Control' }];
-const enlaces = [
-  { nombre: 'Rendición de Cuenta Fiscal a la Contraloría General', url: '/informe-rendicion-cuenta-contraloria', icon: 'fa-landmark' },
-  { nombre: 'Informe de Gestión Institucional', url: '/agencia/direccionamiento-estrategico/informes', icon: 'fa-chart-bar' },
-  { nombre: 'Informe de Rendición de Cuentas', url: '/participa/rendicion-de-cuentas', icon: 'fa-file-contract' },
-];
 ---
-<Base title="Informes a Organismos de Inspección, Vigilancia y Control" description="Informes a organismos de inspección, vigilancia y control">
-  <HeroPage title="Informes a Organismos de Control" subtitle="Inspección, vigilancia y control" icon="fa-building-shield" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="org-page"><div class="container">
-    <div class="org-links">{enlaces.map((e) => (
+    <div class="org-links">{pageData.enlaces.map((e) => (
       <a href={resolveUrl(e.url)} class="org-link"><div class="org-link__icon"><i class={`fa-solid ${e.icon}`} aria-hidden="true"></i></div><span>{e.nombre}</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
     ))}</div>
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>

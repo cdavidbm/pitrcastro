@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/transparencia/formatos-formularios.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
@@ -11,36 +12,25 @@ const breadcrumb = [
 ];
 ---
 
-<Base title="Formatos y Formularios Requeridos" description="Formatos y formularios para trámites ante la Agencia ITRC">
-  <HeroPage title="Formatos y Formularios" subtitle="Formularios requeridos para trámites ante la Agencia ITRC" icon="fa-file-pen" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title="Formatos y Formularios" subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="formatos-page">
     <div class="container">
-      <div class="formato-card">
-        <div class="formato-card__icon formato-card__icon--red">
-          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+      {pageData.secciones.map((sec) => (
+        <div class="formato-card">
+          <div class={`formato-card__icon formato-card__icon--${sec.color}`}>
+            <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
+          </div>
+          <div class="formato-card__content">
+            <h2>{sec.titulo}</h2>
+            <p>{sec.descripcion}</p>
+            <a href={sec.externo ? sec.url : resolveUrl(sec.url)} target={sec.externo ? '_blank' : undefined} rel={sec.externo ? 'noopener' : undefined} class="formato-btn">
+              <i class={`fa-solid ${sec.externo ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'}`} aria-hidden="true"></i> {sec.textoEnlace}
+            </a>
+          </div>
         </div>
-        <div class="formato-card__content">
-          <h2>Denuncias</h2>
-          <p>A través del sistema de denuncia virtual de la Agencia ITRC, se recepcionan las denuncias que se presenten en contra de los servidores públicos de la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscal — UGPP.</p>
-          <a href="https://www.itrc.gov.co/denuncias" target="_blank" rel="noopener" class="formato-btn">
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ir al Sistema de Denuncias
-          </a>
-        </div>
-      </div>
-
-      <div class="formato-card">
-        <div class="formato-card__icon formato-card__icon--gold">
-          <i class="fa-solid fa-comments" aria-hidden="true"></i>
-        </div>
-        <div class="formato-card__content">
-          <h2>P.Q.R.S.F</h2>
-          <p>Las Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones (P.Q.R.S.F.) son únicamente dirigidas a los servidores y contratistas que integran la Agencia ITRC.</p>
-          <a href={resolveUrl('/tu-p-q-r-s-al-dia')} class="formato-btn">
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Ir a P.Q.R.S
-          </a>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 </Base>

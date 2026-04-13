@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/contratacion/ejecucion.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
@@ -8,20 +9,17 @@ const breadcrumb = [
   { label: 'Transparencia', href: `${base}transparencia` },
   { label: 'Ejecución de Contratos' }
 ];
-
-const secopI = 'https://www.contratos.gov.co/consultas/inicioConsulta.do';
-const secopII = 'https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index';
 ---
 
-<Base title="Publicación de la Ejecución de Contratos" description="Informes finales de supervisión de contratos de la Agencia ITRC">
-  <HeroPage title="Ejecución de Contratos" subtitle="Informes finales de supervisión de contratos" icon="fa-clipboard-check" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title="Ejecución de Contratos" subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="ejecucion-section">
     <div class="container">
-      <p class="intro">En esta página podrá encontrar los informes finales de supervisión de contratos de la Agencia ITRC.</p>
+      <p class="intro">{pageData.intro}</p>
 
       <div class="secop-links">
-        <a href={secopI} target="_blank" rel="noopener" class="secop-card">
+        <a href={pageData.secopI} target="_blank" rel="noopener" class="secop-card">
           <div class="secop-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
           <div class="secop-card__content">
             <h3>SECOP I</h3>
@@ -29,7 +27,7 @@ const secopII = 'https://community.secop.gov.co/Public/Tendering/ContractNoticeM
           </div>
           <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
         </a>
-        <a href={secopII} target="_blank" rel="noopener" class="secop-card">
+        <a href={pageData.secopII} target="_blank" rel="noopener" class="secop-card">
           <div class="secop-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
           <div class="secop-card__content">
             <h3>SECOP II</h3>

@@ -1,17 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/normatividad-especial.json';
+
 const base = import.meta.env.BASE_URL;
-const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Normatividad Especial' }];
-const secciones = [
-  { titulo: 'Reporte de Austeridad en el Gasto Público', url: 'https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/normatividad-especial/reporte-austeridad-en-el-gasto/', icon: 'fa-money-bill-trend-up' },
-  { titulo: 'Decretos de estructura, salarios, leyes marco y otros', url: 'https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/decretos-de-estructura-salarios-leyes-marco-y-otros/', icon: 'fa-file-lines' },
-];
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 ---
-<Base title="Normatividad Especial" description="Normatividad especial de la Agencia ITRC">
-  <HeroPage title="Normatividad Especial" subtitle="Obligación de reporte de información específica" icon="fa-file-circle-check" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="norm-page"><div class="container">
-    <div class="norm-links">{secciones.map((s) => (
+    <div class="norm-links">{pageData.secciones.map((s) => (
       <a href={s.url} target="_blank" rel="noopener" class="norm-link"><div class="norm-link__icon"><i class={`fa-solid ${s.icon}`} aria-hidden="true"></i></div><span>{s.titulo}</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
     ))}</div>
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>

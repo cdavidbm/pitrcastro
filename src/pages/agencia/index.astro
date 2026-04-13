@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
+import pageData from '../../content/pages/agencia/landing.json';
 
 const base = import.meta.env.BASE_URL;
 
@@ -9,31 +10,20 @@ const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'La Agencia' }
 ];
-
-const secciones = [
-  { titulo: 'Misión, Visión y Propósito Estratégico', descripcion: 'Conozca nuestra razón de ser y hacia dónde nos dirigimos', icon: 'fa-bullseye', url: '/agencia/mision-vision', color: 'var(--itrc-gold)' },
-  { titulo: 'Nuestra Estructura', descripcion: 'Organigrama y estructura organizacional de la entidad', icon: 'fa-sitemap', url: '/agencia/organigrama', color: 'var(--itrc-navy)' },
-  { titulo: 'Equipo Directivo', descripcion: 'Conozca al equipo que lidera la Agencia ITRC', icon: 'fa-users-gear', url: '/agencia/equipo-directivo', color: '#0943b5' },
-  { titulo: 'Direccionamiento Estratégico', descripcion: 'Planes, políticas e informes estratégicos', icon: 'fa-compass', url: '/agencia/direccionamiento-estrategico', color: '#198754' },
-  { titulo: 'Sistema Integrado de Gestión', descripcion: 'Procesos y procedimientos institucionales', icon: 'fa-gears', url: '/agencia/sistema-integrado-de-gestion', color: '#6f42c1' },
-  { titulo: 'Gestión Misional', descripcion: 'Subdirecciones y funciones misionales de la entidad', icon: 'fa-briefcase', url: '/agencia/gestion-misional', color: '#dc3545' },
-  { titulo: 'Sistema de Control Interno', descripcion: 'Informes legales, planes de mejoramiento y control', icon: 'fa-clipboard-check', url: '/agencia/control-interno', color: '#fd7e14' },
-  { titulo: 'Información Financiera', descripcion: 'Estados financieros y ejecución presupuestal', icon: 'fa-chart-line', url: '/agencia/informacion-financiera', color: '#0dcaf0' },
-];
 ---
 
-<Base title="La Agencia" description="Información institucional de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC">
+<Base title={pageData.title} description={pageData.description}>
   <HeroPage
-    title="La Agencia"
+    title={pageData.title}
     subtitle="Información institucional de la Agencia ITRC"
-    icon="fa-building-columns"
+    icon={pageData.icon}
     breadcrumb={breadcrumb}
   />
 
   <section class="hub-section">
     <div class="container">
       <div class="hub-grid">
-        {secciones.map((sec) => (
+        {pageData.secciones.map((sec) => (
           <a href={resolveUrl(sec.url)} class="hub-card" style={`--card-accent: ${sec.color}`}>
             <div class="hub-card__icon">
               <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>

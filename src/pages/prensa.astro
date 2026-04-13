@@ -2,32 +2,23 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/prensa/landing.json';
 
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Prensa' }
-];
-
-const secciones = [
-  { titulo: 'Noticias', descripcion: 'Noticias y comunicaciones de la Agencia ITRC', icon: 'fa-newspaper', url: '/prensa/noticias', color: 'var(--itrc-gold)' },
-  { titulo: 'Eventos', descripcion: 'Calendario de eventos institucionales', icon: 'fa-calendar-days', url: '/prensa/eventos', color: 'var(--itrc-navy)' },
-  { titulo: 'Comunicados y Boletines', descripcion: 'Boletines de prensa organizados por año', icon: 'fa-file-lines', url: '/comunicados-y-boletines-de-prensa', color: '#0943b5' },
-  { titulo: 'Comunicados Institucionales', descripcion: 'Comunicados oficiales de la entidad', icon: 'fa-bullhorn', url: '/comunicados', color: '#198754' },
-  { titulo: 'Videos ITRC', descripcion: 'Videos institucionales y canal de YouTube', icon: 'fa-video', url: '/videos-itrc', color: '#dc3545' },
-  { titulo: 'Galería', descripcion: 'Galería fotográfica de eventos y actividades', icon: 'fa-images', url: '/galeria', color: '#6f42c1' },
-  { titulo: 'Cápsulas Informativas', descripcion: 'Videos cortos sobre la gestión de la Agencia', icon: 'fa-play-circle', url: '/capsulas-informativas', color: '#fd7e14' },
+  { label: pageData.title }
 ];
 ---
 
-<Base title="Prensa" description="Noticias, eventos y comunicaciones de la Agencia ITRC">
-  <HeroPage title="Prensa" subtitle="Noticias, eventos y comunicaciones de la Agencia ITRC" icon="fa-newspaper" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="hub-section">
     <div class="container">
       <div class="hub-grid">
-        {secciones.map((sec) => (
+        {pageData.secciones.map((sec) => (
           <a href={resolveUrl(sec.url)} class="hub-card" style={`--card-accent: ${sec.color}`}>
             <div class="hub-card__icon">
               <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>

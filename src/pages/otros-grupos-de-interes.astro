@@ -2,21 +2,15 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/transparencia/otros-grupos.json';
+
 const base = import.meta.env.BASE_URL;
-const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Otros Grupos de Interés' }];
-const enlaces = [
-  { nombre: 'Glosario', url: '/glosario', tipo: 'internal', icon: 'fa-book' },
-  { nombre: 'Preguntas y respuestas frecuentes', url: '/preguntas-frecuentes', tipo: 'internal', icon: 'fa-circle-question' },
-  { nombre: 'Carta de Trato Digno', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/CARTA-TRATO-DIGNO.pdf', tipo: 'pdf', icon: 'fa-file-pdf' },
-  { nombre: 'Solicitud de información pública con identidad reservada', url: 'https://www.procuraduria.gov.co/portal/pqrsdf_Solicitud_de_informacion_con_identificacion_reservada.page', tipo: 'external', icon: 'fa-user-secret' },
-  { nombre: 'Estudios, investigaciones y otras publicaciones', url: 'https://www.itrc.gov.co/Itrc/estudios-investigaciones-y-otras-publicaciones/', tipo: 'external', icon: 'fa-book-open' },
-  { nombre: 'Formato alternativo para grupos étnicos y culturales', url: 'https://www.itrc.gov.co/Itrc/formato-alternativo-para-grupos-etnicos-y-culturales/', tipo: 'external', icon: 'fa-people-group' },
-];
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 ---
-<Base title="Otros Grupos de Interés" description="Información para otros grupos de interés de la Agencia ITRC">
-  <HeroPage title="Otros Grupos de Interés" subtitle="Información para grupos de interés" icon="fa-users" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="grupos-page"><div class="container">
-    <div class="grupos-list">{enlaces.map((e) => (
+    <div class="grupos-list">{pageData.enlaces.map((e) => (
       <a href={e.tipo === 'internal' ? resolveUrl(e.url) : e.url} target={e.tipo !== 'internal' ? '_blank' : undefined} rel={e.tipo !== 'internal' ? 'noopener' : undefined} class="grupo-link">
         <i class={`fa-solid ${e.icon}`} aria-hidden="true"></i><span>{e.nombre}</span>
         <i class={`fa-solid ${e.tipo === 'internal' ? 'fa-chevron-right' : e.tipo === 'pdf' ? 'fa-download' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>

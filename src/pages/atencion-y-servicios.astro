@@ -2,40 +2,23 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/atencion/landing.json';
 
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Atención y Servicios' }
-];
-
-const secciones = [
-  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', icon: 'fa-bell', url: '/notificaciones-y-traslados', color: 'var(--itrc-gold)' },
-  { titulo: 'Notificaciones por Aviso', descripcion: 'Publicación de notificaciones conforme a la Ley 1437 de 2011', icon: 'fa-bullhorn', url: '/notificaciones-por-aviso', color: 'var(--itrc-navy)' },
-  { titulo: 'Vinculación a Terceros', descripcion: 'Cancelación de Registro Público de Carrera Administrativa', icon: 'fa-user-xmark', url: '/vinculacion-a-terceros-cancelacion-de-registro-publico', color: '#0943b5' },
-  { titulo: 'Correo Notificaciones Judiciales', descripcion: 'Correo electrónico exclusivo para despachos judiciales', icon: 'fa-envelope-open-text', url: '/correo-electronico-para-notificaciones-judiciales', color: '#198754' },
-  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', icon: 'fa-headset', url: '/canales-de-atencion-al-ciudadano', color: '#6f42c1' },
-  { titulo: 'P.Q.R.S', descripcion: 'Peticiones, Quejas, Reclamos y Sugerencias', icon: 'fa-comments', url: '/tu-p-q-r-s-al-dia', color: '#dc3545' },
-  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', icon: 'fa-circle-question', url: '/preguntas-frecuentes', color: '#fd7e14' },
-  { titulo: 'Glosario', descripcion: 'Términos utilizados por la Agencia ITRC', icon: 'fa-book', url: '/glosario', color: '#0dcaf0' },
-];
-
-const enlacesExternos = [
-  { titulo: 'Consulte el estado de su PQRSD', url: 'https://www.itrc.gov.co/denuncias/consulta', icon: 'fa-magnifying-glass' },
-  { titulo: 'Datos Abiertos', url: 'https://www.datos.gov.co/browse?q=itrc', icon: 'fa-database' },
-  { titulo: 'Cartilla al ciudadano', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/Cartilla-al-ciudadano.pdf', icon: 'fa-file-pdf' },
-  { titulo: 'Carta trato digno al ciudadano', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/CARTA-TRATO-DIGNO.pdf', icon: 'fa-file-pdf' },
+  { label: pageData.title }
 ];
 ---
 
-<Base title="Atención y Servicios" description="Canales de atención y servicios al ciudadano de la Agencia ITRC">
-  <HeroPage title="Atención y Servicios" subtitle="Canales de atención y servicios al ciudadano" icon="fa-headset" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="hub-section">
     <div class="container">
       <div class="hub-grid">
-        {secciones.map((sec) => (
+        {pageData.secciones.map((sec) => (
           <a href={resolveUrl(sec.url)} class="hub-card" style={`--card-accent: ${sec.color}`}>
             <div class="hub-card__icon">
               <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
@@ -50,7 +33,7 @@ const enlacesExternos = [
       <div class="ext-section">
         <h2 class="ext-title"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Enlaces externos</h2>
         <div class="ext-links">
-          {enlacesExternos.map((e) => (
+          {pageData.enlacesExternos.map((e) => (
             <a href={e.url} target="_blank" rel="noopener" class="ext-link">
               <i class={`fa-solid ${e.icon}`} aria-hidden="true"></i>
               <span>{e.titulo}</span>

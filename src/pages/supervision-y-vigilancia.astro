@@ -1,27 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-const base = import.meta.env.BASE_URL;
-const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Supervisión y Vigilancia' }];
+import pageData from '../content/pages/transparencia/supervision-vigilancia.json';
 
-const entidades = [
-  { nombre: 'Contraloría General de la República', direccion: 'Carrera 69 No. 44-35', telefono: '(601) 518 7000', email: 'cgr@contraloria.gov.co', web: 'https://www.contraloria.gov.co/', control: 'Control fiscal' },
-  { nombre: 'Procuraduría General de la Nación', direccion: 'Carrera 5 # 15-80', telefono: '(601) 587 8750', email: '', web: 'https://www.procuraduria.gov.co/', control: 'Control disciplinario' },
-  { nombre: 'Fiscalía General de la Nación', direccion: 'Avenida Calle 24 No. 52-01 (Ciudad Salitre)', telefono: '(601) 791 0758', email: 'ges.documentalpqrs@fiscalia.gov.co', web: 'https://www.fiscalia.gov.co/colombia/', control: 'Control penal' },
-  { nombre: 'Contaduría General de la Nación', direccion: 'Calle 26 No. 69-76, Edificio Elemento Torre 1, Piso 15', telefono: '(601) 492 6400', email: 'contactenos@contaduria.gov.co', web: 'https://www.contaduria.gov.co/', control: 'Control contable' },
-  { nombre: 'Congreso de la República — Senado', direccion: 'Calle 11 # 5-60 Tercer Nivel', telefono: '(601) 382 3000', email: 'atencionciudadanacongreso@senado.gov.co', web: 'https://www.senado.gov.co/', control: 'Control político' },
-  { nombre: 'Congreso de la República — Cámara', direccion: 'Carrera 7 No. 8-68 Primer Piso', telefono: '(601) 877 0720', email: '', web: 'https://www.camara.gov.co/', control: 'Control político' },
-  { nombre: 'Archivo General de la Nación', direccion: 'Carrera 6 No. 6-91', telefono: '(601) 328 2888', email: 'contacto@archivogeneral.gov.co', web: 'https://www.archivogeneral.gov.co/', control: 'Control de política archivística' },
-  { nombre: 'Ministerio de Hacienda y Crédito Público', direccion: 'Carrera 8 No. 6C-38', telefono: '(601) 381 1700', email: 'relacionciudadano@minhacienda.gov.co', web: 'https://www.minhacienda.gov.co/', control: 'Control presupuestal' },
-  { nombre: 'Comisión Nacional del Servicio Civil', direccion: 'Carrera 16 No. 96-64, Piso 7', telefono: '(601) 325 9700', email: 'atencionalciudadano@cnsc.gov.co', web: 'https://www.cnsc.gov.co/', control: 'Control de la carrera administrativa' },
-];
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 ---
-<Base title="Supervisión y Vigilancia" description="Entes y autoridades que vigilan a la Agencia ITRC">
-  <HeroPage title="Supervisión y Vigilancia" subtitle="Entes y autoridades que vigilan a la Agencia ITRC" icon="fa-building-shield" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="sv-section"><div class="container">
-    <p class="sv-intro">La UAE Agencia ITRC como entidad sin personería jurídica, adscrita al Ministerio de Hacienda y Crédito Público, está sometida a la vigilancia y control de los siguientes entes y autoridades:</p>
+    <p class="sv-intro">{pageData.intro}</p>
     <div class="sv-grid">
-      {entidades.map((e) => (
+      {pageData.entidades.map((e) => (
         <div class="sv-card">
           <div class="sv-card__header">
             <h3>{e.nombre}</h3>

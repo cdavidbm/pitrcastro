@@ -1,34 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/evaluacion-independiente.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Evaluación Independiente SCI' }];
 
 function fileIcon(url: string) { return url.endsWith('.xlsx') ? 'fa-file-excel' : 'fa-file-pdf'; }
 function fileColor(url: string) { return url.endsWith('.xlsx') ? 'excel' : 'pdf'; }
-
-const docs = [
-  { nombre: 'Evaluación Independiente SCI — Semestre II 2025', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/SCI_Sem_I_2025_Conclusiones_publicar.pdf' },
-  { nombre: 'Evaluación Independiente SCI — Semestre I 2025', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Estado-SCI-Sem1-2025.pdf' },
-  { nombre: 'Evaluación Independiente SCI — Semestre II 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Estado-SCI-Sem2-2024.pdf' },
-  { nombre: 'Evaluación Independiente SCI — Semestre I 2024', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Informe-Eval-Ind-SCI-Sem-I-2024.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre II 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/Informe-Eval-Ind-SCI-Sem-II-2023.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre I 2023', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/07/Informe-Eval-Ind-SCI-Sem-I-2023.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre II 2022', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Informe-Eval-Ind-SCI-Sem-II-2022.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre I 2022', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Informe-Eval-Ind-SCI-Sem-I-2022.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre II 2021', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/Informe-Eval-Ind-SCI-Sem-II-2021.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre I 2021', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/2021-07-27-Informe-Eval-Ind-SCI-Sem-I-2021.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre II 2020', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Informe-Eval-Ind-SCI-Sem-II-2020.xlsx' },
-  { nombre: 'Evaluación Independiente SCI — Semestre I 2020', url: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Informe-Eval-Ind-SCI-Sem-I-2020.xlsx' },
-];
 ---
 
-<Base title="Evaluación Independiente — Sistema de Control Interno" description="Informes de evaluación independiente del Sistema de Control Interno">
-  <HeroPage title="Evaluación Independiente — SCI" subtitle="Informes del Sistema de Control Interno" icon="fa-clipboard-check" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title="Evaluación Independiente — SCI" subtitle="Informes del Sistema de Control Interno" icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="docs-section"><div class="container">
     <div class="docs-list">
-      {docs.map((d) => (
+      {pageData.documentos.map((d) => (
         <a href={d.url} target="_blank" rel="noopener" class={`doc-item doc--${fileColor(d.url)}`}>
           <div class="doc-item__icon"><i class={`fa-solid ${fileIcon(d.url)}`} aria-hidden="true"></i></div>
           <span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i>
@@ -37,9 +23,9 @@ const docs = [
     </div>
 
     <div class="related-section">
-      <a href="https://www.itrc.gov.co/Itrc/informe-pormenorizado/" target="_blank" rel="noopener" class="related-link">
+      <a href={pageData.enlaceRelacionado.url} target="_blank" rel="noopener" class="related-link">
         <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-        <span>Informe Pormenorizado del Estado del Control Interno</span>
+        <span>{pageData.enlaceRelacionado.titulo}</span>
         <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
       </a>
     </div>

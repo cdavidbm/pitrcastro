@@ -2,30 +2,23 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/normativa/landing.json';
 
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Normativa' }
-];
-
-const secciones = [
-  { titulo: 'Normativa Aplicable', descripcion: 'Normograma institucional con todas las normas vigentes', icon: 'fa-scale-balanced', url: '/normativa-aplicada', color: 'var(--itrc-gold)' },
-  { titulo: 'Unificación Normativa SUIN Juriscol', descripcion: 'Normas registradas en el Sistema Único de Información Normativa', icon: 'fa-landmark-dome', url: '/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol', color: 'var(--itrc-navy)' },
-  { titulo: 'Decretos', descripcion: 'Decretos de creación y estructura de la entidad', icon: 'fa-file-lines', url: '/decretos', color: '#0943b5' },
-  { titulo: 'Resoluciones, Circulares y Otros Actos', descripcion: 'Actos administrativos por vigencia', icon: 'fa-file-signature', url: '/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos', color: '#198754' },
-  { titulo: 'Marco Legal', descripcion: 'Marco legal y normativo de la entidad', icon: 'fa-landmark', url: '/marco-legal', color: '#6f42c1' },
+  { label: pageData.title }
 ];
 ---
 
-<Base title="Normativa" description="Marco legal y normativo de la Agencia ITRC">
-  <HeroPage title="Normativa" subtitle="Marco legal y normativo de la entidad" icon="fa-gavel" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="hub-section">
     <div class="container">
       <div class="hub-grid">
-        {secciones.map((sec) => (
+        {pageData.secciones.map((sec) => (
           <a href={resolveUrl(sec.url)} class="hub-card" style={`--card-accent: ${sec.color}`}>
             <div class="hub-card__icon">
               <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>

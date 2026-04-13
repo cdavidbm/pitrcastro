@@ -1,32 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/tablas-retencion.json';
+
 const base = import.meta.env.BASE_URL;
-const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: 'Tablas de Retención Documental' }];
+const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 function fileIcon(u: string) { return u.endsWith('.xlsx') ? 'fa-file-excel' : 'fa-file-pdf'; }
 function fc(u: string) { return u.endsWith('.xlsx') ? 'excel' : 'pdf'; }
-const v1 = [
-  { n: 'Tablas de Retención Documental', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/Tablas-de-Retencion-Documental.pdf' },
-  { n: 'Cuadro de Clasificación Documental', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Cuadro-de-Clasificacion-Documental.pdf' },
-  { n: 'Banco Terminológico', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Banco-Terminologico.pdf' },
-  { n: 'Resolución No. 176 del 25 de junio de 2020', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/06/Resolución-176-de-2020.pdf' },
-  { n: 'Certificado de Convalidación (AGN)', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/2-2021-3973-CERTIFICADO_CONVALIDACION_TRD-ITRC-1.pdf' },
-  { n: 'Certificado de Inscripción en RUSD', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/CERTIFICADO_RUSD_TRD_ITRC.pdf' },
-  { n: 'Tablas de Control de Acceso', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/TABLAS-DE-CONTROL-DE-ACCESO-4.xlsx' },
-];
-const v2 = [
-  { n: 'Tablas de Retención Documental — TRD V2', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Tablas-de-Retencion-Documental-TRD-V2..pdf' },
-  { n: 'Certificado de Convalidación (AGN)', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Certificado-de-Convalidacion-expedido-por-el-AGN.pdf' },
-  { n: 'Certificado de Inscripción en RUSD', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Certificado-de-Inscripcion-en-el-Registro-Unico-de-Series-Documentales-RUSD.pdf' },
-  { n: 'Resolución 244 de 2024 — Adopción TRD V2', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Resolucion-244-de-2024-Por-la-cual-se-adopta-la-actualizacion-de-las-tablas-de-retencion-Documental-TRD-version-2-de-la-ITRC.pdf' },
-  { n: 'Cuadro de Clasificación Documental', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Cuadro-de-Clasificacion-Documental.pdf' },
-  { n: 'Banco Terminológico de Series y Subseries', u: 'https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Banco-Terminologico-de-Series-y-Subseries-Documentales.pdf' },
-];
 ---
-<Base title="Tablas de Retención Documental" description="Tablas de retención documental de la Agencia ITRC">
-  <HeroPage title="Tablas de Retención Documental" subtitle="Instrumentos de gestión de la información" icon="fa-table-list" breadcrumb={breadcrumb} />
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle="Instrumentos de gestión de la información" icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="trd-section"><div class="container">
-    {[{ titulo: 'Versión 2 (Vigente)', docs: v2 }, { titulo: 'Versión 1', docs: v1 }].map((sec) => (
+    {pageData.versiones.map((sec) => (
       <div class="trd-group">
         <h2 class="trd-title"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> {sec.titulo}<span class="trd-count">{sec.docs.length}</span></h2>
         <div class="trd-list">{sec.docs.map((d) => (<a href={d.u} target="_blank" rel="noopener" class={`trd-item trd--${fc(d.u)}`}><i class={`fa-solid ${fileIcon(d.u)}`} aria-hidden="true"></i><span>{d.n}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>))}</div>

@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
+import pageData from '../../content/pages/agencia/directorio.json';
 
 const base = import.meta.env.BASE_URL;
 
@@ -11,39 +12,13 @@ const breadcrumb = [
   { label: 'Agencia', href: '#' },
   { label: 'Directorio' }
 ];
-
-// Tarjetas principales
-const directorios = [
-  {
-    titulo: "Directorio Servidores",
-    descripcion: "Información de contacto de los servidores públicos de la Agencia ITRC",
-    icon: "fa-user-tie",
-    url: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Directorio-servidores-09-09-2025.pdf",
-    color: "navy"
-  },
-  {
-    titulo: "Directorio Contratistas",
-    descripcion: "Información de los contratistas vinculados a la Agencia ITRC",
-    icon: "fa-briefcase",
-    url: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Directorio-Contratistas.pdf",
-    color: "gold"
-  },
-  {
-    titulo: "Directorio SIGEP",
-    descripcion: "Sistema de Información y Gestión del Empleo Público - Hojas de vida",
-    icon: "fa-id-card",
-    url: "https://www.funcionpublica.gov.co/web/sigep2/directorio",
-    color: "green",
-    external: true
-  }
-];
 ---
 
-<Base title="Directorio de Servidores y Contratistas" class="page-directorio">
+<Base title={pageData.title} class="page-directorio">
   <HeroPage
     title="Directorio"
     subtitle="Servidores y Contratistas de la Agencia ITRC"
-    icon="fa-address-book"
+    icon={pageData.icon}
     breadcrumb={breadcrumb}
   />
 
@@ -53,7 +28,7 @@ const directorios = [
       <h2 id="directorio-title" class="sr-only">Directorios disponibles</h2>
 
       <div class="directorio-grid">
-        {directorios.map((dir) => (
+        {pageData.directorios.map((dir) => (
           <a
             href={dir.url}
             class={`directorio-card directorio-card--${dir.color}`}
@@ -89,12 +64,12 @@ const directorios = [
             <i class="fa-solid fa-coins" aria-hidden="true"></i>
           </div>
           <div>
-            <h2 id="escala-title">Escala Salarial</h2>
-            <p>Servidores Públicos de la Agencia ITRC - Decreto 611 de 2025</p>
+            <h2 id="escala-title">{pageData.escalaSalarial.titulo}</h2>
+            <p>{pageData.escalaSalarial.subtitulo}</p>
           </div>
         </div>
         <a
-          href="https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Decretos-Salariales-611-de-2025-Departamento-Administrativo-de-la-Funcion-Publica-Gestor-Normativo.pdf"
+          href={pageData.escalaSalarial.url}
           class="btn btn--primary"
           target="_blank"
           rel="noopener noreferrer"
@@ -112,46 +87,24 @@ const directorios = [
       <SectionTitle title="Información Adicional" size="lg" />
 
       <div class="info-grid">
-        <div class="info-item">
-          <div class="info-item__icon">
-            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+        {pageData.infoAdicional.map((info) => (
+          <div class="info-item">
+            <div class="info-item__icon">
+              <i class={`fa-solid ${info.icon}`} aria-hidden="true"></i>
+            </div>
+            <h3>{info.titulo}</h3>
+            <p>{info.descripcion}</p>
+            <a
+              href={info.externo ? info.enlace : `${base}${info.enlace.replace(/^\//, '')}`}
+              class="info-item__link"
+              target={info.externo ? '_blank' : undefined}
+              rel={info.externo ? 'noopener noreferrer' : undefined}
+            >
+              {info.textoEnlace}
+              <i class={`fa-solid ${info.externo ? 'fa-external-link-alt' : 'fa-arrow-right'}`} aria-hidden="true"></i>
+            </a>
           </div>
-          <h3>SIGEP II</h3>
-          <p>El Sistema de Información y Gestión del Empleo Público permite consultar las hojas de vida de los servidores públicos y contratistas del Estado colombiano.</p>
-          <a
-            href="https://www.funcionpublica.gov.co/web/sigep/hojas-de-vida"
-            class="info-item__link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Consultar hojas de vida
-            <i class="fa-solid fa-external-link-alt" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="info-item">
-          <div class="info-item__icon">
-            <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
-          </div>
-          <h3>Estructura Orgánica</h3>
-          <p>Conozca la estructura organizacional de la Agencia ITRC y las funciones de cada dependencia.</p>
-          <a href={`${base}agencia/organigrama`} class="info-item__link">
-            Ver Organigrama
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="info-item">
-          <div class="info-item__icon">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          </div>
-          <h3>Contacto</h3>
-          <p>Si requiere información adicional sobre los servidores o contratistas de la entidad, contáctenos.</p>
-          <a href={`${base}agencia/contacto`} class="info-item__link">
-            Datos de contacto
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
+        ))}
       </div>
     </div>
   </section>
