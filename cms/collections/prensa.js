@@ -1,4 +1,4 @@
-import { publicationCollection } from "../templates/fields.js";
+import { publicationCollection, albumFields, SLUG_PATTERN } from "../templates/fields.js";
 
 // ============================================================
 // Pagina principal de Prensa
@@ -116,9 +116,13 @@ const prensaPrincipal = {
       fields: [
         { name: "title", label: "Título", widget: "string", required: true },
         { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", required: false },
         { name: "albums", label: "Álbumes", widget: "list", label_singular: "Álbum", collapsed: true, summary: "{{fields.titulo}}", fields: [
           { name: "titulo", label: "Título", widget: "string", required: true },
           { name: "imagen", label: "URL imagen de portada", widget: "string", required: true },
+          { name: "slug", label: "Slug del álbum interno", widget: "string", required: false, hint: "Debe coincidir con un archivo en src/content/pages/galeria/. Vacío si el álbum está pendiente.", pattern: SLUG_PATTERN },
+          { name: "disabled", label: "Pendiente (no clickeable)", widget: "boolean", default: false, required: false },
+          { name: "nota", label: "Nota visible cuando está pendiente", widget: "string", required: false },
         ] },
       ],
     },
@@ -237,32 +241,16 @@ const videos = {
 // Galeria
 // ============================================================
 
-const galeria = {
-  name: "galeria",
-  label: "    > Galeria",
-  label_singular: "Album",
-  folder: "src/content/galeria",
+const galeriaAlbumes = {
+  name: "galeria-albumes",
+  label: "    > Galería — Álbumes",
+  label_singular: "Álbum",
+  folder: "src/content/pages/galeria",
   create: true,
   slug: "{{slug}}",
   format: "json",
-  fields: [
-    { name: "title", label: "Titulo del album", widget: "string", required: true },
-    { name: "date", label: "Fecha", widget: "datetime", format: "YYYY-MM-DD", required: true },
-    { name: "description", label: "Descripción", widget: "text", required: false },
-    { name: "coverImage", label: "Imagen de portada", widget: "image", required: true },
-    {
-      name: "images",
-      label: "Imagenes",
-      widget: "list",
-      label_singular: "Imagen",
-      fields: [
-        { name: "image", label: "Imagen", widget: "image", required: true },
-        { name: "caption", label: "Descripción", widget: "string", required: false },
-        { name: "alt", label: "Texto alternativo", widget: "string", required: true },
-      ],
-    },
-    { name: "published", label: "Publicado", widget: "boolean", default: true },
-  ],
+  sortable_fields: ["fecha", "titulo"],
+  fields: albumFields(),
 };
 
 // ============================================================
@@ -296,6 +284,6 @@ export const prensaCollections = [
   boletines,
   comunicados,
   videos,
-  galeria,
+  galeriaAlbumes,
   capsulas,
 ];

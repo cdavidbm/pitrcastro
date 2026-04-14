@@ -233,6 +233,46 @@ export function ctaSection(name = "ctaSection", label = "Sección de enlace exte
 }
 
 // ============================================================
+// Album fields (galería fotográfica)
+// ============================================================
+
+/**
+ * Campos para un álbum fotográfico (schema D3 del playbook).
+ * Usado por la folder collection `galeria-albumes`.
+ */
+export function albumFields() {
+  return [
+    { name: "titulo", label: "Título del álbum", widget: "string", required: true },
+    { name: "slug", label: "Slug (URL)", widget: "string", required: true, pattern: SLUG_PATTERN },
+    { name: "fecha", label: "Fecha", widget: "datetime", format: "YYYY-MM-DD", required: false },
+    { name: "descripcion", label: "Descripción", widget: "text", required: false },
+    {
+      name: "portada",
+      label: "Imagen de portada",
+      widget: "object",
+      fields: [
+        { name: "url", label: "URL de la imagen", widget: "string", required: true },
+        { name: "alt", label: "Texto alternativo", widget: "string", required: true },
+      ],
+    },
+    {
+      name: "imagenes",
+      label: "Imágenes",
+      widget: "list",
+      label_singular: "Imagen",
+      collapsed: true,
+      summary: "{{fields.alt}}",
+      fields: [
+        { name: "url", label: "URL de la imagen", widget: "string", required: true },
+        { name: "alt", label: "Texto alternativo", widget: "string", required: true },
+        { name: "caption", label: "Pie de foto (opcional)", widget: "string", required: false },
+      ],
+    },
+    { name: "originalUrl", label: "URL WordPress original (referencia)", widget: "string", required: false },
+  ];
+}
+
+// ============================================================
 // Publication collection builder (news/boletines/comunicados)
 // ============================================================
 

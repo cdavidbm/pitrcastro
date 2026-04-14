@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
+import { resolveUrl } from '../utils/url';
 
 import pageData from '../content/pages/prensa/galeria.json';
 
@@ -31,17 +32,31 @@ const enlacesRelacionados = [
       </div>
 
       <div class="galeria-grid">
-        {pageData.albums.map((album) => (
-          <div class="album-card">
-            <div class="album-card__image">
-              <img src={album.imagen} alt={album.titulo} loading="lazy" />
-              <div class="album-card__overlay">
-                <i class="fa-solid fa-images" aria-hidden="true"></i>
+        {pageData.albums.map((album) => {
+          const isActive = !album.disabled && album.slug;
+          const cardClass = isActive ? 'album-card' : 'album-card album-card--disabled';
+          const inner = (
+            <>
+              <div class="album-card__image">
+                <img src={album.imagen} alt={album.titulo} loading="lazy" />
+                {isActive && (
+                  <div class="album-card__overlay">
+                    <i class="fa-solid fa-images" aria-hidden="true"></i>
+                  </div>
+                )}
               </div>
-            </div>
-            <h3 class="album-card__title">{album.titulo}</h3>
-          </div>
-        ))}
+              <h3 class="album-card__title">{album.titulo}</h3>
+              {!isActive && album.nota && (
+                <span class="album-card__nota">{album.nota}</span>
+              )}
+            </>
+          );
+          return isActive ? (
+            <a class={cardClass} href={resolveUrl(`/galeria/${album.slug}`)} aria-label={`Ver álbum: ${album.titulo}`}>{inner}</a>
+          ) : (
+            <div class={cardClass} aria-disabled="true">{inner}</div>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -57,8 +72,10 @@ const enlacesRelacionados = [
 
   .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-5); }
 
-  .album-card { background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); }
-  .album-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--itrc-gold); }
+  .album-card { background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); display: block; color: inherit; text-decoration: none; }
+  a.album-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--itrc-gold); }
+  .album-card--disabled { opacity: 0.55; cursor: not-allowed; }
+  .album-card__nota { display: block; padding: 0 var(--space-4) var(--space-3); font-size: var(--font-size-xs); color: var(--theme-text-muted); font-style: italic; }
 
   .album-card__image { position: relative; aspect-ratio: 3/2; overflow: hidden; background: var(--theme-surface-alt); }
   .album-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }

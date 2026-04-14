@@ -1,0 +1,191 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import { resolveUrl } from '../../utils/url';
+
+interface AlbumImage {
+  url: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Album {
+  titulo: string;
+  slug: string;
+  fecha: string;
+  descripcion?: string;
+  portada: { url: string; alt: string };
+  imagenes: AlbumImage[];
+  originalUrl?: string;
+}
+
+const base = import.meta.env.BASE_URL;
+
+export function getStaticPaths() {
+  const albumFiles = import.meta.glob<Album>(
+    '../../content/pages/galeria/*.json',
+    { eager: true, import: 'default' }
+  );
+
+  return Object.entries(albumFiles).map(([path, data]) => {
+    const slug = path.split('/').pop()?.replace('.json', '') || '';
+    return { params: { slug }, props: { album: data } };
+  });
+}
+
+interface Props { album: Album; }
+const { album } = Astro.props;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Galería', href: resolveUrl('/galeria') },
+  { label: album.titulo },
+];
+
+// Fecha legible en español. Fallback al ISO si viene vacía.
+let fechaLegible = '';
+if (album.fecha) {
+  const d = new Date(album.fecha + 'T00:00:00');
+  fechaLegible = d.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Base title={`${album.titulo} — Galería`} description={album.descripcion || album.titulo}>
+  <HeroPage
+    title={album.titulo}
+    subtitle={fechaLegible}
+    icon="fa-images"
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="album-section">
+    <div class="container">
+      <a class="album-back" href={resolveUrl('/galeria')}>
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Volver a la galería
+      </a>
+
+      <p class="album-count">
+        <i class="fa-solid fa-camera" aria-hidden="true"></i>
+        {album.imagenes.length} {album.imagenes.length === 1 ? 'imagen' : 'imágenes'}
+      </p>
+
+      <ul class="album-grid" role="list">
+        {album.imagenes.map((img, i) => (
+          <li>
+            <button
+              type="button"
+              class="album-thumb"
+              data-lightbox-open={i}
+              aria-label={`Abrir imagen ${i + 1}: ${img.caption || img.alt}`}
+            >
+              <img src={img.url} alt={img.alt} loading="lazy" />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="albumLightbox" aria-label="Visor de imagen">
+    <button type="button" class="lightbox__close" data-lightbox-close aria-label="Cerrar">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Imagen anterior">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" alt="" />
+      <figcaption class="lightbox__caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Siguiente imagen">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+  </dialog>
+
+  <script is:inline define:vars={{ imagenes: album.imagenes }}>
+    const dialog = document.getElementById('albumLightbox');
+    if (dialog) {
+      const imgEl = dialog.querySelector('.lightbox__img');
+      const capEl = dialog.querySelector('.lightbox__caption');
+      let index = 0;
+
+      const render = () => {
+        const im = imagenes[index];
+        if (!im) return;
+        imgEl.src = im.url;
+        imgEl.alt = im.alt || '';
+        capEl.textContent = im.caption || im.alt || '';
+      };
+
+      const open = (i) => {
+        index = i;
+        render();
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else dialog.setAttribute('open', '');
+      };
+
+      const close = () => {
+        if (typeof dialog.close === 'function') dialog.close();
+        else dialog.removeAttribute('open');
+      };
+
+      const step = (delta) => {
+        index = (index + delta + imagenes.length) % imagenes.length;
+        render();
+      };
+
+      document.querySelectorAll('[data-lightbox-open]').forEach((btn) => {
+        btn.addEventListener('click', () => open(Number(btn.dataset.lightboxOpen)));
+      });
+      dialog.querySelector('[data-lightbox-close]').addEventListener('click', close);
+      dialog.querySelector('[data-lightbox-prev]').addEventListener('click', () => step(-1));
+      dialog.querySelector('[data-lightbox-next]').addEventListener('click', () => step(1));
+
+      dialog.addEventListener('click', (e) => {
+        // Cerrar al clickear backdrop (el dialog recibe el evento con target=dialog).
+        if (e.target === dialog) close();
+      });
+      dialog.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') step(-1);
+        else if (e.key === 'ArrowRight') step(1);
+      });
+    }
+  </script>
+</Base>
+
+<style>
+  .album-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .album-section .container { max-width: 1200px; margin: 0 auto; }
+
+  .album-back { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-secondary); text-decoration: none; font-size: var(--font-size-sm); margin-bottom: var(--space-6); transition: color var(--transition-fast); }
+  .album-back:hover { color: var(--itrc-gold); }
+
+  .album-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-6); }
+
+  .album-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
+
+  .album-thumb { all: unset; cursor: pointer; display: block; border-radius: var(--radius-lg); overflow: hidden; background: var(--theme-surface-alt); border: 1px solid var(--theme-border-light); transition: transform var(--transition-base), box-shadow var(--transition-base); }
+  .album-thumb:hover, .album-thumb:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .album-thumb:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 2px; }
+  .album-thumb img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  .lightbox { border: none; padding: 0; background: transparent; max-width: min(96vw, 1400px); max-height: 94vh; color: var(--white); }
+  .lightbox::backdrop { background: rgba(0, 0, 0, 0.88); }
+
+  .lightbox__figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+  .lightbox__img { max-width: 100%; max-height: 82vh; width: auto; height: auto; object-fit: contain; }
+  .lightbox__caption { color: var(--white); font-size: var(--font-size-sm); text-align: center; max-width: 80ch; }
+
+  .lightbox__close, .lightbox__nav { position: fixed; background: rgba(0,0,0,0.5); color: var(--white); border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-lg); transition: background var(--transition-fast); }
+  .lightbox__close:hover, .lightbox__nav:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .lightbox__close { top: 20px; right: 20px; }
+  .lightbox__nav--prev { left: 20px; top: 50%; transform: translateY(-50%); }
+  .lightbox__nav--next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+  @media (max-width: 768px) {
+    .album-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .album-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-2); }
+    .lightbox__close, .lightbox__nav { width: 40px; height: 40px; }
+  }
+</style>
