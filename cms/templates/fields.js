@@ -273,6 +273,39 @@ export function albumFields() {
 }
 
 // ============================================================
+// Post fields (archivo histórico observatorio — D3 schema Post)
+// ============================================================
+
+/**
+ * Schema Post del dominio ITRC — usado por folder collections de archivo
+ * histórico del Observatorio (memorias, noticias).
+ */
+export function postFields() {
+  return [
+    { name: "titulo", label: "Título", widget: "string", required: true },
+    { name: "slug", label: "Slug (URL)", widget: "string", required: true, pattern: SLUG_PATTERN },
+    { name: "fecha", label: "Fecha de publicación", widget: "datetime", format: "YYYY-MM-DD", required: true },
+    { name: "resumen", label: "Resumen / extracto", widget: "text", required: false },
+    { name: "contenido", label: "Contenido (markdown)", widget: "markdown", required: true },
+    { name: "imagenDestacada", label: "URL imagen destacada", widget: "string", required: false, hint: "Si queda vacía, usar /images/placeholder-itrc.svg" },
+    {
+      name: "galeria",
+      label: "Galería",
+      widget: "list",
+      label_singular: "Imagen",
+      collapsed: true,
+      required: false,
+      summary: "{{fields.alt}}",
+      fields: [
+        { name: "url", label: "URL", widget: "string", required: true },
+        { name: "alt", label: "Texto alternativo", widget: "string", required: true },
+      ],
+    },
+    { name: "originalUrl", label: "URL WordPress original (referencia)", widget: "string", required: false },
+  ];
+}
+
+// ============================================================
 // Publication collection builder (news/boletines/comunicados)
 // ============================================================
 

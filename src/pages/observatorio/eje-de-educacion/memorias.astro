@@ -32,17 +32,24 @@ const totalMemorias = pageData.anios.reduce((s, a) => s + a.entradas.length, 0);
       {pageData.anios.map((g, i) => (
         <div class={`mem-panel ${i === 0 ? 'active' : ''}`} id={`panel-${g.anio}`} hidden={i !== 0}>
           <div class="mem-grid">
-            {g.entradas.map((m) => (
-              <article class="mem-card">
-                <div class="mem-card__image">
-                  <img src={m.imagen} alt={m.titulo} loading="lazy" />
-                </div>
-                <div class="mem-card__body">
-                  <h3>{m.titulo}</h3>
-                  <span class="mem-card__date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> {m.fecha}</span>
-                </div>
-              </article>
-            ))}
+            {g.entradas.map((m) => {
+              const card = (
+                <>
+                  <div class="mem-card__image">
+                    <img src={resolveUrl(m.imagen, m.imagen.startsWith('http'))} alt={m.titulo} loading="lazy" />
+                  </div>
+                  <div class="mem-card__body">
+                    <h3>{m.titulo}</h3>
+                    <span class="mem-card__date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> {m.fecha}</span>
+                  </div>
+                </>
+              );
+              return m.url ? (
+                <a class="mem-card" href={resolveUrl(m.url)} aria-label={`Ver memoria: ${m.titulo}`}>{card}</a>
+              ) : (
+                <article class="mem-card">{card}</article>
+              );
+            })}
           </div>
         </div>
       ))}
@@ -69,8 +76,8 @@ const totalMemorias = pageData.anios.reduce((s, a) => s + a.entradas.length, 0);
 
   .mem-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-5); }
 
-  .mem-card { background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); }
-  .mem-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--itrc-gold); }
+  .mem-card { background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); display: block; color: inherit; text-decoration: none; }
+  a.mem-card:hover, a.mem-card:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--itrc-gold); outline: none; }
   .mem-card__image { aspect-ratio: 16/10; overflow: hidden; background: var(--theme-surface-alt); }
   .mem-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
   .mem-card:hover .mem-card__image img { transform: scale(1.05); }

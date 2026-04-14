@@ -10,7 +10,7 @@ import { normativaCollections } from "./collections/normativa.js";
 import { atencionCollections } from "./collections/atencion.js";
 import { participa } from "./collections/participa.js";
 import { prensaCollections } from "./collections/prensa.js";
-import { observatorio } from "./collections/observatorio.js";
+import { observatorio, memoriasEducacion, memoriasParticipacion } from "./collections/observatorio.js";
 import { sliders } from "./collections/sliders.js";
 import { settings } from "./collections/settings.js";
 
@@ -45,7 +45,7 @@ const COLLECTION_GROUPS = [
   },
   {
     header: "OBSERVATORIO\n# Observatorio de Fraude y Corrupcion",
-    collections: [observatorio],
+    collections: [observatorio, memoriasEducacion, memoriasParticipacion],
   },
   {
     header: "SLIDERS / CARRUSELES",

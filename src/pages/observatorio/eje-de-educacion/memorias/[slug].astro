@@ -1,0 +1,152 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import HeroPage from '../../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../../utils/url';
+
+interface Memoria {
+  titulo: string;
+  slug: string;
+  fecha: string;
+  resumen?: string;
+  contenido: string;
+  imagenDestacada?: string;
+  galeria?: Array<{ url: string; alt: string }>;
+  originalUrl?: string;
+}
+
+const base = import.meta.env.BASE_URL;
+
+export function getStaticPaths() {
+  const files = import.meta.glob<Memoria>(
+    '../../../../content/pages/observatorio/eje-de-educacion/memorias/*.json',
+    { eager: true, import: 'default' }
+  );
+  return Object.entries(files).map(([path, data]) => {
+    const slug = path.split('/').pop()?.replace('.json', '') || '';
+    return { params: { slug }, props: { memoria: data } };
+  });
+}
+
+interface Props { memoria: Memoria; }
+const { memoria } = Astro.props;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: 'Memorias', href: resolveUrl('/observatorio/eje-de-educacion/memorias') },
+  { label: memoria.titulo },
+];
+
+const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+let fechaLegible = memoria.fecha;
+if (memoria.fecha) {
+  const [y, m, d] = memoria.fecha.split('-').map((x) => parseInt(x, 10));
+  if (y && m && d) fechaLegible = `${d} de ${MESES[m - 1]} de ${y}`;
+}
+
+// Markdown a HTML mínimo (sin remark — solo lo que turndown genera).
+// Convierte ## → <h2>, ![alt](url) → <figure><img>, [text](url) → <a>,
+// **bold** → <strong>, _em_ → <em>, párrafos por doble salto.
+function renderMarkdown(md: string): string {
+  const lines = md.split(/\r?\n/);
+  const out: string[] = [];
+  let para: string[] = [];
+  const flush = () => {
+    if (para.length === 0) return;
+    let p = para.join(' ').trim();
+    if (!p) { para = []; return; }
+    p = p
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure class="memoria-figure"><img src="$2" alt="$1" loading="lazy"/></figure>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" rel="noopener" target="_blank">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[^_])_([^_]+)_/g, '$1<em>$2</em>');
+    if (p.startsWith('<figure')) out.push(p);
+    else out.push(`<p>${p}</p>`);
+    para = [];
+  };
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) { flush(); continue; }
+    const h = trimmed.match(/^(#{1,4})\s+(.*)/);
+    if (h) {
+      flush();
+      const n = Math.min(6, h[1].length + 1); // h2-h5 (h1 reservado para HeroPage)
+      out.push(`<h${n}>${h[2]}</h${n}>`);
+      continue;
+    }
+    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+      flush();
+      out.push(`<ul><li>${trimmed.slice(2)}</li></ul>`);
+      continue;
+    }
+    para.push(trimmed);
+  }
+  flush();
+  // Colapsa <ul> consecutivos.
+  return out.join('\n').replace(/<\/ul>\n<ul>/g, '');
+}
+
+const contenidoHtml = renderMarkdown(memoria.contenido);
+const tieneGaleria = (memoria.galeria?.length ?? 0) > 0;
+---
+
+<Base title={`${memoria.titulo} — Observatorio ITRC`} description={memoria.resumen || memoria.titulo}>
+  <HeroPage
+    title={memoria.titulo}
+    subtitle={fechaLegible}
+    icon="fa-photo-film"
+    image={memoria.imagenDestacada && memoria.imagenDestacada.startsWith('/') ? resolveUrl(memoria.imagenDestacada) : memoria.imagenDestacada}
+    breadcrumb={breadcrumb}
+  />
+
+  <article class="memoria">
+    <div class="container">
+      <a class="memoria__back" href={resolveUrl('/observatorio/eje-de-educacion/memorias')}>
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Volver a Memorias
+      </a>
+
+      <div class="memoria__body" set:html={contenidoHtml} />
+
+      {tieneGaleria && (
+        <section class="memoria__galeria">
+          <h2>Galería</h2>
+          <ul role="list">
+            {memoria.galeria!.map((im) => (
+              <li>
+                <img src={im.url} alt={im.alt} loading="lazy" />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  </article>
+</Base>
+
+<style>
+  .memoria { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .memoria .container { max-width: 820px; margin: 0 auto; }
+
+  .memoria__back { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-secondary); text-decoration: none; font-size: var(--font-size-sm); margin-bottom: var(--space-6); transition: color var(--transition-fast); }
+  .memoria__back:hover { color: var(--itrc-gold); }
+
+  .memoria__body { color: var(--theme-text); font-size: var(--font-size-base); line-height: 1.7; }
+  .memoria__body :global(h2) { color: var(--theme-heading); margin-top: var(--space-6); margin-bottom: var(--space-3); font-size: var(--font-size-xl); }
+  .memoria__body :global(h3), .memoria__body :global(h4) { color: var(--theme-heading); margin-top: var(--space-5); margin-bottom: var(--space-2); }
+  .memoria__body :global(p) { margin: 0 0 var(--space-4); }
+  .memoria__body :global(a) { color: var(--itrc-gold); }
+  .memoria__body :global(ul) { margin: 0 0 var(--space-4) var(--space-5); }
+  .memoria__body :global(.memoria-figure) { margin: var(--space-5) 0; text-align: center; }
+  .memoria__body :global(.memoria-figure img) { max-width: 100%; height: auto; border-radius: var(--radius-lg); }
+
+  .memoria__galeria { margin-top: var(--space-10); }
+  .memoria__galeria h2 { color: var(--theme-heading); margin-bottom: var(--space-4); font-size: var(--font-size-xl); }
+  .memoria__galeria ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
+  .memoria__galeria img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--theme-border-light); }
+
+  @media (max-width: 768px) {
+    .memoria { padding: var(--space-6) var(--space-4) var(--space-12); }
+  }
+</style>

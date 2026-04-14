@@ -3292,7 +3292,7 @@ collections:
                 label: Palabras clave
                 widget: text
       - name: observatorio-memorias-educacion
-        label: Memorias Eje Educación
+        label: Memorias Eje Educación (listado)
         file: src/content/pages/observatorio/eje-de-educacion/memorias.json
         fields:
           - *shared_7
@@ -3326,6 +3326,11 @@ collections:
                   - name: imagen
                     label: URL de imagen
                     widget: string
+                  - name: url
+                    label: URL interna a la ficha
+                    widget: string
+                    required: false
+                    hint: "Ej: /observatorio/eje-de-educacion/memorias/<slug>"
       - name: observatorio-participacion-landing
         label: Eje de Participación — Landing
         file: src/content/pages/observatorio/eje-de-participacion.json
@@ -3473,7 +3478,7 @@ collections:
                 label: Resumen
                 widget: text
       - name: observatorio-memorias-participacion
-        label: Memorias Eje Participación
+        label: Memorias Eje Participación (listado)
         file: src/content/pages/observatorio/eje-de-participacion/memorias.json
         fields:
           - *shared_7
@@ -3507,6 +3512,127 @@ collections:
                   - name: imagen
                     label: URL de imagen
                     widget: string
+                  - name: url
+                    label: URL interna a la ficha
+                    widget: string
+                    required: false
+                    hint: "Ej: /observatorio/eje-de-participacion/memorias/<slug>"
+  - name: memorias-educacion
+    label: "    > Memorias Educación — Fichas"
+    label_singular: Memoria
+    folder: src/content/pages/observatorio/eje-de-educacion/memorias
+    create: true
+    slug: "{{slug}}"
+    format: json
+    sortable_fields:
+      - fecha
+      - titulo
+    fields:
+      - name: titulo
+        label: Título
+        widget: string
+        required: true
+      - name: slug
+        label: Slug (URL)
+        widget: string
+        required: true
+        pattern: *shared_3
+      - name: fecha
+        label: Fecha de publicación
+        widget: datetime
+        format: YYYY-MM-DD
+        required: true
+      - name: resumen
+        label: Resumen / extracto
+        widget: text
+        required: false
+      - name: contenido
+        label: Contenido (markdown)
+        widget: markdown
+        required: true
+      - name: imagenDestacada
+        label: URL imagen destacada
+        widget: string
+        required: false
+        hint: Si queda vacía, usar /images/placeholder-itrc.svg
+      - name: galeria
+        label: Galería
+        widget: list
+        label_singular: Imagen
+        collapsed: true
+        required: false
+        summary: "{{fields.alt}}"
+        fields:
+          - name: url
+            label: URL
+            widget: string
+            required: true
+          - name: alt
+            label: Texto alternativo
+            widget: string
+            required: true
+      - name: originalUrl
+        label: URL WordPress original (referencia)
+        widget: string
+        required: false
+  - name: memorias-participacion
+    label: "    > Memorias Participación — Fichas"
+    label_singular: Memoria
+    folder: src/content/pages/observatorio/eje-de-participacion/memorias
+    create: true
+    slug: "{{slug}}"
+    format: json
+    sortable_fields:
+      - fecha
+      - titulo
+    fields:
+      - name: titulo
+        label: Título
+        widget: string
+        required: true
+      - name: slug
+        label: Slug (URL)
+        widget: string
+        required: true
+        pattern: *shared_3
+      - name: fecha
+        label: Fecha de publicación
+        widget: datetime
+        format: YYYY-MM-DD
+        required: true
+      - name: resumen
+        label: Resumen / extracto
+        widget: text
+        required: false
+      - name: contenido
+        label: Contenido (markdown)
+        widget: markdown
+        required: true
+      - name: imagenDestacada
+        label: URL imagen destacada
+        widget: string
+        required: false
+        hint: Si queda vacía, usar /images/placeholder-itrc.svg
+      - name: galeria
+        label: Galería
+        widget: list
+        label_singular: Imagen
+        collapsed: true
+        required: false
+        summary: "{{fields.alt}}"
+        fields:
+          - name: url
+            label: URL
+            widget: string
+            required: true
+          - name: alt
+            label: Texto alternativo
+            widget: string
+            required: true
+      - name: originalUrl
+        label: URL WordPress original (referencia)
+        widget: string
+        required: false
   # ==========================================
   # SLIDERS / CARRUSELES
   # ==========================================

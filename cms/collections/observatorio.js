@@ -1,5 +1,7 @@
 // Colección CMS para el Observatorio de Fraude y Corrupción
 
+import { postFields } from "../templates/fields.js";
+
 const headerFields = [
   { name: "title", label: "Título", widget: "string", required: true },
   { name: "description", label: "Descripción SEO", widget: "text", required: false },
@@ -189,7 +191,7 @@ export const observatorio = {
     },
     {
       name: "observatorio-memorias-educacion",
-      label: "Memorias Eje Educación",
+      label: "Memorias Eje Educación (listado)",
       file: "src/content/pages/observatorio/eje-de-educacion/memorias.json",
       fields: [
         ...headerFields,
@@ -200,6 +202,7 @@ export const observatorio = {
             { name: "titulo", label: "Título", widget: "string" },
             { name: "fecha", label: "Fecha", widget: "string" },
             { name: "imagen", label: "URL de imagen", widget: "string" },
+            { name: "url", label: "URL interna a la ficha", widget: "string", required: false, hint: "Ej: /observatorio/eje-de-educacion/memorias/<slug>" },
           ]},
         ]},
       ],
@@ -284,7 +287,7 @@ export const observatorio = {
     },
     {
       name: "observatorio-memorias-participacion",
-      label: "Memorias Eje Participación",
+      label: "Memorias Eje Participación (listado)",
       file: "src/content/pages/observatorio/eje-de-participacion/memorias.json",
       fields: [
         ...headerFields,
@@ -295,9 +298,36 @@ export const observatorio = {
             { name: "titulo", label: "Título", widget: "string" },
             { name: "fecha", label: "Fecha", widget: "string" },
             { name: "imagen", label: "URL de imagen", widget: "string" },
+            { name: "url", label: "URL interna a la ficha", widget: "string", required: false, hint: "Ej: /observatorio/eje-de-participacion/memorias/<slug>" },
           ]},
         ]},
       ],
     },
   ],
+};
+
+// Folder collection: una ficha JSON por memoria (Lote B).
+export const memoriasEducacion = {
+  name: "memorias-educacion",
+  label: "    > Memorias Educación — Fichas",
+  label_singular: "Memoria",
+  folder: "src/content/pages/observatorio/eje-de-educacion/memorias",
+  create: true,
+  slug: "{{slug}}",
+  format: "json",
+  sortable_fields: ["fecha", "titulo"],
+  fields: postFields(),
+};
+
+// Folder collection: una ficha JSON por memoria (Lote C).
+export const memoriasParticipacion = {
+  name: "memorias-participacion",
+  label: "    > Memorias Participación — Fichas",
+  label_singular: "Memoria",
+  folder: "src/content/pages/observatorio/eje-de-participacion/memorias",
+  create: true,
+  slug: "{{slug}}",
+  format: "json",
+  sortable_fields: ["fecha", "titulo"],
+  fields: postFields(),
 };
