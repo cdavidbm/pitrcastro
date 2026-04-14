@@ -1,0 +1,61 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-educacion/articulos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="art-section">
+    <div class="container">
+      <div class="art-grid">
+        {pageData.articulos.map((a) => (
+          <a href={a.url} target="_blank" rel="noopener" class="art-card">
+            <div class="art-card__image">
+              <img src={a.imagen} alt={a.titulo} loading="lazy" />
+            </div>
+            <div class="art-card__body">
+              <h3>{a.titulo}</h3>
+              <p class="art-card__autor">{a.autor}</p>
+              <span class="art-card__cta"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Descargar PDF</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Educación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .art-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .art-section .container { max-width: 1000px; margin: 0 auto; }
+  .art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-5); }
+
+  .art-card { background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); overflow: hidden; text-decoration: none; transition: all var(--transition-base); display: flex; flex-direction: column; }
+  .art-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--itrc-gold); }
+
+  .art-card__image { aspect-ratio: 16/10; overflow: hidden; background: var(--theme-surface-alt); }
+  .art-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
+  .art-card:hover .art-card__image img { transform: scale(1.05); }
+
+  .art-card__body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
+  .art-card__body h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0; line-height: 1.4; }
+  .art-card:hover .art-card__body h3 { color: var(--itrc-gold); }
+  .art-card__autor { font-size: var(--font-size-xs); color: var(--theme-text-muted); margin: 0; font-style: italic; flex: 1; }
+  .art-card__cta { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-sm); color: var(--file-pdf); font-weight: 700; margin-top: var(--space-2); }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

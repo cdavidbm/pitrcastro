@@ -1,0 +1,60 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="ninos-section">
+    <div class="container">
+      <p class="ninos-intro">{pageData.intro}</p>
+
+      <div class="ninos-grid">
+        {pageData.secciones.map((sec) => (
+          <a
+            href={sec.externo ? sec.url : resolveUrl(sec.url)}
+            target={sec.externo ? '_blank' : undefined}
+            rel={sec.externo ? 'noopener' : undefined}
+            class="ninos-card"
+            style={`--card-accent: ${sec.color}`}
+          >
+            <div class="ninos-card__icon"><i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i></div>
+            <h3 class="ninos-card__title">{sec.titulo}</h3>
+            <p class="ninos-card__desc">{sec.descripcion}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ninos-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .ninos-section .container { max-width: 1000px; margin: 0 auto; }
+  .ninos-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-10); }
+
+  .ninos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-5); }
+
+  .ninos-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--space-8) var(--space-5); background: var(--theme-surface); border: 2px solid var(--card-accent); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .ninos-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); background: var(--card-accent); }
+
+  .ninos-card__icon { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background: var(--card-accent); color: var(--white); border-radius: var(--radius-full); font-size: var(--font-size-3xl); margin-bottom: var(--space-4); transition: all var(--transition-base); }
+  .ninos-card:hover .ninos-card__icon { background: var(--white); color: var(--card-accent); transform: scale(1.1); }
+
+  .ninos-card__title { font-size: var(--font-size-lg); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-2); }
+  .ninos-card:hover .ninos-card__title { color: var(--white); }
+
+  .ninos-card__desc { font-size: var(--font-size-xs); line-height: 1.5; color: var(--theme-text-secondary); margin: 0; }
+  .ninos-card:hover .ninos-card__desc { color: rgba(255,255,255,0.9); }
+</style>

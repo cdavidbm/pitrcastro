@@ -10,6 +10,7 @@ import { normativaCollections } from "./collections/normativa.js";
 import { atencionCollections } from "./collections/atencion.js";
 import { participa } from "./collections/participa.js";
 import { prensaCollections } from "./collections/prensa.js";
+import { observatorio } from "./collections/observatorio.js";
 import { sliders } from "./collections/sliders.js";
 import { settings } from "./collections/settings.js";
 
@@ -41,6 +42,10 @@ const COLLECTION_GROUPS = [
   {
     header: "PRENSA\n# Noticias, eventos y comunicaciones",
     collections: prensaCollections,
+  },
+  {
+    header: "OBSERVATORIO\n# Observatorio de Fraude y Corrupcion",
+    collections: [observatorio],
   },
   {
     header: "SLIDERS / CARRUSELES",

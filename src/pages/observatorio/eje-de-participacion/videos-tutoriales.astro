@@ -1,0 +1,49 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-participacion/videos-tutoriales.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Participación', href: resolveUrl('/observatorio/eje-de-participacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="vt-section">
+    <div class="container">
+      <div class="vt-list">
+        {pageData.videos.map((v) => (
+          <div class="vt-card">
+            <h3 class="vt-card__title">{v.titulo}</h3>
+            <div class="vt-card__player">
+              <video controls preload="metadata" poster={v.poster}>
+                <source src={v.url} type="video/mp4" />
+                Su navegador no soporta la reproducción de video.
+              </video>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-participacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Participación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .vt-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .vt-section .container { max-width: 900px; margin: 0 auto; }
+  .vt-list { display: flex; flex-direction: column; gap: var(--space-8); }
+  .vt-card__title { font-size: var(--font-size-xl); color: var(--itrc-navy); text-align: center; margin: 0 0 var(--space-4); }
+  .vt-card__player { background: #000; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .vt-card__player video { width: 100%; height: auto; display: block; }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

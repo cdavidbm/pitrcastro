@@ -1,0 +1,80 @@
+{
+  "title": "Memorias Eje de Educación",
+  "description": "Registro de talleres, eventos, cátedras y actividades pedagógicas del Observatorio",
+  "icon": "fa-photo-film",
+  "banner": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-memorias-eje-de-educacion.png",
+  "anios": [
+    {
+      "anio": "2024",
+      "entradas": [
+        { "titulo": "Taller Virtual: Agencia ITRC y su contribución a la transparencia de la administración fiscal", "fecha": "30 de mayo de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/08/memorias-taller-Agencia-ITRC-y-su-contribucion-a-la-transparencia-.jpg" },
+        { "titulo": "Participación Agencia ITRC en Comité de Ética CIAT", "fecha": "23 de mayo de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/08/memorias-participacion-ITRC-en-comite-de-etica-.jpg" },
+        { "titulo": "Evento Anticorrupción Primavera 2024 — 4ª Edición", "fecha": "14 de mayo de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/08/MEMORIAS-EVENTO-ANTICORRUPCION-PRIMAVERA.jpg" },
+        { "titulo": "Evento Virtual: Apoyo del Sector Aduanero en la lucha contra la corrupción", "fecha": "7 de mayo de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/08/MEMORIAS-EVENTO-CON-GREMIOS-.jpg" },
+        { "titulo": "Sesión No. 10 Cátedra UNAL 2024-1", "fecha": "24 de abril de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/05/SESION-10-CATEDRA.jpg" },
+        { "titulo": "Webinar: Buenas prácticas para prevenir la corrupción", "fecha": "18 de abril de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/05/WEBINAR-BUENAS-PRACTICAS-.jpg" },
+        { "titulo": "Sesión Inaugural Cátedra Séptima Versión 2024", "fecha": "7 de febrero de 2024", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/05/SESION-INAUGURAL.jpg" }
+      ]
+    },
+    {
+      "anio": "2023",
+      "entradas": [
+        { "titulo": "Capacitación: ¿Qué es la falta disciplinaria? Incremento patrimonial no justificado", "fecha": "26 de diciembre de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/12/Capacitacion-gremios-768x543.jpg" },
+        { "titulo": "Sesión Inaugural Sexta Versión Cátedra Colombiana «Ciudadanía, Integridad y Lucha contra la Corrupción»", "fecha": "22 de diciembre de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/12/SESION-UNAUGURAL-CATEDRA--768x414.jpg" },
+        { "titulo": "Taller Regional: Agencia ITRC — Promoviendo la transparencia y la integridad públicas", "fecha": "22 de diciembre de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/12/TALLER-REGIONAL-768x572.jpg" },
+        { "titulo": "Intervención directora ITRC en Sesión 12 Cátedra UNAL: Un Estado Abierto en las Regiones", "fecha": "8 de noviembre de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/08/Intervencion-directora-en-sesion-12-Catedra.jpg" },
+        { "titulo": "Asistencia técnica Costa Rica — Agencia ITRC", "fecha": "22 de junio de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/08/Asistencia-tecnica-Costa-Rica-.jpg" },
+        { "titulo": "Mesa Redonda Aduanera — Intervención de otras autoridades en procesos aduaneros", "fecha": "17 de mayo de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/12/MEMORIA-EVENTO-ICDT.jpg" },
+        { "titulo": "Evento Virtual DENUNCIA EFECTIVA: Herramienta anticorrupción para facilitar la investigación", "fecha": "13 de abril de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/09/CAPACITACION-A-GREMIOS.jpg" },
+        { "titulo": "Intervención Agencia ITRC en Misión Contador Público para PYMES — Sesión 8", "fecha": "9 de marzo de 2023", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/09/CAPACITACION-MISION-CP--768x254.jpg" }
+      ]
+    },
+    {
+      "anio": "2022",
+      "entradas": [
+        { "titulo": "Herramientas anticorrupción en la administración tributaria — Perspectivas internacionales", "fecha": "1 de diciembre de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/09/HERRAMIENTA-ANTICORRUPCION.jpg" },
+        { "titulo": "Taller Regional: Agencia ITRC y Personería Distrital de Bogotá", "fecha": "22 de noviembre de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2023/02/evento-.jpg" },
+        { "titulo": "Intervención Agencia ITRC en Sesión 9 Cátedra UNAL: Construir cultura ética", "fecha": "19 de octubre de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/11/INTERVENCIoN-DIRECTORA-SESIoN-9.jpg" },
+        { "titulo": "Evento: Promoviendo la Integridad y la Transparencia en Niños y Adolescentes", "fecha": "20 de septiembre de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/11/EVENTO-PROMOVIENDO-LA-INTEGRIDAD.png" },
+        { "titulo": "Sesión Inaugural Cuarta Versión Cátedra Colombiana", "fecha": "10 de agosto de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/11/DIRECTORA-AGENCIA-ITRC-SESIoN-INAGURAL.png" },
+        { "titulo": "Participación de Agencia ITRC en Sesión de Consejo Directivo ASCUN", "fecha": "14 de junio de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Segunda Sesión de Colaboración Asistencia Técnica Agencia ITRC — SRI Ecuador", "fecha": "11 de mayo de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/07/Memorias-Segunda-Sesion-de-Colaboracion-Asistencia-Tecnica-Agencia-ITRC-SRI-Ecuador.jpeg" },
+        { "titulo": "Asistencia Técnica Agencia ITRC — SRI Ecuador", "fecha": "6 de abril de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/07/ssd.jpg" },
+        { "titulo": "Cátedra Colombiana Ciudadanía, Integridad y Lucha contra la Corrupción", "fecha": "9 de marzo de 2022", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/07/itrc-evento.png" }
+      ]
+    },
+    {
+      "anio": "2021",
+      "entradas": [
+        { "titulo": "Día Internacional de la Lucha Contra la Corrupción", "fecha": "9 de diciembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "ITRC — Memoria evento virtual", "fecha": "30 de noviembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/01/registro-fotografico-Conferencia.jpg" },
+        { "titulo": "Evento Internacional: 10 años Agencia ITRC", "fecha": "3 de noviembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Evento-Internacional-ITRC-10-anos.png" },
+        { "titulo": "ITRC — Universidad Externado de Colombia", "fecha": "28 de octubre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-Universidad-Externado.png" },
+        { "titulo": "ITRC — Conversatorio Juvenil", "fecha": "20 de octubre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-Conversatorio-Juvenil.png" },
+        { "titulo": "ITRC — Defensoría del Contribuyente", "fecha": "13 de octubre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-–-Defensoria-del-contribuyente.png" },
+        { "titulo": "Segunda versión Cátedra Colombiana Ciudadanía", "fecha": "6 de octubre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "ITRC — ANALDEX", "fecha": "30 de septiembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-ANALDEX.png" },
+        { "titulo": "ITRC — Universidad del Rosario", "fecha": "24 de septiembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-Universidad-del-Rosario-1.png" },
+        { "titulo": "Participación en foro virtual de prevención y mitigación de fraudes", "fecha": "24 de septiembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/09/Agencia-ITRC-participa-en-foro-virtual-de-prevencion-y-mitigacion-de-fraudes.jpg" },
+        { "titulo": "Participación ciudadana y transparencia — Herramientas para la lucha contra la corrupción", "fecha": "9 de septiembre de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/09/Banner-Memorias-evento-9-septiembre.png" },
+        { "titulo": "Conmemoración Día Nacional de la Lucha Contra la Corrupción", "fecha": "18 de agosto de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/08/Conmemoracion-dia-Nacional-de-la-Lucha-Contra-la-Corrupcion.png" },
+        { "titulo": "Asamblea del Centro Interamericano de Administraciones Tributarias", "fecha": "29 de julio de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "ITRC — FITAC Denuncia Efectiva", "fecha": "29 de junio de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-–-FITAC-Denuncia-Efectiva-1.png" },
+        { "titulo": "Mesa Redonda: Moral Tributaria", "fecha": "21 de mayo de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Proyecto de Ley Anticorrupción No. 341", "fecha": "18 de marzo de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Cátedra Colombiana Ciudadanía, Integridad y lucha contra la Corrupción", "fecha": "25 de febrero de 2021", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/09/Catedra-Abierta-a-nivel-Nacional-3.png" }
+      ]
+    },
+    {
+      "anio": "2020",
+      "entradas": [
+        { "titulo": "Lanzamiento herramientas innovadoras para la lucha contra la corrupción", "fecha": "17 de diciembre de 2020", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Evento internacional sobre medidas fiscales en tiempos de COVID", "fecha": "14 de diciembre de 2020", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Observatorio ITRC hace parte de la Red Nacional de Observatorios Anticorrupción (RENOBA)", "fecha": "15 de septiembre de 2020", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Conferencia Cerebro y Corrupción", "fecha": "3 de septiembre de 2020", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Agencia ITRC y Transparencia por Colombia unidos contra el fraude y la corrupción", "fecha": "Septiembre de 2020", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" },
+        { "titulo": "Evento virtual: rol de la Agencia ITRC en la lucha contra la corrupción", "fecha": "13 de agosto de 2020", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png" }
+      ]
+    }
+  ]
+}

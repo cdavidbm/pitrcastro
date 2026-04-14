@@ -19,7 +19,7 @@ const enlacesRelacionados = [
   {
     titulo: 'Observatorio ITRC',
     descripcion: 'Estadísticas y análisis sobre fraude y corrupción',
-    url: 'https://www.itrc.gov.co/observatorio/',
+    url: '/observatorio',
     icon: 'fa-chart-pie'
   },
   {
@@ -74,8 +74,8 @@ const enlacesRelacionados = [
             {sub.observatorio && (
               <div class="subdireccion-header__cta">
                 <span>{sub.observatorio.texto}</span>
-                <a href={sub.observatorio.url} target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">
-                  <i class="fa-solid fa-external-link" aria-hidden="true"></i>
+                <a href={sub.observatorio.url.startsWith('/') ? `${import.meta.env.BASE_URL}${sub.observatorio.url.slice(1)}` : sub.observatorio.url} class="btn btn--outline btn--sm">
+                  <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
                   {sub.observatorio.label}
                 </a>
               </div>

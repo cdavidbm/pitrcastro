@@ -1,0 +1,55 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-educacion/conociendo.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="con-section">
+    <div class="container">
+      <div class="con-list">
+        {pageData.documentos.map((doc) => (
+          <div class="con-card">
+            <div class="con-card__header">
+              <div class="con-card__icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></div>
+              <h3>{doc.titulo}</h3>
+            </div>
+            <p class="con-card__desc">{doc.descripcion}</p>
+            <a href={doc.url} target="_blank" rel="noopener" class="con-card__cta">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar documento
+            </a>
+          </div>
+        ))}
+      </div>
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Educación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .con-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .con-section .container { max-width: 900px; margin: 0 auto; }
+  .con-list { display: flex; flex-direction: column; gap: var(--space-6); }
+  .con-card { padding: var(--space-6); background: var(--theme-surface); border: 1px solid var(--theme-border); border-left: 4px solid var(--itrc-gold); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .con-card:hover { box-shadow: var(--shadow-md); }
+  .con-card__header { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); }
+  .con-card__icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(220,53,69,0.08); color: var(--file-pdf); border-radius: var(--radius-lg); font-size: var(--font-size-xl); }
+  .con-card__header h3 { font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0; }
+  .con-card__desc { font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); margin: 0 0 var(--space-4); }
+  .con-card__cta { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-5); background: var(--file-pdf); color: var(--white); border-radius: var(--radius-full); text-decoration: none; font-weight: 700; font-size: var(--font-size-sm); transition: all var(--transition-base); }
+  .con-card__cta:hover { background: var(--itrc-navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

@@ -1,0 +1,31 @@
+{
+  "title": "Artículos y Publicaciones",
+  "description": "Investigaciones y publicaciones sobre transparencia, denuncia e integridad pública",
+  "icon": "fa-book-open",
+  "articulos": [
+    {
+      "titulo": "Herramientas de Análisis para la lucha anticorrupción",
+      "autor": "Laura Carrizosa",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2019/01/Herramientas_corrupción_Laura_Carrizosa.pdf",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Herramientas-de-Analisis-para-la-lucha-anticorrupcion.png"
+    },
+    {
+      "titulo": "El panorama y la importancia de la transparencia en la lucha contra la corrupción en Colombia",
+      "autor": "Investigación Agencia ITRC",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/12/Artículo-investigación.pdf",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Guia-especializada-para-la-investigacion.png"
+    },
+    {
+      "titulo": "El impacto Social de la Denuncia en Colombia y la influencia de los factores asociados a la misma, en las posibles respuestas conductuales de la ciudadanía",
+      "autor": "Investigación Agencia ITRC",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/03/Investigación-El-impacto-Social-de-la-Denuncia.pdf",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/01/denunciar.png"
+    },
+    {
+      "titulo": "La integridad pública, su evolución constitucional y su aporte a la lucha contra la corrupción en Colombia",
+      "autor": "Investigación Agencia ITRC",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/10/Integridad-Publica-su-evolucion-constitucional-y-su-aporte-a-la-lucha-contra-la-corrupcion-1-1.pdf",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/10/Integridad-publica.png"
+    }
+  ]
+}

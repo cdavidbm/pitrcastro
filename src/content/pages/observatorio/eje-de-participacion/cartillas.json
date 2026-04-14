@@ -1,0 +1,11 @@
+{
+  "title": "Material Educativo y Pedagógico",
+  "description": "Cartillas divulgativas e informativas del Observatorio de Fraude y Corrupción",
+  "icon": "fa-book-open",
+  "cartillas": [
+    { "titulo": "Cartilla al Ciudadano Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Carilla-al-ciudadano.pdf", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Cartilla-al-Ciudadano.png" },
+    { "titulo": "Cartilla al Ciudadano — Traducida a Wayuunaiki", "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/10/Cartilla-al-Ciudadano-ITRC-traducida.pdf", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Cartilla-al-Ciudadano.png" },
+    { "titulo": "Cápsulas Informativas ITRC", "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/11/capsulas-info-itrc-cartilla-1.pdf", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/11/Observatorio_-1.jpg" },
+    { "titulo": "Cartilla Observatorio Anticorrupción — Particularidades", "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2024/12/Cartilla-Observatorio-Anticorrupción-Particularidades.pdf", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Cartilla-Observatorio-Fraude-y-Corrupcion-particularidades.png" }
+  ]
+}

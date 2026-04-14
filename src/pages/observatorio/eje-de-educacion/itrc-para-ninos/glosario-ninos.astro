@@ -1,0 +1,89 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import HeroPage from '../../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../../utils/url';
+import pageData from '../../../../content/pages/observatorio/eje-de-educacion/glosario-ninos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'ITRC para Niños', href: resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="gn-section">
+    <div class="container">
+      <p class="gn-intro">{pageData.intro}</p>
+
+      <div class="gn-count">
+        <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>
+        {pageData.terminos.length} términos
+      </div>
+
+      <div class="gn-search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="text" id="gnSearch" placeholder="Buscar término..." aria-label="Buscar en el glosario" />
+      </div>
+
+      <div class="gn-list">
+        {pageData.terminos.map((t) => (
+          <div class="gn-term" data-term={t.termino.toLowerCase()}>
+            <h3>{t.termino}</h3>
+            <p>{t.definicion}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a ITRC para Niños</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .gn-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .gn-section .container { max-width: 850px; margin: 0 auto; }
+  .gn-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-6); }
+  .gn-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-5); }
+
+  .gn-search { position: relative; margin-bottom: var(--space-6); }
+  .gn-search i { position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); }
+  .gn-search input { width: 100%; padding: var(--space-4) var(--space-5) var(--space-4) var(--space-12); border: 2px solid var(--theme-border); border-radius: var(--radius-full); font-size: var(--font-size-base); font-family: var(--font-family); background: var(--theme-surface); color: var(--theme-text); }
+  .gn-search input:focus { outline: none; border-color: var(--itrc-gold); }
+
+  .gn-list { display: flex; flex-direction: column; gap: var(--space-3); }
+  .gn-term { padding: var(--space-5) var(--space-6); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-left: 3px solid var(--itrc-gold); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; transition: all var(--transition-fast); }
+  .gn-term:hover { background: var(--theme-surface-alt); border-left-color: var(--itrc-navy); }
+  .gn-term h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-2); }
+  .gn-term p { font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); margin: 0; }
+  .gn-term.hidden { display: none; }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
+
+<script>
+  function initGnSearch() {
+    const input = document.getElementById('gnSearch') as HTMLInputElement;
+    const terms = document.querySelectorAll('.gn-term');
+    if (!input) return;
+    let t: ReturnType<typeof setTimeout>;
+    input.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const q = input.value.toLowerCase().trim();
+        terms.forEach(term => {
+          const text = (term.textContent || '').toLowerCase();
+          term.classList.toggle('hidden', q && !text.includes(q));
+        });
+      }, 200);
+    });
+  }
+  initGnSearch();
+  document.addEventListener('astro:after-swap', initGnSearch);
+</script>

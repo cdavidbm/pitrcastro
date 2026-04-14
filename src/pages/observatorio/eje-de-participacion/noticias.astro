@@ -1,0 +1,70 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-participacion/noticias.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Participación', href: resolveUrl('/observatorio/eje-de-participacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="not-section">
+    <div class="container">
+      <div class="not-count"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> {pageData.noticias.length} noticias</div>
+
+      <div class="not-list">
+        {pageData.noticias.map((n) => (
+          <article class="not-card">
+            <div class="not-card__image">
+              <img src={n.imagen} alt={n.titulo} loading="lazy" />
+            </div>
+            <div class="not-card__body">
+              <span class="not-card__date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> {n.fecha}</span>
+              <h3>{n.titulo}</h3>
+              <p>{n.resumen}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-participacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Participación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .not-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .not-section .container { max-width: 1000px; margin: 0 auto; }
+  .not-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-6); }
+
+  .not-list { display: flex; flex-direction: column; gap: var(--space-5); }
+
+  .not-card { display: grid; grid-template-columns: 240px 1fr; gap: var(--space-5); padding: var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+  .not-card:hover { box-shadow: var(--shadow-md); border-color: var(--itrc-gold); transform: translateX(4px); }
+
+  .not-card__image { aspect-ratio: 16/10; overflow: hidden; border-radius: var(--radius-lg); background: var(--theme-surface-alt); }
+  .not-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
+  .not-card:hover .not-card__image img { transform: scale(1.05); }
+
+  .not-card__body { display: flex; flex-direction: column; gap: var(--space-2); }
+  .not-card__date { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-xs); color: var(--itrc-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+  .not-card__body h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0; line-height: 1.4; }
+  .not-card__body p { font-size: var(--font-size-sm); line-height: 1.6; color: var(--theme-text-secondary); margin: 0; }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 700px) {
+    .not-card { grid-template-columns: 1fr; }
+    .not-card__image { aspect-ratio: 16/9; }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-educacion/repositorio-juridico.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: pageData.title }
+];
+
+const tipos = [...new Set(pageData.normas.map(n => n.tipo))].sort();
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="rj-section">
+    <div class="container">
+      <p class="rj-intro">{pageData.intro}</p>
+
+      <div class="rj-controls">
+        <div class="rj-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="rjSearch" placeholder="Buscar norma..." aria-label="Buscar" />
+        </div>
+        <select id="rjFilter" aria-label="Filtrar por tipo">
+          <option value="">Todos los tipos</option>
+          {tipos.map(t => <option value={t}>{t}</option>)}
+        </select>
+      </div>
+
+      <div class="rj-count"><span id="rjCount">{pageData.normas.length} normas</span></div>
+
+      <div class="rj-table-wrapper">
+        <table class="rj-table">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Nombre</th>
+              <th>Palabras Clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pageData.normas.map((n) => (
+              <tr data-tipo={n.tipo} data-search={`${n.nombre} ${n.palabrasClave}`.toLowerCase()}>
+                <td><span class="rj-tipo">{n.tipo}</span></td>
+                <td class="rj-nombre">{n.nombre}</td>
+                <td class="rj-claves">{n.palabrasClave}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Educación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .rj-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .rj-section .container { max-width: 1100px; margin: 0 auto; }
+  .rj-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-6); text-align: center; }
+
+  .rj-controls { display: flex; gap: var(--space-3); margin-bottom: var(--space-4); flex-wrap: wrap; }
+  .rj-search { flex: 1; min-width: 220px; position: relative; }
+  .rj-search i { position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); }
+  .rj-search input { width: 100%; padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); font-size: var(--font-size-sm); font-family: var(--font-family); background: var(--theme-surface); color: var(--theme-text); }
+  .rj-search input:focus { outline: none; border-color: var(--itrc-gold); }
+
+  #rjFilter { padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); font-size: var(--font-size-sm); font-family: var(--font-family); background: var(--theme-surface); color: var(--theme-text); cursor: pointer; }
+
+  .rj-count { padding: var(--space-2) 0 var(--space-4); font-size: var(--font-size-xs); color: var(--theme-text-muted); }
+
+  .rj-table-wrapper { overflow-x: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--theme-border-light); }
+  .rj-table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); min-width: 700px; }
+  .rj-table thead { background: var(--theme-dark-section-bg); }
+  .rj-table th { padding: var(--space-3); text-align: left; font-weight: 700; font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: 0.04em; color: var(--theme-dark-section-heading); border-bottom: 2px solid var(--itrc-gold); white-space: nowrap; }
+  .rj-table td { padding: var(--space-3); border-bottom: 1px solid var(--theme-border-light); color: var(--theme-text); vertical-align: top; font-size: var(--font-size-xs); }
+  .rj-table tbody tr:nth-child(even) { background: var(--theme-surface-alt); }
+  .rj-table tbody tr:hover { background: rgba(var(--itrc-gold-rgb), 0.08); }
+  .rj-table tbody tr.hidden { display: none; }
+
+  .rj-tipo { display: inline-block; padding: 2px 8px; background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold); border-radius: var(--radius-sm); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+  .rj-nombre { font-weight: 600; color: var(--theme-heading); }
+  .rj-claves { color: var(--theme-text-muted); font-size: 0.65rem; }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
+
+<script>
+  function initRjTable() {
+    const search = document.getElementById('rjSearch') as HTMLInputElement;
+    const filter = document.getElementById('rjFilter') as HTMLSelectElement;
+    const count = document.getElementById('rjCount');
+    const rows = document.querySelectorAll('.rj-table tbody tr');
+    if (!search || !filter) return;
+
+    function apply() {
+      const q = search.value.toLowerCase().trim();
+      const t = filter.value;
+      let visible = 0;
+      rows.forEach(r => {
+        const row = r as HTMLTableRowElement;
+        const tipo = row.dataset.tipo || '';
+        const searchText = row.dataset.search || '';
+        const show = (!q || searchText.includes(q)) && (!t || tipo === t);
+        row.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      if (count) count.textContent = `${visible} norma${visible !== 1 ? 's' : ''}`;
+    }
+
+    let tt: ReturnType<typeof setTimeout>;
+    search.addEventListener('input', () => { clearTimeout(tt); tt = setTimeout(apply, 200); });
+    filter.addEventListener('change', apply);
+  }
+  initRjTable();
+  document.addEventListener('astro:after-swap', initRjTable);
+</script>

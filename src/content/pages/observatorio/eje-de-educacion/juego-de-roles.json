@@ -1,0 +1,15 @@
+{
+  "title": "Juego de Roles",
+  "description": "Herramienta pedagógica interactiva del Observatorio Anticorrupción",
+  "icon": "fa-gamepad",
+  "bienvenida": "¡Bienvenido a nuestro Juego de Roles Interactivo!",
+  "descripcion": "Una herramienta pedagógica, con la que La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — Agencia ITRC, a través de su Observatorio Anticorrupción, quiere acercarse más a ti, para brindarte información muy útil, que te permita conocer, ampliar y comprender los temas relativos a la lucha contra el fraude y la corrupción que se realizan desde esta entidad.",
+  "explicacion": "En el Juego de Roles, encontrarás definiciones que te ayudarán a ampliar conocimientos mediante los cuales podrás pensar, analizar y afrontar asumiendo el Rol de Inspector, los casos hipotéticos o situaciones simuladas que te plantearemos, y que deberás resolver. Así, lograrás identificar posibles soluciones y tomar decisiones correctas con las que avanzarás a través de los diferentes niveles de Principiante, Aprendiz, Practicante, hasta convertirte en un Inspector Experto.",
+  "videoTutorial": {
+    "titulo": "Video tutorial de inicio",
+    "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/R_Juego-de-Roles_Diciembre_FINAL.mp4",
+    "poster": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-video-Juego-de-roles.png"
+  },
+  "guionUrl": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/09/GUION-JUEGO-DE-ROLES.pdf",
+  "juegoUrl": "http://juegoderoles.itrc.gov.co/"
+}

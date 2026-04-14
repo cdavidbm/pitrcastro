@@ -11,6 +11,6 @@
   ],
   "cajaHerramientas": [
     { "texto": "Preguntas Frecuentes", "url": "/preguntas-frecuentes", "tipo": "internal", "icon": "fa-circle-question" },
-    { "texto": "Observatorio Anticorrupción de la Agencia ITRC", "url": "https://www.itrc.gov.co/observatorio/", "tipo": "external", "icon": "fa-chart-line" }
+    { "texto": "Observatorio Anticorrupción de la Agencia ITRC", "url": "/observatorio", "tipo": "internal", "icon": "fa-chart-line" }
   ]
 }

@@ -1,0 +1,81 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-participacion/encuesta.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Participación', href: resolveUrl('/observatorio/eje-de-participacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="enc-section">
+    <div class="container">
+      <p class="enc-intro">{pageData.intro}</p>
+
+      <div class="enc-grid">
+        <a href={pageData.participar.url} target="_blank" rel="noopener" class="enc-card enc-card--gold">
+          <div class="enc-card__image">
+            <img src={pageData.participar.imagen} alt={pageData.participar.titulo} loading="lazy" />
+          </div>
+          <div class="enc-card__body">
+            <h3><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> {pageData.participar.titulo}</h3>
+            <p>{pageData.participar.descripcion}</p>
+            <span class="enc-card__cta">Responder encuesta <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+
+        <a href={pageData.resultados.url} target="_blank" rel="noopener" class="enc-card enc-card--navy">
+          <div class="enc-card__image">
+            <img src={pageData.resultados.imagen} alt={pageData.resultados.titulo} loading="lazy" />
+          </div>
+          <div class="enc-card__body">
+            <h3><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> {pageData.resultados.titulo}</h3>
+            <p>{pageData.resultados.descripcion}</p>
+            <span class="enc-card__cta">Ver dashboard <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-participacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Participación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .enc-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .enc-section .container { max-width: 1000px; margin: 0 auto; }
+  .enc-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-10); }
+
+  .enc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--space-6); }
+
+  .enc-card { background: var(--theme-surface); border: 2px solid; border-radius: var(--radius-xl); overflow: hidden; text-decoration: none; transition: all var(--transition-base); display: flex; flex-direction: column; }
+  .enc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .enc-card--gold { border-color: var(--itrc-gold); }
+  .enc-card--gold:hover { background: var(--itrc-gold); }
+  .enc-card--navy { border-color: var(--itrc-navy); }
+  .enc-card--navy:hover { background: var(--itrc-navy); }
+
+  .enc-card__image { aspect-ratio: 16/9; overflow: hidden; background: var(--theme-surface-alt); }
+  .enc-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
+  .enc-card:hover .enc-card__image img { transform: scale(1.05); }
+
+  .enc-card__body { padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+  .enc-card__body h3 { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-lg); font-weight: 800; color: var(--theme-heading); margin: 0; }
+  .enc-card:hover .enc-card__body h3 { color: var(--white); }
+  .enc-card__body p { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin: 0; flex: 1; line-height: 1.6; }
+  .enc-card:hover .enc-card__body p { color: rgba(255,255,255,0.9); }
+  .enc-card__cta { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-heading); }
+  .enc-card:hover .enc-card__cta { color: var(--white); }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

@@ -14,7 +14,7 @@
       "descripcion": "Esta área misional vigila la integridad del proceso de recaudo y administración de los bienes, tributos, rentas y contribuciones parafiscales que realizan la DIAN, la UGPP y COLJUEGOS, mediante programas anuales de auditoría, auditorías independientes de desempeño, y estrategias para la detección del fraude y corrupción.",
       "observatorio": {
         "texto": "Conozca más sobre la gestión misional de la Agencia ITRC en relación con la prevención y el aseguramiento al fraude y la corrupción:",
-        "url": "https://www.itrc.gov.co/observatorio/",
+        "url": "/observatorio",
         "label": "Ir al Observatorio ITRC"
       },
       "categorias": [

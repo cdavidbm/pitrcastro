@@ -1,0 +1,37 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import HeroPage from '../../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../../utils/url';
+import pageData from '../../../../content/pages/observatorio/eje-de-educacion/cartilla-infantil.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'ITRC para Niños', href: resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="cart-section">
+    <div class="container">
+      <div class="cart-embed">
+        <iframe src={pageData.embedUrl} title={pageData.title} allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a ITRC para Niños</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cart-section { padding: var(--space-8) var(--space-4) var(--space-12); background: var(--theme-surface); }
+  .cart-section .container { max-width: 1100px; margin: 0 auto; }
+  .cart-embed { position: relative; width: 100%; padding-bottom: 65%; background: #000; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); }
+  .cart-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

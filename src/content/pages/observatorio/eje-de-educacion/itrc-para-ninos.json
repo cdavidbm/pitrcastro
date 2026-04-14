@@ -1,0 +1,13 @@
+{
+  "title": "ITRC Para Niños, Niñas y Adolescentes",
+  "description": "Material educativo adaptado para el público infantil y juvenil sobre la Agencia ITRC y la lucha contra la corrupción",
+  "icon": "fa-children",
+  "intro": "Descubre de forma divertida y didáctica qué es la Agencia ITRC, cómo funciona y por qué es importante para cuidar los recursos del país. Contenido pensado especialmente para niños, niñas y adolescentes.",
+  "secciones": [
+    { "titulo": "¿Qué es la ITRC?", "descripcion": "Video explicativo sobre la Agencia ITRC", "icon": "fa-video", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/video-ninos", "color": "#dc3545" },
+    { "titulo": "Cartilla Infantil", "descripcion": "Material pedagógico interactivo", "icon": "fa-book", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cartilla-infantil", "color": "#fd7e14" },
+    { "titulo": "Glosario para Niños", "descripcion": "Términos explicados de forma sencilla", "icon": "fa-book-open-reader", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/glosario-ninos", "color": "#198754" },
+    { "titulo": "Cuento", "descripcion": "Descarga el cuento de la Agencia ITRC", "icon": "fa-book-journal-whills", "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/Cuento-ITRC-para-ninos.pdf", "color": "#6f42c1", "externo": true },
+    { "titulo": "Libro Infantil", "descripcion": "Libro interactivo sobre la ITRC", "icon": "fa-book-bookmark", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/libro-infantil", "color": "#0943b5" }
+  ]
+}

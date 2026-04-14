@@ -1,0 +1,79 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HeroPage from '../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../utils/url';
+import pageData from '../../../content/pages/observatorio/eje-de-educacion/juego-de-roles.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="jdr-section">
+    <div class="container">
+      <h2 class="jdr-bienvenida">{pageData.bienvenida}</h2>
+      <p class="jdr-desc">{pageData.descripcion}</p>
+      <p class="jdr-desc">{pageData.explicacion}</p>
+
+      <div class="jdr-video">
+        <h3 class="jdr-video__title">{pageData.videoTutorial.titulo}</h3>
+        <div class="jdr-video__player">
+          <video controls preload="metadata" poster={pageData.videoTutorial.poster}>
+            <source src={pageData.videoTutorial.url} type="video/mp4" />
+            Su navegador no soporta la reproducción de video.
+          </video>
+        </div>
+      </div>
+
+      <div class="jdr-ctas">
+        <a href={pageData.guionUrl} target="_blank" rel="noopener" class="jdr-cta jdr-cta--secondary">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          Ver guion del video
+        </a>
+        <a href={pageData.juegoUrl} target="_blank" rel="noopener" class="jdr-cta jdr-cta--primary">
+          <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+          Ingresar al juego de roles
+        </a>
+      </div>
+
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Educación</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .jdr-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .jdr-section .container { max-width: 900px; margin: 0 auto; }
+  .jdr-bienvenida { font-size: var(--font-size-2xl); color: var(--itrc-gold); text-align: center; margin: 0 0 var(--space-6); }
+  .jdr-desc { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-4); text-align: center; }
+
+  .jdr-video { margin: var(--space-10) 0; }
+  .jdr-video__title { font-size: var(--font-size-xl); color: var(--itrc-navy); text-align: center; margin: 0 0 var(--space-5); }
+  .jdr-video__player { background: #000; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .jdr-video__player video { width: 100%; height: auto; display: block; }
+
+  .jdr-ctas { display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap; }
+  .jdr-cta { display: inline-flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-8); border-radius: var(--radius-full); font-weight: 700; font-size: var(--font-size-base); text-decoration: none; transition: all var(--transition-base); }
+  .jdr-cta--primary { background: var(--itrc-gold); color: var(--white); border: 2px solid var(--itrc-gold); }
+  .jdr-cta--primary:hover { background: var(--itrc-navy); border-color: var(--itrc-navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .jdr-cta--secondary { background: var(--theme-surface); color: var(--file-pdf); border: 2px solid var(--file-pdf); }
+  .jdr-cta--secondary:hover { background: var(--file-pdf); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .jdr-bienvenida { font-size: var(--font-size-xl); }
+    .jdr-desc { font-size: var(--font-size-sm); }
+    .jdr-ctas { flex-direction: column; }
+    .jdr-cta { justify-content: center; }
+  }
+</style>

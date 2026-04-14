@@ -1,0 +1,12 @@
+{
+  "title": "Videos Tutoriales",
+  "description": "Videos explicativos sobre el Observatorio de Fraude y Corrupción",
+  "icon": "fa-video",
+  "videos": [
+    {
+      "titulo": "¿Qué es el Observatorio Anticorrupción?",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Render-Video-Obs-Diciembre.mp4",
+      "poster": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-video-general-ITRC.png"
+    }
+  ]
+}

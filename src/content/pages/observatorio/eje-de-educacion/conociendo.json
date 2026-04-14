@@ -1,0 +1,17 @@
+{
+  "title": "Conociendo más de ITRC",
+  "description": "Modelos institucionales de la Agencia ITRC",
+  "icon": "fa-circle-info",
+  "documentos": [
+    {
+      "titulo": "Modelo de identificación del fraude y la corrupción — Vigente",
+      "descripcion": "Modelo que permite establecer reglas y perfiles del fraude y la corrupción a partir de la identificación, clasificación, automatización de información y análisis de controles, para detectar anomalías, gestionar y almacenar alertas e identificar espacios de fraude y corrupción, con el fin de determinar niveles de exposición de las entidades al fraude y la corrupción y recomendar acciones que mitiguen los escenarios identificados.",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2025/01/Guia_Identificacion_de_riesgos_de_fraude_y_corrupcion.pdf"
+    },
+    {
+      "titulo": "Modelo de investigación disciplinaria",
+      "descripcion": "Modelo de investigación implementado en la Agencia ITRC, con el fin de investigar y sancionar disciplinariamente a servidores DIAN, Coljuegos y UGPP, en aquellos casos taxativamente señalados por la norma (faltas gravísimas) y que involucran posibles fenómenos de corrupción, asociados a actividades tributarias, de rentas y parafiscal. El Modelo se erige bajo una estructura organizacional propia y la adopción de una dinámica de investigación que garantiza una respuesta oportuna y especializada. Este paradigma único en el sector público combina un conjunto sistemático e integral de saberes, acciones y actividades interdisciplinarias de carácter jurídico, investigativo, técnico y operativo.",
+      "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2020/10/MODELO-DE-INVESTIGACIÓN-DISCIPLINARIA.pdf"
+    }
+  ]
+}
