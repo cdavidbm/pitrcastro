@@ -30,3 +30,6 @@ npm-debug.log*
 
 # Sveltia CMS (regenerar con: npm run build:cms)
 public/admin/sveltia-cms.js
+
+# Salidas del monitoreo de WordPress origen (scripts/check-itrc-changes.py)
+reports/

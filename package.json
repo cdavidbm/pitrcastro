@@ -5,6 +5,7 @@
   "description": "Sitio institucional de la Agencia ITRC - Astro + Sveltia CMS",
   "scripts": {
     "cms:generate": "node cms/generate.js",
+    "cms:validate": "node cms/generate.js && node cms/validate.js",
     "dev": "node cms/generate.js && astro dev",
     "start": "node cms/generate.js && astro dev",
     "build": "node cms/generate.js && astro build",
