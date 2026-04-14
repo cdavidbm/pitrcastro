@@ -33,11 +33,11 @@ slug:
   clean_accents: true
   sanitize_replacement: "-"
 collections:
-  
   # ==========================================
   # LA AGENCIA
   # # Paginas institucionales de la Agencia ITRC
   # ==========================================
+  
   - name: agencia
     label: LA AGENCIA
     label_singular: Página Agencia
@@ -339,7 +339,7 @@ collections:
               - name: id
                 label: ID
                 widget: string
-                pattern:
+                pattern: &shared_2
                   - ^[a-z0-9-]+$
                   - Solo minúsculas y guiones
               - name: titulo
@@ -579,7 +579,7 @@ collections:
             label: URL (slug)
             widget: string
             required: true
-            pattern:
+            pattern: &shared_3
               - ^[a-z0-9-]+$
               - Solo minúsculas, números y guiones
           - name: description
@@ -603,9 +603,7 @@ collections:
               - name: id
                 label: ID (para anclas)
                 widget: string
-                pattern:
-                  - ^[a-z0-9-]+$
-                  - Solo minúsculas y guiones
+                pattern: *shared_2
               - name: titulo
                 label: Título completo
                 widget: string
@@ -630,12 +628,7 @@ collections:
               - name: descripcion
                 label: Descripción
                 widget: text
-              
-  # ==========================================
-  # OBSERVATORIO
-  # # Observatorio de Fraude y Corrupcion
-  # ==========================================
-  - name: observatorio
+              - name: observatorio
                 label: Enlace a Observatorio (opcional)
                 widget: object
                 required: false
@@ -687,9 +680,7 @@ collections:
             label: URL (slug)
             widget: string
             required: true
-            pattern:
-              - ^[a-z0-9-]+$
-              - Solo minúsculas, números y guiones
+            pattern: *shared_3
           - name: subtitle
             label: Subtítulo
             widget: string
@@ -707,9 +698,7 @@ collections:
               - name: id
                 label: ID (sin espacios)
                 widget: string
-                pattern:
-                  - ^[a-z0-9-]+$
-                  - Solo minúsculas, números y guiones
+                pattern: *shared_3
               - name: label
                 label: Nombre de la categoría
                 widget: string
@@ -1019,11 +1008,11 @@ collections:
                 label: Icono FontAwesome
                 widget: string
                 required: false
-  
   # ==========================================
   # TRANSPARENCIA
   # # Indice de informacion clasificada y reservada
   # ==========================================
+  
   - name: transparencia
     label: TRANSPARENCIA
     files:
@@ -1226,11 +1215,11 @@ collections:
                 label: URL del PDF de hoja de vida
                 widget: string
                 required: true
-  
   # ==========================================
   # NORMATIVA
   # # Marco legal y normativo de la entidad
   # ==========================================
+  
   - name: normativa-paginas
     label: NORMATIVA
     files:
@@ -1538,9 +1527,7 @@ collections:
         label: URL (slug)
         widget: string
         required: true
-        pattern:
-          - ^[a-z0-9-]+$
-          - Solo minúsculas, números y guiones
+        pattern: *shared_3
       - name: description
         label: Descripción
         widget: markdown
@@ -1593,11 +1580,11 @@ collections:
                 label: Es enlace externo
                 widget: boolean
                 default: false
-  
   # ==========================================
   # ATENCION Y SERVICIOS
   # # Canales de atencion y servicios al ciudadano
   # ==========================================
+  
   - name: notificaciones-traslados
     label: ATENCIÓN Y SERVICIOS
     files:
@@ -1611,7 +1598,7 @@ collections:
             label_singular: Edicto
             collapsed: true
             summary: "{{fields.expediente}} — {{fields.tipoAuto}} ({{fields.vigencia}})"
-            fields: &shared_2
+            fields: &shared_4
               - name: expediente
                 label: Número del expediente
                 widget: string
@@ -1663,7 +1650,7 @@ collections:
             label_singular: Estado
             collapsed: true
             summary: "{{fields.expediente}} — {{fields.tipoAuto}} ({{fields.vigencia}})"
-            fields: *shared_2
+            fields: *shared_4
       - name: traslados
         label: Traslados
         file: src/content/notificaciones/traslados.json
@@ -1674,7 +1661,7 @@ collections:
             label_singular: Traslado
             collapsed: true
             summary: "{{fields.expediente}} — {{fields.tipoAuto}} ({{fields.vigencia}})"
-            fields: *shared_2
+            fields: *shared_4
       - name: notificaciones-aviso
         label: Notificaciones por Aviso
         file: src/content/pages/atencion/notificaciones-por-aviso.json
@@ -2007,9 +1994,7 @@ collections:
         label: URL (slug)
         widget: string
         required: true
-        pattern:
-          - ^[a-z0-9-]+$
-          - Solo minúsculas, números y guiones
+        pattern: *shared_3
       - name: description
         label: Descripción
         widget: markdown
@@ -2077,11 +2062,11 @@ collections:
           - name: respuesta
             label: Respuesta
             widget: markdown
-  
   # ==========================================
   # PARTICIPA
   # # Mecanismos de participacion ciudadana
   # ==========================================
+  
   - name: participa
     label: PARTICIPA
     files:
@@ -2158,7 +2143,7 @@ collections:
             label_singular: Enlace
             collapsed: true
             summary: "{{fields.texto}}"
-            fields: &shared_3
+            fields: &shared_5
               - name: texto
                 label: Texto del enlace
                 widget: string
@@ -2189,7 +2174,7 @@ collections:
             collapsed: true
             required: false
             summary: "{{fields.texto}}"
-            fields: *shared_3
+            fields: *shared_5
       - name: planeacion
         label: Planeación y Presupuesto Participativo
         file: src/content/pages/participa/planeacion.json
@@ -2220,7 +2205,7 @@ collections:
             label_singular: Enlace
             collapsed: true
             summary: "{{fields.texto}}"
-            fields: *shared_3
+            fields: *shared_5
       - name: consulta-ciudadana
         label: Consulta Ciudadana
         file: src/content/pages/participa/consulta-ciudadana.json
@@ -2262,7 +2247,7 @@ collections:
             label_singular: Enlace
             collapsed: true
             summary: "{{fields.texto}}"
-            fields: *shared_3
+            fields: *shared_5
       - name: colaboracion
         label: Colaboración e Innovación
         file: src/content/pages/participa/colaboracion.json
@@ -2405,12 +2390,12 @@ collections:
             label_singular: Enlace
             collapsed: true
             summary: "{{fields.texto}}"
-            fields: *shared_3
-  
+            fields: *shared_5
   # ==========================================
   # PRENSA
   # # Noticias, eventos y comunicaciones
   # ==========================================
+  
   - name: prensa
     label: PRENSA
     files:
@@ -2602,6 +2587,10 @@ collections:
             label: Descripción SEO
             widget: text
             required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            required: false
           - name: albums
             label: Álbumes
             widget: list
@@ -2617,6 +2606,21 @@ collections:
                 label: URL imagen de portada
                 widget: string
                 required: true
+              - name: slug
+                label: Slug del álbum interno
+                widget: string
+                required: false
+                hint: Debe coincidir con un archivo en src/content/pages/galeria/. Vacío si el álbum está pendiente.
+                pattern: *shared_3
+              - name: disabled
+                label: Pendiente (no clickeable)
+                widget: boolean
+                default: false
+                required: false
+              - name: nota
+                label: Nota visible cuando está pendiente
+                widget: string
+                required: false
       - name: capsulas-pagina
         label: Página Cápsulas Informativas
         file: src/content/pages/prensa/capsulas.json
@@ -2764,7 +2768,7 @@ collections:
         label: Contenido
         widget: markdown
         required: true
-      - &shared_4
+      - &shared_6
         name: archivo
         label: Archivo PDF (opcional)
         widget: file
@@ -2805,7 +2809,7 @@ collections:
         label: Contenido
         widget: markdown
         required: true
-      - *shared_4
+      - *shared_6
       - name: draft
         label: Borrador
         widget: boolean
@@ -2852,52 +2856,70 @@ collections:
         label: Publicado
         widget: boolean
         default: true
-  - name: galeria
-    label: "    > Galeria"
-    label_singular: Album
-    folder: src/content/galeria
+  - name: galeria-albumes
+    label: "    > Galería — Álbumes"
+    label_singular: Álbum
+    folder: src/content/pages/galeria
     create: true
     slug: "{{slug}}"
     format: json
+    sortable_fields:
+      - fecha
+      - titulo
     fields:
-      - name: title
-        label: Titulo del album
+      - name: titulo
+        label: Título del álbum
         widget: string
         required: true
-      - name: date
+      - name: slug
+        label: Slug (URL)
+        widget: string
+        required: true
+        pattern: *shared_3
+      - name: fecha
         label: Fecha
         widget: datetime
         format: YYYY-MM-DD
-        required: true
-      - name: description
+        required: false
+      - name: descripcion
         label: Descripción
         widget: text
         required: false
-      - name: coverImage
+      - name: portada
         label: Imagen de portada
-        widget: image
-        required: true
-      - name: images
-        label: Imagenes
-        widget: list
-        label_singular: Imagen
+        widget: object
         fields:
-          - name: image
-            label: Imagen
-            widget: image
-            required: true
-          - name: caption
-            label: Descripción
+          - name: url
+            label: URL de la imagen
             widget: string
-            required: false
+            required: true
           - name: alt
             label: Texto alternativo
             widget: string
             required: true
-      - name: published
-        label: Publicado
-        widget: boolean
-        default: true
+      - name: imagenes
+        label: Imágenes
+        widget: list
+        label_singular: Imagen
+        collapsed: true
+        summary: "{{fields.alt}}"
+        fields:
+          - name: url
+            label: URL de la imagen
+            widget: string
+            required: true
+          - name: alt
+            label: Texto alternativo
+            widget: string
+            required: true
+          - name: caption
+            label: Pie de foto (opcional)
+            widget: string
+            required: false
+      - name: originalUrl
+        label: URL WordPress original (referencia)
+        widget: string
+        required: false
   - name: capsulas
     label: "    > Capsulas Informativas"
     label_singular: Capsula
@@ -2938,6 +2960,11 @@ collections:
         label: Publicado
         widget: boolean
         default: true
+  # ==========================================
+  # OBSERVATORIO
+  # # Observatorio de Fraude y Corrupcion
+  # ==========================================
+  
   - name: observatorio
     label: OBSERVATORIO
     files:
@@ -2945,17 +2972,17 @@ collections:
         label: Landing Observatorio
         file: src/content/pages/observatorio/observatorio.json
         fields:
-          - &shared_5
+          - &shared_7
             name: title
             label: Título
             widget: string
             required: true
-          - &shared_6
+          - &shared_8
             name: description
             label: Descripción SEO
             widget: text
             required: false
-          - &shared_7
+          - &shared_9
             name: icon
             label: Icono FontAwesome
             widget: string
@@ -2989,9 +3016,9 @@ collections:
         label: Del Observatorio
         file: src/content/pages/observatorio/del-observatorio.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: tabs
             label: Pestañas (3)
             widget: list
@@ -3008,9 +3035,9 @@ collections:
         label: Eje de Medición
         file: src/content/pages/observatorio/eje-de-medicion.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3036,9 +3063,9 @@ collections:
         label: Eje de Educación — Landing
         file: src/content/pages/observatorio/eje-de-educacion.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3067,9 +3094,9 @@ collections:
         label: Artículos y Publicaciones
         file: src/content/pages/observatorio/eje-de-educacion/articulos.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: articulos
             label: Artículos
             widget: list
@@ -3092,9 +3119,9 @@ collections:
         label: Conociendo más de ITRC
         file: src/content/pages/observatorio/eje-de-educacion/conociendo.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: documentos
             label: Documentos
             widget: list
@@ -3114,9 +3141,9 @@ collections:
         label: Juego de Roles
         file: src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: bienvenida
             label: Bienvenida
             widget: string
@@ -3149,9 +3176,9 @@ collections:
         label: ITRC para Niños — Landing
         file: src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3185,9 +3212,9 @@ collections:
         label: Video Niños
         file: src/content/pages/observatorio/eje-de-educacion/video-ninos.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: videoUrl
             label: URL del video MP4
             widget: string
@@ -3198,9 +3225,9 @@ collections:
         label: Glosario para Niños
         file: src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3220,9 +3247,9 @@ collections:
         label: Libro Infantil (Flipsnack)
         file: src/content/pages/observatorio/eje-de-educacion/libro-infantil.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: embedUrl
             label: URL del embed Flipsnack
             widget: string
@@ -3230,9 +3257,9 @@ collections:
         label: Cartilla Infantil (Flipsnack)
         file: src/content/pages/observatorio/eje-de-educacion/cartilla-infantil.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: embedUrl
             label: URL del embed Flipsnack
             widget: string
@@ -3240,9 +3267,9 @@ collections:
         label: Repositorio Jurídico
         file: src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3268,9 +3295,9 @@ collections:
         label: Memorias Eje Educación
         file: src/content/pages/observatorio/eje-de-educacion/memorias.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: banner
             label: URL del banner
             widget: string
@@ -3303,9 +3330,9 @@ collections:
         label: Eje de Participación — Landing
         file: src/content/pages/observatorio/eje-de-participacion.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3334,9 +3361,9 @@ collections:
         label: Cartillas Divulgativas
         file: src/content/pages/observatorio/eje-de-participacion/cartillas.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: cartillas
             label: Cartillas
             widget: list
@@ -3356,9 +3383,9 @@ collections:
         label: Videos Tutoriales
         file: src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: videos
             label: Videos
             widget: list
@@ -3378,9 +3405,9 @@ collections:
         label: Encuesta Ciudadana
         file: src/content/pages/observatorio/eje-de-participacion/encuesta.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -3420,9 +3447,9 @@ collections:
         label: Noticias del Observatorio
         file: src/content/pages/observatorio/eje-de-participacion/noticias.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: banner
             label: URL del banner
             widget: string
@@ -3449,9 +3476,9 @@ collections:
         label: Memorias Eje Participación
         file: src/content/pages/observatorio/eje-de-participacion/memorias.json
         fields:
-          - *shared_5
-          - *shared_6
           - *shared_7
+          - *shared_8
+          - *shared_9
           - name: banner
             label: URL del banner
             widget: string
@@ -3480,10 +3507,10 @@ collections:
                   - name: imagen
                     label: URL de imagen
                     widget: string
-  
   # ==========================================
   # SLIDERS / CARRUSELES
   # ==========================================
+  
   - name: sliders
     label: SLIDERS
     label_singular: Slider
@@ -3568,10 +3595,10 @@ collections:
             label: Orden
             widget: number
             default: 0
-  
   # ==========================================
   # CONFIGURACION GLOBAL
   # ==========================================
+  
   - name: settings
     label: CONFIGURACIÓN
     files:
