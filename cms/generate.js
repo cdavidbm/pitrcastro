@@ -142,9 +142,13 @@ function injectSectionComments(yamlStr) {
     const firstCollection = group.collections[0];
     const collectionName = firstCollection.name;
 
-    // Find the line `- name: "<collectionName>"` at the top level of collections
-    const marker = `- name: ${collectionName}\n`;
-    const markerQuoted = `- name: "${collectionName}"\n`;
+    // Las colecciones top-level llevan exactamente 2 espacios de indentación
+    // (viven bajo la clave `collections:`). Los campos internos que casualmente
+    // se llaman igual (p. ej. un `observatorio` dentro de gestion-misional)
+    // están más indentados, así que anclamos el marcador al inicio de línea
+    // con esos 2 espacios para no confundirlos.
+    const marker = `\n  - name: ${collectionName}\n`;
+    const markerQuoted = `\n  - name: "${collectionName}"\n`;
 
     const targetMarker = result.includes(markerQuoted) ? markerQuoted : marker;
     const idx = result.indexOf(targetMarker);

@@ -1,5 +1,7 @@
 import {
   DISPLAY_MODE,
+  SLUG_PATTERN,
+  ID_PATTERN,
   pageHeader,
   documentSections,
   docFieldsFull,
@@ -268,7 +270,7 @@ function direccionamientoEstrategico() {
         widget: "list",
         label_singular: "Sección",
         fields: [
-          { name: "id", label: "ID", widget: "string", pattern: ["^[a-z0-9-]+$", "Solo minúsculas y guiones"] },
+          { name: "id", label: "ID", widget: "string", pattern: ID_PATTERN },
           { name: "titulo", label: "Título", widget: "string" },
           { name: "descripcion", label: "Descripción", widget: "text" },
           { name: "icon", label: "Icono FontAwesome", widget: "string" },
@@ -316,7 +318,7 @@ function gestionMisional() {
     file: "src/content/pages/agencia/gestion-misional.json",
     fields: [
       { name: "title", label: "Título de la página", widget: "string", required: true },
-      { name: "slug", label: "URL (slug)", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"] },
+      { name: "slug", label: "URL (slug)", widget: "string", required: true, pattern: SLUG_PATTERN },
       { name: "description", label: "Descripción", widget: "text", required: false },
       { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-briefcase" },
       { name: "published", label: "Publicado", widget: "boolean", default: true },
@@ -327,7 +329,7 @@ function gestionMisional() {
         label_singular: "Subdirección",
         collapsed: true,
         fields: [
-          { name: "id", label: "ID (para anclas)", widget: "string", pattern: ["^[a-z0-9-]+$", "Solo minúsculas y guiones"] },
+          { name: "id", label: "ID (para anclas)", widget: "string", pattern: ID_PATTERN },
           { name: "titulo", label: "Título completo", widget: "string" },
           { name: "sigla", label: "Sigla", widget: "string", hint: "Ej: SAGR, SID, SAL" },
           { name: "icon", label: "Icono FontAwesome", widget: "string" },
@@ -394,7 +396,7 @@ function informacionFinanciera() {
     file: "src/content/pages/agencia/informacion-financiera.json",
     fields: [
       { name: "title", label: "Título de la página", widget: "string", required: true },
-      { name: "slug", label: "URL (slug)", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"] },
+      { name: "slug", label: "URL (slug)", widget: "string", required: true, pattern: SLUG_PATTERN },
       { name: "subtitle", label: "Subtítulo", widget: "string", required: false },
       { name: "published", label: "Publicado", widget: "boolean", default: true },
       {
@@ -404,7 +406,7 @@ function informacionFinanciera() {
         label_singular: "Categoría",
         collapsed: true,
         fields: [
-          { name: "id", label: "ID (sin espacios)", widget: "string", pattern: ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"] },
+          { name: "id", label: "ID (sin espacios)", widget: "string", pattern: SLUG_PATTERN },
           { name: "label", label: "Nombre de la categoría", widget: "string" },
           {
             name: "items",
@@ -467,30 +469,6 @@ function sistemaIntegradoGestion() {
 // ============================================================
 // Sistema de Control Interno
 // ============================================================
-
-function controlEntityFields(includeExtras = true) {
-  const fields = [
-    { name: "nombre", label: "Nombre", widget: "string" },
-    { name: "direccion", label: "Dirección", widget: "string" },
-    { name: "telefono", label: "Teléfono", widget: "string" },
-    { name: "lineaNacional", label: "Línea nacional", widget: "string", required: false },
-    { name: "email", label: "Correo electrónico", widget: "string", required: false },
-  ];
-
-  if (includeExtras) {
-    fields.push(
-      { name: "web", label: "Sitio web", widget: "string" },
-      { name: "control", label: "Tipo de control", widget: "string" },
-      { name: "icon", label: "Icono FontAwesome", widget: "string" },
-    );
-  } else {
-    fields.push(
-      { name: "web", label: "Sitio web", widget: "string", required: false },
-    );
-  }
-
-  return fields;
-}
 
 function sistemaControlInterno() {
   return {

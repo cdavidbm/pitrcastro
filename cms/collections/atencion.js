@@ -1,4 +1,4 @@
-import { docFieldsUrlSimple } from "../templates/fields.js";
+import { docFieldsUrlSimple, SLUG_PATTERN } from "../templates/fields.js";
 
 const DISPLAY_MODE_SIMPLE = {
   name: "displayMode",
@@ -293,7 +293,7 @@ const atencionGeneral = {
   description: "Páginas de atención al ciudadano y servicios",
   fields: [
     { name: "title", label: "Título de la página", widget: "string", required: true },
-    { name: "slug", label: "URL (slug)", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"] },
+    { name: "slug", label: "URL (slug)", widget: "string", required: true, pattern: SLUG_PATTERN },
     { name: "description", label: "Descripción", widget: "markdown", required: false },
     { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-headset" },
     { name: "published", label: "Publicado", widget: "boolean", default: true },

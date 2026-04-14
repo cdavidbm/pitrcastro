@@ -12,6 +12,19 @@
  * collections that use document sections with accordion/tabs/list.
  * js-yaml detects the shared reference and emits a YAML anchor.
  */
+/**
+ * Regex + mensaje de error para campos slug (URL).
+ * Admite minúsculas, dígitos y guiones.
+ */
+export const SLUG_PATTERN = ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"];
+
+/**
+ * Regex + mensaje de error para IDs internos (anclas, secciones).
+ * Misma regex que SLUG_PATTERN pero con mensaje corto porque estos campos
+ * tienden a ser más visibles en listas anidadas del CMS.
+ */
+export const ID_PATTERN = ["^[a-z0-9-]+$", "Solo minúsculas y guiones"];
+
 export const DISPLAY_MODE = {
   name: "displayMode",
   label: "Modo de visualización",
@@ -173,7 +186,7 @@ export function pageHeader(opts = {}) {
 
   const slugField = { name: "slug", label: "URL (slug)", widget: "string", required: true };
   if (slugPattern) {
-    slugField.pattern = ["^[a-z0-9-]+$", "Solo minúsculas, números y guiones"];
+    slugField.pattern = SLUG_PATTERN;
   }
   fields.push(slugField);
 
