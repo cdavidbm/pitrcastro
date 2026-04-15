@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import ListadoInformes from '../components/ListadoInformes.astro';
+import pageData from '../content/pages/transparencia/informes/evaluacion-independiente-sci.json';
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <ListadoInformes pageData={pageData} />
+</Base>

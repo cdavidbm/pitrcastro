@@ -380,6 +380,37 @@ export const transparencia = {
         },
       ],
     },
+    ...(function listadoInformes() {
+      const make = (name, label, path, iconDefault) => ({
+        name,
+        label,
+        file: `src/content/pages/transparencia/informes/${path}`,
+        fields: [
+          { name: "title", label: "Título", widget: "string", required: true },
+          { name: "description", label: "Descripción SEO", widget: "text", required: false },
+          { name: "icon", label: "Icono FontAwesome", widget: "string", default: iconDefault },
+          { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+          {
+            name: "informes",
+            label: "Informes (listado cronológico)",
+            widget: "list",
+            label_singular: "Informe",
+            collapsed: true,
+            summary: "{{fields.titulo}}",
+            fields: [
+              { name: "titulo", label: "Título del informe", widget: "string", required: true, hint: "Incluir periodo (ej. 'Semestre I 2025', 'Vigencia 2023')" },
+              { name: "url", label: "URL del archivo (PDF/XLSX)", widget: "string", required: true },
+            ],
+          },
+        ],
+      });
+      return [
+        make("informe-pormenorizado-ci", "Informe Pormenorizado del SCI", "informe-pormenorizado.json", "fa-file-lines"),
+        make("evaluacion-independiente-sci", "Evaluación Independiente del SCI", "evaluacion-independiente-sci.json", "fa-magnifying-glass-chart"),
+        make("seguimiento-plan-anticorrupcion", "Seguimiento al PAAC / PTEP / Mapa de Riesgos", "seguimiento-plan-anticorrupcion.json", "fa-shield-halved"),
+        make("informes-software-legal", "Informes de Software Legal", "informes-software-legal.json", "fa-laptop-code"),
+      ];
+    })(),
     {
       name: "informes-legales",
       label: "Informes Legales (Control Interno)",

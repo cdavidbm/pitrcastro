@@ -1,0 +1,84 @@
+{
+  "title": "Informe Pormenorizado del Sistema de Control Interno",
+  "description": "Informes pormenorizados del Sistema de Control Interno de la Agencia ITRC, publicados de acuerdo con la Ley 1474 de 2011 (Artículo 9).",
+  "icon": "fa-file-lines",
+  "intro": "Publicación de los Informes Pormenorizados del Estado del Control Interno conforme al artículo 9 de la Ley 1474 de 2011 (Estatuto Anticorrupción).",
+  "informes": [
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Ley 1474 de 2011, Periodo noviembre–diciembre 2019",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/01/Inf-Pormenorizado-CI-nov-dic2019.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Sistema de Control Interno Ley 1474 de 2011, Período julio-Octubre 2019",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/11/InfPormenorizado-CI-jul-oct2019.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Sistema de Control Interno Ley 1474 de 2011, Período marzo 2019 – julio 2019",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/07/Informe-Pormenorizado-SCI-Marzo-2019-a-Julio-2019.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Sistema de Control Interno Ley 1474 de 2011, Período noviembre 2018 – marzo 2019",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/03/Informe-Pormenorizado-SCI-Noviembre-2018-a-Marzo-2019.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Ley 1474 de 2011, Período julio-noviembre 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/12/Informe-Pormenorizado-SCI-julio-noviembre-2018.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Ley 1474 de 2011, Período marzo - julio 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/2018-07-12-Informe-Pormenorizado-de-Control-Interno-Marzo-11-2018-a-Julio-11-2018-ITRC-Rev-GSBP.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Ley 1474 de 2011, Período noviembre 2017 - marzo 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/Informe-Pormenorizado-del-Estado-del-Control-Interno-Ley-1474-de-2011-Período-Noviembre-2017-a-Marzo-2018-Rev-GSBP-Final.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno - Ley 1474 de 2011 Período Julio a Noviembre de 2017.",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Informe-Pormenorizado-del-Estado-del-Control-Interno-Ley-1474-de-2011-Perodo-Julio-2017-a-Noviembre-2017-Final.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno - Ley 1474 de 2011 Período Marzo a Julio de 2017.",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Informe-Pormenorizado-del-Estado-del-Control-Interno-Ley-1474-de-2011-Perodo-Marzo-2017-a-Julio-2017-Final.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno - Ley 1474 de 2011 Período Noviembre 2016 a Marzo 2017.",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ipeci-marzo-2017.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno - Ley 1474 de 2011 Período Julio a Noviembre 2016.",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ipeci-julio-noviembre2016.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno marzo-julio 2016",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ipmcimj-2016.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Ley 1474 de 2011 Período Noviembre 2015 a Marzo 2016",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ipeci-nov2015-mar2016.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Julio-Noviembre 2015",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/ipmcijn-2015.pdf"
+    },
+    {
+      "titulo": "IInforme Pormenorizado del Estado del Control Interno Marzo 2015 - Julio 2015",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/infcimar-2015.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Noviembre 2014- Marzo 2015",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/infopnov.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Julio - Noviembre 2014",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/infonoviembre.pdf"
+    },
+    {
+      "titulo": "Informe Pormenorizado del Estado del Control Interno Marzo - Julio 2014",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/infopjulio.pdf"
+    },
+    {
+      "titulo": "Informe Septiembre-Diciembre 2012",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/infsepdic2012.pdf"
+    }
+  ]
+}

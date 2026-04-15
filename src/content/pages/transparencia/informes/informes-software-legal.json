@@ -1,0 +1,20 @@
+{
+  "title": "Informes de Software Legal",
+  "description": "Informes anuales de cumplimiento de la Directiva Presidencial 01 de 1999 sobre derechos de autor y uso de software legal en la Agencia ITRC.",
+  "icon": "fa-laptop-code",
+  "intro": "Informes anuales de software legal y derechos de autor publicados en cumplimiento de la Directiva Presidencial No. 01 de 1999.",
+  "informes": [
+    {
+      "titulo": "Informe Software Legal Vigencia 2024",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe-derechos-de-autor-publicacion-1.pdf"
+    },
+    {
+      "titulo": "Informe Software Legal Vigencia 2023",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Inf-Software-Legal-ITRC-2023.pdf"
+    },
+    {
+      "titulo": "Informe Software Legal Vigencia 2022",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Inf-Software-Legal-ITRC-2022.pdf"
+    }
+  ]
+}
