@@ -31,6 +31,7 @@
 | AUDIT-1 gestion-misional | 3 URLs en HTML WP devuelven 404 (local ya tiene URLs correctas) |
 | AUDIT-1 sistema-integrado-de-gestion | 2 archivos WP listados pero devuelven 404 (pendiente publicación real) |
 | AUDIT-2 Transparencia | 19 URLs en HTML WP devuelven 404 (local tiene versiones correctas) + 1 duplicación legacy resuelta |
+| AUDIT-3 Normativa | 3 URLs en WP dan 404/no-conecta (1 externa MinInterior 404, 1 externa Presidencia con espacios no-codificados) |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -66,6 +67,28 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### AUDIT-3 — Normativa (2026-04-15)
+
+**Alcance**: 22 páginas WP del área Normativa (6 landings + 15 delitos del Lote P + 1 políticas sectoriales ya en AUDIT-2).
+
+| Estado | Cantidad |
+|---|:---:|
+| 🟢 Completas (ratio >= 80%, 0 deltas reales) | 18 |
+| 🟡 Con deltas detectados que son URLs 404/rotas en WP | 2 (normativa-aplicada 2 deltas, marco-legal 1 delta) |
+| ❌ Mapping inicial incorrecto (auto-resuelto) | 2 (politicas-lineamientos-y-manuales → `politicas-manuales.json`; manual-contratacion → `contratacion/manual.json`) |
+| ❌ Slug WP "normograma" no responde | Alias de `normativa-aplicada` (ya cubierto) |
+
+**URLs 404 detectadas en WP origen**:
+- `normativa-aplicada`:
+  - `Normograma-Agencia-ITRC-actualizado-septiembre-30-de-2022-1-1.xlsx` — WP 404.
+  - `pgn-directiva-020-de-2022.pdf` (dominio externo `mininterior.gov.co`) — 404.
+- `marco-legal`:
+  - `http://es.presidencia.gov.co/.../Ley 1952 del 28 de enero de 2019.pdf` — URL externa con espacios sin codificar (HTTP 000 = DNS/connect fail). Local probablemente tiene versión corregida o alternativa vigente.
+
+**Cierre AUDIT-3**: 22/22 páginas con contenido equivalente o superior al WP. Sin correcciones de código. Las 15 páginas de delitos del Lote P (cohecho, concusión, peculado, etc.) tienen ratios entre 108-183% (locales preservan el contenido completo).
 
 ---
 
