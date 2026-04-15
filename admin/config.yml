@@ -1804,6 +1804,150 @@ collections:
                 label: URL del PDF
                 widget: string
                 required: true
+      - name: informe-pormenorizado-ci
+        label: Informe Pormenorizado del SCI
+        file: src/content/pages/transparencia/informes/informe-pormenorizado.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-lines
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Informes (listado cronológico)
+            widget: list
+            label_singular: Informe
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del informe
+                widget: string
+                required: true
+                hint: Incluir periodo (ej. 'Semestre I 2025', 'Vigencia 2023')
+              - name: url
+                label: URL del archivo (PDF/XLSX)
+                widget: string
+                required: true
+      - name: evaluacion-independiente-sci
+        label: Evaluación Independiente del SCI
+        file: src/content/pages/transparencia/informes/evaluacion-independiente-sci.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-magnifying-glass-chart
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Informes (listado cronológico)
+            widget: list
+            label_singular: Informe
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del informe
+                widget: string
+                required: true
+                hint: Incluir periodo (ej. 'Semestre I 2025', 'Vigencia 2023')
+              - name: url
+                label: URL del archivo (PDF/XLSX)
+                widget: string
+                required: true
+      - name: seguimiento-plan-anticorrupcion
+        label: Seguimiento al PAAC / PTEP / Mapa de Riesgos
+        file: src/content/pages/transparencia/informes/seguimiento-plan-anticorrupcion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-shield-halved
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Informes (listado cronológico)
+            widget: list
+            label_singular: Informe
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del informe
+                widget: string
+                required: true
+                hint: Incluir periodo (ej. 'Semestre I 2025', 'Vigencia 2023')
+              - name: url
+                label: URL del archivo (PDF/XLSX)
+                widget: string
+                required: true
+      - name: informes-software-legal
+        label: Informes de Software Legal
+        file: src/content/pages/transparencia/informes/informes-software-legal.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-laptop-code
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Informes (listado cronológico)
+            widget: list
+            label_singular: Informe
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del informe
+                widget: string
+                required: true
+                hint: Incluir periodo (ej. 'Semestre I 2025', 'Vigencia 2023')
+              - name: url
+                label: URL del archivo (PDF/XLSX)
+                widget: string
+                required: true
       - name: informes-legales
         label: Informes Legales (Control Interno)
         file: src/content/pages/transparencia/informes-legales.json
