@@ -21,6 +21,7 @@
 | N2 (#34 Ejecución contratos) | 73 URLs duplicadas |
 | O3 (#46 Catálogo OCI 3LD) | 27 categorías con 90 placeholders; 12 sin destino en portal nuevo |
 | M1 (defensa-publica.json) | 1 enlace interno a destino inexistente |
+| M3 (decretos-estructura) | 1 enlace a archivo con nombre inconsistente en origen |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -56,6 +57,21 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### Decreto 0664 de 2024 → archivo con nombre inconsistente (Lote M3)
+
+**URL origen WP**: `https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/decretos-de-estructura-salarios-leyes-marco-y-otros/`
+**URL destino nuevo**: `/decretos-de-estructura-salarios-leyes-marco-y-otros` (sección "Decretos de modificación de la estructura")
+**Estado**: `enlace-roto` (archivo presente pero nombre inconsistente con el texto del enlace)
+**Detectado**: 2026-04-15 (durante Lote M3)
+
+**Descripción**: en el WP origen, el ítem rotulado "**Decreto 0664 de 2024**" en la sección de modificación de estructura apunta a la URL `https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Solicitud_de_publicacion_Requerimientos_de_Comunicaciones-1.docx`. El nombre del archivo (`.docx`, "Solicitud_de_publicacion_Requerimientos_de_Comunicaciones") no corresponde a lo que un usuario esperaría al hacer clic en "Decreto 0664 de 2024". Probable error de publicación en el WP original.
+
+**Cómo se maneja ahora**: se preserva el enlace tal cual en el JSON consolidado `decretos-estructura.json`, y se añade un campo `nota` que se renderiza visiblemente en la página con triángulo de alerta amarillo: *"Enlace en origen WP apunta a archivo con nombre inconsistente; verificar con Jurídica el documento correcto."*
+
+**Pendiente / responsable**: Subdirección de Asuntos Legales / área Jurídica — debe (a) confirmar si el archivo actualmente enlazado es efectivamente el Decreto 0664 de 2024 o es un documento incorrecto, (b) proveer el PDF correcto si aplica, (c) actualizar la URL desde Sveltia CMS cuando se corrija.
 
 ---
 

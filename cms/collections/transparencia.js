@@ -510,6 +510,47 @@ export const transparencia = {
       ],
     },
     // ============================================================
+    // Lote M3 — Decretos de estructura, salarios, leyes marco
+    // ============================================================
+    {
+      name: "decretos-estructura",
+      label: "Decretos de estructura, salarios, leyes marco y otros",
+      file: "src/content/pages/transparencia/decretos-estructura.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-gavel" },
+        { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+        {
+          name: "secciones",
+          label: "Secciones temáticas de decretos",
+          widget: "list",
+          label_singular: "Sección",
+          collapsed: true,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título de la sección", widget: "string", required: true, hint: "Ej: 'Decretos de modificación de la estructura', 'Decretos salariales por vigencia'" },
+            { name: "descripcion", label: "Descripción breve", widget: "text", required: false },
+            {
+              name: "decretos",
+              label: "Decretos",
+              widget: "list",
+              label_singular: "Decreto",
+              collapsed: true,
+              summary: "{{fields.nombre}}",
+              fields: [
+                { name: "numero", label: "Número", widget: "string", required: true, hint: "Ej: 4173, 0985, 611" },
+                { name: "anio", label: "Año", widget: "string", required: false },
+                { name: "nombre", label: "Nombre completo", widget: "string", required: true },
+                { name: "url", label: "URL del PDF", widget: "string", required: true },
+                { name: "nota", label: "Nota de verificación", widget: "text", required: false, hint: "Uso para enlaces heredados que requieran revisión por Jurídica." },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    // ============================================================
     // Lote M2 — Sede/Horarios + Proyectos normas comentarios
     // ============================================================
     {

@@ -1,0 +1,48 @@
+{
+  "title": "Decretos de estructura, salarios, leyes marco y otros",
+  "description": "Compilación de decretos aplicables a la estructura orgánica, planta de personal y régimen salarial de la Agencia ITRC, incluidas las vigencias anuales de decretos salariales.",
+  "icon": "fa-gavel",
+  "intro": "Normatividad nacional vigente que regula la estructura, planta y régimen salarial de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC). Se consolida el Decreto de creación, los de modificación de estructura y planta, y la serie de decretos salariales anuales.",
+  "secciones": [
+    {
+      "titulo": "Decreto de creación",
+      "descripcion": "Decreto fundacional de la Agencia ITRC.",
+      "decretos": [
+        { "numero": "4173", "anio": "", "nombre": "Decreto 4173 — Creación de la Agencia ITRC", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Decreto-4173.pdf" }
+      ]
+    },
+    {
+      "titulo": "Decretos de modificación de la estructura",
+      "descripcion": "Decretos que han modificado la estructura orgánica a lo largo del tiempo.",
+      "decretos": [
+        { "numero": "0985", "anio": "2012", "nombre": "Decreto 0985 de 2012", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Decreto-0985.pdf" },
+        { "numero": "074", "anio": "2022", "nombre": "Decreto 074 del 21 de enero de 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/DECRETO-074-DEL-21-DE-ENERO-DE-2022-1.pdf" },
+        { "numero": "0664", "anio": "2024", "nombre": "Decreto 0664 de 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Solicitud_de_publicacion_Requerimientos_de_Comunicaciones-1.docx", "nota": "Enlace en origen WP apunta a archivo con nombre inconsistente; verificar con Jurídica el documento correcto." }
+      ]
+    },
+    {
+      "titulo": "Decretos de planta de personal",
+      "descripcion": "Decretos que regulan la planta de personal de la Agencia ITRC.",
+      "decretos": [
+        { "numero": "0986", "anio": "2012", "nombre": "Decreto 0986 de 2012", "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/Normas/Decreto-0986.pdf" },
+        { "numero": "075", "anio": "2022", "nombre": "Decreto 075 del 21 de enero de 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/DECRETO-075-DEL-21-DE-ENERO-DE-2022-1.pdf" }
+      ]
+    },
+    {
+      "titulo": "Decretos salariales por vigencia",
+      "descripcion": "Decretos de régimen salarial publicados anualmente por la Función Pública.",
+      "decretos": [
+        { "numero": "611", "anio": "2025", "nombre": "Decreto 611 de 2025 — Decretos Salariales 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Decretos-Salariales-611-de-2025-Departamento-Administrativo-de-la-Funcion-Publica-Gestor-Normativo.pdf" },
+        { "numero": "0301", "anio": "2024", "nombre": "Decreto 0301 del 5 de marzo de 2024", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/DECRETO-0301-DE-5-DE-MARZO-DE-2024.pdf" },
+        { "numero": "905", "anio": "2023", "nombre": "Decreto 905 de 2023 — Decretos Salariales 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Decretos_Salariales_905_de_2023.pdf" },
+        { "numero": "473", "anio": "2022", "nombre": "Decreto 473 de 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Decreto_473_de_2022.pdf" },
+        { "numero": "961", "anio": "2021", "nombre": "Decreto 961 del 22 de agosto de 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/DECRETO-961-DEL-22-DE-AGOSTO-DE-2021.pdf" },
+        { "numero": "304", "anio": "2020", "nombre": "Decreto 304 del 27 de febrero de 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/2020-DECRETO-304-DEL-27-DE-FEBRERO-DE-2020.pdf" },
+        { "numero": "1007", "anio": "2019", "nombre": "Decreto 1007 de 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/2019-Decreto_1007_de_2019.pdf" },
+        { "numero": "330", "anio": "2018", "nombre": "Decreto 330 de 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/2018-Decreto_330_de_2018.pdf" },
+        { "numero": "999", "anio": "2017", "nombre": "Decreto 999 de 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/2017-Decreto_999_de_2017.pdf" },
+        { "numero": "228", "anio": "2016", "nombre": "Decreto 228 del 12 de febrero de 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/2016-DECRETO-228-DEL-12-DE-FEBRERO-DE-2016.pdf" }
+      ]
+    }
+  ]
+}
