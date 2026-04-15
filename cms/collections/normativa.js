@@ -229,4 +229,62 @@ const normativaGeneral = {
   ],
 };
 
-export const normativaCollections = [normativaPaginas, normativaGeneral];
+// ============================================================
+// Lote P — Normativa Temática (15 delitos / políticas)
+// ============================================================
+
+function normativaDelitosFactory() {
+  const items = [
+    ["normatividad-cohecho", "Cohecho", "fa-handshake-slash"],
+    ["normatividad-concusion", "Concusión", "fa-triangle-exclamation"],
+    ["normatividad-peculado", "Peculado", "fa-money-bill-wave"],
+    ["normatividad-abuso-de-funcion-publica", "Abuso de Función Pública", "fa-gavel"],
+    ["normatividad-falsedad-en-documento-publico", "Falsedad en Documento Público", "fa-file-circle-xmark"],
+    ["normativa-prevaricato", "Prevaricato", "fa-scale-unbalanced"],
+    ["normatividad-conductas-que-integran-un-delito", "Conductas que integran un delito", "fa-list-check"],
+    ["normatividad-faltas-relacionadas-con-la-contratacion-publica", "Faltas en contratación pública", "fa-file-contract"],
+    ["normatividad-favorecimiento-de-la-evasion-de-impuestos", "Favorecimiento de la evasión", "fa-coins"],
+    ["normatividad-alteracion-o-falsificacion-de-informacion", "Alteración o falsificación de información", "fa-pen-nib"],
+    ["normatividad-incremento-patrimonial-injustificado", "Incremento patrimonial injustificado", "fa-chart-line"],
+    ["normatividad-trafico-de-influencias", "Tráfico de influencias", "fa-people-arrows"],
+    ["normativa-incumplimiento-al-regimen-cambiario-y-aduanero", "Incumplimiento cambiario y aduanero", "fa-money-bill-transfer"],
+    ["normatividad-funcion-publica", "Función pública", "fa-building-columns"],
+    ["politicas-y-lineamientos-sectoriales", "Políticas y lineamientos sectoriales", "fa-compass"],
+  ];
+  return items.map(([slug, label, icon]) => ({
+    name: slug,
+    label,
+    file: `src/content/pages/normativa/delitos/${slug}.json`,
+    fields: [
+      { name: "title", label: "Título", widget: "string", required: true },
+      { name: "description", label: "Descripción SEO", widget: "text", required: false },
+      { name: "icon", label: "Icono FontAwesome", widget: "string", default: icon },
+      { name: "intro", label: "Introducción", widget: "text", required: false },
+      { name: "contenido", label: "Contenido normativo (HTML)", widget: "text", required: false, hint: "HTML limpio con artículos citados. Se renderiza con set:html." },
+      {
+        name: "normasRelacionadas",
+        label: "Normas relacionadas (opcional)",
+        widget: "list",
+        label_singular: "Norma",
+        collapsed: true,
+        required: false,
+        summary: "{{fields.titulo}}",
+        fields: [
+          { name: "titulo", label: "Título", widget: "string", required: true },
+          { name: "url", label: "URL", widget: "string", required: true },
+          { name: "tipo", label: "Tipo", widget: "select", options: ["internal", "external", "pdf"], default: "external" },
+        ],
+      },
+    ],
+  }));
+}
+
+const normativaDelitos = {
+  name: "normativa-delitos",
+  label: "NORMATIVA TEMÁTICA",
+  label_singular: "Página de normativa temática",
+  description: "Páginas por tipo de delito o área normativa (Lote P del análisis secundario)",
+  files: normativaDelitosFactory(),
+};
+
+export const normativaCollections = [normativaPaginas, normativaGeneral, normativaDelitos];

@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import NormativaTematica from '../components/NormativaTematica.astro';
+import pageData from '../content/pages/normativa/delitos/normatividad-falsedad-en-documento-publico.json';
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <NormativaTematica pageData={pageData} />
+</Base>
