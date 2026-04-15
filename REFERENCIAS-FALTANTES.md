@@ -25,6 +25,7 @@
 | M4 (programa-gestion-documental) | 1 decisión de slug registrada (desviación intencional del slug WP) |
 | V (CIPREP) | Sub-app completa descartada en esta fase (decisión estratégica) |
 | T (#91 Calendario de Eventos) | Página WP contenía solo shortcode de plugin descontinuado — migrada como wrapper a agenda vigente |
+| W (UI/UX) | 3 elementos con requisito administrativo / acceso a terceros (ConverTIC, GTranslate, YouTube rendición) |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -60,6 +61,26 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### W — ConverTIC / GTranslate / YouTube rendición cuentas (Lote W — pendientes administrativos)
+
+**Contexto**: los 3 elementos UI/UX del análisis §3.4 listados a continuación requieren decisión administrativa o acceso a terceros; no se pueden implementar en esta fase sin coordinar con el área responsable.
+
+#### ConverTIC (widget accesibilidad MinTIC)
+- **Detalle**: widget oficial de accesibilidad gubernamental (lectura asistida, magnificador, etc.) producido por MinTIC.
+- **Requisito**: añadir `<script src="https://soyvisible.com/convertic/scripts/convertic.js"></script>` (URL oficial) en Base.astro + icono flotante. Validar con el equipo de comunicaciones si el portal debe embedder ConverTIC junto con el `WcagWidget` ya existente (podrían superponerse UI), o si uno reemplaza al otro.
+- **Estado**: `pendiente-decision` (UX/Comunicaciones).
+
+#### GTranslate — traductor multiidioma
+- **Detalle**: widget de traducción automática. Requiere registro en gtranslate.io (cuenta gratuita / paga) y obtención de script con API key.
+- **Estado**: `pendiente-administrativo` (Comunicaciones — decidir si se usa, y si sí, generar la cuenta y entregar snippet).
+
+#### YouTube embed — Rendición de Cuentas
+- **Detalle**: el análisis §3.4 menciona que el portal legacy embedía videos de rendición de cuentas en su página correspondiente. El portal nuevo ya tiene referencias a `siteData.featuredVideo` en index, y la página `/participa/rendicion-de-cuentas` existe, pero no embebe un video específico.
+- **Requisito**: la Dirección de Comunicaciones debe proveer la URL del video oficial del evento de rendición de cuentas más reciente (formato embed: `https://www.youtube-nocookie.com/embed/VIDEO_ID`) para agregarlo a la página correspondiente.
+- **Estado**: `pendiente-administrativo`.
 
 ---
 

@@ -28,6 +28,14 @@ const socialIcons: Record<string, string> = {
       </div>
     </a>
 
+    {contactConfig.tollFree && (
+      <a href={`tel:${contactConfig.tollFree.replace(/\s/g, '')}`} class="header__tollfree" aria-label={`Línea gratuita ${contactConfig.tollFree}`}>
+        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+        <span class="header__tollfree-label">Línea gratuita</span>
+        <span class="header__tollfree-num">{contactConfig.tollFree}</span>
+      </a>
+    )}
+
     <div class="header__social">
       {Object.entries(contactConfig.socialMedia).map(([network, url]) => (
         url && (
@@ -60,12 +68,38 @@ const socialIcons: Record<string, string> = {
 </header>
 
 <style>
+  /* Línea gratuita 018000 */
+  .header__tollfree {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+    padding: 8px 14px;
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    color: var(--theme-heading);
+    transition: all var(--transition-fast);
+  }
+  .header__tollfree:hover { background: var(--itrc-gold); color: var(--itrc-navy); box-shadow: var(--shadow-sm); }
+  .header__tollfree > i { color: var(--itrc-gold); }
+  .header__tollfree:hover > i { color: var(--itrc-navy); }
+  .header__tollfree-label { font-size: var(--font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+  .header__tollfree-num { font-size: var(--font-size-sm); font-weight: 800; font-variant-numeric: tabular-nums; }
+  @media (max-width: 900px) {
+    .header__tollfree-label { display: none; }
+  }
+  @media (max-width: 640px) {
+    .header__tollfree { padding: 6px 10px; }
+    .header__tollfree-num { font-size: var(--font-size-xs); }
+  }
+
   /* Social links */
   .header__social {
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    margin-left: auto;
+    margin-left: var(--space-3);
   }
 
   .header__social-link {

@@ -7,6 +7,7 @@ import Footer from '../components/layout/Footer.astro';
 import WcagWidget from '../components/WcagWidget.astro';
 
 import siteConfig from '../content/settings/site.json';
+import contactConfig from '../content/settings/contact.json';
 
 interface Props {
   title: string;
@@ -17,6 +18,40 @@ interface Props {
 const { title, description = siteConfig.description, class: className = '' } = Astro.props;
 const pageTitle = `${title} | ${siteConfig.name}`;
 const base = import.meta.env.BASE_URL;
+
+const schemaOrgData = {
+  "@context": "https://schema.org",
+  "@type": "GovernmentOrganization",
+  name: siteConfig.name,
+  legalName: siteConfig.fullName,
+  url: siteConfig.url || "https://www.itrc.gov.co",
+  logo: `${siteConfig.url || "https://www.itrc.gov.co"}${base}images/logo-itrc.png`,
+  description: siteConfig.description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contactConfig.address,
+    addressLocality: contactConfig.city,
+    postalCode: contactConfig.postalCode,
+    addressCountry: "CO",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: contactConfig.phone,
+      email: contactConfig.email,
+      contactType: "customer service",
+      areaServed: "CO",
+      availableLanguage: ["Spanish"],
+    },
+    ...(contactConfig.tollFree ? [{
+      "@type": "ContactPoint",
+      telephone: contactConfig.tollFree,
+      contactType: "toll-free",
+      areaServed: "CO",
+    }] : []),
+  ],
+  sameAs: Object.values(contactConfig.socialMedia || {}).filter(Boolean),
+};
 ---
 
 <!DOCTYPE html>
@@ -33,6 +68,12 @@ const base = import.meta.env.BASE_URL;
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title={`Noticias — ${siteConfig.name}`} href={`${base}rss.xml`}>
+
+  <!-- Schema.org — GovernmentOrganization -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaOrgData)}></script>
 
   <title>{pageTitle}</title>
 

@@ -22,8 +22,8 @@
     "lineaGratuita": ""
   },
   "mapa": {
-    "embedUrl": "",
-    "lat": "",
-    "lng": ""
+    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5!2d-74.0918!3d4.6478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnNTIuMSJOIDc0wrAwNSczMC41Ilc!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco",
+    "lat": "4.6478",
+    "lng": "-74.0918"
   }
 }
