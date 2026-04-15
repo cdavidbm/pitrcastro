@@ -1,0 +1,13 @@
+{
+  "title": "Publicación de Datos Abiertos",
+  "description": "Datos abiertos de la Agencia ITRC publicados en el portal Datos.gov.co para acceso libre de la ciudadanía.",
+  "icon": "fa-database",
+  "intro": "La Agencia del Inspector General de Tributos Rentas y Contribuciones Parafiscales (ITRC) pone a disposición de la ciudadanía sus conjuntos de datos abiertos a través del portal nacional datos.gov.co, en cumplimiento de la política de gobierno abierto y la Ley 1712 de 2014.",
+  "cta": {
+    "texto": "Ver datos abiertos de la Agencia ITRC",
+    "url": "https://www.datos.gov.co/browse?q=itrc",
+    "descripcion": "Conjuntos de datos abiertos publicados por la Agencia ITRC en el portal nacional de datos abiertos.",
+    "external": true,
+    "icon": "fa-arrow-up-right-from-square"
+  }
+}

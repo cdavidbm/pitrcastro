@@ -1422,6 +1422,248 @@ collections:
                 label: URL
                 widget: string
                 required: true
+      - name: estudios-investigaciones
+        label: Estudios e Investigaciones
+        file: src/content/pages/institucional/estudios-investigaciones.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-magnifying-glass-chart
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+      - name: defensa-judicial
+        label: Defensa Judicial (trimestrales)
+        file: src/content/pages/institucional/defensa-judicial.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-scale-balanced
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+      - name: publicacion-datos-abiertos
+        label: Publicación Datos Abiertos
+        file: src/content/pages/institucional/publicacion-datos-abiertos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-database
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: cta
+            label: Botón CTA
+            widget: object
+            collapsed: true
+            fields:
+              - name: texto
+                label: Texto
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción
+                widget: text
+                required: false
+              - name: external
+                label: Enlace externo
+                widget: boolean
+                default: true
+              - name: icon
+                label: Icono
+                widget: string
+                required: false
+      - name: calendario-eventos
+        label: Calendario de Eventos (legacy)
+        file: src/content/pages/institucional/calendario-eventos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar-days
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: cta
+            label: Botón CTA
+            widget: object
+            collapsed: true
+            fields:
+              - name: texto
+                label: Texto
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción
+                widget: text
+                required: false
+              - name: external
+                label: Enlace externo
+                widget: boolean
+                default: true
+              - name: icon
+                label: Icono
+                widget: string
+                required: false
+      - name: historico-investigaciones-disciplinarias
+        label: Histórico Subdirección Disciplinaria
+        file: src/content/pages/institucional/historico-investigaciones-disciplinarias.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-box-archive
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+      - name: historico-sistema-control-interno
+        label: Histórico Sistema Control Interno
+        file: src/content/pages/institucional/historico-sistema-control-interno.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-box-archive
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: secciones
+            label: Secciones históricas
+            widget: list
+            label_singular: Sección
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título de la sección
+                widget: string
+                required: true
+              - name: documentos
+                label: Documentos
+                widget: list
+                label_singular: Documento
+                collapsed: true
+                required: false
+                summary: "{{fields.titulo}}"
+                fields:
+                  - name: titulo
+                    label: Título
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL
+                    widget: string
+                    required: true
   # ==========================================
   # TRANSPARENCIA
   # # Indice de informacion clasificada y reservada

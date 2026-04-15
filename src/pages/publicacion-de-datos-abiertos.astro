@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/institucional/publicacion-datos-abiertos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="da-section">
+    <div class="container">
+      {pageData.intro && <p class="da-intro">{pageData.intro}</p>}
+      {pageData.cta && pageData.cta.url && (
+        <a href={pageData.cta.external ? pageData.cta.url : resolveUrl(pageData.cta.url)} target={pageData.cta.external ? '_blank' : '_self'} rel={pageData.cta.external ? 'noopener noreferrer' : ''} class="da-cta">
+          <div class="da-cta__icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+          <div class="da-cta__body">
+            <span class="da-cta__text">{pageData.cta.texto}</span>
+            {pageData.cta.descripcion && <span class="da-cta__desc">{pageData.cta.descripcion}</span>}
+          </div>
+          <i class={`fa-solid ${pageData.cta.icon || 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+        </a>
+      )}
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .da-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .da-section .container { max-width: 900px; margin: 0 auto; }
+  .da-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text); margin-bottom: var(--space-8); text-align: justify; }
+  .da-cta { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-gold) 100%); color: var(--white); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
+  .da-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
+  .da-cta__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.18); border-radius: var(--radius-full); font-size: var(--font-size-2xl); flex-shrink: 0; }
+  .da-cta__body { flex: 1; }
+  .da-cta__text { display: block; font-size: var(--font-size-lg); font-weight: 800; }
+  .da-cta__desc { display: block; font-size: var(--font-size-sm); opacity: 0.92; margin-top: 4px; }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

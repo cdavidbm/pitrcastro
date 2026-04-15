@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/institucional/historico-sistema-control-interno.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: pageData.title }
+];
+const total = pageData.secciones.reduce((acc, s) => acc + (s.documentos?.length || 0), 0);
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="hsci-section">
+    <div class="container">
+      {pageData.intro && <p class="hsci-intro">{pageData.intro}</p>}
+      <div class="hsci-stats">📂 Archivo histórico: <strong>{total} documentos</strong> en {pageData.secciones.length} secciones</div>
+      {pageData.secciones.map((s, i) => (
+        <details class="hsci-sec" open={i === 0}>
+          <summary class="hsci-sec__summary">
+            <span class="hsci-sec__titulo">{s.titulo}</span>
+            {s.documentos && s.documentos.length > 0 && <span class="hsci-sec__count">{s.documentos.length}</span>}
+            <i class="fa-solid fa-chevron-down hsci-chevron" aria-hidden="true"></i>
+          </summary>
+          {s.documentos && s.documentos.length > 0 ? (
+            <ul class="hsci-list">
+              {s.documentos.map((doc) => (
+                <li><a href={doc.url} target="_blank" rel="noopener noreferrer" class="hsci-doc">
+                  <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                  <span>{doc.titulo}</span>
+                  <i class="fa-solid fa-download" aria-hidden="true"></i>
+                </a></li>
+              ))}
+            </ul>
+          ) : <p class="hsci-empty">Sección informativa sin documentos anexos.</p>}
+        </details>
+      ))}
+      <div class="back-link"><a href={base}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hsci-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .hsci-section .container { max-width: 1000px; margin: 0 auto; }
+  .hsci-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-6); text-align: justify; }
+  .hsci-stats { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--theme-surface-alt); border-radius: var(--radius-full); margin-bottom: var(--space-8); font-size: var(--font-size-sm); }
+  .hsci-stats strong { color: var(--itrc-gold); }
+  .hsci-sec { margin-bottom: var(--space-3); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .hsci-sec__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; }
+  .hsci-sec__summary::-webkit-details-marker { display: none; }
+  .hsci-sec__summary:hover { background: var(--theme-surface-alt); }
+  .hsci-sec__titulo { flex: 1; font-weight: 800; color: var(--theme-heading); }
+  .hsci-sec__count { padding: 2px 12px; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800; }
+  .hsci-chevron { color: var(--itrc-gold); transition: transform var(--transition-base); }
+  .hsci-sec[open] .hsci-chevron { transform: rotate(180deg); }
+  .hsci-list { list-style: none; padding: 0 var(--space-4) var(--space-4); margin: 0; border-top: 1px solid var(--theme-border-light); padding-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+  .hsci-doc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .hsci-doc:hover { border-color: var(--file-pdf); background: var(--theme-surface-alt); transform: translateX(3px); }
+  .hsci-doc > i:first-child { color: var(--file-pdf); }
+  .hsci-doc span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .hsci-doc > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .hsci-empty { padding: var(--space-3) var(--space-5); color: var(--theme-text-muted); font-style: italic; font-size: var(--font-size-sm); margin: 0; }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

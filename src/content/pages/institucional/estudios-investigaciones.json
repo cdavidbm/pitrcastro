@@ -1,0 +1,20 @@
+{
+  "title": "Estudios, investigaciones y otras publicaciones",
+  "description": "Estudios, investigaciones y publicaciones institucionales de la Agencia ITRC en materia disciplinaria y antifraude.",
+  "icon": "fa-magnifying-glass-chart",
+  "intro": "Biblioteca de publicaciones institucionales producidas por la Agencia ITRC — guías especializadas, manuales de investigación y metodologías para la gestión disciplinaria, la lucha anticorrupción y la identificación de fraudes.",
+  "informes": [
+    {
+      "titulo": "Guía Especializada para la investigación del incremento patrimonial no justificado",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Guía-Especializada-para-la-investigación-del-incremento-patrimonial-no-justificado.pdf"
+    },
+    {
+      "titulo": "Manual para el manejo de investigaciones disciplinarias por conductas relacionadas con el trámite de devoluciones",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Manual-para-el-manejo-de-investigaciones-disciplinarias-por-conductas-relacionadas-con-el-trámite-de-devoluciones.pdf"
+    },
+    {
+      "titulo": "Guía metodológica para la identificación de riesgos de fraude y corrupción en la administración de tributos, rentas y contribuciones parafiscales",
+      "url": "https://www.itrc.gov.co/Itrc/pestana/documentos/guiaspfc.pdf"
+    }
+  ]
+}

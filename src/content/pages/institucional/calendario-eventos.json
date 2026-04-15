@@ -1,0 +1,13 @@
+{
+  "title": "Calendario de Eventos",
+  "description": "Agenda institucional de la Agencia ITRC — el calendario se consolida ahora en la sección de Prensa/Eventos.",
+  "icon": "fa-calendar-days",
+  "intro": "El calendario de eventos institucionales de la Agencia ITRC se gestiona actualmente desde la sección de Prensa. La página legacy dependía de un plugin WordPress descontinuado; el contenido activo se encuentra en la agenda institucional vigente.",
+  "cta": {
+    "texto": "Ver Calendario de Eventos actual",
+    "url": "/prensa/eventos",
+    "descripcion": "Agenda de eventos institucionales vigente de la Agencia ITRC.",
+    "external": false,
+    "icon": "fa-calendar-check"
+  }
+}

@@ -716,8 +716,103 @@ export const agencia = {
     loteQmanualesInternos(),
     loteQmanualEspecifico(),
     loteQmanualIdentidad(),
+    // --- Lote T — Otros institucionales ---
+    ...loteTEntries(),
   ],
 };
+
+// ============================================================
+// Lote T — Otros institucionales (6 páginas BAJA-MEDIA)
+// ============================================================
+function loteTEntries() {
+  const pdfList = (name, label, path, iconDefault) => ({
+    name, label,
+    file: `src/content/pages/institucional/${path}`,
+    fields: [
+      { name: "title", label: "Título", widget: "string", required: true },
+      { name: "description", label: "Descripción SEO", widget: "text", required: false },
+      { name: "icon", label: "Icono FontAwesome", widget: "string", default: iconDefault },
+      { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+      {
+        name: "informes",
+        label: "Documentos",
+        widget: "list",
+        label_singular: "Documento",
+        collapsed: true,
+        summary: "{{fields.titulo}}",
+        fields: [
+          { name: "titulo", label: "Título", widget: "string", required: true },
+          { name: "url", label: "URL", widget: "string", required: true },
+        ],
+      },
+    ],
+  });
+  const ctaPage = (name, label, path, iconDefault) => ({
+    name, label,
+    file: `src/content/pages/institucional/${path}`,
+    fields: [
+      { name: "title", label: "Título", widget: "string", required: true },
+      { name: "description", label: "Descripción SEO", widget: "text", required: false },
+      { name: "icon", label: "Icono FontAwesome", widget: "string", default: iconDefault },
+      { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+      {
+        name: "cta",
+        label: "Botón CTA",
+        widget: "object",
+        collapsed: true,
+        fields: [
+          { name: "texto", label: "Texto", widget: "string", required: true },
+          { name: "url", label: "URL", widget: "string", required: true },
+          { name: "descripcion", label: "Descripción", widget: "text", required: false },
+          { name: "external", label: "Enlace externo", widget: "boolean", default: true },
+          { name: "icon", label: "Icono", widget: "string", required: false },
+        ],
+      },
+    ],
+  });
+  return [
+    pdfList("estudios-investigaciones", "Estudios e Investigaciones", "estudios-investigaciones.json", "fa-magnifying-glass-chart"),
+    pdfList("defensa-judicial", "Defensa Judicial (trimestrales)", "defensa-judicial.json", "fa-scale-balanced"),
+    ctaPage("publicacion-datos-abiertos", "Publicación Datos Abiertos", "publicacion-datos-abiertos.json", "fa-database"),
+    ctaPage("calendario-eventos", "Calendario de Eventos (legacy)", "calendario-eventos.json", "fa-calendar-days"),
+    pdfList("historico-investigaciones-disciplinarias", "Histórico Subdirección Disciplinaria", "historico-investigaciones-disciplinarias.json", "fa-box-archive"),
+    {
+      name: "historico-sistema-control-interno",
+      label: "Histórico Sistema Control Interno",
+      file: "src/content/pages/institucional/historico-sistema-control-interno.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-box-archive" },
+        { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+        {
+          name: "secciones",
+          label: "Secciones históricas",
+          widget: "list",
+          label_singular: "Sección",
+          collapsed: true,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título de la sección", widget: "string", required: true },
+            {
+              name: "documentos",
+              label: "Documentos",
+              widget: "list",
+              label_singular: "Documento",
+              collapsed: true,
+              required: false,
+              summary: "{{fields.titulo}}",
+              fields: [
+                { name: "titulo", label: "Título", widget: "string", required: true },
+                { name: "url", label: "URL", widget: "string", required: true },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+}
 
 // ============================================================
 // Lote Q — Empleo y RRHH (5 páginas MEDIA)

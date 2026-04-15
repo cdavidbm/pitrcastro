@@ -23,6 +23,8 @@
 | M1 (defensa-publica.json) | 1 enlace interno a destino inexistente |
 | M3 (decretos-estructura) | 1 enlace a archivo con nombre inconsistente en origen |
 | M4 (programa-gestion-documental) | 1 decisión de slug registrada (desviación intencional del slug WP) |
+| V (CIPREP) | Sub-app completa descartada en esta fase (decisión estratégica) |
+| T (#91 Calendario de Eventos) | Página WP contenía solo shortcode de plugin descontinuado — migrada como wrapper a agenda vigente |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -61,6 +63,36 @@
 
 ---
 
+### #91 Calendario de Eventos → shortcode de plugin descontinuado en origen (Lote T)
+
+**URL origen WP**: `https://www.itrc.gov.co/Itrc/calendario-de-eventos/`
+**URL destino nuevo**: `/calendario-de-eventos` (wrapper de redirección)
+**Estado**: `faltante-en-origen` (contenido era solo `[MEC id="11638"]`, shortcode del plugin *Modern Events Calendar* que ya no está activo en WordPress)
+**Detectado**: 2026-04-15 (durante Lote T)
+
+**Descripción**: la página WP origen solo contenía 18 caracteres: `[MEC id="11638"]`. Era la referencia al plugin *Modern Events Calendar* de WordPress, que en algún momento se desactivó sin migrar el calendario. No hay contenido sustantivo en el origen.
+
+**Cómo se manejó**: se creó la página `/calendario-de-eventos` como **wrapper de redirección** al sistema de eventos actual del portal: `/prensa/eventos`. El usuario que llegue al slug legacy ve una nota explicativa + CTA al calendario vigente.
+
+**Pendiente / responsable**: Comunicaciones / Prensa — decidir si eventualmente se archiva esta página o se mantiene como bridge.
+
+---
+
+### CIPREP → sub-app WP independiente descartada en esta fase (decisión Lote V)
+
+**URL origen WP**: `https://www.itrc.gov.co/ciprep/` (instalación WordPress independiente con Elementor)
+**URL destino nuevo**: *(no migrada en esta fase)*
+**Estado**: `descartado-temporalmente` por decisión estratégica
+**Decidido**: 2026-04-15
+
+**Descripción**: CIPREP (Congreso Internacional para la Protección de los Recursos Públicos) existe como una instalación WordPress independiente en la ruta `/ciprep/`. Pese a la infraestructura aparatosa (WP completo + Elementor + versión en inglés), **su contenido real es una landing page simple** (1 página + 1 post + 82 media según el análisis `analisis_web_ITRC.md §3.6`).
+
+**Cómo se maneja ahora**: **no se migra**. Decisión del usuario (2026-04-15): *"en realidad es super simple, en la web original crearon toda una subinstalación para eso, pero unicamente es una landing, así que por ahora, descartemoslo, pues cuando sea el momento de hacer esa landing, esta nueva web ya estará en producción y para ese entonces decidiremos cómo se implementará"*.
+
+**Pendiente / próxima fase** (post-producción): evaluar creación de un **builder genérico de landings/micrositios** dentro del portal nuevo que permita crear eventos/congresos (CIPREP y futuros) de forma eficiente. Conversación reabierta cuando termine toda la migración actual.
+
+---
+
 ### #27 Programa de Gestión Documental → slug local distinto al WP (Lote M4)
 
 **URL origen WP**: `https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/programa-de-gestion-documental/` (slug WP: `programa-de-gestion-documental`)
@@ -91,12 +123,12 @@
 
 ---
 
-### defensa-publica.json → enlace interno faltante (Lote M1)
+### defensa-publica.json → enlace interno faltante (Lote M1) — ✅ RESUELTO en Lote S
 
 **URL origen WP**: `https://www.itrc.gov.co/Itrc/informe-defensa-publica-y-prevencion-del-dano-antijuridico/`
 **URL destino nuevo**: `/informe-defensa-publica` (página existe y renderiza)
-**Estado**: `enlace-roto` (interno, destino inexistente en portal nuevo)
-**Detectado**: 2026-04-15 (durante Lote M1 saneamiento CMS)
+**Estado**: ✅ `resuelto` (el destino `/informe-de-gestion-del-comite-de-conciliacion` se creó en Lote S el 2026-04-15)
+**Detectado**: 2026-04-15 (durante Lote M1) · **Resuelto**: 2026-04-15 (durante Lote S)
 
 **Descripción**: el JSON `src/content/pages/transparencia/defensa-publica.json` contiene un enlace interno a `/informe-comite-conciliacion` como uno de los 4 recursos mostrados ("Informe de Gestión del Comité de Conciliación", `tipo: internal`). **Esa página no existe** en el repo (`src/pages/informe-comite-conciliacion.astro` y su JSON no están creados). Al hacer clic desde `/informe-defensa-publica` se obtendría 404.
 
