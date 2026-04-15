@@ -5,12 +5,20 @@
   "icon": "fa-video",
   "videos": [
     {
+      "slug": "comercial-agencia-itrc",
       "titulo": "Comercial Agencia ITRC",
+      "descripcion": "",
+      "fecha": "2019-02-01",
+      "thumbnail": "",
       "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/COMERCIAL-DE-TV-AGENCIA-ITRC-2019.mp4",
       "transcripcion": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Texto-del-contenido-audiovisual-.pdf"
     },
     {
+      "slug": "itrc-para-ninos",
       "titulo": "ITRC para Niños",
+      "descripcion": "",
+      "fecha": "2020-06-01",
+      "thumbnail": "",
       "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/06/video-ITRC-ninos.mp4",
       "transcripcion": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Texto-contenido-aundiovisual-ITRC-para-ninos.pdf"
     }
