@@ -333,4 +333,118 @@ const atencionGeneral = {
   ],
 };
 
-export const atencionCollections = [notificaciones, atencionGeneral];
+// ============================================================
+// Lote S — Participación + Atención pendientes (4 páginas MEDIA)
+// ============================================================
+
+const loteS_hub = {
+  name: "otros-grupos-interes",
+  label: "Otros grupos de interés (hub)",
+  file: "src/content/pages/participa-atencion/otros-grupos-interes.json",
+  fields: [
+    { name: "title", label: "Título", widget: "string", required: true },
+    { name: "description", label: "Descripción SEO", widget: "text", required: false },
+    { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-users-line" },
+    { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+    {
+      name: "enlaces",
+      label: "Enlaces / recursos",
+      widget: "list",
+      label_singular: "Enlace",
+      collapsed: true,
+      summary: "{{fields.titulo}}",
+      fields: [
+        { name: "titulo", label: "Título", widget: "string", required: true },
+        { name: "descripcion", label: "Descripción", widget: "text", required: false },
+        { name: "url", label: "URL", widget: "string", required: true },
+        { name: "tipo", label: "Tipo", widget: "select", options: ["internal", "external", "pdf"], default: "internal" },
+        { name: "icon", label: "Icono", widget: "string", required: false },
+      ],
+    },
+  ],
+};
+
+const loteS_comiteConciliacion = {
+  name: "informe-comite-conciliacion",
+  label: "Informe Gestión Comité de Conciliación",
+  file: "src/content/pages/participa-atencion/informe-comite-conciliacion.json",
+  fields: [
+    { name: "title", label: "Título", widget: "string", required: true },
+    { name: "description", label: "Descripción SEO", widget: "text", required: false },
+    { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-handshake" },
+    { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+    {
+      name: "informes",
+      label: "Informes semestrales",
+      widget: "list",
+      label_singular: "Informe",
+      collapsed: true,
+      summary: "{{fields.titulo}}",
+      fields: [
+        { name: "titulo", label: "Título", widget: "string", required: true },
+        { name: "url", label: "URL del PDF", widget: "string", required: true },
+      ],
+    },
+  ],
+};
+
+const loteS_chat = {
+  name: "chat-itrc",
+  label: "Chat ITRC",
+  file: "src/content/pages/participa-atencion/chat-itrc.json",
+  fields: [
+    { name: "title", label: "Título", widget: "string", required: true },
+    { name: "description", label: "Descripción SEO", widget: "text", required: false },
+    { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-comments" },
+    { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+    { name: "condicionesUso", label: "Condiciones de uso", widget: "list", required: false, field: { name: "condicion", label: "Condición", widget: "string" } },
+    {
+      name: "cta",
+      label: "Botón CTA al chat externo",
+      widget: "object",
+      collapsed: true,
+      fields: [
+        { name: "texto", label: "Texto", widget: "string", required: true },
+        { name: "url", label: "URL", widget: "string", required: true },
+        { name: "descripcion", label: "Descripción", widget: "text", required: false },
+        { name: "external", label: "Enlace externo", widget: "boolean", default: true },
+        { name: "icon", label: "Icono", widget: "string", required: false },
+      ],
+    },
+  ],
+};
+
+const loteS_respuestaAnonimos = {
+  name: "respuesta-anonimos",
+  label: "Respuesta a Anónimos (Notificación por Aviso)",
+  file: "src/content/pages/participa-atencion/respuesta-anonimos.json",
+  fields: [
+    { name: "title", label: "Título", widget: "string", required: true },
+    { name: "description", label: "Descripción SEO", widget: "text", required: false },
+    { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-bell" },
+    { name: "aviso", label: "Aviso legal (Art. 69 Ley 1437/2011)", widget: "text", required: false },
+    {
+      name: "notificaciones",
+      label: "Notificaciones por aviso",
+      widget: "list",
+      label_singular: "Notificación",
+      collapsed: true,
+      summary: "{{fields.fecha}} — {{fields.radicadoRespuesta}}",
+      fields: [
+        { name: "fecha", label: "Fecha de publicación", widget: "string", required: true, hint: "Ej: 17/01/2024" },
+        { name: "radicadoPqrs", label: "Radicado PQRS", widget: "string", required: false },
+        { name: "radicadoRespuesta", label: "Radicado de respuesta", widget: "string", required: true },
+        { name: "url", label: "URL del PDF", widget: "string", required: true },
+      ],
+    },
+  ],
+};
+
+const loteSCollection = {
+  name: "participa-atencion-pendientes",
+  label: "PARTICIPA + ATENCIÓN (pendientes — Lote S)",
+  description: "Páginas agregadas en Lote S: hub de grupos de interés, informe Comité Conciliación, Chat ITRC, Respuesta a Anónimos.",
+  files: [loteS_hub, loteS_comiteConciliacion, loteS_chat, loteS_respuestaAnonimos],
+};
+
+export const atencionCollections = [notificaciones, atencionGeneral, loteSCollection];

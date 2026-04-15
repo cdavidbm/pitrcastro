@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/participa-atencion/respuesta-anonimos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: `${base}atencion-y-servicios` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="ra-section">
+    <div class="container">
+      {pageData.aviso && (
+        <div class="ra-aviso">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <p><strong>Aviso:</strong> {pageData.aviso}</p>
+        </div>
+      )}
+
+      <div class="ra-tabla-wrap">
+        <table class="ra-tabla">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Radicado PQRS</th>
+              <th>Radicado Respuesta</th>
+              <th>Documento</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pageData.notificaciones.map((n) => (
+              <tr>
+                <td>{n.fecha}</td>
+                <td>{n.radicadoPqrs}</td>
+                <td>{n.radicadoRespuesta}</td>
+                <td><a href={n.url} target="_blank" rel="noopener noreferrer" class="ra-ver"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Ver documento</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="back-link"><a href={`${base}atencion-y-servicios`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Atención y Servicios</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ra-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .ra-section .container { max-width: 1100px; margin: 0 auto; }
+  .ra-aviso { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-5); background: rgba(255,193,7,0.08); border-left: 4px solid #ffc107; border-radius: var(--radius-md); margin-bottom: var(--space-8); }
+  .ra-aviso i { color: #ffa000; font-size: var(--font-size-xl); flex-shrink: 0; margin-top: 2px; }
+  .ra-aviso p { margin: 0; font-size: var(--font-size-sm); color: var(--theme-text); line-height: 1.6; }
+  .ra-tabla-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--theme-border-light); }
+  .ra-tabla { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
+  .ra-tabla thead { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .ra-tabla th, .ra-tabla td { padding: var(--space-3) var(--space-4); text-align: left; }
+  .ra-tabla th { font-weight: 800; text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 0.05em; }
+  .ra-tabla tbody tr { border-top: 1px solid var(--theme-border-light); transition: background var(--transition-fast); }
+  .ra-tabla tbody tr:hover { background: var(--theme-surface-alt); }
+  .ra-ver { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--file-pdf); font-weight: 700; text-decoration: none; }
+  .ra-ver:hover { text-decoration: underline; }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

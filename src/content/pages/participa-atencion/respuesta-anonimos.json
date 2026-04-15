@@ -1,0 +1,56 @@
+{
+  "title": "Respuesta a Anónimos / Notificación por Aviso",
+  "description": "Notificaciones por aviso realizadas en cumplimiento del artículo 69 de la Ley 1437 de 2011 (CPACA), a través de las cuales se notifican respuestas a peticiones anónimas o con dirección desconocida.",
+  "icon": "fa-bell",
+  "aviso": "Con esta respuesta se está dando cumplimiento de conformidad con el Artículo 69 de la Ley 1437 de 2011 y la notificación se considerará surtida al finalizar el día siguiente del aviso.",
+  "notificaciones": [
+    {
+      "fecha": "12/11/2025",
+      "radicadoPqrs": "Cumplimiento de Sentencia",
+      "radicadoRespuesta": "Resolución No. 534 de 2025",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/No.534-Por-la-cual-se-da-cumplimiento-a-una-Sentencia-Judicial-y-en-consecuencia-se-ordena-el-pago-derivado-de-la-misma.pdf"
+    },
+    {
+      "fecha": "17/01/2024",
+      "radicadoPqrs": "1-2023-010702",
+      "radicadoRespuesta": "2-2024-000594",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/2-2024-000594X.pdf"
+    },
+    {
+      "fecha": "17/01/2024",
+      "radicadoPqrs": "1-2023-010701",
+      "radicadoRespuesta": "2-2024-000574",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/2-2024-000574X.pdf"
+    },
+    {
+      "fecha": "10/01/2024",
+      "radicadoPqrs": "1-2023-006085",
+      "radicadoRespuesta": "2-2024-000261",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/2-2024-000261.pdf"
+    },
+    {
+      "fecha": "15/09/2023",
+      "radicadoPqrs": "1-2023-004442",
+      "radicadoRespuesta": "2-2023-009469",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/09/2-2023-009469.pdf"
+    },
+    {
+      "fecha": "06/062023",
+      "radicadoPqrs": "",
+      "radicadoRespuesta": "2-2023-005003",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/06/2-2023-005003.pdf"
+    },
+    {
+      "fecha": "18/04/2023",
+      "radicadoPqrs": "1-2023-002034",
+      "radicadoRespuesta": "2-2023-002973",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/2-2023-002973.pdf"
+    },
+    {
+      "fecha": "23/09/2022",
+      "radicadoPqrs": "1-2022-065077",
+      "radicadoRespuesta": "2-2022-012100",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/2-2022-012100.pdf"
+    }
+  ]
+}

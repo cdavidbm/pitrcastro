@@ -1,1 +1,31 @@
-{"title":"Defensa Pública y Prevención del Daño Antijurídico","description":"Informes sobre defensa pública","icon":"fa-shield-halved","enlaces":[{"titulo":"Defensa Judicial — Informes Trimestrales","url":"https://www.itrc.gov.co/Itrc/defensa-judicial/","icon":"fa-gavel","tipo":"external"},{"titulo":"Comité de Conciliación y Defensa Jurídica","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Resolucion-No.404-Por-medio-de-la-cual-se-adopta-el-Reglamento-Interno-del-Comite-de-Conciliacion-y-Defensa-Juridica_compressed-2.pdf","icon":"fa-file-pdf","tipo":"pdf"},{"titulo":"Política de Prevención del Daño Antijurídico","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Resoluci%C3%B3n-No.-011-de-23-de-enero-de-2024-Adopta-PPDA-Agencia-ITRC-2024-2025v.pdf","icon":"fa-file-pdf","tipo":"pdf"},{"titulo":"Informe de Gestión del Comité de Conciliación","url":"/informe-comite-conciliacion","icon":"fa-handshake","tipo":"internal"}]}
+{
+  "title": "Defensa Pública y Prevención del Daño Antijurídico",
+  "description": "Informes sobre defensa pública",
+  "icon": "fa-shield-halved",
+  "enlaces": [
+    {
+      "titulo": "Defensa Judicial — Informes Trimestrales",
+      "url": "https://www.itrc.gov.co/Itrc/defensa-judicial/",
+      "icon": "fa-gavel",
+      "tipo": "external"
+    },
+    {
+      "titulo": "Comité de Conciliación y Defensa Jurídica",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Resolucion-No.404-Por-medio-de-la-cual-se-adopta-el-Reglamento-Interno-del-Comite-de-Conciliacion-y-Defensa-Juridica_compressed-2.pdf",
+      "icon": "fa-file-pdf",
+      "tipo": "pdf"
+    },
+    {
+      "titulo": "Política de Prevención del Daño Antijurídico",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Resoluci%C3%B3n-No.-011-de-23-de-enero-de-2024-Adopta-PPDA-Agencia-ITRC-2024-2025v.pdf",
+      "icon": "fa-file-pdf",
+      "tipo": "pdf"
+    },
+    {
+      "titulo": "Informe de Gestión del Comité de Conciliación",
+      "url": "/informe-de-gestion-del-comite-de-conciliacion",
+      "icon": "fa-handshake",
+      "tipo": "internal"
+    }
+  ]
+}

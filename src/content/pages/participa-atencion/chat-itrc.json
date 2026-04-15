@@ -1,0 +1,19 @@
+{
+  "title": "Chat ITRC",
+  "description": "Chat institucional de la Agencia ITRC — canal alternativo de comunicación en línea con la ciudadanía.",
+  "icon": "fa-comments",
+  "intro": "El chat de la Agencia ITRC es un servicio alternativo de comunicación para el ciudadano, habilitado como complemento a los canales tradicionales de atención.",
+  "condicionesUso": [
+    "Para ingresar al chat se deben aceptar las condiciones de uso.",
+    "Las consultas deben ser concretas y respetuosas.",
+    "El servicio se brinda en horario de atención institucional (lunes a viernes, 8:00 am – 4:30 pm).",
+    "Fuera del horario, utilice los demás canales de atención disponibles."
+  ],
+  "cta": {
+    "texto": "Abrir chat de atención ciudadana",
+    "url": "https://www.123contactform.com/form-522398/Itrc-Formulario",
+    "descripcion": "Formulario de contacto habilitado como canal alternativo de atención en línea.",
+    "external": true,
+    "icon": "fa-comment-dots"
+  }
+}

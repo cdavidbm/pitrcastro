@@ -1,0 +1,57 @@
+{
+  "title": "Otros grupos de interés",
+  "description": "Recursos adicionales para ciudadanos, usuarios, servidores públicos y otros grupos de interés de la Agencia ITRC.",
+  "icon": "fa-users-line",
+  "intro": "Enlaces y recursos dirigidos a otros grupos de interés de la Agencia ITRC — información institucional, trámites, consultas y formatos alternativos.",
+  "enlaces": [
+    {
+      "titulo": "Glosario",
+      "descripcion": "Términos y definiciones utilizados en la gestión institucional.",
+      "url": "/glosario",
+      "tipo": "internal",
+      "icon": "fa-book-bookmark"
+    },
+    {
+      "titulo": "Preguntas y respuestas frecuentes",
+      "descripcion": "Preguntas comunes sobre trámites, competencias y servicios de la Agencia.",
+      "url": "/preguntas-frecuentes",
+      "tipo": "internal",
+      "icon": "fa-circle-question"
+    },
+    {
+      "titulo": "Carta de Trato Digno",
+      "descripcion": "Compromisos de la Agencia ITRC con la atención respetuosa al ciudadano.",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/CARTA-TRATO-DIGNO.pdf",
+      "tipo": "pdf",
+      "icon": "fa-handshake"
+    },
+    {
+      "titulo": "Solicitud de información pública con identidad reservada",
+      "descripcion": "Procedimiento habilitado por la Procuraduría General de la Nación para solicitudes protegidas.",
+      "url": "https://www.procuraduria.gov.co/portal/pqrsdf_Solicitud_de_informacion_con_identificacion_reservada.page",
+      "tipo": "external",
+      "icon": "fa-user-shield"
+    },
+    {
+      "titulo": "Estudios, investigaciones y otras publicaciones",
+      "descripcion": "Acceso a publicaciones institucionales.",
+      "url": "/estudios-investigaciones-y-otras-publicaciones",
+      "tipo": "internal",
+      "icon": "fa-magnifying-glass-chart"
+    },
+    {
+      "titulo": "Formato alternativo para grupos étnicos y culturales",
+      "descripcion": "Enfoque diferencial étnico en la atención al ciudadano.",
+      "url": "/formato-alternativo-para-grupos-etnicos-y-culturales",
+      "tipo": "internal",
+      "icon": "fa-users-rectangle"
+    },
+    {
+      "titulo": "Información adicional",
+      "descripcion": "Otras referencias institucionales.",
+      "url": "/informacion-adicional",
+      "tipo": "internal",
+      "icon": "fa-circle-info"
+    }
+  ]
+}

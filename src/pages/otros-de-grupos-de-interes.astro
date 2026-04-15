@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+import pageData from '../content/pages/participa-atencion/otros-grupos-interes.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Participa', href: `${base}participa` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="ogi-section">
+    <div class="container">
+      {pageData.intro && <p class="ogi-intro">{pageData.intro}</p>}
+      <ul class="ogi-list">
+        {pageData.enlaces.map((e) => {
+          const isInternal = e.tipo === 'internal';
+          const href = isInternal ? resolveUrl(e.url) : e.url;
+          return (
+            <li>
+              <a href={href} target={isInternal ? '_self' : '_blank'} rel={isInternal ? '' : 'noopener noreferrer'} class:list={['ogi-item', `ogi-item--${e.tipo || 'internal'}`]}>
+                <div class="ogi-item__icon"><i class={`fa-solid ${e.icon || 'fa-arrow-right'}`} aria-hidden="true"></i></div>
+                <div class="ogi-item__body">
+                  <h3>{e.titulo}</h3>
+                  {e.descripcion && <p>{e.descripcion}</p>}
+                </div>
+                <i class={`fa-solid ${isInternal ? 'fa-arrow-right' : (e.tipo === 'pdf' ? 'fa-file-pdf' : 'fa-arrow-up-right-from-square')} ogi-item__arrow`} aria-hidden="true"></i>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <div class="back-link"><a href={`${base}participa`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Participa</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ogi-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .ogi-section .container { max-width: 1000px; margin: 0 auto; }
+  .ogi-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-8); text-align: justify; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .ogi-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-4); }
+  .ogi-item { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); min-height: 100%; }
+  .ogi-item:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .ogi-item__icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--itrc-gold-light), var(--itrc-gold)); color: var(--itrc-navy); border-radius: var(--radius-md); font-size: var(--font-size-lg); flex-shrink: 0; }
+  .ogi-item__body { flex: 1; }
+  .ogi-item__body h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0 0 4px; line-height: 1.3; }
+  .ogi-item__body p { font-size: var(--font-size-xs); color: var(--theme-text-secondary); margin: 0; line-height: 1.5; }
+  .ogi-item__arrow { color: var(--theme-text-muted); font-size: var(--font-size-sm); opacity: 0.4; }
+  .ogi-item:hover .ogi-item__arrow { color: var(--itrc-gold); opacity: 1; }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

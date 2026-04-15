@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/participa-atencion/chat-itrc.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: `${base}atencion-y-servicios` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="chat-section">
+    <div class="container">
+      {pageData.intro && <p class="chat-intro">{pageData.intro}</p>}
+
+      {pageData.condicionesUso && pageData.condicionesUso.length > 0 && (
+        <div class="chat-condiciones">
+          <h2><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Condiciones de uso</h2>
+          <ul>
+            {pageData.condicionesUso.map((c) => <li>{c}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {pageData.cta && pageData.cta.url && (
+        <a href={pageData.cta.url} target={pageData.cta.external ? '_blank' : '_self'} rel={pageData.cta.external ? 'noopener noreferrer' : ''} class="chat-cta">
+          <div class="chat-cta__icon" aria-hidden="true"><i class={`fa-solid ${pageData.cta.icon || 'fa-comment-dots'}`}></i></div>
+          <div class="chat-cta__body">
+            <span class="chat-cta__text">{pageData.cta.texto}</span>
+            {pageData.cta.descripcion && <span class="chat-cta__desc">{pageData.cta.descripcion}</span>}
+          </div>
+          {pageData.cta.external && <i class="fa-solid fa-arrow-up-right-from-square chat-cta__ext" aria-hidden="true"></i>}
+        </a>
+      )}
+
+      <div class="back-link"><a href={`${base}atencion-y-servicios`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Atención y Servicios</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .chat-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .chat-section .container { max-width: 900px; margin: 0 auto; }
+  .chat-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text); margin-bottom: var(--space-8); text-align: justify; }
+  .chat-condiciones { background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-bottom: var(--space-8); }
+  .chat-condiciones h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .chat-condiciones h2 i { color: var(--itrc-gold); }
+  .chat-condiciones ul { margin: 0; padding-left: var(--space-6); }
+  .chat-condiciones li { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin-bottom: var(--space-2); line-height: 1.6; }
+  .chat-cta { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-gold) 100%); color: var(--white); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
+  .chat-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
+  .chat-cta__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.18); border-radius: var(--radius-full); font-size: var(--font-size-2xl); flex-shrink: 0; }
+  .chat-cta__body { flex: 1; }
+  .chat-cta__text { display: block; font-size: var(--font-size-lg); font-weight: 800; }
+  .chat-cta__desc { display: block; font-size: var(--font-size-sm); opacity: 0.92; margin-top: 4px; }
+  .chat-cta__ext { font-size: var(--font-size-base); opacity: 0.8; }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
