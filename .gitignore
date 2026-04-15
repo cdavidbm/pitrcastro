@@ -33,3 +33,13 @@ public/admin/sveltia-cms.js
 
 # Salidas del monitoreo de WordPress origen (scripts/check-itrc-changes.py)
 reports/
+scripts/.cache/
+
+# Docs de trabajo locales (planificación, tracker, análisis de gaps).
+# Fuente única de contexto para reanudar conversaciones. No suben al remoto.
+.local-docs/
+
+# Binarios migrados desde itrc.gov.co al filesystem local.
+# Ver .local-docs/ESTRATEGIA.md para el plan de hosting final.
+# Backup cubierto por OneDrive. No se publican en el remoto de pruebas.
+public/documentos/
