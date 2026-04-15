@@ -1518,6 +1518,226 @@ collections:
                   - pdf
                   - ext
                 default: xlsx
+      - name: plan-adquisiciones
+        label: Plan Anual de Adquisiciones
+        file: src/content/pages/transparencia/contratacion/plan-adquisiciones.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-cart-shopping
+          - name: secopUrl
+            label: URL SECOP II (Plan Anual)
+            widget: string
+            required: false
+          - name: anios
+            label: Planes por vigencia
+            widget: list
+            label_singular: Año
+            collapsed: true
+            summary: "{{fields.anio}}"
+            fields:
+              - name: anio
+                label: Año
+                widget: string
+                required: true
+              - name: docs
+                label: Documentos del año
+                widget: list
+                label_singular: Documento
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
+      - name: proyectos-inversion
+        label: Programas y Proyectos de Inversión
+        file: src/content/pages/transparencia/proyectos-inversion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-chart-line
+          - name: enlacesExternos
+            label: Enlaces externos (consulta SPI, DNP, etc.)
+            widget: list
+            label_singular: Enlace
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL externa
+                widget: string
+                required: true
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
+          - name: informes
+            label: Informes de Proyectos de Inversión (por año)
+            widget: list
+            label_singular: Año
+            collapsed: true
+            summary: "{{fields.anio}}"
+            fields:
+              - name: anio
+                label: Año
+                widget: string
+                required: true
+              - name: docs
+                label: Informes
+                widget: list
+                label_singular: Informe
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
+          - name: fichasEbi
+            label: Fichas EBI (por año)
+            widget: list
+            label_singular: Año
+            collapsed: true
+            required: false
+            summary: "{{fields.anio}}"
+            fields:
+              - name: anio
+                label: Año
+                widget: string
+                required: true
+              - name: fichas
+                label: Fichas EBI del año
+                widget: list
+                label_singular: Ficha
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
+          - name: fichasEbiNota
+            label: Nota sobre Fichas EBI
+            widget: text
+            required: false
+          - name: resumenEjecutivo
+            label: Resúmenes ejecutivos por proyecto
+            widget: list
+            label_singular: Resumen
+            collapsed: true
+            required: false
+            summary: Proyecto {{fields.proyecto}}
+            fields:
+              - name: proyecto
+                label: Código BPIN del proyecto
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+          - name: seguimientosSPI
+            label: Seguimientos a la ejecución (SPI)
+            widget: list
+            label_singular: Seguimiento
+            collapsed: true
+            required: false
+            summary: "{{fields.proyecto}} — {{fields.periodo}}"
+            fields:
+              - name: proyecto
+                label: Código BPIN
+                widget: string
+                required: true
+              - name: periodo
+                label: Periodo
+                widget: string
+                required: true
+                hint: "Ej: III Trimestre 2023"
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: procedimientos-adquisicion
+        label: Procedimientos y Políticas de Adquisición
+        file: src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-signature
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: documentos
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - manual
+                  - instructivo
+                  - guia
+                  - resolucion
+                default: manual
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
       - name: informes-legales
         label: Informes Legales (Control Interno)
         file: src/content/pages/transparencia/informes-legales.json
