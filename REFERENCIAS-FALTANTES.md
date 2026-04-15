@@ -34,6 +34,9 @@
 | AUDIT-3 Normativa | 3 URLs en WP dan 404/no-conecta (1 externa MinInterior 404, 1 externa Presidencia con espacios no-codificados) |
 | AUDIT-4 Atención | 2 correcciones aplicadas (PQRS Servidores migrado + Chat ITRC enriquecido con 8 condiciones completas) |
 | AUDIT-5 Participa | Sin correcciones; falsos positivos por Unicode NFC/NFD + 1 URL 404 + 1 google-redirect |
+| AUDIT-6 Prensa | Sin correcciones; 2 URLs 404 en WP (boletines legacy) |
+| AUDIT-7 Observatorio | Sin correcciones; 3 páginas con texto descriptivo WP más largo (memorias, del-observatorio) pero 0 deltas de contenido/PDFs |
+| AUDIT-8 Contratación/Informes/Vigencias | Sin correcciones; 55 URLs legacy `/pestana/documentos/` dan 404, 2 URLs a intranet privada dan 301 |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -69,6 +72,38 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### AUDIT-8 — Contratación + Informes + Vigencias (2026-04-15)
+
+**Alcance**: 24 páginas (8 Contratación + 6 Informes + 10 Vigencias históricas).
+
+**Resultado**: 17 🟢 + 5 🟡 + 2 🔴. Tras verificación HTTP HEAD: todos los "deltas" (55+ URLs) son legacy rotas:
+- Paths `/pestana/documentos/` → 404 universalmente (directorio legacy pre-WordPress).
+- Algunas URLs redirect (301) a `intranet.agenciaitrc.gov.co` (dominio privado no accesible públicamente).
+
+**Sin correcciones de código**. Páginas locales tienen las URLs vigentes en `/wp-content/uploads/`. El portal nuevo no debe incluir las URLs legacy muertas.
+
+---
+
+### AUDIT-7 — Observatorio (2026-04-15)
+
+**Alcance**: 20 páginas de `observatorio.itrc.gov.co` (crawl completo de WP REST).
+
+**Resultado**: 16 🟢 + 3 🟡 (ratio texto <40% en memorias-eje-educacion, memorias-eje-participacion y del-observatorio — contenido descriptivo más resumido en local, 0 deltas de contenido/PDFs).
+
+**Sin correcciones**. Los PDFs (carne editorial) están completos. Las diferencias son de longitud de texto narrativo descriptivo, decisión editorial legítima.
+
+---
+
+### AUDIT-6 — Prensa (2026-04-15)
+
+**Alcance**: 8 páginas (comunicados, boletines, cápsulas, videos, galería).
+
+**Resultado**: 3 🟢 + 2 🟡 (1 URL 404 cada uno en boletines y comunicados legacy) + 3 páginas WP sin slug directo (eventos, videos, aviso-de-convocatorias son custom post types o posts).
+
+**Sin correcciones**.
 
 ---
 
