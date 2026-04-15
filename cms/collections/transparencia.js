@@ -510,6 +510,32 @@ export const transparencia = {
       ],
     },
     // ============================================================
+    // Lote M5 — Reporte Austeridad en el Gasto (último de M)
+    // ============================================================
+    {
+      name: "reporte-austeridad-gasto",
+      label: "Reporte Austeridad en el Gasto",
+      file: "src/content/pages/transparencia/reporte-austeridad-gasto.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-money-bill-trend-up" },
+        { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+        {
+          name: "informes",
+          label: "Reportes semestrales",
+          widget: "list",
+          label_singular: "Reporte",
+          collapsed: true,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título", widget: "string", required: true, hint: "Incluir semestre/año en el título, ej. 'Reporte de Austeridad — II Semestre 2024'" },
+            { name: "url", label: "URL del PDF", widget: "string", required: true },
+          ],
+        },
+      ],
+    },
+    // ============================================================
     // Lote M4 — Gestión Documental (4 páginas Ley 1712)
     // ============================================================
     ...(function gestionDocumental() {

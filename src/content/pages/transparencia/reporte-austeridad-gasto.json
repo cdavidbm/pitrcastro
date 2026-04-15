@@ -1,0 +1,36 @@
+{
+  "title": "Reporte de Austeridad en el Gasto Público",
+  "description": "Reportes semestrales de austeridad en el gasto público de la Agencia ITRC, publicados en cumplimiento del Decreto 1737 de 1998 y el Decreto 1068 de 2015.",
+  "icon": "fa-money-bill-trend-up",
+  "intro": "Reportes periódicos sobre medidas de austeridad y eficiencia en el gasto público de la Agencia ITRC. Se publican semestralmente en cumplimiento del Decreto 1737 de 1998, el Decreto 1068 de 2015 (Decreto Único Reglamentario del Sector Hacienda) y la Directiva Presidencial No. 09 de 2018.",
+  "informes": [
+    {
+      "titulo": "Reporte de Austeridad en el Gasto — a diciembre 2025",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Reporte-Austeridad-en-el-Gasto-a-diciembre-2025.pdf"
+    },
+    {
+      "titulo": "Reporte de Austeridad en el Gasto Público — II Semestre 2024",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/25-REPORTE-AUSTERIDAD-II-SEMESTRE-2024-ITRC-1.pdf"
+    },
+    {
+      "titulo": "Reporte de Austeridad en el Gasto Público — I Semestre 2024",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Publicacion-1-semestre-2024-Austeridad-en-el-gasto.pdf"
+    },
+    {
+      "titulo": "Reporte de Austeridad en el Gasto Público — II Semestre 2023",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Publicacion-2-semestre-2023-Publicacion-Austeridad-en-el-gasto.pdf"
+    },
+    {
+      "titulo": "Reporte de Austeridad en el Gasto Público — I Semestre 2023",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Publicacion-1-semestre-2023-Austeridad-en-el-gasto.pdf"
+    },
+    {
+      "titulo": "Reporte de Austeridad en el Gasto Público — II Semestre 2022",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/REPORTE-AUSTERIDAD-SEM-2-2022.pdf"
+    },
+    {
+      "titulo": "Reporte de Austeridad en el Gasto Público — I Semestre 2022",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/Reporte-Austeridad-en-el-Gasto-1-Semestre-2022.pdf"
+    }
+  ]
+}
