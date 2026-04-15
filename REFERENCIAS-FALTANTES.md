@@ -32,6 +32,7 @@
 | AUDIT-1 sistema-integrado-de-gestion | 2 archivos WP listados pero devuelven 404 (pendiente publicación real) |
 | AUDIT-2 Transparencia | 19 URLs en HTML WP devuelven 404 (local tiene versiones correctas) + 1 duplicación legacy resuelta |
 | AUDIT-3 Normativa | 3 URLs en WP dan 404/no-conecta (1 externa MinInterior 404, 1 externa Presidencia con espacios no-codificados) |
+| AUDIT-4 Atención | 2 correcciones aplicadas (PQRS Servidores migrado + Chat ITRC enriquecido con 8 condiciones completas) |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -67,6 +68,35 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### AUDIT-4 — Atención al ciudadano (2026-04-15)
+
+**Alcance**: 13 páginas WP del área Atención al Ciudadano.
+
+**Correcciones aplicadas durante el audit**:
+
+1. **`/p-q-r-s-servidores-agencia-itrc`** — página NO migrada previamente. El WP contenía **14 informes trimestrales de PQRSDF 2017-2020** (Ley 1712). Se migró completamente:
+   - JSON creado: `src/content/pages/atencion/pqrs-servidores.json`
+   - Astro creado: `src/pages/p-q-r-s-servidores-agencia-itrc.astro` (thin-wrapper ListadoInformes)
+   - Los 14 URLs verificados con HTTP 200.
+
+2. **`/chat-itrc`** — ratio local 32% vs WP (contenido resumido). Se enriqueció con:
+   - 8 condiciones de uso completas (antes solo 4 resúmenes).
+   - Horario de atención del chat: L-V 7:00 AM - 4:00 PM jornada continua (distinto al horario de oficinas 8:00-4:30).
+   - Nota legal sobre reserva del derecho de modificar reglas.
+
+**Estado final AUDIT-4** (13 páginas):
+
+| Estado | Cantidad |
+|---|:---:|
+| 🟢 Completas originalmente | 10 |
+| 🔴 Migrada durante el audit | 1 (PQRS Servidores — 14 docs) |
+| 🟡 Enriquecida durante el audit | 1 (Chat ITRC — 8 condiciones) |
+| `informacion-adicional` sin slug WP | 1 (cubierto por `/otros-de-grupos-de-interes` consolidado) |
+
+Huérfanos: no se detectaron nuevas páginas WP fuera del listado del sitemap.
 
 ---
 

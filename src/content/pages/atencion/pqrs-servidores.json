@@ -1,0 +1,64 @@
+{
+  "title": "Informes PQRS — Servidores Agencia ITRC",
+  "description": "Informes trimestrales de peticiones, quejas, reclamos y sugerencias (PQRS) sobre servidores de la Agencia ITRC.",
+  "icon": "fa-file-lines",
+  "intro": "Informes trimestrales sobre las peticiones, quejas, reclamos, sugerencias y denuncias de fraude (PQRSDF) relacionadas con los servidores públicos de la Agencia ITRC, publicados desde 2017 en cumplimiento de la Ley 1712 de 2014.",
+  "informes": [
+    {
+      "titulo": "INFORME SEGUNDO TRIMESTRE 2020 PQRSDF",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Informe-Segundo-Trimestre-2020-PQRSDF-Versión-para-publicar.pdf"
+    },
+    {
+      "titulo": "INFORME PRIMER TRIMESTRE 2020 P.Q.R.S.D.F",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/Informe-Primer-Trimestre-2020-PQRSDF-versión-para-la-publicación.pdf"
+    },
+    {
+      "titulo": "INFORME CUARTO TRIMESTRE 2019 P.Q.R.S.D.F",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/01/Informe-Cuarto-Trimestre-2019-PQRSDF.pdf"
+    },
+    {
+      "titulo": "INFORME TERCER&nbsp; TRIMESTRE 2019 P.Q.R.S.D.F",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/11/Informe-Tercer-Trimestre-2019-PQRSDF-1.pdf"
+    },
+    {
+      "titulo": "INFORME SEGUNDO&nbsp; TRIMESTRE 2019 P.Q.R.S.D.F",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/08/Informe-PQRSDF-Segundo-Trimestre-2019.pdf"
+    },
+    {
+      "titulo": "INFORME PRIMER&nbsp; TRIMESTRE 2019 P.Q.R.S.D.F",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/04/Informe-Primer-Trimestre-2019-PQRSDF.pdf"
+    },
+    {
+      "titulo": "INFORME CUARTO TRIMESTRE ATENCIÓN AL CIUDADANO P.Q.R.S 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/INFORME-PQRS-CUARTO-TRIMESTRE-29-01-2019-PUBLICAR.pdf"
+    },
+    {
+      "titulo": "INFORME TERCER TRIMESTRE ATENCIÓN AL CIUDADANO 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/INFORME-PQRS-TERCER-TRIMESTRE-FORMATO-16-10-2018.pdf"
+    },
+    {
+      "titulo": "INFORME SEGUNDO TRIMESTRE ATENCION AL CIUDADANO 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/pqrs-2-trimestre-formato.pdf"
+    },
+    {
+      "titulo": "INFORME PRIMER TRIMESTRE 2018",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-TRIMESTRAL-DE-PETICIONES.pdf"
+    },
+    {
+      "titulo": "INFORME CUARTO TRIMESTRE 2017",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-DE-PETICIONES-4to-trimestre-2017.pdf"
+    },
+    {
+      "titulo": "INFORME TERCER&nbsp;TRIMESTRE 2017",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-TRIMESTRAL-DE-PETICIONES-3ER-TRIMESTRE-2-version.pdf"
+    },
+    {
+      "titulo": "INFORME SEGUNDO TRIMESTRE 2017",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/INFORME-TRIMESTRAL-DE-PETICIONES-2-TRIMESTRE.pdf"
+    },
+    {
+      "titulo": "INFORME PRIMER TRIMESTRE 2017",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/02/Informe-Primer-Trimeste-2017.pdf"
+    }
+  ]
+}

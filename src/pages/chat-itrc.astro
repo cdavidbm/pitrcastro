@@ -26,6 +26,20 @@ const breadcrumb = [
         </div>
       )}
 
+      {pageData.horario && (
+        <div class="chat-horario">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <p>{pageData.horario}</p>
+        </div>
+      )}
+
+      {pageData.nota && (
+        <div class="chat-nota">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <p>{pageData.nota}</p>
+        </div>
+      )}
+
       {pageData.cta && pageData.cta.url && (
         <a href={pageData.cta.url} target={pageData.cta.external ? '_blank' : '_self'} rel={pageData.cta.external ? 'noopener noreferrer' : ''} class="chat-cta">
           <div class="chat-cta__icon" aria-hidden="true"><i class={`fa-solid ${pageData.cta.icon || 'fa-comment-dots'}`}></i></div>
@@ -51,6 +65,12 @@ const breadcrumb = [
   .chat-condiciones h2 i { color: var(--itrc-gold); }
   .chat-condiciones ul { margin: 0; padding-left: var(--space-6); }
   .chat-condiciones li { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin-bottom: var(--space-2); line-height: 1.6; }
+  .chat-horario { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); background: rgba(40,167,69,0.08); border-left: 3px solid #28a745; border-radius: var(--radius-md); margin-bottom: var(--space-4); }
+  .chat-horario i { color: #28a745; font-size: var(--font-size-xl); }
+  .chat-horario p { margin: 0; font-size: var(--font-size-sm); color: var(--theme-text); }
+  .chat-nota { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: rgba(255,193,7,0.08); border-left: 3px solid #ffc107; border-radius: var(--radius-md); margin-bottom: var(--space-6); }
+  .chat-nota i { color: #ffa000; font-size: var(--font-size-lg); margin-top: 2px; flex-shrink: 0; }
+  .chat-nota p { margin: 0; font-size: var(--font-size-xs); color: var(--theme-text-secondary); line-height: 1.6; font-style: italic; }
   .chat-cta { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-gold) 100%); color: var(--white); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
   .chat-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
   .chat-cta__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.18); border-radius: var(--radius-full); font-size: var(--font-size-2xl); flex-shrink: 0; }

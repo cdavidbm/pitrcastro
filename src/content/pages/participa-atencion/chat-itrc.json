@@ -2,13 +2,19 @@
   "title": "Chat ITRC",
   "description": "Chat institucional de la Agencia ITRC — canal alternativo de comunicación en línea con la ciudadanía.",
   "icon": "fa-comments",
-  "intro": "El chat de la Agencia ITRC es un servicio alternativo de comunicación para el ciudadano, habilitado como complemento a los canales tradicionales de atención.",
+  "intro": "Bienvenido al chat de la Agencia ITRC. Este es un servicio que se brinda como alternativa de comunicación para el ciudadano a través de la web.",
+  "horario": "Horario de atención en el chat: Lunes a viernes de 07:00 AM a 04:00 PM, jornada continua. Fuera de este horario, envíe su inquietud al correo de contáctenos y pronto le daremos respuesta.",
   "condicionesUso": [
-    "Para ingresar al chat se deben aceptar las condiciones de uso.",
-    "Las consultas deben ser concretas y respetuosas.",
-    "El servicio se brinda en horario de atención institucional (lunes a viernes, 8:00 am – 4:30 pm).",
-    "Fuera del horario, utilice los demás canales de atención disponibles."
+    "Para ingresar al chat usted sólo debe registrar un nombre y correo electrónico (esta información se solicita en caso de que usted requiera ser contactado por nuestros funcionarios).",
+    "Dar clic en Iniciar Chat.",
+    "El usuario que utiliza este servicio declara estar en conocimiento y aceptar los términos y condiciones de uso del presente chat.",
+    "La Agencia ITRC, con el interés de mantener la reserva y protección de datos de carácter personal de sus usuarios, asegura la confidencialidad de los mismos y no los transferirá, cederá ni proveerá de otra manera, salvo en aquellos casos en que la legislación vigente así lo indique. Los usuarios determinan libre y voluntariamente si desean facilitar los datos personales requeridos con ocasión del uso de los servicios ofrecidos en el sitio web institucional.",
+    "La entidad se reserva el derecho de retirar en cualquier momento, y a su criterio, los mensajes que vayan en contra de las reglas del chat o de la legislación vigente.",
+    "El usuario se compromete a mantener una conducta decente y de respeto mutuo cuando utilice este servicio.",
+    "No usar lenguaje ofensivo o calumnioso hacia otros usuarios de este servicio.",
+    "No publicar mensajes comerciales."
   ],
+  "nota": "La Agencia ITRC se reserva el derecho de modificar las reglas de uso del chat en cualquier momento y a su solo criterio, así como de terminar o suspender el acceso de los usuarios por cualquier violación a las condiciones anteriormente descritas.",
   "cta": {
     "texto": "Abrir chat de atención ciudadana",
     "url": "https://www.123contactform.com/form-522398/Itrc-Formulario",
