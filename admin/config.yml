@@ -3228,6 +3228,746 @@ collections:
                 label: Es enlace externo
                 widget: boolean
                 default: false
+  - name: normativa-delitos
+    label: NORMATIVA TEMÁTICA
+    label_singular: Página de normativa temática
+    description: Páginas por tipo de delito o área normativa (Lote P del análisis secundario)
+    files:
+      - name: normatividad-cohecho
+        label: Cohecho
+        file: src/content/pages/normativa/delitos/normatividad-cohecho.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-handshake-slash
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-concusion
+        label: Concusión
+        file: src/content/pages/normativa/delitos/normatividad-concusion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-triangle-exclamation
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-peculado
+        label: Peculado
+        file: src/content/pages/normativa/delitos/normatividad-peculado.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-money-bill-wave
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-abuso-de-funcion-publica
+        label: Abuso de Función Pública
+        file: src/content/pages/normativa/delitos/normatividad-abuso-de-funcion-publica.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-gavel
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-falsedad-en-documento-publico
+        label: Falsedad en Documento Público
+        file: src/content/pages/normativa/delitos/normatividad-falsedad-en-documento-publico.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-circle-xmark
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normativa-prevaricato
+        label: Prevaricato
+        file: src/content/pages/normativa/delitos/normativa-prevaricato.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-scale-unbalanced
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-conductas-que-integran-un-delito
+        label: Conductas que integran un delito
+        file: src/content/pages/normativa/delitos/normatividad-conductas-que-integran-un-delito.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-list-check
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-faltas-relacionadas-con-la-contratacion-publica
+        label: Faltas en contratación pública
+        file: src/content/pages/normativa/delitos/normatividad-faltas-relacionadas-con-la-contratacion-publica.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-contract
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-favorecimiento-de-la-evasion-de-impuestos
+        label: Favorecimiento de la evasión
+        file: src/content/pages/normativa/delitos/normatividad-favorecimiento-de-la-evasion-de-impuestos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-coins
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-alteracion-o-falsificacion-de-informacion
+        label: Alteración o falsificación de información
+        file: src/content/pages/normativa/delitos/normatividad-alteracion-o-falsificacion-de-informacion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-pen-nib
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-incremento-patrimonial-injustificado
+        label: Incremento patrimonial injustificado
+        file: src/content/pages/normativa/delitos/normatividad-incremento-patrimonial-injustificado.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-chart-line
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-trafico-de-influencias
+        label: Tráfico de influencias
+        file: src/content/pages/normativa/delitos/normatividad-trafico-de-influencias.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-people-arrows
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normativa-incumplimiento-al-regimen-cambiario-y-aduanero
+        label: Incumplimiento cambiario y aduanero
+        file: src/content/pages/normativa/delitos/normativa-incumplimiento-al-regimen-cambiario-y-aduanero.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-money-bill-transfer
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-funcion-publica
+        label: Función pública
+        file: src/content/pages/normativa/delitos/normatividad-funcion-publica.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-building-columns
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: politicas-y-lineamientos-sectoriales
+        label: Políticas y lineamientos sectoriales
+        file: src/content/pages/normativa/delitos/politicas-y-lineamientos-sectoriales.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-compass
+          - name: intro
+            label: Introducción
+            widget: text
+            required: false
+          - name: contenido
+            label: Contenido normativo (HTML)
+            widget: text
+            required: false
+            hint: HTML limpio con artículos citados. Se renderiza con set:html.
+          - name: normasRelacionadas
+            label: Normas relacionadas (opcional)
+            widget: list
+            label_singular: Norma
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
   # ==========================================
   # ATENCION Y SERVICIOS
   # # Canales de atencion y servicios al ciudadano
