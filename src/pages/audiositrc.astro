@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/institucional/audios-itrc.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: '#' },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="aud-section">
+    <div class="container">
+      {pageData.intro && <p class="aud-intro">{pageData.intro}</p>}
+      <ul class="aud-list">
+        {pageData.audios.map((a, i) => (
+          <li class="aud-card">
+            <div class="aud-card__head">
+              <div class="aud-card__num">{(i+1).toString().padStart(2,'0')}</div>
+              <h3>{a.titulo}</h3>
+            </div>
+            <audio controls preload="metadata" class="aud-card__player">
+              <source src={a.url} type="audio/mpeg" />
+              Su navegador no soporta la reproducción de audio.
+            </audio>
+            <a href={a.url} download class="aud-card__download">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar audio
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="back-link"><a href={base}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .aud-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .aud-section .container { max-width: 800px; margin: 0 auto; }
+  .aud-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-8); text-align: center; }
+  .aud-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-5); }
+  .aud-card { padding: var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); }
+  .aud-card__head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+  .aud-card__num { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-md); font-weight: 800; font-size: var(--font-size-sm); }
+  .aud-card h3 { margin: 0; font-size: var(--font-size-base); color: var(--theme-heading); }
+  .aud-card__player { width: 100%; }
+  .aud-card__download { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3); padding: 6px 14px; background: var(--theme-surface-alt); border-radius: var(--radius-md); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-xs); font-weight: 600; }
+  .aud-card__download:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

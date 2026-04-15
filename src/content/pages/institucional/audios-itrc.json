@@ -1,0 +1,16 @@
+{
+  "title": "Audios institucionales ITRC",
+  "description": "Repositorio de audios institucionales de la Agencia ITRC.",
+  "icon": "fa-headphones",
+  "intro": "Audios institucionales producidos por la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC).",
+  "audios": [
+    {
+      "titulo": "Audio institucional ITRC #1",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/1.mp3"
+    },
+    {
+      "titulo": "Audio institucional ITRC #2",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/2.mp3"
+    }
+  ]
+}

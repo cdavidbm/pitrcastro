@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/institucional/estados.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Atención y Servicios', href: `${base}atencion-y-servicios` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="est-section">
+    <div class="container">
+      {pageData.aviso && (
+        <div class="est-aviso">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <p><strong>Aviso legal:</strong> {pageData.aviso}</p>
+        </div>
+      )}
+
+      {pageData.intro && <p class="est-intro">{pageData.intro}</p>}
+
+      <div class="est-search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="text" id="est-filter" placeholder="Buscar por número, fecha o palabra clave..." aria-label="Buscar notificación" />
+      </div>
+
+      <div class="est-count" id="est-count">{pageData.notificaciones.length} notificaciones</div>
+
+      <ul class="est-list" id="est-list">
+        {pageData.notificaciones.map((n) => (
+          <li class="est-item" data-search={n.descripcion.toLowerCase()}>
+            <a href={n.url} target="_blank" rel="noopener noreferrer" class="est-link">
+              <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+              <span class="est-desc">{n.descripcion}</span>
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="back-link"><a href={`${base}atencion-y-servicios`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Atención y Servicios</a></div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('est-filter');
+    const items = document.querySelectorAll('.est-item');
+    const count = document.getElementById('est-count');
+    const total = items.length;
+    if (!input) return;
+    input.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      let visible = 0;
+      items.forEach((it) => {
+        const txt = it.getAttribute('data-search') || '';
+        const show = !q || txt.includes(q);
+        it.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      count.textContent = `${visible} de ${total} notificaciones`;
+    });
+  });
+</script>
+
+<style>
+  .est-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .est-section .container { max-width: 1100px; margin: 0 auto; }
+  .est-aviso { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-5); background: rgba(255,193,7,0.08); border-left: 4px solid #ffc107; border-radius: var(--radius-md); margin-bottom: var(--space-6); }
+  .est-aviso i { color: #ffa000; font-size: var(--font-size-xl); flex-shrink: 0; margin-top: 2px; }
+  .est-aviso p { margin: 0; font-size: var(--font-size-sm); color: var(--theme-text); line-height: 1.6; }
+  .est-intro { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin-bottom: var(--space-6); }
+  .est-search { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); margin-bottom: var(--space-4); background: var(--theme-surface-alt); border: 1px solid var(--theme-border); border-radius: var(--radius-full); }
+  .est-search i { color: var(--theme-text-muted); }
+  .est-search input { flex: 1; border: none; background: transparent; font-size: var(--font-size-sm); color: var(--theme-text); outline: none; }
+  .est-count { display: inline-block; padding: 6px 14px; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full); margin-bottom: var(--space-6); font-size: var(--font-size-xs); font-weight: 800; }
+  .est-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .est-link { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .est-link:hover { border-color: var(--file-pdf); background: var(--theme-surface-alt); transform: translateX(3px); }
+  .est-link > i:first-child { color: var(--file-pdf); }
+  .est-desc { flex: 1; font-size: var(--font-size-sm); color: var(--theme-heading); }
+  .est-link > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
