@@ -33,6 +33,7 @@
 | AUDIT-2 Transparencia | 19 URLs en HTML WP devuelven 404 (local tiene versiones correctas) + 1 duplicación legacy resuelta |
 | AUDIT-3 Normativa | 3 URLs en WP dan 404/no-conecta (1 externa MinInterior 404, 1 externa Presidencia con espacios no-codificados) |
 | AUDIT-4 Atención | 2 correcciones aplicadas (PQRS Servidores migrado + Chat ITRC enriquecido con 8 condiciones completas) |
+| AUDIT-5 Participa | Sin correcciones; falsos positivos por Unicode NFC/NFD + 1 URL 404 + 1 google-redirect |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -68,6 +69,24 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### AUDIT-5 — Participa (2026-04-15)
+
+**Alcance**: 9 páginas WP del área Participa (crawl automático de hijos de `participa` id 8297).
+
+**Resultado** (9 páginas):
+
+| Estado | Cantidad |
+|---|:---:|
+| 🟢 Completas | 7 (rendición cuentas, colaboración, planeación, diagnóstico, otros grupos, control social, consulta ciudadana, participa landing) |
+| Falso positivo Unicode | 1 (informe-comite-conciliación — URLs WP usan descomposición NFD con combining acute, local NFC) |
+| 🟡 Delta de 2 URLs (ambos falsos) | 1 (rendición-de-cuentas — 1 URL es google-redirect, 1 URL 404) |
+
+**Aprendizaje nuevo (ampliado)**: la comparación de URLs con caracteres especiales requiere **Unicode NFC normalization** además de URL-decode + lowercase. Algunas URLs del WP se guardan con composición NFD (ej: `Gestio\u0301n` con combining acute) mientras otras con NFC (`Gestión`). Set difference sin normalizar da falsos positivos.
+
+Cobertura efectiva: 100%. 0 correcciones de código requeridas.
 
 ---
 
