@@ -2161,6 +2161,226 @@ collections:
                 label: Icono FontAwesome
                 widget: string
                 required: false
+      - name: decreto-unico
+        label: Decreto Único Reglamentario
+        file: src/content/pages/transparencia/decreto-unico.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-lines
+          - name: documentos
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.nombre}}"
+            fields:
+              - name: nombre
+                label: Nombre
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - pdf
+                  - external
+                  - xlsx
+                default: pdf
+      - name: informacion-mujeres
+        label: Información para Mujeres
+        file: src/content/pages/transparencia/informacion-mujeres.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-venus
+          - name: secciones
+            label: Secciones temáticas
+            widget: list
+            label_singular: Sección
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título de la sección
+                widget: string
+                required: true
+              - name: links
+                label: Enlaces
+                widget: list
+                label_singular: Enlace
+                collapsed: true
+                summary: "{{fields.nombre}}"
+                fields:
+                  - name: nombre
+                    label: Nombre del enlace
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL
+                    widget: string
+                    required: true
+      - name: defensa-publica
+        label: Defensa Pública y Prevención del Daño Antijurídico
+        file: src/content/pages/transparencia/defensa-publica.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-shield-halved
+          - name: enlaces
+            label: Recursos / enlaces
+            widget: list
+            label_singular: Enlace
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+                hint: Internos con slash inicial, externos URL completa, PDFs URL completa.
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - internal
+                  - external
+                  - pdf
+                default: external
+      - name: normatividad-especial
+        label: Normatividad Especial
+        file: src/content/pages/transparencia/normatividad-especial.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-circle-check
+          - name: secciones
+            label: Secciones
+            widget: list
+            label_singular: Sección
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL destino
+                widget: string
+                required: true
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
+      - name: tramites
+        label: Trámites
+        file: src/content/pages/transparencia/tramites.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-clipboard-list
+          - name: texto
+            label: Texto explicativo
+            widget: text
+            required: true
+            hint: Texto principal sobre trámites (o ausencia de ellos).
+          - name: costosUrl
+            label: URL a Resolución de Costos
+            widget: string
+            required: false
+            hint: Resolución que fija costos de copias, certificaciones, etc.
+      - name: registro-activos
+        label: Registro de Activos de Información
+        file: src/content/pages/transparencia/registro-activos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-database
+          - name: pdfUrl
+            label: URL del archivo
+            widget: string
+            required: true
+            hint: Normalmente un XLSX con el registro completo.
+          - name: pdfNombre
+            label: Nombre del archivo (para mostrar)
+            widget: string
+            required: true
+          - name: tipoArchivo
+            label: Tipo de archivo
+            widget: select
+            options:
+              - pdf
+              - xlsx
+              - xls
+              - docx
+            default: xlsx
       - name: informes-legales
         label: Informes Legales (Control Interno)
         file: src/content/pages/transparencia/informes-legales.json

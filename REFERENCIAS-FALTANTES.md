@@ -20,6 +20,7 @@
 |---|:---:|
 | N2 (#34 Ejecución contratos) | 73 URLs duplicadas |
 | O3 (#46 Catálogo OCI 3LD) | 27 categorías con 90 placeholders; 12 sin destino en portal nuevo |
+| M1 (defensa-publica.json) | 1 enlace interno a destino inexistente |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -55,6 +56,25 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### defensa-publica.json → enlace interno faltante (Lote M1)
+
+**URL origen WP**: `https://www.itrc.gov.co/Itrc/informe-defensa-publica-y-prevencion-del-dano-antijuridico/`
+**URL destino nuevo**: `/informe-defensa-publica` (página existe y renderiza)
+**Estado**: `enlace-roto` (interno, destino inexistente en portal nuevo)
+**Detectado**: 2026-04-15 (durante Lote M1 saneamiento CMS)
+
+**Descripción**: el JSON `src/content/pages/transparencia/defensa-publica.json` contiene un enlace interno a `/informe-comite-conciliacion` como uno de los 4 recursos mostrados ("Informe de Gestión del Comité de Conciliación", `tipo: internal`). **Esa página no existe** en el repo (`src/pages/informe-comite-conciliacion.astro` y su JSON no están creados). Al hacer clic desde `/informe-defensa-publica` se obtendría 404.
+
+**Correlación con análisis secundario**: corresponde al **#78 "Informe Comité de Conciliación"** listado en `analisis_web_ITRC.md` §3.3 como Prioridad MEDIA pendiente.
+
+**Cómo se maneja ahora**: se preserva el enlace en el JSON (visible en la lista de recursos) pero apunta a destino 404. El usuario puede editar desde Sveltia CMS para:
+- Remover el enlace (si se considera que no va a existir).
+- O dejarlo y crear la página destino en un lote futuro dedicado a #78.
+
+**Pendiente / responsable**: Subdirección de Asuntos Legales — deben proveer la página con informes del Comité de Conciliación (o confirmar que no se migra). Referenciado también en el hub `/informes-a-organismos-de-inspeccion-vigilancia-y-control` (Lote O2 #47).
 
 ---
 
