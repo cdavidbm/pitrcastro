@@ -295,6 +295,42 @@ Razón del reordenamiento: M (Transparencia, Ley 1712) es el lote más grande y 
 
 Total segunda ola: 45 FALTA + 8 UI/UX = **53 items** en 7 lotes ejecutables.
 
+### Tercera ola — Audit integral (2026-04-15, ✅ CERRADA)
+
+> Verificación profunda página-por-página del portal nuevo vs WP origen. 8 audits ejecutados, 134 páginas auditadas, 3 correcciones reales aplicadas + ~100 URLs rotas en WP documentadas.
+
+| Audit | Área | Páginas | Correcciones |
+|---|---|:---:|---|
+| AUDIT-1 | Agencia / Institucional | 11 | 0 |
+| AUDIT-2 | Transparencia | 27 | 1 duplicación eliminada |
+| AUDIT-3 | Normativa | 22 | 0 |
+| AUDIT-4 | Atención al Ciudadano | 13 | 2 (PQRS Servidores + Chat ITRC) |
+| AUDIT-5 | Participa | 9 | 0 |
+| AUDIT-6 | Prensa | 8 | 0 |
+| AUDIT-7 | Observatorio | 20 | 0 |
+| AUDIT-8 | Contratación/Informes/Vigencias | 24 | 0 |
+
+### Cuarta ola — Migración de binarios (fase BIN, 🔜 PENDIENTE)
+
+> Descargar los ~1100+ archivos referenciados en JSONs desde `itrc.gov.co/Itrc/wp-content/uploads/` al repo local (`public/documentos/`) y actualizar las URLs para desacoplar el portal del WP legacy.
+
+Plan detallado en memoria Claude: `project_migracion_binarios.md`.
+
+| Sub-lote | Propósito | Estado |
+|---|---|---|
+| BIN-1 | Inventario + análisis de URLs (sin descarga) | [ ] |
+| BIN-2 | Estructura `public/documentos/` + script de descarga con dry-run | [ ] |
+| BIN-3 | Descarga por tipo (a: PDFs, b: XLSX, c: imágenes, d: MP4, e: MP3) | [ ] |
+| BIN-4 | Actualizar URLs en JSONs (replace WP → local) | [ ] |
+| BIN-5 | Verificación + audit final (grep URLs WP + link-check) | [ ] |
+| BIN-6 | Optimización opcional (WebP, compresión, Git LFS si aplica) | [ ] |
+
+**Preocupaciones**:
+- Límite GitHub: 100 MB por archivo, repo ideal <1 GB, GitHub Pages ~1 GB soft.
+- URLs con tildes NFC/NFD y codificaciones distintas — normalizar.
+- No tocar enlaces externos (SUIN-Juriscol, Contraloría, SECOP, etc.).
+- Commit por sub-lote con historial limpio + rollback plan.
+
 ### Mantenimiento
 
 - [ ] Snapshot semanal de WordPress ejecutado esta semana
