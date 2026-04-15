@@ -28,6 +28,8 @@
 | W (UI/UX) | 3 elementos con requisito administrativo / acceso a terceros (ConverTIC, GTranslate, YouTube rendición) |
 | Sync 2026-04-15 (#2 Planes) | 124 PDFs históricos en WP no presentes en local — esperan integración editorial |
 | Sync 2026-04-15 (#3 Info Financiera) | 43 PDFs históricos (mayormente Presupuesto Series 2012-2017) en WP no presentes en local |
+| AUDIT-1 gestion-misional | 3 URLs en HTML WP devuelven 404 (local ya tiene URLs correctas) |
+| AUDIT-1 sistema-integrado-de-gestion | 2 archivos WP listados pero devuelven 404 (pendiente publicación real) |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -63,6 +65,45 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### AUDIT-1 — Agencia / Institucional (2026-04-15)
+
+**Alcance**: 11 páginas WP auditadas con umbral máximo (compare URL-normalizado + text ratio + verificación HTTP):
+
+| Página | WP words | Local words | ratio | PDFs WP | PDFs local | Delta real | Estado |
+|---|---:|---:|---:|---:|---:|---:|---|
+| mision-vision-y-proposito-estrategico | 1395 | 1319 | 94.6% | 1 | 1 | 0 | ✅ |
+| organigrama | 77 | 127 | 164.9% | 7 | 7 | 0 | ✅ |
+| directorio | 21 | 147 | 700% | 3 | 3 | 0 | ✅ |
+| perfil-directora-general | 213 | 937 | 439.9% | 0 | 0 | 0 | ✅ consolidado en equipo-directivo |
+| perfil-subdirectores | 725 | 937 | 129.2% | 0 | 0 | 0 | ✅ consolidado |
+| direccionamiento-estrategico | 39 | 159 | 407.7% | 0 | 0 | 0 | ✅ |
+| gestion-misional | 768 | 693 | 90.2% | 64 | 62 | **0 real** | ⚠️ 3 URLs en WP dan 404 |
+| sistema-integrado-de-gestion | 185 | 258 | 139.5% | 11 | 11 | **0 real** | ⚠️ 2 URLs WP dan 404 (recientes) |
+| plan-institucional-de-archivos | 10 | 76 | 760% | 2 | 2 | 0 | ✅ |
+| sistema-de-control-interno | 77 | 462 | 600% | 0 | 11 | 0 | ✅ local supera al origen |
+| informacion-financiera | 1337 | 1162 | 86.9% | 245 | 203 | **43** | 🔴 ya registrado |
+
+**Resultado**: 8 páginas completas, 2 con URLs rotas en origen (local ya tiene versión funcional), 1 con delta editorial (info-financiera registrado).
+
+**Hallazgo crítico sobre URLs rotas en WP**:
+
+- `gestion-misional` — 3 URLs apuntadas desde HTML WP devuelven 404:
+  - `Informe-gesti%C3%B3n-I-sem-2022_SAGR-1.pdf` (WP 404 — local tiene `Informe-gestion-I-sem-2022_SAGR-1.pdf` con 200)
+  - `Informe-gesti%C3%B3n-II-sem-2022_SAGR.pdf` (WP 404 — local tiene versión sin tilde con 200)
+  - `INFORME-DE-GESTI%C3%93N-IV-TRIMESTRE-.pdf` (WP 404 — local tiene su equivalente)
+
+- `sistema-integrado-de-gestion` — 2 URLs referenciadas en WP recientes devuelven 404 (posible publicación no activada):
+  - `2026-03-31_listado_maestro_de_documentos.xls` (404)
+  - `mapa-de-procesos-version-005.pdf` (404)
+
+**Cómo se manejó**: local tiene contenido equivalente con URLs correctas. NO se actualizó nada porque los enlaces rotos son del origen WP y el usuario final del portal nuevo no los ve. Informativo para mantenimiento WP origen.
+
+**Búsqueda de huérfanos**: se hizo crawl de páginas hijas bajo cada padre en Agencia (5 padres). 0 nuevas páginas huérfanas — todos los hijos están cubiertos en lotes previos (K, L, M).
+
+**Cierre AUDIT-1**: sin acción correctiva de código requerida. Cobertura efectiva: 100% de las 11 páginas WP del área Agencia.
 
 ---
 
