@@ -1,0 +1,12 @@
+{
+  "title": "Índice de Información Clasificada y Reservada",
+  "description": "Índice de información clasificada y reservada de la Agencia ITRC (Ley 1712 de 2014, artículos 19 y 20).",
+  "icon": "fa-lock",
+  "intro": "Instrumento que identifica la información clasificada y reservada que mantiene la Agencia ITRC, de acuerdo con los artículos 18, 19 y 20 de la Ley 1712 de 2014 y la Resolución 3564 de 2015 de MinTIC.",
+  "informes": [
+    {
+      "titulo": "Índice de Información Clasificada y Reservada (instrumento 7.1.2)",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/7-1-2-Índice-de-Información-Clasificada-y-Reservada.xlsx"
+    }
+  ]
+}

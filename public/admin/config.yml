@@ -2161,6 +2161,146 @@ collections:
                 label: Icono FontAwesome
                 widget: string
                 required: false
+      - name: indice-informacion-clasificada
+        label: Índice de Información Clasificada y Reservada
+        file: src/content/pages/transparencia/indice-informacion-clasificada.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-lock
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del documento
+                widget: string
+                required: true
+              - name: url
+                label: URL del archivo
+                widget: string
+                required: true
+      - name: programa-gestion-documental
+        label: Programa de Gestión Documental
+        file: src/content/pages/transparencia/programa-gestion-documental.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-folder-tree
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del documento
+                widget: string
+                required: true
+              - name: url
+                label: URL del archivo
+                widget: string
+                required: true
+      - name: procedimientos-decisiones
+        label: Procedimientos para tomar decisiones
+        file: src/content/pages/transparencia/procedimientos-decisiones.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-diagram-project
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del documento
+                widget: string
+                required: true
+              - name: url
+                label: URL del archivo
+                widget: string
+                required: true
+      - name: formatos-contratos-pliegos-tipo
+        label: Formatos o modelos de contratos / pliego tipo
+        file: src/content/pages/transparencia/formatos-contratos-pliegos-tipo.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-contract
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título del documento
+                widget: string
+                required: true
+              - name: url
+                label: URL del archivo
+                widget: string
+                required: true
       - name: decretos-estructura
         label: Decretos de estructura, salarios, leyes marco y otros
         file: src/content/pages/transparencia/decretos-estructura.json

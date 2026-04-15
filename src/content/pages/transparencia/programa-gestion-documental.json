@@ -1,1 +1,16 @@
-{"title":"Programa de Gestión Documental","description":"Programa de gestión documental de la Agencia ITRC","icon":"fa-folder-open","documentos":[{"nombre":"Programa de Gestión Documental 2023-2026","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/GAD-RE-005_Programa_de_gestion_documental_PGD_2023-2026.pdf"},{"nombre":"Resolución adopción Programa de Gestión Documental","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-Adopcion-Programa-de-Gestion-Documental.pdf"}]}
+{
+  "title": "Programa de Gestión Documental",
+  "description": "Programa de Gestión Documental (PGD) de la Agencia ITRC, adoptado mediante resolución institucional, en cumplimiento de la Ley 594 de 2000 y el Decreto 2609 de 2012.",
+  "icon": "fa-folder-tree",
+  "intro": "El Programa de Gestión Documental (PGD) planifica, organiza y desarrolla las actividades de producción, recepción, distribución, consulta, organización, recuperación y disposición final de los documentos de la Agencia ITRC.",
+  "informes": [
+    {
+      "titulo": "Programa de Gestión Documental (GAD-RE-005)",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/GAD-RE-005_Programa_de_gestion_documental_PGD.pdf"
+    },
+    {
+      "titulo": "Resolución de adopción del Programa de Gestión Documental",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-Adopcion-Programa-de-Gestion-Documental-Agencia-ITRC.pdf"
+    }
+  ]
+}

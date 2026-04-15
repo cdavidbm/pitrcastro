@@ -22,6 +22,7 @@
 | O3 (#46 Catálogo OCI 3LD) | 27 categorías con 90 placeholders; 12 sin destino en portal nuevo |
 | M1 (defensa-publica.json) | 1 enlace interno a destino inexistente |
 | M3 (decretos-estructura) | 1 enlace a archivo con nombre inconsistente en origen |
+| M4 (programa-gestion-documental) | 1 decisión de slug registrada (desviación intencional del slug WP) |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -57,6 +58,21 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### #27 Programa de Gestión Documental → slug local distinto al WP (Lote M4)
+
+**URL origen WP**: `https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/programa-de-gestion-documental/` (slug WP: `programa-de-gestion-documental`)
+**URL destino nuevo**: `/programa-gestion-documental` (sin el `-de-` intermedio)
+**Estado**: *(nota editorial — no falta nada sustantivo)*
+**Detectado**: 2026-04-15 (durante Lote M4)
+
+**Descripción**: en esta página específica, el portal nuevo ya usaba un slug local más corto (`programa-gestion-documental`) antes de comenzar Lote M. El landing `transparencia.json` (7.1.4) enlaza a ese slug corto. Mantener el slug WP literal (`programa-de-gestion-documental`) habría requerido renombrar el archivo y actualizar el índice de Transparencia con riesgo de romper anchors externos ya indexados.
+
+**Cómo se manejó**: se preserva el slug corto local (`/programa-gestion-documental`). El astro heredado se simplifica a thin-wrapper del componente `ListadoInformes`. El JSON expone 2 documentos: PGD y Resolución de adopción. Esta es la única excepción al principio "slugs WP preservados literalmente en Lote M" — documentada aquí por auditoría.
+
+**Sin responsable pendiente** — caso editorial cerrado.
 
 ---
 

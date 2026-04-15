@@ -510,6 +510,40 @@ export const transparencia = {
       ],
     },
     // ============================================================
+    // Lote M4 — Gestión Documental (4 páginas Ley 1712)
+    // ============================================================
+    ...(function gestionDocumental() {
+      const mk = (name, label, path, iconDefault) => ({
+        name,
+        label,
+        file: `src/content/pages/transparencia/${path}`,
+        fields: [
+          { name: "title", label: "Título", widget: "string", required: true },
+          { name: "description", label: "Descripción SEO", widget: "text", required: false },
+          { name: "icon", label: "Icono FontAwesome", widget: "string", default: iconDefault },
+          { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+          {
+            name: "informes",
+            label: "Documentos",
+            widget: "list",
+            label_singular: "Documento",
+            collapsed: true,
+            summary: "{{fields.titulo}}",
+            fields: [
+              { name: "titulo", label: "Título del documento", widget: "string", required: true },
+              { name: "url", label: "URL del archivo", widget: "string", required: true },
+            ],
+          },
+        ],
+      });
+      return [
+        mk("indice-informacion-clasificada", "Índice de Información Clasificada y Reservada", "indice-informacion-clasificada.json", "fa-lock"),
+        mk("programa-gestion-documental", "Programa de Gestión Documental", "programa-gestion-documental.json", "fa-folder-tree"),
+        mk("procedimientos-decisiones", "Procedimientos para tomar decisiones", "procedimientos-decisiones.json", "fa-diagram-project"),
+        mk("formatos-contratos-pliegos-tipo", "Formatos o modelos de contratos / pliego tipo", "formatos-contratos-pliegos-tipo.json", "fa-file-contract"),
+      ];
+    })(),
+    // ============================================================
     // Lote M3 — Decretos de estructura, salarios, leyes marco
     // ============================================================
     {

@@ -1,0 +1,18 @@
+{
+  "title": "Formatos o modelos de contratos o pliego tipo",
+  "description": "Formatos institucionales estandarizados para la gestión contractual de la Agencia ITRC (adendas, actas, estudios previos, aprobación de garantías, entre otros).",
+  "icon": "fa-file-contract",
+  "intro": "Plantillas oficiales utilizadas por la Agencia ITRC en sus procesos de contratación estatal. Cada formato tiene código institucional (GCO-FT-nnn) y versión controlada.",
+  "informes": [
+    { "titulo": "Formato Acto Administrativo de la Contratación Directa", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/1-Acto-Administrativo-de-la-Contratacion-Directa.pdf" },
+    { "titulo": "Formato verificación especificaciones técnicas de bienes a recibir", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/2-Verificacion-Especificaciones-Tecnicas-codigo-GCO-FT-006.pdf" },
+    { "titulo": "Formato Aviso de Convocatoria Pública", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/3-Formato-Aviso-convocatoria-publica-codigo-GCO-FT-005.pdf" },
+    { "titulo": "Formato Adenda (GCO-FT-007 v4)", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/4-Formato-Adenda-codigo-GCO-FT-007-version-4.pdf" },
+    { "titulo": "Formato Aprobación de garantías", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/5-Formato-aprobacion-de-garantia-codigo-GCO-FT-008.pdf" },
+    { "titulo": "Formato Acta de Inicio (GCO-FT-009)", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/6-Formato-Acta-de-inicio-codigo-GCO-FT-009-version-3.pdf" },
+    { "titulo": "Formato Aceptación de la Oferta", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/7-Formato-aceptacion-oferta-codigo-GCO-FT-011.pdf" },
+    { "titulo": "Formato Estudios Previos (GCO-FT-010)", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/8-Estudios-Previos-codigo-GCO-FT-010-version-7.pdf" },
+    { "titulo": "Formato Certificación Contractual", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/9-Formato-Certificacion-Contractual-codigo-GCO-FT-013.pdf" },
+    { "titulo": "Formato Matriz de Riesgos", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/10-Matriz-de-Riesgos.pdf" }
+  ]
+}
