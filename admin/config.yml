@@ -1211,6 +1211,217 @@ collections:
                 label: URL del PDF
                 widget: string
                 required: true
+      - name: ofertas-empleo
+        label: Ofertas de empleo (CNSC)
+        file: src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-briefcase
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: cta
+            label: Botón CTA externo
+            widget: object
+            collapsed: true
+            fields:
+              - name: texto
+                label: Texto
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción
+                widget: text
+                required: false
+              - name: external
+                label: Es enlace externo
+                widget: boolean
+                default: true
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
+      - name: nombramientos
+        label: Nombramientos por vigencia
+        file: src/content/pages/agencia/empleo-rrhh/nombramientos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-user-check
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: vigencias
+            label: Vigencias (por año)
+            widget: list
+            label_singular: Vigencia
+            collapsed: true
+            summary: "{{fields.anio}}"
+            fields:
+              - name: anio
+                label: Año
+                widget: string
+                required: true
+              - name: documentos
+                label: Resoluciones
+                widget: list
+                label_singular: Resolución
+                collapsed: true
+                summary: "{{fields.titulo}}"
+                fields:
+                  - name: titulo
+                    label: Título
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
+      - name: manuales-internos
+        label: Manuales internos
+        file: src/content/pages/agencia/empleo-rrhh/manuales-internos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-book
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Manuales
+            widget: list
+            label_singular: Manual
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Nombre del manual
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: manual-especifico-funciones
+        label: Manual Específico de Funciones (resoluciones + fichas)
+        file: src/content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-user-tie
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: secciones
+            label: Secciones
+            widget: list
+            label_singular: Sección
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título de la sección
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción breve
+                widget: text
+                required: false
+              - name: documentos
+                label: Documentos
+                widget: list
+                label_singular: Documento
+                collapsed: true
+                summary: "{{fields.titulo}}"
+                fields:
+                  - name: titulo
+                    label: Título
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
+      - name: manual-identidad-visual
+        label: Manual de Identidad Visual ITRC
+        file: src/content/pages/agencia/empleo-rrhh/manual-identidad-visual.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-palette
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Archivos del Manual
+            widget: list
+            label_singular: Archivo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
   # ==========================================
   # TRANSPARENCIA
   # # Indice de informacion clasificada y reservada
