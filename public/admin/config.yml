@@ -1694,6 +1694,72 @@ collections:
                 label: URL del PDF
                 widget: string
                 required: true
+      - name: ejecucion-contratos
+        label: Publicación de la ejecución de contratos
+        file: src/content/pages/transparencia/contratacion/ejecucion-contratos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-file-contract
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: enlacesExternos
+            label: Enlaces externos (SECOP I/II)
+            widget: list
+            label_singular: Enlace
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL externa
+                widget: string
+                required: true
+          - name: vigencias
+            label: Documentos por vigencia
+            widget: list
+            label_singular: Vigencia
+            collapsed: true
+            summary: "{{fields.anio}}"
+            fields:
+              - name: anio
+                label: Año
+                widget: string
+                required: true
+              - name: documentos
+                label: Documentos
+                widget: list
+                label_singular: Documento
+                collapsed: true
+                summary: "#{{fields.numero}} {{fields.titulo}}"
+                fields:
+                  - name: numero
+                    label: Número
+                    widget: string
+                    required: false
+                  - name: titulo
+                    label: Título
+                    widget: string
+                    required: true
+                  - name: url
+                    label: URL del PDF
+                    widget: string
+                    required: true
       - name: procedimientos-adquisicion
         label: Procedimientos y Políticas de Adquisición
         file: src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json

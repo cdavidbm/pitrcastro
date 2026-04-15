@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/contratacion/ejecucion-contratos.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+
+const totalDocs = pageData.vigencias.reduce((acc, v) => acc + v.documentos.length, 0);
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="ec-section">
+    <div class="container">
+      {pageData.intro && <p class="ec-intro">{pageData.intro}</p>}
+
+      {pageData.enlacesExternos && pageData.enlacesExternos.length > 0 && (
+        <div class="ec-secop">
+          {pageData.enlacesExternos.map((e) => (
+            <a href={e.url} target="_blank" rel="noopener noreferrer" class="ec-secop__link">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+              <span>{e.titulo}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div class="ec-stats">
+        <span class="ec-stats__label">Total documentos publicados:</span>
+        <span class="ec-stats__value">{totalDocs}</span>
+      </div>
+
+      {pageData.vigencias.map((v, i) => (
+        <details class="ec-vigencia" open={i === 0}>
+          <summary class="ec-vigencia__summary">
+            <span class="ec-vigencia__anio">Vigencia {v.anio}</span>
+            <span class="ec-vigencia__count">{v.documentos.length} documento{v.documentos.length === 1 ? '' : 's'}</span>
+            <i class="fa-solid fa-chevron-down ec-vigencia__chevron" aria-hidden="true"></i>
+          </summary>
+          <ul class="ec-docs">
+            {v.documentos.map((doc) => (
+              <li class="ec-doc">
+                <a href={doc.url} target="_blank" rel="noopener noreferrer" class="ec-doc__link">
+                  {doc.numero && <span class="ec-doc__num">#{doc.numero}</span>}
+                  <i class="fa-solid fa-file-pdf ec-doc__icon" aria-hidden="true"></i>
+                  <span class="ec-doc__title">{doc.titulo}</span>
+                  <i class="fa-solid fa-download ec-doc__dl" aria-hidden="true"></i>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      ))}
+
+      <div class="back-link">
+        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ec-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .ec-section .container { max-width: 1000px; margin: 0 auto; }
+
+  .ec-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-8); text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+  .ec-secop { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-8); }
+  .ec-secop__link { flex: 1 1 280px; display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: var(--theme-surface-alt); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .ec-secop__link:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .ec-secop__link > i:first-child { color: var(--itrc-gold); font-size: var(--font-size-lg); }
+  .ec-secop__link span { flex: 1; font-weight: 700; font-size: var(--font-size-sm); color: var(--theme-heading); }
+  .ec-secop__link > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.5; }
+
+  .ec-stats { display: flex; justify-content: center; align-items: baseline; gap: var(--space-2); padding: var(--space-4); background: linear-gradient(135deg, var(--itrc-gold-light), var(--itrc-gold)); color: var(--itrc-navy); border-radius: var(--radius-lg); margin-bottom: var(--space-8); font-weight: 700; }
+  .ec-stats__label { font-size: var(--font-size-sm); }
+  .ec-stats__value { font-size: var(--font-size-2xl); }
+
+  .ec-vigencia { margin-bottom: var(--space-4); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; background: var(--theme-surface); }
+  .ec-vigencia[open] { box-shadow: var(--shadow-sm); }
+
+  .ec-vigencia__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; transition: background var(--transition-fast); }
+  .ec-vigencia__summary::-webkit-details-marker { display: none; }
+  .ec-vigencia__summary:hover { background: var(--theme-surface-alt); }
+  .ec-vigencia__anio { flex: 1; font-weight: 800; font-size: var(--font-size-lg); color: var(--theme-heading); }
+  .ec-vigencia__count { padding: 2px 12px; background: var(--theme-surface-alt); color: var(--theme-text-muted); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700; }
+  .ec-vigencia__chevron { color: var(--itrc-gold); transition: transform var(--transition-base); }
+  .ec-vigencia[open] .ec-vigencia__chevron { transform: rotate(180deg); }
+
+  .ec-docs { list-style: none; padding: 0 var(--space-4) var(--space-4); margin: 0; display: flex; flex-direction: column; gap: var(--space-2); border-top: 1px solid var(--theme-border-light); padding-top: var(--space-4); }
+
+  .ec-doc__link { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .ec-doc__link:hover { border-color: var(--file-pdf); background: var(--theme-surface-alt); transform: translateX(3px); }
+
+  .ec-doc__num { display: inline-block; min-width: 36px; padding: 2px 6px; background: var(--theme-surface-alt); border-radius: var(--radius-sm); text-align: center; font-size: var(--font-size-xs); font-weight: 700; color: var(--theme-text-muted); font-variant-numeric: tabular-nums; }
+  .ec-doc__icon { color: var(--file-pdf); font-size: var(--font-size-base); flex-shrink: 0; }
+  .ec-doc__title { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); line-height: 1.4; }
+  .ec-doc__dl { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .ec-doc__link:hover .ec-doc__title { color: var(--file-pdf); }
+
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 640px) {
+    .ec-secop__link { flex: 1 1 100%; }
+    .ec-doc__link { flex-wrap: wrap; }
+  }
+</style>

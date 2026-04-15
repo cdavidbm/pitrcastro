@@ -1,0 +1,1618 @@
+{
+  "title": "Publicación de la ejecución de contratos",
+  "description": "Documentos de ejecución contractual de la Agencia ITRC: informes finales de supervisión y actas de liquidación por vigencia, publicados en cumplimiento de la Ley 1712 de 2014.",
+  "icon": "fa-file-contract",
+  "intro": "En esta página podrá encontrar los informes finales de supervisión de contratos de la Agencia ITRC.",
+  "vigencias": [
+    {
+      "anio": "2024",
+      "documentos": [
+        {
+          "numero": "22",
+          "titulo": "Acta de Liquidación CPS 022 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/22.-Acta-de-Liquidacion-CPS-022-2024.pdf"
+        },
+        {
+          "numero": "23",
+          "titulo": "Acta de Liquidación CPS 057 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/23.-Acta-de-Liquidacion-CPS-057-2024.pdf"
+        },
+        {
+          "numero": "24",
+          "titulo": "Acta de Liquidación ITRC CPS 074 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/24.-Acta-de-Liquidacion-ITRC-CPS-074-2024.pdf"
+        },
+        {
+          "numero": "12",
+          "titulo": "Informe Final de Supervisión CPS 012 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/12.-Informe-Final-de-Supervision-CPS-012-2024.pdf"
+        },
+        {
+          "numero": "74",
+          "titulo": "Informe Final de Supervisión ITRC CPS 074 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/74.-Informe-Final-de-Supervision-ITRC-CPS-074-2024.pdf"
+        },
+        {
+          "numero": "16",
+          "titulo": "Informe final de supervisión ITRC-CPS-016-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/16.-Informe-final-de-supervision-ITRC-CPS-016-2024.pdf"
+        },
+        {
+          "numero": "18",
+          "titulo": "Informe final de supervisión ITRC-CPS-018-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/18.-Informe-final-de-supervision-ITRC-CPS-018-2024.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Informe final de supervisión ITRC-CPS-019-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/19.-Informe-final-de-supervision-ITRC-CPS-019-2024.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "Informe final de supervisión ITRC-CPS-002-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/2.-Informe-final-de-supervision-ITRC-CPS-002-2024.pdf"
+        },
+        {
+          "numero": "20",
+          "titulo": "Informe final de supervisión ITRC-CPS-020-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/20.-Informe-final-de-supervision-ITRC-CPS-020-2024.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Informe final de supervisión ITRC-CPS-026-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/26.-Informe-final-de-supervision-ITRC-CPS-026-2024.pdf"
+        },
+        {
+          "numero": "27",
+          "titulo": "Informe final de supervisión ITRC-CPS-027-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/27.-Informe-final-de-supervision-ITRC-CPS-027-2024.pdf"
+        },
+        {
+          "numero": "28",
+          "titulo": "Informe final de supervisión ITRC-CPS-028-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/28.-Informe-final-de-supervision-ITRC-CPS-028-2024.pdf"
+        },
+        {
+          "numero": "3",
+          "titulo": "Informe final de supervisión ITRC-CPS-003-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/3.-Informe-final-de-supervision-ITRC-CPS-003-2024.pdf"
+        },
+        {
+          "numero": "42",
+          "titulo": "Informe final de supervisión ITRC-CPS-042-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/42.-Informe-final-de-supervision-ITRC-CPS-042-2024.pdf"
+        },
+        {
+          "numero": "43",
+          "titulo": "Informe final de supervisión ITRC-CPS-043-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/43.-Informe-final-de-supervision-ITRC-CPS-043-2024.pdf"
+        },
+        {
+          "numero": "46",
+          "titulo": "Informe final de supervisión ITRC-CPS-046-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/46.-Informe-final-de-supervision-ITRC-CPS-046-2024.pdf"
+        },
+        {
+          "numero": "49",
+          "titulo": "Informe final de supervisión Orden de compra 127827 - ITRC-CPS-049-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/49.-Informe-final-de-supervision-Orden-de-compra-127827-ITRC-CPS-049-2024.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Acta de liquidación ITRC-CPS-057-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/57.-Acta-de-liquidacion-ITRC-CPS-057-2024.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Informe final de supervisión ITRC-CPS-057-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/57.-Informe-final-de-supervision-ITRC-CPS-057-2024.pdf"
+        },
+        {
+          "numero": "62",
+          "titulo": "Informe final de supervisión ITRC-CPS-062-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/62.-Informe-final-de-supervision-ITRC-CPS-062-2024.pdf"
+        },
+        {
+          "numero": "72",
+          "titulo": "Informe final de supervisión ITRC-CPS-072-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/72.-Informe-final-de-supervision-ITRC-CPS-072-2024.pdf"
+        },
+        {
+          "numero": "8",
+          "titulo": "Informe final de supervisión ITRC-CPS-008-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/8.-Informe-final-de-supervision-ITRC-CPS-008-2024.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Informe final de supervisión ITRC-CPS-022-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/22.-Informe-final-de-supervision-ITRC-CPS-022-2024.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Informe final de supervisión ITRC-CPS-031-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/31.-Informe-final-de-supervision-ITRC-CPS-031-2024.pdf"
+        },
+        {
+          "numero": "39",
+          "titulo": "Informe final de supervisión ITRC-CPS-039-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/39.-Informe-final-de-supervision-ITRC-CPS-039-2024.pdf"
+        },
+        {
+          "numero": "45",
+          "titulo": "Informe final de supervisión ITRC-CPS-045-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/45.-Informe-final-de-supervision-ITRC-CPS-045-2024.pdf"
+        },
+        {
+          "numero": "66",
+          "titulo": "Informe final de supervisión Orden de compra 132532 - ITRC-CPS-066-2024.pdf",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/66.-Informe-final-de-supervision-Orden-de-compra-132532-ITRC-CPS-066-2024.pdf"
+        }
+      ]
+    },
+    {
+      "anio": "2023",
+      "documentos": [
+        {
+          "numero": "1",
+          "titulo": "Informe Final de Supervisión CS 001 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/1.-Informe-Final-de-Supervision-CS-001-2023.pdf"
+        },
+        {
+          "numero": "3",
+          "titulo": "Informe Final de Supervisión CPS-003-2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/3.-Informe-Final-de-Supervision-CPS-003-2023.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Informe Final de supervisión CPS 009 de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/9.-Informe-de-supervision-CPS-009-de-2023.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Acta de Liquidación CPS 009 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/9.-Acta-de-Liquidacion-CPS-009-2023.pdf"
+        },
+        {
+          "numero": "12",
+          "titulo": "Informe Final de Supervisión CPS 012 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/12.-Informe-Final-de-Supervision-CPS-012-2023.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Informe final de supervisión CPS-019-2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/19.-Informe-final-de-supervision-CPS-019-2023.pdf"
+        },
+        {
+          "numero": "21",
+          "titulo": "Informe Final de Supervisión CPS 021 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/21.-Informe-Final-de-Supervision-CPS-021-2023.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Informe Final de Supervisión CPS 022 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/22.-Informe-Final-de-Supervision-CPS-022-2023.pdf"
+        },
+        {
+          "numero": "24",
+          "titulo": "Informe final de supervisión CPS-024-2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/24.-Informe-final-de-supervision-CPS-024-2023.pdf"
+        },
+        {
+          "numero": "25",
+          "titulo": "Informe Final de Supervisión CPS-025-2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/25.-Informe-Final-de-Supervision-CPS-025-2023.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Informe Final de Supervisión CPS 026 de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/30.-Formato-Informe-de-Supervision-CPS-026-de-2023.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Acta de liquidación CPS 026 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/26.-Acta-de-liquidacion-CPS-026-2023.pdf"
+        },
+        {
+          "numero": "28",
+          "titulo": "Informe Final de Supervisión CS 028 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/28.-Informe-Final-de-Supervision-CS-028-2023.pdf"
+        },
+        {
+          "numero": "32",
+          "titulo": "Informe Final de Supervisión CPS 032 de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/32.Informe-de-Supervision-CPS-032-de-2023.pdf"
+        },
+        {
+          "numero": "36",
+          "titulo": "Informe Final de Supervisión CPS 036 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/36.-Informe-Final-de-Supervision-CPS-036-2023.pdf"
+        },
+        {
+          "numero": "37",
+          "titulo": "Informe Final de Supervisión CPS 037 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/37.-Informe-Final-de-Supervision-CPS-037-2023.pdf"
+        },
+        {
+          "numero": "38",
+          "titulo": "Informe Final de Supervisión CPS 038 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/38.-Informe-Final-de-Supervision-CPS-038-2023.pdf"
+        },
+        {
+          "numero": "46",
+          "titulo": "Informe Final de Supervisión CPS 046 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/46.-Informe-Final-de-Supervision-CPS-046-2023.pdf"
+        },
+        {
+          "numero": "47",
+          "titulo": "Informe Final de Supervisión CS 047 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/47.-Informe-Final-de-Supervision-CS-047-2023.pdf"
+        },
+        {
+          "numero": "51",
+          "titulo": "Informe Final de Supervisión CS 051 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/51.-Informe-Final-de-Supervision-CS-051-2023.pdf"
+        },
+        {
+          "numero": "54",
+          "titulo": "Informe final de supervisión CPS-054-2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/54.-Informe-final-de-supervision-CPS-054-2023.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Informe Final de Supervisión CPS 057 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/57.-Informe-Final-de-Supervision-CPS-057-2023.pdf"
+        },
+        {
+          "numero": "61",
+          "titulo": "Informe Final de Supervisión CPS 061 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/61.-Informe-Final-de-Supervision-CPS-061-2023.pdf"
+        },
+        {
+          "numero": "63",
+          "titulo": "Informe Final de Supervisión CPS 063 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/63.-Informe-Final-de-Supervision-CPS-063-2023.pdf"
+        },
+        {
+          "numero": "67",
+          "titulo": "Informe Final de supervisión CPS-067-2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/67.-Informe-Final-de-supervision-CPS-067-2023.pdf"
+        },
+        {
+          "numero": "68",
+          "titulo": "Informe Final de Supervisión CPS 068 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/68.-Informe-Final-de-Supervision-CPS-068-2023.pdf"
+        },
+        {
+          "numero": "69",
+          "titulo": "Informe Final de Supervisión CPS 069 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/69.-Informe-Final-de-Supervision-CPS-069-2023.pdf"
+        },
+        {
+          "numero": "73",
+          "titulo": "Formato Final Informe de Supervisión CPS 073 de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/73.-Formato-Informe-de-Supervisión-CPS-073-de-2023.pdf"
+        },
+        {
+          "numero": "73",
+          "titulo": "Informe Final de Supervisión CPS 073 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/73.-Informe-Final-de-Supervisión-CPS-073-2023.pdf"
+        },
+        {
+          "numero": "83",
+          "titulo": "Informe Final de Supervisión CPS 083 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/83.Informe_de_Supervision_de-CPS-083-Proteger.pdf"
+        },
+        {
+          "numero": "90",
+          "titulo": "Informe Final de Supervisión CPS 090 de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/90.-Informe_de_Supervision_de-CPS-090-DE-2023.pdf"
+        },
+        {
+          "numero": "91",
+          "titulo": "Informe Final de Supervisión CPS 091 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/91.-Informe-de-Supervision-CPS-091-2023.pdf"
+        },
+        {
+          "numero": "92",
+          "titulo": "Informe Final de Supervisión de CS 092 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/92.Informe_de_Supervision_de-CS-092-suministros-andina.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Acta de Liquidación CPS 009 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/9.-Acta-de-Liquidacion-CPS-009-2023_compressed.pdf"
+        },
+        {
+          "numero": "21",
+          "titulo": "Acta de Liquidación CPS 021 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/21.-Acta-de-Liquidacion-CPS-021-2023_compressed.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Acta de Liquidación CPS 022 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/22.-Acta-de-Liquidacion-CPS-022-2023.pdf"
+        },
+        {
+          "numero": "28",
+          "titulo": "Informe Final de Supervisión CS 028 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/28.-Informe-Final-de-Supervision-CS-028-2023.pdf"
+        },
+        {
+          "numero": "29",
+          "titulo": "Informe Final de Supervisión CPS 029 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/29.-Informe-Final-de-Supervision-CPS-029-2023.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Informe Final de Supervisión CPS 031 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/31.-Informe-Final-de-Supervision-CPS-031-2023.pdf"
+        },
+        {
+          "numero": "40",
+          "titulo": "Acta de Liquidación CPS 040 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/40.-Acta-de-Liquidacion-CPS-040-2023_compressed-1.pdf"
+        },
+        {
+          "numero": "41",
+          "titulo": "Informe Final de Supervisión CPS 041 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/41.-Informe-Final-de-Supervision-CPS-041-2023.pdf"
+        },
+        {
+          "numero": "48",
+          "titulo": "Informe Final de Supervisión CPS 048 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/48.-Informe-Final-de-Supervision-CPS-048-2023.pdf"
+        },
+        {
+          "numero": "49",
+          "titulo": "Informe Final de Supervisión CPS 061 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/49.-Informe-Final-de-Supervision-CPS-061-2023.pdf"
+        },
+        {
+          "numero": "58",
+          "titulo": "Informe Final de Supervisión CA 058 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/58.-Informe-Final-de-Supervision-CA-058-2023.pdf"
+        },
+        {
+          "numero": "83",
+          "titulo": "Acta de Liquidación CPS 083 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/83.-Acta-de-Liquidacion-CPS-083-2023.pdf"
+        },
+        {
+          "numero": "87",
+          "titulo": "Informe Final de Supervisión CPS 087 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/87.-Informe-Final-de-Supervision-CPS-087-2023.pdf"
+        },
+        {
+          "numero": "91",
+          "titulo": "Acta de Liquidación CPS 091 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/91.-Acta-de-Liquidacion-CPS-091-2023.pdf"
+        },
+        {
+          "numero": "93",
+          "titulo": "Acta de Liquidación CPS 093 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/93.-Acta-de-Liquidacion-CPS-093-2023.pdf"
+        }
+      ]
+    },
+    {
+      "anio": "2022",
+      "documentos": [
+        {
+          "numero": "1",
+          "titulo": "Informe de Supervisión CPS 001 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/1.-Informe-de-Supervision-CPS-001-2022.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "Inf. Final de superv. CPS 002 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/23-INf.-final-de-superv.-023-2022-comprimido.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "Informe de Supervisión CPS 002 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/2.-Informe-de-Supervision-CPS-002-2022.pdf"
+        },
+        {
+          "numero": "3",
+          "titulo": "Informe de Supervisión CPS 003 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/3.-Informe-de-Supervision-CPS-003-2022.pdf"
+        },
+        {
+          "numero": "4",
+          "titulo": "Informe de Supervisión CPS 004 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/4.-Informe-de-Supervision-CPS-004-2022.pdf"
+        },
+        {
+          "numero": "5",
+          "titulo": "Acta de Liquidación Contrato 05 de 2022 Carlos Martínez",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/5.-Acta-de-Liquidación-contrato-05-de-2022-Carlos-Martínez.pdf"
+        },
+        {
+          "numero": "6",
+          "titulo": "Informe de Supervisión CPS 006 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/6.-Informe-de-Supervision-CPS-006-2022.pdf"
+        },
+        {
+          "numero": "7",
+          "titulo": "Informe de Supervisión CPS 007 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/7.-Informe-de-Supervision-CPS-007-2022.pdf"
+        },
+        {
+          "numero": "8",
+          "titulo": "Informe de Supervisión CS 008 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/8.-Informe-de-Supervision-CS-008-2022.pdf"
+        },
+        {
+          "numero": "8",
+          "titulo": "Acta de Liquidación CS 008 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/8.-Acta-de-Liquidacion-CS-008-2022.pdf"
+        },
+        {
+          "numero": "10",
+          "titulo": "Inf. final de superv. CPS 010 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/10.-Inf.-final-de-superv.-CPS-010-2022-comprimido.pdf"
+        },
+        {
+          "numero": "11",
+          "titulo": "Informe final de supervisión 011 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/11.-Informe-final-de-supervisión-011-de-2022.pdf"
+        },
+        {
+          "numero": "12",
+          "titulo": "Informe de Supervisión CPS 012 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/12.-Informe-de-Supervision-CPS-012-2022.pdf"
+        },
+        {
+          "numero": "13",
+          "titulo": "Informe final de Supervisión 013 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/13.-Informe-final-de-Supervisión-013-de-2022.pdf"
+        },
+        {
+          "numero": "14",
+          "titulo": "Inf. Final de superv. CPS 014 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/14.-Inf.-Final-de-superv.-CPS-014-2022.pdf"
+        },
+        {
+          "numero": "15",
+          "titulo": "Inf. Final de superv. CPS 015 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/15.-Inf.-Final-de-superv.-CPS-015-2022-comprimido.pdf"
+        },
+        {
+          "numero": "16",
+          "titulo": "Inf. Final de superv. CPS 016 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/16.-Inf.-Final-de-superv.-CPS-016-2022-comprimido-1.pdf"
+        },
+        {
+          "numero": "17",
+          "titulo": "Informe de Supervisión CPS 017 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/17.-Informe-de-Supervision-CPS-017-2022.pdf"
+        },
+        {
+          "numero": "18",
+          "titulo": "Informe de Supervisión CPS 018 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/18.-Informe-de-Supervision-CPS-018-2022.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Informe de Supervisión CPS 019 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/19.-Informe-de-Supervision-CPS-019-2022.pdf"
+        },
+        {
+          "numero": "20",
+          "titulo": "Inf. final de superv. CPS 020 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/20.-Inf.-final-de-superv.-CPS-020-2022.pdf"
+        },
+        {
+          "numero": "21",
+          "titulo": "Informe de Supervisión CPS 021 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/21.-Informe-de-Supervision-CPS-021-2022.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Inf. final de superv. CPS 022 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/22.-Inf.-final-de-superv.-CPS-022-2022.pdf"
+        },
+        {
+          "numero": "23",
+          "titulo": "Inf. final de superv. 023 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/23-INf.-final-de-superv.-023-2022-comprimido.pdf"
+        },
+        {
+          "numero": "24",
+          "titulo": "Inf. final de superv. CPS 024 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/24.-INf.-final-de-superv.-CPS-024-2022.pdf"
+        },
+        {
+          "numero": "25",
+          "titulo": "Inf. final de superv. CPS 025 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/25.-Inf.-final-de-superv.-CPS-025-2023.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Inf. final de superv. CPS 026 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/26.-Inf.-final-de-superv.-CPS-026-2022.pdf"
+        },
+        {
+          "numero": "27",
+          "titulo": "Informe de Supervisión CPS 027 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/27.-Informe-de-Supervision-CPS-027-2022.pdf"
+        },
+        {
+          "numero": "28",
+          "titulo": "Inf. final de superv. CPS 028 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/28.-Inf.-final-de-superv.-CPS-028-2022.pdf"
+        },
+        {
+          "numero": "29",
+          "titulo": "Informe de Supervisión CPS 029 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/29.-Informe-de-Supervision-CPS-029-2022.pdf"
+        },
+        {
+          "numero": "30",
+          "titulo": "Informe de Supervisión del Contrato 030 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/30.-Informe-de-Supervisión-del-Contrato-030-de-2022.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Informe final de supervisión 031 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/31.-Informe-final-de-supervisión-031-de-2022.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Acta Liquidación CPS 031 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/31.-Acta-Liquidacion-CPS-031-2022.pdf"
+        },
+        {
+          "numero": "32",
+          "titulo": "Informe de Supervisión CPS 032 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/32.-Informe-de-Supervision-CPS-032-2022.pdf"
+        },
+        {
+          "numero": "35",
+          "titulo": "Informe de Supervisión CPS 035 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/35.-Informe-de-Supervision-CPS-035-2022.pdf"
+        },
+        {
+          "numero": "36",
+          "titulo": "Inf. final de superv. CPS 036 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/36.-Inf.-final-de-superv.-CPS-036-2022.pdf"
+        },
+        {
+          "numero": "37",
+          "titulo": "Inf. final de superv. CPS 037 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/37.-INf.-final-de-superv.-CPS-037-2022.pdf"
+        },
+        {
+          "numero": "38",
+          "titulo": "Informe Final de Supervisión ICPS 038 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/38.-Informe-Final-de-Supervision-ICPS-038-2022.pdf"
+        },
+        {
+          "numero": "39",
+          "titulo": "Informe de Supervisión CPS 039 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/39.-Informe-de-Supervision-CPS-039-2022.pdf"
+        },
+        {
+          "numero": "40",
+          "titulo": "Acta de liquidación CPS 040 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Acta-de-liquidacion-CPS-040-de-2022.pdf"
+        },
+        {
+          "numero": "43",
+          "titulo": "Informe final de supervisión 043 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/43.-Informe-final-de-supervisión-043-de-2022.pdf"
+        },
+        {
+          "numero": "44",
+          "titulo": "Informe de Supervisión CPS 044 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/44.-Informe-de-Supervision-CPS-044-de-2022.pdf"
+        },
+        {
+          "numero": "45",
+          "titulo": "Informe final de supervisión 045 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/45.-Informe-final-de-supervisión-045-de-2022.pdf"
+        },
+        {
+          "numero": "45",
+          "titulo": "Acta Liquidación CPS 045 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/45.-Acta-Liquidacion-CPS-045-2022.pdf"
+        },
+        {
+          "numero": "46",
+          "titulo": "Acta de liquidación CS 046 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/46.-Acta-de-liquidacion-CS-046-2022.pdf"
+        },
+        {
+          "numero": "48",
+          "titulo": "Informe Final de Supervisión CPS 048 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/48.-Informe-Final-de-Supervision-CPS-048-2022.pdf"
+        },
+        {
+          "numero": "49",
+          "titulo": "Informe Final de Supervision CPS 049 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/49.-Informe-Final-de-Supervision-CPS-049-2022.pdf"
+        },
+        {
+          "numero": "50",
+          "titulo": "Informe Final de Supervisión CPS 050 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/50.-Informe-Final-de-Supervision-CPS-050-2022.pdf"
+        },
+        {
+          "numero": "50",
+          "titulo": "Acta Liquidación CPS 050 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/50.-Acta-Liquidacion-CPS-050-2022.pdf"
+        },
+        {
+          "numero": "51",
+          "titulo": "Informe Final de Supervision CPS 051 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/51.-Informe-Final-de-Supervision-CPS-051-2022.pdf"
+        },
+        {
+          "numero": "52",
+          "titulo": "Informe Final de Supervisión CPS 052 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/52.-Informe-Final-de-Supervision-CPS-052-2022.pdf"
+        },
+        {
+          "numero": "54",
+          "titulo": "Informe Final de Supervision CPS 054 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/54.-Informe-Final-de-Supervision-CPS-054-2022.pdf"
+        },
+        {
+          "numero": "55",
+          "titulo": "Informe Final de Supervisión CPS 055 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/55.-Informe-Final-de-Supervision-CPS-055-2022.pdf"
+        },
+        {
+          "numero": "56",
+          "titulo": "Informe Final de Supervisión ICPS 056 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/56.-Informe-Final-de-Supervision-ICPS-056-2022.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Informe de Supervisión del Contrato 57 CCTV 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Acta-de-liquidacion-CPS-040-de-2022.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Acta de Liquidación Contrato 057 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/57.-Acta-de-Liquidacion-Contrato-057-2022.pdf"
+        },
+        {
+          "numero": "58",
+          "titulo": "Informe Final de Supervision ITRC 058 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/58.-Informe-Final-de-Supervision-ITRC-058-2022.pdf"
+        },
+        {
+          "numero": "59",
+          "titulo": "Informe Final de Supervisión CPS 059 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/59.-Informe-Final-de-Supervision-CPS-059-2022.pdf"
+        },
+        {
+          "numero": "61",
+          "titulo": "Informe Final de Supervisión CPS 061 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/61.-Informe-Final-de-Supervision-CPS-061-2022.pdf"
+        },
+        {
+          "numero": "63",
+          "titulo": "Inf. final de superv. CPS 063 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/63.-Inf.-final-de-superv.-CPS-063-2022.pdf"
+        },
+        {
+          "numero": "64",
+          "titulo": "Informe Final de Supervisión CPS 064 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/64.-Informe-Final-de-Supervision-CPS-064-2022.pdf"
+        },
+        {
+          "numero": "65",
+          "titulo": "Informe Final de Supervisión CPS 065 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/65.-Informe-Final-de-Supervision-CPS-065-2022.pdf"
+        },
+        {
+          "numero": "66",
+          "titulo": "Informe final de supervisión 066 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/66.-Informe-Final-de-supervisión-066-de-2022.pdf"
+        },
+        {
+          "numero": "66",
+          "titulo": "Acta Liquidación CPS 066 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/66.-Acta-Liquidacion-CPS-066-2022.pdf"
+        },
+        {
+          "numero": "68",
+          "titulo": "Inf. final de superv. CPS 068 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/68.-Inf.-final-de-superv.-CPS-068-2022.pdf"
+        },
+        {
+          "numero": "70",
+          "titulo": "Informe final de supervisión 070 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/70.-Informe-final-de-supervisión-070-de-2022.pdf"
+        },
+        {
+          "numero": "70",
+          "titulo": "Acta Liquidación CPS 070 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/70.-Acta-Liquidacion-CPS-070-2022.pdf"
+        },
+        {
+          "numero": "71",
+          "titulo": "Informe final de supervisión 071 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/71.-Informe-final-de-supervisión-071-de-2022.pdf"
+        },
+        {
+          "numero": "71",
+          "titulo": "Acta Liquidación CS 071 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/71.-Acta-Liquidacion-CS-071-2022.pdf"
+        },
+        {
+          "numero": "74",
+          "titulo": "Inf. final de superv. CPS 074 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/74.-INf.-final-de-superv.-CPS-074-2022.pdf"
+        },
+        {
+          "numero": "75",
+          "titulo": "Informe final de supervisión 075 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/75.-Informe-final-de-supervisión-075-de-2022.pdf"
+        },
+        {
+          "numero": "75",
+          "titulo": "Acta Liquidación CPS 075 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/75.-Acta-Liquidacion-CPS-075-2022.pdf"
+        },
+        {
+          "numero": "75",
+          "titulo": "Acta Liquidación CPS 075 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/75.-Acta-Liquidacion-CPS-075-2022.pdf"
+        },
+        {
+          "numero": "76",
+          "titulo": "Informe Final de Supervisión CPS 076 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/76.-Informe-Final-de-Supervision-CPS-076-2022.pdf"
+        },
+        {
+          "numero": "77",
+          "titulo": "Informe Final de Supervisión CPS 077 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/77.-Informe-Final-de-Supervision-CPS-077-2022.pdf"
+        },
+        {
+          "numero": "78",
+          "titulo": "Informe final de supervisión 078 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/78.-Informe-final-de-supervisión-078-de-2022.pdf"
+        },
+        {
+          "numero": "78",
+          "titulo": "Acta Liquidación CPS 078 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/78.-Acta-Liquidacion-CPS-078-2022.pdf"
+        },
+        {
+          "numero": "79",
+          "titulo": "Informe Final de Supervisión CPS 079 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/79.-Informe-Final-de-Supervision-CPS-079-2022.pdf"
+        },
+        {
+          "numero": "80",
+          "titulo": "Informe Final de Supervisión I CPS 080 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/80.-Informe-Final-de-Supervision-I-CPS-080-2022.pdf"
+        },
+        {
+          "numero": "81",
+          "titulo": "Informe Final de Supervisión CPS 081 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/81.-Informe-Final-de-Supervision-CPS-081-2022.pdf"
+        },
+        {
+          "numero": "82",
+          "titulo": "Informe Final de Supervisión CPS 082 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/82.-Informe-Final-de-Supervision-CPS-082-2022.pdf"
+        }
+      ]
+    },
+    {
+      "anio": "2021",
+      "documentos": [
+        {
+          "numero": "1",
+          "titulo": "Informe final de supervisión CS 01 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/1.-Informe-final-de-supervision-CS-01-2021.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "A liquid MUNDOLIMPIEZA CPS 02 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/2.-A-liquid-MUNDOLIMPIEZA-CPS-02-2021.pdf"
+        },
+        {
+          "numero": "3",
+          "titulo": "Informe final de supervisión 003 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/3.-Informe-final-de-supervision-003-de-2021.pdf"
+        },
+        {
+          "numero": "4",
+          "titulo": "Informe final de supervisión 004 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-Informe-final-de-supervision-004-de-2021.pdf"
+        },
+        {
+          "numero": "5",
+          "titulo": "Inf. final de superv. CPS 005 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/5.-Inf.-final-de-superv.-CPS-005-2021.pdf"
+        },
+        {
+          "numero": "6",
+          "titulo": "Inf. Final de superv. CPS 006 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/6.-Inf.-Final-de-superv.-CPS-006-2021.pdf"
+        },
+        {
+          "numero": "7",
+          "titulo": "Lina Margarita Rivero CPS 007 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/7.-Lina-Margarita-Rivero-CPS-007-2021.pdf"
+        },
+        {
+          "numero": "8",
+          "titulo": "Acta de Liquidación 008 de 2021 Natalia Galvis",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/11/08.-Acta-de-Liquidacion-008-de-2021-Natalia-Galvis.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Inf. Final de superv. CPS 009 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/9.-Inf.-Final-de-superv.-CPS-009-2021.pdf"
+        },
+        {
+          "numero": "10",
+          "titulo": "Inf. Final de superv. CPS 010 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/10.-Inf.-Final-de-superv.-CPS-010-2021.pdf"
+        },
+        {
+          "numero": "11",
+          "titulo": "Inf. Final de superv. CPS 011 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/11.-Inf.-Final-de-superv.-CPS-011-2021.pdf"
+        },
+        {
+          "numero": "12",
+          "titulo": "Informe final de supervisión 012 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/12.-Informe-final-de-supervision-012-de-2022.pdf"
+        },
+        {
+          "numero": "14",
+          "titulo": "Inf. Final de superv. CPS 0014 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/14.-Inf.-Final-de-superv.-CPS-0014-2021.pdf"
+        },
+        {
+          "numero": "15",
+          "titulo": "Manuel Guillermo Molina CPS 015 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/15.-Manuel-Guillermo-Molina-CPS-015-2021_.pdf"
+        },
+        {
+          "numero": "16",
+          "titulo": "Inf. Final de superv. CPS 016 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/16.-Inf.-Final-de-superv.-CPS-016-2021.pdf"
+        },
+        {
+          "numero": "17",
+          "titulo": "Inf. final de superv. CPS 017 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/17.-Inf.-final-de-superv.-CPS-017-2021.pdf"
+        },
+        {
+          "numero": "18",
+          "titulo": "Inf. final de superv. CPS 018 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/18.-Inf.-final-de-superv.-CPS-018-2021.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Informe final de supervisión 019 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/19.-Informe-final-de-supervision-019-de-2022.pdf"
+        },
+        {
+          "numero": "20",
+          "titulo": "Inf. FInal de superv. CPS 020 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/20.-Inf.-FInal-de-superv.-CPS-020-2021.pdf"
+        },
+        {
+          "numero": "21",
+          "titulo": "Informe final de supervisión 021 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/21.-Informe-final-de-supervision-021-de-2021.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Inf. final de superv. CPS 022 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/22.-Inf.-final-de-superv.-CPS-022-2021.pdf"
+        },
+        {
+          "numero": "23",
+          "titulo": "Acta de Liquidación CPS 023 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/23.-Acta-de-Liquidacion-CPS-023-2021.pdf"
+        },
+        {
+          "numero": "24",
+          "titulo": "Liana Rendón CPS 024 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/24.-Liana-Rendon-CPS-024-2021.pdf"
+        },
+        {
+          "numero": "25",
+          "titulo": "Maria Esperanza Vega G CPS 025 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/25.-Maria-Esperanza-Vega-G-CPS-025-2021.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Informe final de supervisión 026 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/26.-Informe-final-de-supervision-026-de-2021.pdf"
+        },
+        {
+          "numero": "27",
+          "titulo": "Informe Final de Supervisión CS 027 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/27.-Informe-Final-de-Supervision-CS-027-2021.pdf"
+        },
+        {
+          "numero": "28",
+          "titulo": "Informe de Supervisión CPS 028 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/28.-Informe-de-Supervision-CPS-028-2021.pdf"
+        },
+        {
+          "numero": "29",
+          "titulo": "Informe de Supervisión CPS 029 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/29.-Informe-de-Supervision-CPS-029-2021.pdf"
+        },
+        {
+          "numero": "30",
+          "titulo": "Informe de Supervisión del Contrato 030 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/30.-Informe-de-Supervisión-del-Contrato-030-de-2022.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Informe final de supervisión 031 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/31.-Informe-final-de-supervisión-031-de-2022.pdf"
+        },
+        {
+          "numero": "32",
+          "titulo": "Informe de Supervisión CPS 032 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/32.-Informe-de-Supervision-CPS-032-2022.pdf"
+        },
+        {
+          "numero": "35",
+          "titulo": "Informe de Supervisión CPS 035 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/35.-Informe-de-Supervision-CPS-035-2022.pdf"
+        },
+        {
+          "numero": "36",
+          "titulo": "Inf. final de superv. CPS 036 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/36.-Inf.-final-de-superv.-CPS-036-2022.pdf"
+        },
+        {
+          "numero": "37",
+          "titulo": "Inf. final de superv. CPS 037 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/37.-INf.-final-de-superv.-CPS-037-2022.pdf"
+        },
+        {
+          "numero": "39",
+          "titulo": "Informe de Supervisión CPS 039 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/39.-Informe-de-Supervision-CPS-039-2022.pdf"
+        },
+        {
+          "numero": "40",
+          "titulo": "Acta de liquidación CPS 040 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Acta-de-liquidacion-CPS-040-de-2022.pdf"
+        },
+        {
+          "numero": "43",
+          "titulo": "Informe final de supervisión 043 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/43.-Informe-final-de-supervisión-043-de-2022.pdf"
+        },
+        {
+          "numero": "44",
+          "titulo": "Informe de Supervisión CPS 044 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/44.-Informe-de-Supervision-CPS-044-de-2022.pdf"
+        },
+        {
+          "numero": "45",
+          "titulo": "Informe final de supervisión 045 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/45.-Informe-final-de-supervisión-045-de-2022.pdf"
+        },
+        {
+          "numero": "46",
+          "titulo": "Acta de liquidación CS 046 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/46.-Acta-de-liquidacion-CS-046-2022.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Informe de Supervisión del Contrato 57 CCTV 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Acta-de-liquidacion-CPS-040-de-2022.pdf"
+        },
+        {
+          "numero": "63",
+          "titulo": "Inf. final de superv. CPS 063 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/63.-Inf.-final-de-superv.-CPS-063-2022.pdf"
+        },
+        {
+          "numero": "66",
+          "titulo": "Informe final de supervisión 066 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/66.-Informe-Final-de-supervisión-066-de-2022.pdf"
+        },
+        {
+          "numero": "68",
+          "titulo": "Inf. final de superv. CPS 068 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/68.-Inf.-final-de-superv.-CPS-068-2022.pdf"
+        },
+        {
+          "numero": "70",
+          "titulo": "Informe final de supervisión 070 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/70.-Informe-final-de-supervisión-070-de-2022.pdf"
+        },
+        {
+          "numero": "71",
+          "titulo": "Informe final de supervisión 071 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/71.-Informe-final-de-supervisión-071-de-2022.pdf"
+        },
+        {
+          "numero": "74",
+          "titulo": "Inf. final de superv. CPS 074 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/74.-INf.-final-de-superv.-CPS-074-2022.pdf"
+        },
+        {
+          "numero": "75",
+          "titulo": "Informe final de supervisión 075 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/75.-Informe-final-de-supervisión-075-de-2022.pdf"
+        },
+        {
+          "numero": "78",
+          "titulo": "Informe final de supervisión 078 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/78.-Informe-final-de-supervisión-078-de-2022.pdf"
+        }
+      ]
+    },
+    {
+      "anio": "2020",
+      "documentos": [
+        {
+          "numero": "1",
+          "titulo": "Informe final de supervisión CS 01 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/1.-Informe-final-de-supervision-CS-01-2021.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "A liquid MUNDOLIMPIEZA CPS 02 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/2.-A-liquid-MUNDOLIMPIEZA-CPS-02-2021.pdf"
+        },
+        {
+          "numero": "3",
+          "titulo": "Informe final de supervisión 003 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/3.-Informe-final-de-supervision-003-de-2021.pdf"
+        },
+        {
+          "numero": "4",
+          "titulo": "Informe final de supervisión 004 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-Informe-final-de-supervision-004-de-2021.pdf"
+        },
+        {
+          "numero": "5",
+          "titulo": "Inf. final de superv. CPS 005 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/5.-Inf.-final-de-superv.-CPS-005-2021.pdf"
+        },
+        {
+          "numero": "6",
+          "titulo": "Inf. Final de superv. CPS 006 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/6.-Inf.-Final-de-superv.-CPS-006-2021.pdf"
+        },
+        {
+          "numero": "7",
+          "titulo": "Lina Margarita Rivero CPS 007 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/7.-Lina-Margarita-Rivero-CPS-007-2021.pdf"
+        },
+        {
+          "numero": "8",
+          "titulo": "Acta de Liquidación 008 de 2021 Natalia Galvis",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/11/08.-Acta-de-Liquidacion-008-de-2021-Natalia-Galvis.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Inf. Final de superv. CPS 009 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/9.-Inf.-Final-de-superv.-CPS-009-2021.pdf"
+        },
+        {
+          "numero": "10",
+          "titulo": "Inf. Final de superv. CPS 010 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/10.-Inf.-Final-de-superv.-CPS-010-2021.pdf"
+        },
+        {
+          "numero": "11",
+          "titulo": "Inf. Final de superv. CPS 011 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/11.-Inf.-Final-de-superv.-CPS-011-2021.pdf"
+        },
+        {
+          "numero": "12",
+          "titulo": "Informe final de supervisión 012 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/12.-Informe-final-de-supervision-012-de-2022.pdf"
+        },
+        {
+          "numero": "14",
+          "titulo": "Inf. Final de superv. CPS 0014 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/14.-Inf.-Final-de-superv.-CPS-0014-2021.pdf"
+        },
+        {
+          "numero": "15",
+          "titulo": "Manuel Guillermo Molina CPS 015 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/15.-Manuel-Guillermo-Molina-CPS-015-2021_.pdf"
+        },
+        {
+          "numero": "16",
+          "titulo": "Inf. Final de superv. CPS 016 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/16.-Inf.-Final-de-superv.-CPS-016-2021.pdf"
+        },
+        {
+          "numero": "17",
+          "titulo": "Inf. final de superv. CPS 017 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/17.-Inf.-final-de-superv.-CPS-017-2021.pdf"
+        },
+        {
+          "numero": "18",
+          "titulo": "Inf. final de superv. CPS 018 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/18.-Inf.-final-de-superv.-CPS-018-2021.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Informe final de supervisión 019 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/19.-Informe-final-de-supervision-019-de-2022.pdf"
+        },
+        {
+          "numero": "20",
+          "titulo": "Inf. FInal de superv. CPS 020 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/20.-Inf.-FInal-de-superv.-CPS-020-2021.pdf"
+        },
+        {
+          "numero": "21",
+          "titulo": "Informe final de supervisión 021 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/21.-Informe-final-de-supervision-021-de-2021.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Inf. final de superv. CPS 022 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/22.-Inf.-final-de-superv.-CPS-022-2021.pdf"
+        },
+        {
+          "numero": "23",
+          "titulo": "Acta de Liquidación CPS 023 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/23.-Acta-de-Liquidacion-CPS-023-2021.pdf"
+        },
+        {
+          "numero": "24",
+          "titulo": "Liana Rendón CPS 024 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/24.-Liana-Rendon-CPS-024-2021.pdf"
+        },
+        {
+          "numero": "25",
+          "titulo": "Maria Esperanza Vega G CPS 025 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/25.-Maria-Esperanza-Vega-G-CPS-025-2021.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Informe final de supervisión 026 de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/26.-Informe-final-de-supervision-026-de-2021.pdf"
+        },
+        {
+          "numero": "27",
+          "titulo": "Informe Final de Supervisión CS 027 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/27.-Informe-Final-de-Supervision-CS-027-2021.pdf"
+        },
+        {
+          "numero": "28",
+          "titulo": "Informe de Supervisión CPS 028 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/28.-Informe-de-Supervision-CPS-028-2021.pdf"
+        },
+        {
+          "numero": "29",
+          "titulo": "Informe de Supervisión CPS 029 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/29.-Informe-de-Supervision-CPS-029-2021.pdf"
+        },
+        {
+          "numero": "30",
+          "titulo": "Informe de Supervisión del Contrato 030 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/30.-Informe-de-Supervisión-del-Contrato-030-de-2022.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Informe final de supervisión 031 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/31.-Informe-final-de-supervisión-031-de-2022.pdf"
+        },
+        {
+          "numero": "32",
+          "titulo": "Informe de Supervisión CPS 032 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/32.-Informe-de-Supervision-CPS-032-2022.pdf"
+        },
+        {
+          "numero": "35",
+          "titulo": "Informe de Supervisión CPS 035 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/35.-Informe-de-Supervision-CPS-035-2022.pdf"
+        },
+        {
+          "numero": "36",
+          "titulo": "Inf. final de superv. CPS 036 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/36.-Inf.-final-de-superv.-CPS-036-2022.pdf"
+        },
+        {
+          "numero": "37",
+          "titulo": "Inf. final de superv. CPS 037 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/37.-INf.-final-de-superv.-CPS-037-2022.pdf"
+        },
+        {
+          "numero": "39",
+          "titulo": "Informe de Supervisión CPS 039 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/39.-Informe-de-Supervision-CPS-039-2022.pdf"
+        },
+        {
+          "numero": "40",
+          "titulo": "Acta de liquidación CPS 040 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Acta-de-liquidacion-CPS-040-de-2022.pdf"
+        },
+        {
+          "numero": "43",
+          "titulo": "Informe final de supervisión 043 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/43.-Informe-final-de-supervisión-043-de-2022.pdf"
+        },
+        {
+          "numero": "44",
+          "titulo": "Informe de Supervisión CPS 044 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/44.-Informe-de-Supervision-CPS-044-de-2022.pdf"
+        },
+        {
+          "numero": "45",
+          "titulo": "Informe final de supervisión 045 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/45.-Informe-final-de-supervisión-045-de-2022.pdf"
+        },
+        {
+          "numero": "46",
+          "titulo": "Acta de liquidación CS 046 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/46.-Acta-de-liquidacion-CS-046-2022.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Informe de Supervisión del Contrato 57 CCTV 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/Acta-de-liquidacion-CPS-040-de-2022.pdf"
+        },
+        {
+          "numero": "63",
+          "titulo": "Inf. final de superv. CPS 063 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/63.-Inf.-final-de-superv.-CPS-063-2022.pdf"
+        },
+        {
+          "numero": "66",
+          "titulo": "Informe final de supervisión 066 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/66.-Informe-Final-de-supervisión-066-de-2022.pdf"
+        },
+        {
+          "numero": "68",
+          "titulo": "Inf. final de superv. CPS 068 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/68.-Inf.-final-de-superv.-CPS-068-2022.pdf"
+        },
+        {
+          "numero": "70",
+          "titulo": "Informe final de supervisión 070 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/70.-Informe-final-de-supervisión-070-de-2022.pdf"
+        },
+        {
+          "numero": "71",
+          "titulo": "Informe final de supervisión 071 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/71.-Informe-final-de-supervisión-071-de-2022.pdf"
+        },
+        {
+          "numero": "74",
+          "titulo": "Inf. final de superv. CPS 074 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/74.-INf.-final-de-superv.-CPS-074-2022.pdf"
+        },
+        {
+          "numero": "75",
+          "titulo": "Informe final de supervisión 075 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/75.-Informe-final-de-supervisión-075-de-2022.pdf"
+        },
+        {
+          "numero": "78",
+          "titulo": "Informe final de supervisión 078 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/78.-Informe-final-de-supervisión-078-de-2022.pdf"
+        }
+      ]
+    },
+    {
+      "anio": "2019",
+      "documentos": [
+        {
+          "numero": "1",
+          "titulo": "Contrato No. 01 de 2020 TERPEL",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/01.-Contrato-No.-001-de-2020-TERPEL.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "Contrato No. 02 de 2020 J. Wilches",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/02.-Contrato-No.-002-de-2020-J.-Wilches.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "Contrato No. 02 de 2018 Servicios Postales Nacionales",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/02.-Contrato-No.-002-de-2018-Servicios-Postales-Nacionales.pdf"
+        },
+        {
+          "numero": "3",
+          "titulo": "Contrato No. 03 de 2020 J. Vela",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/03.-Contrato-No.-03-de-2020-J.-Vela.pdf"
+        },
+        {
+          "numero": "4",
+          "titulo": "Informe de supervisión 04 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/4.-Informe-de-supervisión-04-de-2020.pdf"
+        },
+        {
+          "numero": "5",
+          "titulo": "Contrato No. 05 de 2020 V. Bustos",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/05.-Contrato-No.-05-de-2020-V.-Bustos.pdf"
+        },
+        {
+          "numero": "6",
+          "titulo": "Inf. Final de superv. CPS 006 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/6.-Inf.-Final-de-superv.-CPS-006-2020.pdf"
+        },
+        {
+          "numero": "7",
+          "titulo": "Informe de supervisión 07 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/INFORME-DE-SUPERVISION-CONTRATO-007-DE-2020-SUSANA-LOPEZ.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Manuel Guillermo Molina Jiménez. - INFORME DE SUPERVISOR",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/9.-009-Manuel-Guillermo-Molina-Jimenez.-INFORME-DE-SUPERVISOR.pdf"
+        },
+        {
+          "numero": "9",
+          "titulo": "Acta de Liquidación CPS 009 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/9.-Acta-de-Liquidacion-CPS-009-2020.pdf"
+        },
+        {
+          "numero": "10",
+          "titulo": "Inf. Final de superv. CPS 010 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/10.-Inf.-Final-de-superv.-CPS-010-2020.pdf"
+        },
+        {
+          "numero": "11",
+          "titulo": "Acta de Liquidación CS 011 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/11.-Acta-de-Liquidacion-CS-011-2020.pdf"
+        },
+        {
+          "numero": "12",
+          "titulo": "Contrato No. 12 de 2020 Servipreventiva",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/12.-Contrato-No.-012-de-2020-Servipreventiva.pdf"
+        },
+        {
+          "numero": "13",
+          "titulo": "Lina Margarita Rivero Galvis INFORME DE SUPERVISIÓN",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/13.-013-Lina-Margarita-Rivero-Galvis-INFORME-DE-SUPERVISION.pdf"
+        },
+        {
+          "numero": "15",
+          "titulo": "Contrato No. 15 de 2020 J. Quintero",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/14.-Contrato-No.-015-de-2020-J.-Quintero.pdf"
+        },
+        {
+          "numero": "15",
+          "titulo": "Contrato No. 15 de 2020 A. Gaviria",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/15.-Contrato-No.-015-de-2020-A.-Gaviria.pdf"
+        },
+        {
+          "numero": "17",
+          "titulo": "María Esperanza Vega Goyeneche INFORME DE SUPERVISIÓN",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/17.-Maria-Esperanza-Vega-Goyeneche-INFORME-DE-SUPERVISION.pdf"
+        },
+        {
+          "numero": "18",
+          "titulo": "Informe de supervisión CPS 018 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/18.-Informe-de-supervisión-CPS-018-2020.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Contrato No. 19 A SERVICIAL",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/19.-Contrato-No.-019A-SERVICIAL.pdf"
+        },
+        {
+          "numero": "19",
+          "titulo": "Contrato No. 19 de 2020 Aldemar Arrieta",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/19.-Contrato-No.-19-de-2020-Aldemar-Arrieta.pdf"
+        },
+        {
+          "numero": "20",
+          "titulo": "Contrato No. 20 de 2020 Jimmy Forero",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/20.-Contrato-No.-20-de-2020-Jimmy-Forero.pdf"
+        },
+        {
+          "numero": "22",
+          "titulo": "Acta de Liquidación 022 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/22.-Acta-de-Liquidación-022-de-2020.pdf"
+        },
+        {
+          "numero": "23",
+          "titulo": "Contrato No. 023 de 2020 UNIMSALUD",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/23.-Contrato-No.-023-de-2020-UNIMSALUD.pdf"
+        },
+        {
+          "numero": "26",
+          "titulo": "Inf. FInal de supervisión CV 026 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/26.-Inf.-FInal-de-supervision-CV-026-2020.pdf"
+        },
+        {
+          "numero": "27",
+          "titulo": "Informe final de supervisión 027 de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/27.-INforme-final-de-supervisión-027-de-2022.pdf"
+        },
+        {
+          "numero": "29",
+          "titulo": "Acta de Liquidación 029 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/29.-Acta-de-Liquidación-029-de-2020.pdf"
+        },
+        {
+          "numero": "30",
+          "titulo": "Contrato No. 30 de 2020 La Previsora",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/30.-Contrato-No-30-de-2020-La-Previsora.pdf"
+        },
+        {
+          "numero": "31",
+          "titulo": "Contrato No. 31 de 2020 Grupo Cruz Velásquez",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/31.-Contrato-No.-31-de-2020-GRUPO-CRUZ-VELASQUEZ.pdf"
+        },
+        {
+          "numero": "32",
+          "titulo": "Contrato No. 32 de 2020 INDUHOTEL",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/32.-Contrato-No-32-de-2020-INDUHOTEL.pdf"
+        },
+        {
+          "numero": "33",
+          "titulo": "Contrato No. 33 de 2020 SUMIMAS",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/33.-Contrato-No-33-de-2020-SUMIMAS.pdf"
+        },
+        {
+          "numero": "34",
+          "titulo": "Contrato No. 34 de 2020 La Previsora",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/34.-Contrato-No-34-de-2020-La-Previsora.pdf"
+        },
+        {
+          "numero": "35",
+          "titulo": "Contrato No. 35 OFIBEST",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/35.-Contrato-No.-35-OFIBEST.pdf"
+        },
+        {
+          "numero": "36",
+          "titulo": "Contrato No. 036 de 2020 CAMERFIRMA",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/36.-Contrato-No.-036-de-2020-CAMERFIRMA.pdf"
+        },
+        {
+          "numero": "36",
+          "titulo": "Informe final de supervisión 036 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/36.-Informe-final-de-supervisión-036-de-2020.pdf"
+        },
+        {
+          "numero": "37",
+          "titulo": "Contrato No. 037 de 2020 UT Nimbutech",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/37.-Contrato-No.-037-de-2020-Nimbutech.pdf"
+        },
+        {
+          "numero": "38",
+          "titulo": "Contrato No. 038 de 2020 COMPENSAR",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/38.-Contrato-No.-038-de-2020-COMPENSAR.pdf"
+        },
+        {
+          "numero": "39",
+          "titulo": "Contrato No. 39 PRODESEG",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/39.-Contrato-No.-39-PRODESEG.pdf"
+        },
+        {
+          "numero": "41",
+          "titulo": "Acta de Liquidación 041 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/41.-Acta-de-Liquidación-041-de-2020.pdf"
+        },
+        {
+          "numero": "42",
+          "titulo": "Informe de supervisión CPS 042 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/42.-Informe-de-supervisión-CPS-042-2022.pdf"
+        },
+        {
+          "numero": "43",
+          "titulo": "Informe de supervisión CPS 043 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/43.-Informe-de-supervisión-CPS-043-2022.pdf"
+        },
+        {
+          "numero": "44",
+          "titulo": "Contrato No. 44 de 2020 PRODUMEDIHOS",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/44.-Contrato-No.-044-de-2020-PRODUMEDIHOS.pdf"
+        },
+        {
+          "numero": "46",
+          "titulo": "Contrato No. 46 de 2020 HHGS",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/46.-Contrato-No.-46-de-2020-HHGS.pdf"
+        },
+        {
+          "numero": "47",
+          "titulo": "Informe de Supervisión CV 047 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/47.-Informe-de-Supervision-CV-047-2020.pdf"
+        },
+        {
+          "numero": "48",
+          "titulo": "Contrato No. 48 de 2020 CAD",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/48.-Contrato-No.-048-de-2020-CAD.pdf"
+        },
+        {
+          "numero": "49",
+          "titulo": "Informe de Supervisión CPS 049 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/49.-Informe-de-Supervision-CPS-049-2020.pdf"
+        },
+        {
+          "numero": "50",
+          "titulo": "Informe final de supervisión 050 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/50.-Informe-final-de-supervisión-050-de-2020.pdf"
+        },
+        {
+          "numero": "51",
+          "titulo": "Contrato No. 51 de 2020 GSE",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/51.-Contrato-No.-51-de-2020-GSE.pdf"
+        },
+        {
+          "numero": "51",
+          "titulo": "Informe final de supervisión 051 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/51.-Informe-final-de-supervisión-051-de-2020.pdf"
+        },
+        {
+          "numero": "52",
+          "titulo": "Informe de supervision CPS 052 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/52.-Informe-de-supervision-CPS-052-2020.pdf"
+        },
+        {
+          "numero": "53",
+          "titulo": "Informe de Supervisión CV 053 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/53.-Informe-de-Supervision-CV-053-de-2020.pdf"
+        },
+        {
+          "numero": "54",
+          "titulo": "Contrato No. 54 de 2020 Internet Solutions",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/54.-Contrato-No.-54-de-2020-Internet-Solutions.pdf"
+        },
+        {
+          "numero": "54",
+          "titulo": "Informe final de supervisión 054 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/54.-Informe-final-de-supervisión-054-de-2020.pdf"
+        },
+        {
+          "numero": "55",
+          "titulo": "Acta de Liquidación 55 de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/55.-Acta-de-Liquidación-55-de-2020.pdf"
+        },
+        {
+          "numero": "56",
+          "titulo": "Contrato No. 056 de 2020 Wilver Vega",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/56.-Contrato-No.-056-de-2020-Wilver-Vega.pdf"
+        },
+        {
+          "numero": "57",
+          "titulo": "Inf. Final de supervisión CV 057 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/57.-Inf.-Final-de-supervision-CV-057-2020.pdf"
+        },
+        {
+          "numero": "58",
+          "titulo": "Inf. Final de superv. CV 058 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/58.-Inf.-Final-de-superv.-CV-058-2020.pdf"
+        },
+        {
+          "numero": "59",
+          "titulo": "Acta de Liquidación CPS 059 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/59.-Acta-de-Liquidacion-CPS-059-2020.pdf"
+        },
+        {
+          "numero": "2",
+          "titulo": "Acta de liquidación 002 de 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/02.-Acta-de-liquidación-002-de-2019.pdf"
+        },
+        {
+          "numero": "8",
+          "titulo": "Acta de liquidación 008 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/08.-Acta-de-liquidación-008-2019.pdf"
+        }
+      ]
+    }
+  ],
+  "enlacesExternos": [
+    {
+      "titulo": "Página web del SECOP I",
+      "url": "https://www.contratos.gov.co/consultas/inicioConsulta.do"
+    },
+    {
+      "titulo": "Página web del SECOP II",
+      "url": "https://community.secop.gov.co/Public/Common/GoogleReCaptcha/Index?previousUrl=https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fContractNoticeManagement%2fIndex%3fcurrentLanguage%3des-CO%26Page%3dlogin%26Country%3dCO%26SkinName%3dCCE"
+    }
+  ]
+}
