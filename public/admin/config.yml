@@ -2372,6 +2372,220 @@ collections:
                 label: Icono FontAwesome
                 widget: string
                 required: false
+      - name: tablas-retencion
+        label: Tablas de Retención Documental
+        file: src/content/pages/transparencia/tablas-retencion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-table-list
+          - name: versiones
+            label: Versiones de las TRD
+            widget: list
+            label_singular: Versión
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Nombre de la versión
+                widget: string
+                required: true
+                hint: "Ej: 'Versión 2 (Vigente)', 'Versión 1'"
+              - name: docs
+                label: Documentos
+                widget: list
+                label_singular: Documento
+                collapsed: true
+                summary: "{{fields.n}}"
+                fields:
+                  - name: "n"
+                    label: Nombre
+                    widget: string
+                    required: true
+                  - name: u
+                    label: URL
+                    widget: string
+                    required: true
+      - name: esquema-publicacion
+        label: Esquema de Publicación de la Información
+        file: src/content/pages/transparencia/documentacion/esquema-publicacion.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-table-cells
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+      - name: registro-publicaciones
+        label: Registro de Publicaciones
+        file: src/content/pages/transparencia/documentacion/registro-publicaciones.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-clipboard-list
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+      - name: formato-grupos-etnicos
+        label: Formato alternativo grupos étnicos/culturales
+        file: src/content/pages/transparencia/documentacion/formato-grupos-etnicos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-users-rectangle
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Documentos
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+      - name: proteccion-datos
+        label: Protección de Datos Personales
+        file: src/content/pages/transparencia/documentacion/proteccion-datos.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-shield
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: documentos
+            label: Política vigente
+            widget: list
+            label_singular: Documento
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - pdf
+                  - xlsx
+                default: pdf
+          - name: enlacesExternos
+            label: Consultas externas
+            widget: list
+            label_singular: Enlace
+            collapsed: true
+            required: false
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción
+                widget: text
+                required: false
+              - name: url
+                label: URL
+                widget: string
+                required: true
+              - name: icon
+                label: Icono
+                widget: string
+                required: false
       - name: reporte-austeridad-gasto
         label: Reporte Austeridad en el Gasto
         file: src/content/pages/transparencia/reporte-austeridad-gasto.json

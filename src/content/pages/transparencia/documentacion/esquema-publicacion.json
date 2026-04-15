@@ -1,0 +1,12 @@
+{
+  "title": "Esquema de Publicación de la Información",
+  "description": "Esquema de publicación de la información de la Agencia ITRC (Ley 1712 de 2014, artículos 11 y 12).",
+  "icon": "fa-table-cells",
+  "intro": "Instrumento que identifica, describe y consolida la información que la Agencia ITRC debe publicar de oficio en cumplimiento de la Ley 1712 de 2014 y la Resolución 3564 de 2015 de MinTIC.",
+  "informes": [
+    {
+      "titulo": "Esquema de Publicación de la Información (vigente)",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Esquema_publicacion_informacion.pdf"
+    }
+  ]
+}

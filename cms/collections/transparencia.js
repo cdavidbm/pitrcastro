@@ -510,6 +510,111 @@ export const transparencia = {
       ],
     },
     // ============================================================
+    // Lote R — Documentación y Archivos (5 páginas MEDIA)
+    // ============================================================
+    {
+      name: "tablas-retencion",
+      label: "Tablas de Retención Documental",
+      file: "src/content/pages/transparencia/tablas-retencion.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-table-list" },
+        {
+          name: "versiones",
+          label: "Versiones de las TRD",
+          widget: "list",
+          label_singular: "Versión",
+          collapsed: true,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Nombre de la versión", widget: "string", required: true, hint: "Ej: 'Versión 2 (Vigente)', 'Versión 1'" },
+            {
+              name: "docs",
+              label: "Documentos",
+              widget: "list",
+              label_singular: "Documento",
+              collapsed: true,
+              summary: "{{fields.n}}",
+              fields: [
+                { name: "n", label: "Nombre", widget: "string", required: true },
+                { name: "u", label: "URL", widget: "string", required: true },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    ...(function documentacionFactory() {
+      const mk = (name, label, path, iconDefault) => ({
+        name,
+        label,
+        file: `src/content/pages/transparencia/documentacion/${path}`,
+        fields: [
+          { name: "title", label: "Título", widget: "string", required: true },
+          { name: "description", label: "Descripción SEO", widget: "text", required: false },
+          { name: "icon", label: "Icono FontAwesome", widget: "string", default: iconDefault },
+          { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+          {
+            name: "informes",
+            label: "Documentos",
+            widget: "list",
+            label_singular: "Documento",
+            collapsed: true,
+            summary: "{{fields.titulo}}",
+            fields: [
+              { name: "titulo", label: "Título", widget: "string", required: true },
+              { name: "url", label: "URL", widget: "string", required: true },
+            ],
+          },
+        ],
+      });
+      return [
+        mk("esquema-publicacion", "Esquema de Publicación de la Información", "esquema-publicacion.json", "fa-table-cells"),
+        mk("registro-publicaciones", "Registro de Publicaciones", "registro-publicaciones.json", "fa-clipboard-list"),
+        mk("formato-grupos-etnicos", "Formato alternativo grupos étnicos/culturales", "formato-grupos-etnicos.json", "fa-users-rectangle"),
+      ];
+    })(),
+    {
+      name: "proteccion-datos",
+      label: "Protección de Datos Personales",
+      file: "src/content/pages/transparencia/documentacion/proteccion-datos.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-shield" },
+        { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+        {
+          name: "documentos",
+          label: "Política vigente",
+          widget: "list",
+          label_singular: "Documento",
+          collapsed: true,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título", widget: "string", required: true },
+            { name: "url", label: "URL", widget: "string", required: true },
+            { name: "tipo", label: "Tipo", widget: "select", options: ["pdf", "xlsx"], default: "pdf" },
+          ],
+        },
+        {
+          name: "enlacesExternos",
+          label: "Consultas externas",
+          widget: "list",
+          label_singular: "Enlace",
+          collapsed: true,
+          required: false,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título", widget: "string", required: true },
+            { name: "descripcion", label: "Descripción", widget: "text", required: false },
+            { name: "url", label: "URL", widget: "string", required: true },
+            { name: "icon", label: "Icono", widget: "string", required: false },
+          ],
+        },
+      ],
+    },
+    // ============================================================
     // Lote M5 — Reporte Austeridad en el Gasto (último de M)
     // ============================================================
     {

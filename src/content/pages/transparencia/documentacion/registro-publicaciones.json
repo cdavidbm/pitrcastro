@@ -1,0 +1,12 @@
+{
+  "title": "Registro de Publicaciones",
+  "description": "Registro de publicaciones de la Agencia ITRC — inventario documental de lo publicado en cumplimiento de la Ley 1712 de 2014.",
+  "icon": "fa-clipboard-list",
+  "intro": "Inventario consolidado de las publicaciones institucionales de la Agencia ITRC, actualizado conforme a los lineamientos de la Ley 1712 de 2014.",
+  "informes": [
+    {
+      "titulo": "Registro de Publicaciones",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/Registro-de-Publicaciones.pdf"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Protección de Datos Personales",
+  "description": "Política de Privacidad y Protección de Datos Personales de la Agencia ITRC (Ley 1581 de 2012, Decreto 1377 de 2013).",
+  "icon": "fa-shield",
+  "intro": "Política institucional sobre el tratamiento de datos personales recolectados por la Agencia ITRC, en cumplimiento de la Ley 1581 de 2012 y su Decreto Reglamentario 1377 de 2013. La Agencia tiene inscrita su Base de Datos ante la Superintendencia de Industria y Comercio (SIC).",
+  "documentos": [
+    {
+      "titulo": "Política de Privacidad y Protección de Datos Personales (2021)",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Politica-Tratamiento-de-Datos-Agencia-ITRC-2021.pdf",
+      "tipo": "pdf"
+    }
+  ],
+  "enlacesExternos": [
+    {
+      "titulo": "Consultar la Base de Datos ITRC en el RNBD de la SIC",
+      "descripcion": "Registro Nacional de Bases de Datos — consulta pública de titulares.",
+      "url": "https://rnbd.sic.gov.co/sisi/consultaTitulares/consultas/",
+      "icon": "fa-arrow-up-right-from-square"
+    }
+  ]
+}

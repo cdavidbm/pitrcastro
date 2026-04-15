@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/documentacion/proteccion-datos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="pd-section">
+    <div class="container">
+      {pageData.intro && <p class="pd-intro">{pageData.intro}</p>}
+
+      <h2 class="pd-heading"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Política vigente</h2>
+      <ul class="pd-docs">
+        {pageData.documentos.map((d) => (
+          <li><a href={d.url} target="_blank" rel="noopener noreferrer" class="pd-item pd-item--pdf">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            <span>{d.titulo}</span>
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+          </a></li>
+        ))}
+      </ul>
+
+      {pageData.enlacesExternos && pageData.enlacesExternos.length > 0 && (
+        <>
+          <h2 class="pd-heading"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Consultas externas</h2>
+          <ul class="pd-docs">
+            {pageData.enlacesExternos.map((e) => (
+              <li><a href={e.url} target="_blank" rel="noopener noreferrer" class="pd-item pd-item--ext">
+                <i class={`fa-solid ${e.icon || 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+                <div class="pd-item__body">
+                  <span class="pd-item__titulo">{e.titulo}</span>
+                  {e.descripcion && <span class="pd-item__desc">{e.descripcion}</span>}
+                </div>
+              </a></li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pd-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .pd-section .container { max-width: 900px; margin: 0 auto; }
+  .pd-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text-secondary); margin-bottom: var(--space-8); text-align: justify; }
+  .pd-heading { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: var(--space-6) 0 var(--space-4); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
+  .pd-heading i { color: var(--itrc-gold); }
+  .pd-docs { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+  .pd-item { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .pd-item:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+  .pd-item--pdf:hover { border-color: var(--file-pdf); }
+  .pd-item--ext:hover { border-color: var(--itrc-gold); }
+  .pd-item > i:first-child { color: var(--file-pdf); font-size: var(--font-size-xl); flex-shrink: 0; }
+  .pd-item--ext > i:first-child { color: var(--itrc-gold); }
+  .pd-item span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .pd-item > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .pd-item__body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .pd-item__titulo { font-weight: 700; color: var(--theme-heading); }
+  .pd-item__desc { font-size: var(--font-size-xs); color: var(--theme-text-secondary); }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
