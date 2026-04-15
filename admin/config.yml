@@ -3489,9 +3489,21 @@ collections:
             collapsed: true
             summary: "{{fields.titulo}}"
             fields:
-              - name: fecha
-                label: Fecha
+              - name: slug
+                label: Slug
                 widget: string
+                required: false
+                hint: kebab-case, sin tildes. Identificador interno.
+              - name: fecha
+                label: Fecha (humano)
+                widget: string
+                hint: Texto mostrado, ej. '15 de diciembre de 2021'.
+              - name: fechaIso
+                label: Fecha ISO
+                widget: datetime
+                format: YYYY-MM-DD
+                required: false
+                hint: Fecha estructurada para ordenamiento (YYYY-MM-DD).
               - name: titulo
                 label: Título
                 widget: string
@@ -3501,6 +3513,11 @@ collections:
               - name: resumen
                 label: Resumen
                 widget: text
+              - name: descripcion
+                label: Descripción larga
+                widget: text
+                required: false
+                hint: Contenido ampliado para ficha de detalle (opcional).
       - name: observatorio-memorias-participacion
         label: Memorias Eje Participación (listado)
         file: src/content/pages/observatorio/eje-de-participacion/memorias.json
