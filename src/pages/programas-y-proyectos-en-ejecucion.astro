@@ -16,17 +16,19 @@ const breadcrumb = [
 
   <section class="proy-section">
     <div class="container">
-      <div class="sub-links">
-        {pageData.subpaginas.map((sp) => (
-          <a href={sp.url} target="_blank" rel="noopener" class="sub-link">
-            <i class={`fa-solid ${sp.icon}`} aria-hidden="true"></i>
-            <span>{sp.titulo}</span>
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
-        ))}
-      </div>
+      {pageData.enlacesExternos && pageData.enlacesExternos.length > 0 && (
+        <div class="sub-links">
+          {pageData.enlacesExternos.map((sp) => (
+            <a href={sp.url} target="_blank" rel="noopener" class="sub-link">
+              <i class={`fa-solid ${sp.icon}`} aria-hidden="true"></i>
+              <span>{sp.titulo}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          ))}
+        </div>
+      )}
 
-      <h2 class="section-heading"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Informes Proyectos de Inversión</h2>
+      <h2 class="section-heading" id="informes"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Informes de Proyectos de Inversión</h2>
 
       {pageData.informes.map((g) => (
         <div class="year-group">
@@ -42,6 +44,59 @@ const breadcrumb = [
           </div>
         </div>
       ))}
+
+      {pageData.fichasEbi && pageData.fichasEbi.length > 0 && (
+        <>
+          <h2 class="section-heading" id="fichas-ebi"><i class="fa-solid fa-table" aria-hidden="true"></i> Fichas EBI del Proyecto de Inversión</h2>
+          {pageData.fichasEbi.map((g) => (
+            <div class="year-group">
+              <h3 class="year-title">{g.anio}<span class="year-count">{g.fichas.length}</span></h3>
+              <div class="doc-list">
+                {g.fichas.map((f) => (
+                  <a href={f.url} target="_blank" rel="noopener" class="doc-item">
+                    <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                    <span>{f.nombre}</span>
+                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+          {pageData.fichasEbiNota && (
+            <p class="fichas-nota"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> {pageData.fichasEbiNota}</p>
+          )}
+        </>
+      )}
+
+      {pageData.resumenEjecutivo && pageData.resumenEjecutivo.length > 0 && (
+        <>
+          <h2 class="section-heading" id="resumen-ejecutivo"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Resumen Ejecutivo</h2>
+          <div class="doc-list">
+            {pageData.resumenEjecutivo.map((r) => (
+              <a href={r.url} target="_blank" rel="noopener" class="doc-item">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                <span>Resumen Ejecutivo — Proyecto {r.proyecto}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
+
+      {pageData.seguimientosSPI && pageData.seguimientosSPI.length > 0 && (
+        <>
+          <h2 class="section-heading" id="seguimientos-spi"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> Seguimientos a la Ejecución (SPI)</h2>
+          <div class="doc-list">
+            {pageData.seguimientosSPI.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener" class="doc-item">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                <span>{s.proyecto} — {s.periodo}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
 
       <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
     </div>
@@ -70,6 +125,8 @@ const breadcrumb = [
   .doc-item span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
   .doc-item:hover span { color: var(--file-pdf); }
   .doc-item > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .fichas-nota { font-size: var(--font-size-sm); color: var(--theme-text-muted); background: var(--theme-surface-alt); border-left: 3px solid var(--itrc-gold); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-4); }
+  .fichas-nota i { margin-right: var(--space-2); color: var(--itrc-gold); }
   .back-link { margin-top: var(--space-8); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }

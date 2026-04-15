@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/contratacion/procedimientos-adquisicion.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Procedimientos y políticas de adquisición' }
+];
+
+const iconByTipo = {
+  manual: 'fa-book',
+  instructivo: 'fa-clipboard-list',
+  guia: 'fa-compass',
+  resolucion: 'fa-gavel'
+};
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="proc-section">
+    <div class="container">
+      <p class="proc-intro">{pageData.intro}</p>
+
+      <ul class="proc-list">
+        {pageData.documentos.map((doc) => (
+          <li class="proc-item">
+            <a href={doc.url} target="_blank" rel="noopener noreferrer" class="proc-item__link">
+              <div class="proc-item__icon" aria-hidden="true">
+                <i class={`fa-solid ${iconByTipo[doc.tipo] || 'fa-file-pdf'}`}></i>
+              </div>
+              <div class="proc-item__body">
+                <span class="proc-item__title">{doc.titulo}</span>
+                {doc.tipo && <span class={`proc-item__tag proc-item__tag--${doc.tipo}`}>{doc.tipo}</span>}
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square proc-item__ext" aria-hidden="true"></i>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="back-link">
+        <a href={`${base}transparencia`}>
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .proc-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .proc-section .container { max-width: 900px; margin: 0 auto; }
+
+  .proc-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-10); text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+  .proc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+
+  .proc-item__link { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base); }
+  .proc-item__link:hover { box-shadow: var(--shadow-md); border-color: var(--itrc-gold); transform: translateX(4px); }
+
+  .proc-item__icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--itrc-gold-light), var(--itrc-gold)); color: var(--itrc-navy); border-radius: var(--radius-md); font-size: var(--font-size-xl); flex-shrink: 0; }
+
+  .proc-item__body { flex: 1; display: flex; flex-direction: column; gap: var(--space-2); }
+  .proc-item__title { font-weight: 700; color: var(--theme-heading); line-height: 1.4; }
+
+  .proc-item__tag { display: inline-block; width: fit-content; padding: 2px 8px; font-size: var(--font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border-radius: var(--radius-full); }
+  .proc-item__tag--manual { background: rgba(0,33,71,0.08); color: var(--itrc-navy); }
+  .proc-item__tag--instructivo { background: rgba(179,139,64,0.12); color: var(--itrc-gold); }
+  .proc-item__tag--guia { background: rgba(40,167,69,0.10); color: #28a745; }
+  .proc-item__tag--resolucion { background: rgba(139,0,0,0.08); color: #8b0000; }
+
+  .proc-item__ext { font-size: var(--font-size-sm); color: var(--theme-text-muted); }
+
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 640px) {
+    .proc-item__link { flex-wrap: wrap; padding: var(--space-4); }
+  }
+</style>
