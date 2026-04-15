@@ -450,6 +450,40 @@ export const transparencia = {
       ],
     },
     {
+      name: "evaluacion-auditoria-3ld",
+      label: "Informes de Evaluación y Auditoría 3LD (catálogo OCI)",
+      file: "src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-layer-group" },
+        { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+        {
+          name: "categorias",
+          label: "Categorías de informes OCI",
+          widget: "list",
+          label_singular: "Categoría",
+          collapsed: true,
+          summary: "{{fields.numero}}. {{fields.titulo}}",
+          fields: [
+            { name: "numero", label: "Número", widget: "string", required: true, hint: "Dos dígitos, ej. 01, 05, 27" },
+            { name: "titulo", label: "Título de la categoría", widget: "string", required: true },
+            {
+              name: "destino",
+              label: "Destino del enlace",
+              widget: "object",
+              required: true,
+              fields: [
+                { name: "url", label: "URL destino", widget: "string", required: false, hint: "Vacío si el estado es 'proximamente'. Internos con slash inicial, externos URL completa." },
+                { name: "tipo", label: "Tipo", widget: "select", options: ["internal", "external"], default: "internal" },
+                { name: "estado", label: "Estado", widget: "select", options: ["disponible", "proximamente"], default: "proximamente", hint: "'disponible' activa el enlace; 'proximamente' muestra badge deshabilitado." },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "informes-organismos-ivc",
       label: "Informes a Organismos IVC (hub)",
       file: "src/content/pages/transparencia/informes-organismos-ivc.json",
