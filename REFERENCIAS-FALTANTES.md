@@ -30,6 +30,7 @@
 | Sync 2026-04-15 (#3 Info Financiera) | 43 PDFs históricos (mayormente Presupuesto Series 2012-2017) en WP no presentes en local |
 | AUDIT-1 gestion-misional | 3 URLs en HTML WP devuelven 404 (local ya tiene URLs correctas) |
 | AUDIT-1 sistema-integrado-de-gestion | 2 archivos WP listados pero devuelven 404 (pendiente publicación real) |
+| AUDIT-2 Transparencia | 19 URLs en HTML WP devuelven 404 (local tiene versiones correctas) + 1 duplicación legacy resuelta |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -65,6 +66,28 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### AUDIT-2 — Transparencia Ley 1712 (2026-04-15)
+
+**Alcance**: 27 páginas WP auditadas. Resultado:
+- 🟢 **23 páginas completas** (ratios locales >=80% del texto WP, PDFs idénticos tras URL-normalización).
+- ⚠️ **19 "deltas" detectados que son URLs rotas en origen WP** — confirmados con HTTP HEAD. Local tiene las versiones funcionales. No hay contenido perdido.
+- 🔧 **1 duplicación legacy resuelta** — existían 2 astros + 2 JSONs para el mismo contenido (`/indice-informacion-clasificada-reservada` con JSON `indice-clasificada.json` vs `/indice-de-informacion-clasificada-y-reservada` con `indice-informacion-clasificada.json`).
+
+**Acción correctiva aplicada durante AUDIT-2**:
+- Eliminado astro legacy `src/pages/indice-informacion-clasificada-reservada.astro`.
+- Eliminado JSON legacy `src/content/pages/transparencia/indice-clasificada.json` (schema antiguo con `pdfUrl`/`pdfNombre`).
+- Landing `transparencia.json` actualizado: enlace interno ahora apunta al slug WP literal `/indice-de-informacion-clasificada-y-reservada`.
+
+**URLs 404 detectadas en WP (19 items informativos)**:
+- `decreto`, `decretos-de-salarios`, `informe-defensa-publica`, `registro-de-activos-de-informacion`, `indice-clasificada`, `programa-gestion-documental` (2), `procedimientos-decisiones`, `formatos-contratos-pliegos-tipo` (10), `directorio-de-agremiaciones`.
+- Patrón común: WP HTML apunta a archivos con nombre incluyendo tildes codificadas o sufijos de versión antiguos; los archivos reales activos en el servidor tienen nombres sin tilde/versión distinta, que el local ya usa.
+
+**Búsqueda de huérfanos bajo parents transparencia**: 0 páginas nuevas (todas cubiertas por lotes M, L).
+
+**Cierre AUDIT-2**: 100% cobertura efectiva. Duplicación crítica corregida. Hallazgos de URLs rotas WP registrados informativamente.
 
 ---
 

@@ -12,30 +12,124 @@
       "titulo": "Información de la Entidad",
       "icon": "fa-building-columns",
       "items": [
-        { "num": "1.1", "texto": "Misión, visión, funciones y deberes", "url": "/agencia/mision-vision", "tipo": "internal" },
-        { "num": "1.2", "texto": "Estructura orgánica — Organigrama", "url": "/agencia/organigrama", "tipo": "internal" },
-        { "num": "1.3", "texto": "Mapas y cartas descriptivas de los procesos", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Procesos-y-Procedimientos-de-la-Agencia-ITRC.pdf", "tipo": "pdf" },
-        { "num": "1.4", "texto": "Directorio Institucional", "url": "/canales-de-atencion-al-ciudadano", "tipo": "internal" },
-        { "num": "1.5", "texto": "Directorio de servidores públicos, empleados o contratistas", "url": "/agencia/directorio", "tipo": "internal" },
-        { "num": "1.6", "texto": "Directorio de entidades", "url": "/directorio-de-entidades", "tipo": "internal" },
-        { "num": "1.7", "texto": "Directorio de agremiaciones, asociaciones y otros grupos de interés", "url": "/directorio-de-agremiaciones", "tipo": "internal" },
-        { "num": "1.8", "texto": "Servicio al público, normas, formularios y protocolos de atención", "tipo": "label",
+        {
+          "num": "1.1",
+          "texto": "Misión, visión, funciones y deberes",
+          "url": "/agencia/mision-vision",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.2",
+          "texto": "Estructura orgánica — Organigrama",
+          "url": "/agencia/organigrama",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.3",
+          "texto": "Mapas y cartas descriptivas de los procesos",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Procesos-y-Procedimientos-de-la-Agencia-ITRC.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "num": "1.4",
+          "texto": "Directorio Institucional",
+          "url": "/canales-de-atencion-al-ciudadano",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.5",
+          "texto": "Directorio de servidores públicos, empleados o contratistas",
+          "url": "/agencia/directorio",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.6",
+          "texto": "Directorio de entidades",
+          "url": "/directorio-de-entidades",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.7",
+          "texto": "Directorio de agremiaciones, asociaciones y otros grupos de interés",
+          "url": "/directorio-de-agremiaciones",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.8",
+          "texto": "Servicio al público, normas, formularios y protocolos de atención",
+          "tipo": "label",
           "children": [
-            { "num": "1.8.1", "texto": "Normas", "url": "/normas-servicio-publico", "tipo": "internal" },
-            { "num": "1.8.2", "texto": "Formularios", "url": "/formatos-y-formularios", "tipo": "internal" },
-            { "num": "1.8.3", "texto": "Protocolos de atención", "url": "/protocolo-de-atencion-al-ciudadano", "tipo": "internal" }
+            {
+              "num": "1.8.1",
+              "texto": "Normas",
+              "url": "/normas-servicio-publico",
+              "tipo": "internal"
+            },
+            {
+              "num": "1.8.2",
+              "texto": "Formularios",
+              "url": "/formatos-y-formularios",
+              "tipo": "internal"
+            },
+            {
+              "num": "1.8.3",
+              "texto": "Protocolos de atención",
+              "url": "/protocolo-de-atencion-al-ciudadano",
+              "tipo": "internal"
+            }
           ]
         },
-        { "num": "1.9", "texto": "Procedimientos que se siguen para tomar decisiones en las diferentes áreas", "url": "/procedimientos-decisiones", "tipo": "internal" },
-        { "num": "1.10", "texto": "Mecanismos para presentar quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" },
-        { "num": "1.11", "texto": "Calendario de actividades", "url": "/prensa/eventos", "tipo": "internal" },
-        { "num": "1.12", "texto": "Información sobre decisiones que pueden afectar al público", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos", "tipo": "internal" },
-        { "num": "1.13", "texto": "Entes y autoridades que vigilan a la Agencia ITRC", "url": "/supervision-y-vigilancia", "tipo": "internal" },
-        { "num": "1.14", "texto": "Publicación de hojas de vida", "url": "/publicacion-hojas-de-vida", "tipo": "internal" },
-        { "num": "1.15", "texto": "Integridad", "tipo": "label",
+        {
+          "num": "1.9",
+          "texto": "Procedimientos que se siguen para tomar decisiones en las diferentes áreas",
+          "url": "/procedimientos-decisiones",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.10",
+          "texto": "Mecanismos para presentar quejas y reclamos",
+          "url": "/tu-p-q-r-s-al-dia",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.11",
+          "texto": "Calendario de actividades",
+          "url": "/prensa/eventos",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.12",
+          "texto": "Información sobre decisiones que pueden afectar al público",
+          "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.13",
+          "texto": "Entes y autoridades que vigilan a la Agencia ITRC",
+          "url": "/supervision-y-vigilancia",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.14",
+          "texto": "Publicación de hojas de vida",
+          "url": "/publicacion-hojas-de-vida",
+          "tipo": "internal"
+        },
+        {
+          "num": "1.15",
+          "texto": "Integridad",
+          "tipo": "label",
           "children": [
-            { "texto": "Consulta Ciudadana — Declaraciones Ley 2013 de 2019", "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/index", "tipo": "external" },
-            { "texto": "Consulta Ciudadana — Personas Expuestas Políticamente (PEP)", "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/consultaPEP", "tipo": "external" }
+            {
+              "texto": "Consulta Ciudadana — Declaraciones Ley 2013 de 2019",
+              "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/index",
+              "tipo": "external"
+            },
+            {
+              "texto": "Consulta Ciudadana — Personas Expuestas Políticamente (PEP)",
+              "url": "https://www.funcionpublica.gov.co/fdci/consultaCiudadana/consultaPEP",
+              "tipo": "external"
+            }
           ]
         }
       ]
@@ -45,23 +139,74 @@
       "titulo": "Normativa",
       "icon": "fa-gavel",
       "items": [
-        { "num": "2.1", "texto": "Normativa de la entidad", "tipo": "label",
+        {
+          "num": "2.1",
+          "texto": "Normativa de la entidad",
+          "tipo": "label",
           "children": [
-            { "num": "2.1.1", "texto": "Leyes", "url": "/leyes", "tipo": "internal" },
-            { "num": "2.1.2", "texto": "Decreto Único Reglamentario", "url": "/decreto-unico-reglamentario", "tipo": "internal" },
-            { "num": "2.1.3", "texto": "Normativa Aplicable", "url": "/normativa-aplicada", "tipo": "internal" },
-            { "num": "2.1.4", "texto": "Diario o Gaceta Oficial", "url": "http://svrpubindc.imprenta.gov.co/diario/index.xhtml", "tipo": "external" },
-            { "num": "2.1.5", "texto": "Políticas, lineamientos y manuales", "url": "/politicas-lineamientos-y-manuales", "tipo": "internal" },
-            { "num": "2.1.6", "texto": "Agenda Regulatoria", "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025", "tipo": "external" }
+            {
+              "num": "2.1.1",
+              "texto": "Leyes",
+              "url": "/leyes",
+              "tipo": "internal"
+            },
+            {
+              "num": "2.1.2",
+              "texto": "Decreto Único Reglamentario",
+              "url": "/decreto-unico-reglamentario",
+              "tipo": "internal"
+            },
+            {
+              "num": "2.1.3",
+              "texto": "Normativa Aplicable",
+              "url": "/normativa-aplicada",
+              "tipo": "internal"
+            },
+            {
+              "num": "2.1.4",
+              "texto": "Diario o Gaceta Oficial",
+              "url": "http://svrpubindc.imprenta.gov.co/diario/index.xhtml",
+              "tipo": "external"
+            },
+            {
+              "num": "2.1.5",
+              "texto": "Políticas, lineamientos y manuales",
+              "url": "/politicas-lineamientos-y-manuales",
+              "tipo": "internal"
+            },
+            {
+              "num": "2.1.6",
+              "texto": "Agenda Regulatoria",
+              "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025",
+              "tipo": "external"
+            }
           ]
         },
-        { "num": "2.2", "texto": "Búsqueda de normas", "tipo": "label",
+        {
+          "num": "2.2",
+          "texto": "Búsqueda de normas",
+          "tipo": "label",
           "children": [
-            { "num": "2.2.1", "texto": "Sistema Único de Información Normativa — SUIN", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol", "tipo": "internal" },
-            { "num": "2.2.2", "texto": "Sistema de Búsquedas de Normas — Agencia ITRC", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos", "tipo": "internal" }
+            {
+              "num": "2.2.1",
+              "texto": "Sistema Único de Información Normativa — SUIN",
+              "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol",
+              "tipo": "internal"
+            },
+            {
+              "num": "2.2.2",
+              "texto": "Sistema de Búsquedas de Normas — Agencia ITRC",
+              "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos",
+              "tipo": "internal"
+            }
           ]
         },
-        { "num": "2.3", "texto": "Proyectos de normas para comentarios", "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025", "tipo": "external" }
+        {
+          "num": "2.3",
+          "texto": "Proyectos de normas para comentarios",
+          "url": "https://www.minhacienda.gov.co/normativa/agenda-regulatoria-2025",
+          "tipo": "external"
+        }
       ]
     },
     {
@@ -69,11 +214,36 @@
       "titulo": "Contratación",
       "icon": "fa-file-contract",
       "items": [
-        { "num": "3.1", "texto": "Plan Anual de Adquisiciones", "url": "/plan-de-adquisiciones", "tipo": "internal" },
-        { "num": "3.2", "texto": "Publicación de la información contractual", "url": "/contratacion-suscrita", "tipo": "internal" },
-        { "num": "3.3", "texto": "Publicación de la ejecución de contratos", "url": "/publicacion-ejecucion-contratos", "tipo": "internal" },
-        { "num": "3.4", "texto": "Manual de contratación, adquisición y/o compras", "url": "/manual-contratacion", "tipo": "internal" },
-        { "num": "3.5", "texto": "Formatos o modelos de contratos o pliego tipo", "url": "/formatos-contratos-pliego-tipo", "tipo": "internal" }
+        {
+          "num": "3.1",
+          "texto": "Plan Anual de Adquisiciones",
+          "url": "/plan-de-adquisiciones",
+          "tipo": "internal"
+        },
+        {
+          "num": "3.2",
+          "texto": "Publicación de la información contractual",
+          "url": "/contratacion-suscrita",
+          "tipo": "internal"
+        },
+        {
+          "num": "3.3",
+          "texto": "Publicación de la ejecución de contratos",
+          "url": "/publicacion-ejecucion-contratos",
+          "tipo": "internal"
+        },
+        {
+          "num": "3.4",
+          "texto": "Manual de contratación, adquisición y/o compras",
+          "url": "/manual-contratacion",
+          "tipo": "internal"
+        },
+        {
+          "num": "3.5",
+          "texto": "Formatos o modelos de contratos o pliego tipo",
+          "url": "/formatos-contratos-pliego-tipo",
+          "tipo": "internal"
+        }
       ]
     },
     {
@@ -81,34 +251,123 @@
       "titulo": "Planeación",
       "icon": "fa-chart-pie",
       "items": [
-        { "num": "4.1", "texto": "Presupuesto general de ingresos, gastos e inversión", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/Plan-de-Gasto-2026.pdf", "tipo": "pdf" },
-        { "num": "4.2", "texto": "Ejecución presupuestal", "url": "/agencia/informacion-financiera", "tipo": "internal" },
-        { "num": "4.3", "texto": "Planes estratégicos, sectoriales e institucionales", "url": "/agencia/direccionamiento-estrategico/planes", "tipo": "internal" },
-        { "num": "4.3.1", "texto": "Plan de acción anual", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Plan-de-Accion-Anual-2026-1.xlsx", "tipo": "xlsx" },
-        { "num": "4.4", "texto": "Proyectos de Inversión", "url": "/programas-y-proyectos-en-ejecucion", "tipo": "internal" },
-        { "num": "4.5", "texto": "Informes de empalme", "url": "/informes-de-empalme", "tipo": "internal" },
-        { "num": "4.7", "texto": "Informes de gestión, evaluación y auditoría", "tipo": "label",
+        {
+          "num": "4.1",
+          "texto": "Presupuesto general de ingresos, gastos e inversión",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/Plan-de-Gasto-2026.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "num": "4.2",
+          "texto": "Ejecución presupuestal",
+          "url": "/agencia/informacion-financiera",
+          "tipo": "internal"
+        },
+        {
+          "num": "4.3",
+          "texto": "Planes estratégicos, sectoriales e institucionales",
+          "url": "/agencia/direccionamiento-estrategico/planes",
+          "tipo": "internal"
+        },
+        {
+          "num": "4.3.1",
+          "texto": "Plan de acción anual",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Plan-de-Accion-Anual-2026-1.xlsx",
+          "tipo": "xlsx"
+        },
+        {
+          "num": "4.4",
+          "texto": "Proyectos de Inversión",
+          "url": "/programas-y-proyectos-en-ejecucion",
+          "tipo": "internal"
+        },
+        {
+          "num": "4.5",
+          "texto": "Informes de empalme",
+          "url": "/informes-de-empalme",
+          "tipo": "internal"
+        },
+        {
+          "num": "4.7",
+          "texto": "Informes de gestión, evaluación y auditoría",
+          "tipo": "label",
           "children": [
-            { "num": "4.7.1", "texto": "Informe de Gestión", "url": "/agencia/direccionamiento-estrategico/informes", "tipo": "internal" },
-            { "num": "4.7.2", "texto": "Informe de rendición de cuentas ante la Contraloría General de la República", "url": "/informe-rendicion-cuenta-contraloria", "tipo": "internal" },
-            { "num": "4.7.3", "texto": "Informe de Rendición de Cuentas a la ciudadanía", "url": "/participa/rendicion-de-cuentas", "tipo": "internal" },
-            { "num": "4.7.4", "texto": "Informes a organismos de inspección, vigilancia y control", "url": "/informes-legales", "tipo": "internal" },
-            { "num": "4.7.5", "texto": "Planes de mejoramiento", "url": "/planes-de-mejoramiento", "tipo": "internal" }
+            {
+              "num": "4.7.1",
+              "texto": "Informe de Gestión",
+              "url": "/agencia/direccionamiento-estrategico/informes",
+              "tipo": "internal"
+            },
+            {
+              "num": "4.7.2",
+              "texto": "Informe de rendición de cuentas ante la Contraloría General de la República",
+              "url": "/informe-rendicion-cuenta-contraloria",
+              "tipo": "internal"
+            },
+            {
+              "num": "4.7.3",
+              "texto": "Informe de Rendición de Cuentas a la ciudadanía",
+              "url": "/participa/rendicion-de-cuentas",
+              "tipo": "internal"
+            },
+            {
+              "num": "4.7.4",
+              "texto": "Informes a organismos de inspección, vigilancia y control",
+              "url": "/informes-legales",
+              "tipo": "internal"
+            },
+            {
+              "num": "4.7.5",
+              "texto": "Planes de mejoramiento",
+              "url": "/planes-de-mejoramiento",
+              "tipo": "internal"
+            }
           ]
         },
-        { "num": "4.8", "texto": "Informes de la Oficina de Control Interno", "tipo": "label",
+        {
+          "num": "4.8",
+          "texto": "Informes de la Oficina de Control Interno",
+          "tipo": "label",
           "children": [
-            { "num": "4.8.1", "texto": "Informe de evaluación independiente del estado del Sistema de Control Interno", "url": "/evaluacion-independiente-control-interno", "tipo": "internal" },
-            { "num": "4.8.2", "texto": "Informes de Evaluación y Auditoría de la Agencia (3LD)", "url": "/informes-legales", "tipo": "internal" }
+            {
+              "num": "4.8.1",
+              "texto": "Informe de evaluación independiente del estado del Sistema de Control Interno",
+              "url": "/evaluacion-independiente-control-interno",
+              "tipo": "internal"
+            },
+            {
+              "num": "4.8.2",
+              "texto": "Informes de Evaluación y Auditoría de la Agencia (3LD)",
+              "url": "/informes-legales",
+              "tipo": "internal"
+            }
           ]
         },
-        { "num": "4.9", "texto": "Informes de Defensa Judicial", "tipo": "label",
+        {
+          "num": "4.9",
+          "texto": "Informes de Defensa Judicial",
+          "tipo": "label",
           "children": [
-            { "num": "4.9.1", "texto": "Informe sobre Defensa Pública y Prevención del Daño Antijurídico", "url": "/informe-defensa-publica", "tipo": "internal" },
-            { "num": "4.9.2", "texto": "Informe de Gestión del Comité de Conciliación", "url": "/informe-comite-conciliacion", "tipo": "internal" }
+            {
+              "num": "4.9.1",
+              "texto": "Informe sobre Defensa Pública y Prevención del Daño Antijurídico",
+              "url": "/informe-defensa-publica",
+              "tipo": "internal"
+            },
+            {
+              "num": "4.9.2",
+              "texto": "Informe de Gestión del Comité de Conciliación",
+              "url": "/informe-comite-conciliacion",
+              "tipo": "internal"
+            }
           ]
         },
-        { "num": "4.10", "texto": "Informes trimestrales sobre acceso a información, quejas y reclamos", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal" }
+        {
+          "num": "4.10",
+          "texto": "Informes trimestrales sobre acceso a información, quejas y reclamos",
+          "url": "/tu-p-q-r-s-al-dia",
+          "tipo": "internal"
+        }
       ]
     },
     {
@@ -117,7 +376,12 @@
       "icon": "fa-clipboard-list",
       "tituloUrl": "/tramites",
       "items": [
-        { "num": "5.1", "texto": "Formatos y/o Formularios Asociados", "url": "/formatos-y-formularios", "tipo": "internal" }
+        {
+          "num": "5.1",
+          "texto": "Formatos y/o Formularios Asociados",
+          "url": "/formatos-y-formularios",
+          "tipo": "internal"
+        }
       ]
     },
     {
@@ -126,7 +390,11 @@
       "icon": "fa-people-group",
       "descripcion": "En el siguiente enlace será dirigido a los mecanismos de participación ciudadana proporcionados por la Agencia ITRC.",
       "items": [
-        { "texto": "Ir a Participa", "url": "/participa", "tipo": "internal" }
+        {
+          "texto": "Ir a Participa",
+          "url": "/participa",
+          "tipo": "internal"
+        }
       ]
     },
     {
@@ -134,16 +402,49 @@
       "titulo": "Datos Abiertos",
       "icon": "fa-database",
       "items": [
-        { "num": "7.1", "texto": "Instrumentos de gestión de la información", "tipo": "label",
+        {
+          "num": "7.1",
+          "texto": "Instrumentos de gestión de la información",
+          "tipo": "label",
           "children": [
-            { "num": "7.1.1", "texto": "Registro de Activos de Información", "url": "/registro-activos-informacion", "tipo": "internal" },
-            { "num": "7.1.2", "texto": "Índice de Información Clasificada y Reservada", "url": "/indice-informacion-clasificada-reservada", "tipo": "internal" },
-            { "num": "7.1.3", "texto": "Esquema de publicación de la información", "url": "/esquema-publicacion-informacion", "tipo": "internal" },
-            { "num": "7.1.4", "texto": "Programa de Gestión Documental", "url": "/programa-gestion-documental", "tipo": "internal" },
-            { "num": "7.1.5", "texto": "Tablas de Retención Documental", "url": "/tablas-retencion-documental", "tipo": "internal" }
+            {
+              "num": "7.1.1",
+              "texto": "Registro de Activos de Información",
+              "url": "/registro-activos-informacion",
+              "tipo": "internal"
+            },
+            {
+              "num": "7.1.2",
+              "texto": "Índice de Información Clasificada y Reservada",
+              "url": "/indice-de-informacion-clasificada-y-reservada",
+              "tipo": "internal"
+            },
+            {
+              "num": "7.1.3",
+              "texto": "Esquema de publicación de la información",
+              "url": "/esquema-publicacion-informacion",
+              "tipo": "internal"
+            },
+            {
+              "num": "7.1.4",
+              "texto": "Programa de Gestión Documental",
+              "url": "/programa-gestion-documental",
+              "tipo": "internal"
+            },
+            {
+              "num": "7.1.5",
+              "texto": "Tablas de Retención Documental",
+              "url": "/tablas-retencion-documental",
+              "tipo": "internal"
+            }
           ]
         },
-        { "num": "7.2", "texto": "Sección de datos abiertos", "url": "/publicacion-datos-abiertos", "tipo": "internal" }
+        {
+          "num": "7.2",
+          "texto": "Sección de datos abiertos",
+          "url": "/publicacion-datos-abiertos",
+          "tipo": "internal"
+        }
       ]
     },
     {
@@ -151,11 +452,29 @@
       "titulo": "Información específica para Grupos de Interés",
       "icon": "fa-users",
       "items": [
-        { "num": "8.1", "texto": "Información para Grupos Específicos", "tipo": "label",
+        {
+          "num": "8.1",
+          "texto": "Información para Grupos Específicos",
+          "tipo": "label",
           "children": [
-            { "num": "8.1.1", "texto": "Información para niños, niñas y adolescentes", "url": "/observatorio/eje-de-educacion/itrc-para-ninos", "tipo": "internal" },
-            { "num": "8.1.2", "texto": "Información para mujeres", "url": "/informacion-para-mujeres", "tipo": "internal" },
-            { "num": "8.1.3", "texto": "Otros grupos de interés", "url": "/otros-grupos-de-interes", "tipo": "internal" }
+            {
+              "num": "8.1.1",
+              "texto": "Información para niños, niñas y adolescentes",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos",
+              "tipo": "internal"
+            },
+            {
+              "num": "8.1.2",
+              "texto": "Información para mujeres",
+              "url": "/informacion-para-mujeres",
+              "tipo": "internal"
+            },
+            {
+              "num": "8.1.3",
+              "texto": "Otros grupos de interés",
+              "url": "/otros-grupos-de-interes",
+              "tipo": "internal"
+            }
           ]
         }
       ]
@@ -165,10 +484,30 @@
       "titulo": "Obligación de Reporte de Información Específica",
       "icon": "fa-file-circle-check",
       "items": [
-        { "num": "9.1", "texto": "Normatividad Especial", "url": "/normatividad-especial", "tipo": "internal" },
-        { "num": "9.2", "texto": "Accesibilidad", "url": "/accesibilidad", "tipo": "internal" },
-        { "num": "9.3", "texto": "Informes de gestión, evaluación y auditoría", "url": "/informes-organismos-inspeccion", "tipo": "internal" },
-        { "num": "9.4", "texto": "Reportes de control interno", "url": "/informes-legales", "tipo": "internal" }
+        {
+          "num": "9.1",
+          "texto": "Normatividad Especial",
+          "url": "/normatividad-especial",
+          "tipo": "internal"
+        },
+        {
+          "num": "9.2",
+          "texto": "Accesibilidad",
+          "url": "/accesibilidad",
+          "tipo": "internal"
+        },
+        {
+          "num": "9.3",
+          "texto": "Informes de gestión, evaluación y auditoría",
+          "url": "/informes-organismos-inspeccion",
+          "tipo": "internal"
+        },
+        {
+          "num": "9.4",
+          "texto": "Reportes de control interno",
+          "url": "/informes-legales",
+          "tipo": "internal"
+        }
       ]
     },
     {
@@ -176,7 +515,11 @@
       "titulo": "Implementación Modelo de Seguridad y Privacidad de la Información (MSPI)",
       "icon": "fa-shield-halved",
       "items": [
-        { "texto": "Autodiagnóstico MSPI — Instrumento de evaluación", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx", "tipo": "xlsx" }
+        {
+          "texto": "Autodiagnóstico MSPI — Instrumento de evaluación",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx",
+          "tipo": "xlsx"
+        }
       ]
     }
   ]
