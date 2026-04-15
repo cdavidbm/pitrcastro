@@ -1008,6 +1008,103 @@ collections:
                 label: Icono FontAwesome
                 widget: string
                 required: false
+      - name: directorio
+        label: Directorio de Servidores y Contratistas
+        file: src/content/pages/agencia/directorio.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            required: false
+          - name: directorios
+            label: Tarjetas principales
+            widget: list
+            label_singular: Tarjeta
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción
+                widget: text
+                required: false
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
+              - name: url
+                label: URL del recurso
+                widget: string
+                required: true
+              - name: color
+                label: Color del acento
+                widget: select
+                options:
+                  - navy
+                  - gold
+                  - green
+                default: navy
+              - name: external
+                label: Enlace externo
+                widget: boolean
+                default: false
+          - name: escalaSalarial
+            label: Escala Salarial
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: subtitulo
+                label: Subtítulo
+                widget: string
+                required: false
+              - name: url
+                label: URL del PDF
+                widget: string
+          - name: infoAdicional
+            label: Información adicional
+            widget: list
+            label_singular: Bloque
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: descripcion
+                label: Descripción
+                widget: text
+                required: false
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
+              - name: enlace
+                label: URL del enlace
+                widget: string
+                required: true
+              - name: textoEnlace
+                label: Texto del botón
+                widget: string
+              - name: externo
+                label: Enlace externo
+                widget: boolean
+                default: false
   # ==========================================
   # TRANSPARENCIA
   # # Indice de informacion clasificada y reservada
