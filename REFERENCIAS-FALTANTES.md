@@ -26,6 +26,8 @@
 | V (CIPREP) | Sub-app completa descartada en esta fase (decisión estratégica) |
 | T (#91 Calendario de Eventos) | Página WP contenía solo shortcode de plugin descontinuado — migrada como wrapper a agenda vigente |
 | W (UI/UX) | 3 elementos con requisito administrativo / acceso a terceros (ConverTIC, GTranslate, YouTube rendición) |
+| Sync 2026-04-15 (#2 Planes) | 124 PDFs históricos en WP no presentes en local — esperan integración editorial |
+| Sync 2026-04-15 (#3 Info Financiera) | 43 PDFs históricos (mayormente Presupuesto Series 2012-2017) en WP no presentes en local |
 | **Total** | **~100+ items bajo auditoría** |
 
 ---
@@ -61,6 +63,33 @@
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
 **Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+
+---
+
+### Sync 2026-04-15 — Direccionamiento Planes y Información Financiera (deltas históricos)
+
+**Páginas auditadas**:
+1. `https://www.itrc.gov.co/Itrc/direccionamiento-estrategico/planes/` (WP id 2709, modificada 2026-04-09)
+2. `https://www.itrc.gov.co/Itrc/informacion-financiera/` (WP id 2604, modificada 2026-02-24)
+
+**Estado**: `delta-pendiente-editorial`
+**Detectado**: 2026-04-15
+
+**Descripción**: ambas páginas WP contienen archivos históricos que NO están en los JSONs locales:
+- **Planes**: WP tiene 124 PDFs únicos vs **44 en local** → **80+ archivos históricos faltantes** (Cuadro de Mando Integral 2015-2018, Planes de Acción Anual 2013-2018, Plan Anticorrupción 2013-2018, Plan de Acción MIPG 2013-2018, etc.).
+- **Información Financiera**: WP tiene 245 PDFs vs **203 en local** → **43 PDFs faltantes** (mayormente Presupuesto Series 2012-2017 históricos).
+
+**Cómo se manejó ahora**: NO se modificó automáticamente el JSON local porque ambos tienen estructura editorialmente curada (sections + tabs verticales + infoCards) que requiere asignar cada PDF histórico a su sección semántica correcta. Una sobrescritura automática rompería la organización.
+
+**Archivos auxiliares generados** (en `reports/` — no commiteable, .gitignored):
+- `reports/delta-planes-2026-04-15.json` (124 entradas WP no presentes en local)
+- `reports/delta-financiera-2026-04-15.json` (43 entradas)
+
+Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
+
+**Acción pendiente / responsable**: Planeación + Financiera — usar Sveltia CMS para integrar los PDFs históricos en la sección/tab/categoría correcta. Los reports listan los URLs y títulos para copiar manualmente. Estimado: ~2-3h editoriales.
+
+**Origen #1 sí actualizado**: la página `/contratacion-suscrita/` se reescribió completamente en este mismo ciclo (era wrapper SECOP de 2 enlaces; ahora muestra 67 procesos de selección + 118 contratos suscritos por vigencia = 229 documentos completos extraídos del JSON embedded WP).
 
 ---
 

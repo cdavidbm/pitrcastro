@@ -1,1 +1,1261 @@
-{"title":"Publicación de la Información Contractual","description":"Procesos de selección y contratos suscritos","icon":"fa-file-signature","intro":"En esta página podrá encontrar información sobre los procesos de selección y los contratos suscritos en la Agencia ITRC.","secopI":"https://www.contratos.gov.co/consultas/inicioConsulta.do","secopII":"https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index"}
+{
+  "title": "Publicación de la Información Contractual",
+  "description": "Convocatorias a procesos públicos de selección y relación mensual de contratación suscrita por la Agencia ITRC, en cumplimiento de la Ley 1712 de 2014.",
+  "icon": "fa-file-contract",
+  "intro": "En esta página podrá encontrar información sobre los procesos de selección y los contratos suscritos en la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
+  "secopI": "https://www.contratos.gov.co/consultas/inicioConsulta.do",
+  "secopII": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index",
+  "convocatorias": [
+    {
+      "categoria": "Licitaciones Públicas",
+      "procesos": [
+        {
+          "label": "LP-01-2021",
+          "anio": "",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-1-de-Convocatoria-Publica.pdf",
+          "secopRef": "",
+          "otros": []
+        },
+        {
+          "label": "LP-001-2023",
+          "anio": "",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-1-de-Convocatoria-Publica.pdf",
+          "secopRef": "CO1.NTC.4836403",
+          "otros": [
+            {
+              "label": "Aviso Audiencia Riesgos Y Aclaraciones",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/AVISO-AUDIENCIA-RIESGOS-Y-ACLARACIONES.pdf"
+            },
+            {
+              "label": "Aviso Audiencia de Adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/AVISO-AUDIENCIA-DE-ADJUDICACION.pdf"
+            },
+            {
+              "label": "Aviso 2 de Convocatoria Pública",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-2-de-Convocatoria-Publica-LP-001-2023.pdf"
+            },
+            {
+              "label": "Resolución No.391 de apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.391-Por-la-cual-se-da-apertura-a-LP-001-2023.pdf"
+            },
+            {
+              "label": "Resolución No.455 de adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.455-Por-la-cual-se-adjudica-LP-001-2023.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoria": "Selecciones Abreviadas",
+      "procesos": [
+        {
+          "label": "ITRC-SASI-002-2026",
+          "anio": "2026",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/5.1-20260224-Aviso-de-convocatoria-publica-ITRC-SASI-002-2026-2.pdf",
+          "secopRef": "CO1.NTC.10064870",
+          "otros": [
+            {
+              "label": "No.107-Por medio de la cual se da apertura al\n                                            Proceso de Selección abreviada por Subasta inversa ITRC-SASI-002-2026",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/No.107-Por-medio-de-la-cual-se-da-apertura-al-Proceso-de-Seleccion-abreviada-por-Subasta-inversa-ITRC-SASI-002-2026.pdf"
+            },
+            {
+              "label": "No.152-Por medio de la cual se adjudica el\n                                            Proceso ITRC-SASI-002-2026",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/No.152-Por-medio-de-la-cual-se-adjudica-el-Proceso-ITRC-SASI-002-2026.pdf"
+            }
+          ]
+        },
+        {
+          "label": "ITRC-SASI-001-2026",
+          "anio": "2026",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/5-20260220-Aviso-de-convocatoria-publica-ITRC-SASI-001-2026.pdf",
+          "secopRef": "CO1.NTC.10064870",
+          "otros": [
+            {
+              "label": "No.098-Por medio de la cual se da apertura al\n                                            Proceso de Selección abreviada por Subasta inversa ITRC-SASI-001-2026",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/No.098-Por-medio-de-la-cual-se-da-apertura-al-Proceso-de-Seleccion-abreviada-por-Subasta-inversa-ITRC-SASI-001-2026.pdf"
+            },
+            {
+              "label": "Res. 151-Por medio de la cual se adjudica el\n                                            Proceso ITRC-SASI-001-2026",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Res.-151-Por-medio-de-la-cual-se-adjudica-el-Proceso-ITRC-SASI-001-2026.pdf"
+            }
+          ]
+        },
+        {
+          "label": "ITRC-SASI-004-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/5.1-20251106-Aviso-de-convocatoria-publica-ITRC-SASI-004-2025-Fortinet.pdf",
+          "secopRef": "CO1.NTC.9079339",
+          "otros": []
+        },
+        {
+          "label": "ITRC-SASI-003-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/5.1-20251106-Aviso-de-convocatoria-publica-ITRC-SASI-003-2025-Antivirus.pdf",
+          "secopRef": "CO1.NTC.9078960",
+          "otros": []
+        },
+        {
+          "label": "ITRC-SAMC-001-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/20251014-Invitacion-ITRC-SAMC-001-2025.pdf",
+          "secopRef": "CO1.NTC.8944232",
+          "otros": []
+        },
+        {
+          "label": "ITRC-SASI-002-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/20250905-Aviso-de-convocatoria-publica-ITRC-SASI-002-2025.pdf",
+          "secopRef": "CO1.NTC.8733683",
+          "otros": [
+            {
+              "label": "Resolución 435 Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/20250916-Resolucion-de-apertura-proceso-ITRC-SASI-002-2025.pdf"
+            }
+          ]
+        },
+        {
+          "label": "ITRC-SASI-001-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/20250402-Aviso-de-convocatoria-publica-ITRC-SASI-001-2025.pdf",
+          "secopRef": "CO1.NTC.7937216",
+          "otros": [
+            {
+              "label": "Resolución 168 Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/20250411-Resolucion-de-apertura-proceso-ITRC-SASI-001-2025.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SASI-001-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_SASI_001_2024-rev.pdf",
+          "secopRef": "CO1.NTC.5589937",
+          "otros": [
+            {
+              "label": "Resolución 032 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/No.032-Por-la-cual-se-da-apertura-a-proceso-deselccion-abreviada-por-subasta-inversa-ITRC-SASI-001-2024.pdf"
+            },
+            {
+              "label": "Resolución 053 - Desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/No.053-Por-la-cual-se-declara-desierto-el-proceso-de-seleccion-abreviada-por-subasta-inversa-ITRC-SASI-001-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SASI-002-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_SASI_002_2024.pdf",
+          "secopRef": "CO1.NTC.5790483",
+          "otros": [
+            {
+              "label": "Resolución 068 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/No.068-Por-la-cual-se-da-apertura-a-proceso-de-seleccion-abreviada-por-subasta-inversa-ITRC-SASI-002-2024.pdf"
+            },
+            {
+              "label": "Resolución 105 - Desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/No.105-Por-la-cual-se-declara-desierto-el-proceso-de-seleccion-abreviada-por-subasta-inversa-ITRC-SASI-002-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SASI-003-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/Aviso-ITRC-SASI-003-2024.pdf",
+          "secopRef": "CO1.NTC.6308869",
+          "otros": [
+            {
+              "label": "Resolución 287 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-287-de-2024-Por-la-cual-se-da-apertura-ITRC-SASI-003-2024.pdf"
+            },
+            {
+              "label": "Resolución 328 - Adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/SASI-003-24-Resolucion-328-por-la-cual-se-adjudica-la-ITRC-SASI-003-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SASI-004-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/AvisoConvocatoriaPublicaITRC-SASI-004-2024.pdf",
+          "secopRef": "CO1.NTC.6477378",
+          "otros": [
+            {
+              "label": "Resolución - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/Resolucion-apertura-ITRC-SASI-004-2024.pdf"
+            },
+            {
+              "label": "Resolución 400 - Adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/SASI-004-24-Resolucion-de-Adjudicacion-400-por-la-cual-se-adjudica-la-ITRC-SASI-004-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SAMC-001-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/SAMC-001-24-Aviso-Convocatoria-Publica-ITRC-SAMC-001-2024.pdf",
+          "secopRef": "CO1.NTC.6704382",
+          "otros": [
+            {
+              "label": "Resolución 411 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/SAMC-001-24-Resolucion-411-con-la-cual-se-ordena-la-apertura-SAMC-001-2024.pdf"
+            },
+            {
+              "label": "Resolución 472 - Adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/SAMC-001-24-Resolucion-472-Por-la-cual-se-adjudica-la-ITRC-SAMC-001-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SAMC-001-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-SAMC-001-2023.pdf",
+          "secopRef": "CO1.NTC.4702869",
+          "otros": [
+            {
+              "label": "Resolución 247 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.247-Por-la-cual-se-da-apertura-SAMC-001-2023.pdf"
+            },
+            {
+              "label": "Resolución 281 - Desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.281-Por-la-cual-se-declara-desierto-SAMC-001-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SAMC-002-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-SAMC-002-2023.pdf",
+          "secopRef": "CO1.NTC.4725938",
+          "otros": [
+            {
+              "label": "Resolución 254 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.254-Por-la-cual-se-da-apertura-a-SAMC-002-2023.pdf"
+            },
+            {
+              "label": "Resolución 291 - Adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.291-Por-la-cual-se-adjudica-SAMC-02-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SAMC-003-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-SAMC-003-2023.pdf",
+          "secopRef": "CO1.NTC.4821334",
+          "otros": [
+            {
+              "label": "Resolución 304 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.304-Por-la-cual-se-da-apertura-a-SAMC-003-2023.pdf"
+            },
+            {
+              "label": "Resolución 312 - Declara Desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.312-Por-la-cual-se-declara-desierto-SAMC-003-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SAMC-004-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-SAMC-004-2023.pdf",
+          "secopRef": "CO1.NTC.4848613",
+          "otros": [
+            {
+              "label": "Resolución 332 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.332-Por-la-cual-se-da-apertura-a-proceso-a-SAMC-004-2023.pdf"
+            },
+            {
+              "label": "Resolución 341 - Declara Desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.341-Por-la-cual-se-declara-desierto-SAMC-004-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "SASI-001-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-de-Convocatoria-Publica-SASI-001-2023.pdf",
+          "secopRef": "CO1.NTC.5187617",
+          "otros": [
+            {
+              "label": "Resolución 463 - Apertura",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.463-Por-la-cual-se-da-apertura-SASI-001-2023.pdf"
+            },
+            {
+              "label": "Resolución 497 - Adjudicación",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.497-Por-la-cual-se-adjudica-SASI-001-2023.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoria": "Contrataciones Mínima Cuantía",
+      "procesos": [
+        {
+          "label": "ITRC-CMC-002-2026",
+          "anio": "2026",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/20260331-Invitacion-Publica-ITRC-CMC-002-2026.pdf",
+          "secopRef": "CO1.NTC.10169942",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-001-2026",
+          "anio": "2026",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/20260317-Invitacion-Publica-ITRC-CMC-001-2026.pdf",
+          "secopRef": "CO1.NTC.10136055",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-011-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/4.1-20251110-Invitacion-Publica-ITRC-CMC-011-2025.pdf",
+          "secopRef": "CO1.NTC.9102739",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-010-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/1.-INvitacion-ITRC-CMC-010-2025.pdf",
+          "secopRef": "CO1.NTC.9039041",
+          "otros": [
+            {
+              "label": "Resolución 577 declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/20251120-Resolucion-declara-desierto-Grupo-1-proceso-ITRC-CMC-010-2025.pdf"
+            }
+          ]
+        },
+        {
+          "label": "ITRC-CMC-009B-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/1-Invitacion-ITRC-CMC-009B-2025.pdf",
+          "secopRef": "CO1.NTC.9036720",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-008-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/4.20251002-Invitacion-Publica-ITRC-CMC-008-2025.pdf",
+          "secopRef": "CO1.NTC.8883680",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-007-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/4.1-20250903-Invitacion-Publica-ITRC-CMC-007-2025.pdf",
+          "secopRef": "CO1.NTC.8714338",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-006-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/4.1-20250814-Invitacion-Publica-ITRC-CMC-006-2025.pdf",
+          "secopRef": "CO1.NTC.8606473",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-005-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/4.1-20250419-Invitacion-Publica-ITRC-CMC-005-2025.pdf",
+          "secopRef": "CO1.NTC.8166757",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-004-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/20250415-Invitacion-Publica-ITRC-CMC-004-2025.pdf",
+          "secopRef": "CO1.NTC.8010349",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-003-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/03/20250304-Invitacion-Publica-ITRC-CMC-003-2025.pdf",
+          "secopRef": "CO1.NTC.7766276",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-002-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/http://intranet.agenciaitrc.gov.co/wp-content/uploads/2025/02/20250126-Invitacion-Publica-ITRC-CMC-002-2025.pdf",
+          "secopRef": "CO1.NTC.7722669",
+          "otros": []
+        },
+        {
+          "label": "ITRC-CMC-001-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/http://intranet.agenciaitrc.gov.co/wp-content/uploads/2025/02/20250121-Invitacion-Publica-ITRC-CMC-001-2025.pdf",
+          "secopRef": "CO1.NTC.7694976",
+          "otros": []
+        },
+        {
+          "label": "CMC-001-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_CMC_001_2024.pdf",
+          "secopRef": "CO1.NTC.5453794",
+          "otros": [
+            {
+              "label": "Resolución No.017 - Desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/No.017-Por-la-cual-se-declara-desierto-el-proceso-de-seleccion-de-minima-cuantia-ITRC-CMC-001-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-002-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_CMC_002_2024.pdf",
+          "secopRef": "CO1.NTC.5513293",
+          "otros": []
+        },
+        {
+          "label": "CMC-003-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_CMC_003_2024.pdf",
+          "secopRef": "CO1.NTC.5725209",
+          "otros": []
+        },
+        {
+          "label": "CMC-004-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_CMC_004_2024.pdf",
+          "secopRef": "CO1.NTC.5740249",
+          "otros": []
+        },
+        {
+          "label": "CMC-005-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/Aviso_Convocatoria_Publica_ITRC_CMC_005_2024.pdf",
+          "secopRef": "CO1.NTC.5919673",
+          "otros": []
+        },
+        {
+          "label": "CMC-006-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/05/20240515-Aviso-de-Convocatoria-Publica-ITRC-CMC-006-2024.pdf",
+          "secopRef": "CO1.NTC.6129071",
+          "otros": []
+        },
+        {
+          "label": "CMC-007-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/7-Aviso-de-Convocatoria-Publica-ITRC-CMC-007-2024.pdf",
+          "secopRef": "CO1.NTC.6281195",
+          "otros": [
+            {
+              "label": "Resolución 278 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Resolucion-278-de-2024-Declara-desierto-proceso-ITRC-CMC-007-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-008-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Aviso-de-Convocatoria-ITRC-CMC-008-2024.pdf",
+          "secopRef": "CO1.NTC.6483771",
+          "otros": []
+        },
+        {
+          "label": "CMC-009-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Aviso-de-Convocatoria-ITRC-CMC-009-2024.pdf",
+          "secopRef": "CO1.NTC.6658453",
+          "otros": []
+        },
+        {
+          "label": "CMC-010-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Aviso-de-Convocatoria-ITRC-CMC-010-2024.pdf",
+          "secopRef": "CO1.NTC.6950248",
+          "otros": []
+        },
+        {
+          "label": "CMC-011-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Invitacion-Publica-ITRC-CMC-011-2024-28-10-2024.pdf",
+          "secopRef": "CO1.NTC.6961831",
+          "otros": []
+        },
+        {
+          "label": "CMC-012-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Invitacion-Publica-ITRC-CMC-012-2024-08-11-2024.pdf",
+          "secopRef": "CO1.NTC.7024911",
+          "otros": [
+            {
+              "label": "Resolución 558 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Resolucion-declara-desierto-proceso-ITRC-CMC-012-2024-15-11-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-013-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Invitacion-Publica-ITRC-CMC-013-2024-12-11-2024.pdf",
+          "secopRef": "CO1.NTC.7035934",
+          "otros": [
+            {
+              "label": "Resolución 563 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Resolucion-declara-desierto-proceso-ITRC-CMC-013-2024-21-11-2024.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-014-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Invitacion-Publica-ITRC-CMC-014-2024-21-11-2024.pdf",
+          "secopRef": "CO1.NTC.7085577",
+          "otros": []
+        },
+        {
+          "label": "CMC-015-2024",
+          "anio": "2024",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Invitacion-Publica-ITRC-CMC-015-2024-21-11-2024.pdf",
+          "secopRef": "CO1.NTC.7087383",
+          "otros": []
+        },
+        {
+          "label": "CMC-001-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-001-2023.pdf",
+          "secopRef": "CO1.NTC.3808375",
+          "otros": []
+        },
+        {
+          "label": "CMC-002-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-002-2023.pdf",
+          "secopRef": "CO1.NTC.3809279",
+          "otros": []
+        },
+        {
+          "label": "CMC-003-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-003-2023.pdf",
+          "secopRef": "CO1.NTC.3937564",
+          "otros": []
+        },
+        {
+          "label": "CMC-004-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-004-2023.pdf",
+          "secopRef": "CO1.NTC.4132312",
+          "otros": []
+        },
+        {
+          "label": "CMC-005-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-005-2023.pdf",
+          "secopRef": "CO1.NTC.4292914",
+          "otros": []
+        },
+        {
+          "label": "CMC-006-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-006-2023.pdf",
+          "secopRef": "CO1.NTC.4366201",
+          "otros": []
+        },
+        {
+          "label": "CMC-007-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-007-2023.pdf",
+          "secopRef": "CO1.NTC.4551883",
+          "otros": [
+            {
+              "label": "Resolución 237 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.237-Por-la-cual-se-declara-desierto-CMC-007-de-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-008-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-008-2023.pdf",
+          "secopRef": "CO1.NTC.4678665",
+          "otros": [
+            {
+              "label": "Resolución 269 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.269-Por-la-cual-se-declara-desierto-CMC-008-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-009-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-009-2023.pdf",
+          "secopRef": "CO1.NTC.4714535",
+          "otros": []
+        },
+        {
+          "label": "CMC-010-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Aviso-de-Convocatoria-Publica-CMC-010-2023.pdf",
+          "secopRef": "CO1.NTC.4796904",
+          "otros": [
+            {
+              "label": "Resolución 323 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.323-Por-la-cual-se-declara-desierto-CMC-010-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-011-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Aviso-de-Convocatoria-Publica-CMC-011-2023.pdf",
+          "secopRef": "https://community.secop.gov.co/Public/Common/GoogleReCaptcha/Index?previousUrl=https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fOpportunityDetail%2fIndex%3fnoticeUID%3dCO1.NTC.4983831",
+          "otros": []
+        },
+        {
+          "label": "CMC-012-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Aviso-de-Convocatoria-Publica-CMC-012-2023.pdf",
+          "secopRef": "https://community.secop.gov.co/Public/Common/GoogleReCaptcha/Index?previousUrl=https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fOpportunityDetail%2fIndex%3fnoticeUID%3dCO1.NTC.4996407",
+          "otros": []
+        },
+        {
+          "label": "CMC-013-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-de-Convocatoria-Publica-CMC-013-2023.pdf",
+          "secopRef": "https://community.secop.gov.co/Public/Common/GoogleReCaptcha/Index?previousUrl=https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fOpportunityDetail%2fIndex%3fnoticeUID%3dCO1.NTC.5009074",
+          "otros": [
+            {
+              "label": "Resolución 401 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.-401-Por-la-cual-se-declara-desierto-CMC-013-de-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-014-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/Aviso-de-Convocatoria-Publica-CMC-014-2023.pdf",
+          "secopRef": "https://community.secop.gov.co/Public/Common/GoogleReCaptcha/Index?previousUrl=https%3a%2f%2fcommunity.secop.gov.co%2fPublic%2fTendering%2fOpportunityDetail%2fIndex%3fnoticeUID%3dCO1.NTC.5032513",
+          "otros": [
+            {
+              "label": "Resolución 415 - Declara desierto",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.415-Por-la-cual-se-declara-desierto-CMC-014-de-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-015-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-de-Convocatoria-Publica-CMC-015-2023.pdf",
+          "secopRef": "CO1.NTC.5127540",
+          "otros": []
+        },
+        {
+          "label": "CMC-016-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-de-Convocatoria-Publica-CMC-016-2023.pdf",
+          "secopRef": "CO1.NTC.5153760",
+          "otros": [
+            {
+              "label": "Resolución 454 - Revocatoria",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Resolucion-No.454-Por-la-cual-se-revoca-el-Acto-Administrativo-de-Invitacion-publica-CMC-016-2023.pdf"
+            }
+          ]
+        },
+        {
+          "label": "CMC-017-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-de-Convocatoria-Publica-CMC-017-2023.pdf",
+          "secopRef": "CO1.NTC.5154094",
+          "otros": []
+        },
+        {
+          "label": "CMC-018-2023",
+          "anio": "2023",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Aviso-de-Convocatoria-Publica-CMC-018-2023.pdf",
+          "secopRef": "CO1.NTC.5219052",
+          "otros": []
+        }
+      ]
+    },
+    {
+      "categoria": "Contratación Directa con Ofertas",
+      "procesos": [
+        {
+          "label": "ITRC-CDCO-002-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/4.1-20250923-Invitacion-Publica-ITRC-CDCO-002-2025.pdf",
+          "secopRef": "CO1.NTC.8822783",
+          "otros": [
+            {
+              "label": "Resolución No.479 - Declara desierto\n                                            proceso",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/No.479-declara-desierto-proceso-ITRC-CDC0-002-2025.pdf"
+            }
+          ]
+        },
+        {
+          "label": "ITRC-CDCO-001-2025",
+          "anio": "2025",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/20250905-Invitacion-Publica-ITRC-CDCO-001-2025.pdf",
+          "secopRef": "CO1.NTC.8732372",
+          "otros": [
+            {
+              "label": "Resolución 434 del 2025 Declara Desierto\n                                            Proceso",
+              "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/20250916-Resolucion-declara-desierto-proceso-ITRC-CDC0-001-2025.pdf"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contratacionSuscrita": [
+    {
+      "titulo": "Contratación suscrita vigencia 2025",
+      "anio": "2025",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos suscritos a Diciembre de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Contratos-suscritos-a-31-Diciembre-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Noviembre de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Contratos-suscritos-a-30-Noviembre-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Octubre de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Contratos-suscritos-a-31-Octubre-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Septiembre de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/Contratos-suscritos-a-30-septiembre-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Agosto de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/20250905-Contratos-suscritos-a-31-agosto-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Julio de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/20250905-Contratos-suscritos-a-31-Julio-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Junio de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/20250723-Contratos-suscritos-a-30-Junio-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Mayo de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/20250723-Contratos-suscritos-a-31-Mayo-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Abril de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/20250507-Contratos-suscritos-a-30-Abril-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Marzo de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/20250507-Contratos-suscritos-a-31-Marzo-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Febrero de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/20250507-Contratos-suscritos-a-28-Febrero-2025.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Enero de 2025",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/03/Contratos-suscritos-a-Enero-31-2025.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2024",
+      "anio": "2024",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos suscritos a Enero de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Contratos-suscritos-a-31-de-enero-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Febrero de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Contratos-suscritos-a-29-de-febrero-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Marzo de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Contratos-suscritos-a-31-de-marzo-de-2024-1.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Abril de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Contratos-suscritos-a-30-de-abril-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Mayo de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Contratos-suscritos-a-31-de-mayo-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Junio de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Contratos-suscritos-a-30-de-junio-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Julio de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Contratos-suscritos-a-31-de-julio-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Agosto de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Contratos-suscritos-a-31-de-agosto-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Septiembre de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Contratos-suscritos-a-30-de-septiembre-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Octubre de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Contratos-suscritos-a-31-de-octubre-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Noviembre de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Contratos-suscritos-a-30-de-noviembre-de-2024.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Diciembre de 2024",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/03/Contratos-suscritos-a-31-de-diciembre-2024.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2023",
+      "anio": "2023",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos suscritos a Enero de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Contratos-suscritos-a-31-de-enero-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Febrero de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Contratos-suscritos-a-28-de-febrero-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Marzo de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/04/Contratos-suscritos-a-31-de-marzo-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Abril de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/05/Contratos-suscritos-a-30-de-abril-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Mayo de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Contratos-suscritos-a-31-de-mayo-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Junio de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Contratos-suscritos-a-30-de-junio-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Julio de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Contratos-suscritos-a-31-de-julio-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Agosto de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Contratos-suscritos-a-31-de-agosto-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Septiembre de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/Contratos-suscritos-a-30-de-septiembre-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Octubre de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Contratos-suscritos-a-31-de-octubre-de-2023.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Noviembre de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Contratos-suscritos-a-30-de-noviembre-de-2023-3.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Diciembre de 2023",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Contratos-suscritos-a-31-de-diciembre-de-2023.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2022",
+      "anio": "2022",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos suscritos a Diciembre de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Contratos-suscritos-a-31-de-diciembre-de-2022-1.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Noviembre de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/Contratos-suscritos-a-30-de-noviembre-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Octubre de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/Contratos-suscritos-a-31-de-octubre-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Septiembre de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Contratos-suscritos-a-30-de-septiembre-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Agosto de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/10/Contratos-suscritos-a-31-de-agosto-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Julio de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/Contratos-suscritos-a-31-de-julio-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Junio de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/08/Contratos-suscritos-a-30-de-junio-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Mayo de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Conratos-suscritos-a-31-de-mayo-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Abril de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/05/Contratos-suscritos-a-30-de-abril-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Marzo de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Contratos-suscritos-a-31-de-marzo-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Febrero de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Contratos-suscritos-a-28-de-febrero-de-2022-de-2022.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Enero de 2022",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/Contratos-suscritos-a-31-de-enero-de-2022.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2021",
+      "anio": "2021",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos suscritos a Diciembre de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/Contratos-suscritos-a-31-de-diciembre-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Noviembre de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/12/Contratos-suscritos-a-30-de-noviembre-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Octubre de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/11/Contratos-suscritos-a-30-de-septiembre-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Agosto de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/09/Contratos-suscritos-a-31-de-agosto-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Julio de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/08/Contratos-suscritos-a-31-de-julio-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Junio de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/Contratos-suscritos-a-30-de-junio-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Mayo de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/06/Contratos-suscritos-a-31-de-mayo-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Abril de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/Contratos-suscritos-a-30-04-21.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Marzo de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/04/Contratos-suscritos-a-31-de-marzo-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Febrero de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/03/Contratos-suscritos-a-28-de-febrero-de-2021.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Enero de 2021",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/Contratos-suscritos-a-31-de-enero-2021.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2020",
+      "anio": "2020",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos suscritos a Diciembre de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/01/Contratos-suscritos-a-31-de-diciembre-de-2020.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Noviembre de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/Contratos-suscritos-a-30-de-noviembre-de-2020.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Octubre de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/Contratos-suscritos-a-31-de-octubre-2020.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Septiembre de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/Contratos-suscritos-a-30-de-septiembre-de-2020.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a Junio de 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/08/Relación-de-Contratos-a-junio-2020.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos suscritos a marzo 2020",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/04/REL-CONTRATOS-ITRC-I-Trimestre-2020.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2019",
+      "anio": "2019",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia con corte Diciembre 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/01/REL-CONTRATOS-ITRC-2019.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia con corte Septiembre 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/01/Listado-contratos-a-30-09-19.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia con corte Junio 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/07/REL-CONTRATOS-ITRC-2019-xa-transpatrencia-corte-300619.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia Mayo 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/06/REL-CONTRATOS-ITRC-2019-xa-transpatrencia-corte-310519.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia Marzo 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/04/REL-CONTRATOS-ITRC-2019-xa-transparencia-marzo-2019-010419.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia Febrero 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/03/REL-CONTRATOS-ITRC-2019-XA-TRANSPARENCIA-FEB-2019-010319.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC 2019, para transparencia Enero 2019",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/REL-CONTRATOS-ITRC-2019-xa-transparencia-enero-2019-010219.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2018",
+      "anio": "2018",
+      "contratos": [
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Diciembre 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/01/REL-CONTRATOS-ITRC-2018-xa-transparencia-dic-2018-281218.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Noviembre 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/12/REL-CONTRATOS-ITRC-2018-para-inf-transperencia-NOV-031218.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Septiembre 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/10/REL-CONTRATOS-ITRC-2018-para-inf-transperencia-septiembre-031018.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Agosto 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/09/REL-CONTRATOS-ITRC-2018-para-inf-transperencia-agosto-030918.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Julio 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-2018-para-inf-transperencia-julio-310718.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Junio 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-2018-xa-transperencia-junio-2018-040718.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratos ITRC 2018, para transparencia Mayo 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-2018-para-inf-transperencia-mayo-2018-050618.xlsx"
+        },
+        {
+          "periodo": "Relación de Contratación suscrita por la Agencia con corte a marzo 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-2018-PARA-TRANSPENCIA-MAR-2018-050418.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia Febrero 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-2018-Para-transparencia-febrero-2018-070318.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia Enero 2018",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-2018-Para-transparencia-enero-2018-070218.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2017",
+      "anio": "2017",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia noviembre 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-TRANSPARENCIA-CORTE-NOV-2017.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia octubre 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-TRANSPARENCIA-CORTE-OCT-2017.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia septiembre 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/REL-CONTRATOS-ITRC-TRANSPARENCIA-CORTE-SEPT-2017.xlsx"
+        },
+        {
+          "periodo": "Información de Procesos en Curso mayo de 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-may-2017.xlsx"
+        },
+        {
+          "periodo": "Información de Procesos en Curso abril de 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-abr-2017.xlsx"
+        },
+        {
+          "periodo": "Información de Procesos en Curso marzo de 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-mar-2017.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia marzo 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-mar-2017.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia febrero 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-feb-2017.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia enero 2017",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-ene-2017.xlsx"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2016",
+      "anio": "2016",
+      "contratos": [
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia diciembre 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-dic-2016.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia noviembre 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-nov-2016.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia octubre 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-oct-2016.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia septiembre 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-sep-2016.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia agosto 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-ago-2016.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia julio 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-jul-2016.xlsx"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia junio 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcitrct-jun-2016.xlsx"
+        },
+        {
+          "periodo": "Información de Procesos en Curso junio de 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/procesos-en-curso-140616.pdf"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia mayo 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/relcontransmayo2016.pdf"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia abril 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/relcontransabril2016.pdf"
+        },
+        {
+          "periodo": "Relación de contratos ITRC para la transparencia marzo 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/relcontransmarzo2016.pdf"
+        },
+        {
+          "periodo": "Información de Procesos en Curso marzo de 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/procesos-en-curso-040316.pdf"
+        },
+        {
+          "periodo": "Información de Procesos en Curso febrero de 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/procesos-en-curso-030216.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC febrero de 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rel-con-feb-2016.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC enero de 2016",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rel-con-ene-2016.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2015",
+      "anio": "2015",
+      "contratos": [
+        {
+          "periodo": "Relación contratos ITRC Noviembre de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/REL-CONTRATOS-ITRC-SUSCRITOS-2015-NOVIEMBRE.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC Octubre de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/REL-CONTRATOS-ITRC-SUSCRITOS-2015-OCTUBRE.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC Septiembre de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/REL-CONTRATOS-ITRC-SUSCRITOS-2015-SEPTIEMBRE.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC Agosto de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/REL-CONTRATOS-ITRC-SUSCRITOS-2015-AGOSTO.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC Julio de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/REL-CONTRATOS-ITRC-SUSCRITOS-2015-JULIO.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC 2014 Diciembre de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcss-dic-2015.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC 2015 Primer Trimestre",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcpt-2015.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC Primer Semestre de 2015",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rel-con-itrc-1er-tri-2015.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2014",
+      "anio": "2014",
+      "contratos": [
+        {
+          "periodo": "Relación contratos ITRC 2014 Segundo Semestre",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/rcss-2014.pdf"
+        },
+        {
+          "periodo": "Relación contratos ITRC 2014 Primer Semestre",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/csusen-abr2014.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2013",
+      "anio": "2013",
+      "contratos": [
+        {
+          "periodo": "Contratación suscrita ITRC Vigencia año 2013",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/CONTRATACION_SUSCRITA_ITRC%202013.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Contratación suscrita vigencia 2012",
+      "anio": "2012",
+      "contratos": [
+        {
+          "periodo": "Contratación suscrita ITRC Vigencia año 2012",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/https://www.itrc.gov.co/Itrc/pestana/documentos/CONTRATACION_SUSCRITA_ITRC%202012.pdf"
+        }
+      ]
+    }
+  ]
+}

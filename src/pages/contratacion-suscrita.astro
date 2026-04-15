@@ -9,38 +9,104 @@ const breadcrumb = [
   { label: 'Transparencia', href: `${base}transparencia` },
   { label: 'Contratación Suscrita' }
 ];
+
+const totalProcesos = (pageData.convocatorias || []).reduce((acc, c) => acc + c.procesos.length, 0);
+const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => acc + s.contratos.length, 0);
 ---
 
 <Base title={pageData.title} description={pageData.description}>
   <HeroPage title="Información Contractual" subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
-  <section class="contratacion-section">
+  <section class="cs-section">
     <div class="container">
-      <p class="intro">{pageData.intro}</p>
+      <p class="cs-intro">{pageData.intro}</p>
 
-      <div class="secop-links">
-        <a href={pageData.secopI} target="_blank" rel="noopener" class="secop-card">
-          <div class="secop-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
-          <div class="secop-card__content">
-            <h3>SECOP I</h3>
-            <p>Consulte los procesos de contratación en el Sistema Electrónico de Contratación Pública</p>
-          </div>
+      <div class="cs-secop">
+        <a href={pageData.secopI} target="_blank" rel="noopener noreferrer" class="cs-secop__card">
+          <div class="cs-secop__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+          <div class="cs-secop__body"><h3>SECOP I</h3><p>Sistema Electrónico de Contratación Pública (procesos legacy)</p></div>
           <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
         </a>
-        <a href={pageData.secopII} target="_blank" rel="noopener" class="secop-card">
-          <div class="secop-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
-          <div class="secop-card__content">
-            <h3>SECOP II</h3>
-            <p>Plataforma transaccional para la gestión de procesos de contratación pública</p>
-          </div>
+        <a href={pageData.secopII} target="_blank" rel="noopener noreferrer" class="cs-secop__card">
+          <div class="cs-secop__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+          <div class="cs-secop__body"><h3>SECOP II</h3><p>Plataforma transaccional de procesos de contratación pública vigente</p></div>
           <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
         </a>
       </div>
 
-      <div class="info-note">
-        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-        <p>La información detallada de convocatorias a procesos públicos de selección (licitaciones, selecciones abreviadas, mínima cuantía y contratación directa con ofertas), así como los reportes mensuales de contratos suscritos, se encuentra disponible en las plataformas SECOP I y SECOP II.</p>
-      </div>
+      <h2 class="cs-h2" id="convocatorias">
+        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+        Convocatorias a Procesos Públicos de Selección
+        <span class="cs-h2__count">{totalProcesos} procesos</span>
+      </h2>
+
+      {pageData.convocatorias && pageData.convocatorias.map((cat) => (
+        <details class="cs-cat" open>
+          <summary class="cs-cat__summary">
+            <span class="cs-cat__titulo">{cat.categoria}</span>
+            <span class="cs-cat__count">{cat.procesos.length}</span>
+            <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="cs-tabla-wrap">
+            <table class="cs-tabla">
+              <thead><tr><th>Proceso</th><th>Año</th><th>Documentos</th><th>SECOP</th></tr></thead>
+              <tbody>
+                {cat.procesos.map((p) => (
+                  <tr>
+                    <td class="cs-c-proc">
+                      {p.pdfUrl ? (
+                        <a href={p.pdfUrl} target="_blank" rel="noopener noreferrer" class="cs-link">
+                          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                          <strong>{p.label}</strong>
+                        </a>
+                      ) : (<strong>{p.label}</strong>)}
+                    </td>
+                    <td class="cs-c-anio">{p.anio || '—'}</td>
+                    <td class="cs-c-otros">
+                      {p.otros && p.otros.length > 0 ? (
+                        <ul>
+                          {p.otros.map((o) => (
+                            <li><a href={o.url} target="_blank" rel="noopener noreferrer" class="cs-link cs-link--small">
+                              <i class="fa-solid fa-file" aria-hidden="true"></i>
+                              {o.label}
+                            </a></li>
+                          ))}
+                        </ul>
+                      ) : '—'}
+                    </td>
+                    <td class="cs-c-secop">{p.secopRef ? <code>{p.secopRef}</code> : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      ))}
+
+      <h2 class="cs-h2" id="contratos-suscritos">
+        <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
+        Contratación Suscrita por Vigencia
+        <span class="cs-h2__count">{totalContratos} contratos</span>
+      </h2>
+
+      {pageData.contratacionSuscrita && pageData.contratacionSuscrita.map((s, i) => (
+        <details class="cs-cat" open={i === 0}>
+          <summary class="cs-cat__summary">
+            <span class="cs-cat__titulo">{s.titulo}</span>
+            <span class="cs-cat__count">{s.contratos.length}</span>
+            <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
+          </summary>
+          <ul class="cs-list">
+            {s.contratos.map((c) => (
+              <li><a href={c.url} target="_blank" rel="noopener noreferrer" class="cs-doc">
+                <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+                <span>{c.periodo}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a></li>
+            ))}
+          </ul>
+        </details>
+      ))}
 
       <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
     </div>
@@ -48,28 +114,58 @@ const breadcrumb = [
 </Base>
 
 <style>
-  .contratacion-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
-  .contratacion-section .container { max-width: 850px; margin: 0 auto; }
-  .intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); text-align: center; }
+  .cs-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .cs-section .container { max-width: 1100px; margin: 0 auto; }
+  .cs-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text); margin-bottom: var(--space-8); text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-  .secop-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: var(--space-5); margin-bottom: var(--space-8); }
-  .secop-card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--theme-surface); border: 2px solid var(--itrc-navy); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
-  .secop-card:hover { background: var(--itrc-navy); color: var(--white); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-  .secop-card__icon { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-lg); font-size: var(--font-size-2xl); }
-  .secop-card:hover .secop-card__icon { background: rgba(255,255,255,0.2); }
-  .secop-card__content h3 { font-size: var(--font-size-lg); color: var(--itrc-navy); margin: 0 0 var(--space-1); }
-  .secop-card:hover .secop-card__content h3 { color: var(--white); }
-  .secop-card__content p { font-size: var(--font-size-xs); color: var(--theme-text-secondary); margin: 0; line-height: 1.5; }
-  .secop-card:hover .secop-card__content p { color: rgba(255,255,255,0.8); }
-  .secop-card > i:last-child { color: var(--itrc-navy); opacity: 0.4; }
-  .secop-card:hover > i:last-child { color: var(--white); opacity: 1; }
+  .cs-secop { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-10); }
+  .cs-secop__card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface); border: 2px solid var(--itrc-navy); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .cs-secop__card:hover { background: var(--itrc-navy); color: var(--white); transform: translateY(-2px); }
+  .cs-secop__icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-lg); font-size: var(--font-size-xl); }
+  .cs-secop__body h3 { font-size: var(--font-size-base); color: var(--itrc-navy); margin: 0; }
+  .cs-secop__card:hover .cs-secop__body h3 { color: var(--white); }
+  .cs-secop__body p { font-size: var(--font-size-xs); color: var(--theme-text-secondary); margin: 4px 0 0; }
+  .cs-secop__card:hover .cs-secop__body p { color: rgba(255,255,255,0.85); }
 
-  .info-note { display: flex; gap: var(--space-3); padding: var(--space-5); background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin-bottom: var(--space-8); }
-  .info-note i { color: var(--itrc-gold); margin-top: 3px; flex-shrink: 0; }
-  .info-note p { margin: 0; font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); }
+  .cs-h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: var(--space-10) 0 var(--space-5); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
+  .cs-h2 i { color: var(--itrc-gold); }
+  .cs-h2__count { margin-left: auto; font-size: var(--font-size-sm); padding: 4px 12px; background: var(--theme-surface-alt); color: var(--theme-text-muted); border-radius: var(--radius-full); font-weight: 700; }
 
-  .back-link { text-align: center; }
+  .cs-cat { margin-bottom: var(--space-3); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .cs-cat__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; background: var(--theme-surface-alt); }
+  .cs-cat__summary::-webkit-details-marker { display: none; }
+  .cs-cat__summary:hover { background: var(--theme-border-light); }
+  .cs-cat__titulo { flex: 1; font-weight: 800; color: var(--theme-heading); }
+  .cs-cat__count { padding: 2px 12px; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800; }
+  .cs-chevron { color: var(--itrc-gold); transition: transform var(--transition-base); }
+  .cs-cat[open] .cs-chevron { transform: rotate(180deg); }
+
+  .cs-tabla-wrap { overflow-x: auto; padding: var(--space-3); }
+  .cs-tabla { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
+  .cs-tabla th { padding: var(--space-3) var(--space-3); background: var(--theme-surface-alt); text-align: left; font-weight: 700; font-size: var(--font-size-xs); text-transform: uppercase; color: var(--theme-text-muted); border-bottom: 2px solid var(--theme-border); }
+  .cs-tabla td { padding: var(--space-3); border-bottom: 1px solid var(--theme-border-light); vertical-align: top; }
+  .cs-tabla tbody tr:hover { background: var(--theme-surface-alt); }
+  .cs-c-otros ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .cs-c-secop code { font-size: var(--font-size-xs); padding: 2px 6px; background: var(--theme-surface-alt); border-radius: var(--radius-sm); white-space: nowrap; }
+  .cs-link { display: inline-flex; align-items: flex-start; gap: var(--space-2); color: var(--theme-heading); text-decoration: none; }
+  .cs-link:hover { color: var(--file-pdf); }
+  .cs-link i { color: var(--file-pdf); margin-top: 2px; flex-shrink: 0; }
+  .cs-link--small { font-size: var(--font-size-xs); }
+  .cs-link--small i { color: var(--theme-text-muted); }
+
+  .cs-list { list-style: none; padding: var(--space-3); margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .cs-doc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .cs-doc:hover { border-color: #16a34a; background: var(--theme-surface-alt); transform: translateX(3px); }
+  .cs-doc > i:first-child { color: #16a34a; }
+  .cs-doc span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .cs-doc > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+
+  .back-link { margin-top: var(--space-10); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }
-  @media (max-width: 768px) { .contratacion-section { padding: var(--space-6) var(--space-4) var(--space-12); } .secop-links { grid-template-columns: 1fr; } }
+
+  @media (max-width: 768px) {
+    .cs-tabla { font-size: var(--font-size-xs); }
+    .cs-tabla th, .cs-tabla td { padding: var(--space-2); }
+  }
 </style>
