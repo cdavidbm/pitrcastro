@@ -8,6 +8,7 @@ import QuickAccess from '../components/QuickAccess.astro';
 import NewsSection from '../components/NewsSection.astro';
 import contactData from '../content/settings/contact.json';
 import siteData from '../content/settings/site.json';
+import homeData from '../content/pages/home.json';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -41,18 +42,12 @@ const base = import.meta.env.BASE_URL;
     <div class="container">
       <h2 id="entidades-title" class="section-title-decorated">Entidades vigiladas por la ITRC</h2>
       <div class="entidades-grid">
-        <a href="https://www.dian.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
-          <img src={`${base}images/entidades/dian.png`} alt="DIAN - Dirección de Impuestos y Aduanas Nacionales" loading="lazy">
-          <span class="entidad__nombre">DIAN</span>
-        </a>
-        <a href="https://www.coljuegos.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
-          <img src={`${base}images/entidades/coljuegos.png`} alt="Coljuegos" loading="lazy">
-          <span class="entidad__nombre">Coljuegos</span>
-        </a>
-        <a href="https://www.ugpp.gov.co/" class="entidad" target="_blank" rel="noopener noreferrer">
-          <img src={`${base}images/entidades/ugpp.png`} alt="UGPP - Unidad de Gestión Pensional y Parafiscales" loading="lazy">
-          <span class="entidad__nombre">UGPP</span>
-        </a>
+        {homeData.entidadesVigiladas.map((entidad) => (
+          <a href={entidad.url} class="entidad" target="_blank" rel="noopener noreferrer">
+            <img src={`${base}images/entidades/${entidad.logo}`} alt={entidad.alt} loading="lazy">
+            <span class="entidad__nombre">{entidad.nombre}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -62,35 +57,19 @@ const base = import.meta.env.BASE_URL;
     <div class="container">
       <h2 id="servicios-title" class="section-title-decorated section-title-decorated--full">Servicios a la Ciudadanía</h2>
       <div class="servicios-grid">
-        <div class="servicios-columna">
-          <ul class="servicios-lista">
-            <li><a href={`${base}glosario`}>Glosario</a></li>
-            <li><a href="https://www.datos.gov.co/browse?q=itrc" target="_blank" rel="noopener noreferrer">Datos abiertos <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.cnsc.gov.co/" target="_blank" rel="noopener noreferrer">Ofertas de empleo CNSC <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href={`${base}preguntas-frecuentes`}>Preguntas Frecuentes</a></li>
-            <li><a href={`${base}prensa/eventos`}>Calendario de actividades</a></li>
-          </ul>
-        </div>
-        <div class="servicios-columna">
-          <ul class="servicios-lista">
-            <li><a href={`${base}participa/rendicion-de-cuentas`}>Rendición de cuentas</a></li>
-            <li><a href={`${base}tu-p-q-r-s-al-dia`}>PQRS</a></li>
-            <li><a href={`${base}canales-de-atencion-al-ciudadano`}>Canales de atención al ciudadano</a></li>
-            <li><a href={`${base}correo-electronico-para-notificaciones-judiciales`}>Notificaciones judiciales</a></li>
-            <li><a href={`${base}notificaciones-y-traslados`}>Notificaciones y traslados</a></li>
-            <li><a href={`${base}contratacion-suscrita`}>Contratación pública</a></li>
-          </ul>
-        </div>
-        <div class="servicios-columna">
-          <ul class="servicios-lista">
-            <li><a href="https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/Portafolio-de-servicios-Agencia-ITRC.pdf" target="_blank" rel="noopener noreferrer">Portafolio de servicios <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href={`${base}normativa-aplicada`}>Normativa aplicable</a></li>
-            <li><a href="https://www.colombiacompra.gov.co/" target="_blank" rel="noopener noreferrer">Colombia compra eficiente <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.suin-juriscol.gov.co/" target="_blank" rel="noopener noreferrer">Sistema Único de Información Normativa <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-            <li><a href={`${base}transparencia`}>Transparencia y acceso a información pública</a></li>
-            <li><a href={`${base}publicacion-datos-abiertos`}>Publicación de datos abiertos</a></li>
-          </ul>
-        </div>
+        {homeData.columnasServicios.map((columna) => (
+          <div class="servicios-columna">
+            <ul class="servicios-lista">
+              {columna.items.map((item) => (
+                item.tipo === 'external' ? (
+                  <li><a href={item.url} target="_blank" rel="noopener noreferrer">{item.texto} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+                ) : (
+                  <li><a href={`${base}${item.url}`}>{item.texto}</a></li>
+                )
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   </section>

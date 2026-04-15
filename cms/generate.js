@@ -4,6 +4,7 @@ import { dirname, join } from "path";
 import yaml from "js-yaml";
 
 import { base } from "./base.js";
+import { home } from "./collections/home.js";
 import { agencia } from "./collections/agencia.js";
 import { transparencia } from "./collections/transparencia.js";
 import { normativaCollections } from "./collections/normativa.js";
@@ -19,6 +20,10 @@ import { settings } from "./collections/settings.js";
 // ============================================================
 
 const COLLECTION_GROUPS = [
+  {
+    header: "INICIO\n# Pagina principal del sitio",
+    collections: [home],
+  },
   {
     header: "LA AGENCIA\n# Paginas institucionales de la Agencia ITRC",
     collections: [agencia],

@@ -1,0 +1,53 @@
+{
+  "entidadesVigiladas": [
+    {
+      "nombre": "DIAN",
+      "url": "https://www.dian.gov.co/",
+      "logo": "dian.png",
+      "alt": "DIAN - Dirección de Impuestos y Aduanas Nacionales"
+    },
+    {
+      "nombre": "Coljuegos",
+      "url": "https://www.coljuegos.gov.co/",
+      "logo": "coljuegos.png",
+      "alt": "Coljuegos"
+    },
+    {
+      "nombre": "UGPP",
+      "url": "https://www.ugpp.gov.co/",
+      "logo": "ugpp.png",
+      "alt": "UGPP - Unidad de Gestión Pensional y Parafiscales"
+    }
+  ],
+  "columnasServicios": [
+    {
+      "items": [
+        { "texto": "Glosario", "url": "glosario", "tipo": "internal" },
+        { "texto": "Datos abiertos", "url": "https://www.datos.gov.co/browse?q=itrc", "tipo": "external" },
+        { "texto": "Ofertas de empleo CNSC", "url": "https://www.cnsc.gov.co/", "tipo": "external" },
+        { "texto": "Preguntas Frecuentes", "url": "preguntas-frecuentes", "tipo": "internal" },
+        { "texto": "Calendario de actividades", "url": "prensa/eventos", "tipo": "internal" }
+      ]
+    },
+    {
+      "items": [
+        { "texto": "Rendición de cuentas", "url": "participa/rendicion-de-cuentas", "tipo": "internal" },
+        { "texto": "PQRS", "url": "tu-p-q-r-s-al-dia", "tipo": "internal" },
+        { "texto": "Canales de atención al ciudadano", "url": "canales-de-atencion-al-ciudadano", "tipo": "internal" },
+        { "texto": "Notificaciones judiciales", "url": "correo-electronico-para-notificaciones-judiciales", "tipo": "internal" },
+        { "texto": "Notificaciones y traslados", "url": "notificaciones-y-traslados", "tipo": "internal" },
+        { "texto": "Contratación pública", "url": "contratacion-suscrita", "tipo": "internal" }
+      ]
+    },
+    {
+      "items": [
+        { "texto": "Portafolio de servicios", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/Portafolio-de-servicios-Agencia-ITRC.pdf", "tipo": "external" },
+        { "texto": "Normativa aplicable", "url": "normativa-aplicada", "tipo": "internal" },
+        { "texto": "Colombia compra eficiente", "url": "https://www.colombiacompra.gov.co/", "tipo": "external" },
+        { "texto": "Sistema Único de Información Normativa", "url": "https://www.suin-juriscol.gov.co/", "tipo": "external" },
+        { "texto": "Transparencia y acceso a información pública", "url": "transparencia", "tipo": "internal" },
+        { "texto": "Publicación de datos abiertos", "url": "publicacion-datos-abiertos", "tipo": "internal" }
+      ]
+    }
+  ]
+}
