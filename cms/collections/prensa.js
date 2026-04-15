@@ -133,8 +133,13 @@ const prensaPrincipal = {
       fields: [
         { name: "title", label: "Título", widget: "string", required: true },
         { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", required: false },
         { name: "capsulas", label: "Cápsulas", widget: "list", label_singular: "Cápsula", collapsed: true, summary: "{{fields.titulo}}", fields: [
+          { name: "slug", label: "Slug", widget: "string", required: false, hint: "kebab-case, sin tildes. Identificador interno.", pattern: SLUG_PATTERN },
           { name: "titulo", label: "Título", widget: "string", required: true },
+          { name: "descripcion", label: "Descripción", widget: "text", required: false },
+          { name: "fecha", label: "Fecha", widget: "datetime", format: "YYYY-MM-DD", required: false },
+          { name: "posterImagen", label: "Imagen poster (thumbnail)", widget: "string", required: false, hint: "URL de la miniatura mostrada antes del play." },
           { name: "url", label: "URL del video (MP4)", widget: "string", required: true },
         ] },
       ],
