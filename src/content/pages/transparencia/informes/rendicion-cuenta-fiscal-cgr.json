@@ -1,0 +1,21 @@
+{
+  "title": "Informe de Rendición de la Cuenta Fiscal a la Contraloría General de la República",
+  "description": "Rendiciones anuales de cuenta fiscal ante la Contraloría General de la República (SIRECI/CGR) y certificación de la vigencia más reciente. Informes a organismos de inspección, vigilancia y control.",
+  "icon": "fa-file-invoice",
+  "intro": "Documentos de rendición de la cuenta fiscal consolidada presentados anualmente a la Contraloría General de la República a través del aplicativo SIRECI, en cumplimiento de la Resolución Reglamentaria Orgánica CGR.",
+  "informes": [
+    { "titulo": "Certificación Rendición de cuenta anual consolidada CGR 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Certificacion-Cuenta-CGR-ITRC-2023.pdf" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2023", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/CuentaRendida-CGR-2023.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2022", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Rendicion-Cuenta-Fiscal-2022-CGR.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2021", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Rendicion-Cuenta-Fiscal-2021-CGR.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2020", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Rendicion-cuenta-CGR-2020.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2019", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2019.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2018", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2018.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2017", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2017.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2016", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/FORMULARIOS-SIRECI-2016.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2015", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2015.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2014", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2014.xlsx" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2013", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2013.xls" },
+    { "titulo": "Rendición de cuenta anual consolidada CGR 2012", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2016/11/Rendicin-de-Cuenta-Anual-Consolidada-2012.xls" }
+  ]
+}

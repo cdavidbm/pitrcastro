@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/relatoria.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="rel-section">
+    <div class="container">
+      {pageData.intro && <p class="rel-intro">{pageData.intro}</p>}
+
+      {pageData.criteriosSeleccion && (
+        <div class="rel-criterios">
+          <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i> Criterios de selección</h2>
+          <p>{pageData.criteriosSeleccion}</p>
+        </div>
+      )}
+
+      {pageData.cta && pageData.cta.url && (
+        <a href={pageData.cta.url} target={pageData.cta.external ? '_blank' : '_self'} rel={pageData.cta.external ? 'noopener noreferrer' : ''} class="rel-cta">
+          <div class="rel-cta__icon" aria-hidden="true">
+            <i class={`fa-solid ${pageData.cta.icon || 'fa-arrow-right'}`}></i>
+          </div>
+          <div class="rel-cta__body">
+            <span class="rel-cta__text">{pageData.cta.texto}</span>
+            {pageData.cta.descripcion && <span class="rel-cta__desc">{pageData.cta.descripcion}</span>}
+          </div>
+          {pageData.cta.external && <i class="fa-solid fa-arrow-up-right-from-square rel-cta__ext" aria-hidden="true"></i>}
+        </a>
+      )}
+
+      {pageData.resolucion && pageData.resolucion.url && (
+        <a href={pageData.resolucion.url} target="_blank" rel="noopener noreferrer" class="rel-resolucion">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>{pageData.resolucion.titulo}</span>
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
+        </a>
+      )}
+
+      <div class="back-link">
+        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .rel-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .rel-section .container { max-width: 860px; margin: 0 auto; }
+
+  .rel-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); text-align: justify; }
+
+  .rel-criterios { background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-bottom: var(--space-8); }
+  .rel-criterios h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .rel-criterios h2 i { color: var(--itrc-gold); }
+  .rel-criterios p { margin: 0; font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); }
+
+  .rel-cta { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-gold) 100%); color: var(--white); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
+  .rel-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
+  .rel-cta__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.18); border-radius: var(--radius-full); font-size: var(--font-size-2xl); flex-shrink: 0; }
+  .rel-cta__body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .rel-cta__text { font-size: var(--font-size-lg); font-weight: 800; }
+  .rel-cta__desc { font-size: var(--font-size-sm); opacity: 0.9; }
+  .rel-cta__ext { font-size: var(--font-size-base); opacity: 0.8; }
+
+  .rel-resolucion { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); margin-top: var(--space-5); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; color: var(--theme-heading); transition: all var(--transition-base); }
+  .rel-resolucion:hover { border-color: var(--file-pdf); box-shadow: var(--shadow-sm); }
+  .rel-resolucion > i:first-child { color: var(--file-pdf); font-size: var(--font-size-lg); }
+  .rel-resolucion span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; }
+  .rel-resolucion > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.5; }
+
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

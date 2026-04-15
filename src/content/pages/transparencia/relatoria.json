@@ -1,0 +1,18 @@
+{
+  "title": "Relatoría",
+  "description": "Servicio de información y divulgación de decisiones administrativas, disciplinarias y jurisprudenciales de la Agencia ITRC (Resolución 234 de 2022).",
+  "icon": "fa-book-open",
+  "intro": "A través de la Resolución 234 de 2022, se crea y se reglamenta la Relatoría de la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, con el fin de prestar un servicio de información y divulgación a la ciudadanía en general, para facilitar el ejercicio de sus derechos, así como a los funcionarios de la Agencia ITRC, atender sus necesidades de consulta e investigación para el desarrollo de sus funciones.",
+  "criteriosSeleccion": "Los criterios de selección usados son aquellas decisiones de primera y segunda instancia que se encuentren en firme, que aborden temas novedosos o que recojan posturas administrativas relevantes para la función disciplinaria de la Agencia.",
+  "cta": {
+    "texto": "Abrir buscador de Relatorías",
+    "url": "https://www.itrc.gov.co/Itrc/relatorias/",
+    "descripcion": "Sistema de búsqueda de relatorías publicadas por la Agencia ITRC.",
+    "external": true,
+    "icon": "fa-magnifying-glass"
+  },
+  "resolucion": {
+    "titulo": "Resolución 234 de 2022 — Creación y reglamentación de la Relatoría",
+    "url": ""
+  }
+}

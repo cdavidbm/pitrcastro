@@ -1,0 +1,29 @@
+{
+  "title": "Informes a Organismos de Inspección, Vigilancia y Control",
+  "description": "Hub de navegación hacia los informes institucionales dirigidos a organismos de inspección, vigilancia y control (CGR, Congreso, ciudadanía) — Ley 1712 de 2014.",
+  "icon": "fa-building-columns",
+  "intro": "Acceso a los principales informes institucionales presentados a organismos de control y a la ciudadanía, en cumplimiento de la Ley 1712 de 2014 (Transparencia y Acceso a la Información Pública).",
+  "enlaces": [
+    {
+      "titulo": "Informe de Rendición de la Cuenta Fiscal a la CGR",
+      "descripcion": "Rendiciones anuales (2012-2023) presentadas a la Contraloría General de la República vía SIRECI.",
+      "url": "/informe-de-rendicion-de-la-cuenta-fiscal-a-la-contraloria-general-de-la-republica-informes-a-organismos-de-inspeccion-vigilancia-y-control",
+      "tipo": "internal",
+      "icon": "fa-file-invoice"
+    },
+    {
+      "titulo": "Informe de Gestión Institucional",
+      "descripcion": "Informes consolidados de gestión publicados bajo Direccionamiento Estratégico.",
+      "url": "/agencia/direccionamiento-estrategico/informes",
+      "tipo": "internal",
+      "icon": "fa-chart-column"
+    },
+    {
+      "titulo": "Informe de Rendición de Cuentas",
+      "descripcion": "Rendición de cuentas a la ciudadanía y espacios de participación.",
+      "url": "/participa/rendicion-de-cuentas",
+      "tipo": "internal",
+      "icon": "fa-handshake"
+    }
+  ]
+}
