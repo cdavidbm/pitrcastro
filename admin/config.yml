@@ -1664,6 +1664,80 @@ collections:
                     label: URL
                     widget: string
                     required: true
+      - name: audios-itrc
+        label: Audios institucionales ITRC
+        file: src/content/pages/institucional/audios-itrc.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-headphones
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: audios
+            label: Audios
+            widget: list
+            label_singular: Audio
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del MP3
+                widget: string
+                required: true
+      - name: estados-notificaciones
+        label: Estados — Notificaciones procesales
+        file: src/content/pages/institucional/estados.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-bell
+          - name: aviso
+            label: Aviso legal (Art. 103/105 CDU + 296 CGP)
+            widget: text
+            required: false
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: notificaciones
+            label: Notificaciones
+            widget: list
+            label_singular: Notificación
+            collapsed: true
+            summary: "{{fields.descripcion}}"
+            fields:
+              - name: descripcion
+                label: Descripción / número
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
   # ==========================================
   # TRANSPARENCIA
   # # Indice de informacion clasificada y reservada
