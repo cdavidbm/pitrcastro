@@ -510,6 +510,109 @@ export const transparencia = {
       ],
     },
     // ============================================================
+    // Lote M2 — Sede/Horarios + Proyectos normas comentarios
+    // ============================================================
+    {
+      name: "sede-horarios",
+      label: "Sede y Horarios",
+      file: "src/content/pages/transparencia/sede-horarios.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-location-dot" },
+        {
+          name: "sede",
+          label: "Datos de la sede",
+          widget: "object",
+          fields: [
+            { name: "nombre", label: "Nombre de la sede", widget: "string", required: true },
+            { name: "direccion", label: "Dirección (calle y número)", widget: "string", required: true },
+            { name: "piso", label: "Piso / oficina", widget: "string", required: false },
+            { name: "ciudad", label: "Ciudad", widget: "string", required: true },
+            { name: "codigoPostal", label: "Código postal", widget: "string", required: false },
+          ],
+        },
+        {
+          name: "horario",
+          label: "Horario de atención",
+          widget: "object",
+          fields: [
+            { name: "dias", label: "Días", widget: "string", required: true, hint: "Ej: 'Lunes a viernes'" },
+            { name: "inicio", label: "Hora inicio", widget: "string", required: true },
+            { name: "fin", label: "Hora fin", widget: "string", required: true },
+            { name: "nota", label: "Nota adicional (feriados, excepciones)", widget: "string", required: false },
+          ],
+        },
+        {
+          name: "contacto",
+          label: "Contacto",
+          widget: "object",
+          fields: [
+            { name: "telefono", label: "Teléfono principal", widget: "string", required: true },
+            { name: "extension", label: "Extensión", widget: "string", required: false },
+            { name: "email", label: "Correo electrónico", widget: "string", required: true },
+            { name: "lineaGratuita", label: "Línea gratuita 018000", widget: "string", required: false },
+          ],
+        },
+        {
+          name: "mapa",
+          label: "Mapa (opcional)",
+          widget: "object",
+          required: false,
+          collapsed: true,
+          fields: [
+            { name: "embedUrl", label: "URL de embed de Google Maps", widget: "string", required: false, hint: "Si se llena, se muestra el mapa embebido." },
+            { name: "lat", label: "Latitud", widget: "string", required: false },
+            { name: "lng", label: "Longitud", widget: "string", required: false },
+          ],
+        },
+      ],
+    },
+    {
+      name: "proyectos-normas-comentarios",
+      label: "Proyectos de Normas para Comentarios",
+      file: "src/content/pages/transparencia/proyectos-normas-comentarios.json",
+      fields: [
+        { name: "title", label: "Título", widget: "string", required: true },
+        { name: "description", label: "Descripción SEO", widget: "text", required: false },
+        { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-file-pen" },
+        { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+        {
+          name: "enlacesExternos",
+          label: "Canales externos de consulta",
+          widget: "list",
+          label_singular: "Enlace",
+          collapsed: true,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título", widget: "string", required: true },
+            { name: "descripcion", label: "Descripción", widget: "text", required: false },
+            { name: "url", label: "URL externa", widget: "string", required: true },
+            { name: "icon", label: "Icono FontAwesome", widget: "string", required: false },
+          ],
+        },
+        {
+          name: "proyectosLocales",
+          label: "Proyectos normativos de la Agencia ITRC",
+          widget: "list",
+          label_singular: "Proyecto",
+          collapsed: true,
+          required: false,
+          summary: "{{fields.titulo}}",
+          fields: [
+            { name: "titulo", label: "Título del proyecto", widget: "string", required: true },
+            { name: "tipo", label: "Tipo de norma", widget: "string", required: false, hint: "Ej: Resolución, Circular, Decreto" },
+            { name: "fechaApertura", label: "Fecha de apertura", widget: "string", required: false },
+            { name: "fechaCierre", label: "Fecha de cierre", widget: "string", required: false },
+            { name: "estado", label: "Estado", widget: "select", options: ["abierto", "cerrado"], default: "abierto" },
+            { name: "urlProyecto", label: "URL del proyecto (PDF)", widget: "string", required: false },
+            { name: "urlFormularioComentarios", label: "URL del formulario de comentarios", widget: "string", required: false },
+            { name: "resultado", label: "URL del documento con resultado / consolidado de comentarios", widget: "string", required: false },
+          ],
+        },
+      ],
+    },
+    // ============================================================
     // Lote M1 — Saneamiento CMS (JSONs huérfanos preexistentes)
     // ============================================================
     {

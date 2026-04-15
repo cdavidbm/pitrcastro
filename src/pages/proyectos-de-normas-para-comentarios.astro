@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/transparencia/proyectos-normas-comentarios.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="pnc-section">
+    <div class="container">
+      {pageData.intro && <p class="pnc-intro">{pageData.intro}</p>}
+
+      {pageData.enlacesExternos && pageData.enlacesExternos.length > 0 && (
+        <>
+          <h2 class="pnc-heading"><i class="fa-solid fa-link" aria-hidden="true"></i> Canales oficiales de consulta</h2>
+          <div class="pnc-enlaces">
+            {pageData.enlacesExternos.map((e) => (
+              <a href={e.url} target="_blank" rel="noopener noreferrer" class="pnc-enlace">
+                <div class="pnc-enlace__icon" aria-hidden="true">
+                  <i class={`fa-solid ${e.icon || 'fa-arrow-up-right-from-square'}`}></i>
+                </div>
+                <div class="pnc-enlace__body">
+                  <h3>{e.titulo}</h3>
+                  {e.descripcion && <p>{e.descripcion}</p>}
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square pnc-enlace__ext" aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
+
+      {pageData.proyectosLocales && pageData.proyectosLocales.length > 0 ? (
+        <>
+          <h2 class="pnc-heading"><i class="fa-solid fa-file-pen" aria-hidden="true"></i> Proyectos normativos de la Agencia ITRC</h2>
+          <div class="pnc-proyectos">
+            {pageData.proyectosLocales.map((p) => (
+              <article class="pnc-proyecto">
+                <div class="pnc-proyecto__header">
+                  <h3>{p.titulo}</h3>
+                  {p.estado && <span class={`pnc-proyecto__estado pnc-proyecto__estado--${p.estado}`}>{p.estado}</span>}
+                </div>
+                {p.tipo && <p class="pnc-proyecto__meta"><strong>Tipo:</strong> {p.tipo}</p>}
+                {(p.fechaApertura || p.fechaCierre) && (
+                  <p class="pnc-proyecto__meta">
+                    {p.fechaApertura && <><strong>Apertura:</strong> {p.fechaApertura} </>}
+                    {p.fechaCierre && <>· <strong>Cierre:</strong> {p.fechaCierre}</>}
+                  </p>
+                )}
+                <div class="pnc-proyecto__actions">
+                  {p.urlProyecto && <a href={p.urlProyecto} target="_blank" rel="noopener noreferrer" class="pnc-btn pnc-btn--primary"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Ver proyecto</a>}
+                  {p.urlFormularioComentarios && <a href={p.urlFormularioComentarios} target="_blank" rel="noopener noreferrer" class="pnc-btn pnc-btn--secondary"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Enviar comentario</a>}
+                  {p.resultado && <a href={p.resultado} target="_blank" rel="noopener noreferrer" class="pnc-btn pnc-btn--ghost"><i class="fa-solid fa-check" aria-hidden="true"></i> Ver resultado</a>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="pnc-vacio">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <p>La Agencia ITRC no tiene actualmente proyectos normativos propios abiertos a comentarios. Consulte los canales oficiales de MinHacienda y SUCOP (enlaces arriba) para participar en consultas ciudadanas nacionales.</p>
+        </div>
+      )}
+
+      <div class="back-link">
+        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pnc-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .pnc-section .container { max-width: 1000px; margin: 0 auto; }
+
+  .pnc-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text-secondary); margin-bottom: var(--space-8); text-align: justify; }
+
+  .pnc-heading { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: 0 0 var(--space-5); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
+  .pnc-heading i { color: var(--itrc-gold); }
+
+  .pnc-enlaces { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-10); }
+  .pnc-enlace { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
+  .pnc-enlace:hover { border-color: var(--itrc-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+  .pnc-enlace__icon { width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--itrc-gold-light), var(--itrc-gold)); color: var(--itrc-navy); border-radius: var(--radius-lg); font-size: var(--font-size-xl); flex-shrink: 0; }
+  .pnc-enlace__body { flex: 1; }
+  .pnc-enlace__body h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0 0 4px; line-height: 1.3; }
+  .pnc-enlace__body p { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin: 0; line-height: 1.5; }
+  .pnc-enlace__ext { color: var(--theme-text-muted); font-size: var(--font-size-sm); opacity: 0.5; }
+
+  .pnc-proyectos { display: flex; flex-direction: column; gap: var(--space-4); }
+  .pnc-proyecto { padding: var(--space-5) var(--space-6); background: var(--theme-surface-alt); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); }
+  .pnc-proyecto__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-3); }
+  .pnc-proyecto__header h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0; line-height: 1.3; }
+  .pnc-proyecto__estado { padding: 4px 12px; font-size: var(--font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: var(--radius-full); }
+  .pnc-proyecto__estado--abierto { background: rgba(40,167,69,0.15); color: #1e7834; }
+  .pnc-proyecto__estado--cerrado { background: rgba(108,117,125,0.15); color: #555; }
+  .pnc-proyecto__meta { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin: 0 0 4px; }
+  .pnc-proyecto__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+
+  .pnc-btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: 8px 16px; font-size: var(--font-size-sm); font-weight: 700; border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .pnc-btn--primary { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .pnc-btn--primary:hover { filter: brightness(0.92); }
+  .pnc-btn--secondary { background: var(--itrc-navy); color: var(--white); }
+  .pnc-btn--secondary:hover { filter: brightness(1.1); }
+  .pnc-btn--ghost { background: transparent; color: var(--theme-text-muted); border: 1px solid var(--theme-border); }
+  .pnc-btn--ghost:hover { border-color: var(--itrc-gold); color: var(--itrc-gold); }
+
+  .pnc-vacio { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: var(--radius-md); margin-bottom: var(--space-8); }
+  .pnc-vacio i { color: var(--itrc-gold); font-size: var(--font-size-xl); margin-top: 2px; }
+  .pnc-vacio p { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin: 0; line-height: 1.6; }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

@@ -1,0 +1,29 @@
+{
+  "title": "Sede y Horarios",
+  "description": "Información de sede principal, horario de atención al ciudadano, dirección y datos de contacto de la Agencia ITRC.",
+  "icon": "fa-location-dot",
+  "sede": {
+    "nombre": "Sede Principal UAE Agencia ITRC",
+    "direccion": "Calle 26 No. 69-63",
+    "piso": "Piso 6",
+    "ciudad": "Bogotá D.C.",
+    "codigoPostal": "110221"
+  },
+  "horario": {
+    "dias": "Lunes a viernes",
+    "inicio": "8:00 a.m.",
+    "fin": "4:30 p.m.",
+    "nota": ""
+  },
+  "contacto": {
+    "telefono": "057 (601) 390 7000",
+    "extension": "1010",
+    "email": "contactenos@itrc.gov.co",
+    "lineaGratuita": ""
+  },
+  "mapa": {
+    "embedUrl": "",
+    "lat": "",
+    "lng": ""
+  }
+}

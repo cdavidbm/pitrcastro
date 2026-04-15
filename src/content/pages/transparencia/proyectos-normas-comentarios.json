@@ -1,0 +1,27 @@
+{
+  "title": "Proyectos de normas para comentarios",
+  "description": "Participación ciudadana en la expedición de normas. Acceso a proyectos normativos publicados por el Ministerio de Hacienda y al Sistema Único de Consulta Pública (SUCOP).",
+  "icon": "fa-file-pen",
+  "intro": "En cumplimiento del Decreto 1081 de 2015 y del Decreto 270 de 2017, la ciudadanía puede participar en la expedición de normas presentando comentarios sobre proyectos normativos. Los proyectos se publican principalmente en los canales del Ministerio de Hacienda y Crédito Público y en el Sistema Único de Consulta Pública (SUCOP).",
+  "enlacesExternos": [
+    {
+      "titulo": "Proyectos Normativos — MinHacienda",
+      "descripcion": "Listado de proyectos de decreto en curso publicados por el Ministerio de Hacienda y Crédito Público para comentarios de la ciudadanía.",
+      "url": "https://www.minhacienda.gov.co/webcenter/portal/Minhacienda/pages_normativa/ProyectoDecretos/proyectosdecretos",
+      "icon": "fa-landmark"
+    },
+    {
+      "titulo": "Conceptos y respuestas a comentarios — MinHacienda",
+      "descripcion": "Documentos de respuesta institucional a los comentarios ciudadanos recibidos durante la consulta pública de proyectos normativos.",
+      "url": "https://www.minhacienda.gov.co/webcenter/portal/Minhacienda/pages_normativa/ProyectoDecretos/proyectosdecretos",
+      "icon": "fa-comments"
+    },
+    {
+      "titulo": "SUCOP — Sistema Único de Consulta Pública",
+      "descripcion": "Plataforma centralizada de participación ciudadana en la construcción de normas.",
+      "url": "https://www.sucop.gov.co",
+      "icon": "fa-users"
+    }
+  ],
+  "proyectosLocales": []
+}
