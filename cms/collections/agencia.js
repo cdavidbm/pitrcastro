@@ -596,6 +596,37 @@ function sistemaControlInterno() {
 }
 
 // ============================================================
+// Plan Institucional de Archivos (PINAR)
+// ============================================================
+
+function planInstitucionalArchivos() {
+  return {
+    name: "plan-institucional-de-archivos",
+    label: "Plan Institucional de Archivos",
+    file: "src/content/pages/agencia/plan-institucional-de-archivos.json",
+    fields: [
+      { name: "title", label: "Título", widget: "string", required: true },
+      { name: "description", label: "Descripción SEO", widget: "text", required: false },
+      { name: "icon", label: "Icono FontAwesome", widget: "string", required: false },
+      { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+      {
+        name: "documentos",
+        label: "Documentos PINAR",
+        widget: "list",
+        label_singular: "Documento",
+        collapsed: true,
+        summary: "{{fields.titulo}} ({{fields.anio}})",
+        fields: [
+          { name: "titulo", label: "Título", widget: "string", required: true },
+          { name: "anio", label: "Año", widget: "string", required: false },
+          { name: "url", label: "URL del PDF", widget: "string", required: true },
+        ],
+      },
+    ],
+  };
+}
+
+// ============================================================
 // Directorio de Servidores y Contratistas
 // ============================================================
 
@@ -678,5 +709,6 @@ export const agencia = {
     sistemaIntegradoGestion(),
     sistemaControlInterno(),
     directorio(),
+    planInstitucionalArchivos(),
   ],
 };

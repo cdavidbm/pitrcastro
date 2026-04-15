@@ -1,0 +1,18 @@
+{
+  "title": "Plan Institucional de Archivos",
+  "description": "Plan Institucional de Archivos (PINAR) de la Agencia ITRC — instrumento de planeación archivística que articula la gestión documental con los objetivos estratégicos.",
+  "icon": "fa-box-archive",
+  "intro": "El Plan Institucional de Archivos (PINAR) es el instrumento archivístico que planifica, coordina, orienta y evalúa los proyectos y actividades de la función archivística de la Agencia ITRC, alineándola con el Plan Estratégico Institucional.",
+  "documentos": [
+    {
+      "titulo": "Plan Institucional de Archivos 2022",
+      "anio": "2022",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/05/PINAR-2022-2024.pdf"
+    },
+    {
+      "titulo": "Plan Institucional de Archivos 2017",
+      "anio": "2017",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/09/PINAR-ITRC-2017.pdf"
+    }
+  ]
+}
