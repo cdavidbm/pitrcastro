@@ -4,19 +4,131 @@
   "icon": "fa-newspaper",
   "banner": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/02/banner-noticias-del-observatorio-ITRC.png",
   "noticias": [
-    { "fecha": "15 de diciembre de 2021", "titulo": "ITRC — Universidad Nacional", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/01/registro-fotografico-UNAL.jpg", "resumen": "En una segunda ocasión durante el presente año, la directora de la Agencia ITRC participó como experta invitada en la sesión No. 9 de la Cátedra." },
-    { "fecha": "9 de diciembre de 2021", "titulo": "Día Internacional de la Lucha Contra la Corrupción", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "El Observatorio de Fraude y Corrupción de la Agencia ITRC se une a la conmemoración del Día Internacional de la Lucha Contra la Corrupción." },
-    { "fecha": "13 de octubre de 2021", "titulo": "ITRC — Defensoría del Contribuyente", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-–-Defensoria-del-contribuyente.png", "resumen": "La directora de la Agencia ITRC participó como invitada especial y ponente en la sesión No. 35 de la Iniciativa Misión CP Contador Público para Pymes." },
-    { "fecha": "6 de octubre de 2021", "titulo": "Segunda versión Cátedra Colombiana Ciudadanía", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "El Observatorio de Fraude y Corrupción invita a participar de la Segunda Versión de la Cátedra Colombiana: Ciudadanía, Integridad y Lucha contra la Corrupción." },
-    { "fecha": "24 de septiembre de 2021", "titulo": "Agencia ITRC participa en foro virtual de prevención y mitigación de fraudes", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/09/Agencia-ITRC-participa-en-foro-virtual-de-prevencion-y-mitigacion-de-fraudes.jpg", "resumen": "La Agencia ITRC participó del foro virtual «Prevención y Mitigación de fraudes 2021», organizado por Global Business Information (Grupo GBI)." },
-    { "fecha": "22 de septiembre de 2021", "titulo": "ITRC — ASCUN", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Memorias-ITRC-ASCUN-22-de-sep-de-2021.png", "resumen": "La directora de la Agencia ITRC y el director ejecutivo de la Asociación Colombiana de Universidades (ASCUN) se reunieron en encuentro virtual." },
-    { "fecha": "18 de agosto de 2021", "titulo": "Conmemoración Día Nacional de la Lucha Contra la Corrupción", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/08/Conmemoracion-dia-Nacional-de-la-Lucha-Contra-la-Corrupcion.png", "resumen": "El Observatorio de Fraude y Corrupción se une a la conmemoración del Día Nacional de la Lucha Contra la Corrupción." },
-    { "fecha": "29 de julio de 2021", "titulo": "55ª Asamblea del Centro Interamericano de Administraciones Tributarias", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "La directora general de la Agencia ITRC y el equipo del Observatorio participaron virtualmente en la 55ª Asamblea del CIAT." },
-    { "fecha": "21 de mayo de 2021", "titulo": "Mesa Redonda: Moral Tributaria", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "Evento MORAL TRIBUTARIA: MESA REDONDA PARA ALC, organizado por la OCDE y el CIAT los días 18, 19 y 20 de mayo." },
-    { "fecha": "29 de abril de 2021", "titulo": "ITRC — CIAT", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Memorias-ITRC-CIAT-29-de-abril-rev.png", "resumen": "En el marco del memorándum de entendimiento entre la Agencia ITRC y el Centro Interamericano de Administraciones Tributarias (CIAT)." },
-    { "fecha": "28 de abril de 2021", "titulo": "Participación en Sesión Octava Cátedra UNAL", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "La directora general de la Agencia ITRC participó como ponente en la sesión octava de la Cátedra Colombiana «Ciudadanía, Integridad y Lucha contra la Corrupción»." },
-    { "fecha": "18 de marzo de 2021", "titulo": "Proyecto de Ley Anticorrupción No. 341", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "Audiencia pública sobre el proyecto de ley «Anticorrupción» No. 341 de 2020 en la Comisión Primera del Senado de la República." },
-    { "fecha": "26 de febrero de 2021", "titulo": "Plenaria Red Nacional de Observatorios Anticorrupción", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "Primera plenaria virtual de la Red Nacional de Observatorios Anticorrupción (RENOBA), organizada por la Secretaría de Transparencia." },
-    { "fecha": "23 de febrero de 2021", "titulo": "Evento de Lanzamiento Cátedra Colombiana", "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png", "resumen": "Lanzamiento de la Cátedra Colombiana «Ciudadanía, Integridad y lucha contra la Corrupción» promovida por la Universidad Nacional y la Procuraduría." }
+    {
+      "slug": "itrc-universidad-nacional",
+      "fecha": "15 de diciembre de 2021",
+      "fechaIso": "2021-12-15",
+      "titulo": "ITRC — Universidad Nacional",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/01/registro-fotografico-UNAL.jpg",
+      "resumen": "En una segunda ocasión durante el presente año, la directora de la Agencia ITRC participó como experta invitada en la sesión No. 9 de la Cátedra.",
+      "descripcion": ""
+    },
+    {
+      "slug": "dia-internacional-lucha-contra-la-corrupcion",
+      "fecha": "9 de diciembre de 2021",
+      "fechaIso": "2021-12-09",
+      "titulo": "Día Internacional de la Lucha Contra la Corrupción",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "El Observatorio de Fraude y Corrupción de la Agencia ITRC se une a la conmemoración del Día Internacional de la Lucha Contra la Corrupción.",
+      "descripcion": ""
+    },
+    {
+      "slug": "itrc-defensoria-del-contribuyente",
+      "fecha": "13 de octubre de 2021",
+      "fechaIso": "2021-10-13",
+      "titulo": "ITRC — Defensoría del Contribuyente",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/ITRC-–-Defensoria-del-contribuyente.png",
+      "resumen": "La directora de la Agencia ITRC participó como invitada especial y ponente en la sesión No. 35 de la Iniciativa Misión CP Contador Público para Pymes.",
+      "descripcion": ""
+    },
+    {
+      "slug": "segunda-version-catedra-colombiana-ciudadania",
+      "fecha": "6 de octubre de 2021",
+      "fechaIso": "2021-10-06",
+      "titulo": "Segunda versión Cátedra Colombiana Ciudadanía",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "El Observatorio de Fraude y Corrupción invita a participar de la Segunda Versión de la Cátedra Colombiana: Ciudadanía, Integridad y Lucha contra la Corrupción.",
+      "descripcion": ""
+    },
+    {
+      "slug": "agencia-itrc-foro-virtual-prevencion-fraudes",
+      "fecha": "24 de septiembre de 2021",
+      "fechaIso": "2021-09-24",
+      "titulo": "Agencia ITRC participa en foro virtual de prevención y mitigación de fraudes",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/09/Agencia-ITRC-participa-en-foro-virtual-de-prevencion-y-mitigacion-de-fraudes.jpg",
+      "resumen": "La Agencia ITRC participó del foro virtual «Prevención y Mitigación de fraudes 2021», organizado por Global Business Information (Grupo GBI).",
+      "descripcion": ""
+    },
+    {
+      "slug": "itrc-ascun",
+      "fecha": "22 de septiembre de 2021",
+      "fechaIso": "2021-09-22",
+      "titulo": "ITRC — ASCUN",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Memorias-ITRC-ASCUN-22-de-sep-de-2021.png",
+      "resumen": "La directora de la Agencia ITRC y el director ejecutivo de la Asociación Colombiana de Universidades (ASCUN) se reunieron en encuentro virtual.",
+      "descripcion": ""
+    },
+    {
+      "slug": "conmemoracion-dia-nacional-lucha-contra-la-corrupcion",
+      "fecha": "18 de agosto de 2021",
+      "fechaIso": "2021-08-18",
+      "titulo": "Conmemoración Día Nacional de la Lucha Contra la Corrupción",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/08/Conmemoracion-dia-Nacional-de-la-Lucha-Contra-la-Corrupcion.png",
+      "resumen": "El Observatorio de Fraude y Corrupción se une a la conmemoración del Día Nacional de la Lucha Contra la Corrupción.",
+      "descripcion": ""
+    },
+    {
+      "slug": "asamblea-ciat-2021",
+      "fecha": "29 de julio de 2021",
+      "fechaIso": "2021-07-29",
+      "titulo": "55ª Asamblea del Centro Interamericano de Administraciones Tributarias",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "La directora general de la Agencia ITRC y el equipo del Observatorio participaron virtualmente en la 55ª Asamblea del CIAT.",
+      "descripcion": ""
+    },
+    {
+      "slug": "mesa-redonda-moral-tributaria",
+      "fecha": "21 de mayo de 2021",
+      "fechaIso": "2021-05-21",
+      "titulo": "Mesa Redonda: Moral Tributaria",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "Evento MORAL TRIBUTARIA: MESA REDONDA PARA ALC, organizado por la OCDE y el CIAT los días 18, 19 y 20 de mayo.",
+      "descripcion": ""
+    },
+    {
+      "slug": "itrc-ciat",
+      "fecha": "29 de abril de 2021",
+      "fechaIso": "2021-04-29",
+      "titulo": "ITRC — CIAT",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/Memorias-ITRC-CIAT-29-de-abril-rev.png",
+      "resumen": "En el marco del memorándum de entendimiento entre la Agencia ITRC y el Centro Interamericano de Administraciones Tributarias (CIAT).",
+      "descripcion": ""
+    },
+    {
+      "slug": "participacion-sesion-octava-catedra-unal",
+      "fecha": "28 de abril de 2021",
+      "fechaIso": "2021-04-28",
+      "titulo": "Participación en Sesión Octava Cátedra UNAL",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "La directora general de la Agencia ITRC participó como ponente en la sesión octava de la Cátedra Colombiana «Ciudadanía, Integridad y Lucha contra la Corrupción».",
+      "descripcion": ""
+    },
+    {
+      "slug": "proyecto-ley-anticorrupcion-341",
+      "fecha": "18 de marzo de 2021",
+      "fechaIso": "2021-03-18",
+      "titulo": "Proyecto de Ley Anticorrupción No. 341",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "Audiencia pública sobre el proyecto de ley «Anticorrupción» No. 341 de 2020 en la Comisión Primera del Senado de la República.",
+      "descripcion": ""
+    },
+    {
+      "slug": "plenaria-red-nacional-observatorios-anticorrupcion",
+      "fecha": "26 de febrero de 2021",
+      "fechaIso": "2021-02-26",
+      "titulo": "Plenaria Red Nacional de Observatorios Anticorrupción",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "Primera plenaria virtual de la Red Nacional de Observatorios Anticorrupción (RENOBA), organizada por la Secretaría de Transparencia.",
+      "descripcion": ""
+    },
+    {
+      "slug": "lanzamiento-catedra-colombiana",
+      "fecha": "23 de febrero de 2021",
+      "fechaIso": "2021-02-23",
+      "titulo": "Evento de Lanzamiento Cátedra Colombiana",
+      "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-Memorias.png",
+      "resumen": "Lanzamiento de la Cátedra Colombiana «Ciudadanía, Integridad y lucha contra la Corrupción» promovida por la Universidad Nacional y la Procuraduría.",
+      "descripcion": ""
+    }
   ]
 }
