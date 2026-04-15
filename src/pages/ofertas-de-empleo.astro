@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/agencia/empleo-rrhh/ofertas-empleo.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: pageData.title }
+];
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="oe-section">
+    <div class="container">
+      {pageData.intro && <p class="oe-intro">{pageData.intro}</p>}
+      {pageData.cta && pageData.cta.url && (
+        <a href={pageData.cta.url} target="_blank" rel="noopener noreferrer" class="oe-cta">
+          <div class="oe-cta__icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></div>
+          <div class="oe-cta__body">
+            <span class="oe-cta__text">{pageData.cta.texto}</span>
+            <span class="oe-cta__desc">{pageData.cta.descripcion}</span>
+          </div>
+          <i class={`fa-solid ${pageData.cta.icon || 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+        </a>
+      )}
+      <div class="back-link"><a href={base}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .oe-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .oe-section .container { max-width: 860px; margin: 0 auto; }
+  .oe-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); text-align: justify; }
+  .oe-cta { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-gold) 100%); color: var(--white); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
+  .oe-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
+  .oe-cta__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.18); border-radius: var(--radius-full); font-size: var(--font-size-2xl); flex-shrink: 0; }
+  .oe-cta__body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .oe-cta__text { font-size: var(--font-size-lg); font-weight: 800; }
+  .oe-cta__desc { font-size: var(--font-size-sm); opacity: 0.92; }
+  .back-link { margin-top: var(--space-10); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

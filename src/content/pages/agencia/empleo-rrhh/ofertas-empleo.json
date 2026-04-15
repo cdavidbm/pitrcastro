@@ -1,0 +1,13 @@
+{
+  "title": "Ofertas de empleo",
+  "description": "Información sobre ofertas de empleo público y convocatorias de la Agencia ITRC mediante el concurso público de la Comisión Nacional del Servicio Civil (CNSC).",
+  "icon": "fa-briefcase",
+  "intro": "La Agencia ITRC provee sus empleos de carrera administrativa a través de concursos públicos adelantados por la Comisión Nacional del Servicio Civil (CNSC), en cumplimiento de la Ley 909 de 2004 y el Decreto 1083 de 2015.",
+  "cta": {
+    "texto": "Consultar convocatorias en CNSC",
+    "url": "https://www.cnsc.gov.co/",
+    "descripcion": "Portal oficial de la Comisión Nacional del Servicio Civil donde se publican las convocatorias de empleos provistos por concurso público.",
+    "external": true,
+    "icon": "fa-arrow-up-right-from-square"
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "title": "Manual Específico de Funciones y de Competencias Laborales",
+  "description": "Manual Específico de Funciones y de Competencias Laborales de la Agencia ITRC — resoluciones de adopción/modificación y fichas de cargo por empleo.",
+  "icon": "fa-user-tie",
+  "intro": "Compilación del Manual Específico de Funciones y Competencias Laborales de la Agencia ITRC, incluyendo las resoluciones históricas que lo han adoptado y modificado, y las fichas individuales por cada empleo de la planta de personal.",
+  "secciones": [
+    {
+      "titulo": "Resoluciones que adoptan o modifican el Manual",
+      "descripcion": "Actos administrativos que han establecido, modificado o ajustado el Manual Específico de Funciones y Competencias Laborales.",
+      "documentos": [
+        {
+          "titulo": "Resolución 402 de 2024.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Resolución-final-SAGR-002-1.pdf"
+        },
+        {
+          "titulo": "Resolución 249 de 2024.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/No.249-Por-la-cual-se-modifica-parcialmente-la-Resolucion-194-del-15-de-junio-de-2022-con-la-cual-se-adopto-el-Manual-Especifico.pdf"
+        },
+        {
+          "titulo": "Resolución 270 de 2022.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Resolucion.pdf"
+        },
+        {
+          "titulo": "Resolución 194 de 2022.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/No.194-Por-la-cual-se-adopta-el-Manual-Especifico-de-Funciones-y-Competencias-Laborales..pdf"
+        },
+        {
+          "titulo": "Resolución 025 de 2022.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/No.025-Por-la-cual-se-adiciona-y-modifica-el-Manual-Especifico-de-Funciones-y-Competencias-Laborales-de-la-UAE-Agencia-ITRC.pdf"
+        },
+        {
+          "titulo": "Resolución 113 de 2021.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/05/No.113-Por-la-cual-se-modifica-el-Manual-Especifico-de-Funciones-y-Competencias-Laborales-de-la-Agencia-ITRC.pdf"
+        },
+        {
+          "titulo": "Resolución 041 de 2021.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/03/No.041-Por-la-cual-se-modifica-la-Resolucion-188-del-31-de-agosto-de-2018-Manual-Especifico-de-Funciones-y-Competencias-Laborales-de-la-UAE-Agencia-ITRC.pdf"
+        },
+        {
+          "titulo": "Resolución 036 de 2021.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/No.036-Por-la-cual-se-modifica-la-Resolucion-188-del-31-de-agosto-de-2018-Manual-Especifico-de-Funciones-y-Competencias-Laborales-de-la-UAE–-ITRC.pdf"
+        },
+        {
+          "titulo": "Resolución 233 de 2020.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/No.233-Por-la-cual-se-modifica-y-adopta-el-Manual-Especifico-de-funciones-y-Competencias-laborals-de-los-empleos-de-la-planta-de-personal.pdf"
+        },
+        {
+          "titulo": "Resolución 216 de 2020.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/No.216-Por-la-cual-se-modifica-y-adopta-el-Manual-Especifico-de-funciones-y-Competencias-laborals-de-los-empleos-de-la-planta-de-personal.pdf"
+        },
+        {
+          "titulo": "Resolución 188 de 2018.",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/02/No.188-Por-la-cual-se-modifica-y-adopta-el-Manual-Especifico-de-funciones-y-Competencias-laborals-de-los-empleos-de-la-planta-de-personal.pdf"
+        }
+      ]
+    },
+    {
+      "titulo": "Fichas de cargo por empleo",
+      "descripcion": "Fichas técnicas con los requisitos, funciones y competencias por empleo de la planta de personal.",
+      "documentos": [
+        {
+          "titulo": "DG-DG-01-E307-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-DG-DG-01-E307-1.pdf"
+        },
+        {
+          "titulo": "DG-EC-02-G308-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-DG-EC-02-G308-1.pdf"
+        },
+        {
+          "titulo": "DG-EM-02-G308-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-DG-EM-02-G308-1.pdf"
+        },
+        {
+          "titulo": "DG-GT-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-DG-GT-03-T109-1.pdf"
+        },
+        {
+          "titulo": "DG-TA-04-O110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-DG-TA-04-O110-1.pdf"
+        },
+        {
+          "titulo": "DG-TAS-04-O102-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/6.-DG-TAS-04-O102-1.pdf"
+        },
+        {
+          "titulo": "DG-TAC-04-O102-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/7.-DG-TAC-04-O102-1.pdf"
+        },
+        {
+          "titulo": "OAP-JOAP-02-G105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/1.-OAP-JOAP-02-G105-1_.pdf"
+        },
+        {
+          "titulo": "OAP- SIG-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-OAP-SIG-03-T114-1.pdf"
+        },
+        {
+          "titulo": "OAP-DO-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-OAP-DO-03-T112-1.pdf"
+        },
+        {
+          "titulo": "OAP-FIN-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-OAP-FIN-03-T109-1.pdf"
+        },
+        {
+          "titulo": "OACI-JOACI-02-G105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-OACI-JOACI-02-G105-1-1.pdf"
+        },
+        {
+          "titulo": "OACI-CI-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-OACI-CI-03-T114-1.pdf"
+        },
+        {
+          "titulo": "OACI-CI-03-T111-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-OACI-CI-03-T111-1.pdf"
+        },
+        {
+          "titulo": "OACI-CI-03-T110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-OACI-CI-03-T110-1.pdf"
+        },
+        {
+          "titulo": "OATI-JOAT-02-G105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-OATI-JOAT-02-G105-1.pdf"
+        },
+        {
+          "titulo": "OATI-ABD-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-OATI-ABD-03-T109-1.pdf"
+        },
+        {
+          "titulo": "OATI-AI-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-OATI-AI-03-T109-1.pdf"
+        },
+        {
+          "titulo": "OATI-STS-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-OATI-STS-03-T109-1.pdf"
+        },
+        {
+          "titulo": "OATI-SDI-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-OATI-SDI-03-T109-1.pdf"
+        },
+        {
+          "titulo": "OATI-SYR-02-O107-3",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/6.-OATI-SYR-02-O107-3.pdf"
+        },
+        {
+          "titulo": "SG-SG-01-E602-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SG-SG-01-E602-1.pdf"
+        },
+        {
+          "titulo": "SG-TA-04-O102-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SG-TA-04-O102-1.pdf"
+        },
+        {
+          "titulo": "SG-PA-02-G307-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SG-PA-02-G307-1.pdf"
+        },
+        {
+          "titulo": "SG-PA-03-T107-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SG-PA-03-T107-1.pdf"
+        },
+        {
+          "titulo": "SG-PC-04-O105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SG-PC-04-O105-1.pdf"
+        },
+        {
+          "titulo": "SG-IA-04-O105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-SG-IA-04-O105-1.pdf"
+        },
+        {
+          "titulo": "SG-TA-04-O105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-SG-TA-04-O105-1.pdf"
+        },
+        {
+          "titulo": "SG-PC-02-G307-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SG-PC-02-G307-1.pdf"
+        },
+        {
+          "titulo": "SG-GC-03-T110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SG-GC-03-T110-1.pdf"
+        },
+        {
+          "titulo": "SG-TH-02-G307-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SG-TH-02-G307-1.pdf"
+        },
+        {
+          "titulo": "SG-GN-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SG-GN-03-T112-1.pdf"
+        },
+        {
+          "titulo": "SG-GN-03-T107-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SG-GN-03-T107-1.pdf"
+        },
+        {
+          "titulo": "SG-VSA-04-O110-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-SG-VSA-04-O110-2.pdf"
+        },
+        {
+          "titulo": "SG-GE-04-O110-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-SG-GE-04-O110-2.pdf"
+        },
+        {
+          "titulo": "SG-SST-04-O108-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/6.-SG-SST-04-O108-2.pdf"
+        },
+        {
+          "titulo": "SG-BC-04-O108-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/7.-SG-BC-04-O108-2.pdf"
+        },
+        {
+          "titulo": "SG-PF-02-G307-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SG-PF-02-G307-1.pdf"
+        },
+        {
+          "titulo": "SG-GC-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SG-GC-03-T114-1.pdf"
+        },
+        {
+          "titulo": "SG-GP-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SG-GP-03-T109-1.pdf"
+        },
+        {
+          "titulo": "SG-TP-04-O108-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-SG-TP-04-O108-1.pdf"
+        },
+        {
+          "titulo": "SG-TA-0F-O108-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-SG-TA-0F-O108-1.pdf"
+        },
+        {
+          "titulo": "SID-SID-01-E502-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SID-SID-01-E502-1.pdf"
+        },
+        {
+          "titulo": "SID-ID-03-T114-8",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SID-ID-03-T114-8.pdf"
+        },
+        {
+          "titulo": "SID-PJ-03-T114-3",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SID-PJ-03-T114-3.pdf"
+        },
+        {
+          "titulo": "SID-IC-03-T114-3",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-SID-IC-03-T114-3.pdf"
+        },
+        {
+          "titulo": "SID-ID-03-T112-4",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-SID-ID-03-T112-4.pdf"
+        },
+        {
+          "titulo": "SID-ID-03-T111-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/6.-SID-ID-03-T111-1.pdf"
+        },
+        {
+          "titulo": "SID-ID-03-T110-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/7.-SID-ID-03-T110-2.pdf"
+        },
+        {
+          "titulo": "SID-ST-03-T107-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/8.-SID-ST-03-T107-1.pdf"
+        },
+        {
+          "titulo": "SID-ST-04-O108-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/9.-SID-ST-04-O108-2.pdf"
+        },
+        {
+          "titulo": "SID-ST-04-O106-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/10.-SID-ST-04-O106-1.pdf"
+        },
+        {
+          "titulo": "SID-ST-04-O105-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/11.-SID-ST-04-O105-1.pdf"
+        },
+        {
+          "titulo": "SL-SL-01-E502-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SL-SL-01-E502-1.pdf"
+        },
+        {
+          "titulo": "SL-GT-03-T115-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SL-GT-03-T115-1.pdf"
+        },
+        {
+          "titulo": "SL-GT-03-T114-6",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SL-GT-03-T114-6.pdf"
+        },
+        {
+          "titulo": "SL-GT-03-T109-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-SL-GT-03-T109-1.pdf"
+        },
+        {
+          "titulo": "SL-TA-04-O102-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-SL-TA-04-O102-1.pdf"
+        },
+        {
+          "titulo": "SG-GT-03-T112-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/6.SL-GT-03-T112-2-1.pdf"
+        },
+        {
+          "titulo": "SAGR-SAGR-01-E502-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/1.-SAGR-SAGR-01-E502-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IR-03-T115-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SAGR-IR-03-T115-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IJ-03-T115-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/3.-SAGR-IJ-03-T115-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IP-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/4.-SAGR-IP-03-T114-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IG-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/5.-SAGR-IG-03-T114-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IT-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/6.-SAGR-IT-03-T114-1.pdf"
+        },
+        {
+          "titulo": "SAGR-AI-03-T114-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/7.-SAGR-AI-03-T114-1.pdf"
+        },
+        {
+          "titulo": "SAGR-AI-03-T112-2",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/SAGR-AI-03-T112-2-V2.pdf"
+        },
+        {
+          "titulo": "SAGR-AI-03-T110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/SAGR-AI-03-T110-1-V2-2.pdf"
+        },
+        {
+          "titulo": "SAGR-IG-03-T112-7",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/SAGR-IG-03-T112-7-V2.pdf"
+        },
+        {
+          "titulo": "SAGR-FI-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/8.-SAGR-FI-03-T112-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IC-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/11.-SAGR-IC-03-T112-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IIN-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/SAGR-IIN-03-T112-1-V2.pdf"
+        },
+        {
+          "titulo": "SAGR-IRI-03-T112-4",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/SAGR-IRI-03-T112-4-V2.pdf"
+        },
+        {
+          "titulo": "SAGR-TAI-04-O110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/SAGR-TAI-04-O110-1-V2.pdf"
+        },
+        {
+          "titulo": "SAGR-IRG-03-T112-3",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/13.-SAGR-IRG-03-T112-3-v.2.pdf"
+        },
+        {
+          "titulo": "SAGR-IRF-03-T112-7",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/14.-SAGR-IRF-03-T112-7.pdf"
+        },
+        {
+          "titulo": "SAGR-GC-04-O108-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/17.-SAGR-GC-04-O108-1-v.2.pdf"
+        },
+        {
+          "titulo": "SAGR-TA-04-O102-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/18.-SAGR-TA-04-O102-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IIF-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/SAGR-IIF-03-T112-1-V.2.pdf"
+        },
+        {
+          "titulo": "Manual Específico de Funciones y de Competencias Laborales",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/03/Manual-Espec%C3%ADfico-de-Funciones-y-de-Competencias-Laborales-Resolucion-188-Agosto-31-de-2018-.pdf"
+        },
+        {
+          "titulo": "SAGR-AI-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/9.-SAGR-AI-03-T112-1.pdf"
+        },
+        {
+          "titulo": "SAGR-IG-03-T112-8",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/10.-SAGR-IG-03-T112-8.pdf"
+        },
+        {
+          "titulo": "SAGR-IRI-03-T112-5",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/12.-SAGR-IRI-03-T112-5.pdf"
+        },
+        {
+          "titulo": "SAGR-IRI-03-T110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/15.-SAGR-IRI-03-T110-1.pdf"
+        },
+        {
+          "titulo": "SAGR-TAI-04-O110-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/16.-SAGR-TAI-04-O110-1.pdf"
+        },
+        {
+          "titulo": "SG-GT-03-T112-1",
+          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/2.-SG-GT-03-T112-1.pdf"
+        }
+      ]
+    }
+  ]
+}

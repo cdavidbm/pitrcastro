@@ -1,0 +1,48 @@
+{
+  "title": "Manuales internos",
+  "description": "Compilación de manuales institucionales internos de la Agencia ITRC (calidad, contratación, políticas contables, identidad visual, entre otros).",
+  "icon": "fa-book",
+  "intro": "Conjunto de manuales institucionales vigentes de la Agencia ITRC — instrumentos operativos que soportan la gestión administrativa, contractual, contable y comunicacional.",
+  "informes": [
+    {
+      "titulo": "Manual de Administración de Historias Laborales",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/Manual-de-Administracion-de-Historias-Laborales.pdf"
+    },
+    {
+      "titulo": "Manual de Contratación",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Manual-de-Contratación.pdf"
+    },
+    {
+      "titulo": "Manual de Calidad",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/Manual-de-calidad.pdf"
+    },
+    {
+      "titulo": "Manual de Supervisión e Interventoría",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2018/08/Manual-de-Supervisión-e-Interventoría.pdf"
+    },
+    {
+      "titulo": "Manual de Políticas Contables",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/11/18-11-2024_Manual_Politicas_Contables.pdf"
+    },
+    {
+      "titulo": "Manual de Administración de Bienes",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Manual-de-Administracion-de-bienes.pdf"
+    },
+    {
+      "titulo": "Manual de Gestión Documental",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/07/Manual-de-Gestion_Documental.pdf"
+    },
+    {
+      "titulo": "Manual de Identidad Visual ITRC",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/Manual_de_comunicaciones_2024.pdf"
+    },
+    {
+      "titulo": "Manual de cobro persuasivo y coactivo",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/09/Manual-de-Cobro-Persuasivo-y-Coactivo.pdf"
+    },
+    {
+      "titulo": "Manual de Comunicaciones",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/06/Manual-de-Comunicaciones-Agencia-ITRC.pdf"
+    }
+  ]
+}

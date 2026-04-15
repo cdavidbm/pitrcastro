@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: pageData.title }
+];
+const total = pageData.secciones.reduce((acc, s) => acc + s.documentos.length, 0);
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="mef-section">
+    <div class="container">
+      {pageData.intro && <p class="mef-intro">{pageData.intro}</p>}
+      <div class="mef-stats"><strong>{total} documentos</strong> en {pageData.secciones.length} secciones</div>
+      {pageData.secciones.map((s, i) => (
+        <details class="mef-sec" open={i === 0}>
+          <summary class="mef-sec__summary">
+            <span class="mef-sec__titulo">{s.titulo}</span>
+            <span class="mef-sec__count">{s.documentos.length}</span>
+            <i class="fa-solid fa-chevron-down mef-chevron" aria-hidden="true"></i>
+          </summary>
+          {s.descripcion && <p class="mef-sec__desc">{s.descripcion}</p>}
+          <ul class="mef-list">
+            {s.documentos.map((doc) => (
+              <li><a href={doc.url} target="_blank" rel="noopener noreferrer" class="mef-doc">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                <span>{doc.titulo}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a></li>
+            ))}
+          </ul>
+        </details>
+      ))}
+      <div class="back-link"><a href={base}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .mef-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .mef-section .container { max-width: 1000px; margin: 0 auto; }
+  .mef-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-6); text-align: justify; }
+  .mef-stats { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--theme-surface-alt); border-radius: var(--radius-full); margin-bottom: var(--space-8); font-size: var(--font-size-sm); }
+  .mef-stats strong { color: var(--itrc-gold); }
+  .mef-sec { margin-bottom: var(--space-3); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .mef-sec__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; }
+  .mef-sec__summary::-webkit-details-marker { display: none; }
+  .mef-sec__summary:hover { background: var(--theme-surface-alt); }
+  .mef-sec__titulo { flex: 1; font-weight: 800; color: var(--theme-heading); }
+  .mef-sec__count { padding: 2px 12px; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800; }
+  .mef-chevron { color: var(--itrc-gold); transition: transform var(--transition-base); }
+  .mef-sec[open] .mef-chevron { transform: rotate(180deg); }
+  .mef-sec__desc { margin: 0 var(--space-5) var(--space-3); font-size: var(--font-size-sm); color: var(--theme-text-secondary); font-style: italic; }
+  .mef-list { list-style: none; padding: 0 var(--space-4) var(--space-4); margin: 0; border-top: 1px solid var(--theme-border-light); padding-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+  .mef-doc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .mef-doc:hover { border-color: var(--file-pdf); background: var(--theme-surface-alt); transform: translateX(3px); }
+  .mef-doc > i:first-child { color: var(--file-pdf); }
+  .mef-doc span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .mef-doc > i:last-child { color: var(--theme-text-muted); opacity: 0.4; }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

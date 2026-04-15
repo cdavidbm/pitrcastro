@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import pageData from '../content/pages/agencia/empleo-rrhh/nombramientos.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Agencia', href: '#' },
+  { label: pageData.title }
+];
+const total = pageData.vigencias.reduce((acc, v) => acc + v.documentos.length, 0);
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <section class="nm-section">
+    <div class="container">
+      {pageData.intro && <p class="nm-intro">{pageData.intro}</p>}
+      <div class="nm-stats"><span>Total:</span> <strong>{total} resoluciones en {pageData.vigencias.length} vigencias</strong></div>
+      {pageData.vigencias.map((v, i) => (
+        <details class="nm-vigencia" open={i === 0}>
+          <summary class="nm-vigencia__summary">
+            <span class="nm-vigencia__anio">Nombramientos {v.anio}</span>
+            <span class="nm-vigencia__count">{v.documentos.length}</span>
+            <i class="fa-solid fa-chevron-down nm-chevron" aria-hidden="true"></i>
+          </summary>
+          <ul class="nm-list">
+            {v.documentos.map((doc) => (
+              <li><a href={doc.url} target="_blank" rel="noopener noreferrer" class="nm-doc">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                <span>{doc.titulo}</span>
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a></li>
+            ))}
+          </ul>
+        </details>
+      ))}
+      <div class="back-link"><a href={base}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nm-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .nm-section .container { max-width: 1000px; margin: 0 auto; }
+  .nm-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-6); text-align: justify; }
+  .nm-stats { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--theme-surface-alt); border-radius: var(--radius-full); margin-bottom: var(--space-8); font-size: var(--font-size-sm); }
+  .nm-stats strong { color: var(--itrc-gold); }
+  .nm-vigencia { margin-bottom: var(--space-3); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .nm-vigencia__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; transition: background var(--transition-fast); }
+  .nm-vigencia__summary::-webkit-details-marker { display: none; }
+  .nm-vigencia__summary:hover { background: var(--theme-surface-alt); }
+  .nm-vigencia__anio { flex: 1; font-weight: 800; font-size: var(--font-size-lg); color: var(--theme-heading); }
+  .nm-vigencia__count { padding: 2px 12px; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800; }
+  .nm-chevron { color: var(--itrc-gold); transition: transform var(--transition-base); }
+  .nm-vigencia[open] .nm-chevron { transform: rotate(180deg); }
+  .nm-list { list-style: none; padding: 0 var(--space-4) var(--space-4); margin: 0; border-top: 1px solid var(--theme-border-light); padding-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+  .nm-doc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); text-decoration: none; transition: all var(--transition-fast); }
+  .nm-doc:hover { border-color: var(--file-pdf); background: var(--theme-surface-alt); transform: translateX(3px); }
+  .nm-doc > i:first-child { color: var(--file-pdf); }
+  .nm-doc span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
+  .nm-doc > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>
