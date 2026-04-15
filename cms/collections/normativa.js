@@ -287,4 +287,43 @@ const normativaDelitos = {
   files: normativaDelitosFactory(),
 };
 
-export const normativaCollections = [normativaPaginas, normativaGeneral, normativaDelitos];
+// ============================================================
+// Lote U — Vigencias históricas 2012-2021 (10 páginas BAJA)
+// ============================================================
+
+function vigenciasHistoricasFactory() {
+  const years = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021];
+  return years.map((year) => ({
+    name: `vigencia-${year}`,
+    label: `Vigencia ${year}`,
+    file: `src/content/pages/normativa/vigencias/vigencia-${year}.json`,
+    fields: [
+      { name: "title", label: "Título", widget: "string", required: true },
+      { name: "description", label: "Descripción SEO", widget: "text", required: false },
+      { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-calendar" },
+      { name: "intro", label: "Texto introductorio", widget: "text", required: false },
+      {
+        name: "informes",
+        label: "Resoluciones / actos administrativos",
+        widget: "list",
+        label_singular: "Acto administrativo",
+        collapsed: true,
+        summary: "{{fields.titulo}}",
+        fields: [
+          { name: "titulo", label: "Título", widget: "string", required: true },
+          { name: "url", label: "URL del PDF", widget: "string", required: true },
+        ],
+      },
+    ],
+  }));
+}
+
+const vigenciasHistoricas = {
+  name: "vigencias-historicas",
+  label: "VIGENCIAS HISTÓRICAS",
+  label_singular: "Vigencia",
+  description: "Archivo histórico de resoluciones por año (Lote U — 2012-2021)",
+  files: vigenciasHistoricasFactory(),
+};
+
+export const normativaCollections = [normativaPaginas, normativaGeneral, normativaDelitos, vigenciasHistoricas];

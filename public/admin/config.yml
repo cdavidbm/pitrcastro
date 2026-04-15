@@ -4635,6 +4635,361 @@ collections:
                   - external
                   - pdf
                 default: external
+  - name: vigencias-historicas
+    label: VIGENCIAS HISTÓRICAS
+    label_singular: Vigencia
+    description: Archivo histórico de resoluciones por año (Lote U — 2012-2021)
+    files:
+      - name: vigencia-2012
+        label: Vigencia 2012
+        file: src/content/pages/normativa/vigencias/vigencia-2012.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2013
+        label: Vigencia 2013
+        file: src/content/pages/normativa/vigencias/vigencia-2013.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2014
+        label: Vigencia 2014
+        file: src/content/pages/normativa/vigencias/vigencia-2014.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2015
+        label: Vigencia 2015
+        file: src/content/pages/normativa/vigencias/vigencia-2015.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2016
+        label: Vigencia 2016
+        file: src/content/pages/normativa/vigencias/vigencia-2016.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2017
+        label: Vigencia 2017
+        file: src/content/pages/normativa/vigencias/vigencia-2017.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2018
+        label: Vigencia 2018
+        file: src/content/pages/normativa/vigencias/vigencia-2018.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2019
+        label: Vigencia 2019
+        file: src/content/pages/normativa/vigencias/vigencia-2019.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2020
+        label: Vigencia 2020
+        file: src/content/pages/normativa/vigencias/vigencia-2020.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
+      - name: vigencia-2021
+        label: Vigencia 2021
+        file: src/content/pages/normativa/vigencias/vigencia-2021.json
+        fields:
+          - name: title
+            label: Título
+            widget: string
+            required: true
+          - name: description
+            label: Descripción SEO
+            widget: text
+            required: false
+          - name: icon
+            label: Icono FontAwesome
+            widget: string
+            default: fa-calendar
+          - name: intro
+            label: Texto introductorio
+            widget: text
+            required: false
+          - name: informes
+            label: Resoluciones / actos administrativos
+            widget: list
+            label_singular: Acto administrativo
+            collapsed: true
+            summary: "{{fields.titulo}}"
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+                required: true
+              - name: url
+                label: URL del PDF
+                widget: string
+                required: true
   # ==========================================
   # ATENCION Y SERVICIOS
   # # Canales de atencion y servicios al ciudadano

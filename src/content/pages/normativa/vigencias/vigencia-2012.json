@@ -1,0 +1,20 @@
+{
+  "title": "Vigencia 2012 — Resoluciones y circulares",
+  "description": "Archivo histórico de resoluciones, circulares y actos administrativos de la Agencia ITRC emitidos durante la vigencia 2012.",
+  "icon": "fa-calendar",
+  "intro": "Compilación cronológica de resoluciones, circulares y actos administrativos emitidos por la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC — durante la vigencia 2012.",
+  "informes": [
+    {
+      "titulo": "Resolución No. 023 del 6 de septiembre de 2012",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/RESOL.-23-2012-Horario-Laboral.pdf"
+    },
+    {
+      "titulo": "Resolución No. 021 del 4 de septiembre de 2012",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/RESOL-21-2012-delegan-funciones.pdf"
+    },
+    {
+      "titulo": "Resolución No. 16 del 3 de agosto de 2012.",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2015/04/RESOL-16-2012.pdf"
+    }
+  ]
+}
