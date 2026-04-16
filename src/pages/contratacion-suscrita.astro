@@ -74,7 +74,12 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => 
                         </ul>
                       ) : '—'}
                     </td>
-                    <td class="cs-c-secop">{p.secopRef ? <code>{p.secopRef}</code> : '—'}</td>
+                    <td class="cs-c-secop">{p.secopRef && p.secopRef !== '#' ? (
+                      <a href={p.secopRef.startsWith('https://') ? p.secopRef : `https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=${p.secopRef}&isFromPublicArea=True&isModal=False`} target="_blank" rel="noopener noreferrer" class="cs-secop-link" title={`Ver en SECOP II: ${p.secopRef}`}>
+                        <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                        SECOP II
+                      </a>
+                    ) : '—'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -159,6 +164,10 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => 
   .cs-doc > i:first-child { color: #16a34a; }
   .cs-doc span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; color: var(--theme-heading); }
   .cs-doc > i:last-child { color: var(--theme-text-muted); opacity: 0.4; font-size: var(--font-size-xs); }
+
+  .cs-secop-link { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-md); font-size: var(--font-size-xs); font-weight: 700; text-decoration: none; white-space: nowrap; transition: all var(--transition-fast); }
+  .cs-secop-link:hover { background: var(--itrc-gold); color: var(--itrc-navy); transform: scale(1.05); }
+  .cs-secop-link i { font-size: 10px; }
 
   .back-link { margin-top: var(--space-10); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
