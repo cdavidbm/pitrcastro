@@ -292,6 +292,13 @@
       "categoria": "Contrataciones Mínima Cuantía",
       "procesos": [
         {
+          "label": "ITRC-CMC-003-2026",
+          "anio": "2026",
+          "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/20260413-Invitacion-Publica-ITRC-CMC-003-2026.pdf",
+          "secopRef": "CO1.NTC.10202274",
+          "otros": []
+        },
+        {
           "label": "ITRC-CMC-002-2026",
           "anio": "2026",
           "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/20260331-Invitacion-Publica-ITRC-CMC-002-2026.pdf",

@@ -5,6 +5,32 @@
   "intro": "En esta página podrá encontrar los informes finales de supervisión de contratos de la Agencia ITRC.",
   "vigencias": [
     {
+      "anio": "2025",
+      "documentos": [
+        { "numero": "3", "titulo": "Informe Final de Supervisión ITRC-CPS-003-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/3.-Informe-Final-de-Supervision-ITRC-CPS-003-2025.pdf" },
+        { "numero": "12", "titulo": "Informe Final de Supervisión ITRC-CPS-012-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/12.-Informe-Final-de-Supervision-ITRC-CPS-012-2025.pdf" },
+        { "numero": "14", "titulo": "Acta de Liquidación ITRC-CPS-014-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/14.-Acta-de-Liquidacion-ITRC-CPS-014-2025.pdf" },
+        { "numero": "15", "titulo": "Acta de Liquidación Contrato ITRC-CPS-015-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/15-.-Acta-de-Liquidacion-Contrato-ITRC-CPS-015-2025.pdf" },
+        { "numero": "17", "titulo": "Informe Final de Supervisión Contrato ITRC-CPS-017-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/17.-Informe-Final-de-supervision-Contrato-ITRC-CPS-017-2025.pdf" },
+        { "numero": "18", "titulo": "Informe Final de Supervisión Contrato ITRC-CPS-018-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/18.-Informe-final-de-supervision-Contrato-ITRC-CPS-018-2025.pdf" },
+        { "numero": "25", "titulo": "Informe Final de Supervisión Contrato ITRC-CPS-025-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/25.-Informe-final-de-supervision-contrato-ITRC-CPS-025-2025.pdf" },
+        { "numero": "29", "titulo": "Informe Final de Supervisión de Contrato ITRC-CPS-029-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/29.-Informe-final-de-supervision-de-contrato-ITRC-CPS-029-2025.pdf" },
+        { "numero": "37", "titulo": "Acta de Liquidación ITRC-CPS-037-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/37.-Acta-de-Liquidacion-ITRC-CPS-037-2025.pdf" },
+        { "numero": "39", "titulo": "Informe Final de Supervisión de Contrato ITRC-CPS-039-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/39.-Informe-final-de-supervision-de-contrato-ITRC-CPS-039-2025.pdf" },
+        { "numero": "40", "titulo": "Informe Final de Supervisión de Contrato ITRC-CPS-040-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/40.-Informe-final-de-supervision-de-contrato-ITRC-CPS-040-2025.pdf" },
+        { "numero": "42", "titulo": "Informe Final de Supervisión Contrato 042 de 2025 KIOSCO", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/42.-Informe-final-de-supervision-Contrato-042-de-2025-KIOSCO.pdf" },
+        { "numero": "46", "titulo": "Informe Final de Supervisión de Contrato ITRC-CPS-046-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/46.-Informe-final-de-supervision-de-contrato-ITRC-CPS-046-2025.pdf" },
+        { "numero": "52", "titulo": "Informe Final de Supervisión de Contrato ITRC-CPS-052-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/52.-Informe-final-de-supervision-de-contrato-ITRC-CPS-052-2025.pdf" },
+        { "numero": "56", "titulo": "Acta de Liquidación Contrato ITRC-CPS-056-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/56.-Acta-de-liquidacion-Contrato-ITRC-CPS-056-2025.pdf" },
+        { "numero": "68", "titulo": "Informe Final de Supervisión de Contrato ITRC-CPS-068-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/68.-Informe-final-de-supervision-de-contrato-ITRC-CPS-068-2025.pdf" },
+        { "numero": "69", "titulo": "Acta de Liquidación ITRC-CPS-069-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/69.-Acta-de-Liquidacion-ITRC-CPS-069-2025.pdf" },
+        { "numero": "71", "titulo": "Acta de Liquidación ITRC-CPS-071-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/71.-Acta-de-Liquidacion-ITRC-CPS-071-2025.pdf" },
+        { "numero": "78", "titulo": "Acta de Liquidación ITRC-CPS-078-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/78.-Acta-de-Liquidacion-ITRC-CPS-078-2025.pdf" },
+        { "numero": "83", "titulo": "Acta de Liquidación ITRC-CV-083-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/83.-Acta-de-Liquidacion-ITRC-CV-083-2025.pdf" },
+        { "numero": "88", "titulo": "Acta de Liquidación ITRC-CPS-088-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/88.-Acta-de-Liquidacion-ITRC-CPS-088-2025.pdf" }
+      ]
+    },
+    {
       "anio": "2024",
       "documentos": [
         {

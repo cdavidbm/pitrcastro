@@ -7,55 +7,39 @@
     {
       "image": "/images/slider-transparencia.jpg",
       "imageAlt": "Participa en la construcción del Programa de Transparencia",
-      "title": "Programa de Transparencia y Ética Pública",
-      "subtitle": "",
-      "description": "Participa en la construcción del Programa de Transparencia y Ética Pública de la Agencia ITRC",
+      "overlay": false,
       "link": "/transparencia",
-      "linkText": "Ir a Transparencia",
       "active": true,
       "order": 1
     },
     {
       "image": "/images/slider-plan-accion.jpg",
       "imageAlt": "Participa en la construcción del Plan de Acción 2025",
-      "title": "Plan de Acción 2025",
-      "subtitle": "",
-      "description": "Participa en la construcción del Plan de Acción 2025 de la Agencia ITRC. Envíanos tus comentarios o sugerencias al correo oficinadeplanificacion@itrc.gov.co",
-      "link": "",
-      "linkText": "",
+      "overlay": false,
       "active": true,
       "order": 2
     },
     {
       "image": "/images/slider-observatorio.jpg",
       "imageAlt": "Observatorio ITRC de Fraude y Corrupción",
-      "title": "Observatorio de Fraude y Corrupción",
-      "subtitle": "",
-      "description": "Conozca los indicadores de la labor misional de la Agencia ITRC a través del Observatorio de Fraude y Corrupción de la entidad",
+      "overlay": false,
       "link": "/observatorio/eje-de-medicion",
-      "linkText": "Ir al Observatorio",
       "active": true,
       "order": 3
     },
     {
       "image": "/images/slider-notificaciones.png",
       "imageAlt": "Consulta Notificaciones y Traslados",
-      "title": "Notificaciones y Traslados",
-      "subtitle": "",
-      "description": "Consulte los Estados, Edictos y Traslados de los procesos disciplinarios",
+      "overlay": false,
       "link": "/notificaciones-y-traslados",
-      "linkText": "Consultar notificaciones",
       "active": true,
       "order": 4
     },
     {
       "image": "/images/slider-entidades-vigiladas.png",
       "imageAlt": "Entidades vigiladas: Coljuegos, DIAN y UGPP",
-      "title": "Entidades Vigiladas",
-      "subtitle": "",
-      "description": "En la Agencia ITRC vigilamos a Coljuegos, DIAN y UGPP",
+      "overlay": false,
       "link": "/agencia/mision-vision",
-      "linkText": "Más información",
       "active": true,
       "order": 5
     },
@@ -72,6 +56,20 @@
       "overlay": false,
       "active": true,
       "order": 7
+    },
+    {
+      "image": "/images/slider-choco-ec.jpg",
+      "imageAlt": "Encuentros Ciudadanos ITRC Chocó",
+      "overlay": false,
+      "active": true,
+      "order": 8
+    },
+    {
+      "image": "/images/slider-cundinamarca.jpg",
+      "imageAlt": "Encuentros Ciudadanos ITRC Cundinamarca",
+      "overlay": false,
+      "active": true,
+      "order": 9
     }
   ]
 }

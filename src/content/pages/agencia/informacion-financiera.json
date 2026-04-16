@@ -8,6 +8,7 @@
       "id": "ef2025",
       "label": "Estados Financieros 2025",
       "items": [
+        { "titulo": "Estados Financieros a Diciembre 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Estados-Financieros-a-diciembre-2025.pdf" },
         { "titulo": "Estados Financieros a Septiembre 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/Estados-Financieros-a-septiembre-2025-aprob.pdf" },
         { "titulo": "Estados Financieros a Junio 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/08/Estados-financieros-a-junio-2025.pdf" },
         { "titulo": "Estados Financieros a Marzo 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/06/Estados-financieros-marzo-2025.pdf" }
@@ -248,6 +249,8 @@
       "id": "ejecucion-presupuestal",
       "label": "Ejecucion Presupuestal",
       "items": [
+        { "titulo": "Avance Ejecucion Presupuestal y Comparativo I Trimestre 2025-2026", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/AvanceEjecucionComparativoPrimerTrimestre2026.pdf" },
+        { "titulo": "Ejecucion Presupuestal Marzo 2026", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/EjecucionPresupuestalMarzo2026.pdf" },
         { "titulo": "Avance Ejecucion IV Trimestre 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/AvanceEjecucionComparativo-IV-Trimestre.pdf" },
         { "titulo": "Ejecucion Presupuestal Diciembre 2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/EjecucionPresupuestalAdiciembre2025.pdf" },
         { "titulo": "Avance Ejecucion III Trimestre 2024-2025", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/EjecucionPresupuestalTercerTrimestre2024-2025.pdf" },
