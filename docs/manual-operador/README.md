@@ -16,6 +16,7 @@ Manual de referencia para el webmaster o persona responsable de mantener el cont
 | 06 | [Modificar páginas institucionales](06-modificar-paginas.md) | Editar textos, contacto, menú y accesos rápidos |
 | 07 | [Edición directa en VS Code](07-edicion-directa-vscode.md) | Cuándo y cómo editar los archivos fuente sin pasar por el CMS |
 | 08 | [Mantenimiento con Git](08-mantenimiento-git.md) | Flujo diario de trabajo, resolución de conflictos y respaldo |
+| 09 | [Despliegue en Azure](09-deploy-azure.md) | Migrar el portal a Azure Static Web Apps o Blob Storage, CI/CD y flujo multi-webmaster |
 
 ---
 
@@ -38,6 +39,9 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 | Hacer cambios masivos en varios archivos a la vez | [07 — Edición directa VS Code](07-edicion-directa-vscode.md) |
 | Sincronizar cambios con el servidor / repositorio | [08 — Mantenimiento Git](08-mantenimiento-git.md) |
 | Resolver un conflicto cuando dos personas editaron lo mismo | [08 — Mantenimiento Git](08-mantenimiento-git.md) |
+| Desplegar el portal en Azure | [09 — Despliegue en Azure](09-deploy-azure.md) |
+| Configurar dominio personalizado (portal.itrc.gov.co) | [09 — Despliegue en Azure](09-deploy-azure.md) |
+| Revertir un despliegue defectuoso en Azure | [09 — Despliegue en Azure](09-deploy-azure.md) |
 
 ---
 
