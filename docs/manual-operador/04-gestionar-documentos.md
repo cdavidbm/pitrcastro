@@ -80,6 +80,32 @@ Antes de guardar cualquier documento nuevo, verifique que la URL del archivo es 
 
 > **Nota:** Si el archivo no carga, verifique con el área que solicitó la publicación que el archivo haya sido correctamente subido al servidor. No publique un enlace que lleva a una página de error.
 
+## Cómo se construyen las URLs de los documentos
+
+> **No es necesario construir las URLs manualmente.** El portal genera la URL completa de cada documento automáticamente según la configuración de hosting vigente.
+
+Cuando el equipo técnico sube los binarios al servidor de producción, configura una variable llamada `DOCS_BASE_URL` que indica el servidor y la ruta desde donde se sirven los archivos. El portal toma esa base y la combina con la ruta del documento registrado en el CMS para construir el enlace completo.
+
+Por ejemplo, si un documento está registrado con la ruta `/2025/03/informe-gestion.pdf` y la variable de hosting tiene el valor `https://documentos.itrc.gov.co`, el portal generará automáticamente el enlace:
+
+```
+https://documentos.itrc.gov.co/2025/03/informe-gestion.pdf
+```
+
+Si en el futuro la agencia cambia de servidor, el equipo técnico actualiza esa variable y todos los enlaces del portal se actualizan en la siguiente compilación, sin que el webmaster deba tocar ningún archivo de contenido.
+
+**Lo que sí debe hacer el webmaster:**
+
+- Asegurarse de que el archivo esté físicamente disponible en el servidor antes de publicar el enlace.
+- Registrar en el CMS la ruta relativa del archivo (o la URL completa si el archivo está en un servidor externo, como el WordPress anterior durante la transición).
+
+**Lo que NO debe hacer el webmaster:**
+
+- Construir manualmente la URL completa sumando dominios y carpetas.
+- Modificar la variable `DOCS_BASE_URL` — eso es responsabilidad del equipo técnico y se documenta en el [Capítulo 9, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios).
+
+---
+
 ## Subir archivos al repositorio del portal
 
 Si el archivo aún no está alojado en ningún servidor público, puede subirlo directamente al repositorio del portal usando el selector de medios del CMS:

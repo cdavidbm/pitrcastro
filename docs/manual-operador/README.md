@@ -16,7 +16,7 @@ Manual de referencia para el webmaster o persona responsable de mantener el cont
 | 06 | [Modificar páginas institucionales](06-modificar-paginas.md) | Editar textos, contacto, menú y accesos rápidos |
 | 07 | [Edición directa en VS Code](07-edicion-directa-vscode.md) | Cuándo y cómo editar los archivos fuente sin pasar por el CMS |
 | 08 | [Mantenimiento con Git](08-mantenimiento-git.md) | Flujo diario de trabajo, resolución de conflictos y respaldo |
-| 09 | [Despliegue en Azure](09-deploy-azure.md) | Migrar el portal a Azure Static Web Apps o Blob Storage, CI/CD y flujo multi-webmaster |
+| 09 | [Despliegue en Azure](09-deploy-azure.md) | Migrar el portal a Azure Static Web Apps o Blob Storage, CI/CD, flujo multi-webmaster y configuración de hosting de documentos |
 
 ---
 
@@ -42,6 +42,9 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 | Desplegar el portal en Azure | [09 — Despliegue en Azure](09-deploy-azure.md) |
 | Configurar dominio personalizado (portal.itrc.gov.co) | [09 — Despliegue en Azure](09-deploy-azure.md) |
 | Revertir un despliegue defectuoso en Azure | [09 — Despliegue en Azure](09-deploy-azure.md) |
+| Configurar el hosting de documentos (binarios) | [09 — Despliegue en Azure, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios) |
+| Sincronizar binarios a Azure Blob Storage | [09 — Despliegue en Azure, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios) |
+| Desplegar documentos en servidor propio (datacenter) | [09 — Despliegue en Azure, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios) |
 
 ---
 

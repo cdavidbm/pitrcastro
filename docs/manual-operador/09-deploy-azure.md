@@ -384,6 +384,177 @@ A partir de ese momento, cualquier despliegue fallido enviará una notificación
 
 ---
 
+## F. Configuración de documentos (binarios)
+
+### Qué es `DOCS_BASE_URL` y por qué importa
+
+El portal ITRC enlaza aproximadamente 4000 documentos (PDFs, XLSX, imágenes). La dirección base desde la que se sirven todos esos archivos está controlada por una sola variable: `DOCS_BASE_URL`, declarada en `src/config/docs.ts`.
+
+```ts
+// src/config/docs.ts
+export const DOCS_BASE_URL: string =
+  import.meta.env.DOCS_BASE_URL || '/documentos';
+```
+
+Cuando el portal se compila (`npm run build`), esa variable se concatena con la ruta de cada documento para construir la URL definitiva. Cambiar `DOCS_BASE_URL` redirige todos los documentos en la siguiente compilación, sin modificar ningún archivo JSON individualmente.
+
+Los valores posibles son:
+
+| Valor | Escenario |
+|-------|-----------|
+| `""` (vacío) | Transicional — se mantienen las URLs del WordPress de origen |
+| `"/documentos"` | Misma máquina — Nginx sirve los archivos desde esa ruta |
+| `"https://documentos.itrc.gov.co"` | Azure Blob Storage con dominio propio |
+| `"https://portal.itrc.gov.co/documentos"` | Datacenter con subdominio del portal |
+
+> **Nota:** El valor `""` (cadena vacía) se usa durante la fase de transición, mientras los JSONs aún apuntan al WordPress anterior. Una vez ejecutada la reescritura masiva de URLs (fase BIN-4 del proyecto), este valor ya no debe usarse.
+
+---
+
+### Opción 1 — Azure Blob Storage (cuando el portal va a Azure SWA)
+
+Esta opción aplica cuando el portal está desplegado en Azure Static Web Apps según la sección A de este capítulo.
+
+#### Paso 1 — Crear la cuenta de almacenamiento para documentos
+
+1. En Azure Portal, cree una nueva cuenta de almacenamiento:
+   - **Nombre**: `documentositrc` (solo letras minúsculas y números).
+   - **Rendimiento**: `Estándar`.
+   - **Redundancia**: `LRS` es suficiente.
+2. Dentro de la cuenta, cree un contenedor llamado `documentos`:
+   - **Nivel de acceso público**: `Blob` (para que los archivos sean descargables sin autenticación).
+3. Si desea usar el dominio `documentos.itrc.gov.co`, configure Azure CDN y agregue el registro `CNAME` en el DNS institucional apuntando al endpoint del contenedor.
+
+#### Paso 2 — Configurar `DOCS_BASE_URL` en Azure Static Web Apps
+
+1. En Azure Portal, abra el recurso **Static Web Apps** del portal ITRC.
+2. Vaya a **"Configuración"** → **"Variables de entorno de la aplicación"**.
+3. Agregue la variable:
+   - **Nombre**: `DOCS_BASE_URL`
+   - **Valor**: `https://documentos.itrc.gov.co` (o la URL del endpoint del contenedor si no usa dominio personalizado)
+4. Guarde. El siguiente despliegue tomará ese valor durante `npm run build`.
+
+#### Paso 3 — Sincronizar los archivos al contenedor con GitHub Actions
+
+Agregue al workflow de despliegue (`.github/workflows/azure-static-web-apps-*.yml`) un paso adicional que sube los binarios al contenedor. Colóquelo después del paso de instalación de dependencias y antes del despliegue:
+
+```yaml
+- name: Sync documents to Azure Blob Storage
+  env:
+    AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONN_STR }}
+  run: |
+    az storage blob sync \
+      --container-name documentos \
+      --source public/documentos \
+      --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+      --delete-destination true
+```
+
+Para que este paso funcione:
+
+1. Obtenga la cadena de conexión de la cuenta de almacenamiento en Azure Portal → cuenta de almacenamiento → **"Claves de acceso"**.
+2. Agréguela como secreto en GitHub: repositorio → **"Settings"** → **"Secrets and variables"** → **"Actions"** → **"New repository secret"**, con el nombre `AZURE_STORAGE_CONN_STR`.
+3. Asegúrese de que `public/documentos/` esté disponible en el runner. Si los binarios no están en el repositorio (están en `.gitignore`), el paso de sincronización debe ejecutarse desde la máquina del webmaster mediante el procedimiento manual descrito en el Paso 4.
+
+> **Nota importante:** Los 3.2 GB de binarios descargados localmente están en `.gitignore` y no se suben al repositorio git. El Action de sincronización solo puede ejecutarse automáticamente si los binarios están en el repositorio (por ejemplo, con Git LFS) o si se cuenta con un runner auto-hospedado que tenga acceso a ellos. Para la mayoría de los casos, la primera sincronización se hace manualmente según el Paso 4.
+
+#### Paso 4 — Sincronización manual desde la máquina del webmaster
+
+Para la primera carga de los binarios, o cuando el runner no tiene acceso a ellos:
+
+```bash
+# Instale la CLI de Azure si aún no la tiene
+# https://learn.microsoft.com/es-es/cli/azure/install-azure-cli
+
+# Inicie sesión
+az login
+
+# Sincronice la carpeta local al contenedor (solo sube lo que ha cambiado)
+az storage blob sync \
+  --account-name documentositrc \
+  --container-name documentos \
+  --source ./public/documentos \
+  --delete-destination false
+```
+
+El flag `--delete-destination false` evita borrar archivos históricos del contenedor que ya no estén en la copia local. Úselo siempre en sincronizaciones de mantenimiento.
+
+---
+
+### Opción 2 — Mismo servidor (datacenter propio del ITRC)
+
+Esta opción aplica cuando el portal y los binarios se despliegan en un servidor institucional bajo el control del ITRC.
+
+No se requiere ninguna cuenta externa. Nginx (u otro servidor web) sirve los binarios desde el mismo servidor que el portal.
+
+#### Configuración de Nginx
+
+Agregue una directiva `location` en la configuración del servidor para servir los archivos desde la ruta donde estén copiados:
+
+```nginx
+# /etc/nginx/sites-available/portal.itrc.gov.co
+server {
+    listen 443 ssl;
+    server_name portal.itrc.gov.co;
+
+    root /var/www/portal/dist;
+
+    # Binarios institucionales
+    location /documentos/ {
+        alias /var/www/portal/documentos/;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Portal estático
+    location / {
+        try_files $uri $uri/index.html =404;
+    }
+}
+```
+
+#### Procedimiento de despliegue
+
+```bash
+# 1. Compilar el portal (en la máquina de desarrollo o en el servidor CI/CD)
+npm run build
+
+# 2. Subir el portal compilado al servidor
+rsync -av --delete dist/ usuario@servidor.itrc.gov.co:/var/www/portal/dist/
+
+# 3. Subir los binarios (solo en primera carga o cuando haya archivos nuevos)
+rsync -av --ignore-existing \
+  public/documentos/ \
+  usuario@servidor.itrc.gov.co:/var/www/portal/documentos/
+```
+
+El flag `--ignore-existing` en el paso 3 evita resubir archivos que ya están en el servidor. Use `--update` en su lugar si necesita reemplazar versiones más antiguas.
+
+`DOCS_BASE_URL` no requiere ser especificado explícitamente en este escenario porque el valor por defecto en `src/config/docs.ts` ya es `"/documentos"`. Sin embargo, si el equipo técnico usa un pipeline CI/CD, se recomienda declararlo explícitamente para que quede documentado en el historial del pipeline:
+
+```bash
+DOCS_BASE_URL="/documentos" npm run build
+```
+
+---
+
+### Cambiar de escenario en el futuro
+
+Si la agencia decide migrar de datacenter propio a Azure (o viceversa), el único cambio requerido en el código fuente es:
+
+1. Actualizar el valor de `DOCS_BASE_URL` en el entorno de compilación (variable de entorno en Azure SWA, o en el script de CI/CD del datacenter).
+2. Ejecutar `npm run build` y desplegar el resultado.
+3. Asegurarse de que los binarios estén disponibles en la nueva ubicación antes de que el portal entre en producción.
+
+No es necesario modificar ningún JSON de contenido ni ninguna página `.astro`.
+
+---
+
+### Efecto sobre el flujo de trabajo del webmaster
+
+Para el webmaster, el hosting de los binarios es transparente. El flujo de trabajo del [Capítulo 4](04-gestionar-documentos.md) no cambia: basta con colocar el archivo en `public/documentos/` y registrar su ruta relativa en el CMS. El sistema construye la URL completa automáticamente en cada compilación según el escenario configurado.
+
+---
+
 ## Resumen del proceso de migración
 
 ```
@@ -391,6 +562,10 @@ A partir de ese momento, cualquier despliegue fallido enviará una notificación
 2. Crear recurso en Azure Portal    →  Static Web Apps → vincular GitHub
 3. Agregar staticwebapp.config.json →  public/staticwebapp.config.json
 4. Configurar dominio personalizado →  DNS + HTTPS automático
-5. Verificar despliegue             →  Azure Portal → Implementaciones
-6. Desactivar workflow de GitHub Pages → .github/workflows/deploy.yml
+5. Configurar DOCS_BASE_URL         →  Azure SWA: variable de entorno en portal.azure.com
+                                       Datacenter: variable en pipeline o valor por defecto
+6. Sincronizar binarios             →  Azure: az storage blob sync al contenedor
+                                       Datacenter: rsync public/documentos/ al servidor
+7. Verificar despliegue             →  Azure Portal → Implementaciones
+8. Desactivar workflow de GitHub Pages → .github/workflows/deploy.yml
 ```
