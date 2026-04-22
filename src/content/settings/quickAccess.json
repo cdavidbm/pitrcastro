@@ -9,14 +9,14 @@
     },
     {
       "label": "Notificaciones y traslados",
-      "url": "/atencion/notificaciones-traslados",
+      "url": "/notificaciones-y-traslados",
       "icon": "fa-bell",
       "external": false,
       "highlighted": false
     },
     {
       "label": "P.Q.R.S.",
-      "url": "/atencion/pqrs",
+      "url": "/tu-p-q-r-s-al-dia",
       "icon": "fa-comments",
       "external": false,
       "highlighted": false
@@ -30,14 +30,14 @@
     },
     {
       "label": "Notificaciones Judiciales",
-      "url": "mailto:notificaciones@itrc.gov.co",
+      "url": "/correo-electronico-para-notificaciones-judiciales",
       "icon": "fa-gavel",
-      "external": true,
+      "external": false,
       "highlighted": false
     },
     {
       "label": "Carta trato digno",
-      "url": "/documentos/carta-trato-digno.pdf",
+      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/CARTA-TRATO-DIGNO.pdf",
       "icon": "fa-file-pdf",
       "external": true,
       "highlighted": false
