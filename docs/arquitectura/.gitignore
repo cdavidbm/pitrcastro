@@ -1,0 +1,9 @@
+# Fuente LaTeX — el PDF compilado sí se tracked para poder compartirse
+# vía el repo; el .tex queda local-only para el equipo técnico.
+*.tex
+
+# Artefactos intermedios de compilación
+*.aux
+*.log
+*.out
+*.toc
