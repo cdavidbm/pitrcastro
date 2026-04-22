@@ -31,9 +31,14 @@ npm-debug.log*
 # Sveltia CMS (regenerar con: npm run build:cms)
 public/admin/sveltia-cms.js
 
-# Salidas del monitoreo de WordPress origen (scripts/check-itrc-changes.py)
+# Tooling privado de migración y QA (no forma parte del producto final).
+# Incluye: download-binaries, rewrite-urls, audit-links, migrate-*, check-itrc-changes.
+# Si en el futuro se necesitan scripts para el webmaster, agregarlos a
+# package.json scripts o crear docs/ops/ dedicado (tracked).
+scripts/
+
+# Salidas de los scripts anteriores
 reports/
-scripts/.cache/
 
 # Docs de trabajo locales (planificación, tracker, análisis de gaps).
 # Fuente única de contexto para reanudar conversaciones. No suben al remoto.
