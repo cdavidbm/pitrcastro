@@ -52,7 +52,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/direccionamiento-estrategico/planes/>
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/planes/>
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/direccionamiento-estrategico/planes/>
 
 <details>
@@ -111,7 +111,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/direccionamiento-estrategico/informes/>
+- Portal actual: <https://www.itrc.gov.co/Itrc/informes/>
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/direccionamiento-estrategico/informes/>
 
 <details>
@@ -157,7 +157,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/direccionamiento-estrategico/politicas/>
+- Portal actual: <https://www.itrc.gov.co/Itrc/politicas/>
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/direccionamiento-estrategico/politicas/>
 
 <details>
@@ -251,7 +251,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/equipo-directivo/>
+- Portal actual: <https://www.itrc.gov.co/Itrc/perfil-subdirectores/>
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/equipo-directivo/>
 
 <details>
@@ -391,7 +391,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/programa-gestion-documental/>
+- Portal actual: <https://www.itrc.gov.co/Itrc/programa-de-gestion-documental/>
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/programa-gestion-documental/>
 
 <details>
@@ -451,7 +451,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/registro-activos-informacion/>
+- Portal actual: <https://www.itrc.gov.co/Itrc/registro-de-activos-de-informacion/>
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/registro-activos-informacion/>
 
 <details>
@@ -659,7 +659,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-participacion/memorias/conmemoracion-dia-nacional-de-lucha-contra-la-corrupcion/>
+- Portal actual: _(Sin equivalente directo en el portal actual — contenido nuevo del portal)_
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-participacion/memorias/conmemoracion-dia-nacional-de-lucha-contra-la-corrupcion/>
 
 <details>
@@ -671,7 +671,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-participacion/memorias/mamoria-consolidacion-del-observatorio-de-fraude-y-corrupcion-visualizacion-de/>
+- Portal actual: _(Sin equivalente directo en el portal actual — contenido nuevo del portal)_
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-participacion/memorias/mamoria-consolidacion-del-observatorio-de-fraude-y-corrupcion-visualizacion-de/>
 
 <details>
@@ -683,7 +683,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-educacion/memorias/memorias-intervencion-agencia-itrc-en-sesion-9-catedra-unal-construir-cultura/>
+- Portal actual: _(Sin equivalente directo en el portal actual — contenido nuevo del portal)_
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-educacion/memorias/memorias-intervencion-agencia-itrc-en-sesion-9-catedra-unal-construir-cultura/>
 
 <details>
@@ -695,7 +695,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-participacion/memorias/memorias-socializacion-decreto-1600-de-2024/>
+- Portal actual: _(Sin equivalente directo en el portal actual — contenido nuevo del portal)_
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-participacion/memorias/memorias-socializacion-decreto-1600-de-2024/>
 
 <details>
@@ -707,7 +707,7 @@ Para cada página afectada se incluyen dos enlaces:
 
 **Página a revisar:**
 
-- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-educacion/memorias/memoria-intervencion-directora-agencia-itrc-sesion-inaugural-cuarta-version-de/>
+- Portal actual: _(Sin equivalente directo en el portal actual — contenido nuevo del portal)_
 - Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-educacion/memorias/memoria-intervencion-directora-agencia-itrc-sesion-inaugural-cuarta-version-de/>
 
 <details>
