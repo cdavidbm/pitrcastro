@@ -1,6 +1,39 @@
 {
   "entries": [
     {
+      "expediente": "1704-00-2022-172",
+      "tipoAuto": "AUTO TERMINACION Y ARCHIVO DE LA INVESTIGACION",
+      "tipoNotificacion": "Estado",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "09/04/2026",
+      "desde": "15/04/2026",
+      "hasta": "15/04/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/Estado-043-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-157",
+      "tipoAuto": "AUTO DE PRORROGA",
+      "tipoNotificacion": "Estado",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "06/04/2026",
+      "desde": "15/04/2026",
+      "hasta": "15/04/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/Estado-042-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-321",
+      "tipoAuto": "AUTO PARA AVOCAR CONOCIMIENTO",
+      "tipoNotificacion": "Estado",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "09/04/2026",
+      "desde": "15/04/2026",
+      "hasta": "15/04/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/Estado-041-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
       "expediente": "1704-00-2024-126",
       "tipoAuto": "AUTO DE PRORROGA",
       "tipoNotificacion": "Estado",

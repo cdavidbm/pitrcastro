@@ -1,6 +1,39 @@
 {
   "entries": [
     {
+      "expediente": "1704-00-2025-264",
+      "tipoAuto": "Auto DG-SI-002-2026",
+      "tipoNotificacion": "Suspensión Provisional",
+      "dependencia": "Dirección General",
+      "fechaAuto": "18/02/2026",
+      "desde": "24/02/2026",
+      "hasta": "26/02/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/TRASLADO-011-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2020-052",
+      "tipoAuto": "Auto que corre traslado para alegar de conclusión - SDL",
+      "tipoNotificacion": "Alegatos de Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "06/02/2026",
+      "desde": "13/02/2026",
+      "hasta": "24/02/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/TRASLADO-006-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2022-084",
+      "tipoAuto": "Auto de Sustanciación-SDL",
+      "tipoNotificacion": "Informe Patrimonial",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "20/01/2026",
+      "desde": "23/01/2026",
+      "hasta": "27/01/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/TRASLADO-003-2026.pdf",
+      "vigencia": 2026
+    },
+    {
       "expediente": "1704-00-2024-292",
       "tipoAuto": "Auto Cierre de Investigación",
       "tipoNotificacion": "Alegatos Previos",
