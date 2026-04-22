@@ -14,6 +14,11 @@ Este listado reúne esos casos para que cada área revise y decida:
 
 > **Nota importante:** estos problemas ya existían en el portal actual antes de la migración. No son errores del nuevo portal. El nuevo portal documenta cada caso para que pueda corregirse de manera coordinada por las áreas responsables.
 
+Para cada página afectada se incluyen dos enlaces:
+
+- **Portal actual** (`www.itrc.gov.co`): donde se detectó el problema originalmente.
+- **Portal nuevo** (`cdavidbm.github.io/pitrcastro/`): versión migrada ya funcional. Útil para comparar.
+
 **Fecha del reporte:** 2026-04-17
 **Total de archivos afectados:** 255
 
@@ -29,53 +34,33 @@ Este listado reúne esos casos para que cada área revise y decida:
 | Notificaciones | 13 | Documentos PDF |
 | Atención al Ciudadano | 5 | Documentos PDF |
 | Observatorio | 5 | Imágenes |
+| Prensa | 4 | Documentos PDF |
 | Institucional | 3 | Documentos PDF |
-| Prensa | 3 | Documentos PDF |
 | Participa | 3 | Imágenes |
-| Otros | 1 | Imágenes |
 
 ---
 
 ## Detalle por área
 
-Cada sección muestra los archivos que **aparecen enlazados en el portal actual pero no se pueden descargar**. La lista es exhaustiva para facilitar la verificación.
-
 ### Agencia
 
-**Total: 99 archivos.** Distribuido por página:
+**Total: 99 archivos.**
 
-#### Otras páginas de Agencia
+#### Planes (Direccionamiento Estratégico)
 
-**91 archivos faltantes.**
+**44 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/direccionamiento-estrategico/planes/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/direccionamiento-estrategico/planes/>
 
 <details>
-<summary>Ver los 91 archivos .pdf</summary>
+<summary>Ver los 44 archivos .pdf</summary>
 
-- Informe-CI-Dic-2024.pdf
-- Informe-CI-Dic-2025.pdf
-- Informe-CI-Jul-2024.pdf
-- Informe-CI-Jul-2025.pdf
-- Informe-CI-Mar-2024.pdf
-- Informe-CI-Mar-2025.pdf
-- Informe-FURAG-2020.pdf
-- Informe-FURAG-2021.pdf
-- Informe-FURAG-2022.pdf
-- Informe-FURAG-2023.pdf
-- Informe-FURAG-2024.pdf
-- Informe-Gestion-2019.pdf
-- Informe-Gestion-2020.pdf
-- Informe-Gestion-2021.pdf
-- Informe-Gestion-2022.pdf
-- Informe-Gestion-2023.pdf
-- Informe-Gestion-2024.pdf
-- Informe-Gestion-2025.pdf
 - Mapa-Riesgos-Corrupcion-2023.pdf
 - Mapa-Riesgos-Corrupcion-2024.pdf
 - Mapa-Riesgos-Corrupcion-2025.pdf
-- No.-071-Por-la-cual-se-efectua-un-nombramiento-ordinario-Fredy-Wilson-Mancera-Tunarosa.pdf
-- No.-080-Por-la-cual-se-hace-un-nombramiento-en-periodo-de-prueba-en-cumplimiento-de-un-fallo-de-tutela-Darney-Felipe-Ramirez-Bonilla.pdf
-- No.-103-Por-la-cual-se-efectúa-un-nombramiento-ordinario-Juan-Carlos-Urrutia-Ramirez.pdf
-- No.117-Por-la-cual-se-efectua-un-nombramiento-ordinario.pdf
 - PAA-2023.pdf
 - PAA-2024.pdf
 - PAA-2025.pdf
@@ -102,17 +87,6 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 - PIGA-2022.pdf
 - PIGA-2023.pdf
 - PIGA-2024.pdf
-- POLITICA-ADMINISTRACION-DE-RIESGOS-V3.pdf
-- POLITICA-DE-COMUNICACIONES.pdf
-- POLITICA-DE-GESTION-DEL-CONOCIMIENTO-E-INNOVACION.pdf
-- POLITICA-DE-PREVENCION-DEL-DANO-ANTIJURIDICO.pdf
-- POLITICA-DE-RACIONALIZACION-DE-TRAMITES.pdf
-- POLITICA-DE-SEGURIDAD-DIGITAL.pdf
-- POLITICA-DE-SEGURIDAD-Y-SALUD-EN-EL-TRABAJO.pdf
-- POLITICA-DE-TRATAMIENTO-DE-DATOS-PERSONALES.pdf
-- POLITICA-DEL-SISTEMA-INTEGRADO-DE-GESTION.pdf
-- POLITICA-GOBIERNO-DIGITAL.pdf
-- POLITICA-INSTITUCIONAL-DE-GESTION-AMBIENTAL.pdf
 - Plan-Anual-Vacantes-2024.pdf
 - Plan-Anual-Vacantes-2025.pdf
 - Plan-Bienestar-2023.pdf
@@ -128,12 +102,44 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 - Plan-SST-2025.pdf
 - Plan-Tratamiento-Riesgos-2024.pdf
 - Plan-Tratamiento-Riesgos-2025.pdf
+
+</details>
+
+#### Informes (Direccionamiento Estratégico)
+
+**31 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/direccionamiento-estrategico/informes/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/direccionamiento-estrategico/informes/>
+
+<details>
+<summary>Ver los 31 archivos .pdf</summary>
+
+- Informe-CI-Dic-2024.pdf
+- Informe-CI-Dic-2025.pdf
+- Informe-CI-Jul-2024.pdf
+- Informe-CI-Jul-2025.pdf
+- Informe-CI-Mar-2024.pdf
+- Informe-CI-Mar-2025.pdf
+- Informe-FURAG-2020.pdf
+- Informe-FURAG-2021.pdf
+- Informe-FURAG-2022.pdf
+- Informe-FURAG-2023.pdf
+- Informe-FURAG-2024.pdf
+- Informe-Gestion-2019.pdf
+- Informe-Gestion-2020.pdf
+- Informe-Gestion-2021.pdf
+- Informe-Gestion-2022.pdf
+- Informe-Gestion-2023.pdf
+- Informe-Gestion-2024.pdf
+- Informe-Gestion-2025.pdf
 - Rendicion-Cuentas-2020.pdf
 - Rendicion-Cuentas-2021.pdf
 - Rendicion-Cuentas-2022.pdf
 - Rendicion-Cuentas-2023.pdf
 - Rendicion-Cuentas-2024.pdf
-- Resolución-final-SAGR-002-1.pdf
 - Seguimiento-PAI-1T-2024.pdf
 - Seguimiento-PAI-1T-2025.pdf
 - Seguimiento-PAI-2T-2024.pdf
@@ -145,9 +151,40 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 </details>
 
+#### Políticas (Direccionamiento Estratégico)
+
+**11 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/direccionamiento-estrategico/politicas/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/direccionamiento-estrategico/politicas/>
+
+<details>
+<summary>Ver los 11 archivos .pdf</summary>
+
+- POLITICA-ADMINISTRACION-DE-RIESGOS-V3.pdf
+- POLITICA-DE-COMUNICACIONES.pdf
+- POLITICA-DE-GESTION-DEL-CONOCIMIENTO-E-INNOVACION.pdf
+- POLITICA-DE-PREVENCION-DEL-DANO-ANTIJURIDICO.pdf
+- POLITICA-DE-RACIONALIZACION-DE-TRAMITES.pdf
+- POLITICA-DE-SEGURIDAD-DIGITAL.pdf
+- POLITICA-DE-SEGURIDAD-Y-SALUD-EN-EL-TRABAJO.pdf
+- POLITICA-DE-TRATAMIENTO-DE-DATOS-PERSONALES.pdf
+- POLITICA-DEL-SISTEMA-INTEGRADO-DE-GESTION.pdf
+- POLITICA-GOBIERNO-DIGITAL.pdf
+- POLITICA-INSTITUCIONAL-DE-GESTION-AMBIENTAL.pdf
+
+</details>
+
 #### Información Financiera
 
 **6 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/informacion-financiera/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/informacion-financiera/>
 
 <details>
 <summary>Ver los 6 archivos .pdf</summary>
@@ -161,9 +198,45 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 </details>
 
+#### Otras páginas de Agencia
+
+**5 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/nombramientos/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/nombramientos/>
+
+<details>
+<summary>Ver los 4 archivos .pdf</summary>
+
+- No.-071-Por-la-cual-se-efectua-un-nombramiento-ordinario-Fredy-Wilson-Mancera-Tunarosa.pdf
+- No.-080-Por-la-cual-se-hace-un-nombramiento-en-periodo-de-prueba-en-cumplimiento-de-un-fallo-de-tutela-Darney-Felipe-Ramirez-Bonilla.pdf
+- No.-103-Por-la-cual-se-efectúa-un-nombramiento-ordinario-Juan-Carlos-Urrutia-Ramirez.pdf
+- No.117-Por-la-cual-se-efectua-un-nombramiento-ordinario.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/manual-especifico-de-funciones-y-de-competencias-laborales/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/manual-especifico-de-funciones-y-de-competencias-laborales/>
+
+<details>
+<summary>Ver los 1 archivo .pdf</summary>
+
+- Resolución-final-SAGR-002-1.pdf
+
+</details>
+
 #### Sistema Integrado de Gestión
 
 **1 archivo faltante.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/sistema-integrado-de-gestion/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/sistema-integrado-de-gestion/>
 
 <details>
 <summary>Ver los 1 archivo .pdf</summary>
@@ -176,6 +249,11 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 **1 archivo faltante.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/agencia/equipo-directivo/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/agencia/equipo-directivo/>
+
 <details>
 <summary>Ver los 1 archivo .pdf</summary>
 
@@ -187,22 +265,25 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ### Transparencia
 
-**Total: 93 archivos.** Distribuido por página:
+**Total: 93 archivos.**
 
 #### Contratación
 
 **74 archivos faltantes.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/publicacion-de-la-ejecucion-de-contratos/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/publicacion-de-la-ejecucion-de-contratos/>
+
 <details>
-<summary>Ver los 52 archivos .pdf</summary>
+<summary>Ver los 29 archivos .pdf</summary>
 
 - 02.-Acta-de-liquidación-002-de-2019.pdf
 - 08.-Acta-de-liquidación-008-2019.pdf
 - 11.-Informe-final-de-supervisión-011-de-2022.pdf
 - 13.-Informe-final-de-Supervisión-013-de-2022.pdf
 - 18.-Informe-de-supervisión-CPS-018-2020.pdf
-- 20250121-Invitacion-Publica-ITRC-CMC-001-2025.pdf
-- 20250126-Invitacion-Publica-ITRC-CMC-002-2025.pdf
 - 22.-Acta-de-Liquidación-022-de-2020.pdf
 - 27.-INforme-final-de-supervisión-027-de-2022.pdf
 - 29.-Acta-de-Liquidación-029-de-2020.pdf
@@ -227,6 +308,19 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 - 73.-Informe-Final-de-Supervisión-CPS-073-2023.pdf
 - 75.-Informe-final-de-supervisión-075-de-2022.pdf
 - 78.-Informe-final-de-supervisión-078-de-2022.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/contratacion-suscrita/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/contratacion-suscrita/>
+
+<details>
+<summary>Ver los 23 archivos .pdf</summary>
+
+- 20250121-Invitacion-Publica-ITRC-CMC-001-2025.pdf
+- 20250126-Invitacion-Publica-ITRC-CMC-002-2025.pdf
 - Aviso-de-Convocatoria-Publica-CMC-013-2023.pdf
 - CONTRATACION_SUSCRITA_ITRC 2012.pdf
 - CONTRATACION_SUSCRITA_ITRC 2013.pdf
@@ -283,13 +377,68 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 **19 archivos faltantes.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/decretos-de-estructura-salarios-leyes-marco-y-otros/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/decretos-de-estructura-salarios-leyes-marco-y-otros/>
+
 <details>
-<summary>Ver los 17 archivos .pdf</summary>
+<summary>Ver los 1 archivo .pdf</summary>
+
+- 2020-DECRETO-304-DEL-27-DE-FEBRERO-DE-2020.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/programa-gestion-documental/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/programa-gestion-documental/>
+
+<details>
+<summary>Ver los 2 archivos .pdf</summary>
+
+- GAD-RE-005_Programa_de_gestion_documental_PGD.pdf
+- Resolucion-Adopcion-Programa-de-Gestion-Documental-Agencia-ITRC.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/informe-defensa-publica/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/informe-defensa-publica/>
+
+<details>
+<summary>Ver los 1 archivo .pdf</summary>
+
+- Resolución-No.-011-de-23-de-enero-de-2024-Adopta-PPDA-Agencia-ITRC-2024-2025v.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/programas-y-proyectos-en-ejecucion/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/programas-y-proyectos-en-ejecucion/>
+
+<details>
+<summary>Ver los 3 archivos .pdf</summary>
+
+- Seguimiento-a-la-Ejecucion-Proyecto-de-Inversion-2018011000796-I-TRIMESTRE-2024.pdf
+- Seguimiento-a-la-Ejecucion-Proyecto-de-Inversion-2018011000796-III-TRIMESTRE-2023.pdf
+- Seguimiento-a-la-Ejecucion-Proyecto-de-Inversion-2018011000796-IV-TRIMESTRE-2023.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/formatos-o-modelos-de-contratos-o-pliego-tipo/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/formatos-o-modelos-de-contratos-o-pliego-tipo/>
+
+<details>
+<summary>Ver los 10 archivos .pdf</summary>
 
 - 1-Acto-Administrativo-de-la-Contratacion-Directa.pdf
 - 10-Matriz-de-Riesgos.pdf
 - 2-Verificacion-Especificaciones-Tecnicas-codigo-GCO-FT-006.pdf
-- 2020-DECRETO-304-DEL-27-DE-FEBRERO-DE-2020.pdf
 - 3-Formato-Aviso-convocatoria-publica-codigo-GCO-FT-005.pdf
 - 4-Formato-Adenda-codigo-GCO-FT-007-version-4.pdf
 - 5-Formato-aprobacion-de-garantia-codigo-GCO-FT-008.pdf
@@ -297,19 +446,29 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 - 7-Formato-aceptacion-oferta-codigo-GCO-FT-011.pdf
 - 8-Estudios-Previos-codigo-GCO-FT-010-version-7.pdf
 - 9-Formato-Certificacion-Contractual-codigo-GCO-FT-013.pdf
-- GAD-RE-005_Programa_de_gestion_documental_PGD.pdf
-- Resolucion-Adopcion-Programa-de-Gestion-Documental-Agencia-ITRC.pdf
-- Resolución-No.-011-de-23-de-enero-de-2024-Adopta-PPDA-Agencia-ITRC-2024-2025v.pdf
-- Seguimiento-a-la-Ejecucion-Proyecto-de-Inversion-2018011000796-I-TRIMESTRE-2024.pdf
-- Seguimiento-a-la-Ejecucion-Proyecto-de-Inversion-2018011000796-III-TRIMESTRE-2023.pdf
-- Seguimiento-a-la-Ejecucion-Proyecto-de-Inversion-2018011000796-IV-TRIMESTRE-2023.pdf
 
 </details>
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/registro-activos-informacion/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/registro-activos-informacion/>
+
 <details>
-<summary>Ver los 2 archivos .xlsx</summary>
+<summary>Ver los 1 archivo .xlsx</summary>
 
 - 7-1-1-Registro-de-Activos-de-Información.xlsx
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/indice-de-informacion-clasificada-y-reservada/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/indice-de-informacion-clasificada-y-reservada/>
+
+<details>
+<summary>Ver los 1 archivo .xlsx</summary>
+
 - 7-1-2-Índice-de-Información-Clasificada-y-Reservada.xlsx
 
 </details>
@@ -318,11 +477,16 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ### Normativa
 
-**Total: 30 archivos.** Distribuido por página:
+**Total: 30 archivos.**
 
 #### Otras páginas de Normativa
 
 **15 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos/>
 
 <details>
 <summary>Ver los 15 archivos .pdf</summary>
@@ -349,6 +513,11 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 **11 archivos faltantes.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/normativa-aplicada/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/normativa-aplicada/>
+
 <details>
 <summary>Ver los 11 archivos .pdf</summary>
 
@@ -366,9 +535,14 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 </details>
 
-#### Vigencias (resoluciones por año)
+#### Vigencia 2018 (resoluciones)
 
 **4 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/vigencia-2018/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/vigencia-2018/>
 
 <details>
 <summary>Ver los 4 archivos .pdf</summary>
@@ -384,28 +558,55 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ### Notificaciones
 
-**Total: 13 archivos.** Distribuido por página:
+**Total: 13 archivos.**
 
 #### Estados / Traslados / Edictos
 
 **13 archivos faltantes.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/notificaciones-y-traslados/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/notificaciones-y-traslados/>
+
 <details>
-<summary>Ver los 13 archivos .pdf</summary>
+<summary>Ver los 4 archivos .pdf</summary>
+
+- TRASLADO-27.pdf
+- TRASLADO-40.pdf
+- Traslado-No.-018.pdf
+- traslado-no.-030.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/notificaciones-y-traslados/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/notificaciones-y-traslados/>
+
+<details>
+<summary>Ver los 3 archivos .pdf</summary>
 
 - EDICTO-No.-038.pdf
+- Edicto-031_211124.pdf
+- edicto-037-1.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/notificaciones-y-traslados/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/notificaciones-y-traslados/>
+
+<details>
+<summary>Ver los 6 archivos .pdf</summary>
+
 - ESTADO-NO.-023.pdf
 - ESTADO-NO.-073-2023.pdf
-- Edicto-031_211124.pdf
 - Estado-034.pdf
 - Estado-038.pdf
 - Estado-No.-029.pdf
 - Estado-No.-030.pdf
-- TRASLADO-27.pdf
-- TRASLADO-40.pdf
-- Traslado-No.-018.pdf
-- edicto-037-1.pdf
-- traslado-no.-030.pdf
 
 </details>
 
@@ -413,17 +614,33 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ### Atención al Ciudadano
 
-**Total: 5 archivos.** Distribuido por página:
+**Total: 5 archivos.**
 
-#### PQRSD / Notificaciones
+#### PQRSD y canales
 
 **5 archivos faltantes.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/tu-p-q-r-s-al-dia/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/tu-p-q-r-s-al-dia/>
+
 <details>
-<summary>Ver los 5 archivos .pdf</summary>
+<summary>Ver los 2 archivos .pdf</summary>
 
 - Informe-Atención-al-Ciudadano-P.Q.R.S.D.F-Tercer-trimestre-2022..pdf
 - Informe-Atención-al-Ciudadano-P.Q.R.S.D.F.-4to.-Trimestre.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/informe-de-gestion-del-comite-de-conciliacion/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/informe-de-gestion-del-comite-de-conciliacion/>
+
+<details>
+<summary>Ver los 3 archivos .pdf</summary>
+
 - Informe-de-Gestión-Comité-de-Conciliación-Primer-Semestre-2023.pdf
 - Informe-de-Gestión-Comité-de-Conciliación-Primer-Semestre-2024.pdf
 - Informe-de-Gestión-Comité-de-Conciliación-Segundo-Semestre-2023.pdf
@@ -434,21 +651,64 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ### Observatorio
 
-**Total: 5 archivos.** Distribuido por página:
+**Total: 5 archivos.**
 
 #### Material gráfico
 
 **5 archivos faltantes.**
 
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-participacion/memorias/conmemoracion-dia-nacional-de-lucha-contra-la-corrupcion/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-participacion/memorias/conmemoracion-dia-nacional-de-lucha-contra-la-corrupcion/>
+
 <details>
-<summary>Ver los 4 archivos .jpg</summary>
+<summary>Ver los 1 archivo .jpg</summary>
 
 - DIA-NACIONAL-DE-LA-LUCHA-CONTRA-LA-CORRUPCIÓN.jpg
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-participacion/memorias/mamoria-consolidacion-del-observatorio-de-fraude-y-corrupcion-visualizacion-de/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-participacion/memorias/mamoria-consolidacion-del-observatorio-de-fraude-y-corrupcion-visualizacion-de/>
+
+<details>
+<summary>Ver los 1 archivo .jpg</summary>
+
 - EVENTO-CONSOLIDACIÓN-DEL-OBSERVATORIA.jpg
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-educacion/memorias/memorias-intervencion-agencia-itrc-en-sesion-9-catedra-unal-construir-cultura/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-educacion/memorias/memorias-intervencion-agencia-itrc-en-sesion-9-catedra-unal-construir-cultura/>
+
+<details>
+<summary>Ver los 1 archivo .jpg</summary>
+
 - INTERVENCIÓN-DIRECTORA-SESIÓN-9.jpg
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-participacion/memorias/memorias-socializacion-decreto-1600-de-2024/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-participacion/memorias/memorias-socializacion-decreto-1600-de-2024/>
+
+<details>
+<summary>Ver los 1 archivo .jpg</summary>
+
 - STMINHACIENDA-2.jpg
 
 </details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/observatorio/eje-de-educacion/memorias/memoria-intervencion-directora-agencia-itrc-sesion-inaugural-cuarta-version-de/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/observatorio/eje-de-educacion/memorias/memoria-intervencion-directora-agencia-itrc-sesion-inaugural-cuarta-version-de/>
 
 <details>
 <summary>Ver los 1 archivo .png</summary>
@@ -459,44 +719,52 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ---
 
-### Institucional
-
-**Total: 3 archivos.** Distribuido por página:
-
-#### Histórico
-
-**3 archivos faltantes.**
-
-<details>
-<summary>Ver los 3 archivos .pdf</summary>
-
-- Informe-Gestión-Misional-Primer-Semestre-2018.pdf
-- SEGUIMIENTO-OACI..pdf
-- SEGUIMIENTO-Plan-Anticorrupcion-3.pdf
-
-</details>
-
----
-
 ### Prensa
 
-**Total: 3 archivos.** Distribuido por página:
+**Total: 4 archivos.**
 
 #### Noticias y boletines
 
-**2 archivos faltantes.**
+**3 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/comunicados-y-boletines-de-prensa/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/comunicados-y-boletines-de-prensa/>
 
 <details>
-<summary>Ver los 2 archivos .pdf</summary>
+<summary>Ver los 1 archivo .pdf</summary>
+
+- Copia-de-Copia-de-Boletín-de-prensa-005.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/comunicados/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/comunicados/>
+
+<details>
+<summary>Ver los 1 archivo .pdf</summary>
 
 - Comunicado-institucional-No-09-Direcciòn-General.pdf
-- Copia-de-Copia-de-Boletín-de-prensa-005.pdf
+
+</details>
+
+**Archivo fuente:** `src/content/sliders/noticias.json`
+
+<details>
+<summary>Ver los 1 archivo .png</summary>
+
+- COMUNICADO-DE-PRENSA-3-DE-SEPTIEMBRE-2025-1.png
 
 </details>
 
 #### Noticias
 
 **1 archivo faltante.**
+
+**Archivo fuente:** `src/content/news/2023-12-13-boletin-de-prensa-no-001-2023-2.md`
 
 <details>
 <summary>Ver los 1 archivo .pdf]</summary>
@@ -507,13 +775,65 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 ---
 
+### Institucional
+
+**Total: 3 archivos.**
+
+#### Histórico
+
+**3 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/historico-subdireccion-investigaciones-disciplinarias/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/historico-subdireccion-investigaciones-disciplinarias/>
+
+<details>
+<summary>Ver los 1 archivo .pdf</summary>
+
+- Informe-Gestión-Misional-Primer-Semestre-2018.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/historico-sistema-de-control-interno/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/historico-sistema-de-control-interno/>
+
+<details>
+<summary>Ver los 2 archivos .pdf</summary>
+
+- SEGUIMIENTO-OACI..pdf
+- SEGUIMIENTO-Plan-Anticorrupcion-3.pdf
+
+</details>
+
+---
+
 ### Participa
 
-**Total: 3 archivos.** Distribuido por página:
+**Total: 3 archivos.**
 
 #### Participación Ciudadana
 
 **3 archivos faltantes.**
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/participa/rendicion-de-cuentas/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/participa/rendicion-de-cuentas/>
+
+<details>
+<summary>Ver los 1 archivo .pdf</summary>
+
+- Qué-es-la-Rendición-de-Cuentas.pdf
+
+</details>
+
+**Página a revisar:**
+
+- Portal actual: <https://www.itrc.gov.co/Itrc/participa/colaboracion-e-innovacion/>
+- Portal nuevo: <https://cdavidbm.github.io/pitrcastro/participa/colaboracion-e-innovacion/>
 
 <details>
 <summary>Ver los 2 archivos .png</summary>
@@ -523,42 +843,20 @@ Cada sección muestra los archivos que **aparecen enlazados en el portal actual 
 
 </details>
 
-<details>
-<summary>Ver los 1 archivo .pdf</summary>
-
-- Qué-es-la-Rendición-de-Cuentas.pdf
-
-</details>
-
----
-
-### Otros
-
-**Total: 1 archivo.** Distribuido por página:
-
-#### Sin clasificar
-
-**1 archivo faltante.**
-
-<details>
-<summary>Ver los 1 archivo .png</summary>
-
-- COMUNICADO-DE-PRENSA-3-DE-SEPTIEMBRE-2025-1.png
-
-</details>
-
 ---
 
 ## ¿Qué hacer ahora?
 
 Cada responsable de área debería, para cada archivo listado:
 
-1. **Verificar si el archivo existe** en los archivos físicos o digitales del área.
-2. **Decidir la acción**:
+1. **Abrir la página del portal actual** en el enlace *Portal actual* para verificar el contexto.
+2. **Comparar con la página del portal nuevo** en el enlace *Portal nuevo* (ya tiene el contenido migrado salvo los archivos listados).
+3. **Verificar si el archivo existe** en los archivos físicos o digitales del área.
+4. **Decidir la acción**:
    - Si el archivo existe y debe publicarse → enviar al webmaster para cargarlo al nuevo portal.
    - Si el archivo ya no aplica o está desactualizado → confirmar su retiro definitivo.
    - Si existe una versión más reciente → enviarla para reemplazo.
-3. **Comunicar la decisión al webmaster** mediante el canal habitual (correo con instrucciones).
+5. **Comunicar la decisión al webmaster** mediante el canal habitual (correo con instrucciones).
 
 Este listado se actualizará periódicamente conforme cada área vaya resolviendo los casos.
 
@@ -566,4 +864,4 @@ Este listado se actualizará periódicamente conforme cada área vaya resolviend
 
 ## Consultas técnicas
 
-Si se necesita el detalle técnico (URLs completas, ubicación exacta en el código del portal, estado de migración), puede consultarse `REFERENCIAS-FALTANTES.md` o solicitarlo al equipo técnico.
+Si se necesita el detalle técnico (URLs completas de cada archivo, ubicación exacta en el código del portal, estado de migración), puede consultarse `REFERENCIAS-FALTANTES.md` o solicitarlo al equipo técnico.
