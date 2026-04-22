@@ -102,7 +102,7 @@ Si en el futuro la agencia cambia de servidor, el equipo técnico actualiza esa 
 **Lo que NO debe hacer el webmaster:**
 
 - Construir manualmente la URL completa sumando dominios y carpetas.
-- Modificar la variable `DOCS_BASE_URL` — eso es responsabilidad del equipo técnico y se documenta en el [Capítulo 9, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios).
+- Modificar la variable `DOCS_BASE_URL` — eso es responsabilidad del equipo técnico y se documenta en el [Capítulo 9, sección E](09-despliegue-datacenter.md#e-manejo-de-binarios).
 
 ---
 

@@ -1,0 +1,596 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Arquitectura de despliegue — Portal Agencia ITRC
+% ------------------------------------------------------------
+% Compilar con:
+%   pdflatex arquitectura-portal-itrc.tex
+%   pdflatex arquitectura-portal-itrc.tex   (segunda pasada para TOC)
+% Requiere: texlive-latex-base, texlive-fonts-recommended,
+%           texlive-pictures (para TikZ), texlive-lang-spanish
+% ============================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\usetikzlibrary{
+  positioning,
+  shapes.geometric,
+  shapes.misc,
+  arrows.meta,
+  fit,
+  backgrounds,
+  calc
+}
+
+% Colores institucionales ITRC
+\definecolor{itrcNavy}{HTML}{002147}
+\definecolor{itrcGold}{HTML}{B38B40}
+\definecolor{govBlue}{HTML}{0943B5}
+\definecolor{softGray}{HTML}{F5F5F5}
+\definecolor{midGray}{HTML}{888888}
+\definecolor{accentGreen}{HTML}{2E7D32}
+\definecolor{warnRed}{HTML}{C62828}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=itrcNavy,
+  urlcolor=govBlue,
+  citecolor=itrcGold,
+  pdftitle={Arquitectura de despliegue — Portal ITRC},
+  pdfauthor={Equipo técnico Portal ITRC},
+  pdfsubject={Documento técnico de arquitectura},
+  pdfkeywords={ITRC, Astro, JAMstack, nginx, GitHub, Sveltia CMS}
+}
+
+% Títulos institucionales
+\titleformat{\section}
+  {\color{itrcNavy}\Large\bfseries}{\thesection}{0.8em}{}
+  [\vspace{-0.3em}\color{itrcGold}\rule{\linewidth}{1pt}]
+\titleformat{\subsection}
+  {\color{itrcNavy}\large\bfseries}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}
+  {\color{itrcNavy}\normalsize\bfseries}{\thesubsubsection}{0.6em}{}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{itrcNavy}\textbf{Portal ITRC}}
+\fancyhead[R]{\small\color{midGray}Arquitectura de despliegue}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Estilo callouts
+\newtcolorbox{callout}[1][]{
+  colback=softGray,
+  colframe=itrcGold,
+  boxrule=1pt,
+  arc=2pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\bfseries,
+  #1
+}
+\newtcolorbox{warnbox}[1][]{
+  colback=softGray,
+  colframe=warnRed,
+  boxrule=1pt,
+  arc=2pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\bfseries,
+  #1
+}
+
+% Estilos TikZ reutilizables
+\tikzset{
+  nodoPrincipal/.style={
+    rectangle,
+    rounded corners=4pt,
+    draw=itrcNavy,
+    fill=white,
+    line width=1pt,
+    minimum width=3.4cm,
+    minimum height=1.1cm,
+    align=center,
+    font=\small\bfseries,
+    text=itrcNavy
+  },
+  nodoServidor/.style={
+    nodoPrincipal,
+    fill=itrcNavy,
+    text=white
+  },
+  nodoGithub/.style={
+    nodoPrincipal,
+    fill=itrcGold!25,
+    draw=itrcGold
+  },
+  nodoUsuario/.style={
+    rectangle,
+    rounded corners=12pt,
+    draw=govBlue,
+    fill=govBlue!15,
+    line width=1pt,
+    minimum width=2.8cm,
+    minimum height=0.9cm,
+    align=center,
+    font=\small\bfseries,
+    text=govBlue
+  },
+  nodoExterno/.style={
+    rectangle,
+    rounded corners=2pt,
+    draw=midGray,
+    fill=softGray,
+    line width=0.8pt,
+    dashed,
+    minimum width=3cm,
+    minimum height=0.9cm,
+    align=center,
+    font=\footnotesize,
+    text=midGray
+  },
+  flecha/.style={
+    -{Stealth[length=3mm]},
+    line width=0.9pt,
+    draw=itrcNavy
+  },
+  flechaRoja/.style={
+    flecha,
+    draw=warnRed
+  },
+  flechaVerde/.style={
+    flecha,
+    draw=accentGreen
+  },
+  etiqueta/.style={
+    font=\scriptsize,
+    text=midGray,
+    fill=white,
+    inner sep=1pt
+  }
+}
+
+% ============================================================
+\begin{document}
+
+% Portada
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+  {\color{itrcGold}\rule{\linewidth}{2pt}}\\[0.4cm]
+  {\Huge\bfseries\color{itrcNavy} Arquitectura de despliegue\\[0.3cm]}
+  {\LARGE\color{itrcNavy} Portal institucional}\\[0.3cm]
+  {\Large\color{itrcNavy} Agencia ITRC}\\[0.3cm]
+  {\color{itrcGold}\rule{\linewidth}{2pt}}\\[1.5cm]
+
+  {\large Documento técnico de referencia}\\[0.3cm]
+  {\small Dirigido a equipo de infraestructura y administradores del sitio}\\[3cm]
+
+  \begin{tcolorbox}[
+    colback=softGray,
+    colframe=itrcNavy,
+    boxrule=1pt,
+    width=0.75\linewidth,
+    arc=3pt
+  ]
+  \textbf{Contenido del documento:}
+  \begin{itemize}[leftmargin=*, noitemsep, topsep=2pt]
+    \item Migración de WordPress a JAMstack (Astro + Sveltia CMS)
+    \item Arquitectura de despliegue sobre servidor propio (Ubuntu + nginx)
+    \item Flujo de trabajo Git con múltiples webmasters
+    \item Autenticación y administración de usuarios
+    \item Manejo de contenido estático y binarios
+  \end{itemize}
+  \end{tcolorbox}
+
+  \vfill
+  {\small\color{midGray} Versión 1.0 \textbar{} 2026}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ============================================================
+\section{Resumen ejecutivo}
+
+El portal institucional de la Agencia ITRC migró desde una arquitectura WordPress (dinámica, basada en base de datos MySQL y PHP) hacia una arquitectura \textbf{JAMstack} basada en el generador de sitios estáticos \href{https://astro.build}{Astro} y el gestor de contenido \href{https://github.com/sveltia/sveltia-cms}{Sveltia CMS}. El portal se despliega sobre el servidor institucional del ITRC (Ubuntu con nginx).
+
+\begin{callout}[title=Cambios clave respecto al modelo anterior]
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item \textbf{Sin base de datos}: todo el contenido es archivos JSON y Markdown versionados en Git.
+  \item \textbf{Sin PHP}: el servidor únicamente sirve archivos estáticos (HTML, CSS, JS, PDF, imágenes).
+  \item \textbf{Git como fuente de verdad}: cada cambio es un \textit{commit} con trazabilidad y posibilidad de \textit{rollback}.
+  \item \textbf{Despliegue automatizado}: cada \texttt{git push} a la rama principal dispara la publicación en el servidor.
+  \item \textbf{Múltiples webmasters}: cada uno con cuenta GitHub propia y acceso auditado.
+\end{itemize}
+\end{callout}
+
+\subsection{Componentes principales}
+
+\begin{center}
+\begin{tabular}{@{}lp{10cm}@{}}
+\toprule
+\textbf{Componente} & \textbf{Rol} \\
+\midrule
+\textbf{Astro} & Generador de sitio estático. Transforma archivos JSON/MD en HTML. \\
+\textbf{Sveltia CMS} & Panel de administración visual (editor de contenido) que commitea al repo Git. \\
+\textbf{GitHub} & Almacenamiento del código, control de versiones, y orquestador de despliegues. \\
+\textbf{GitHub Actions} & Pipeline CI/CD que construye y sube el sitio al servidor. \\
+\textbf{Ubuntu + nginx} & Servidor institucional que sirve los archivos al usuario final. \\
+\textbf{OAuth Proxy} & Intermediario que permite al CMS autenticarse contra GitHub. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+
+% ============================================================
+\section{Diagrama de arquitectura}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=1.1cm and 1.4cm,
+  every node/.style={align=center}
+]
+  % Webmaster
+  \node[nodoUsuario] (webmaster) {Webmaster\\\footnotesize local};
+
+  % VS Code / navegador
+  \node[nodoPrincipal, right=of webmaster, minimum width=2.7cm] (vscode)
+    {VS Code\\\footnotesize edición directa};
+  \node[nodoPrincipal, above=0.4cm of vscode, minimum width=2.7cm] (sveltia)
+    {Sveltia CMS\\\footnotesize /admin};
+
+  % GitHub
+  \node[nodoGithub, right=2.2cm of vscode] (github)
+    {GitHub\\\footnotesize repo + Actions};
+
+  % OAuth proxy
+  \node[nodoExterno, above=0.4cm of github] (oauth)
+    {OAuth Proxy\\(Cloudflare)};
+
+  % GitHub Action
+  \node[nodoGithub, below=0.4cm of github, fill=itrcGold!10] (action)
+    {GitHub Action\\\footnotesize build + SSH};
+
+  % Servidor
+  \node[nodoServidor, right=2.2cm of action] (server)
+    {Servidor Ubuntu\\\footnotesize nginx + TLS};
+
+  % Usuarios finales
+  \node[nodoUsuario, above=1.5cm of server, text=accentGreen, draw=accentGreen, fill=accentGreen!10] (public)
+    {Ciudadanía\\\footnotesize navegador};
+
+  % === FLECHAS ===
+  % Webmaster a sus herramientas
+  \draw[flecha] (webmaster) -- (vscode) node[etiqueta, midway, below] {usa};
+  \draw[flecha] (webmaster) to[bend left=15] (sveltia.west);
+
+  % Sveltia usa GitHub
+  \draw[flecha, dashed] (sveltia.east) to[bend left=10] node[etiqueta, above] {OAuth} (oauth.west);
+  \draw[flecha, dashed] (oauth.east) to[bend left=10] (github.north);
+
+  % VS Code y Sveltia a GitHub
+  \draw[flecha] (vscode) -- (github) node[etiqueta, midway, above] {git push};
+  \draw[flecha] (sveltia.east) -- ++(0.6,0) |- (github.north west) node[etiqueta, pos=0.75, above] {commit API};
+
+  % GitHub activa Action
+  \draw[flecha] (github) -- (action) node[etiqueta, midway, right] {trigger};
+
+  % Action despliega a servidor
+  \draw[flechaVerde] (action) -- (server) node[etiqueta, midway, above, text=accentGreen] {SSH + rsync};
+
+  % Servidor sirve al público
+  \draw[flechaVerde] (server) -- (public) node[etiqueta, midway, right, text=accentGreen] {HTTPS};
+
+  % === Contenedores ===
+  \begin{pgfonlayer}{background}
+    \node[rectangle, rounded corners=4pt, fill=govBlue!5, draw=govBlue!30,
+          inner sep=10pt, fit=(webmaster)(sveltia)(vscode),
+          label={[govBlue]above:Máquina del webmaster}] {};
+    \node[rectangle, rounded corners=4pt, fill=itrcGold!5, draw=itrcGold!30,
+          inner sep=10pt, fit=(github)(action)(oauth),
+          label={[itrcGold]above:GitHub (nube)}] {};
+    \node[rectangle, rounded corners=4pt, fill=itrcNavy!5, draw=itrcNavy!30,
+          inner sep=10pt, fit=(server)(public),
+          label={[itrcNavy]above:Infraestructura ITRC}] {};
+  \end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+\begin{callout}[title=Cómo leer el diagrama]
+Las flechas \textcolor{itrcNavy}{\textbf{azules continuas}} representan acciones del usuario o del sistema. Las \textcolor{itrcNavy}{\textbf{azules punteadas}} representan handshakes de autenticación. Las flechas \textcolor{accentGreen}{\textbf{verdes}} representan el camino final del contenido publicado hasta la ciudadanía.
+\end{callout}
+
+\newpage
+
+% ============================================================
+\section{Flujo de publicación paso a paso}
+
+\subsection{Escenario 1: Webmaster edita con VS Code}
+
+Aplica cuando el webmaster realiza cambios estructurales o bulk edits que no son prácticos desde el CMS.
+
+\begin{enumerate}[leftmargin=*]
+  \item El webmaster ejecuta \texttt{git pull} en su copia local para sincronizarse con los cambios más recientes.
+  \item Abre el proyecto en VS Code y modifica archivos: JSON de contenido, imágenes en \texttt{public/}, o código del portal.
+  \item Ejecuta \texttt{npm run dev} localmente para previsualizar cambios en \texttt{http://localhost:4321}.
+  \item Satisfecho con el resultado, ejecuta \texttt{git commit} y \texttt{git push}.
+  \item GitHub recibe el push y dispara automáticamente el workflow de GitHub Actions.
+  \item El Action construye el sitio (\texttt{npm run build}) y sube los archivos al servidor vía SSH+rsync.
+  \item nginx comienza a servir la nueva versión. Tiempo total: 2 a 4 minutos.
+\end{enumerate}
+
+\subsection{Escenario 2: Webmaster edita con Sveltia CMS}
+
+Aplica para el flujo cotidiano: publicar noticias, actualizar documentos, cambiar banners, modificar textos.
+
+\begin{enumerate}[leftmargin=*]
+  \item El webmaster navega a \texttt{https://portal.itrc.gov.co/admin} en su navegador.
+  \item Hace clic en \textit{Login with GitHub}. El flujo OAuth lo lleva a autenticarse con su cuenta.
+  \item Una vez autenticado, ve el panel del CMS con las colecciones (noticias, páginas, slider, etc.).
+  \item Realiza los cambios necesarios usando el editor visual.
+  \item Hace clic en \textit{Publish}. Sveltia CMS crea automáticamente un commit en el repo con la autoría de su cuenta GitHub.
+  \item A partir del paso 5 del escenario 1: GitHub Action dispara, construye, despliega.
+\end{enumerate}
+
+\begin{callout}[title=Trazabilidad]
+Cada commit (ya sea hecho por VS Code o por Sveltia CMS) queda registrado en el historial Git con autor, fecha, y descripción. Esto permite auditar quién publicó qué y cuándo, sin necesidad de sistemas externos.
+\end{callout}
+
+\newpage
+
+% ============================================================
+\section{Configuración del servidor (Ubuntu + nginx)}
+
+\subsection{Requisitos mínimos del servidor}
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Componente} & \textbf{Versión sugerida} \\
+\midrule
+Sistema operativo & Ubuntu Server 22.04 LTS o superior \\
+nginx & 1.18 o superior \\
+Espacio en disco & Mínimo 10 GB (actual: $\sim$4 GB, con margen) \\
+RAM & Mínimo 1 GB (el sitio no requiere más que esto) \\
+CPU & Cualquier CPU moderno (el servidor solo sirve estáticos) \\
+Puertos & 80 y 443 abiertos al público; 22 solo para administración \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Usuario de despliegue}
+
+Se crea un usuario específico para los despliegues automatizados, sin privilegios \texttt{sudo}:
+
+\begin{verbatim}
+sudo useradd -m -s /bin/bash portal-deploy
+sudo mkdir -p /var/www/portal.itrc.gov.co
+sudo chown portal-deploy:www-data /var/www/portal.itrc.gov.co
+sudo chmod 755 /var/www/portal.itrc.gov.co
+\end{verbatim}
+
+La clave pública SSH del workflow de GitHub Actions se añade a\\\texttt{/home/portal-deploy/.ssh/authorized\_keys}.
+
+\subsection{Configuración nginx mínima}
+
+Archivo \texttt{/etc/nginx/sites-available/portal.itrc.gov.co}:
+
+\begin{small}
+\begin{verbatim}
+server {
+    listen 80;
+    server_name portal.itrc.gov.co;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name portal.itrc.gov.co;
+
+    root /var/www/portal.itrc.gov.co;
+    index index.html;
+
+    ssl_certificate     /etc/letsencrypt/live/portal.itrc.gov.co/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/portal.itrc.gov.co/privkey.pem;
+
+    # Headers de seguridad
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Strict-Transport-Security "max-age=31536000" always;
+
+    # Compresión
+    gzip on;
+    gzip_types text/plain text/css application/javascript application/json;
+
+    # Cache para assets estáticos
+    location /_astro/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+    location /documentos/ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    # Rutas del portal
+    location / {
+        try_files $uri $uri.html $uri/index.html =404;
+    }
+}
+\end{verbatim}
+\end{small}
+
+El certificado TLS se obtiene gratuitamente con Let's Encrypt vía \texttt{certbot}.
+
+\newpage
+
+% ============================================================
+\section{Autenticación y administración de usuarios}
+
+\subsection{Modelo de cuentas}
+
+Cada webmaster de la institución cuenta con una \textbf{cuenta personal de GitHub}. No se comparten credenciales entre personas. Las razones son:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Trazabilidad}: todos los commits en el historial quedan asociados a un nombre real.
+  \item \textbf{Seguridad}: si una cuenta se compromete, se revoca su acceso individualmente sin afectar al resto.
+  \item \textbf{Escalabilidad}: añadir o retirar personas es cuestión de un clic, sin pasar por el equipo técnico cada vez.
+  \item \textbf{Auditoría}: cualquier auditoría posterior puede reconstruir quién hizo qué con precisión.
+\end{itemize}
+
+\subsection{Flujo de autenticación (OAuth con GitHub)}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=0.9cm,
+  every node/.style={align=center, font=\footnotesize}
+]
+  \node[nodoUsuario, minimum width=2.3cm] (u) {Webmaster};
+  \node[nodoPrincipal, right=1.4cm of u, minimum width=2.6cm] (cms) {Sveltia CMS\\(/admin)};
+  \node[nodoExterno, right=1.4cm of cms, minimum width=2.6cm] (proxy) {OAuth Proxy};
+  \node[nodoGithub, right=1.4cm of proxy, minimum width=2.6cm] (gh) {GitHub};
+
+  \draw[flecha] (u) -- (cms) node[etiqueta, midway, above] {1};
+  \draw[flecha] (cms) -- (proxy) node[etiqueta, midway, above] {2};
+  \draw[flecha] (proxy) -- (gh) node[etiqueta, midway, above] {3};
+  \draw[flecha, dashed, bend right=20] (gh.south) to node[etiqueta, midway, below] {4. token} (cms.south);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[leftmargin=*]
+  \item El webmaster entra al CMS y solicita login.
+  \item El CMS redirige al OAuth Proxy (aloja credenciales de la app OAuth registrada en GitHub).
+  \item El Proxy redirige a GitHub para que el usuario autorice.
+  \item GitHub entrega un token al CMS via el Proxy. El CMS queda autenticado durante la sesión (típicamente 8 horas).
+\end{enumerate}
+
+\subsection{Alta de un webmaster nuevo}
+
+El procedimiento, a cargo del coordinador técnico:
+
+\begin{enumerate}[leftmargin=*]
+  \item El webmaster crea (o ya tiene) una cuenta personal en \href{https://github.com}{github.com}. Se recomienda usar el correo institucional.
+  \item El coordinador accede al repositorio del portal en GitHub, en la sección \textit{Settings → Collaborators}, y añade al nuevo webmaster con el rol \textbf{Write}.
+  \item GitHub envía una invitación por correo. El webmaster la acepta.
+  \item El webmaster prueba entrar a \texttt{https://portal.itrc.gov.co/admin} y hacer login. Si llega al dashboard, está listo.
+\end{enumerate}
+
+\subsection{Roles sugeridos}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Rol GitHub} & \textbf{Puede hacer} & \textbf{Para quién} \\
+\midrule
+\textit{Admin} & Todo + gestionar colaboradores & 1–2 coordinadores técnicos \\
+\textit{Maintain} & Push + gestionar issues & Coordinadores de contenido \\
+\textit{Write} & Push a main (suficiente para CMS) & Webmasters regulares \\
+\textit{Read} & Solo lectura & Auditoría, visores externos \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Baja de un webmaster}
+
+Al retirar a una persona:
+\begin{itemize}[leftmargin=*]
+  \item Se remueve su acceso en \textit{Settings → Collaborators → Remove}.
+  \item Los commits previos quedan en el historial (no se eliminan, por auditoría).
+  \item No se revoca la aplicación OAuth: está asociada al portal, no a la persona.
+\end{itemize}
+
+\subsection{Buenas prácticas de seguridad}
+
+\begin{itemize}[leftmargin=*]
+  \item Exigir \textbf{autenticación en dos pasos (2FA)} en todas las cuentas que tengan acceso al repo.
+  \item Revisar trimestralmente la lista de colaboradores y retirar accesos inactivos.
+  \item El \textit{Client Secret} del OAuth App nunca debe aparecer en código ni en commits.
+  \item Ante sospecha de cuenta comprometida: remover acceso inmediato, cambio de contraseña y rotación de 2FA por parte del usuario, y reincorporación controlada.
+\end{itemize}
+
+\newpage
+
+% ============================================================
+\section{Consideraciones operativas}
+
+\subsection{Manejo de binarios}
+
+Los archivos binarios del portal (PDFs, hojas de cálculo, imágenes, audios, videos) residen en el directorio \texttt{public/documentos/} del repositorio y están \textbf{versionados junto al código}. Esto implica:
+
+\begin{itemize}[leftmargin=*]
+  \item Cualquier archivo subido por Sveltia CMS se commitea automáticamente al repo.
+  \item El clon inicial del repositorio es del orden de $\sim$3.5 GB. Esto es una sola vez; los \texttt{pull} posteriores solo transmiten cambios.
+  \item La ventaja: una única fuente de verdad para contenido y binarios.
+  \item La ruta de servido se controla por la variable \texttt{DOCS\_BASE\_URL} en el código. Para despliegue en servidor propio, el valor es \texttt{/documentos}.
+\end{itemize}
+
+\subsection{Rollback (revertir un cambio)}
+
+Si se publica un cambio erróneo:
+\begin{enumerate}[leftmargin=*]
+  \item Identificar el commit problemático con \texttt{git log --oneline}.
+  \item Ejecutar \texttt{git revert <hash>} — esto crea un nuevo commit que deshace los cambios.
+  \item \texttt{git push}. El GitHub Action despliega la versión restaurada en 2–4 minutos.
+\end{enumerate}
+
+\begin{warnbox}[title=Nunca forzar el historial]
+\textbf{No usar \texttt{git push --force}} sobre la rama principal. El historial es auditable y debe preservarse. La forma correcta de deshacer cambios publicados es siempre con \texttt{git revert}, que deja evidencia de la corrección en el log.
+\end{warnbox}
+
+\subsection{Monitoreo y logs}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Logs de nginx}: \texttt{/var/log/nginx/access.log} y \texttt{error.log} en el servidor. Rotación semanal estándar.
+  \item \textbf{Estado de despliegues}: pestaña \textit{Actions} del repositorio en GitHub, cada workflow se registra con éxito/fallo.
+  \item \textbf{Disponibilidad}: monitoreo externo opcional (uptime pings) hacia \texttt{portal.itrc.gov.co}.
+\end{itemize}
+
+\subsection{Respaldos}
+
+El modelo provee respaldo implícito:
+\begin{itemize}[leftmargin=*]
+  \item El repositorio en GitHub es un backup por sí mismo (replicado en infraestructura GitHub).
+  \item Cada webmaster con su clon local tiene otra copia completa.
+  \item El historial Git permite restaurar cualquier versión anterior por fecha o commit.
+  \item Para infraestructura crítica, el coordinador puede configurar adicionalmente un \texttt{git clone --mirror} periódico en un servidor institucional secundario.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+\section*{Referencias}
+\addcontentsline{toc}{section}{Referencias}
+
+\begin{itemize}[leftmargin=*]
+  \item Astro: \url{https://astro.build}
+  \item Sveltia CMS: \url{https://github.com/sveltia/sveltia-cms}
+  \item nginx documentation: \url{https://nginx.org/en/docs/}
+  \item Let's Encrypt / Certbot: \url{https://certbot.eff.org}
+  \item GitHub Actions: \url{https://docs.github.com/actions}
+  \item Manual del operador (portal ITRC): \texttt{docs/manual-operador/README.md} en el repo
+\end{itemize}
+
+\vfill
+\begin{center}
+  \color{itrcGold}\rule{0.5\linewidth}{1pt}\\[0.2cm]
+  {\small\color{midGray} Documento generado como parte del proceso de migración del portal ITRC.\\ Ante dudas técnicas, consultar al equipo de TI del ITRC.}
+\end{center}
+
+\end{document}

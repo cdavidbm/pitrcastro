@@ -16,7 +16,8 @@ Manual de referencia para el webmaster o persona responsable de mantener el cont
 | 06 | [Modificar páginas institucionales](06-modificar-paginas.md) | Editar textos, contacto, menú y accesos rápidos |
 | 07 | [Edición directa en VS Code](07-edicion-directa-vscode.md) | Cuándo y cómo editar los archivos fuente sin pasar por el CMS |
 | 08 | [Mantenimiento con Git](08-mantenimiento-git.md) | Flujo diario de trabajo, resolución de conflictos y respaldo |
-| 09 | [Despliegue en Azure](09-deploy-azure.md) | Migrar el portal a Azure Static Web Apps o Blob Storage, CI/CD, flujo multi-webmaster y configuración de hosting de documentos |
+| 09 | [Despliegue en datacenter propio (Ubuntu + nginx)](09-despliegue-datacenter.md) | Configuración del servidor institucional, pipeline SSH con GitHub Actions, manejo de binarios en git y flujo multi-webmaster |
+| 10 | [Autenticación Sveltia CMS con GitHub](10-autenticacion-sveltia-github.md) | Configurar OAuth, crear y retirar cuentas de webmaster, roles de acceso y buenas prácticas de seguridad |
 
 ---
 
@@ -39,12 +40,14 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 | Hacer cambios masivos en varios archivos a la vez | [07 — Edición directa VS Code](07-edicion-directa-vscode.md) |
 | Sincronizar cambios con el servidor / repositorio | [08 — Mantenimiento Git](08-mantenimiento-git.md) |
 | Resolver un conflicto cuando dos personas editaron lo mismo | [08 — Mantenimiento Git](08-mantenimiento-git.md) |
-| Desplegar el portal en Azure | [09 — Despliegue en Azure](09-deploy-azure.md) |
-| Configurar dominio personalizado (portal.itrc.gov.co) | [09 — Despliegue en Azure](09-deploy-azure.md) |
-| Revertir un despliegue defectuoso en Azure | [09 — Despliegue en Azure](09-deploy-azure.md) |
-| Configurar el hosting de documentos (binarios) | [09 — Despliegue en Azure, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios) |
-| Sincronizar binarios a Azure Blob Storage | [09 — Despliegue en Azure, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios) |
-| Desplegar documentos en servidor propio (datacenter) | [09 — Despliegue en Azure, sección F](09-deploy-azure.md#f-configuración-de-documentos-binarios) |
+| Desplegar el portal en el servidor del ITRC | [09 — Despliegue en datacenter](09-despliegue-datacenter.md) |
+| Configurar dominio personalizado (portal.itrc.gov.co) | [09 — Despliegue en datacenter, sección C](09-despliegue-datacenter.md#c-configuración-nginx) |
+| Revertir un despliegue defectuoso | [09 — Despliegue en datacenter, sección G](09-despliegue-datacenter.md#g-rollback-y-monitoreo) |
+| Configurar el hosting de documentos (binarios) | [09 — Despliegue en datacenter, sección E](09-despliegue-datacenter.md#e-manejo-de-binarios) |
+| Configurar GitHub Actions para despliegue SSH | [09 — Despliegue en datacenter, sección D](09-despliegue-datacenter.md#d-github-action-de-despliegue) |
+| Preparar el servidor Ubuntu para el portal | [09 — Despliegue en datacenter, sección B](09-despliegue-datacenter.md#b-preparación-del-servidor-ubuntu) |
+| Dar acceso al CMS a un nuevo webmaster | [10 — Autenticación, sección F](10-autenticacion-sveltia-github.md#f-administración-de-webmasters--alta-de-usuarios) |
+| Retirar acceso al CMS a un webmaster que se va | [10 — Autenticación, sección G](10-autenticacion-sveltia-github.md#g-baja-de-usuarios--retiro-de-webmasters) |
 
 ---
 
