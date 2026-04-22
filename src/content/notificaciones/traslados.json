@@ -1,6 +1,39 @@
 {
   "entries": [
     {
+      "expediente": "1704-00-2022-065",
+      "tipoAuto": "Auto que corre traslado para alegar conclusión - SDL",
+      "tipoNotificacion": "Alegatos de Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "14/04/2026",
+      "desde": "21/04/2026",
+      "hasta": "05/05/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/TRASLADO-024-20262_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-321",
+      "tipoAuto": "Auto Para Avocar Conocimiento",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "09/04/2026",
+      "desde": "16/04/2026",
+      "hasta": "29/04/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/Traslado-025-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2024-260",
+      "tipoAuto": "Auto Interlocutorio",
+      "tipoNotificacion": "Informe Patrimonial",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "13/03/2026",
+      "desde": "25/03/2026",
+      "hasta": "27/03/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/TRASLADO-021-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
       "expediente": "1704-00-2025-264",
       "tipoAuto": "Auto DG-SI-002-2026",
       "tipoNotificacion": "Suspensión Provisional",

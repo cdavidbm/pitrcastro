@@ -7,33 +7,24 @@
     {
       "image": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/COMUNICADO-DE-PRENSA-18-DE-SEPTIEMBRE-2025.png",
       "imageAlt": "ITRC detecta riesgo de pérdida de $942.000 millones",
-      "title": "ITRC detecta riesgo de pérdida de $942.000 millones",
-      "subtitle": "Comunicado de prensa",
-      "description": "Auditoría técnica a la UGPP encontró fallas críticas en programas PAEF y PAP durante la pandemia",
+      "overlay": false,
       "link": "/prensa/noticias/2025-09-18-detecta-riesgo-recursos-pandemia",
-      "linkText": "Leer noticia completa",
       "active": true,
       "order": 1
     },
     {
       "image": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/COMUNICADO-DE-PRENSA-3-DE-SEPTIEMBRE-2025-1.png",
       "imageAlt": "Balance positivo en la lucha contra la corrupción",
-      "title": "Balance positivo contra la corrupción",
-      "subtitle": "Resultados de gestión",
-      "description": "La Agencia ITRC presenta positivo balance en la lucha contra la corrupción",
+      "overlay": false,
       "link": "/prensa/noticias/2025-09-03-agencia-itrc-presenta-positivo-balance-en-la-lucha-contra",
-      "linkText": "Ver resultados",
       "active": true,
       "order": 2
     },
     {
       "image": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/PALMIRA-BANNER.jpeg",
       "imageAlt": "Encuentro Regional de Vigilancia en Valle del Cauca",
-      "title": "Encuentro Regional en Valle del Cauca",
-      "subtitle": "Vigilancia regional",
-      "description": "El Valle del Cauca será escenario del Encuentro Regional de Vigilancia",
+      "overlay": false,
       "link": "/prensa/noticias/2026-02-10-el-valle-del-cauca-sera-escenario-del-encuentro",
-      "linkText": "Leer más",
       "active": true,
       "order": 3
     }

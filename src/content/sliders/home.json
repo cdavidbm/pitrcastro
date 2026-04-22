@@ -5,6 +5,13 @@
   "interval": 6000,
   "slides": [
     {
+      "image": "/images/slider-dia-de-la-tierra.jpg",
+      "imageAlt": "Día Mundial de la Tierra",
+      "overlay": false,
+      "active": true,
+      "order": 0
+    },
+    {
       "image": "/images/slider-transparencia.jpg",
       "imageAlt": "Participa en la construcción del Programa de Transparencia",
       "overlay": false,

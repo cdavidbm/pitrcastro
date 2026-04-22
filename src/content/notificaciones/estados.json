@@ -1,6 +1,28 @@
 {
   "entries": [
     {
+      "expediente": "1704-00-2024-088",
+      "tipoAuto": "AUTO REMISION POR COMPETENCIA",
+      "tipoNotificacion": "Estado",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "09/04/2026",
+      "desde": "21/04/2026",
+      "hasta": "21/04/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/ESTADO-045-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2021-244",
+      "tipoAuto": "AUTO TERMINACION Y ARCHIVO DE LA INVESTIGACION",
+      "tipoNotificacion": "Estado",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "13/04/2026",
+      "desde": "21/04/2026",
+      "hasta": "21/04/2026",
+      "pdfUrl": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/ESTADO-044-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
       "expediente": "1704-00-2022-172",
       "tipoAuto": "AUTO TERMINACION Y ARCHIVO DE LA INVESTIGACION",
       "tipoNotificacion": "Estado",
