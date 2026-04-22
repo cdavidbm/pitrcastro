@@ -1,0 +1,6 @@
+# PDF output — se regenera con pdflatex
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
