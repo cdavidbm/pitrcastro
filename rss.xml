@@ -5,9 +5,16 @@
     <link>https://cdavidbm.github.io/</link>
     <description>Portal oficial de la Agencia ITRC - Inspector General de Tributos, Rentas y Contribuciones Parafiscales de Colombia</description>
     <language>es-CO</language>
-    <lastBuildDate>Wed, 22 Apr 2026 23:07:40 GMT</lastBuildDate>
-    <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+    <lastBuildDate>Thu, 30 Apr 2026 18:58:29 GMT</lastBuildDate>
+    <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
     <atom:link href="https://cdavidbm.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>La Agencia ITRC fortalece el control tributario en departamento del Chocó con acciones de inspección y mejora institucional</title>
+      <link>https://cdavidbm.github.io/news/2026-04-22-la-agencia-itrc-fortalece-el-control-tributario-en</link>
+      <guid>https://cdavidbm.github.io/news/2026-04-22-la-agencia-itrc-fortalece-el-control-tributario-en</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>La Agencia de la Inspectora General de Tributos, Rentas y Contribuciones Parafiscales -ITRC, adelantó nueve inspecciones a la Dirección Seccional de Impuestos y Aduanas del departamento del Chocó, en el marco de su labor de vigilancia para garantizar la transparencia, la eficiencia administrativa y la adecuada gestión de los recursos públicos.</description>
+    </item>
     <item>
       <title>¡Nunca más hacia atrás!: La Agencia ITRC se une a la Conmemoración del Día Nacional de la Memoria y Solidaridad con las Víctimas del Conflicto Armado</title>
       <link>https://cdavidbm.github.io/news/2026-04-10-nunca-mas-hacia-atras-la-agencia-itrc-se-une-a-la</link>
@@ -350,13 +357,6 @@
       <guid>https://cdavidbm.github.io/news/2022-07-29-boletin-de-prensa-no-002-2022</guid>
       <pubDate>Fri, 29 Jul 2022 00:00:00 GMT</pubDate>
       <description>La Agencia ITRC presentó los resultados del proceso de consolidación de su Observatorio de Fraude y Corrupción Boletín de Prensa 002 - 29 de julio de 2022...</description>
-    </item>
-    <item>
-      <title>Boletín de Prensa No 001 2022</title>
-      <link>https://cdavidbm.github.io/news/2022-02-14-boletin-de-prensa-no-001-2022</link>
-      <guid>https://cdavidbm.github.io/news/2022-02-14-boletin-de-prensa-no-001-2022</guid>
-      <pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate>
-      <description>Boletín de Prensa 001 - 14 de febrero de 2022 Agencia ITRC realiza modificación de estructura misional disciplinaria La Agencia del Inspector General de...</description>
     </item>
   </channel>
 </rss>
