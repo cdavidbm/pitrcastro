@@ -12,16 +12,16 @@
       "order": 0
     },
     {
-      "image": "/images/slider-transparencia.jpg",
-      "imageAlt": "Participa en la construcción del Programa de Transparencia",
+      "image": "/images/slider-transparencia-2026.jpg",
+      "imageAlt": "Participa en la construcción del Programa de Transparencia y Ética Pública de la Agencia ITRC",
       "overlay": false,
       "link": "/transparencia",
       "active": true,
       "order": 1
     },
     {
-      "image": "/images/slider-plan-accion.jpg",
-      "imageAlt": "Participa en la construcción del Plan de Acción 2025",
+      "image": "/images/slider-plan-accion-2026.jpg",
+      "imageAlt": "Participa en la construcción del Plan de Acción 2025 de la Agencia ITRC",
       "overlay": false,
       "active": true,
       "order": 2
