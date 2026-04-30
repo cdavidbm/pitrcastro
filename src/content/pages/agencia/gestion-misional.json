@@ -60,6 +60,7 @@
         {
           "titulo": "Sistema de Prevención del Fraude y Corrupción (SPFC)",
           "documentos": [
+            { "name": "Informe SPFC 2025", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/Informe_SPFC_2025-VF.pdf", "anio": "2025" },
             { "name": "Informe SPFC 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe_SPFC_2024.pdf", "anio": "2024" },
             { "name": "Informe SPFC 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Informe_SPFC_2023.pdf", "anio": "2023" },
             { "name": "Informe SPFC 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/06/Informe-de-SPFC-2022-VF-26062023.pdf", "anio": "2022" },

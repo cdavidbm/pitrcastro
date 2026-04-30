@@ -18,6 +18,8 @@ const colorMap: Record<string, string> = {
   gold: 'var(--itrc-gold)',
   red: '#dc3545',
   green: '#198754',
+  purple: '#6f42c1',
+  teal: '#20c997',
 };
 
 function fileIcon(tipo: string) {
@@ -73,11 +75,11 @@ const enlacesRelacionados = [
       <div class="pqrs-ctas">
         <a href={pageData.tramitesUrl} target="_blank" rel="noopener" class="pqrs-cta pqrs-cta--primary">
           <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-          Iniciar una PQRS
+          Iniciar una PQRSDF
         </a>
         <a href={pageData.consultaUrl} target="_blank" rel="noopener" class="pqrs-cta pqrs-cta--secondary">
           <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-          Consultar estado de su PQRSD
+          Consultar estado de su PQRSDF
         </a>
       </div>
     </div>
@@ -89,7 +91,7 @@ const enlacesRelacionados = [
       <div class="informes-header">
         <h2 class="informes-header__title">
           <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
-          Informes de Peticiones, Quejas, Reclamos y Sugerencias
+          Informes de Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones
         </h2>
         <span class="informes-header__count">{totalInformes} informes</span>
       </div>
@@ -166,7 +168,7 @@ const enlacesRelacionados = [
   /* ====== Definition Cards ====== */
   .pqrs-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5);
     margin-bottom: var(--space-10);
   }

@@ -1,10 +1,10 @@
 {
-  "title": "P.Q.R.S",
+  "title": "P.Q.R.S.D.F",
   "slug": "tu-p-q-r-s-al-dia",
-  "description": "Peticiones, Quejas, Reclamos y Sugerencias de la Agencia ITRC",
+  "description": "Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones de la Agencia ITRC",
   "icon": "fa-comments",
   "published": true,
-  "intro": "La Agencia ITRC pone a disposición su sistema de PQRS donde podrá presentar sugerencias o peticiones, que permitan realizar mejoras en la manera como se presta el servicio público o alguna queja o reclamo que se relacione con el cumplimiento de la misión de la entidad; así como actos de corrupción de funcionarios de la Agencia ITRC.",
+  "intro": "La Agencia ITRC pone a disposición su sistema de PQRSDF donde podrá presentar sugerencias o peticiones, que permitan realizar mejoras en la manera como se presta el servicio público o alguna queja o reclamo que se relacione con el cumplimiento de la misión de la entidad; así como actos de corrupción de funcionarios de la Agencia ITRC.",
   "tramitesUrl": "https://tramites.itrc.gov.co/webfileAgenciaITRC/",
   "consultaUrl": "https://www.itrc.gov.co/denuncias/consulta",
   "definiciones": [
@@ -35,6 +35,20 @@
       "color": "green",
       "icon": "fa-lightbulb",
       "descripcion": "Manifestación verbal, escrita o a través de un medio electrónico que realiza un ciudadano, con el fin de contribuir al mejoramiento del servicio que presta cada una de las dependencias de la Agencia ITRC, racionalizar el empleo de los recursos, hacer más participativa la gestión pública y generar recomendaciones en la lucha contra la corrupción."
+    },
+    {
+      "letra": "D",
+      "titulo": "Denuncia",
+      "color": "purple",
+      "icon": "fa-flag",
+      "descripcion": "Es la puesta en conocimiento ante una autoridad competente de una conducta posiblemente irregular, indicando las circunstancias de tiempo, modo y lugar en que ocurrieron los hechos, para que se adelanten las investigaciones a que haya lugar."
+    },
+    {
+      "letra": "F",
+      "titulo": "Felicitación",
+      "color": "teal",
+      "icon": "fa-thumbs-up",
+      "descripcion": "Es toda manifestación de agradecimiento, reconocimiento o complacencia que realiza un ciudadano por el servicio prestado por la Agencia ITRC o por la actuación de sus funcionarios."
     }
   ],
   "informes": [
