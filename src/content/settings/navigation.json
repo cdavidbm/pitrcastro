@@ -99,6 +99,10 @@
       "url": "https://www.itrc.gov.co/denuncias",
       "external": true,
       "highlighted": true
+    },
+    {
+      "label": "Mapa del sitio",
+      "url": "/mapa-del-sitio"
     }
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "title": "Mapa del sitio",
+  "subtitle": "Estructura completa del portal de la Agencia ITRC",
+  "intro": "Esta página lista todas las secciones del portal organizadas según el menú principal, con accesos directos a cada página. Si está buscando información específica y no la encuentra, puede usar también el buscador en la cabecera del sitio o consultar las Preguntas Frecuentes.",
+  "icon": "fa-sitemap",
+  "branchIcons": {
+    "Inicio": "fa-house",
+    "Agencia": "fa-building-columns",
+    "Normativa": "fa-scale-balanced",
+    "Atención y Servicios": "fa-headset",
+    "Participa": "fa-users",
+    "Transparencia": "fa-eye",
+    "Observatorio ITRC": "fa-chart-line",
+    "Prensa": "fa-newspaper",
+    "Denuncias": "fa-flag"
+  },
+  "branchDescriptions": {
+    "Agencia": "Información institucional, equipo directivo, estructura, planes y reportes de la Agencia.",
+    "Normativa": "Marco legal, decretos, resoluciones y demás actos administrativos vigentes.",
+    "Atención y Servicios": "Canales de atención, P.Q.R.S.D.F, notificaciones, glosario y preguntas frecuentes.",
+    "Participa": "Espacios de participación ciudadana en cada fase del ciclo de gestión pública.",
+    "Transparencia": "Información pública en cumplimiento de la Ley 1712 de 2014.",
+    "Observatorio ITRC": "Observatorio de Fraude y Corrupción: medición, educación y participación.",
+    "Prensa": "Noticias, eventos, comunicados, boletines, videos y galería institucional.",
+    "Denuncias": "Sistema de denuncia ciudadana de actos de fraude y corrupción."
+  },
+  "extras": {
+    "title": "Recursos y servicios al ciudadano",
+    "items": [
+      { "label": "Glosario", "url": "/glosario", "icon": "fa-book" },
+      { "label": "Preguntas Frecuentes", "url": "/preguntas-frecuentes", "icon": "fa-circle-question" },
+      { "label": "Trámites y servicios", "url": "/tramites", "icon": "fa-clipboard-list" },
+      { "label": "Notificaciones por aviso", "url": "/notificaciones-por-aviso", "icon": "fa-bell" },
+      { "label": "Calendario de eventos", "url": "/calendario-de-eventos", "icon": "fa-calendar" }
+    ]
+  }
+}

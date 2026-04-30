@@ -1,0 +1,364 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+import pageData from '../content/pages/mapa-del-sitio.json';
+import nav from '../content/settings/navigation.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: pageData.title }
+];
+
+// Counts de colecciones dinámicas
+const newsFiles = import.meta.glob('../content/news/*.md');
+const memEduFiles = import.meta.glob('../content/pages/observatorio/eje-de-educacion/memorias/*.json');
+const memPartFiles = import.meta.glob('../content/pages/observatorio/eje-de-participacion/memorias/*.json');
+const galeriaFiles = import.meta.glob('../content/pages/galeria/*.json');
+
+const counts = {
+  noticias: Object.keys(newsFiles).length,
+  memEdu: Object.keys(memEduFiles).length,
+  memPart: Object.keys(memPartFiles).length,
+  galeria: Object.keys(galeriaFiles).length,
+};
+
+const branchIcons: Record<string, string> = pageData.branchIcons || {};
+const branchDescs: Record<string, string> = pageData.branchDescriptions || {};
+
+// Filtrar Inicio (lo mostramos antes) y Denuncias (es externa)
+const branches = nav.mainMenu.filter((b: any) => b.label !== 'Inicio' && !b.external);
+const externalBranches = nav.mainMenu.filter((b: any) => b.external);
+
+function isExternal(url: string) {
+  return /^https?:\/\//.test(url);
+}
+---
+
+<Base title={pageData.title} description={pageData.subtitle}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.subtitle}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="sitemap-intro">
+    <div class="container">
+      <p class="sitemap-intro__text">{pageData.intro}</p>
+    </div>
+  </section>
+
+  <section class="sitemap-tree">
+    <div class="container">
+      <div class="sitemap-grid">
+        {branches.map((branch: any) => (
+          <div class="sitemap-branch">
+            <header class="sitemap-branch__header">
+              <span class="sitemap-branch__icon">
+                <i class={`fa-solid ${branchIcons[branch.label] || 'fa-folder-open'}`} aria-hidden="true"></i>
+              </span>
+              <h2 class="sitemap-branch__title">
+                {isExternal(branch.url)
+                  ? <a href={branch.url} target="_blank" rel="noopener">{branch.label}</a>
+                  : <a href={resolveUrl(branch.url)}>{branch.label}</a>
+                }
+              </h2>
+              {branchDescs[branch.label] && (
+                <p class="sitemap-branch__desc">{branchDescs[branch.label]}</p>
+              )}
+            </header>
+
+            {branch.children && branch.children.length > 0 && (
+              <ul class="sitemap-branch__list">
+                {branch.children.map((child: any) => (
+                  <li class="sitemap-branch__item">
+                    {isExternal(child.url) ? (
+                      <a href={child.url} target="_blank" rel="noopener">
+                        {child.label}
+                        <i class="fa-solid fa-arrow-up-right-from-square sitemap-ext" aria-hidden="true"></i>
+                      </a>
+                    ) : (
+                      <a href={resolveUrl(child.url)}>{child.label}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Ramas con índice + colecciones dinámicas reciben listado anidado especial */}
+            {branch.label === 'Prensa' && (
+              <ul class="sitemap-branch__list sitemap-branch__list--counts">
+                <li class="sitemap-branch__item sitemap-branch__item--meta">
+                  <a href={resolveUrl('/prensa/noticias')}>
+                    Todas las noticias <span class="sitemap-count">{counts.noticias}</span>
+                  </a>
+                </li>
+                <li class="sitemap-branch__item sitemap-branch__item--meta">
+                  <a href={resolveUrl('/galeria')}>
+                    Todos los álbumes <span class="sitemap-count">{counts.galeria}</span>
+                  </a>
+                </li>
+              </ul>
+            )}
+
+            {branch.label === 'Observatorio ITRC' && (
+              <ul class="sitemap-branch__list sitemap-branch__list--counts">
+                <li class="sitemap-branch__item sitemap-branch__item--meta">
+                  <a href={resolveUrl('/observatorio/eje-de-educacion/memorias')}>
+                    Memorias — Educación <span class="sitemap-count">{counts.memEdu}</span>
+                  </a>
+                </li>
+                <li class="sitemap-branch__item sitemap-branch__item--meta">
+                  <a href={resolveUrl('/observatorio/eje-de-participacion/memorias')}>
+                    Memorias — Participación <span class="sitemap-count">{counts.memPart}</span>
+                  </a>
+                </li>
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {pageData.extras && pageData.extras.items.length > 0 && (
+    <section class="sitemap-extras">
+      <div class="container">
+        <h2 class="sitemap-extras__title">{pageData.extras.title}</h2>
+        <ul class="sitemap-extras__list">
+          {pageData.extras.items.map((item: any) => (
+            <li>
+              <a href={resolveUrl(item.url)}>
+                <i class={`fa-solid ${item.icon}`} aria-hidden="true"></i>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {externalBranches.length > 0 && (
+    <section class="sitemap-external">
+      <div class="container">
+        <h2 class="sitemap-external__title">Servicios externos</h2>
+        <ul class="sitemap-external__list">
+          {externalBranches.map((b: any) => (
+            <li>
+              <a href={b.url} target="_blank" rel="noopener">
+                <i class={`fa-solid ${branchIcons[b.label] || 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
+                {b.label}
+                <i class="fa-solid fa-arrow-up-right-from-square sitemap-ext" aria-hidden="true"></i>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .sitemap-intro {
+    padding: var(--space-8) var(--space-6) var(--space-4);
+    background: var(--theme-surface);
+  }
+  .sitemap-intro .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .sitemap-intro__text {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--theme-text-secondary);
+    text-align: center;
+    margin: 0;
+  }
+
+  .sitemap-tree {
+    padding: var(--space-6) var(--space-6) var(--space-12);
+    background: var(--theme-surface);
+  }
+  .sitemap-tree .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .sitemap-branch {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+  }
+  .sitemap-branch:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .sitemap-branch__header {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+
+  .sitemap-branch__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--itrc-gold);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .sitemap-branch__title {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    margin: 0 0 var(--space-2);
+    color: var(--theme-heading);
+  }
+  .sitemap-branch__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .sitemap-branch__title a:hover {
+    color: var(--itrc-gold);
+  }
+
+  .sitemap-branch__desc {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    color: var(--theme-text-secondary);
+    margin: 0;
+  }
+
+  .sitemap-branch__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .sitemap-branch__list--counts {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--theme-border-light);
+  }
+
+  .sitemap-branch__item a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    color: var(--theme-text);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+  }
+  .sitemap-branch__item a:hover {
+    background: var(--theme-surface-alt);
+    color: var(--itrc-gold);
+    transform: translateX(2px);
+  }
+  .sitemap-branch__item--meta a {
+    color: var(--theme-text-secondary);
+    font-weight: 600;
+  }
+  .sitemap-count {
+    padding: 1px 8px;
+    background: rgba(var(--itrc-gold-rgb), 0.12);
+    color: var(--itrc-gold);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+  }
+  .sitemap-ext {
+    font-size: 0.7em;
+    opacity: 0.6;
+  }
+
+  .sitemap-extras,
+  .sitemap-external {
+    padding: var(--space-8) var(--space-6);
+    background: var(--theme-surface-alt);
+  }
+  .sitemap-external {
+    background: var(--theme-surface);
+    border-top: 1px solid var(--theme-border-light);
+  }
+  .sitemap-extras .container,
+  .sitemap-external .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .sitemap-extras__title,
+  .sitemap-external__title {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    margin: 0 0 var(--space-4);
+    color: var(--theme-heading);
+  }
+
+  .sitemap-extras__list,
+  .sitemap-external__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .sitemap-extras__list a,
+  .sitemap-external__list a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-md);
+    color: var(--theme-text);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+  }
+  .sitemap-extras__list a:hover,
+  .sitemap-external__list a:hover {
+    border-color: var(--itrc-gold);
+    color: var(--itrc-gold);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  .sitemap-extras__list i,
+  .sitemap-external__list i:first-child {
+    color: var(--itrc-gold);
+  }
+
+  @media (max-width: 768px) {
+    .sitemap-tree { padding: var(--space-4) var(--space-4) var(--space-10); }
+    .sitemap-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .sitemap-branch { padding: var(--space-5) var(--space-4); }
+    .sitemap-extras__list,
+    .sitemap-external__list { grid-template-columns: 1fr; }
+  }
+</style>

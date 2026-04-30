@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // Detectar si estamos en produccion (GitHub Pages)
 const isProduction = process.env.NODE_ENV === 'production';
@@ -19,6 +20,11 @@ export default defineConfig({
   build: {
     assets: 'assets'
   },
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/admin'),
+    }),
+  ],
   vite: {
     css: {
       devSourcemap: true
