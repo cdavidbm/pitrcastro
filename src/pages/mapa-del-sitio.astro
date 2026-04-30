@@ -1,4 +1,7 @@
 ---
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
@@ -13,7 +16,98 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-// Counts de colecciones dinámicas
+// ---------------------------------------------------------------------------
+// Auto-discovery: recorrer src/pages/ + extraer título de cada .astro
+// ---------------------------------------------------------------------------
+
+const PAGES_DIR = join(process.cwd(), 'src', 'pages');
+const PAGE_JSONS_DIR = join(process.cwd(), 'src', 'content', 'pages');
+
+interface DiscoveredRoute {
+  url: string;
+  title: string;
+}
+
+function walkAstro(dir: string): string[] {
+  const out: string[] = [];
+  let entries;
+  try {
+    entries = readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return out;
+  }
+  for (const entry of entries) {
+    const p = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walkAstro(p));
+    else if (entry.isFile() && entry.name.endsWith('.astro')) out.push(p);
+  }
+  return out;
+}
+
+function pageRelativeUrl(absPath: string): string | null {
+  let rel = absPath
+    .slice(PAGES_DIR.length)
+    .replace(/\\/g, '/')
+    .replace(/^\//, '')
+    .replace(/\.astro$/, '');
+  if (!rel) return null;
+  if (rel.includes('[')) return null;
+  if (rel.startsWith('admin/') || rel === 'admin') return null;
+  if (rel.split('/').some((p) => p.startsWith('_'))) return null;
+  let url = '/' + rel;
+  if (url.endsWith('/index')) url = url.slice(0, -6) || '/';
+  return url;
+}
+
+function humanize(slug: string): string {
+  if (!slug) return 'Inicio';
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+const JSON_IMPORT_RE = /from\s+['"](?:\.\.\/)+content\/pages\/([^'"]+)\.json['"]/;
+const BASE_TITLE_RE = /<Base[^>]+title=\{?["']([^"']+)["']/;
+
+const allRoutes: DiscoveredRoute[] = [];
+for (const filePath of walkAstro(PAGES_DIR)) {
+  const url = pageRelativeUrl(filePath);
+  if (!url) continue;
+  let content = '';
+  try {
+    content = readFileSync(filePath, 'utf-8');
+  } catch {
+    /* ignore */
+  }
+  let title: string | undefined;
+  const jsonMatch = content.match(JSON_IMPORT_RE);
+  if (jsonMatch) {
+    try {
+      const j = JSON.parse(
+        readFileSync(join(PAGE_JSONS_DIR, jsonMatch[1] + '.json'), 'utf-8')
+      );
+      title = j.title || j.titulo;
+    } catch {
+      /* ignore */
+    }
+  }
+  if (!title) {
+    const m = content.match(BASE_TITLE_RE);
+    title = m?.[1];
+  }
+  if (!title) {
+    title = humanize(url.split('/').pop() || '');
+  }
+  allRoutes.push({ url, title });
+}
+allRoutes.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+
+// ---------------------------------------------------------------------------
+// Counts de colecciones dinámicas (no se enumeran items aquí — links a indexes)
+// ---------------------------------------------------------------------------
+
 const newsFiles = import.meta.glob('../content/news/*.md');
 const memEduFiles = import.meta.glob('../content/pages/observatorio/eje-de-educacion/memorias/*.json');
 const memPartFiles = import.meta.glob('../content/pages/observatorio/eje-de-participacion/memorias/*.json');
@@ -29,9 +123,78 @@ const counts = {
 const branchIcons: Record<string, string> = pageData.branchIcons || {};
 const branchDescs: Record<string, string> = pageData.branchDescriptions || {};
 
-// Filtrar Inicio (lo mostramos antes) y Denuncias (es externa)
-const branches = nav.mainMenu.filter((b: any) => b.label !== 'Inicio' && !b.external);
-const externalBranches = nav.mainMenu.filter((b: any) => b.external);
+// ---------------------------------------------------------------------------
+// Agrupar rutas por rama del menú (prefijo URL del item del menú o sus children)
+// ---------------------------------------------------------------------------
+
+interface BranchGroup {
+  label: string;
+  url: string;
+  icon: string;
+  desc?: string;
+  menuItems: Array<{ label: string; url: string; external?: boolean }>;
+  extraItems: DiscoveredRoute[];
+}
+
+function urlMatchesPrefix(url: string, prefix: string): boolean {
+  if (!prefix || prefix === '/') return false;
+  const p = prefix.endsWith('/') ? prefix.slice(0, -1) : prefix;
+  return url === p || url.startsWith(p + '/');
+}
+
+const assigned = new Set<string>();
+const branchGroups: BranchGroup[] = [];
+
+for (const branch of nav.mainMenu as any[]) {
+  if (branch.external) continue;
+  if (branch.label === 'Inicio') continue;
+
+  const menuItems: Array<{ label: string; url: string; external?: boolean }> = [];
+  const prefixes = new Set<string>();
+
+  if (branch.url) prefixes.add(branch.url);
+  for (const child of branch.children || []) {
+    menuItems.push({
+      label: child.label,
+      url: child.url,
+      external: !!child.external,
+    });
+    if (!child.external && child.url) prefixes.add(child.url);
+  }
+
+  // Marcar URLs del menú como asignadas (no aparecen como "extra")
+  for (const m of menuItems) if (!m.external && m.url) assigned.add(m.url);
+  if (branch.url) assigned.add(branch.url);
+
+  // Descubrir páginas adicionales con prefix match
+  const extraItems: DiscoveredRoute[] = [];
+  for (const route of allRoutes) {
+    if (assigned.has(route.url)) continue;
+    for (const prefix of prefixes) {
+      if (urlMatchesPrefix(route.url, prefix)) {
+        extraItems.push(route);
+        assigned.add(route.url);
+        break;
+      }
+    }
+  }
+
+  branchGroups.push({
+    label: branch.label,
+    url: branch.url,
+    icon: branchIcons[branch.label] || 'fa-folder-open',
+    desc: branchDescs[branch.label],
+    menuItems,
+    extraItems,
+  });
+}
+
+// Otras páginas: todas las rutas no asignadas a ninguna rama
+const otrasPaginas = allRoutes.filter(
+  (r) => !assigned.has(r.url) && r.url !== '/'
+);
+
+const externalBranches = (nav.mainMenu as any[]).filter((b) => b.external);
 
 function isExternal(url: string) {
   return /^https?:\/\//.test(url);
@@ -55,28 +218,25 @@ function isExternal(url: string) {
   <section class="sitemap-tree">
     <div class="container">
       <div class="sitemap-grid">
-        {branches.map((branch: any) => (
+        {branchGroups.map((branch) => (
           <div class="sitemap-branch">
             <header class="sitemap-branch__header">
               <span class="sitemap-branch__icon">
-                <i class={`fa-solid ${branchIcons[branch.label] || 'fa-folder-open'}`} aria-hidden="true"></i>
+                <i class={`fa-solid ${branch.icon}`} aria-hidden="true"></i>
               </span>
               <h2 class="sitemap-branch__title">
-                {isExternal(branch.url)
-                  ? <a href={branch.url} target="_blank" rel="noopener">{branch.label}</a>
-                  : <a href={resolveUrl(branch.url)}>{branch.label}</a>
-                }
+                <a href={resolveUrl(branch.url)}>{branch.label}</a>
               </h2>
-              {branchDescs[branch.label] && (
-                <p class="sitemap-branch__desc">{branchDescs[branch.label]}</p>
+              {branch.desc && (
+                <p class="sitemap-branch__desc">{branch.desc}</p>
               )}
             </header>
 
-            {branch.children && branch.children.length > 0 && (
+            {branch.menuItems.length > 0 && (
               <ul class="sitemap-branch__list">
-                {branch.children.map((child: any) => (
+                {branch.menuItems.map((child) => (
                   <li class="sitemap-branch__item">
-                    {isExternal(child.url) ? (
+                    {child.external ? (
                       <a href={child.url} target="_blank" rel="noopener">
                         {child.label}
                         <i class="fa-solid fa-arrow-up-right-from-square sitemap-ext" aria-hidden="true"></i>
@@ -89,7 +249,19 @@ function isExternal(url: string) {
               </ul>
             )}
 
-            {/* Ramas con índice + colecciones dinámicas reciben listado anidado especial */}
+            {branch.extraItems.length > 0 && (
+              <details class="sitemap-branch__more">
+                <summary>+ {branch.extraItems.length} {branch.extraItems.length === 1 ? 'página adicional' : 'páginas adicionales'}</summary>
+                <ul class="sitemap-branch__list sitemap-branch__list--extra">
+                  {branch.extraItems.map((r) => (
+                    <li class="sitemap-branch__item">
+                      <a href={resolveUrl(r.url)}>{r.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+
             {branch.label === 'Prensa' && (
               <ul class="sitemap-branch__list sitemap-branch__list--counts">
                 <li class="sitemap-branch__item sitemap-branch__item--meta">
@@ -124,6 +296,30 @@ function isExternal(url: string) {
       </div>
     </div>
   </section>
+
+  {otrasPaginas.length > 0 && (
+    <section class="sitemap-others">
+      <div class="container">
+        <h2 class="sitemap-others__title">
+          <i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
+          Otras páginas
+        </h2>
+        <p class="sitemap-others__desc">
+          Páginas del portal que no están listadas en el menú principal pero pueden ser referenciadas desde otras secciones.
+        </p>
+        <ul class="sitemap-others__list">
+          {otrasPaginas.map((r) => (
+            <li>
+              <a href={resolveUrl(r.url)}>
+                <span class="sitemap-others__title-text">{r.title}</span>
+                <span class="sitemap-others__url">{r.url}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   {pageData.extras && pageData.extras.items.length > 0 && (
     <section class="sitemap-extras">
@@ -295,6 +491,115 @@ function isExternal(url: string) {
     opacity: 0.6;
   }
 
+  .sitemap-branch__more {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--theme-border-light);
+  }
+  .sitemap-branch__more > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--theme-text-secondary);
+    background: var(--theme-surface-alt);
+    transition: all var(--transition-fast);
+    user-select: none;
+  }
+  .sitemap-branch__more > summary::-webkit-details-marker { display: none; }
+  .sitemap-branch__more > summary::before {
+    content: "▸ ";
+    color: var(--itrc-gold);
+    font-weight: 900;
+    transition: transform var(--transition-fast);
+    display: inline-block;
+  }
+  .sitemap-branch__more[open] > summary::before {
+    content: "▾ ";
+  }
+  .sitemap-branch__more > summary:hover {
+    color: var(--itrc-gold);
+    background: rgba(var(--itrc-gold-rgb), 0.08);
+  }
+  .sitemap-branch__list--extra {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-xs);
+  }
+  .sitemap-branch__list--extra .sitemap-branch__item a {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+  }
+
+  .sitemap-others {
+    padding: var(--space-10) var(--space-6);
+    background: var(--theme-surface-alt);
+    border-top: 1px solid var(--theme-border-light);
+  }
+  .sitemap-others .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sitemap-others__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    margin: 0 0 var(--space-2);
+    color: var(--theme-heading);
+  }
+  .sitemap-others__title i {
+    color: var(--itrc-gold);
+  }
+  .sitemap-others__desc {
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    margin: 0 0 var(--space-5);
+    max-width: 720px;
+  }
+  .sitemap-others__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-2);
+  }
+  .sitemap-others__list a {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-3) var(--space-4);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+  .sitemap-others__list a:hover {
+    border-color: var(--itrc-gold);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  .sitemap-others__title-text {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--theme-text);
+  }
+  .sitemap-others__url {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sitemap-others__list a:hover .sitemap-others__title-text {
+    color: var(--itrc-gold);
+  }
+
   .sitemap-extras,
   .sitemap-external {
     padding: var(--space-8) var(--space-6);
@@ -358,6 +663,8 @@ function isExternal(url: string) {
     .sitemap-tree { padding: var(--space-4) var(--space-4) var(--space-10); }
     .sitemap-grid { grid-template-columns: 1fr; gap: var(--space-4); }
     .sitemap-branch { padding: var(--space-5) var(--space-4); }
+    .sitemap-others { padding: var(--space-8) var(--space-4); }
+    .sitemap-others__list { grid-template-columns: 1fr; }
     .sitemap-extras__list,
     .sitemap-external__list { grid-template-columns: 1fr; }
   }
