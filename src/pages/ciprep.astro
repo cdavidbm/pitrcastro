@@ -1,0 +1,788 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { resolveUrl } from '../utils/url';
+
+import pageData from '../content/pages/ciprep.json';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Prensa', href: resolveUrl('/prensa') },
+  { label: 'CIPREP' },
+];
+
+// Cargar todos los speakers desde la folder collection
+interface Speaker {
+  order: number;
+  slug: string;
+  name: string;
+  shortName: string;
+  cargo: string;
+  bio: string;
+  photo: string;
+}
+
+const speakerFiles = import.meta.glob<Speaker>(
+  '../content/pages/ciprep/speakers/*.json',
+  { eager: true }
+);
+const speakers: Speaker[] = Object.values(speakerFiles).sort(
+  (a, b) => (a.order ?? 999) - (b.order ?? 999)
+);
+const speakersBySlug: Record<string, Speaker> = Object.fromEntries(
+  speakers.map((s) => [s.slug, s])
+);
+
+const sections = [
+  { id: 'por-que', label: '¿Por qué el Congreso?' },
+  { id: 'agenda', label: 'Agenda' },
+  { id: 'aliados', label: 'Aliados' },
+  { id: 'speakers', label: 'Speakers' },
+  { id: 'memorias', label: 'Memorias' },
+  { id: 'info', label: 'Información' },
+];
+---
+
+<Base title={pageData.title} description={pageData.subtitle}>
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.subtitle}
+    icon={pageData.icon}
+    badge={`I edición · ${pageData.fechas}`}
+    breadcrumb={breadcrumb}
+  >
+    <div class="ciprep-hero-meta">
+      <span><i class="fa-solid fa-location-dot"></i> {pageData.lugar}</span>
+      <span><i class="fa-solid fa-circle-check"></i> Evento realizado</span>
+    </div>
+    <div class="ciprep-hero-cta">
+      <a href="#memorias" class="btn btn--primary">
+        <i class="fa-solid fa-photo-film"></i> Ver memorias 2025
+      </a>
+      <a href="#agenda" class="btn btn--ghost">
+        <i class="fa-solid fa-calendar-days"></i> Ver agenda
+      </a>
+    </div>
+  </HeroPage>
+
+  <nav class="ciprep-tabs" aria-label="Secciones del Congreso">
+    <div class="container">
+      <ul>
+        {sections.map((s) => (
+          <li><a href={`#${s.id}`}>{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======================== ¿Por qué el Congreso? ======================== -->
+  <section id="por-que" class="ciprep-section">
+    <div class="container">
+      <SectionTitle title="¿Por qué el Congreso?" />
+      <div class="ciprep-prose">
+        {pageData.porQue.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== Agenda ======================== -->
+  <section id="agenda" class="ciprep-section ciprep-section--alt">
+    <div class="container">
+      <SectionTitle title="Agenda" />
+      <p class="ciprep-section__lead">
+        Dos jornadas en el Auditorio CCB Chapinero, organizadas en franjas
+        temáticas que recorren contrabando, fraude y lecciones aprendidas.
+      </p>
+
+      <div class="ciprep-agenda">
+        {(['dia1', 'dia2'] as const).map((dayKey) => {
+          const day = pageData.agenda[dayKey];
+          let lastFranja = '';
+          return (
+            <article class="ciprep-day">
+              <header class="ciprep-day__header">
+                <span class="ciprep-day__badge">
+                  {dayKey === 'dia1' ? 'DÍA 1' : 'DÍA 2'}
+                </span>
+                <h3>{day.fecha}</h3>
+              </header>
+              <ol class="ciprep-day__items">
+                {day.items.map((item) => {
+                  const showFranja = item.franja && item.franja !== lastFranja;
+                  if (showFranja) lastFranja = item.franja;
+                  return (
+                    <>
+                      {showFranja && (
+                        <li class="ciprep-day__franja" aria-hidden="false">
+                          <span>{item.franja}</span>
+                        </li>
+                      )}
+                      <li class="ciprep-item">
+                        <div class="ciprep-item__time">{item.hora}</div>
+                        <div class="ciprep-item__body">
+                          <h4 class="ciprep-item__title">{item.titulo}</h4>
+                          {item.moderador && (
+                            <p class="ciprep-item__moderator">
+                              <i class="fa-solid fa-microphone"></i>
+                              Modera: {item.moderador}
+                            </p>
+                          )}
+                          {item.ponentes.length > 0 && (
+                            <ul class="ciprep-item__speakers">
+                              {item.ponentes.map((p) => {
+                                const sp = p.slug ? speakersBySlug[p.slug] : undefined;
+                                return (
+                                  <li>
+                                    {sp && (
+                                      <img src={resolveUrl(sp.photo)} alt={sp.name} loading="lazy" />
+                                    )}
+                                    <div>
+                                      <strong>{p.nombre || 'Por confirmar'}</strong>
+                                      {p.cargo && <span>{p.cargo}</span>}
+                                    </div>
+                                    {sp && (
+                                      <a href={`#sp-${sp.slug}`} class="ciprep-item__link" aria-label={`Ver perfil de ${sp.name}`}>
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                      </a>
+                                    )}
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          )}
+                        </div>
+                      </li>
+                    </>
+                  );
+                })}
+              </ol>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== Aliados ======================== -->
+  <section id="aliados" class="ciprep-section">
+    <div class="container">
+      <SectionTitle title="Aliados" />
+      {pageData.aliados.estrategico.length > 0 && (
+        <div class="ciprep-aliados-strat">
+          <h3>Aliado estratégico</h3>
+          <p>
+            {pageData.aliadoEstrategico} se suma como aliada estratégica del
+            Congreso, reafirmando su compromiso con la integridad, la
+            transparencia y el fortalecimiento empresarial del país.
+          </p>
+          <div class="ciprep-aliados-strat__logo">
+            {pageData.aliados.estrategico.map((a) => (
+              <img src={resolveUrl(a.logo)} alt={a.nombre} loading="lazy" />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {pageData.aliados.integridad.length > 0 && (
+        <>
+          <h3 class="ciprep-aliados-int__title">Aliados para la integridad</h3>
+          <div class="ciprep-aliados-int">
+            {pageData.aliados.integridad.map((a) => (
+              <div class="ciprep-aliados-int__cell">
+                <img src={resolveUrl(a.logo)} alt={a.nombre || 'Aliado institucional'} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+
+  <!-- ======================== Speakers ======================== -->
+  <section id="speakers" class="ciprep-section ciprep-section--alt">
+    <div class="container">
+      <SectionTitle title="Conoce nuestros speakers" />
+      <p class="ciprep-section__lead">
+        {speakers.length} expertos nacionales e internacionales del sector
+        público, organismos multilaterales y el ámbito académico.
+      </p>
+      <div class="ciprep-speakers">
+        {speakers.map((sp) => (
+          <details class="ciprep-speaker" id={`sp-${sp.slug}`}>
+            <summary class="ciprep-speaker__summary">
+              <img src={resolveUrl(sp.photo)} alt={sp.name} loading="lazy" />
+              <div class="ciprep-speaker__head">
+                <h3>{sp.name}</h3>
+                <p>{sp.cargo}</p>
+              </div>
+              <span class="ciprep-speaker__chevron" aria-hidden="true">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </summary>
+            <div class="ciprep-speaker__bio">
+              {sp.bio.split('\n\n').map((para) => <p>{para}</p>)}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== Memorias ======================== -->
+  <section id="memorias" class="ciprep-section">
+    <div class="container">
+      <SectionTitle title="Memorias del Congreso" />
+      <p class="ciprep-section__lead">{pageData.memorias.descripcion}</p>
+
+      {pageData.memorias.youtubeId && (
+        <div class="ciprep-video">
+          <iframe
+            src={`https://www.youtube.com/embed/${pageData.memorias.youtubeId}`}
+            title="Video oficial del Congreso CIPREP 2025"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      )}
+
+      <div class="ciprep-memorias">
+        {pageData.memorias.recursos.map((r) => (
+          <article class="ciprep-memoria">
+            <div class="ciprep-memoria__icon">
+              <i class={`fa-solid ${r.tipo === 'video' ? 'fa-play-circle' : 'fa-file-arrow-down'}`}></i>
+            </div>
+            <div class="ciprep-memoria__body">
+              <h3>{r.titulo}</h3>
+              <p>{r.descripcion}</p>
+            </div>
+            {r.url ? (
+              <a href={r.url} class="btn btn--ghost" target="_blank" rel="noopener">
+                {r.tipo === 'video' ? 'Ver' : 'Descargar'}
+              </a>
+            ) : (
+              <span class="ciprep-memoria__pending">Próximamente</span>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== Información logística ======================== -->
+  <section id="info" class="ciprep-section ciprep-section--alt">
+    <div class="container">
+      <SectionTitle title="Información del evento" />
+      <div class="ciprep-info">
+        <div class="ciprep-info__card">
+          <h3><i class="fa-solid fa-calendar"></i> Fechas</h3>
+          <p>{pageData.fechas}</p>
+        </div>
+        <div class="ciprep-info__card">
+          <h3><i class="fa-solid fa-location-dot"></i> Lugar</h3>
+          <p>{pageData.lugar}</p>
+          <p class="ciprep-info__addr">{pageData.direccion}</p>
+          <div class="ciprep-info__maps">
+            <a href={pageData.mapsUrl} target="_blank" rel="noopener">
+              <i class="fa-brands fa-google"></i> Google Maps
+            </a>
+            <a href={pageData.wazeUrl} target="_blank" rel="noopener">
+              <i class="fa-brands fa-waze"></i> Waze
+            </a>
+          </div>
+        </div>
+        <div class="ciprep-info__card">
+          <h3><i class="fa-solid fa-handshake"></i> Organizan</h3>
+          <p><strong>{pageData.organizador}</strong></p>
+          <p>Aliado estratégico: {pageData.aliadoEstrategico}</p>
+        </div>
+      </div>
+
+      {pageData.cta && (
+        <div class="ciprep-cta">
+          <h3>{pageData.cta.titulo}</h3>
+          <p>{pageData.cta.descripcion}</p>
+          <a href={pageData.cta.enlaceAncla} class="btn btn--primary">
+            {pageData.cta.enlaceLabel}
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* === Hero extras === */
+  .ciprep-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-3);
+    color: var(--white);
+    opacity: 0.92;
+    font-size: var(--font-size-sm);
+  }
+  .ciprep-hero-meta i { margin-right: var(--space-2); color: var(--itrc-gold); }
+  .ciprep-hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+    margin-top: var(--space-5);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+  }
+  .btn--primary {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  .btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--itrc-gold);
+  }
+
+  /* === Tabs sticky === */
+  .ciprep-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: var(--theme-surface);
+    border-bottom: 1px solid var(--theme-border);
+    box-shadow: var(--shadow-sm);
+  }
+  .ciprep-tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+  }
+  .ciprep-tabs a {
+    display: block;
+    padding: var(--space-3) var(--space-5);
+    color: var(--theme-text-secondary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    border-bottom: 3px solid transparent;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+  .ciprep-tabs a:hover {
+    color: var(--itrc-gold);
+    border-color: var(--itrc-gold);
+  }
+
+  /* === Sections === */
+  .ciprep-section {
+    padding: var(--space-12) var(--space-6);
+    background: var(--theme-surface);
+  }
+  .ciprep-section--alt { background: var(--theme-surface-alt); }
+  .ciprep-section .container { max-width: 1100px; margin: 0 auto; }
+  .ciprep-section__lead {
+    text-align: center;
+    color: var(--theme-text-secondary);
+    max-width: 760px;
+    margin: 0 auto var(--space-6);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+  }
+  .ciprep-prose p {
+    line-height: 1.8;
+    color: var(--theme-text);
+    margin-bottom: var(--space-4);
+    text-align: justify;
+  }
+
+  /* === Agenda === */
+  .ciprep-agenda {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  .ciprep-day {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+  }
+  .ciprep-day__header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+  .ciprep-day__badge {
+    background: var(--itrc-navy);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  .ciprep-day__header h3 {
+    margin: 0;
+    color: var(--theme-heading);
+    font-size: var(--font-size-lg);
+  }
+  .ciprep-day__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ciprep-day__franja {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    background: rgba(var(--itrc-gold-rgb), 0.12);
+    color: var(--itrc-gold);
+    font-weight: 800;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.5px;
+    border-radius: var(--radius-md);
+  }
+  .ciprep-day__franja:first-child { margin-top: 0; }
+  .ciprep-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-bottom: 1px dashed var(--theme-border-light);
+  }
+  .ciprep-item:last-child { border-bottom: none; }
+  .ciprep-item__time {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--itrc-gold);
+    white-space: nowrap;
+  }
+  .ciprep-item__title {
+    font-size: var(--font-size-sm);
+    margin: 0 0 var(--space-2);
+    color: var(--theme-heading);
+    line-height: 1.4;
+  }
+  .ciprep-item__moderator {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+    font-style: italic;
+  }
+  .ciprep-item__moderator i {
+    color: var(--itrc-gold);
+    margin-right: var(--space-1);
+  }
+  .ciprep-item__speakers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .ciprep-item__speakers li {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: var(--space-3);
+    align-items: center;
+    padding: var(--space-2);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+  }
+  .ciprep-item__speakers img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .ciprep-item__speakers strong {
+    display: block;
+    color: var(--theme-heading);
+  }
+  .ciprep-item__speakers span {
+    display: block;
+    color: var(--theme-text-secondary);
+    font-size: 0.85em;
+  }
+  .ciprep-item__link {
+    color: var(--itrc-gold);
+    text-decoration: none;
+  }
+
+  /* === Aliados === */
+  .ciprep-aliados-strat {
+    text-align: center;
+    margin-bottom: var(--space-10);
+  }
+  .ciprep-aliados-strat h3 {
+    color: var(--theme-heading);
+    margin: 0 0 var(--space-3);
+    font-size: var(--font-size-lg);
+  }
+  .ciprep-aliados-strat p {
+    max-width: 720px;
+    margin: 0 auto var(--space-5);
+    color: var(--theme-text-secondary);
+    line-height: 1.7;
+  }
+  .ciprep-aliados-strat__logo img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+  .ciprep-aliados-int__title {
+    text-align: center;
+    color: var(--theme-heading);
+    margin-bottom: var(--space-5);
+    font-size: var(--font-size-lg);
+  }
+  .ciprep-aliados-int {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-4);
+    align-items: center;
+  }
+  .ciprep-aliados-int__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-md);
+    aspect-ratio: 4 / 3;
+  }
+  .ciprep-aliados-int__cell img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(0.2);
+    transition: filter var(--transition-fast);
+  }
+  .ciprep-aliados-int__cell:hover img { filter: grayscale(0); }
+
+  /* === Speakers === */
+  .ciprep-speakers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+  .ciprep-speaker {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: box-shadow var(--transition-base);
+  }
+  .ciprep-speaker:hover { box-shadow: var(--shadow-md); }
+  .ciprep-speaker[open] { box-shadow: var(--shadow-md); }
+  .ciprep-speaker__summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: var(--space-3);
+    align-items: center;
+    padding: var(--space-3);
+  }
+  .ciprep-speaker__summary::-webkit-details-marker { display: none; }
+  .ciprep-speaker__summary img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--itrc-gold);
+  }
+  .ciprep-speaker__head h3 {
+    margin: 0 0 2px;
+    font-size: var(--font-size-sm);
+    color: var(--theme-heading);
+    line-height: 1.3;
+  }
+  .ciprep-speaker__head p {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+    line-height: 1.4;
+  }
+  .ciprep-speaker__chevron {
+    color: var(--itrc-gold);
+    transition: transform var(--transition-fast);
+  }
+  .ciprep-speaker[open] .ciprep-speaker__chevron { transform: rotate(180deg); }
+  .ciprep-speaker__bio {
+    padding: 0 var(--space-4) var(--space-4);
+    border-top: 1px solid var(--theme-border-light);
+    margin: 0 var(--space-4);
+    padding-top: var(--space-3);
+  }
+  .ciprep-speaker__bio p {
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    color: var(--theme-text);
+    margin: 0 0 var(--space-3);
+    text-align: justify;
+  }
+
+  /* === Memorias === */
+  .ciprep-video {
+    aspect-ratio: 16 / 9;
+    margin: 0 auto var(--space-8);
+    max-width: 880px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .ciprep-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .ciprep-memorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+  .ciprep-memoria {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: var(--space-3);
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+  }
+  .ciprep-memoria__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(var(--itrc-gold-rgb), 0.15);
+    color: var(--itrc-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .ciprep-memoria__body h3 {
+    margin: 0 0 2px;
+    font-size: var(--font-size-sm);
+    color: var(--theme-heading);
+  }
+  .ciprep-memoria__body p {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+  }
+  .ciprep-memoria__pending {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    font-style: italic;
+  }
+
+  /* === Info === */
+  .ciprep-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-4);
+  }
+  .ciprep-info__card {
+    padding: var(--space-5);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-lg);
+  }
+  .ciprep-info__card h3 {
+    margin: 0 0 var(--space-3);
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+  }
+  .ciprep-info__card h3 i {
+    color: var(--itrc-gold);
+    margin-right: var(--space-2);
+  }
+  .ciprep-info__card p {
+    margin: 0 0 var(--space-2);
+    color: var(--theme-text);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  .ciprep-info__addr {
+    color: var(--theme-text-secondary) !important;
+    font-size: var(--font-size-xs) !important;
+  }
+  .ciprep-info__maps {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+  }
+  .ciprep-info__maps a {
+    color: var(--itrc-gold);
+    text-decoration: none;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+  }
+  .ciprep-info__maps a:hover { text-decoration: underline; }
+  .ciprep-cta {
+    margin-top: var(--space-8);
+    padding: var(--space-8);
+    text-align: center;
+    background: linear-gradient(135deg, var(--theme-cta-from, var(--itrc-navy)), var(--theme-cta-to, #003a7a));
+    color: var(--white);
+    border-radius: var(--radius-xl);
+  }
+  .ciprep-cta h3 {
+    margin: 0 0 var(--space-3);
+    color: var(--white);
+    font-size: var(--font-size-xl);
+  }
+  .ciprep-cta p {
+    margin: 0 auto var(--space-5);
+    max-width: 640px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .ciprep-section { padding: var(--space-8) var(--space-4); }
+    .ciprep-agenda { grid-template-columns: 1fr; }
+    .ciprep-item { grid-template-columns: 1fr; gap: var(--space-2); }
+    .ciprep-item__time { font-size: var(--font-size-xs); }
+    .ciprep-tabs ul { flex-wrap: nowrap; }
+    .ciprep-speaker__summary { grid-template-columns: 56px 1fr auto; }
+    .ciprep-memoria { grid-template-columns: 48px 1fr; gap: var(--space-2); }
+    .ciprep-memoria .btn,
+    .ciprep-memoria__pending { grid-column: 1 / -1; justify-self: end; }
+  }
+</style>

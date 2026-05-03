@@ -79,6 +79,7 @@
       "children": [
         { "label": "Noticias", "url": "/prensa/noticias" },
         { "label": "Eventos", "url": "/prensa/eventos" },
+        { "label": "Congreso CIPREP", "url": "/ciprep" },
         { "label": "Boletines", "url": "/comunicados-y-boletines-de-prensa" },
         { "label": "Comunicados", "url": "/comunicados" },
         { "label": "Videos", "url": "/videos-itrc" },

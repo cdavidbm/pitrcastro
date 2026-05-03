@@ -23,7 +23,7 @@
 | M1 (defensa-publica.json) | 1 enlace interno a destino inexistente |
 | M3 (decretos-estructura) | 1 enlace a archivo con nombre inconsistente en origen |
 | M4 (programa-gestion-documental) | 1 decisión de slug registrada (desviación intencional del slug WP) |
-| V (CIPREP) | Sub-app completa descartada en esta fase (decisión estratégica) |
+| V (CIPREP) | **Migrado 2026-05-03** → landing nativa `/ciprep` + 34 speakers en folder collection |
 | T (#91 Calendario de Eventos) | Página WP contenía solo shortcode de plugin descontinuado — migrada como wrapper a agenda vigente |
 | W (UI/UX) | 3 elementos con requisito administrativo / acceso a terceros (ConverTIC, GTranslate, YouTube rendición) |
 | Sync 2026-04-15 (#2 Planes) | 124 PDFs históricos en WP no presentes en local — esperan integración editorial |
@@ -299,18 +299,24 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
 ---
 
-### CIPREP → sub-app WP independiente descartada en esta fase (decisión Lote V)
+### CIPREP → migrado a /ciprep como landing nativa (2026-05-03)
 
 **URL origen WP**: `https://www.itrc.gov.co/ciprep/` (instalación WordPress independiente con Elementor)
-**URL destino nuevo**: *(no migrada en esta fase)*
-**Estado**: `descartado-temporalmente` por decisión estratégica
-**Decidido**: 2026-04-15
+**URL destino nuevo**: `/ciprep`
+**Estado**: `migrado` (la entrada quedó como histórico de auditoría)
+**Reabierto**: 2026-05-03 — el usuario confirmó la 2ª edición 2026 y pidió migrar la landing al portal Astro.
 
-**Descripción**: CIPREP (Congreso Internacional para la Protección de los Recursos Públicos) existe como una instalación WordPress independiente en la ruta `/ciprep/`. Pese a la infraestructura aparatosa (WP completo + Elementor + versión en inglés), **su contenido real es una landing page simple** (1 página + 1 post + 82 media según el análisis `analisis_web_ITRC.md §3.6`).
+**Descripción**: CIPREP (Primer Congreso Internacional para la Protección de los Recursos Públicos) se realizó el 20–21 de octubre de 2025 en la Cámara de Comercio de Bogotá – Sede Chapinero. La sub-app WP de Elementor que sirve la landing se reemplaza por la página nativa `/ciprep` con contenido editable desde Sveltia CMS y un folder collection de speakers preparado para la edición 2026.
 
-**Cómo se maneja ahora**: **no se migra**. Decisión del usuario (2026-04-15): *"en realidad es super simple, en la web original crearon toda una subinstalación para eso, pero unicamente es una landing, así que por ahora, descartemoslo, pues cuando sea el momento de hacer esa landing, esta nueva web ya estará en producción y para ese entonces decidiremos cómo se implementará"*.
+**Cómo se manejó**:
+- Página single-page con secciones ancladas (`#por-que`, `#agenda`, `#aliados`, `#speakers`, `#memorias`, `#info`).
+- Folder collection `src/content/pages/ciprep/speakers/*.json` (34 archivos) — pavimenta el "builder de landings/micrositios" original.
+- 54 binarios descargados a `public/images/ciprep/{speakers,aliados}/`.
+- Versión en inglés del WP (`/ciprep/en/`) **no migrada** — decisión 2026-05-03: solo ES en esta fase.
 
-**Pendiente / próxima fase** (post-producción): evaluar creación de un **builder genérico de landings/micrositios** dentro del portal nuevo que permita crear eventos/congresos (CIPREP y futuros) de forma eficiente. Conversación reabierta cuando termine toda la migración actual.
+**Pendientes conocidos**:
+- Sección **Memorias**: en el WP origen los 4 botones aún tienen `href="#"`; los recursos (grabaciones, presentaciones, documentos oficiales, certificado) **no han sido publicados** por la Agencia. Los slots quedan en el JSON con `url: ""` y se renderizan como "Próximamente". Conectar cuando estén disponibles.
+- Algunos cargos en items de agenda quedaron vacíos en origen (ej. ponentes "Por confirmar" del conversatorio Fraude día 1).
 
 ---
 

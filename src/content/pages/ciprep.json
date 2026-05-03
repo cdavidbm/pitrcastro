@@ -1,0 +1,676 @@
+{
+  "title": "Primer Congreso Internacional para la Protección de los Recursos Públicos",
+  "shortTitle": "CIPREP",
+  "subtitle": "Primera edición — realizado el 20 y 21 de octubre de 2025",
+  "icon": "fa-landmark-flag",
+  "edicion": 1,
+  "estado": "realizado",
+  "fechas": "20 y 21 de octubre de 2025",
+  "lugar": "Auditorio Cámara de Comercio de Bogotá (CCB) – Sede Chapinero",
+  "direccion": "Calle 67 # 8-32/44, Bogotá",
+  "organizador": "Agencia ITRC",
+  "aliadoEstrategico": "Cámara de Comercio de Bogotá (CCB)",
+  "youtubeId": "zdRnZvAl_9Q",
+  "mapsUrl": "https://maps.app.goo.gl/zbmF7PY3UmUiZoRb8",
+  "wazeUrl": "https://ul.waze.com/ul?venue_id=187367471.1873936849.481459&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location",
+  "porQue": [
+    "El Primer Congreso Internacional para la Protección de los Recursos Públicos, liderado por la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC), busca convertirse en un espacio propositivo e innovador de articulación nacional e internacional para el análisis, intercambio de experiencias y fortalecimiento de estrategias frente al fraude, la evasión fiscal, el contrabando y otras conductas que afectan la integridad en la gestión de los recursos públicos.",
+    "Este evento representa un hito para la Agencia ITRC, que por primera vez lidera un congreso de talla internacional para fomentar la articulación interinstitucional, redes de colaboración, impulsar buenas prácticas y consolidar su rol institucional como referente técnico en la prevención, detección y respuesta frente a riesgos que comprometen la gestión adecuada de los recursos de la nación, además, responde a una serie de desafíos estructurales y contextuales que hacen urgente la creación de espacios de articulación e intercambio. En primer lugar, persisten estructuras rígidas tanto en el Estado como en los organismos de control, que dificultan una respuesta ágil y efectiva frente a los fenómenos de fraude y de corrupción. A esto se suma la normalización cultural del fraude, percibido en algunos sectores como una práctica común y tolerada, lo cual debilita la integridad institucional y ciudadana."
+  ],
+  "agenda": {
+    "dia1": {
+      "fecha": "20 de octubre de 2025",
+      "fechaCorta": "lunes 20 oct",
+      "items": [
+        {
+          "hora": "7:30 – 8:00 a.m.",
+          "titulo": "Registro de asistentes",
+          "franja": "INICIO CONGRESO",
+          "moderador": "",
+          "ponentes": []
+        },
+        {
+          "hora": "8:00 – 8:20 a.m.",
+          "titulo": "Instalación oficial",
+          "franja": "INICIO CONGRESO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Carlos Emilio Betancourt Galeano",
+              "cargo": "Viceministro General, Ministerio de Hacienda y Crédito Público",
+              "slug": "carlos-emilio-betancourt-galeano"
+            },
+            {
+              "nombre": "Ovidio Claros Polanco",
+              "cargo": "Presidente Ejecutivo, Cámara de Comercio de Bogotá",
+              "slug": "ovidio-claros-polanco"
+            }
+          ]
+        },
+        {
+          "hora": "8:20 – 8:30 a.m.",
+          "titulo": "Presentación del rol misional de la Agencia ITRC",
+          "franja": "INICIO CONGRESO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Eva Carolina Madrid",
+              "cargo": "Directora General, Agencia ITRC",
+              "slug": "eva-carolina-madrid-torres"
+            }
+          ]
+        },
+        {
+          "hora": "8:30 – 8:40 a.m.",
+          "titulo": "Presentación avances DIAN",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Luis Eduardo Llinás",
+              "cargo": "Director General, DIAN",
+              "slug": "luis-eduardo-llinas-chica"
+            }
+          ]
+        },
+        {
+          "hora": "9:00 – 10:00 a.m.",
+          "titulo": "Conversatorio: Contrabando y Evasión Fiscal: Retos para la Seguridad Económica",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "Vladimir Ruzynke Castaño",
+          "ponentes": [
+            {
+              "nombre": "Luis Eduardo Llinás",
+              "cargo": "Director General, DIAN",
+              "slug": "luis-eduardo-llinas-chica"
+            },
+            {
+              "nombre": "Vicealmirante Camilo Ernesto Segovia Forero",
+              "cargo": "Inspector General, Armada Nacional de Colombia",
+              "slug": "vicealmirante-camilo-ernesto-segovia-forero"
+            },
+            {
+              "nombre": "Juan David Huepe Suaza",
+              "cargo": "Fiscal Delegado ante los Jueces del Circuito Especializados, Fiscalía General de la Nación",
+              "slug": "juan-david-huepe-suaza"
+            },
+            {
+              "nombre": "Miguel Ángel Espinosa",
+              "cargo": "Presidente, FITAC",
+              "slug": "miguel-angel-espinosa"
+            },
+            {
+              "nombre": "Alejandro Juárez Espíndola",
+              "cargo": "Director de Capacitación y Formación del Talento Humano, CIAT",
+              "slug": "alejandro-juarez-espindola"
+            }
+          ]
+        },
+        {
+          "hora": "10:00 – 10:20 a.m.",
+          "titulo": "Receso – café",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": []
+        },
+        {
+          "hora": "10:20 – 11:00 a.m.",
+          "titulo": "Contrabando: 200 años de historia",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Diego Rengifo García",
+              "cargo": "Vicepresidente Técnico, ANALDEX",
+              "slug": "diego-rengifo-garcia"
+            }
+          ]
+        },
+        {
+          "hora": "11:00 – 11:25 a.m.",
+          "titulo": "Prevención y lucha contra la corrupción asociada a delitos de alto impacto alrededor del Sistema de Valor de la Cadena Logística Portuaria",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Daniel Serrano Zuñiga",
+              "cargo": "Asesor Nacional Anticorrupción, ONUDC",
+              "slug": "dr-daniel-serrano-zuniga"
+            }
+          ]
+        },
+        {
+          "hora": "11:25 – 11:50 a.m.",
+          "titulo": "Lucha contra el contrabando",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Vicealmirante Camilo Ernesto Segovia Forero",
+              "cargo": "Inspector General, Armada Nacional",
+              "slug": "vicealmirante-camilo-ernesto-segovia-forero"
+            }
+          ]
+        },
+        {
+          "hora": "11:50 a.m. – 12:20 p.m.",
+          "titulo": "Contrabando visto desde el control de la DIAN",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "César Augusto Martínez Ariza",
+              "cargo": "Director de Gestión de Fiscalización, DIAN",
+              "slug": "cesar-augusto-martinez-ariza"
+            }
+          ]
+        },
+        {
+          "hora": "12:20 – 1:30 p.m.",
+          "titulo": "Almuerzo libre",
+          "franja": "FRANJA 1: CONTRABANDO",
+          "moderador": "",
+          "ponentes": []
+        },
+        {
+          "hora": "1:30 – 2:30 p.m.",
+          "titulo": "Conversatorio: Fraude y Protección del Patrimonio Público",
+          "franja": "FRANJA 2: FRAUDE",
+          "moderador": "Mauricio Michel Molano Currea",
+          "ponentes": [
+            {
+              "nombre": "",
+              "cargo": "Oficial Especializado del Centro de INTERPOL contra los Delitos Financieros y la Corrupción (IFCACC), Oficina Regional de INTERPOL en San Salvador, El Salvador."
+            },
+            {
+              "nombre": "Ruth Marisol Apraez Benavidez",
+              "cargo": "Procuradora Delegada Disciplinaria de Instrucción, Procuraduría General de la Nación"
+            },
+            {
+              "nombre": "María Anayme Barón",
+              "cargo": "Auditora General, Auditoría General",
+              "slug": "maria-anayme-baron-duran"
+            },
+            {
+              "nombre": "Andrés Idárraga",
+              "cargo": "Secretario de Transparencia",
+              "slug": "andres-idarraga"
+            }
+          ]
+        },
+        {
+          "hora": "2:50 – 3:20 a.m.",
+          "titulo": "Receso",
+          "franja": "FRANJA 2: FRAUDE",
+          "moderador": "",
+          "ponentes": []
+        },
+        {
+          "hora": "2:30 – 3:20 p.m.",
+          "titulo": "Medidas de IFCACC para luchar contra flujos financieros ilícitos",
+          "franja": "FRANJA 2: FRAUDE",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "",
+              "cargo": "Oficial Especializado del Centro de INTERPOL contra los Delitos Financieros y la Corrupción (IFCACC), Oficina Regional de INTERPOL en San Salvador, El Salvador"
+            }
+          ]
+        },
+        {
+          "hora": "3:20 – 3:40 p.m.",
+          "titulo": "Lucha contra la ilegalidad y evasión de derechos de explotación del monopolio rentístico de juegos de suerte y azar",
+          "franja": "FRANJA 2: FRAUDE",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Marco Emilio Hincapié",
+              "cargo": "Presidente, COLJUEGOS",
+              "slug": "marco-emilio-hincapie-ramirez"
+            }
+          ]
+        },
+        {
+          "hora": "3:40 – 4:00 p.m.",
+          "titulo": "El fraude en el pago de aportes parafiscales y pensional en Colombia",
+          "franja": "FRANJA 2: FRAUDE",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Luciano Grisales Londoño",
+              "cargo": "Presidente",
+              "slug": "luciano-grisales-londono"
+            }
+          ]
+        },
+        {
+          "hora": "4:00 – 4:50 p.m.",
+          "titulo": "Palabras del Señor Presidente de la República",
+          "franja": "FRANJA 2: FRAUDE",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Gustavo Francisco Petro Urrego",
+              "cargo": "Presidente de la República de Colombia"
+            }
+          ]
+        }
+      ]
+    },
+    "dia2": {
+      "fecha": "21 de octubre de 2025",
+      "fechaCorta": "martes 21 oct",
+      "items": [
+        {
+          "hora": "7:30 – 8:00 a.m.",
+          "titulo": "Registro de asistentes",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": []
+        },
+        {
+          "hora": "8:00 – 8:30 a.m.",
+          "titulo": "La infraestructura ética en las administraciones tributarias",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Mariano Rojo",
+              "cargo": "Jefe de la Misión Española, CIAT",
+              "slug": "mariano-rojo-perez"
+            }
+          ]
+        },
+        {
+          "hora": "8:30 – 9:00 a.m.",
+          "titulo": "Delación como mecanismo de transparencia en materia tributaria y aduanera",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Daniel Rodríguez Bravo",
+              "cargo": "Presidente de la Comisión de Integridad Empresarial ICC Colombia",
+              "slug": "daniel-rodriguez-bravo"
+            }
+          ]
+        },
+        {
+          "hora": "9:00 – 9:20 a.m.",
+          "titulo": "Aduanas, Contrabando y Corrupción: una mirada integral",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Camilo Alberto Enciso Vanegas – Fundador",
+              "cargo": "Instituto Anticorrupción"
+            }
+          ]
+        },
+        {
+          "hora": "9:20 – 9:50 a.m.",
+          "titulo": "Modelo de aduanas Chile",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Alejandra Arriaza Loeb",
+              "cargo": "Directora Nacional",
+              "slug": "alejandra-arriaza-loeb"
+            }
+          ]
+        },
+        {
+          "hora": "9:50 – 10:10 a.m.",
+          "titulo": "Institucionalidad que construye confianza",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Rodolfo Enrique Zea Navarro",
+              "cargo": "Contralor Delegado para el Sector Comercio y Desarrollo Regional – Contraloría General de la República",
+              "slug": "rodolfo-enrique-zea-navarro"
+            }
+          ]
+        },
+        {
+          "hora": "10:10 – 10:30 a.m.",
+          "titulo": "Del estigma al cumplimiento: Lecciones del juego legal",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Evert Montero",
+              "cargo": "Presidente, FECOLJUEGOS",
+              "slug": "evert-montero-cardenas"
+            }
+          ]
+        },
+        {
+          "hora": "10:30 – 10:50 a.m.",
+          "titulo": "Receso",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": []
+        },
+        {
+          "hora": "11:10 – 11:30 a.m.",
+          "titulo": "Tema por confirmar",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Zoila Llempén",
+              "cargo": "Especialista, BID",
+              "slug": "zoila-llempen"
+            }
+          ]
+        },
+        {
+          "hora": "11:30 a.m. – 12:30 p.m.",
+          "titulo": "Conversatorio: Buenas Prácticas en la prevención del fraude y la corrupción",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "Daniel Rodríguez Bravo",
+          "ponentes": [
+            {
+              "nombre": "Ovidio Claros Polanco",
+              "cargo": "Presidente Ejecutivo, Cámara de Comercio de Bogotá",
+              "slug": "ovidio-claros-polanco"
+            },
+            {
+              "nombre": "Juan Diego Cano",
+              "cargo": "Director de Asuntos Legales, ANALDEX",
+              "slug": "juan-diego-cano"
+            },
+            {
+              "nombre": "Ponente por confirmar",
+              "cargo": "FENALCO"
+            },
+            {
+              "nombre": "Ponente por confirmar",
+              "cargo": "ANDI"
+            }
+          ]
+        },
+        {
+          "hora": "12:30 – 1:30 p.m.",
+          "titulo": "Palabras del Señor Presidente de la República",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": [
+            {
+              "nombre": "Gustavo Francisco Petro Urrego",
+              "cargo": "Presidente de la República de Colombia – (confirmado – pendiente cambios en la agenda)"
+            }
+          ]
+        },
+        {
+          "hora": "1:50 – 3:00 p.m.",
+          "titulo": "Cierre y conclusiones, Fotos oficiales",
+          "franja": "FRANJA 3: LECCIONES APRENDIDAS",
+          "moderador": "",
+          "ponentes": []
+        }
+      ]
+    }
+  },
+  "aliados": {
+    "estrategico": [
+      {
+        "logo": "/images/ciprep/aliados/estrategico-1.png",
+        "nombre": "Cámara de Comercio de Bogotá"
+      }
+    ],
+    "integridad": [
+      {
+        "logo": "/images/ciprep/aliados/integridad-01.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-02.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-03.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-04.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-05.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-06.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-07.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-08.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-09.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-10.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-11.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-12.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-13.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-14.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-15.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-16.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-17.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-18.png",
+        "nombre": ""
+      },
+      {
+        "logo": "/images/ciprep/aliados/integridad-19.png",
+        "nombre": ""
+      }
+    ]
+  },
+  "memorias": {
+    "descripcion": "Aquí podrá consultar las grabaciones de las sesiones, descargar las presentaciones, los documentos oficiales del evento y su certificado de asistencia.",
+    "youtubeId": "zdRnZvAl_9Q",
+    "recursos": [
+      {
+        "titulo": "Sesiones Día 1 y Día 2",
+        "descripcion": "Grabaciones completas de ambas jornadas",
+        "tipo": "video",
+        "url": ""
+      },
+      {
+        "titulo": "Presentaciones",
+        "descripcion": "Diapositivas en PDF de cada ponencia",
+        "tipo": "descarga",
+        "url": ""
+      },
+      {
+        "titulo": "Documentos oficiales",
+        "descripcion": "Acta, conclusiones y memoria del Congreso",
+        "tipo": "descarga",
+        "url": ""
+      },
+      {
+        "titulo": "Certificado de asistencia",
+        "descripcion": "Descargue su constancia de participación",
+        "tipo": "descarga",
+        "url": ""
+      }
+    ]
+  },
+  "cta": {
+    "titulo": "II Edición 2026",
+    "descripcion": "La Agencia ITRC prepara la segunda edición del Congreso. Próximamente publicaremos fechas, sede y agenda.",
+    "enlaceLabel": "Ver memorias 2025",
+    "enlaceAncla": "#memorias"
+  },
+  "speakersIndex": [
+    {
+      "slug": "vladimir-ruzynke-castano",
+      "name": "Vladimir Ruzynke Castaño"
+    },
+    {
+      "slug": "alejandro-juarez-espindola",
+      "name": "Alejandro Juárez Espíndola"
+    },
+    {
+      "slug": "andres-idarraga",
+      "name": "Andrés Idarraga"
+    },
+    {
+      "slug": "camilo-a-enciso-vanegas",
+      "name": "Camilo A. Enciso Vanegas"
+    },
+    {
+      "slug": "carlos-hernan-rodriguez-becerra",
+      "name": "Carlos Hernán Rodríguez Becerra"
+    },
+    {
+      "slug": "diego-rengifo-garcia",
+      "name": "Diego Rengifo García"
+    },
+    {
+      "slug": "evert-montero-cardenas",
+      "name": "Evert Montero Cárdenas"
+    },
+    {
+      "slug": "german-avila-plazas",
+      "name": "Germán Ávila Plazas"
+    },
+    {
+      "slug": "gregorio-eljach-pacheco",
+      "name": "Gregorio Eljach Pacheco"
+    },
+    {
+      "slug": "vicealmirante-camilo-ernesto-segovia-forero",
+      "name": "Vicealmirante Camilo Ernesto Segovia Forero"
+    },
+    {
+      "slug": "justino-hernandez-murcia",
+      "name": "Justino Hernández Murcia"
+    },
+    {
+      "slug": "luciano-grisales-londono",
+      "name": "Luciano Grisales Londoño"
+    },
+    {
+      "slug": "luis-eduardo-llinas-chica",
+      "name": "Luis Eduardo Llinás Chica"
+    },
+    {
+      "slug": "marco-emilio-hincapie-ramirez",
+      "name": "Marco Emilio Hincapié Ramírez"
+    },
+    {
+      "slug": "mariano-rojo-perez",
+      "name": "Mariano Rojo Pérez"
+    },
+    {
+      "slug": "miguel-angel-espinosa",
+      "name": "Miguel Ángel Espinosa"
+    },
+    {
+      "slug": "numa-rafael-ortiz-fernandez",
+      "name": "Numa Rafael Ortiz Fernández"
+    },
+    {
+      "slug": "ovidio-claros-polanco",
+      "name": "Ovidio Claros Polanco"
+    },
+    {
+      "slug": "eva-carolina-madrid-torres",
+      "name": "Eva Carolina Madrid Torres"
+    },
+    {
+      "slug": "maria-anayme-baron-duran",
+      "name": "María Anayme Barón Durán"
+    },
+    {
+      "slug": "alejandra-arriaza-loeb",
+      "name": "Alejandra Arriaza Loeb"
+    },
+    {
+      "slug": "marisol-nino-vargas",
+      "name": "MARISOL NIÑO VARGAS"
+    },
+    {
+      "slug": "zoila-llempen",
+      "name": "ZOILA LLEMPÉN"
+    },
+    {
+      "slug": "andrea-agudelo",
+      "name": "ANDREA AGUDELO"
+    },
+    {
+      "slug": "ruth-marisol-apraez-benavides",
+      "name": "Ruth Marisol Apraez Benavides"
+    },
+    {
+      "slug": "mauricio-michel-molano-currea",
+      "name": "Mauricio Michel Molano Currea"
+    },
+    {
+      "slug": "daniel-rodriguez-bravo",
+      "name": "Daniel Rodríguez Bravo"
+    },
+    {
+      "slug": "dr-pedro-jose-arrieta-melendrez",
+      "name": "Dr. Pedro José Arrieta Melendrez"
+    },
+    {
+      "slug": "juan-david-huepe-suaza",
+      "name": "Juan David Huepe Suaza"
+    },
+    {
+      "slug": "dr-daniel-serrano-zuniga",
+      "name": "Dr. Daniel Serrano Zúñiga"
+    },
+    {
+      "slug": "cesar-augusto-martinez-ariza",
+      "name": "César Augusto Martínez Ariza"
+    },
+    {
+      "slug": "rodolfo-enrique-zea-navarro",
+      "name": "Rodolfo Enrique Zea Navarro"
+    },
+    {
+      "slug": "carlos-emilio-betancourt-galeano",
+      "name": "Carlos Emilio Betancourt Galeano"
+    },
+    {
+      "slug": "juan-diego-cano",
+      "name": "Juan Diego Cano"
+    }
+  ]
+}
