@@ -54,3 +54,8 @@ public/documentos/*
 # del Congreso publicados en la landing /ciprep)
 !public/documentos/ciprep/
 !public/documentos/ciprep/**
+# Excepción: fichas de relatoría que la oficina jurídica entregue para publicar
+# (catálogo de 152+ fichas migrado desde Joomla legacy roto; los PDFs llegan
+# por goteo). Volumen estimado pequeño porque cada ficha es ~200-300 KB.
+!public/documentos/relatorias/
+!public/documentos/relatorias/**

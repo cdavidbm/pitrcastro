@@ -10,6 +10,36 @@
   },
   "fichas": [
     {
+      "id": "local-2021-254-s",
+      "jcatid": "",
+      "jslug": "",
+      "year": "2021",
+      "yearCategoria": "2021",
+      "instancia": "segunda",
+      "expediente": "2021-254",
+      "titulo": "Ficha técnica Relatoría segunda instancia 2021-254",
+      "tamano": "185.2 KB",
+      "filenameOrigen": "Ficha técnica Relatoría segunda instancia 2021-254.pdf",
+      "slug": "2021-254-s",
+      "archivo": "/documentos/relatorias/2021/ficha-2021-254-segunda-instancia.pdf",
+      "origenUrl": ""
+    },
+    {
+      "id": "local-2021-254-p",
+      "jcatid": "",
+      "jslug": "",
+      "year": "2021",
+      "yearCategoria": "2021",
+      "instancia": "primera",
+      "expediente": "2021-254",
+      "titulo": "Ficha técnica Relatoría primera instancia 2021-254 SDL",
+      "tamano": "293.7 KB",
+      "filenameOrigen": "Ficha_Tecnica_Relatoria primera instancia 2021-254_SDL.pdf",
+      "slug": "2021-254-p",
+      "archivo": "/documentos/relatorias/2021/ficha-2021-254-primera-instancia.pdf",
+      "origenUrl": ""
+    },
+    {
       "id": "210",
       "jcatid": "8",
       "jslug": "ficha-de-relatoria-fallo-de-segunda-instancia-expediente-2023-174-sdl-actualizada",
