@@ -11,6 +11,27 @@ const breadcrumb = [
   { label: 'ITRC para Niños', href: resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos') },
   { label: pageData.title }
 ];
+
+function normalize(char: string) {
+  return char.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase();
+}
+
+const grouped = new Map<string, typeof pageData.terminos>();
+for (const t of pageData.terminos) {
+  const letter = normalize(t.termino.charAt(0));
+  if (!grouped.has(letter)) grouped.set(letter, []);
+  grouped.get(letter)!.push(t);
+}
+const groupedSorted = [...grouped.entries()].sort(([a], [b]) => a.localeCompare(b));
+
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const activeLetters = new Set(grouped.keys());
+
+const palette = ['#e63946', '#f4a261', '#f6c453', '#2a9d8f', '#5b8def', '#9d4edd'];
+function letterColor(letter: string) {
+  const i = letter.charCodeAt(0) % palette.length;
+  return palette[i];
+}
 ---
 
 <Base title={pageData.title} description={pageData.description}>
@@ -20,21 +41,53 @@ const breadcrumb = [
     <div class="container">
       <p class="gn-intro">{pageData.intro}</p>
 
-      <div class="gn-count">
+      <div class="gn-count" id="gnCount">
         <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>
-        {pageData.terminos.length} términos
+        {pageData.terminos.length} palabras para descubrir
       </div>
 
       <div class="gn-search">
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-        <input type="text" id="gnSearch" placeholder="Buscar término..." aria-label="Buscar en el glosario" />
+        <input type="text" id="gnSearch" placeholder="¿Qué palabra buscas?" aria-label="Buscar en el glosario" />
       </div>
 
-      <div class="gn-list">
-        {pageData.terminos.map((t) => (
-          <div class="gn-term" data-term={t.termino.toLowerCase()}>
-            <h3>{t.termino}</h3>
-            <p>{t.definicion}</p>
+      <nav class="gn-alpha" aria-label="Índice alfabético">
+        {alphabet.map(letter => (
+          <a
+            href={activeLetters.has(letter) ? `#letra-${letter}` : undefined}
+            class={`gn-alpha__letter ${activeLetters.has(letter) ? 'active' : 'disabled'}`}
+            aria-disabled={!activeLetters.has(letter) ? 'true' : undefined}
+            style={activeLetters.has(letter) ? `--letter-color: ${letterColor(letter)}` : undefined}
+          >
+            {letter}
+          </a>
+        ))}
+      </nav>
+
+      <div class="gn-no-results" id="gnNoResults" hidden>
+        <i class="fa-solid fa-face-sad-tear" aria-hidden="true"></i>
+        <p>No encontramos esa palabra. ¡Prueba con otra!</p>
+      </div>
+
+      <div class="gn-content" id="gnContent">
+        {groupedSorted.map(([letter, terms]) => (
+          <div class="gn-group" id={`letra-${letter}`} data-letter={letter} style={`--letter-color: ${letterColor(letter)}`}>
+            <div class="gn-group__header">
+              <span class="gn-group__letter">{letter}</span>
+              <span class="gn-group__count">{terms.length} {terms.length === 1 ? 'palabra' : 'palabras'}</span>
+            </div>
+
+            <div class="gn-terms">
+              {terms.map(term => (
+                <details class="gn-term" data-term={term.termino.toLowerCase()}>
+                  <summary>
+                    <span class="gn-term__title">{term.termino}</span>
+                    <i class="fa-solid fa-chevron-down gn-term__chev" aria-hidden="true"></i>
+                  </summary>
+                  <p class="gn-term__def">{term.definicion}</p>
+                </details>
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -46,44 +99,176 @@ const breadcrumb = [
 
 <style>
   .gn-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
-  .gn-section .container { max-width: 850px; margin: 0 auto; }
-  .gn-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-6); }
+  .gn-section .container { max-width: 880px; margin: 0 auto; }
+  .gn-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-5); }
   .gn-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-5); }
 
+  /* Buscador estilo lúdico */
   .gn-search { position: relative; margin-bottom: var(--space-6); }
-  .gn-search i { position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); }
-  .gn-search input { width: 100%; padding: var(--space-4) var(--space-5) var(--space-4) var(--space-12); border: 2px solid var(--theme-border); border-radius: var(--radius-full); font-size: var(--font-size-base); font-family: var(--font-family); background: var(--theme-surface); color: var(--theme-text); }
-  .gn-search input:focus { outline: none; border-color: var(--itrc-gold); }
+  .gn-search > i { position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); font-size: var(--font-size-base); }
+  .gn-search input {
+    width: 100%; padding: var(--space-4) var(--space-5) var(--space-4) var(--space-12);
+    border: 2px solid var(--theme-border); border-radius: var(--radius-full);
+    font-size: var(--font-size-base); font-family: var(--font-family);
+    background: var(--theme-surface); color: var(--theme-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .gn-search input:focus { outline: none; border-color: var(--itrc-gold); box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15); }
 
-  .gn-list { display: flex; flex-direction: column; gap: var(--space-3); }
-  .gn-term { padding: var(--space-5) var(--space-6); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-left: 3px solid var(--itrc-gold); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; transition: all var(--transition-fast); }
-  .gn-term:hover { background: var(--theme-surface-alt); border-left-color: var(--itrc-navy); }
-  .gn-term h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-2); }
-  .gn-term p { font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); margin: 0; }
+  /* Índice alfabético */
+  .gn-alpha {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1);
+    margin-bottom: var(--space-8); padding: var(--space-3);
+    background: var(--theme-surface-alt); border-radius: var(--radius-xl);
+  }
+  .gn-alpha__letter {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm); font-weight: 800; text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+  .gn-alpha__letter.active { color: var(--theme-heading); cursor: pointer; }
+  .gn-alpha__letter.active:hover { background: var(--letter-color, var(--itrc-gold)); color: #fff; transform: scale(1.1); }
+  .gn-alpha__letter.disabled { color: var(--theme-text-muted); opacity: 0.3; cursor: default; }
+
+  /* Sin resultados */
+  .gn-no-results { text-align: center; padding: var(--space-12) var(--space-6); color: var(--theme-text-muted); }
+  .gn-no-results i { font-size: var(--font-size-3xl); margin-bottom: var(--space-3); opacity: 0.4; }
+  .gn-no-results p { font-size: var(--font-size-base); }
+
+  /* Grupos por letra */
+  .gn-group { margin-bottom: var(--space-8); }
+  .gn-group:last-child { margin-bottom: 0; }
+  .gn-group.hidden { display: none; }
+
+  .gn-group__header {
+    display: flex; align-items: center; gap: var(--space-3);
+    margin-bottom: var(--space-4); scroll-margin-top: var(--space-6);
+  }
+  .gn-group__letter {
+    width: 56px; height: 56px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--letter-color, var(--itrc-gold));
+    color: #fff; border-radius: var(--radius-lg);
+    font-size: var(--font-size-2xl); font-weight: 900;
+    box-shadow: 0 4px 0 0 color-mix(in srgb, var(--letter-color, var(--itrc-gold)) 60%, #000);
+  }
+  .gn-group__count {
+    padding: 4px 12px;
+    background: color-mix(in srgb, var(--letter-color, var(--itrc-gold)) 12%, transparent);
+    color: var(--letter-color, var(--itrc-gold));
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs); font-weight: 700;
+  }
+
+  /* Acordeones por término */
+  .gn-terms { display: flex; flex-direction: column; gap: var(--space-2); }
+  .gn-term {
+    background: var(--theme-surface);
+    border: 2px solid var(--theme-border-light);
+    border-left: 4px solid var(--letter-color, var(--itrc-gold));
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-fast);
+  }
+  .gn-term[open] { border-color: var(--letter-color, var(--itrc-gold)); box-shadow: var(--shadow-sm); }
   .gn-term.hidden { display: none; }
 
-  .back-link { margin-top: var(--space-8); text-align: center; }
+  .gn-term summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-4) var(--space-5);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+    font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading);
+    transition: background var(--transition-fast);
+  }
+  .gn-term summary::-webkit-details-marker { display: none; }
+  .gn-term summary:hover { background: var(--theme-surface-alt); }
+
+  .gn-term__title { flex: 1; }
+
+  .gn-term__chev {
+    flex-shrink: 0;
+    color: var(--letter-color, var(--itrc-gold));
+    transition: transform var(--transition-fast);
+  }
+  .gn-term[open] .gn-term__chev { transform: rotate(180deg); }
+
+  .gn-term__def {
+    margin: 0;
+    padding: 0 var(--space-5) var(--space-5);
+    font-size: var(--font-size-sm); line-height: 1.7;
+    color: var(--theme-text-secondary);
+  }
+
+  .back-link { margin-top: var(--space-10); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .gn-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .gn-search input { font-size: var(--font-size-sm); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10); }
+    .gn-alpha { gap: 2px; padding: var(--space-2); }
+    .gn-alpha__letter { width: 30px; height: 30px; font-size: var(--font-size-xs); }
+    .gn-group__letter { width: 44px; height: 44px; font-size: var(--font-size-lg); }
+    .gn-term summary { padding: var(--space-3) var(--space-4); font-size: var(--font-size-sm); }
+    .gn-term__def { padding: 0 var(--space-4) var(--space-4); font-size: var(--font-size-xs); }
+  }
 </style>
 
 <script>
-  function initGnSearch() {
-    const input = document.getElementById('gnSearch') as HTMLInputElement;
-    const terms = document.querySelectorAll('.gn-term');
-    if (!input) return;
-    let t: ReturnType<typeof setTimeout>;
-    input.addEventListener('input', () => {
-      clearTimeout(t);
-      t = setTimeout(() => {
-        const q = input.value.toLowerCase().trim();
-        terms.forEach(term => {
-          const text = (term.textContent || '').toLowerCase();
-          term.classList.toggle('hidden', q && !text.includes(q));
+  function initGnGlosario() {
+    const input = document.getElementById('gnSearch') as HTMLInputElement | null;
+    const groups = document.querySelectorAll<HTMLElement>('.gn-group');
+    const terms = document.querySelectorAll<HTMLElement>('.gn-term');
+    const noResults = document.getElementById('gnNoResults') as HTMLElement | null;
+    const count = document.getElementById('gnCount');
+    const total = terms.length;
+    let timer: ReturnType<typeof setTimeout>;
+
+    function filter() {
+      const q = (input?.value || '').toLowerCase().trim();
+      let visible = 0;
+
+      groups.forEach(group => {
+        const groupTerms = group.querySelectorAll<HTMLElement>('.gn-term');
+        let groupVisible = 0;
+        groupTerms.forEach(term => {
+          const termText = term.dataset.term || '';
+          const def = term.querySelector('.gn-term__def')?.textContent?.toLowerCase() || '';
+          const matches = !q || termText.includes(q) || def.includes(q);
+          term.classList.toggle('hidden', !matches);
+          if (matches) { groupVisible++; visible++; }
+          if (q && matches) { (term as HTMLDetailsElement).open = true; }
+          else if (!q) { (term as HTMLDetailsElement).open = false; }
         });
-      }, 200);
+        group.classList.toggle('hidden', groupVisible === 0);
+      });
+
+      if (count) {
+        count.innerHTML = q
+          ? `<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> ${visible} ${visible === 1 ? 'resultado' : 'resultados'}`
+          : `<i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> ${total} palabras para descubrir`;
+      }
+      if (noResults) noResults.hidden = visible > 0;
+    }
+
+    input?.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(filter, 180);
+    });
+
+    document.querySelectorAll<HTMLAnchorElement>('.gn-alpha__letter.active').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const target = document.querySelector(href + ' .gn-group__header');
+        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   }
-  initGnSearch();
-  document.addEventListener('astro:after-swap', initGnSearch);
+  initGnGlosario();
+  document.addEventListener('astro:after-swap', initGnGlosario);
 </script>

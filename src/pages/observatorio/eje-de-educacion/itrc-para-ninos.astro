@@ -16,8 +16,36 @@ const breadcrumb = [
 <Base title={pageData.title} description={pageData.description}>
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
-  <section class="ninos-section">
+  <section class="ninos-section" id="ninosRoot">
     <div class="container">
+      <div class="ninos-toolbar">
+        <button type="button" class="ninos-paint" id="ninosPaintBtn" aria-expanded="false" aria-controls="ninosPaintPanel">
+          <i class="fa-solid fa-palette" aria-hidden="true"></i>
+          <span>Personaliza los colores</span>
+        </button>
+
+        <div class="ninos-paint-panel" id="ninosPaintPanel" hidden>
+          <p class="ninos-paint-panel__title">Elige tu tema favorito:</p>
+          <div class="ninos-paint-themes" role="radiogroup" aria-label="Tema de colores">
+            <button type="button" class="paint-theme" data-theme="default" aria-label="Tema institucional" aria-checked="true"
+              style="--p1:#002147;--p2:#b38b40;--p3:#0943b5"></button>
+            <button type="button" class="paint-theme" data-theme="rainbow" aria-label="Arcoíris" aria-checked="false"
+              style="--p1:#e63946;--p2:#f6c453;--p3:#2a9d8f"></button>
+            <button type="button" class="paint-theme" data-theme="ocean" aria-label="Océano" aria-checked="false"
+              style="--p1:#1d3557;--p2:#48cae4;--p3:#caf0f8"></button>
+            <button type="button" class="paint-theme" data-theme="jungle" aria-label="Selva" aria-checked="false"
+              style="--p1:#386641;--p2:#a7c957;--p3:#f2e8cf"></button>
+            <button type="button" class="paint-theme" data-theme="space" aria-label="Espacio" aria-checked="false"
+              style="--p1:#22223b;--p2:#9d4edd;--p3:#f72585"></button>
+            <button type="button" class="paint-theme" data-theme="candy" aria-label="Caramelo" aria-checked="false"
+              style="--p1:#ff70a6;--p2:#ff9770;--p3:#ffd670"></button>
+          </div>
+          <button type="button" class="paint-reset" id="ninosPaintReset">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Volver al original
+          </button>
+        </div>
+      </div>
+
       <p class="ninos-intro">{pageData.intro}</p>
 
       <div class="ninos-grid">
@@ -28,6 +56,7 @@ const breadcrumb = [
             rel={sec.externo ? 'noopener' : undefined}
             class="ninos-card"
             style={`--card-accent: ${sec.color}`}
+            data-card-original={sec.color}
           >
             <div class="ninos-card__icon"><i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i></div>
             <h3 class="ninos-card__title">{sec.titulo}</h3>
@@ -44,6 +73,50 @@ const breadcrumb = [
   .ninos-section .container { max-width: 1000px; margin: 0 auto; }
   .ninos-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-10); }
 
+  /* V-11: Toolbar con botón "Personaliza colores" */
+  .ninos-toolbar { display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-3); margin-bottom: var(--space-6); }
+  .ninos-paint {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--theme-surface); color: var(--theme-heading);
+    border: 2px solid var(--itrc-gold); border-radius: var(--radius-full);
+    font-family: var(--font-family); font-size: var(--font-size-sm); font-weight: 700;
+    cursor: pointer; transition: all var(--transition-fast);
+  }
+  .ninos-paint:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .ninos-paint i { color: var(--itrc-gold); transition: color var(--transition-fast); }
+  .ninos-paint:hover i { color: var(--itrc-navy); }
+
+  .ninos-paint-panel {
+    width: 100%; max-width: 360px;
+    padding: var(--space-4); background: var(--theme-surface);
+    border: 1px solid var(--theme-border); border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    display: flex; flex-direction: column; gap: var(--space-3);
+  }
+  .ninos-paint-panel[hidden] { display: none; }
+  .ninos-paint-panel__title { margin: 0; font-size: var(--font-size-sm); color: var(--theme-text-secondary); font-weight: 600; }
+
+  .ninos-paint-themes { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; }
+  .paint-theme {
+    width: 56px; height: 56px; border-radius: 50%; cursor: pointer;
+    border: 3px solid var(--theme-surface); padding: 0;
+    background: linear-gradient(135deg, var(--p1) 0% 33%, var(--p2) 33% 66%, var(--p3) 66% 100%);
+    box-shadow: 0 0 0 1px var(--theme-border);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .paint-theme:hover { transform: scale(1.1); }
+  .paint-theme[aria-checked="true"] { box-shadow: 0 0 0 3px var(--itrc-gold); }
+
+  .paint-reset {
+    align-self: center;
+    background: transparent; color: var(--theme-text-muted);
+    border: none; padding: var(--space-1) var(--space-3);
+    font-family: var(--font-family); font-size: var(--font-size-xs); cursor: pointer;
+    display: inline-flex; align-items: center; gap: var(--space-1);
+  }
+  .paint-reset:hover { color: var(--itrc-gold); }
+
   .ninos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-5); }
 
   .ninos-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--space-8) var(--space-5); background: var(--theme-surface); border: 2px solid var(--card-accent); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
@@ -58,3 +131,66 @@ const breadcrumb = [
   .ninos-card__desc { font-size: var(--font-size-xs); line-height: 1.5; color: var(--theme-text-secondary); margin: 0; }
   .ninos-card:hover .ninos-card__desc { color: rgba(255,255,255,0.9); }
 </style>
+
+<script>
+  function initNinosPaint() {
+    const STORAGE_KEY = 'itrc-ninos-theme';
+    const btn = document.getElementById('ninosPaintBtn');
+    const panel = document.getElementById('ninosPaintPanel');
+    const reset = document.getElementById('ninosPaintReset');
+    const themes = document.querySelectorAll<HTMLButtonElement>('.paint-theme');
+    const cards = document.querySelectorAll<HTMLElement>('.ninos-card');
+    if (!btn || !panel) return;
+
+    const palettes: Record<string, string[]> = {
+      default: [],
+      rainbow: ['#e63946', '#f6c453', '#2a9d8f', '#5b8def', '#9d4edd'],
+      ocean:   ['#1d3557', '#48cae4', '#0077b6', '#00b4d8', '#caf0f8'],
+      jungle:  ['#386641', '#6a994e', '#a7c957', '#bc6c25', '#dda15e'],
+      space:   ['#22223b', '#4a4e69', '#9d4edd', '#f72585', '#7209b7'],
+      candy:   ['#ff70a6', '#ff9770', '#ffd670', '#a0e8af', '#5fa8d3'],
+    };
+
+    function applyTheme(name: string) {
+      const palette = palettes[name];
+      cards.forEach((card, i) => {
+        if (!palette || palette.length === 0) {
+          const original = card.dataset.cardOriginal || '';
+          card.style.setProperty('--card-accent', original);
+        } else {
+          card.style.setProperty('--card-accent', palette[i % palette.length]);
+        }
+      });
+      themes.forEach(t => {
+        t.setAttribute('aria-checked', t.dataset.theme === name ? 'true' : 'false');
+      });
+    }
+
+    btn.addEventListener('click', () => {
+      const isOpen = !panel.hasAttribute('hidden');
+      if (isOpen) panel.setAttribute('hidden', '');
+      else panel.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    themes.forEach(t => {
+      t.addEventListener('click', () => {
+        const name = t.dataset.theme || 'default';
+        applyTheme(name);
+        try { localStorage.setItem(STORAGE_KEY, name); } catch {}
+      });
+    });
+
+    reset?.addEventListener('click', () => {
+      applyTheme('default');
+      try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    });
+
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && palettes[saved]) applyTheme(saved);
+    } catch {}
+  }
+  initNinosPaint();
+  document.addEventListener('astro:after-swap', initNinosPaint);
+</script>

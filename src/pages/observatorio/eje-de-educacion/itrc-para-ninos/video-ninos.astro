@@ -20,10 +20,21 @@ const breadcrumb = [
     <div class="container">
       <p class="video-desc">{pageData.descripcion}</p>
       <div class="video-player">
-        <video controls preload="metadata">
-          <source src={pageData.videoUrl} type="video/mp4" />
-          Su navegador no soporta la reproducción de video.
-        </video>
+        {pageData.youtubeId ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${pageData.youtubeId}`}
+            title={pageData.title}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        ) : (
+          <video controls preload="metadata">
+            <source src={pageData.videoUrl} type="video/mp4" />
+            Su navegador no soporta la reproducción de video.
+          </video>
+        )}
       </div>
       <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a ITRC para Niños</a></div>
     </div>
@@ -34,8 +45,9 @@ const breadcrumb = [
   .video-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
   .video-section .container { max-width: 900px; margin: 0 auto; text-align: center; }
   .video-desc { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); }
-  .video-player { background: #000; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
-  .video-player video { width: 100%; height: auto; display: block; }
+  .video-player { background: #000; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 16/9; }
+  .video-player video,
+  .video-player iframe { width: 100%; height: 100%; display: block; border: 0; }
   .back-link { margin-top: var(--space-8); }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }

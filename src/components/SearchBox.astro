@@ -146,10 +146,16 @@ const base = import.meta.env.BASE_URL;
     margin: 0;
   }
 
+  /* Separador entre items (V-04). El último no lleva borde para evitar
+     una línea suelta antes del padding inferior del contenedor. */
+  .search-box__result + .search-box__result a {
+    border-top: 1px solid var(--theme-border-light);
+  }
+
   .search-box__result a {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-4);
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-md);
     text-decoration: none;
@@ -192,19 +198,26 @@ const base = import.meta.env.BASE_URL;
   .search-box__result-text {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .search-box__result-title {
+    display: block;
     font-size: var(--font-size-sm);
     font-weight: 600;
+    line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .search-box__result-parent {
+    display: block;
     font-size: var(--font-size-xs);
     color: var(--gray-400);
+    line-height: 1.2;
   }
 
   /* Empty state */

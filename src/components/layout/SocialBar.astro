@@ -1,0 +1,120 @@
+---
+import contactConfig from '../../content/settings/contact.json';
+
+const socialIcons: Record<string, string> = {
+  facebook: 'fa-brands fa-facebook-f',
+  twitter: 'fa-brands fa-x-twitter',
+  youtube: 'fa-brands fa-youtube',
+  instagram: 'fa-brands fa-instagram',
+  linkedin: 'fa-brands fa-linkedin-in',
+};
+
+const labels: Record<string, string> = {
+  facebook: 'Facebook',
+  twitter: 'X (Twitter)',
+  youtube: 'YouTube',
+  instagram: 'Instagram',
+  linkedin: 'LinkedIn',
+};
+
+const socialEntries = Object.entries(contactConfig.socialMedia).filter(([, url]) => url);
+---
+
+{socialEntries.length > 0 && (
+  <aside class="social-bar" aria-label="Redes sociales">
+    {socialEntries.map(([network, url]) => (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`social-bar__link social-bar__link--${network}`}
+        aria-label={`Síguenos en ${labels[network] || network}`}
+        title={labels[network] || network}
+      >
+        <i class={socialIcons[network] || 'fa-solid fa-link'} aria-hidden="true"></i>
+        <span class="social-bar__label">{labels[network] || network}</span>
+      </a>
+    ))}
+  </aside>
+)}
+
+<style>
+  .social-bar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-right: none;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-2);
+  }
+
+  .social-bar__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    color: var(--theme-text-muted);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-base);
+  }
+
+  .social-bar__link:focus-visible {
+    outline: 2px solid var(--itrc-gold);
+    outline-offset: 2px;
+  }
+
+  /* Etiqueta emergente al hover (mostrar el nombre de la red) */
+  .social-bar__label {
+    position: absolute;
+    right: calc(100% + var(--space-2));
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    padding: 4px 10px;
+    background: var(--theme-heading);
+    color: var(--theme-surface);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+  .social-bar__link:hover .social-bar__label,
+  .social-bar__link:focus-visible .social-bar__label {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* Colores de marca al hover */
+  .social-bar__link--facebook:hover { background: #1877F2; color: #fff; }
+  .social-bar__link--twitter:hover { background: #000; color: #fff; }
+  .social-bar__link--youtube:hover { background: #FF0000; color: #fff; }
+  .social-bar__link--instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #fff;
+  }
+  .social-bar__link--linkedin:hover { background: #0A66C2; color: #fff; }
+
+  /* Ocultar en pantallas pequeñas — el footer ya muestra las redes */
+  @media (max-width: 900px) {
+    .social-bar { display: none; }
+  }
+
+  /* Ocultar al imprimir */
+  @media print {
+    .social-bar { display: none; }
+  }
+</style>

@@ -10,6 +10,7 @@ const socialIcons: Record<string, string> = {
   twitter: 'fa-brands fa-x-twitter',
   youtube: 'fa-brands fa-youtube',
   instagram: 'fa-brands fa-instagram',
+  linkedin: 'fa-brands fa-linkedin-in',
 };
 ---
 
@@ -56,9 +57,10 @@ const socialIcons: Record<string, string> = {
       <h3>Enlaces</h3>
       <ul class="footer__list">
         <li><a href={`${base}transparencia`}>Transparencia</a></li>
-        <li><a href={`${base}atencion/pqrs`}>PQRSD</a></li>
+        <li><a href={`${base}tu-p-q-r-s-al-dia`}>PQRSD</a></li>
         <li><a href={`${base}mapa-del-sitio`}>Mapa del Sitio</a></li>
-        <li><a href={`${base}politicas`}>Políticas</a></li>
+        <li><a href={`${base}politicas-lineamientos-y-manuales`}>Políticas y Manuales</a></li>
+        <li><a href={`${base}atencion-y-servicios`}>Atención y Servicios</a></li>
         <li>
           <a href="https://www.itrc.gov.co/denuncias" target="_blank" rel="noopener noreferrer">
             Denuncie
@@ -77,7 +79,7 @@ const socialIcons: Record<string, string> = {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              class="footer__social-link"
+              class={`footer__social-link footer__social-link--${network}`}
               aria-label={`Síguenos en ${network}`}
               title={network.charAt(0).toUpperCase() + network.slice(1)}
             >
@@ -126,4 +128,25 @@ const socialIcons: Record<string, string> = {
   .footer__gov li a:hover { opacity: 1; color: var(--itrc-gold); }
   .footer__gov li a > i:first-child { font-size: var(--font-size-sm); }
   .footer__gov li a > i:last-child { font-size: var(--font-size-xs); opacity: 0.5; margin-left: auto; }
+
+  /* Colores de marca para redes sociales (V-01 review). Hover llena con
+     el color oficial; estado por defecto solo aplica el color al ícono. */
+  .footer__social-link { transition: all var(--transition-base); }
+  .footer__social-link--facebook { color: #1877F2; }
+  .footer__social-link--facebook:hover { background: #1877F2; color: #fff; }
+  .footer__social-link--twitter { color: #000; }
+  :global(.theme-oscuro) .footer__social-link--twitter { color: #fff; }
+  .footer__social-link--twitter:hover { background: #000; color: #fff; }
+  .footer__social-link--youtube { color: #FF0000; }
+  .footer__social-link--youtube:hover { background: #FF0000; color: #fff; }
+  .footer__social-link--instagram {
+    color: #E1306C;
+    background: linear-gradient(45deg, transparent, transparent);
+  }
+  .footer__social-link--instagram:hover {
+    color: #fff;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  }
+  .footer__social-link--linkedin { color: #0A66C2; }
+  .footer__social-link--linkedin:hover { background: #0A66C2; color: #fff; }
 </style>

@@ -20,7 +20,7 @@ const breadcrumb = [
     <div class="container">
       <div class="not-count"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> {pageData.noticias.length} noticias</div>
 
-      <div class="not-list">
+      <div class="not-grid">
         {pageData.noticias.map((n) => (
           <article class="not-card">
             <div class="not-card__image">
@@ -29,7 +29,7 @@ const breadcrumb = [
             <div class="not-card__body">
               <span class="not-card__date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> {n.fecha}</span>
               <h3>{n.titulo}</h3>
-              <p>{n.resumen}</p>
+              {n.resumen && <p>{n.resumen}</p>}
             </div>
           </article>
         ))}
@@ -45,26 +45,26 @@ const breadcrumb = [
   .not-section .container { max-width: 1000px; margin: 0 auto; }
   .not-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-6); }
 
-  .not-list { display: flex; flex-direction: column; gap: var(--space-5); }
+  /* V-07: cuadrícula de cards (imagen+título+fecha) en lugar de lista vertical */
+  .not-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: var(--space-5); }
 
-  .not-card { display: grid; grid-template-columns: 240px 1fr; gap: var(--space-5); padding: var(--space-5); background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); transition: all var(--transition-base); }
-  .not-card:hover { box-shadow: var(--shadow-md); border-color: var(--itrc-gold); transform: translateX(4px); }
+  .not-card { display: flex; flex-direction: column; background: var(--theme-surface); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); }
+  .not-card:hover { box-shadow: var(--shadow-lg); border-color: var(--itrc-gold); transform: translateY(-3px); }
 
-  .not-card__image { aspect-ratio: 16/10; overflow: hidden; border-radius: var(--radius-lg); background: var(--theme-surface-alt); }
+  .not-card__image { aspect-ratio: 16/10; overflow: hidden; background: var(--theme-surface-alt); }
   .not-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
   .not-card:hover .not-card__image img { transform: scale(1.05); }
 
-  .not-card__body { display: flex; flex-direction: column; gap: var(--space-2); }
+  .not-card__body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-5) var(--space-5); flex: 1; }
   .not-card__date { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-xs); color: var(--itrc-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
   .not-card__body h3 { font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading); margin: 0; line-height: 1.4; }
-  .not-card__body p { font-size: var(--font-size-sm); line-height: 1.6; color: var(--theme-text-secondary); margin: 0; }
+  .not-card__body p { font-size: var(--font-size-sm); line-height: 1.6; color: var(--theme-text-secondary); margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
   .back-link { margin-top: var(--space-8); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }
 
-  @media (max-width: 700px) {
-    .not-card { grid-template-columns: 1fr; }
-    .not-card__image { aspect-ratio: 16/9; }
+  @media (max-width: 540px) {
+    .not-grid { grid-template-columns: 1fr; }
   }
 </style>

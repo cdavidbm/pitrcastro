@@ -9,6 +9,7 @@ const socialIcons: Record<string, string> = {
   twitter: 'fa-brands fa-x-twitter',
   youtube: 'fa-brands fa-youtube',
   instagram: 'fa-brands fa-instagram',
+  linkedin: 'fa-brands fa-linkedin-in',
 };
 ---
 
@@ -43,7 +44,7 @@ const socialIcons: Record<string, string> = {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            class="header__social-link"
+            class={`header__social-link header__social-link--${network}`}
             aria-label={`Síguenos en ${network}`}
             title={network.charAt(0).toUpperCase() + network.slice(1)}
           >
@@ -115,9 +116,16 @@ const socialIcons: Record<string, string> = {
   }
 
   .header__social-link:hover {
-    color: var(--itrc-gold);
     transform: scale(1.15);
   }
+
+  /* Colores de marca por red (V-01 review). En estado idle el ícono usa
+     el gris discreto del header; al hover salta al color oficial. */
+  .header__social-link--facebook:hover { color: #1877F2; }
+  .header__social-link--twitter:hover { color: var(--theme-heading); }
+  .header__social-link--youtube:hover { color: #FF0000; }
+  .header__social-link--instagram:hover { color: #E1306C; }
+  .header__social-link--linkedin:hover { color: #0A66C2; }
 
   /* Botón hamburguesa en header (oculto por defecto) */
   .header__menu-btn {
