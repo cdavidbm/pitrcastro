@@ -158,11 +158,13 @@ export const observatorio = {
     },
     {
       name: "observatorio-libro-infantil",
-      label: "Libro Infantil (Flipsnack)",
+      label: "Libro Infantil (PDF)",
       file: "src/content/pages/observatorio/eje-de-educacion/libro-infantil.json",
       fields: [
         ...headerFields,
-        { name: "embedUrl", label: "URL del embed Flipsnack", widget: "string" },
+        { name: "pdfUrl", label: "Ruta del PDF", widget: "string", hint: "Ej: /documentos/ninos/libro-infantil-itrc.pdf" },
+        { name: "pdfSize", label: "Tamaño (texto)", widget: "string", required: false, hint: "Ej: 21 MB" },
+        { name: "pdfPaginas", label: "Número de páginas", widget: "number", required: false, value_type: "int", min: 1 },
       ],
     },
     {
@@ -172,6 +174,18 @@ export const observatorio = {
       fields: [
         ...headerFields,
         { name: "embedUrl", label: "URL del embed Flipsnack", widget: "string" },
+      ],
+    },
+    {
+      name: "observatorio-cuento-ninos",
+      label: "Cuento ITRC para Niños (Flipbook + PDF)",
+      file: "src/content/pages/observatorio/eje-de-educacion/cuento.json",
+      fields: [
+        ...headerFields,
+        { name: "embedUrl", label: "URL del flipbook (Heyzine)", widget: "string" },
+        { name: "pdfUrl", label: "Ruta del PDF", widget: "string", hint: "Ej: /documentos/ninos/cuento-itrc-para-ninos.pdf" },
+        { name: "pdfSize", label: "Tamaño (texto)", widget: "string", required: false, hint: "Ej: 24 MB" },
+        { name: "pdfPaginas", label: "Número de páginas", widget: "number", required: false, value_type: "int", min: 1 },
       ],
     },
     {

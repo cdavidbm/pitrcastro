@@ -9,7 +9,7 @@
     { "titulo": "Glosario para Niños", "descripcion": "Términos explicados de forma sencilla", "icon": "fa-book-open-reader", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/glosario-ninos", "color": "#198754" },
     { "titulo": "Quiz Anticorrupción", "descripcion": "Pon a prueba lo que sabes con 10 preguntas", "icon": "fa-circle-question", "url": "/observatorio/eje-de-educacion/juego-de-roles/quiz", "color": "#e63946" },
     { "titulo": "Sopa de Letras", "descripcion": "Encuentra 12 palabras escondidas", "icon": "fa-table-cells", "url": "/observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras", "color": "#2a9d8f" },
-    { "titulo": "Cuento", "descripcion": "Descarga el cuento de la Agencia ITRC", "icon": "fa-book-journal-whills", "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/Cuento-ITRC-para-ninos.pdf", "color": "#6f42c1", "externo": true },
+    { "titulo": "Cuento", "descripcion": "Cuento ilustrado interactivo para niños y niñas", "icon": "fa-book-journal-whills", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cuento", "color": "#6f42c1" },
     { "titulo": "Libro Infantil", "descripcion": "Libro interactivo sobre la ITRC", "icon": "fa-book-bookmark", "url": "/observatorio/eje-de-educacion/itrc-para-ninos/libro-infantil", "color": "#0943b5" }
   ]
 }

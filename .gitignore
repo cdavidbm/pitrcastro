@@ -59,3 +59,7 @@ public/documentos/*
 # por goteo). Volumen estimado pequeño porque cada ficha es ~200-300 KB.
 !public/documentos/relatorias/
 !public/documentos/relatorias/**
+# Excepción: material infantil (cuento + libro infantil ITRC) publicado en
+# /observatorio/eje-de-educacion/itrc-para-ninos. 2 PDFs (~45 MB).
+!public/documentos/ninos/
+!public/documentos/ninos/**
