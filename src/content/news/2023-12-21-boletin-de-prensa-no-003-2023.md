@@ -4,6 +4,7 @@ date: 2023-12-21
 image: ""
 excerpt: "Comunicado de Prensa Bogotá D.C., 21 de diciembre de 2023 La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales -ITRC, realizó..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

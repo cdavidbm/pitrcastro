@@ -4,6 +4,7 @@ date: 2025-05-10
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/imagen-resolucion-1.jpeg"
 excerpt: "Por medio de la cual se adoptan mecanismos internos para dar cumplimiento a la Ley 2097 de 2021 - Registro de Deudores Alimentarios Morosos (REDAM) y su..."
 tags: ["noticias", "resoluciones"]
+categoria: noticia
 draft: false
 ---
 

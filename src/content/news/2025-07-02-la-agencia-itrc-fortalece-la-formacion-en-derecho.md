@@ -4,6 +4,7 @@ date: 2025-07-02
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/banner-comunicado-de-prensa-dr-villegas.jpeg"
 excerpt: "En desarrollo de la política de formación y gestión del conocimiento que implementa la Agencia ITRC, se llevó a cabo la conferencia denominada “Decreto de..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

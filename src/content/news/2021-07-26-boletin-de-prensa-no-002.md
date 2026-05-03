@@ -4,6 +4,7 @@ date: 2021-07-26
 image: ""
 excerpt: "Boletín de Prensa 002 - 28 de julio de 2021 La Agencia ITRC destituyó e inhabilitó por 20 años a funcionario de la DIAN La Agencia del Inspector General de..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

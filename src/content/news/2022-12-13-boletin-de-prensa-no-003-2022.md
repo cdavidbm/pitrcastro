@@ -4,6 +4,7 @@ date: 2022-12-13
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-14-at-10.15.26-AM.jpeg"
 excerpt: "Agencia ITRC realizará su audiencia pública de Rendición de Cuentas 2022 Boletín de Prensa 003 - 13 de diciembre de 2022 Invitamos a la ciudadanía, grupos..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

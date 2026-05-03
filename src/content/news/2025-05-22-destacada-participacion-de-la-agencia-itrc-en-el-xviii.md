@@ -4,6 +4,7 @@ date: 2025-05-22
 image: ""
 excerpt: "Bogotá, 22 de mayo de 2025 La participación de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) en el XVIII..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

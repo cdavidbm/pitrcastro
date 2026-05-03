@@ -4,6 +4,7 @@ date: 2020-12-17
 image: ""
 excerpt: "La Agencia ITRC destituyó e inhabilitó por 18 años a Ómar Ambuila, por hechos de corrupción La Subdirección de Investigaciones Disciplinarias de la Agencia..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

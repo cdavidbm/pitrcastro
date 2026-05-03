@@ -4,6 +4,7 @@ date: 2020-11-17
 image: ""
 excerpt: "Agencia ITRC adelantó controles para prevenir espacios de fraude y corrupción en los procedimientos efectuados en Coljuegos en el marco del COVID19 La..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

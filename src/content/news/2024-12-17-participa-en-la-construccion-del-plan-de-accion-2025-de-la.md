@@ -4,6 +4,7 @@ date: 2024-12-17
 image: ""
 excerpt: "La Agencia ITRC invita a participar en la construcción del Plan de Acción 2025, el cual es la hoja de ruta que consolida las metas, indicadores,..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

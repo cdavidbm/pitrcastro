@@ -4,6 +4,7 @@ date: 2025-10-01
 image: ""
 excerpt: "Bogotá, octubre 1 de 2025 Tras una auditoría a la Dian, la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, descubrió..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

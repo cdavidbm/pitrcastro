@@ -4,6 +4,7 @@ date: 2024-06-21
 image: ""
 excerpt: "Bogotá D.C., 21 de junio de 2024 La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, cuenta con nueva identidad..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

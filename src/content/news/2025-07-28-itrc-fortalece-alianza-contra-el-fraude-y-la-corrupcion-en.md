@@ -4,6 +4,7 @@ date: 2025-07-28
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/imagen-villaviencio.jpeg"
 excerpt: "ITRC fortalece alianza contra el fraude y la corrupción en el Departamento del Meta"
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

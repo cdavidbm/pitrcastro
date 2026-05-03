@@ -4,6 +4,7 @@ date: 2025-04-21
 image: ""
 excerpt: "Pesquisas evidenciaron alteraciones en los datos digitales de la entidad, lo que afecta la operación aduanera. Bogotá, marzo 17 de 2025 Una investigación de..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

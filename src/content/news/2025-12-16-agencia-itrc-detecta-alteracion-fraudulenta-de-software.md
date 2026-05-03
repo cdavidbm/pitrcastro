@@ -4,6 +4,7 @@ date: 2025-12-16
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/1.jpg"
 excerpt: "En el marco de sus funciones de inspección y control a la Dirección de Impuestos y Aduanas Nacionales -DIAN, la Agencia ITRC identificó diferentes hechos..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

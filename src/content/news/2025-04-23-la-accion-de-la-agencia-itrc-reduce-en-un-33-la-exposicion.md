@@ -4,6 +4,7 @@ date: 2025-04-23
 image: ""
 excerpt: "Bogotá, 24 de abril de 2025 La Agencia ITRC, encargada de cuidar los recursos públicos y prevenir el fraude y la corrupción, ha logrado reducir en un 33% la..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

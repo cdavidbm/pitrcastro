@@ -4,6 +4,7 @@ date: 2025-02-26
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/ITRC-Cartagena.jpg"
 excerpt: "En marcha estrategia ITRC: Fortalecimiento de la participación ciudadana en la denuncia contra la corrupción y por la transparencia del recaudo’ Cartagena,..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

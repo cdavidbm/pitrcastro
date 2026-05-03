@@ -4,6 +4,7 @@ date: 2026-03-03
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-1.jpeg"
 excerpt: "En Norte de Santander, la Agencia ITRC refuerza estrategia nacional contra la corrupción fiscal Cúcuta, Norte de Santander – 2026. En el marco del Encuentro..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

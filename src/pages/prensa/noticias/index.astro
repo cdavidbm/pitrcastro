@@ -1,39 +1,88 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import HeroSlider from '../../../components/HeroSlider.astro';
+import HeroPage from '../../../components/HeroPage.astro';
 import NewsCard from '../../../components/NewsCard.astro';
+import { resolveUrl } from '../../../utils/url';
 import type { MarkdownModule } from '../../../types/content';
+import comunicadosData from '../../../content/pages/prensa/comunicados-institucionales.json';
 
 const newsFiles = import.meta.glob<MarkdownModule>('../../../content/news/*.md', { eager: true });
 
-const news = Object.entries(newsFiles)
+type News = {
+  slug: string;
+  data: any;
+};
+
+const news: News[] = Object.entries(newsFiles)
   .map(([path, file]) => {
     const slug = path.split('/').pop()?.replace('.md', '') || '';
-    return {
-      slug,
-      data: file.frontmatter,
-    };
+    return { slug, data: file.frontmatter };
   })
   .filter(item => !item.data.draft)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const counts = {
+  todas: news.length,
+  noticia: news.filter(n => (n.data.categoria || 'noticia') === 'noticia').length,
+  comunicado: news.filter(n => n.data.categoria === 'comunicado').length,
+  boletin: news.filter(n => n.data.categoria === 'boletin').length,
+};
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Noticias' }
+];
 ---
 
-<Base title="Noticias" description="Ultimas noticias y novedades de la Agencia ITRC">
-  <HeroSlider slider="noticias" />
+<Base title="Noticias" description="Noticias, comunicados y boletines de la Agencia ITRC">
+  <HeroPage
+    title="Noticias"
+    subtitle="Noticias, comunicados de prensa y boletines de la Agencia ITRC"
+    icon="fa-newspaper"
+    breadcrumb={breadcrumb}
+  />
 
-  <section class="page-noticias">
+  <section class="prensa-section">
     <div class="container">
+      <div class="prensa-toolbar">
+        <div class="prensa-filters" role="tablist" aria-label="Filtrar por categoría">
+          <button type="button" class="prensa-chip is-active" role="tab" aria-selected="true" data-filter="todas">
+            Todas <span class="prensa-chip__count">{counts.todas}</span>
+          </button>
+          <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="noticia">
+            <span class="prensa-chip__dot" style="background:#198754"></span>
+            Noticias <span class="prensa-chip__count">{counts.noticia}</span>
+          </button>
+          <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="comunicado">
+            <span class="prensa-chip__dot" style="background:var(--itrc-gold)"></span>
+            Comunicados <span class="prensa-chip__count">{counts.comunicado}</span>
+          </button>
+          <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="boletin">
+            <span class="prensa-chip__dot" style="background:#0943b5"></span>
+            Boletines <span class="prensa-chip__count">{counts.boletin}</span>
+          </button>
+        </div>
+
+        <div class="prensa-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" id="prensaSearchInput" placeholder="Buscar..." aria-label="Buscar noticia" autocomplete="off" />
+        </div>
+      </div>
 
       {news.length > 0 ? (
-        <div class="news-grid stagger-children">
+        <div class="news-grid stagger-children" id="prensaGrid">
           {news.map((item) => (
-            <NewsCard
-              title={item.data.title}
-              date={item.data.date}
-              image={item.data.image}
-              excerpt={item.data.excerpt}
-              slug={item.slug}
-            />
+            <div class="news-grid__item" data-categoria={item.data.categoria || 'noticia'} data-title={(item.data.title || '').toLowerCase()}>
+              <NewsCard
+                title={item.data.title}
+                date={item.data.date}
+                image={item.data.image}
+                excerpt={item.data.excerpt}
+                slug={item.slug}
+                categoria={item.data.categoria || 'noticia'}
+              />
+            </div>
           ))}
         </div>
       ) : (
@@ -42,28 +91,235 @@ const news = Object.entries(newsFiles)
           <p>No hay noticias disponibles en este momento.</p>
         </div>
       )}
+
+      <p class="prensa-empty" id="prensaEmpty" hidden>
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        No encontramos resultados para esta combinación. Prueba otra categoría o término.
+      </p>
+
+      <section class="prensa-institucionales" aria-labelledby="prensaInstTitle">
+        <div class="prensa-institucionales__head">
+          <h2 id="prensaInstTitle" class="prensa-institucionales__title">
+            <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+            Comunicados Institucionales
+          </h2>
+          <p class="prensa-institucionales__desc">
+            Comunicados oficiales firmados por la Dirección General sobre lineamientos internos, cambio de sede, atención al público y otros asuntos administrativos.
+          </p>
+        </div>
+
+        <div class="prensa-institucionales__years">
+          {comunicadosData.anios.map((anio: any, idx: number) => (
+            <details class="prensa-anio" open={idx === 0}>
+              <summary class="prensa-anio__summary">
+                <span class="prensa-anio__label">{anio.anio}</span>
+                <span class="prensa-anio__count">{anio.items.length} {anio.items.length === 1 ? 'comunicado' : 'comunicados'}</span>
+                <i class="fa-solid fa-chevron-down prensa-anio__chev" aria-hidden="true"></i>
+              </summary>
+              <ul class="prensa-anio__list">
+                {anio.items.map((item: any) => (
+                  <li class="prensa-anio__item">
+                    <a href={item.url} target="_blank" rel="noopener" class="prensa-anio__link">
+                      <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                      <span>{item.nombre}</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square prensa-anio__ext" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
+      </section>
     </div>
   </section>
 </Base>
 
 <style>
-  .page-noticias {
-    padding: var(--space-12) 0 var(--space-20);
+  .prensa-section { padding: var(--space-10) 0 var(--space-16); }
+
+  .prensa-toolbar {
+    display: flex; flex-wrap: wrap; gap: var(--space-4);
+    justify-content: space-between; align-items: center;
+    margin-bottom: var(--space-8);
   }
+
+  .prensa-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .prensa-chip {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    border: 2px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .prensa-chip:hover { border-color: var(--itrc-gold); }
+  .prensa-chip.is-active { background: var(--itrc-navy); color: #fff; border-color: var(--itrc-navy); }
+  .prensa-chip__count {
+    font-size: var(--font-size-xs);
+    background: rgba(0,0,0,0.08);
+    color: inherit;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+  }
+  .prensa-chip.is-active .prensa-chip__count { background: rgba(255,255,255,0.18); }
+  .prensa-chip__dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  .prensa-search {
+    position: relative;
+    min-width: 220px;
+    flex: 0 0 auto;
+  }
+  .prensa-search i { position: absolute; left: var(--space-3); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); }
+  .prensa-search input {
+    padding: var(--space-2) var(--space-4) var(--space-2) var(--space-9);
+    border: 2px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    background: var(--theme-surface); color: var(--theme-text);
+    font-family: var(--font-family); font-size: var(--font-size-sm);
+    width: 100%;
+    transition: border-color var(--transition-fast);
+  }
+  .prensa-search input:focus { outline: none; border-color: var(--itrc-gold); }
 
   .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
+  .news-grid__item[hidden] { display: none; }
+
+  .prensa-empty {
+    text-align: center; color: var(--theme-text-muted);
+    padding: var(--space-8);
+    font-size: var(--font-size-base);
+  }
+  .prensa-empty i { color: var(--itrc-gold); margin-right: var(--space-2); }
+
+  /* --- Comunicados institucionales (PDFs admin) --- */
+  .prensa-institucionales {
+    margin-top: var(--space-16);
+    padding: var(--space-8);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--itrc-gold);
+  }
+  .prensa-institucionales__head { margin-bottom: var(--space-5); }
+  .prensa-institucionales__title {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-xl);
+    color: var(--theme-heading);
+    display: inline-flex; align-items: center; gap: var(--space-2);
+  }
+  .prensa-institucionales__title i { color: var(--itrc-gold); }
+  .prensa-institucionales__desc {
+    margin: 0;
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    max-width: 680px;
+  }
+
+  .prensa-institucionales__years { display: flex; flex-direction: column; gap: var(--space-3); }
+  .prensa-anio {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .prensa-anio__summary {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    cursor: pointer;
+    list-style: none;
+    color: var(--theme-heading);
+    font-weight: 700;
+    transition: background var(--transition-fast);
+  }
+  .prensa-anio__summary::-webkit-details-marker { display: none; }
+  .prensa-anio__summary:hover { background: var(--theme-surface-alt); }
+  .prensa-anio__label { font-size: var(--font-size-lg); color: var(--itrc-navy); }
+  .prensa-anio__count { color: var(--theme-text-muted); font-size: var(--font-size-sm); font-weight: 500; flex: 1; }
+  .prensa-anio__chev { transition: transform var(--transition-fast); color: var(--theme-text-muted); }
+  .prensa-anio[open] .prensa-anio__chev { transform: rotate(180deg); }
+
+  .prensa-anio__list {
+    list-style: none; padding: 0 var(--space-3) var(--space-3);
+    margin: 0;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .prensa-anio__link {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none; color: var(--theme-text);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+  .prensa-anio__link:hover { background: var(--theme-surface-alt); color: var(--itrc-navy); }
+  .prensa-anio__link > i:first-child { color: #dc3545; font-size: var(--font-size-lg); flex-shrink: 0; }
+  .prensa-anio__link span { flex: 1; line-height: 1.45; }
+  .prensa-anio__ext { color: var(--theme-text-muted); font-size: var(--font-size-xs); }
+
+  .empty-state {
+    text-align: center; padding: var(--space-12) var(--space-6);
+    color: var(--theme-text-muted);
+  }
+  .empty-state i { font-size: 3rem; color: var(--itrc-gold); display: block; margin-bottom: var(--space-3); }
 
   @media (max-width: 768px) {
-    .page-noticias {
-      padding: var(--space-8) 0 var(--space-12);
-    }
-
-    .news-grid {
-      grid-template-columns: 1fr;
-    }
+    .prensa-section { padding: var(--space-6) 0 var(--space-12); }
+    .news-grid { grid-template-columns: 1fr; }
+    .prensa-toolbar { flex-direction: column; align-items: stretch; }
+    .prensa-search { width: 100%; }
+    .prensa-institucionales { padding: var(--space-5) var(--space-4); }
   }
 </style>
+
+<script>
+  function initPrensaFilters() {
+    const chips = document.querySelectorAll<HTMLButtonElement>('.prensa-chip');
+    const items = document.querySelectorAll<HTMLElement>('.news-grid__item');
+    const input = document.getElementById('prensaSearchInput') as HTMLInputElement | null;
+    const empty = document.getElementById('prensaEmpty');
+    if (!chips.length || !items.length) return;
+
+    let activeFilter = 'todas';
+
+    function applyFilter() {
+      const q = (input?.value || '').trim().toLowerCase();
+      let shown = 0;
+      items.forEach((it) => {
+        const cat = it.dataset.categoria || 'noticia';
+        const title = it.dataset.title || '';
+        const okCat = activeFilter === 'todas' || cat === activeFilter;
+        const okQ = q === '' || title.includes(q);
+        const visible = okCat && okQ;
+        it.hidden = !visible;
+        if (visible) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        chip.classList.add('is-active');
+        chip.setAttribute('aria-selected', 'true');
+        activeFilter = chip.dataset.filter || 'todas';
+        applyFilter();
+      });
+    });
+    input?.addEventListener('input', applyFilter);
+  }
+  initPrensaFilters();
+  document.addEventListener('astro:after-swap', initPrensaFilters);
+</script>

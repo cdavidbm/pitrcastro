@@ -4,6 +4,7 @@ date: 2026-02-02
 image: ""
 excerpt: "COMUNICADO DE PRENSA Medellín será sede del Encuentro Regional de Vigilancia de los Recursos Públicos, liderado por la Agencia ITRC Medellín, Antioquia –..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

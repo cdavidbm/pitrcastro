@@ -4,6 +4,7 @@ date: 2026-02-17
 image: ""
 excerpt: "Bogotá D.C., febrero 16 de 2026. la Agencia ITRC, en el marco de su compromiso con la eficiencia y el adecuado aprovechamiento de los recursos del Estado,..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

@@ -4,6 +4,7 @@ date: 2020-11-25
 image: ""
 excerpt: "Agencia ITRC realizará audiencia virtual de rendición de cuentas La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales ITRC,..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

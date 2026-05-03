@@ -4,6 +4,7 @@ date: 2025-10-25
 image: ""
 excerpt: "El Gobierno de la República de Colombia rechaza de manera categórica las recientes declaraciones del Gobierno de los Estados Unidos que pretenden..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

@@ -4,6 +4,7 @@ date: 2026-03-26
 image: ""
 excerpt: "Cartagena de Indias, marzo 26 de 2026 - Colombia es anfitriona del Encuentro del Comité Permanente de Ética del Centro Interamericano de Administraciones..."
 tags: []
+categoria: noticia
 draft: false
 ---
 

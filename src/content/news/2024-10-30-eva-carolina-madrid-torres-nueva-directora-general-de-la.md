@@ -4,6 +4,7 @@ date: 2024-10-30
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/0S6A6100.jpg"
 excerpt: "Bogotá D.C., 30 de octubre de 2024 Ante el ministro de Hacienda y Crédito Público, Ricardo Bonilla González, tomó posesión este miércoles 30 de octubre, Eva..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

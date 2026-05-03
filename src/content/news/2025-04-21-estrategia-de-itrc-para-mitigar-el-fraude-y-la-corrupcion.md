@@ -4,6 +4,7 @@ date: 2025-04-21
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/eje-cafetero-comunicado.jpg"
 excerpt: "*Esta acción territorial contempla ampliarse a aquellas zonas del país, en donde se evidencian mayores hechos de corrupción y fraude del recaudo..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

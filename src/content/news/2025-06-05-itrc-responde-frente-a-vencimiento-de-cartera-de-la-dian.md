@@ -4,6 +4,7 @@ date: 2025-06-05
 image: ""
 excerpt: "De acuerdo con lo señalado en la nota del medio digital La Silla Vacía, respecto a la prescripción de los mencionados saldos que deben ser recaudados por la..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

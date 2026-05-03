@@ -4,6 +4,7 @@ date: 2023-12-13
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Banner-rendicion-correo.png"
 excerpt: "La Agencia ITRC invita a participar de su Audiencia Pública de Rendición de Cuentas, el jueves 14 de diciembre Bogotá D.C., 13 de diciembrede 2023 La..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

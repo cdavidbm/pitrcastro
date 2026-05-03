@@ -4,6 +4,7 @@ date: 2026-04-22
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-23-at-9.37.07-AM.jpeg"
 excerpt: "La Agencia de la Inspectora General de Tributos, Rentas y Contribuciones Parafiscales -ITRC, adelantó nueve inspecciones a la Dirección Seccional de Impuestos y Aduanas del departamento del Chocó, en el marco de su labor de vigilancia para garantizar la transparencia, la eficiencia administrativa y la adecuada gestión de los recursos públicos."
 tags: []
+categoria: noticia
 draft: false
 ---
 

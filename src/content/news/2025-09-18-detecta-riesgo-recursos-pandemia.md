@@ -4,6 +4,7 @@ date: 2025-09-18
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/COMUNICADO-DE-PRENSA-18-DE-SEPTIEMBRE-2025.png"
 excerpt: "Bogotá, 18 de septiembre de 2025. Una auditoría técnica realizada por la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

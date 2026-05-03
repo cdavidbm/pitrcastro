@@ -4,6 +4,7 @@ date: 2020-03-10
 image: ""
 excerpt: "La Agencia ITRC profirió pliego de cargos a exfuncionario de la DIAN por presunto incremento patrimonial injustificado La Agencia del Inspector General de..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

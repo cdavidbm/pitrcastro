@@ -4,6 +4,7 @@ date: 2026-02-10
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/PALMIRA-BANNER.jpeg"
 excerpt: "COMUNICADO DE PRENSA El Valle del Cauca será escenario del Encuentro Regional de Vigilancia de los Recursos Públicos, liderado por la Agencia ITRC • La..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

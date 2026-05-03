@@ -4,6 +4,7 @@ date: 2024-12-20
 image: ""
 excerpt: "En Audiencia Pública de Rendición de Cuentas, la Agencia ITRC destacó los resultados y avances de la entidad para prevenir la corrupción en la..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

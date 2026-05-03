@@ -4,6 +4,7 @@ date: 2020-02-03
 image: ""
 excerpt: "La Agencia ITRC confirmó destitución e inhabilidad por 10 años a funcionaria de la Unidad de Gestión Pensional y Parafiscal - UGPP por participación en..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

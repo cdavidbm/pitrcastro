@@ -4,6 +4,7 @@ date: 2025-05-27
 image: ""
 excerpt: "Bogotá, 27 de mayo de 2025 Sincelejo será la sede del encuentro 'Fortalecimiento de la participación' ciudadana en la denuncia contra la corrupción y por la..."
 tags: []
+categoria: noticia
 draft: false
 ---
 

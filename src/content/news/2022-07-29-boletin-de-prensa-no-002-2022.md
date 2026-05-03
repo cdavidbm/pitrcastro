@@ -4,6 +4,7 @@ date: 2022-07-29
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/07/imagen-noticia-1024x661.jpg"
 excerpt: "La Agencia ITRC presentó los resultados del proceso de consolidación de su Observatorio de Fraude y Corrupción Boletín de Prensa 002 - 29 de julio de 2022..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 

@@ -4,6 +4,7 @@ date: 2025-05-21
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/Image.jpeg"
 excerpt: "Bogotá, 21 de mayo de 2025 Montería será la sede del encuentro 'Fortalecimiento de la participación' ciudadana en la denuncia contra la corrupción y por la..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

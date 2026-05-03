@@ -4,6 +4,7 @@ date: 2024-12-09
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Boletin.jpg"
 excerpt: "La Agencia ITRC realizará su Audiencia Pública de Rendición de Cuentas Participe en este espacio de diálogo el próximo 12 de diciembre Bogotá D.C., 9 de..."
 tags: ["noticias", "comunicados"]
+categoria: comunicado
 draft: false
 ---
 

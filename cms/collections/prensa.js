@@ -1,4 +1,4 @@
-import { publicationCollection, albumFields, SLUG_PATTERN } from "../templates/fields.js";
+import { albumFields, SLUG_PATTERN } from "../templates/fields.js";
 
 // ============================================================
 // Pagina principal de Prensa
@@ -32,43 +32,9 @@ const prensaPrincipal = {
       ],
     },
     {
-      name: "boletines-pagina",
-      label: "Página Comunicados y Boletines",
-      file: "src/content/pages/prensa/boletines.json",
-      fields: [
-        { name: "title", label: "Título", widget: "string", required: true },
-        { name: "description", label: "Descripción SEO", widget: "text", required: false },
-        {
-          name: "anios",
-          label: "Años",
-          widget: "list",
-          label_singular: "Año",
-          collapsed: true,
-          summary: "{{fields.label}} ({{fields.items.length}})",
-          fields: [
-            { name: "anio", label: "Identificador", widget: "string", required: true },
-            { name: "label", label: "Etiqueta visible", widget: "string", required: true },
-            {
-              name: "items",
-              label: "Items",
-              widget: "list",
-              label_singular: "Item",
-              collapsed: true,
-              summary: "{{fields.nombre}}",
-              fields: [
-                { name: "nombre", label: "Nombre", widget: "string", required: true },
-                { name: "url", label: "URL", widget: "string", required: true },
-                { name: "tipo", label: "Tipo", widget: "select", options: ["pdf", "page"], default: "pdf" },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "comunicados-pagina",
-      label: "Página Comunicados Institucionales",
-      file: "src/content/pages/prensa/comunicados.json",
+      name: "comunicados-institucionales",
+      label: "Comunicados Institucionales (PDFs)",
+      file: "src/content/pages/prensa/comunicados-institucionales.json",
       fields: [
         { name: "title", label: "Título", widget: "string", required: true },
         { name: "description", label: "Descripción SEO", widget: "text", required: false },
@@ -168,6 +134,13 @@ const news = {
   fields: [
     { name: "title", label: "Título", widget: "string", required: true },
     { name: "date", label: "Fecha de publicacion", widget: "datetime", format: "YYYY-MM-DD", required: true },
+    { name: "categoria", label: "Categoría", widget: "select", required: true, default: "noticia",
+      options: [
+        { label: "Noticia (cotidiana, informal)", value: "noticia" },
+        { label: "Comunicado de prensa (oficial, periódico)", value: "comunicado" },
+        { label: "Boletín (formato legacy, antiguo)", value: "boletin" },
+      ],
+      hint: "Determina el badge visual y el filtro en /prensa/noticias" },
     { name: "image", label: "Imagen destacada", widget: "image", required: false },
     { name: "excerpt", label: "Extracto", widget: "text", required: false, hint: "Resumen corto para listados (max 160 caracteres)" },
     { name: "body", label: "Contenido", widget: "markdown", required: true },
@@ -200,28 +173,6 @@ const events = {
     { name: "published", label: "Publicado", widget: "boolean", default: true },
   ],
 };
-
-// ============================================================
-// Boletines y Comunicados (misma estructura)
-// ============================================================
-
-const archivoPdf = { name: "archivo", label: "Archivo PDF (opcional)", widget: "file", required: false };
-
-const boletines = publicationCollection({
-  name: "boletines",
-  label: "    > Boletines",
-  labelSingular: "Boletin",
-  folder: "src/content/boletines",
-  extraFields: [archivoPdf],
-});
-
-const comunicados = publicationCollection({
-  name: "comunicados",
-  label: "    > Comunicados",
-  labelSingular: "Comunicado",
-  folder: "src/content/comunicados",
-  extraFields: [archivoPdf],
-});
 
 // ============================================================
 // Videos
@@ -445,8 +396,6 @@ export const prensaCollections = [
   prensaPrincipal,
   news,
   events,
-  boletines,
-  comunicados,
   videos,
   galeriaAlbumes,
   capsulas,

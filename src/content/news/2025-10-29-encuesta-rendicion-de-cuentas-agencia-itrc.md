@@ -4,6 +4,7 @@ date: 2025-10-29
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/BANNER-HOME-RENDICION-DE-CUENTAS.jpg"
 excerpt: "La Agencia ITRC invita a todos los funcionarios, contratistas, grupos de interés y a la ciudadanía en general a participar en la Encuesta de Rendición de..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

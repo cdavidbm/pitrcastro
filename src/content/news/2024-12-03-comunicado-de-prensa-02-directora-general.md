@@ -4,6 +4,7 @@ date: 2024-12-03
 image: ""
 excerpt: "Eva Carolina Madrid Torres, nueva directora general de la Agencia ITRC Bogotá D.C., 30 de octubre de 2024 Ante el ministro de Hacienda y Crédito Público,..."
 tags: ["noticias", "comunicados"]
+categoria: comunicado
 draft: false
 ---
 

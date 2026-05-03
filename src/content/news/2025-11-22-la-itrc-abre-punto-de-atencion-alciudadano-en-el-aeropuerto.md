@@ -4,6 +4,7 @@ date: 2025-11-22
 image: ""
 excerpt: "La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales-ITRC anuncia la apertura de su nuevo punto de atención al ciudadano en el..."
 tags: []
+categoria: noticia
 draft: false
 ---
 

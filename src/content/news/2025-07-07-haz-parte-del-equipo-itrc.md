@@ -4,6 +4,7 @@ date: 2025-07-07
 image: ""
 excerpt: "Invitamos a practicantes, pasantes y judicantes para que participen en la convocatoria para vacantes publicadas en el Servicio Público de empleo."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

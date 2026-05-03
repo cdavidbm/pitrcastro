@@ -4,6 +4,7 @@ date: 2026-04-10
 image: ""
 excerpt: "Bogotá, D.C., 9 de abril de 2026. En el marco del Día Nacional de la Memoria y Solidaridad con las Víctimas del Conflicto Armado, la Agencia de la..."
 tags: []
+categoria: noticia
 draft: false
 ---
 

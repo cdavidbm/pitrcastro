@@ -4,6 +4,7 @@ date: 2025-06-19
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/06/thumbnail_ef40d2f6-0caf-49ec-8406-82af72d3a33c.jpg"
 excerpt: "Desde la labor preventiva que desarrolla la Agencia ITRC y con el apoyo de análisis de datos, se identificó en la Dian un caso por cuantía de $44.000..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

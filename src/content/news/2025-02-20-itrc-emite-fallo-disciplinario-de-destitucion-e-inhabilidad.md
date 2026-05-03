@@ -4,6 +4,7 @@ date: 2025-02-20
 image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Notijuridico-10-2.png"
 excerpt: "Bogotá, febrero 20 de 2025. La Agencia ITRC sancionó disciplinariamente con destitución e inhabilidad general de diez (10) años, a una funcionaria de la..."
 tags: ["noticias"]
+categoria: noticia
 draft: false
 ---
 

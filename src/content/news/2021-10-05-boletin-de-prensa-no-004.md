@@ -4,6 +4,7 @@ date: 2021-10-05
 image: ""
 excerpt: "Boletín de Prensa 004 - 05 de octubre de 2021 Boletín de Prensa 4 - Octubre 5 de 2021 La Agencia del Inspector General de Tributos Rentas y Contribuciones..."
 tags: ["noticias", "boletines"]
+categoria: boletin
 draft: false
 ---
 
