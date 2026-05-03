@@ -2645,32 +2645,6 @@ collections:
             label: Criterios de selección
             widget: text
             required: false
-          - name: cta
-            label: Botón CTA (buscador externo)
-            widget: object
-            collapsed: true
-            required: false
-            fields:
-              - name: texto
-                label: Texto del botón
-                widget: string
-                required: false
-              - name: url
-                label: URL destino
-                widget: string
-                required: false
-              - name: descripcion
-                label: Descripción
-                widget: text
-                required: false
-              - name: external
-                label: Es enlace externo
-                widget: boolean
-                default: true
-              - name: icon
-                label: Icono FontAwesome
-                widget: string
-                default: fa-magnifying-glass
           - name: resolucion
             label: Resolución de creación
             widget: object
@@ -2686,6 +2660,66 @@ collections:
                 widget: string
                 required: false
                 hint: Dejar vacío si aún no está publicada
+          - name: fichas
+            label: Catálogo de fichas
+            widget: list
+            collapsed: true
+            summary: "{{fields.year}} · {{fields.expediente}} · {{fields.titulo}}"
+            fields:
+              - name: id
+                label: ID legacy (Joomla)
+                widget: string
+                required: false
+                hint: ID original en el sub-portal Joomla; sólo lectura
+              - name: year
+                label: Año del expediente
+                widget: string
+                required: false
+                pattern:
+                  - ^\d{4}$|^$
+                  - Año en formato AAAA o vacío
+              - name: yearCategoria
+                label: Categoría origen (Joomla)
+                widget: string
+                required: false
+              - name: instancia
+                label: Instancia
+                widget: select
+                options:
+                  - ""
+                  - primera
+                  - segunda
+                default: ""
+              - name: expediente
+                label: Expediente
+                widget: string
+                required: false
+              - name: titulo
+                label: Título de la ficha
+                widget: string
+                required: true
+              - name: tamano
+                label: Tamaño declarado
+                widget: string
+                required: false
+                hint: "Ej: 149.22 KB"
+              - name: filenameOrigen
+                label: Filename original
+                widget: string
+                required: false
+              - name: slug
+                label: Slug local
+                widget: string
+                required: false
+              - name: archivo
+                label: Archivo PDF (cuando esté disponible)
+                widget: file
+                required: false
+                hint: Subir el PDF cuando jurídica lo provea
+              - name: origenUrl
+                label: URL origen (auditoría)
+                widget: string
+                required: false
       - name: evaluacion-auditoria-3ld
         label: Informes de Evaluación y Auditoría 3LD (catálogo OCI)
         file: src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json
