@@ -6194,58 +6194,9 @@ collections:
               - name: url
                 label: URL
                 widget: string
-      - name: boletines-pagina
-        label: Página Comunicados y Boletines
-        file: src/content/pages/prensa/boletines.json
-        fields:
-          - name: title
-            label: Título
-            widget: string
-            required: true
-          - name: description
-            label: Descripción SEO
-            widget: text
-            required: false
-          - name: anios
-            label: Años
-            widget: list
-            label_singular: Año
-            collapsed: true
-            summary: "{{fields.label}} ({{fields.items.length}})"
-            fields:
-              - name: anio
-                label: Identificador
-                widget: string
-                required: true
-              - name: label
-                label: Etiqueta visible
-                widget: string
-                required: true
-              - name: items
-                label: Items
-                widget: list
-                label_singular: Item
-                collapsed: true
-                summary: "{{fields.nombre}}"
-                fields:
-                  - name: nombre
-                    label: Nombre
-                    widget: string
-                    required: true
-                  - name: url
-                    label: URL
-                    widget: string
-                    required: true
-                  - name: tipo
-                    label: Tipo
-                    widget: select
-                    options:
-                      - pdf
-                      - page
-                    default: pdf
-      - name: comunicados-pagina
-        label: Página Comunicados Institucionales
-        file: src/content/pages/prensa/comunicados.json
+      - name: comunicados-institucionales
+        label: Comunicados Institucionales (PDFs)
+        file: src/content/pages/prensa/comunicados-institucionales.json
         fields:
           - name: title
             label: Título
@@ -6478,6 +6429,19 @@ collections:
         widget: datetime
         format: YYYY-MM-DD
         required: true
+      - name: categoria
+        label: Categoría
+        widget: select
+        required: true
+        default: noticia
+        options:
+          - label: Noticia (cotidiana, informal)
+            value: noticia
+          - label: Comunicado de prensa (oficial, periódico)
+            value: comunicado
+          - label: Boletín (formato legacy, antiguo)
+            value: boletin
+        hint: Determina el badge visual y el filtro en /prensa/noticias
       - name: image
         label: Imagen destacada
         widget: image
@@ -6546,84 +6510,6 @@ collections:
         label: Publicado
         widget: boolean
         default: true
-  - name: boletines
-    label: "    > Boletines"
-    label_singular: Boletin
-    folder: src/content/boletines
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: frontmatter
-    sortable_fields:
-      - date
-      - title
-    fields:
-      - name: title
-        label: Título
-        widget: string
-        required: true
-      - name: date
-        label: Fecha de publicación
-        widget: datetime
-        format: YYYY-MM-DD
-        required: true
-      - name: image
-        label: Imagen destacada
-        widget: image
-        required: false
-      - name: excerpt
-        label: Extracto
-        widget: text
-        required: false
-      - name: body
-        label: Contenido
-        widget: markdown
-        required: true
-      - &shared_6
-        name: archivo
-        label: Archivo PDF (opcional)
-        widget: file
-        required: false
-      - name: draft
-        label: Borrador
-        widget: boolean
-        default: false
-  - name: comunicados
-    label: "    > Comunicados"
-    label_singular: Comunicado
-    folder: src/content/comunicados
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: frontmatter
-    sortable_fields:
-      - date
-      - title
-    fields:
-      - name: title
-        label: Título
-        widget: string
-        required: true
-      - name: date
-        label: Fecha de publicación
-        widget: datetime
-        format: YYYY-MM-DD
-        required: true
-      - name: image
-        label: Imagen destacada
-        widget: image
-        required: false
-      - name: excerpt
-        label: Extracto
-        widget: text
-        required: false
-      - name: body
-        label: Contenido
-        widget: markdown
-        required: true
-      - *shared_6
-      - name: draft
-        label: Borrador
-        widget: boolean
-        default: false
   - name: videos
     label: "    > Videos"
     label_singular: Video
@@ -7076,17 +6962,17 @@ collections:
         label: Landing Observatorio
         file: src/content/pages/observatorio/observatorio.json
         fields:
-          - &shared_7
+          - &shared_6
             name: title
             label: Título
             widget: string
             required: true
-          - &shared_8
+          - &shared_7
             name: description
             label: Descripción SEO
             widget: text
             required: false
-          - &shared_9
+          - &shared_8
             name: icon
             label: Icono FontAwesome
             widget: string
@@ -7120,9 +7006,9 @@ collections:
         label: Del Observatorio
         file: src/content/pages/observatorio/del-observatorio.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: tabs
             label: Pestañas (3)
             widget: list
@@ -7139,9 +7025,9 @@ collections:
         label: Eje de Medición
         file: src/content/pages/observatorio/eje-de-medicion.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7167,9 +7053,9 @@ collections:
         label: Eje de Educación — Landing
         file: src/content/pages/observatorio/eje-de-educacion.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7198,9 +7084,9 @@ collections:
         label: Artículos y Publicaciones
         file: src/content/pages/observatorio/eje-de-educacion/articulos.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: articulos
             label: Artículos
             widget: list
@@ -7223,9 +7109,9 @@ collections:
         label: Conociendo más de ITRC
         file: src/content/pages/observatorio/eje-de-educacion/conociendo.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: documentos
             label: Documentos
             widget: list
@@ -7245,9 +7131,9 @@ collections:
         label: Juego de Roles
         file: src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: bienvenida
             label: Bienvenida
             widget: string
@@ -7280,9 +7166,9 @@ collections:
         label: ITRC para Niños — Landing
         file: src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7316,9 +7202,9 @@ collections:
         label: Video Niños
         file: src/content/pages/observatorio/eje-de-educacion/video-ninos.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: videoUrl
             label: URL del video MP4
             widget: string
@@ -7329,9 +7215,9 @@ collections:
         label: Glosario para Niños
         file: src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7356,9 +7242,9 @@ collections:
         label: Libro Infantil (PDF)
         file: src/content/pages/observatorio/eje-de-educacion/libro-infantil.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: pdfUrl
             label: Ruta del PDF
             widget: string
@@ -7378,9 +7264,9 @@ collections:
         label: Cartilla Infantil (Flipsnack)
         file: src/content/pages/observatorio/eje-de-educacion/cartilla-infantil.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: embedUrl
             label: URL del embed Flipsnack
             widget: string
@@ -7388,9 +7274,9 @@ collections:
         label: Cuento ITRC para Niños (Flipbook + PDF)
         file: src/content/pages/observatorio/eje-de-educacion/cuento.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: embedUrl
             label: URL del flipbook (Heyzine)
             widget: string
@@ -7413,9 +7299,9 @@ collections:
         label: Repositorio Jurídico
         file: src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7441,9 +7327,9 @@ collections:
         label: Memorias Eje Educación (listado)
         file: src/content/pages/observatorio/eje-de-educacion/memorias.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: banner
             label: URL del banner
             widget: string
@@ -7481,9 +7367,9 @@ collections:
         label: Eje de Participación — Landing
         file: src/content/pages/observatorio/eje-de-participacion.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7512,9 +7398,9 @@ collections:
         label: Cartillas Divulgativas
         file: src/content/pages/observatorio/eje-de-participacion/cartillas.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: cartillas
             label: Cartillas
             widget: list
@@ -7534,9 +7420,9 @@ collections:
         label: Videos Tutoriales
         file: src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: videos
             label: Videos
             widget: list
@@ -7556,9 +7442,9 @@ collections:
         label: Encuesta Ciudadana
         file: src/content/pages/observatorio/eje-de-participacion/encuesta.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: intro
             label: Introducción
             widget: text
@@ -7598,9 +7484,9 @@ collections:
         label: Noticias del Observatorio
         file: src/content/pages/observatorio/eje-de-participacion/noticias.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: banner
             label: URL del banner
             widget: string
@@ -7644,9 +7530,9 @@ collections:
         label: Memorias Eje Participación (listado)
         file: src/content/pages/observatorio/eje-de-participacion/memorias.json
         fields:
+          - *shared_6
           - *shared_7
           - *shared_8
-          - *shared_9
           - name: banner
             label: URL del banner
             widget: string
