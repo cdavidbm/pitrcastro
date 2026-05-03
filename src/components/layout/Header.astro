@@ -213,5 +213,22 @@ const socialIcons: Record<string, string> = {
       height: 45px;
       width: auto;
     }
+
+    /* Móvil: agrupar visualmente las redes sociales en una pastilla
+       sutil y agrandar el tap target a 36px para mejor accesibilidad
+       en pantallas táctiles. */
+    .header__social {
+      gap: 4px;
+      padding: 4px 6px;
+      background: var(--theme-surface-alt);
+      border-radius: var(--radius-full);
+      margin-left: auto;
+      margin-right: var(--space-2);
+    }
+    .header__social-link {
+      width: 36px;
+      height: 36px;
+      color: var(--theme-heading);
+    }
   }
 </style>

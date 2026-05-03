@@ -23,7 +23,7 @@ const events = Object.entries(eventFiles)
       ...file.default
     };
   })
-  .filter(event => event.published !== false);
+  .filter(event => event.published !== false && !event.archived);
 
 // Separar eventos futuros y pasados
 const futureEvents = events

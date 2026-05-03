@@ -1,0 +1,168 @@
+---
+import { resolveUrl } from '../utils/url';
+import type { EventModule } from '../types/content';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit = 3 } = Astro.props;
+
+const eventFiles = import.meta.glob<EventModule>('../content/events/*.json', { eager: true });
+
+const now = new Date();
+
+const events = Object.entries(eventFiles)
+  .map(([path, file]) => {
+    const slug = path.split('/').pop()?.replace('.json', '') || '';
+    return { slug, ...file.default };
+  })
+  .filter(e => e.published !== false && !e.archived && new Date(e.startDate) >= now)
+  .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+  .slice(0, limit);
+
+const formatDate = (dateStr: string) => {
+  const d = new Date(dateStr);
+  return {
+    day: d.getDate(),
+    month: d.toLocaleDateString('es-CO', { month: 'short' }).toUpperCase().replace('.', ''),
+    weekday: d.toLocaleDateString('es-CO', { weekday: 'long' }),
+    time: d.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', hour12: true }),
+  };
+};
+---
+
+{events.length > 0 && (
+  <section class="events-section" aria-labelledby="events-title">
+    <div class="container">
+      <div class="events-section__head">
+        <h2 id="events-title" class="section-title-decorated">Próximos Eventos</h2>
+        <p class="events-section__sub">Agenda institucional y actividades abiertas a la ciudadanía</p>
+      </div>
+
+      <div class="events-section__grid">
+        {events.map(ev => {
+          const f = formatDate(ev.startDate);
+          return (
+            <article class="ev-card">
+              <div class="ev-card__date" aria-hidden="true">
+                <span class="ev-card__day">{f.day}</span>
+                <span class="ev-card__month">{f.month}</span>
+              </div>
+              <div class="ev-card__body">
+                <p class="ev-card__when">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                  {f.weekday} · {f.time}
+                </p>
+                <h3 class="ev-card__title">{ev.title}</h3>
+                {ev.location && (
+                  <p class="ev-card__where">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <span>{ev.location}</span>
+                  </p>
+                )}
+                <p class="ev-card__desc">{ev.description}</p>
+                {ev.virtualLink && (
+                  <a href={ev.virtualLink} target="_blank" rel="noopener" class="ev-card__link">
+                    <i class="fa-solid fa-video" aria-hidden="true"></i> Enlace virtual
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <div class="events-section__more">
+        <a href={resolveUrl('/prensa/eventos')} class="btn btn--outline-section">
+          Ver todos los eventos
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .events-section { padding: var(--space-12) 0; background: var(--theme-surface-alt); }
+  .events-section .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
+  .events-section__head { text-align: center; margin-bottom: var(--space-8); }
+  .events-section__sub { color: var(--theme-text-secondary); margin: var(--space-2) 0 0; font-size: var(--font-size-base); }
+
+  .events-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .ev-card {
+    display: flex; gap: var(--space-4);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .ev-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--itrc-gold); }
+
+  .ev-card__date {
+    flex: 0 0 64px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--itrc-navy) 0%, color-mix(in srgb, var(--itrc-navy) 80%, #000) 100%);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .ev-card__day { font-size: var(--font-size-2xl); font-weight: 800; line-height: 1; }
+  .ev-card__month { font-size: var(--font-size-xs); font-weight: 700; letter-spacing: 0.05em; margin-top: 2px; color: var(--itrc-gold); }
+
+  .ev-card__body { flex: 1; min-width: 0; }
+  .ev-card__when {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+    text-transform: capitalize;
+  }
+  .ev-card__when i { color: var(--itrc-gold); margin-right: var(--space-1); }
+  .ev-card__title {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-lg);
+    color: var(--theme-heading);
+    line-height: 1.3;
+  }
+  .ev-card__where {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    display: flex; gap: var(--space-2); align-items: flex-start;
+    line-height: 1.4;
+  }
+  .ev-card__where i { color: var(--itrc-gold); margin-top: 4px; flex-shrink: 0; }
+  .ev-card__desc {
+    margin: 0 0 var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .ev-card__link {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    color: var(--itrc-navy);
+    font-weight: 700; font-size: var(--font-size-sm);
+    text-decoration: none;
+  }
+  .ev-card__link:hover { color: var(--itrc-gold); }
+
+  .events-section__more { text-align: center; margin-top: var(--space-8); }
+
+  @media (max-width: 768px) {
+    .events-section { padding: var(--space-8) 0; }
+    .events-section__grid { grid-template-columns: 1fr; }
+    .ev-card__date { flex: 0 0 56px; }
+    .ev-card__day { font-size: var(--font-size-xl); }
+  }
+</style>

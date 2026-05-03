@@ -145,7 +145,8 @@ const news = {
     { name: "excerpt", label: "Extracto", widget: "text", required: false, hint: "Resumen corto para listados (max 160 caracteres)" },
     { name: "body", label: "Contenido", widget: "markdown", required: true },
     { name: "tags", label: "Etiquetas", widget: "list", required: false, allow_add: true },
-    { name: "draft", label: "Borrador", widget: "boolean", default: false, hint: "Los borradores no se publican" },
+    { name: "draft", label: "Borrador", widget: "boolean", default: false, hint: "Los borradores no se publican (trabajo en progreso, aún sin terminar)" },
+    { name: "archived", label: "Archivado", widget: "boolean", default: false, required: false, hint: "Oculta el contenido de los listados sin borrarlo (útil para contenido antiguo que ya no se quiere mostrar pero conviene conservar)" },
   ],
 };
 
@@ -170,7 +171,8 @@ const events = {
     { name: "description", label: "Descripción", widget: "markdown", required: true },
     { name: "image", label: "Imagen del evento", widget: "image", required: false },
     { name: "virtualLink", label: "Enlace virtual (Meet, Zoom, etc.)", widget: "string", required: false },
-    { name: "published", label: "Publicado", widget: "boolean", default: true },
+    { name: "published", label: "Publicado", widget: "boolean", default: true, hint: "Si está desmarcado, el evento no aparece en los listados" },
+    { name: "archived", label: "Archivado", widget: "boolean", default: false, required: false, hint: "Oculta el evento de los listados sin borrarlo (útil para eventos antiguos que conviene conservar)" },
   ],
 };
 

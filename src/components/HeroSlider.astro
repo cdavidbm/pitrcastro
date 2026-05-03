@@ -63,12 +63,24 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
             aria-hidden={index !== 0 ? "true" : "false"}
             data-slide
           >
-            <img
-              src={resolveUrl(slide.image)}
-              alt={slide.imageAlt}
-              class="hero-slide__image"
-              loading={index === 0 ? "eager" : "lazy"}
-            />
+            {slide.imageMobile ? (
+              <picture>
+                <source media="(max-width: 768px)" srcset={resolveUrl(slide.imageMobile)} />
+                <img
+                  src={resolveUrl(slide.image)}
+                  alt={slide.imageAlt}
+                  class="hero-slide__image"
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              </picture>
+            ) : (
+              <img
+                src={resolveUrl(slide.image)}
+                alt={slide.imageAlt}
+                class="hero-slide__image"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            )}
             {slide.overlay !== false && <div class="hero-slide__overlay"></div>}
             {hasContent && (
               <div class="hero-slide__content">

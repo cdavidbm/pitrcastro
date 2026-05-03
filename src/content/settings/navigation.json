@@ -74,6 +74,10 @@
       ]
     },
     {
+      "label": "ITRC para Niños",
+      "url": "/observatorio/eje-de-educacion/itrc-para-ninos"
+    },
+    {
       "label": "Prensa",
       "url": "/prensa",
       "children": [

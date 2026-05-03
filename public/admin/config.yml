@@ -6464,7 +6464,13 @@ collections:
         label: Borrador
         widget: boolean
         default: false
-        hint: Los borradores no se publican
+        hint: Los borradores no se publican (trabajo en progreso, aún sin terminar)
+      - name: archived
+        label: Archivado
+        widget: boolean
+        default: false
+        required: false
+        hint: Oculta el contenido de los listados sin borrarlo (útil para contenido antiguo que ya no se quiere mostrar pero conviene conservar)
   - name: events
     label: "    > Eventos"
     label_singular: Evento
@@ -6510,6 +6516,13 @@ collections:
         label: Publicado
         widget: boolean
         default: true
+        hint: Si está desmarcado, el evento no aparece en los listados
+      - name: archived
+        label: Archivado
+        widget: boolean
+        default: false
+        required: false
+        hint: Oculta el evento de los listados sin borrarlo (útil para eventos antiguos que conviene conservar)
   - name: videos
     label: "    > Videos"
     label_singular: Video
@@ -7722,10 +7735,15 @@ collections:
         collapsed: false
         fields:
           - name: image
-            label: Imagen
+            label: Imagen (escritorio)
             widget: image
             required: true
-            hint: "Tamano recomendado: 1920x600px"
+            hint: Recomendado 1920×600 px (relación 16:5). Se usa en pantallas mayores a 768 px.
+          - name: imageMobile
+            label: Imagen (móvil)
+            widget: image
+            required: false
+            hint: Opcional. Recomendado 800×1000 px o 1080×1080 px (vertical/cuadrado). Se usa en pantallas de hasta 768 px. Si se deja vacío, se reutiliza la imagen de escritorio.
           - name: imageAlt
             label: Texto alternativo (accesibilidad)
             widget: string

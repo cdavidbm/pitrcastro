@@ -20,7 +20,7 @@ const news = Object.entries(newsFiles)
       Content: file.Content
     };
   })
-  .filter(item => !item.data.draft)
+  .filter(item => !item.data.draft && !item.data.archived)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, limit);
 ---

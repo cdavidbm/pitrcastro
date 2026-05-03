@@ -31,6 +31,7 @@ export interface DocumentPage {
 
 export interface Slide {
   image: string;
+  imageMobile?: string;
   imageAlt: string;
   title?: string;
   subtitle?: string;
@@ -52,6 +53,7 @@ export interface CalendarEvent {
   image?: string;
   virtualLink?: string;
   published: boolean;
+  archived?: boolean;
 }
 
 export interface MarkdownModule {
@@ -61,6 +63,8 @@ export interface MarkdownModule {
     image?: string;
     excerpt?: string;
     draft?: boolean;
+    archived?: boolean;
+    categoria?: 'noticia' | 'boletin' | 'comunicado';
     tags?: string[];
   };
   Content: (_props: Record<string, never>) => unknown;

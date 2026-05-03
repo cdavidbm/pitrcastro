@@ -19,7 +19,8 @@ export const sliders = {
       label_singular: "Diapositiva",
       collapsed: false,
       fields: [
-        { name: "image", label: "Imagen", widget: "image", required: true, hint: "Tamano recomendado: 1920x600px" },
+        { name: "image", label: "Imagen (escritorio)", widget: "image", required: true, hint: "Recomendado 1920×600 px (relación 16:5). Se usa en pantallas mayores a 768 px." },
+        { name: "imageMobile", label: "Imagen (móvil)", widget: "image", required: false, hint: "Opcional. Recomendado 800×1000 px o 1080×1080 px (vertical/cuadrado). Se usa en pantallas de hasta 768 px. Si se deja vacío, se reutiliza la imagen de escritorio." },
         { name: "imageAlt", label: "Texto alternativo (accesibilidad)", widget: "string", required: true },
         { name: "title", label: "Titulo", widget: "string", required: false },
         { name: "subtitle", label: "Subtitulo", widget: "string", required: false },
