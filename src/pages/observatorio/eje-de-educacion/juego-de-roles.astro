@@ -16,31 +16,27 @@ const breadcrumb = [
 <Base title={pageData.title} description={pageData.description}>
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
-  <section class="jdr-section">
+  <section class="games-section">
     <div class="container">
-      <h2 class="jdr-bienvenida">{pageData.bienvenida}</h2>
-      <p class="jdr-desc">{pageData.descripcion}</p>
-      <p class="jdr-desc">{pageData.explicacion}</p>
+      <p class="games-intro">{pageData.intro}</p>
 
-      <div class="jdr-video">
-        <h3 class="jdr-video__title">{pageData.videoTutorial.titulo}</h3>
-        <div class="jdr-video__player">
-          <video controls preload="metadata" poster={pageData.videoTutorial.poster}>
-            <source src={pageData.videoTutorial.url} type="video/mp4" />
-            Su navegador no soporta la reproducción de video.
-          </video>
-        </div>
-      </div>
-
-      <div class="jdr-ctas">
-        <a href={pageData.guionUrl} target="_blank" rel="noopener" class="jdr-cta jdr-cta--secondary">
-          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-          Ver guion del video
-        </a>
-        <a href={pageData.juegoUrl} target="_blank" rel="noopener" class="jdr-cta jdr-cta--primary">
-          <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
-          Ingresar al juego de roles
-        </a>
+      <div class="games-grid">
+        {pageData.juegos.map((j) => (
+          <a href={resolveUrl(j.url)} class="game-card" style={`--card-accent: ${j.color}`}>
+            <div class="game-card__icon">
+              <i class={`fa-solid ${j.icon}`} aria-hidden="true"></i>
+            </div>
+            <h3 class="game-card__title">{j.titulo}</h3>
+            <p class="game-card__desc">{j.descripcion}</p>
+            <span class="game-card__meta">
+              <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              {j.duracion}
+            </span>
+            <span class="game-card__cta">
+              Jugar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </a>
+        ))}
       </div>
 
       <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al Eje de Educación</a></div>
@@ -49,31 +45,59 @@ const breadcrumb = [
 </Base>
 
 <style>
-  .jdr-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
-  .jdr-section .container { max-width: 900px; margin: 0 auto; }
-  .jdr-bienvenida { font-size: var(--font-size-2xl); color: var(--itrc-gold); text-align: center; margin: 0 0 var(--space-6); }
-  .jdr-desc { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-4); text-align: center; }
+  .games-section { padding: var(--space-10) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .games-section .container { max-width: 1000px; margin: 0 auto; }
+  .games-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-10); }
 
-  .jdr-video { margin: var(--space-10) 0; }
-  .jdr-video__title { font-size: var(--font-size-xl); color: var(--itrc-navy); text-align: center; margin: 0 0 var(--space-5); }
-  .jdr-video__player { background: #000; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
-  .jdr-video__player video { width: 100%; height: auto; display: block; }
+  .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5); }
 
-  .jdr-ctas { display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap; }
-  .jdr-cta { display: inline-flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-8); border-radius: var(--radius-full); font-weight: 700; font-size: var(--font-size-base); text-decoration: none; transition: all var(--transition-base); }
-  .jdr-cta--primary { background: var(--itrc-gold); color: var(--white); border: 2px solid var(--itrc-gold); }
-  .jdr-cta--primary:hover { background: var(--itrc-navy); border-color: var(--itrc-navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-  .jdr-cta--secondary { background: var(--theme-surface); color: var(--file-pdf); border: 2px solid var(--file-pdf); }
-  .jdr-cta--secondary:hover { background: var(--file-pdf); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .game-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: var(--space-8) var(--space-6);
+    background: var(--theme-surface);
+    border: 2px solid var(--theme-border);
+    border-top: 4px solid var(--card-accent);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--card-accent);
+  }
+
+  .game-card__icon {
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--card-accent); color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-4);
+    transition: transform var(--transition-base);
+  }
+  .game-card:hover .game-card__icon { transform: scale(1.1) rotate(-5deg); }
+
+  .game-card__title { font-size: var(--font-size-xl); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-3); }
+  .game-card__desc { font-size: var(--font-size-sm); line-height: 1.6; color: var(--theme-text-secondary); margin: 0 0 var(--space-4); flex: 1; }
+  .game-card__meta { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-xs); color: var(--theme-text-muted); font-weight: 600; margin-bottom: var(--space-4); }
+
+  .game-card__cta {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: var(--card-accent); color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm); font-weight: 700;
+    transition: gap var(--transition-fast);
+  }
+  .game-card:hover .game-card__cta { gap: var(--space-4); }
 
   .back-link { margin-top: var(--space-10); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }
 
-  @media (max-width: 768px) {
-    .jdr-bienvenida { font-size: var(--font-size-xl); }
-    .jdr-desc { font-size: var(--font-size-sm); }
-    .jdr-ctas { flex-direction: column; }
-    .jdr-cta { justify-content: center; }
+  @media (max-width: 700px) {
+    .games-section { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .games-grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -1,0 +1,20 @@
+{
+  "title": "Sopa de Letras Anticorrupción",
+  "description": "Encuentra las 12 palabras escondidas sobre transparencia, valores e instituciones que cuidan los recursos públicos",
+  "icon": "fa-table-cells",
+  "intro": "Las palabras pueden estar en horizontal, vertical o diagonal. Haz clic en la primera letra y arrastra hasta la última para seleccionar una palabra. ¡A buscar!",
+  "palabras": [
+    "ITRC",
+    "DIAN",
+    "ETICA",
+    "VERDAD",
+    "RESPETO",
+    "DENUNCIA",
+    "JUSTICIA",
+    "AGENCIA",
+    "HONESTIDAD",
+    "INTEGRIDAD",
+    "SOLIDARIDAD",
+    "TRANSPARENCIA"
+  ]
+}

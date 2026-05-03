@@ -97,7 +97,42 @@
           </span>
         </button>
       </div>
+
+      <!-- Modo baja visión -->
+      <div class="wcag-widget__option">
+        <span class="wcag-widget__label">Baja visión</span>
+        <button
+          class="wcag-widget__toggle-btn"
+          data-action="lowvision-toggle"
+          aria-pressed="false"
+          aria-label="Activar modo baja visión"
+        >
+          <span class="wcag-widget__toggle-track">
+            <span class="wcag-widget__toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Filtro daltonismo -->
+      <div class="wcag-widget__option wcag-widget__option--colorblind">
+        <span class="wcag-widget__label">Daltonismo</span>
+        <select class="wcag-widget__select" data-action="colorblind-select" aria-label="Filtro de daltonismo">
+          <option value="">Sin filtro</option>
+          <option value="protanopia">Protanopía (rojo)</option>
+          <option value="deuteranopia">Deuteranopía (verde)</option>
+          <option value="tritanopia">Tritanopía (azul)</option>
+        </select>
+      </div>
     </div>
+
+    <!-- SVG filters para daltonismo (se aplican al :root via class) -->
+    <svg class="wcag-widget__svg" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="filter-protanopia"><feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0"/></filter>
+        <filter id="filter-deuteranopia"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/></filter>
+        <filter id="filter-tritanopia"><feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0"/></filter>
+      </defs>
+    </svg>
 
     <div class="wcag-widget__footer">
       <button class="wcag-widget__reset" data-action="reset-all">
@@ -345,6 +380,20 @@
     background: linear-gradient(135deg, #121212 50%, #b38b40 50%);
   }
 
+  .wcag-widget__select {
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    font-family: var(--font-family);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+  }
+
+  .wcag-widget__select:focus { outline: 2px solid var(--itrc-gold); outline-offset: 1px; }
+
+  .wcag-widget__svg { position: absolute; width: 0; height: 0; }
+
   /* Estados de accesibilidad globales */
   :global(html.high-contrast) {
     filter: contrast(1.5);
@@ -357,6 +406,26 @@
   :global(html.underline-links a) {
     text-decoration: underline !important;
   }
+
+  /* Modo baja visión: tipografía más grande, interlineado generoso, mayor contraste */
+  :global(html.low-vision) {
+    font-size: 115% !important;
+  }
+  :global(html.low-vision body) {
+    line-height: 1.8 !important;
+    letter-spacing: 0.02em;
+  }
+  :global(html.low-vision p),
+  :global(html.low-vision li),
+  :global(html.low-vision a),
+  :global(html.low-vision span) {
+    line-height: inherit !important;
+  }
+
+  /* Filtros daltonismo: usan los <filter> SVG embebidos en el widget */
+  :global(html.cb-protanopia) { filter: url(#filter-protanopia); }
+  :global(html.cb-deuteranopia) { filter: url(#filter-deuteranopia); }
+  :global(html.cb-tritanopia) { filter: url(#filter-tritanopia); }
 
   /* En desktop, mover a la derecha */
   @media (min-width: 1025px) {
@@ -416,6 +485,17 @@
       html.classList.add('underline-links');
       const btn = widget.querySelector('[data-action="underline-toggle"]');
       btn?.setAttribute('aria-pressed', 'true');
+    }
+    if (localStorage.getItem('itrc-lowvision') === 'true') {
+      html.classList.add('low-vision');
+      const btn = widget.querySelector('[data-action="lowvision-toggle"]');
+      btn?.setAttribute('aria-pressed', 'true');
+    }
+    const savedCb = localStorage.getItem('itrc-colorblind') || '';
+    if (savedCb) {
+      html.classList.add(`cb-${savedCb}`);
+      const sel = widget.querySelector('[data-action="colorblind-select"]') as HTMLSelectElement | null;
+      if (sel) sel.value = savedCb;
     }
 
     // Restore theme button active state
@@ -489,22 +569,45 @@
           localStorage.setItem('itrc-underline', String(isOn));
           break;
         }
+        case 'lowvision-toggle': {
+          const isOn = html.classList.toggle('low-vision');
+          button.setAttribute('aria-pressed', String(isOn));
+          localStorage.setItem('itrc-lowvision', String(isOn));
+          break;
+        }
         case 'reset-all':
           fontSize = 100;
           html.style.fontSize = '100%';
-          html.classList.remove('high-contrast', 'grayscale', 'underline-links', 'theme-institucional', 'theme-oscuro');
+          html.classList.remove('high-contrast', 'grayscale', 'underline-links', 'low-vision', 'cb-protanopia', 'cb-deuteranopia', 'cb-tritanopia', 'theme-institucional', 'theme-oscuro');
           widget.querySelectorAll('[aria-pressed]').forEach(btn => {
             btn.setAttribute('aria-pressed', 'false');
           });
           widget.querySelectorAll('[data-theme]').forEach(btn => {
             btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === 'claro');
           });
+          const sel = widget.querySelector('[data-action="colorblind-select"]') as HTMLSelectElement | null;
+          if (sel) sel.value = '';
           localStorage.removeItem('itrc-theme');
           localStorage.removeItem('itrc-font-size');
           localStorage.removeItem('itrc-contrast');
           localStorage.removeItem('itrc-grayscale');
           localStorage.removeItem('itrc-underline');
+          localStorage.removeItem('itrc-lowvision');
+          localStorage.removeItem('itrc-colorblind');
           break;
+      }
+    });
+
+    // Selector daltonismo (no es botón data-action, manejarlo aparte)
+    const cbSelect = widget.querySelector('[data-action="colorblind-select"]') as HTMLSelectElement | null;
+    cbSelect?.addEventListener('change', () => {
+      html.classList.remove('cb-protanopia', 'cb-deuteranopia', 'cb-tritanopia');
+      const value = cbSelect.value;
+      if (value) {
+        html.classList.add(`cb-${value}`);
+        localStorage.setItem('itrc-colorblind', value);
+      } else {
+        localStorage.removeItem('itrc-colorblind');
       }
     });
 

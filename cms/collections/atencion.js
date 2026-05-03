@@ -388,32 +388,6 @@ const loteS_comiteConciliacion = {
   ],
 };
 
-const loteS_chat = {
-  name: "chat-itrc",
-  label: "Chat ITRC",
-  file: "src/content/pages/participa-atencion/chat-itrc.json",
-  fields: [
-    { name: "title", label: "Título", widget: "string", required: true },
-    { name: "description", label: "Descripción SEO", widget: "text", required: false },
-    { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-comments" },
-    { name: "intro", label: "Texto introductorio", widget: "text", required: false },
-    { name: "condicionesUso", label: "Condiciones de uso", widget: "list", required: false, field: { name: "condicion", label: "Condición", widget: "string" } },
-    {
-      name: "cta",
-      label: "Botón CTA al chat externo",
-      widget: "object",
-      collapsed: true,
-      fields: [
-        { name: "texto", label: "Texto", widget: "string", required: true },
-        { name: "url", label: "URL", widget: "string", required: true },
-        { name: "descripcion", label: "Descripción", widget: "text", required: false },
-        { name: "external", label: "Enlace externo", widget: "boolean", default: true },
-        { name: "icon", label: "Icono", widget: "string", required: false },
-      ],
-    },
-  ],
-};
-
 const loteS_respuestaAnonimos = {
   name: "respuesta-anonimos",
   label: "Respuesta a Anónimos (Notificación por Aviso)",
@@ -443,8 +417,8 @@ const loteS_respuestaAnonimos = {
 const loteSCollection = {
   name: "participa-atencion-pendientes",
   label: "PARTICIPA + ATENCIÓN (pendientes — Lote S)",
-  description: "Páginas agregadas en Lote S: hub de grupos de interés, informe Comité Conciliación, Chat ITRC, Respuesta a Anónimos.",
-  files: [loteS_hub, loteS_comiteConciliacion, loteS_chat, loteS_respuestaAnonimos],
+  description: "Páginas agregadas en Lote S: hub de grupos de interés, informe Comité Conciliación, Respuesta a Anónimos.",
+  files: [loteS_hub, loteS_comiteConciliacion, loteS_respuestaAnonimos],
 };
 
 export const atencionCollections = [notificaciones, atencionGeneral, loteSCollection];

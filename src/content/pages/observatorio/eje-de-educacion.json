@@ -6,7 +6,7 @@
   "secciones": [
     { "titulo": "Artículos y Publicaciones", "descripcion": "Investigaciones y publicaciones sobre anticorrupción", "icon": "fa-book-open", "url": "/observatorio/eje-de-educacion/articulos-y-publicaciones", "color": "#0943b5" },
     { "titulo": "Conociendo más de ITRC", "descripcion": "Videos e infografías sobre la Agencia ITRC", "icon": "fa-circle-info", "url": "/observatorio/eje-de-educacion/conociendo-mas-del-itrc", "color": "var(--itrc-gold)" },
-    { "titulo": "Juego de Roles", "descripcion": "Experiencia interactiva sobre el rol ciudadano contra la corrupción", "icon": "fa-gamepad", "url": "/observatorio/eje-de-educacion/juego-de-roles", "color": "#dc3545" },
+    { "titulo": "Juegos Interactivos", "descripcion": "Quiz y sopa de letras para aprender sobre transparencia jugando", "icon": "fa-gamepad", "url": "/observatorio/eje-de-educacion/juego-de-roles", "color": "#dc3545" },
     { "titulo": "ITRC para Niños, Niñas y Adolescentes", "descripcion": "Material educativo adaptado para el público infantil y juvenil", "icon": "fa-children", "url": "/observatorio/eje-de-educacion/itrc-para-ninos", "color": "#fd7e14" },
     { "titulo": "Repositorio Jurídico", "descripcion": "Normatividad y jurisprudencia relevante", "icon": "fa-scale-balanced", "url": "/observatorio/eje-de-educacion/repositorio-juridico", "color": "var(--itrc-navy)" },
     { "titulo": "Glosario", "descripcion": "Términos y conceptos sobre fraude y corrupción", "icon": "fa-book", "url": "/glosario", "color": "#198754" },

@@ -8,40 +8,22 @@
       "anio": "2026",
       "entradas": [
         {
-          "titulo": "Participación del Observatorio Anticorrupción de la Agencia ITRC en la Sesión Técnica de REN0BA",
-          "fecha": "10 de abril de 2026",
-          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/Foto-renoba.png",
-          "url": "/observatorio/eje-de-educacion/memorias/participacion-del-observatorio-anticorrupcion-de-la-agencia-itrc-en-la-sesion"
+          "titulo": "Encuentro regional Chocó: Diálogo para el cuidado y la vigilancia de los recursos públicos",
+          "fecha": "24 de abril de 2026",
+          "imagen": "/images/placeholder-itrc.svg",
+          "url": ""
         },
         {
-          "titulo": "El Observatorio de la ITRC asistió a la Rendición de Cuentas de APC Colombia 2025",
-          "fecha": "10 de abril de 2026",
-          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/1758921932856-scaled.jpg",
-          "url": "/observatorio/eje-de-educacion/memorias/el-observatorio-de-la-itrc-asistio-a-la-rendicion-de-cuentas-de-apc-colombia"
+          "titulo": "Foro económico — La política monetaria en un contexto progresista",
+          "fecha": "22 de abril de 2026",
+          "imagen": "/images/placeholder-itrc.svg",
+          "url": ""
         },
         {
-          "titulo": "Funcionarios y contratistas de la ITRC participaron en capacitación sobre línea base de proyectos de inversión",
-          "fecha": "10 de abril de 2026",
-          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/1755798990515-scaled.jpg",
-          "url": "/observatorio/eje-de-educacion/memorias/funcionarios-y-contratistas-de-la-itrc-participaron-en-capacitacion-sobre-linea"
-        },
-        {
-          "titulo": "LA ITRC participa en mesa técnica interinstitucional para identificar riesgos de contrabando en operaciones portuarias",
-          "fecha": "10 de abril de 2026",
-          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/IMG_20250702_105600-scaled.jpg",
-          "url": "/observatorio/eje-de-educacion/memorias/la-itrc-participa-en-mesa-tecnica-interinstitucional-para-identificar-riesgos"
-        },
-        {
-          "titulo": "La ITRC participó en el lanzamiento de la campaña “Ciberseguridad en nuestras propias palabras” Online",
-          "fecha": "10 de abril de 2026",
-          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/image-2.png",
-          "url": "/observatorio/eje-de-educacion/memorias/la-itrc-participo-en-el-lanzamiento-de-la-campana-ciberseguridad-en-nuestras"
-        },
-        {
-          "titulo": "Decreto 1600",
-          "fecha": "10 de abril de 2026",
-          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/STMINHACIENDA-2-scaled.jpg",
-          "url": "/observatorio/eje-de-educacion/memorias/decreto-1600"
+          "titulo": "Webinar internacional CyberChat4All-11 — Deepfakes: Nuevos Desafíos para la Ciberseguridad de las Mujeres de América Latina y el Caribe",
+          "fecha": "26 de marzo de 2026",
+          "imagen": "/images/placeholder-itrc.svg",
+          "url": ""
         }
       ]
     },
@@ -49,16 +31,52 @@
       "anio": "2025",
       "entradas": [
         {
+          "titulo": "Memorias “Socialización Decreto 1600 de 2024”",
+          "fecha": "17 de diciembre de 2025",
+          "imagen": "/images/placeholder-itrc.svg",
+          "url": "/observatorio/eje-de-participacion/memorias/memorias-socializacion-decreto-1600-de-2024"
+        },
+        {
+          "titulo": "Participación del Observatorio Anticorrupción de la Agencia ITRC en la Sesión Técnica de REN0BA",
+          "fecha": "20 de noviembre de 2025",
+          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/Foto-renoba.png",
+          "url": "/observatorio/eje-de-participacion/memorias/participacion-del-observatorio-anticorrupcion-de-la-agencia-itrc-en-la-sesion"
+        },
+        {
           "titulo": "CIPREP 2025 — Primer Congreso Internacional para la Protección de los Recursos Públicos",
           "fecha": "20 y 21 de octubre de 2025",
           "imagen": "https://i.ytimg.com/vi/zdRnZvAl_9Q/maxresdefault.jpg",
           "url": "/ciprep"
         },
         {
-          "titulo": "Memorias “Socialización Decreto 1600 de 2024”",
-          "fecha": "17 de diciembre de 2025",
-          "imagen": "/images/placeholder-itrc.svg",
-          "url": "/observatorio/eje-de-educacion/memorias/memorias-socializacion-decreto-1600-de-2024"
+          "titulo": "El Observatorio de la ITRC asistió a la Rendición de Cuentas de APC Colombia 2025",
+          "fecha": "17 de septiembre de 2025",
+          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/1758921932856-scaled.jpg",
+          "url": "/observatorio/eje-de-participacion/memorias/el-observatorio-de-la-itrc-asistio-a-la-rendicion-de-cuentas-de-apc-colombia"
+        },
+        {
+          "titulo": "Funcionarios y contratistas de la ITRC participaron en capacitación sobre línea base de proyectos de inversión",
+          "fecha": "13 de agosto de 2025",
+          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/1755798990515-scaled.jpg",
+          "url": "/observatorio/eje-de-participacion/memorias/funcionarios-y-contratistas-de-la-itrc-participaron-en-capacitacion-sobre-linea"
+        },
+        {
+          "titulo": "LA ITRC participa en mesa técnica interinstitucional para identificar riesgos de contrabando en operaciones portuarias",
+          "fecha": "2 de julio de 2025",
+          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/IMG_20250702_105600-scaled.jpg",
+          "url": "/observatorio/eje-de-participacion/memorias/la-itrc-participa-en-mesa-tecnica-interinstitucional-para-identificar-riesgos"
+        },
+        {
+          "titulo": "La ITRC participó en el lanzamiento de la campaña “Ciberseguridad en nuestras propias palabras” Online",
+          "fecha": "21 de mayo de 2025",
+          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/image-2.png",
+          "url": "/observatorio/eje-de-participacion/memorias/la-itrc-participo-en-el-lanzamiento-de-la-campana-ciberseguridad-en-nuestras"
+        },
+        {
+          "titulo": "Reunión clave — Socialización del Decreto 1600 de 2024 (Min. Hacienda)",
+          "fecha": "9 de mayo de 2025",
+          "imagen": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2026/04/STMINHACIENDA-2-scaled.jpg",
+          "url": "/observatorio/eje-de-participacion/memorias/decreto-1600"
         }
       ]
     },

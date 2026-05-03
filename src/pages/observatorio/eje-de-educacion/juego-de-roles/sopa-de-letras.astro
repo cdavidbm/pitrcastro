@@ -1,0 +1,383 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import HeroPage from '../../../../components/HeroPage.astro';
+import { resolveUrl } from '../../../../utils/url';
+import pageData from '../../../../content/pages/observatorio/eje-de-educacion/sopa-de-letras.json';
+
+const base = import.meta.env.BASE_URL;
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Observatorio', href: resolveUrl('/observatorio') },
+  { label: 'Eje de Educación', href: resolveUrl('/observatorio/eje-de-educacion') },
+  { label: 'Juegos Interactivos', href: resolveUrl('/observatorio/eje-de-educacion/juego-de-roles') },
+  { label: pageData.title }
+];
+
+const palabrasJson = JSON.stringify(pageData.palabras);
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+
+  <section class="sopa-section">
+    <div class="container">
+      <p class="sopa-intro">{pageData.intro}</p>
+
+      <div class="sopa-app">
+        <div class="sopa-board" id="sopaBoard" aria-label="Tablero de sopa de letras"></div>
+
+        <aside class="sopa-sidebar">
+          <h2 class="sopa-sidebar__title">
+            <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+            Palabras
+          </h2>
+          <div class="sopa-progress">
+            <span id="sopaCount">0</span> / <span id="sopaTotal">{pageData.palabras.length}</span>
+          </div>
+          <ul class="sopa-words" id="sopaWords">
+            {pageData.palabras.map((p) => (
+              <li class="sopa-word" data-word={p.toUpperCase()}>{p}</li>
+            ))}
+          </ul>
+          <button type="button" class="sopa-btn sopa-btn--secondary" id="sopaResetBtn">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reiniciar
+          </button>
+          <div class="sopa-win" id="sopaWin" hidden>
+            <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+            <strong>¡Encontraste todas!</strong>
+            <p>Excelente trabajo. ¡Eres un experto buscando palabras anticorrupción!</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion/juego-de-roles')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Juegos Interactivos</a></div>
+    </div>
+  </section>
+</Base>
+
+<script id="sopa-data" type="application/json" set:html={palabrasJson}></script>
+
+<style>
+  .sopa-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .sopa-section .container { max-width: 1100px; margin: 0 auto; }
+  .sopa-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text); text-align: center; margin-bottom: var(--space-8); }
+
+  .sopa-app {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-8);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Tablero */
+  .sopa-board {
+    display: grid;
+    gap: 2px;
+    background: var(--theme-surface-alt);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    user-select: none;
+    -webkit-user-select: none;
+    aspect-ratio: 1;
+    align-self: start;
+  }
+  .sopa-cell {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--theme-surface);
+    color: var(--theme-heading);
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: clamp(0.7rem, 1.6vw, 1.1rem);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+    aspect-ratio: 1;
+  }
+  .sopa-cell:hover { background: var(--theme-surface-alt); }
+  .sopa-cell.selected { background: var(--itrc-gold); color: var(--itrc-navy); transform: scale(0.95); }
+  .sopa-cell.found { background: rgba(25, 135, 84, 0.15); color: #198754; cursor: default; }
+  .sopa-cell.found.selected { background: #198754; color: #fff; }
+
+  /* Sidebar */
+  .sopa-sidebar { display: flex; flex-direction: column; gap: var(--space-4); }
+  .sopa-sidebar__title { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-base); color: var(--theme-heading); margin: 0; }
+  .sopa-sidebar__title i { color: var(--itrc-gold); }
+
+  .sopa-progress { font-size: var(--font-size-sm); font-weight: 700; color: var(--theme-text-muted); padding: var(--space-2) var(--space-3); background: var(--theme-surface-alt); border-radius: var(--radius-md); text-align: center; }
+  .sopa-progress span:first-child { color: var(--itrc-gold); font-size: var(--font-size-base); }
+
+  .sopa-words { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .sopa-word {
+    padding: var(--space-2) var(--space-3);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-left: 3px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm); font-weight: 600;
+    color: var(--theme-heading);
+    transition: all var(--transition-fast);
+  }
+  .sopa-word.found {
+    background: rgba(25, 135, 84, 0.06);
+    border-left-color: #198754;
+    color: #198754;
+    text-decoration: line-through;
+  }
+
+  .sopa-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-family: var(--font-family); font-size: var(--font-size-sm); font-weight: 700;
+    cursor: pointer; transition: all var(--transition-fast);
+    border: 2px solid var(--theme-border);
+    background: var(--theme-surface); color: var(--theme-heading);
+  }
+  .sopa-btn:hover { border-color: var(--itrc-gold); color: var(--itrc-gold); }
+
+  .sopa-win {
+    padding: var(--space-4);
+    background: rgba(25, 135, 84, 0.08);
+    border: 2px solid #198754;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: #198754;
+  }
+  .sopa-win[hidden] { display: none; }
+  .sopa-win i { font-size: var(--font-size-2xl); margin-bottom: var(--space-2); }
+  .sopa-win strong { display: block; font-size: var(--font-size-base); margin-bottom: var(--space-1); }
+  .sopa-win p { margin: 0; font-size: var(--font-size-xs); color: var(--theme-text-secondary); }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 800px) {
+    .sopa-app { grid-template-columns: 1fr; padding: var(--space-4); }
+  }
+</style>
+
+<script>
+  type Cell = { row: number; col: number; el: HTMLButtonElement };
+
+  function initSopa() {
+    const root = document.querySelector('.sopa-app') as HTMLElement | null;
+    if (!root || root.hasAttribute('data-init')) return;
+    root.setAttribute('data-init', 'true');
+
+    const dataNode = document.getElementById('sopa-data');
+    if (!dataNode || !dataNode.textContent) return;
+    let palabras: string[] = [];
+    try { palabras = JSON.parse(dataNode.textContent); } catch { return; }
+    palabras = palabras.map(p => p.toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g, ''));
+
+    const SIZE = 14;
+    const board = document.getElementById('sopaBoard') as HTMLElement | null;
+    const wordEls = document.querySelectorAll<HTMLElement>('.sopa-word');
+    const countEl = document.getElementById('sopaCount');
+    const winEl = document.getElementById('sopaWin');
+    const resetBtn = document.getElementById('sopaResetBtn');
+    if (!board) return;
+
+    let grid: string[][] = [];
+    let placedWords = new Map<string, { cells: { r: number; c: number }[] }>();
+    let foundWords = new Set<string>();
+    let isSelecting = false;
+    let selStart: { r: number; c: number } | null = null;
+    let selEnd: { r: number; c: number } | null = null;
+
+    const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const dirs = [
+      [0, 1], [1, 0], [1, 1], [1, -1],
+      [0, -1], [-1, 0], [-1, -1], [-1, 1],
+    ];
+
+    function emptyGrid(): string[][] {
+      return Array.from({ length: SIZE }, () => Array(SIZE).fill(''));
+    }
+
+    function placeWord(g: string[][], word: string): { r: number; c: number }[] | null {
+      const attempts = 200;
+      for (let i = 0; i < attempts; i++) {
+        const dir = dirs[Math.floor(Math.random() * dirs.length)];
+        const r0 = Math.floor(Math.random() * SIZE);
+        const c0 = Math.floor(Math.random() * SIZE);
+        const cells: { r: number; c: number }[] = [];
+        let ok = true;
+        for (let k = 0; k < word.length; k++) {
+          const r = r0 + dir[0] * k;
+          const c = c0 + dir[1] * k;
+          if (r < 0 || r >= SIZE || c < 0 || c >= SIZE) { ok = false; break; }
+          const existing = g[r][c];
+          if (existing && existing !== word[k]) { ok = false; break; }
+          cells.push({ r, c });
+        }
+        if (!ok) continue;
+        cells.forEach((p, k) => { g[p.r][p.c] = word[k]; });
+        return cells;
+      }
+      return null;
+    }
+
+    function buildGrid() {
+      grid = emptyGrid();
+      placedWords.clear();
+      const sorted = [...palabras].sort((a, b) => b.length - a.length);
+      for (const w of sorted) {
+        const cells = placeWord(grid, w);
+        if (cells) placedWords.set(w, { cells });
+      }
+      for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+          if (!grid[r][c]) grid[r][c] = ALPHA[Math.floor(Math.random() * ALPHA.length)];
+        }
+      }
+    }
+
+    function render() {
+      if (!board) return;
+      board.innerHTML = '';
+      board.style.gridTemplateColumns = `repeat(${SIZE}, 1fr)`;
+      for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'sopa-cell';
+          btn.dataset.row = String(r);
+          btn.dataset.col = String(c);
+          btn.textContent = grid[r][c];
+          btn.addEventListener('mousedown', startSel);
+          btn.addEventListener('mouseenter', moveSel);
+          btn.addEventListener('mouseup', endSel);
+          btn.addEventListener('touchstart', e => { e.preventDefault(); touchStart(e); }, { passive: false });
+          board.appendChild(btn);
+        }
+      }
+      document.addEventListener('mouseup', endSel);
+      board.addEventListener('touchmove', touchMove, { passive: false });
+      board.addEventListener('touchend', endSel);
+    }
+
+    function getCellAt(x: number, y: number): { r: number; c: number } | null {
+      const el = document.elementFromPoint(x, y) as HTMLElement | null;
+      if (!el || !el.classList.contains('sopa-cell')) return null;
+      return { r: parseInt(el.dataset.row || '0'), c: parseInt(el.dataset.col || '0') };
+    }
+
+    function touchStart(e: TouchEvent) {
+      const t = e.touches[0];
+      const cell = getCellAt(t.clientX, t.clientY);
+      if (!cell) return;
+      isSelecting = true;
+      selStart = cell;
+      selEnd = cell;
+      paintSelection();
+    }
+    function touchMove(e: TouchEvent) {
+      if (!isSelecting) return;
+      e.preventDefault();
+      const t = e.touches[0];
+      const cell = getCellAt(t.clientX, t.clientY);
+      if (cell) {
+        selEnd = cell;
+        paintSelection();
+      }
+    }
+
+    function startSel(e: MouseEvent) {
+      const t = e.currentTarget as HTMLElement;
+      isSelecting = true;
+      selStart = { r: parseInt(t.dataset.row || '0'), c: parseInt(t.dataset.col || '0') };
+      selEnd = selStart;
+      paintSelection();
+    }
+    function moveSel(e: MouseEvent) {
+      if (!isSelecting) return;
+      const t = e.currentTarget as HTMLElement;
+      selEnd = { r: parseInt(t.dataset.row || '0'), c: parseInt(t.dataset.col || '0') };
+      paintSelection();
+    }
+    function endSel() {
+      if (!isSelecting) return;
+      isSelecting = false;
+      checkSelection();
+      paintSelection();
+    }
+
+    function getLineCells(): { r: number; c: number }[] | null {
+      if (!selStart || !selEnd) return null;
+      const dr = selEnd.r - selStart.r;
+      const dc = selEnd.c - selStart.c;
+      const len = Math.max(Math.abs(dr), Math.abs(dc));
+      if (len === 0) return [{ r: selStart.r, c: selStart.c }];
+      // Solo permitir líneas rectas (horizontal, vertical o diagonal)
+      if (Math.abs(dr) !== 0 && Math.abs(dc) !== 0 && Math.abs(dr) !== Math.abs(dc)) return null;
+      const sr = dr === 0 ? 0 : dr / Math.abs(dr);
+      const sc = dc === 0 ? 0 : dc / Math.abs(dc);
+      const cells: { r: number; c: number }[] = [];
+      for (let i = 0; i <= len; i++) cells.push({ r: selStart.r + sr * i, c: selStart.c + sc * i });
+      return cells;
+    }
+
+    function paintSelection() {
+      if (!board) return;
+      board.querySelectorAll<HTMLElement>('.sopa-cell.selected').forEach(c => c.classList.remove('selected'));
+      if (!isSelecting && !selStart) return;
+      const cells = getLineCells();
+      if (!cells) return;
+      cells.forEach(({ r, c }) => {
+        const el = board.querySelector<HTMLElement>(`.sopa-cell[data-row="${r}"][data-col="${c}"]`);
+        el?.classList.add('selected');
+      });
+    }
+
+    function checkSelection() {
+      const cells = getLineCells();
+      if (!cells || cells.length < 2) return;
+      const word = cells.map(({ r, c }) => grid[r][c]).join('');
+      const reversed = word.split('').reverse().join('');
+      let matched = '';
+      for (const w of placedWords.keys()) {
+        if (foundWords.has(w)) continue;
+        if (w === word || w === reversed) { matched = w; break; }
+      }
+      if (matched && board) {
+        foundWords.add(matched);
+        cells.forEach(({ r, c }) => {
+          const el = board.querySelector<HTMLElement>(`.sopa-cell[data-row="${r}"][data-col="${c}"]`);
+          el?.classList.add('found');
+        });
+        wordEls.forEach(el => {
+          if (el.dataset.word === matched) el.classList.add('found');
+        });
+        if (countEl) countEl.textContent = String(foundWords.size);
+        if (foundWords.size === placedWords.size && winEl) winEl.removeAttribute('hidden');
+      }
+      selStart = null;
+      selEnd = null;
+    }
+
+    function reset() {
+      foundWords.clear();
+      buildGrid();
+      render();
+      wordEls.forEach(el => el.classList.remove('found'));
+      if (countEl) countEl.textContent = '0';
+      if (winEl) winEl.setAttribute('hidden', '');
+    }
+
+    resetBtn?.addEventListener('click', reset);
+    buildGrid();
+    render();
+  }
+
+  initSopa();
+  document.addEventListener('astro:after-swap', initSopa);
+</script>

@@ -1,15 +1,24 @@
 {
-  "title": "Juego de Roles",
-  "description": "Herramienta pedagógica interactiva del Observatorio Anticorrupción",
+  "title": "Juegos Interactivos",
+  "description": "Actividades pedagógicas para aprender sobre transparencia y lucha contra la corrupción mientras juegas",
   "icon": "fa-gamepad",
-  "bienvenida": "¡Bienvenido a nuestro Juego de Roles Interactivo!",
-  "descripcion": "Una herramienta pedagógica, con la que La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — Agencia ITRC, a través de su Observatorio Anticorrupción, quiere acercarse más a ti, para brindarte información muy útil, que te permita conocer, ampliar y comprender los temas relativos a la lucha contra el fraude y la corrupción que se realizan desde esta entidad.",
-  "explicacion": "En el Juego de Roles, encontrarás definiciones que te ayudarán a ampliar conocimientos mediante los cuales podrás pensar, analizar y afrontar asumiendo el Rol de Inspector, los casos hipotéticos o situaciones simuladas que te plantearemos, y que deberás resolver. Así, lograrás identificar posibles soluciones y tomar decisiones correctas con las que avanzarás a través de los diferentes niveles de Principiante, Aprendiz, Practicante, hasta convertirte en un Inspector Experto.",
-  "videoTutorial": {
-    "titulo": "Video tutorial de inicio",
-    "url": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/R_Juego-de-Roles_Diciembre_FINAL.mp4",
-    "poster": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2021/12/banner-video-Juego-de-roles.png"
-  },
-  "guionUrl": "https://www.itrc.gov.co/observatorio/wp-content/uploads/2022/09/GUION-JUEGO-DE-ROLES.pdf",
-  "juegoUrl": "http://juegoderoles.itrc.gov.co/"
+  "intro": "Aprende jugando sobre los conceptos clave que la Agencia ITRC promueve para cuidar los recursos públicos del país. Estas actividades están pensadas para niños, niñas, adolescentes y para cualquier persona que quiera repasar de forma divertida.",
+  "juegos": [
+    {
+      "titulo": "Quiz Anticorrupción",
+      "descripcion": "Pon a prueba lo que sabes sobre transparencia, honestidad y la lucha contra la corrupción con 10 preguntas.",
+      "icon": "fa-circle-question",
+      "url": "/observatorio/eje-de-educacion/juego-de-roles/quiz",
+      "color": "#dc3545",
+      "duracion": "5 minutos"
+    },
+    {
+      "titulo": "Sopa de Letras",
+      "descripcion": "Encuentra las 12 palabras escondidas relacionadas con la integridad pública.",
+      "icon": "fa-table-cells",
+      "url": "/observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras",
+      "color": "#198754",
+      "duracion": "10 minutos"
+    }
+  ]
 }

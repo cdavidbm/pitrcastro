@@ -33,12 +33,13 @@ const colorMap: Record<string, string> = {
       <p class="obs-intro">{pageData.intro}</p>
 
       <div class="obs-grid">
-        {pageData.secciones.map((sec) => {
+        {pageData.secciones.map((sec, i) => {
           const accent = colorMap[sec.color] || 'var(--itrc-gold)';
           return (
-            <a href={resolveUrl(sec.url)} class="obs-card" style={`--card-accent: ${accent}`}>
-              <div class="obs-card__icon">
-                <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
+            <a href={resolveUrl(sec.url)} class="obs-card" style={`--card-accent: ${accent}; --card-delay: ${i * 80}ms`}>
+              <div class="obs-card__icon" aria-hidden="true">
+                <i class={`fa-solid ${sec.icon}`}></i>
+                <span class="obs-card__pulse"></span>
               </div>
               <h3 class="obs-card__title">{sec.titulo}</h3>
               <p class="obs-card__desc">{sec.descripcion}</p>
@@ -64,20 +65,68 @@ const colorMap: Record<string, string> = {
 
   .obs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
 
+  /* V-08: stagger entry + hover 3D + light sweep */
   .obs-card {
     display: flex; flex-direction: column; align-items: center; text-align: center;
-    padding: var(--space-10) var(--space-6); background: var(--theme-surface);
-    border: 1px solid var(--theme-border); border-top: 4px solid var(--card-accent);
-    border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base);
+    padding: var(--space-10) var(--space-6);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: 4px solid var(--card-accent);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: obsCardIn 0.5s ease-out forwards;
+    animation-delay: var(--card-delay, 0ms);
   }
-  .obs-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--card-accent); }
+  .obs-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 40%, color-mix(in srgb, var(--card-accent) 12%, transparent) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+  }
+  .obs-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-xl); border-color: var(--card-accent); }
+  .obs-card:hover::before { transform: translateX(100%); }
+
+  @keyframes obsCardIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .obs-card { animation: none; opacity: 1; transform: none; }
+    .obs-card::before { display: none; }
+  }
 
   .obs-card__icon {
-    width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;
-    background: var(--card-accent); color: var(--white); border-radius: var(--radius-full);
-    font-size: var(--font-size-3xl); margin-bottom: var(--space-5); transition: transform var(--transition-base);
+    position: relative;
+    width: 72px; height: 72px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--card-accent); color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-5);
+    transition: transform var(--transition-base);
   }
-  .obs-card:hover .obs-card__icon { transform: scale(1.1); }
+  .obs-card:hover .obs-card__icon { transform: scale(1.12) rotate(-6deg); }
+
+  .obs-card__pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--card-accent);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .obs-card:hover .obs-card__pulse { animation: obsPulse 1.2s ease-out infinite; }
+  @keyframes obsPulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.4); }
+  }
 
   .obs-card__title { font-size: var(--font-size-lg); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-3); transition: color var(--transition-fast); }
   .obs-card:hover .obs-card__title { color: var(--card-accent); }

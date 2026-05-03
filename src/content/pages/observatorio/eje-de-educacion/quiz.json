@@ -1,0 +1,118 @@
+{
+  "title": "Quiz Anticorrupción",
+  "description": "Pon a prueba tus conocimientos sobre la lucha contra la corrupción y la transparencia",
+  "icon": "fa-circle-question",
+  "intro": "Responde 10 preguntas sobre la Agencia ITRC, la transparencia y los valores que cuidan los recursos públicos. Cada pregunta tiene una sola respuesta correcta. ¡Mucha suerte!",
+  "preguntas": [
+    {
+      "pregunta": "¿Qué significa corrupción?",
+      "opciones": [
+        "Un tipo de comida típica",
+        "Aprovecharse del poder o cargo público para beneficio personal",
+        "Una asignatura del colegio",
+        "Un juego de mesa"
+      ],
+      "correcta": 1,
+      "explicacion": "La corrupción es usar el poder para desviar lo público hacia el beneficio privado."
+    },
+    {
+      "pregunta": "¿Cuál es la función de la Agencia ITRC?",
+      "opciones": [
+        "Cobrar pasajes de bus",
+        "Cuidar el dinero recolectado por DIAN, Coljuegos y UGPP",
+        "Vender productos en línea",
+        "Organizar eventos deportivos"
+      ],
+      "correcta": 1,
+      "explicacion": "La ITRC vela por que no se pierda el dinero que recolectan y administran la DIAN, Coljuegos y la UGPP."
+    },
+    {
+      "pregunta": "¿Qué es la transparencia?",
+      "opciones": [
+        "Algo que no se puede ver",
+        "Decir la verdad y mostrar las acciones libremente",
+        "Un tipo de papel especial",
+        "Una técnica para esconder información"
+      ],
+      "correcta": 1,
+      "explicacion": "Las personas transparentes son claras, sinceras y los demás las perciben como confiables."
+    },
+    {
+      "pregunta": "¿Qué hace una persona honesta?",
+      "opciones": [
+        "Dice mentiras para evitar problemas",
+        "Se comporta de manera recta y verdadera",
+        "Hace trampa cuando nadie la mira",
+        "Toma cosas que no le pertenecen"
+      ],
+      "correcta": 1,
+      "explicacion": "La honestidad es un valor moral basado en la verdad, la rectitud y la justicia."
+    },
+    {
+      "pregunta": "¿Qué hace una persona íntegra?",
+      "opciones": [
+        "Solo se porta bien cuando la observan",
+        "Hace siempre lo correcto, aunque nadie la vea",
+        "Cambia su forma de actuar según le convenga",
+        "Pide permiso para todo"
+      ],
+      "correcta": 1,
+      "explicacion": "La integridad es mantener tus valores y actuar de forma coherente con la moral en todo momento."
+    },
+    {
+      "pregunta": "¿Qué es un soborno?",
+      "opciones": [
+        "Un regalo de cumpleaños",
+        "Dar dinero o regalos a alguien para que actúe mal",
+        "Una receta de cocina",
+        "Un saludo militar"
+      ],
+      "correcta": 1,
+      "explicacion": "Sobornar es comprometer a alguien a actuar contra su deber por medio de dinero o regalos."
+    },
+    {
+      "pregunta": "¿Cuál de estas entidades recauda los impuestos en Colombia?",
+      "opciones": [
+        "DIAN",
+        "ICBF",
+        "Banco de la República",
+        "Ministerio del Deporte"
+      ],
+      "correcta": 0,
+      "explicacion": "La DIAN (Dirección de Impuestos y Aduanas Nacionales) recauda los impuestos para sostener al Estado."
+    },
+    {
+      "pregunta": "¿Qué es una denuncia?",
+      "opciones": [
+        "Un juego en línea",
+        "Avisar a una autoridad sobre algo malo que pasa",
+        "Un baile tradicional",
+        "Una canción popular"
+      ],
+      "correcta": 1,
+      "explicacion": "La denuncia es informar a una autoridad de un daño o hecho negativo para que actúe."
+    },
+    {
+      "pregunta": "¿Qué representa el principio de igualdad?",
+      "opciones": [
+        "Tratar diferente a cada persona según sus gustos",
+        "Reconocer los mismos derechos y oportunidades a todas las personas",
+        "Hablar solo con quienes piensan igual a ti",
+        "Solo respetar a los adultos"
+      ],
+      "correcta": 1,
+      "explicacion": "La igualdad protege los derechos, libertades y oportunidades de todas las personas sin discriminación."
+    },
+    {
+      "pregunta": "¿Qué es la solidaridad?",
+      "opciones": [
+        "Trabajar sin descansar",
+        "Apoyar y ayudar a quienes lo necesitan, sin esperar recompensa",
+        "Comer solo en casa",
+        "Tomar las cosas de los demás"
+      ],
+      "correcta": 1,
+      "explicacion": "La solidaridad nos mueve a ayudar a otros con interés genuino, sin recompensa personal."
+    }
+  ]
+}

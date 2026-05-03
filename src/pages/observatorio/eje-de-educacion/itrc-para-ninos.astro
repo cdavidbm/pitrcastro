@@ -117,19 +117,57 @@ const breadcrumb = [
   }
   .paint-reset:hover { color: var(--itrc-gold); }
 
+  /* Pattern sutil de puntos en el fondo de la sección NNA — guiño visual sin
+     romper la coherencia con el resto del sitio */
+  .ninos-section {
+    background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--itrc-gold) 12%, transparent) 1px, transparent 0);
+    background-size: 32px 32px;
+    background-position: 0 0;
+  }
+
   .ninos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-5); }
 
-  .ninos-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--space-8) var(--space-5); background: var(--theme-surface); border: 2px solid var(--card-accent); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
-  .ninos-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); background: var(--card-accent); }
+  .ninos-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: var(--space-8) var(--space-5);
+    background: var(--theme-surface);
+    border: 2px solid var(--card-accent);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+  }
+  .ninos-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); background: var(--card-accent); }
 
-  .ninos-card__icon { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background: var(--card-accent); color: var(--white); border-radius: var(--radius-full); font-size: var(--font-size-3xl); margin-bottom: var(--space-4); transition: all var(--transition-base); }
-  .ninos-card:hover .ninos-card__icon { background: var(--white); color: var(--card-accent); transform: scale(1.1); }
+  .ninos-card__icon {
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--card-accent); color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-4);
+    transition: transform var(--transition-base), background var(--transition-base), color var(--transition-base);
+  }
+  /* Rebote suave del ícono al hover (kid-friendly bounce) */
+  .ninos-card:hover .ninos-card__icon {
+    background: var(--white); color: var(--card-accent);
+    animation: ninosBounce 0.6s ease;
+  }
+  @keyframes ninosBounce {
+    0%   { transform: scale(1) rotate(0); }
+    30%  { transform: scale(1.18) rotate(-8deg); }
+    55%  { transform: scale(0.95) rotate(4deg); }
+    80%  { transform: scale(1.08) rotate(-2deg); }
+    100% { transform: scale(1.1) rotate(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ninos-card:hover .ninos-card__icon { animation: none; transform: scale(1.1); }
+  }
 
   .ninos-card__title { font-size: var(--font-size-lg); font-weight: 800; color: var(--theme-heading); margin: 0 0 var(--space-2); }
   .ninos-card:hover .ninos-card__title { color: var(--white); }
 
-  .ninos-card__desc { font-size: var(--font-size-xs); line-height: 1.5; color: var(--theme-text-secondary); margin: 0; }
-  .ninos-card:hover .ninos-card__desc { color: rgba(255,255,255,0.9); }
+  .ninos-card__desc { font-size: var(--font-size-sm); line-height: 1.55; color: var(--theme-text-secondary); margin: 0; }
+  .ninos-card:hover .ninos-card__desc { color: rgba(255,255,255,0.92); }
 </style>
 
 <script>
