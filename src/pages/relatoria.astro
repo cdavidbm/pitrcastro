@@ -1,20 +1,50 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
 import pageData from '../content/pages/transparencia/relatoria.json';
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Transparencia', href: `${base}transparencia` },
-  { label: pageData.title }
+  { label: pageData.title },
 ];
+
+interface Ficha {
+  id: string;
+  year: string;
+  yearCategoria: string;
+  instancia: string;
+  expediente: string;
+  titulo: string;
+  tamano: string;
+  filenameOrigen: string;
+  slug: string;
+  archivo: string;
+  origenUrl: string;
+}
+
+const fichas: Ficha[] = pageData.fichas ?? [];
+
+// Años efectivos para el filtro (orden desc)
+const anios = Array.from(
+  new Set(fichas.map((f) => f.year).filter((y) => /^\d{4}$/.test(y)))
+).sort((a, b) => Number(b) - Number(a));
+
+const totalFichas = fichas.length;
+const conArchivo = fichas.filter((f) => f.archivo).length;
 ---
 
 <Base title={pageData.title} description={pageData.description}>
-  <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
+  <HeroPage
+    title={pageData.title}
+    subtitle={pageData.description}
+    icon={pageData.icon}
+    breadcrumb={breadcrumb}
+  />
 
-  <section class="rel-section">
+  <section class="rel-intro-section">
     <div class="container">
       {pageData.intro && <p class="rel-intro">{pageData.intro}</p>}
 
@@ -25,19 +55,6 @@ const breadcrumb = [
         </div>
       )}
 
-      {pageData.cta && pageData.cta.url && (
-        <a href={pageData.cta.url} target={pageData.cta.external ? '_blank' : '_self'} rel={pageData.cta.external ? 'noopener noreferrer' : ''} class="rel-cta">
-          <div class="rel-cta__icon" aria-hidden="true">
-            <i class={`fa-solid ${pageData.cta.icon || 'fa-arrow-right'}`}></i>
-          </div>
-          <div class="rel-cta__body">
-            <span class="rel-cta__text">{pageData.cta.texto}</span>
-            {pageData.cta.descripcion && <span class="rel-cta__desc">{pageData.cta.descripcion}</span>}
-          </div>
-          {pageData.cta.external && <i class="fa-solid fa-arrow-up-right-from-square rel-cta__ext" aria-hidden="true"></i>}
-        </a>
-      )}
-
       {pageData.resolucion && pageData.resolucion.url && (
         <a href={pageData.resolucion.url} target="_blank" rel="noopener noreferrer" class="rel-resolucion">
           <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
@@ -45,40 +62,478 @@ const breadcrumb = [
           <i class="fa-solid fa-download" aria-hidden="true"></i>
         </a>
       )}
+    </div>
+  </section>
+
+  <section class="rel-controls-section">
+    <div class="container">
+      <div class="rel-controls">
+        <div class="controls-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input
+            type="text"
+            id="relSearch"
+            placeholder="Buscar por título, expediente, número…"
+            aria-label="Buscar fichas de relatoría"
+          />
+        </div>
+        <div class="controls-filters">
+          <select id="filterAnio" aria-label="Filtrar por año">
+            <option value="">Todos los años</option>
+            {anios.map((a) => (
+              <option value={a}>{a}</option>
+            ))}
+          </select>
+          <select id="filterInstancia" aria-label="Filtrar por instancia">
+            <option value="">Todas las instancias</option>
+            <option value="primera">Primera instancia</option>
+            <option value="segunda">Segunda instancia</option>
+            <option value="sin">Sin clasificar</option>
+          </select>
+          <select id="perPageSelect" aria-label="Filas por página">
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="0">Todas</option>
+          </select>
+          <button type="button" id="clearFilters" class="btn-clear" title="Limpiar filtros">
+            <i class="fa-solid fa-filter-circle-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="rel-info">
+        <span id="resultsCount"></span>
+        <span class="rel-info__total">
+          Catálogo: <strong>{totalFichas}</strong> fichas · {conArchivo} con archivo disponible
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="rel-table-section">
+    <div class="container">
+      <div class="rel-table-wrapper">
+        <table class="rel-table">
+          <thead>
+            <tr>
+              <th class="col-anio">Año</th>
+              <th class="col-instancia">Instancia</th>
+              <th class="col-expediente">Expediente</th>
+              <th class="col-titulo">Título</th>
+              <th class="col-tamano">Tamaño</th>
+              <th class="col-pdf">Archivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fichas.map((f) => (
+              <tr
+                data-anio={f.year || ''}
+                data-instancia={f.instancia || 'sin'}
+                data-search={`${f.titulo} ${f.expediente} ${f.id}`.toLowerCase()}
+              >
+                <td data-label="Año" class="td-anio">{f.year || '—'}</td>
+                <td data-label="Instancia" class="td-instancia">
+                  {f.instancia ? (
+                    <span class={`badge badge--${f.instancia}`}>
+                      {f.instancia === 'primera' ? '1ra' : '2da'}
+                    </span>
+                  ) : (
+                    <span class="badge badge--unknown">—</span>
+                  )}
+                </td>
+                <td data-label="Expediente" class="td-expediente">
+                  {f.expediente || <span class="td-muted">—</span>}
+                </td>
+                <td data-label="Título" class="td-titulo">{f.titulo}</td>
+                <td data-label="Tamaño" class="td-tamano">{f.tamano || '—'}</td>
+                <td data-label="Archivo" class="td-center">
+                  {f.archivo ? (
+                    <a
+                      href={f.archivo.startsWith('/') ? resolveUrl(f.archivo) : f.archivo}
+                      target="_blank"
+                      rel="noopener"
+                      class="pdf-link"
+                      title={`Descargar ${f.tamano}`}
+                      download
+                    >
+                      <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                    </a>
+                  ) : (
+                    <span class="pdf-pending" title="Documento pendiente de carga">
+                      <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <nav id="relPagination" class="rel-pagination" aria-label="Paginación"></nav>
+
+      <div class="rel-noavail-note">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        Las fichas marcadas con <i class="fa-solid fa-clock"></i> aún no tienen archivo
+        disponible. Si necesita una en particular, contacte la Subdirección de Asuntos
+        Legales de la Agencia ITRC.
+      </div>
 
       <div class="back-link">
-        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
+        <a href={`${base}transparencia`}>
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia
+        </a>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .rel-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
-  .rel-section .container { max-width: 860px; margin: 0 auto; }
+  /* === Intro === */
+  .rel-intro-section { padding: var(--space-8) var(--space-6) var(--space-6); background: var(--theme-surface); }
+  .rel-intro-section .container { max-width: 900px; margin: 0 auto; }
+  .rel-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-6); text-align: justify; }
 
-  .rel-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); margin-bottom: var(--space-8); text-align: justify; }
-
-  .rel-criterios { background: var(--theme-surface-alt); border-left: 4px solid var(--itrc-gold); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-bottom: var(--space-8); }
+  .rel-criterios {
+    background: var(--theme-surface-alt);
+    border-left: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+  }
   .rel-criterios h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-lg); color: var(--theme-heading); margin: 0 0 var(--space-3); }
   .rel-criterios h2 i { color: var(--itrc-gold); }
   .rel-criterios p { margin: 0; font-size: var(--font-size-sm); line-height: 1.7; color: var(--theme-text-secondary); }
 
-  .rel-cta { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy) 0%, var(--itrc-gold) 100%); color: var(--white); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
-  .rel-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-xl); }
-  .rel-cta__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.18); border-radius: var(--radius-full); font-size: var(--font-size-2xl); flex-shrink: 0; }
-  .rel-cta__body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
-  .rel-cta__text { font-size: var(--font-size-lg); font-weight: 800; }
-  .rel-cta__desc { font-size: var(--font-size-sm); opacity: 0.9; }
-  .rel-cta__ext { font-size: var(--font-size-base); opacity: 0.8; }
-
-  .rel-resolucion { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); margin-top: var(--space-5); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); text-decoration: none; color: var(--theme-heading); transition: all var(--transition-base); }
+  .rel-resolucion {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--theme-heading);
+    transition: all var(--transition-base);
+  }
   .rel-resolucion:hover { border-color: var(--file-pdf); box-shadow: var(--shadow-sm); }
   .rel-resolucion > i:first-child { color: var(--file-pdf); font-size: var(--font-size-lg); }
   .rel-resolucion span { flex: 1; font-size: var(--font-size-sm); font-weight: 600; }
   .rel-resolucion > i:last-child { color: var(--theme-text-muted); font-size: var(--font-size-xs); opacity: 0.5; }
 
-  .back-link { margin-top: var(--space-10); text-align: center; }
-  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  /* === Controls === */
+  .rel-controls-section {
+    padding: var(--space-5) var(--space-6) var(--space-3);
+    background: var(--theme-surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-top: 1px solid var(--theme-border-light);
+    border-bottom: 1px solid var(--theme-border-light);
+    box-shadow: var(--shadow-sm);
+  }
+  .rel-controls { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
+  .controls-search { flex: 1; min-width: 220px; position: relative; }
+  .controls-search i {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+  }
+  .controls-search input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+  }
+  .controls-search input:focus {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15);
+  }
+  .controls-filters { display: flex; gap: var(--space-2); align-items: center; }
+  .controls-filters select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    cursor: pointer;
+  }
+  .controls-filters select:focus { outline: none; border-color: var(--itrc-gold); }
+  .btn-clear {
+    padding: var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    background: var(--theme-surface);
+    color: var(--theme-text-muted);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+  }
+  .btn-clear:hover { border-color: var(--file-pdf); color: var(--file-pdf); }
+  .rel-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-muted);
+  }
+  .rel-info__total { color: var(--theme-text-secondary); }
+
+  /* === Table === */
+  .rel-table-section { padding: var(--space-5) var(--space-6) var(--space-12); background: var(--theme-surface); }
+  .rel-table-section .container { max-width: 1200px; margin: 0 auto; }
+  .rel-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--theme-border-light);
+  }
+  .rel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+    min-width: 800px;
+  }
+  .rel-table thead { background: var(--theme-dark-section-bg); }
+  .rel-table th {
+    padding: var(--space-3);
+    text-align: left;
+    font-weight: 700;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--theme-dark-section-heading);
+    white-space: nowrap;
+    border-bottom: 2px solid var(--itrc-gold);
+  }
+  .rel-table td {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--theme-border-light);
+    color: var(--theme-text);
+    vertical-align: top;
+    font-size: var(--font-size-xs);
+  }
+  .rel-table tbody tr { transition: background var(--transition-fast); }
+  .rel-table tbody tr:nth-child(even) { background: var(--theme-surface-alt); }
+  .rel-table tbody tr:hover { background: rgba(var(--itrc-gold-rgb), 0.08); }
+
+  .col-anio { width: 70px; }
+  .col-instancia { width: 90px; text-align: center; }
+  .col-expediente { width: 140px; }
+  .col-titulo { min-width: 280px; }
+  .col-tamano { width: 90px; text-align: right; }
+  .col-pdf { width: 60px; text-align: center; }
+
+  .td-anio { font-weight: 700; color: var(--theme-heading); }
+  .td-instancia { text-align: center; }
+  .td-expediente { font-family: monospace; font-size: 0.7rem; color: var(--theme-text-secondary); }
+  .td-titulo { color: var(--theme-text); }
+  .td-tamano { text-align: right; color: var(--theme-text-muted); white-space: nowrap; }
+  .td-center { text-align: center; }
+  .td-muted { color: var(--theme-text-muted); }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .badge--primera { background: rgba(13, 110, 253, 0.12); color: #0d6efd; }
+  .badge--segunda { background: rgba(25, 135, 84, 0.12); color: #198754; }
+  .badge--unknown { background: var(--theme-surface-alt); color: var(--theme-text-muted); }
+
+  .pdf-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-md);
+    color: var(--file-pdf);
+    background: rgba(220, 53, 69, 0.08);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-sm);
+  }
+  .pdf-link:hover { background: var(--file-pdf); color: var(--white); transform: scale(1.1); }
+  .pdf-pending {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-md);
+    color: var(--theme-text-muted);
+    background: var(--theme-surface-alt);
+    font-size: var(--font-size-sm);
+    cursor: help;
+  }
+
+  /* === Pagination === */
+  .rel-pagination { display: flex; justify-content: center; gap: var(--space-1); padding: var(--space-6) 0; flex-wrap: wrap; }
+  .rel-pagination button {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+    min-width: 36px;
+  }
+  .rel-pagination button:hover:not(:disabled) { border-color: var(--itrc-gold); color: var(--itrc-gold); }
+  .rel-pagination button.active { background: var(--itrc-gold); color: var(--white); border-color: var(--itrc-gold); font-weight: 700; }
+  .rel-pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .rel-noavail-note {
+    margin-top: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    background: var(--theme-surface-alt);
+    border: 1px dashed var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+    line-height: 1.6;
+  }
+  .rel-noavail-note i { color: var(--itrc-gold); margin-right: var(--space-2); }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--theme-text-muted);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
   .back-link a:hover { color: var(--itrc-gold); }
+
+  @media (max-width: 768px) {
+    .rel-controls-section { padding: var(--space-4); position: static; }
+    .rel-controls { flex-direction: column; gap: var(--space-3); }
+    .controls-search { width: 100%; }
+    .controls-filters { width: 100%; flex-wrap: wrap; }
+    .controls-filters select { flex: 1; min-width: 0; padding: var(--space-2) var(--space-3); }
+    .rel-table-section { padding: var(--space-4); }
+    .rel-table { min-width: 700px; }
+  }
 </style>
+
+<script>
+  function initRelatoria() {
+    const search = document.getElementById('relSearch') as HTMLInputElement | null;
+    const filterAnio = document.getElementById('filterAnio') as HTMLSelectElement | null;
+    const filterInstancia = document.getElementById('filterInstancia') as HTMLSelectElement | null;
+    const perPageSel = document.getElementById('perPageSelect') as HTMLSelectElement | null;
+    const clearBtn = document.getElementById('clearFilters');
+    const resultsCount = document.getElementById('resultsCount');
+    const pagNav = document.getElementById('relPagination');
+    const tbody = document.querySelector('.rel-table tbody') as HTMLTableSectionElement | null;
+    if (!tbody || !search || !filterAnio || !filterInstancia || !perPageSel || !pagNav) return;
+
+    const allRows = Array.from(tbody.querySelectorAll('tr')) as HTMLTableRowElement[];
+    let perPage = 25;
+
+    function genPages(cur: number, tot: number): (number | string)[] {
+      if (tot <= 7) return Array.from({ length: tot }, (_, i) => i + 1);
+      const p: (number | string)[] = [1];
+      if (cur > 3) p.push('...');
+      for (let i = Math.max(2, cur - 1); i <= Math.min(tot - 1, cur + 1); i++) p.push(i);
+      if (cur < tot - 2) p.push('...');
+      p.push(tot);
+      return p;
+    }
+
+    function renderPagination(filtered: HTMLTableRowElement[], page: number) {
+      if (!pagNav) return;
+      const total = filtered.length;
+      const size = perPage === 0 ? total : perPage;
+      if (perPage === 0 || total <= size) { pagNav.innerHTML = ''; return; }
+      const pages = Math.ceil(total / size);
+      let html = `<button ${page === 1 ? 'disabled' : ''} data-page="${page - 1}">&laquo;</button>`;
+      for (const p of genPages(page, pages)) {
+        if (p === '...') html += '<span style="padding:8px;color:var(--theme-text-muted)">…</span>';
+        else html += `<button class="${Number(p) === page ? 'active' : ''}" data-page="${p}">${p}</button>`;
+      }
+      html += `<button ${page === pages ? 'disabled' : ''} data-page="${page + 1}">&raquo;</button>`;
+      pagNav.innerHTML = html;
+      pagNav.querySelectorAll('button[data-page]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const np = parseInt((btn as HTMLElement).dataset.page || '1', 10);
+          if (np < 1 || np > pages) return;
+          showPage(filtered, np);
+        });
+      });
+    }
+
+    function showPage(filtered: HTMLTableRowElement[], page: number) {
+      const total = filtered.length;
+      const size = perPage === 0 ? total : perPage;
+      const startIdx = (page - 1) * size;
+      const endIdx = Math.min(startIdx + size, total);
+      filtered.forEach((row, i) => {
+        row.style.display = i >= startIdx && i < endIdx ? '' : 'none';
+      });
+      if (resultsCount) {
+        resultsCount.textContent =
+          total === 0
+            ? 'No se encontraron registros'
+            : perPage === 0
+              ? `Mostrando ${total} ficha${total !== 1 ? 's' : ''}`
+              : `Mostrando ${startIdx + 1}–${endIdx} de ${total} ficha${total !== 1 ? 's' : ''}`;
+      }
+      renderPagination(filtered, page);
+    }
+
+    function applyFilters() {
+      const q = (search!.value || '').toLowerCase().trim();
+      const ya = filterAnio!.value;
+      const ins = filterInstancia!.value;
+      const filtered: HTMLTableRowElement[] = [];
+      for (const row of allRows) {
+        const okSearch = !q || (row.dataset.search || '').includes(q);
+        const okAnio = !ya || row.dataset.anio === ya;
+        const okIns = !ins || row.dataset.instancia === ins;
+        if (okSearch && okAnio && okIns) filtered.push(row);
+        else row.style.display = 'none';
+      }
+      showPage(filtered, 1);
+    }
+
+    search.addEventListener('input', applyFilters);
+    filterAnio.addEventListener('change', applyFilters);
+    filterInstancia.addEventListener('change', applyFilters);
+    perPageSel.addEventListener('change', () => {
+      perPage = parseInt(perPageSel.value, 10) || 0;
+      applyFilters();
+    });
+    clearBtn?.addEventListener('click', () => {
+      search.value = '';
+      filterAnio.value = '';
+      filterInstancia.value = '';
+      applyFilters();
+    });
+
+    applyFilters();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRelatoria);
+  } else {
+    initRelatoria();
+  }
+</script>

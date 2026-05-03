@@ -320,6 +320,34 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
 ---
 
+### Relatoría → migrado catálogo desde sub-portal Joomla roto (2026-05-03)
+
+**URL origen**: `https://www.itrc.gov.co/relatorias/` (instalación Joomla! independiente con plugin `com_jdownloads`)
+**URL destino nuevo**: `/relatoria` (existente, expandida)
+**Estado**: `migrado catálogo · binarios pendientes`
+**Decidido**: 2026-05-03 — usuario instruye unificar el contenido en la página existente, eliminando la sub-app Joomla.
+
+**Descripción**: la "Relatoría" existía como un sub-portal Joomla aparte (paralelo al WP `/Itrc/` y al WP `/ciprep/`), usando el plugin com_jdownloads para gestionar 152 fichas PDF de decisiones administrativas/disciplinarias firmes (años 2012-2025, primera y segunda instancia). La sub-app expone categorías por año + buscador + páginas summary por ficha.
+
+**Hallazgo crítico durante el crawl**:
+- **Ningún PDF se puede descargar desde el origen**. Probados 8 IDs de 4 categorías distintas: todos retornan HTML "El archivo solicitado no ha sido encontrado. Por favor, informe al webmaster". La instalación Joomla tiene los registros del catálogo pero los binarios físicos no están en el servidor (probablemente nunca fueron subidos correctamente o se perdieron).
+- Los visitantes de la página antigua reciben error en cualquier descarga.
+
+**Cómo se manejó**:
+- **Catálogo migrado** (152 fichas con título, expediente, año, instancia inferida, tamaño declarado, filename original, ID Joomla legacy y URL origen para auditoría) en `src/content/pages/transparencia/relatoria.json` campo `fichas[]`.
+- **Página `/relatoria` reemplazada**: tabla con buscador (título/expediente/número), filtros por año e instancia, paginación cliente. Mismo molde que `/notificaciones-y-traslados`.
+- **Slots de descarga** marcados con icono "pendiente" hasta que jurídica suba los PDFs originales vía Sveltia CMS. Cuando los provean, basta llenar el campo `archivo` por ficha en el CMS.
+- **CTA externo eliminado** (apuntaba a `/Itrc/relatorias/` que devuelve 404 y al sub-portal Joomla roto).
+
+**Pendientes conocidos**:
+- 152 archivos PDF físicos a recuperar de la oficina de jurídica (NO están en el origen — falla del WP origen, no omisión de migración).
+- 90 fichas (60%) tienen instancia "sin clasificar" porque el título origen no menciona explícitamente "primera/segunda instancia". Al subir el PDF, jurídica puede ajustar el campo `instancia` en el CMS.
+- 1 ficha sin año detectable.
+
+**Decisión arquitectónica del usuario** (2026-05-03): *"este subportal que estas explorando es una mala practica de alguien que tenia el anterior sitio roto en un monton de instalaciones diversas... tienes libertad para implementar todo el contenido, tan simple como cualquier otra pagina que conforma el proyecto actual"*. Esto cierra el patrón de migración: ninguna sub-app legacy permanece como dependencia del nuevo portal.
+
+---
+
 ### #27 Programa de Gestión Documental → slug local distinto al WP (Lote M4)
 
 **URL origen WP**: `https://www.itrc.gov.co/Itrc/transparencia-y-acceso-a-la-informacion-publica/programa-de-gestion-documental/` (slug WP: `programa-de-gestion-documental`)
