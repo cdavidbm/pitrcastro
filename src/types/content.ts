@@ -52,6 +52,7 @@ export interface CalendarEvent {
   description: string;
   image?: string;
   virtualLink?: string;
+  inscriptionLink?: string;
   published: boolean;
   archived?: boolean;
 }

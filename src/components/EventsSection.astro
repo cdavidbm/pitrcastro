@@ -62,11 +62,18 @@ const formatDate = (dateStr: string) => {
                   </p>
                 )}
                 <p class="ev-card__desc">{ev.description}</p>
-                {ev.virtualLink && (
-                  <a href={ev.virtualLink} target="_blank" rel="noopener" class="ev-card__link">
-                    <i class="fa-solid fa-video" aria-hidden="true"></i> Enlace virtual
-                  </a>
-                )}
+                <div class="ev-card__actions">
+                  {ev.inscriptionLink && (
+                    <a href={ev.inscriptionLink} target="_blank" rel="noopener" class="ev-card__cta">
+                      <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Inscríbete
+                    </a>
+                  )}
+                  {ev.virtualLink && (
+                    <a href={ev.virtualLink} target="_blank" rel="noopener" class="ev-card__link">
+                      <i class="fa-solid fa-video" aria-hidden="true"></i> Enlace virtual
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           );
@@ -149,6 +156,18 @@ const formatDate = (dateStr: string) => {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .ev-card__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+  .ev-card__cta {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: 8px 14px;
+    background: var(--itrc-gold); color: var(--itrc-navy);
+    border-radius: var(--radius-full);
+    font-weight: 800; font-size: var(--font-size-sm);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .ev-card__cta:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
   .ev-card__link {
     display: inline-flex; align-items: center; gap: var(--space-2);
     color: var(--itrc-navy);

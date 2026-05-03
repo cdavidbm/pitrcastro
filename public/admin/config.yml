@@ -6512,6 +6512,11 @@ collections:
         label: Enlace virtual (Meet, Zoom, etc.)
         widget: string
         required: false
+      - name: inscriptionLink
+        label: Enlace de inscripción
+        widget: string
+        required: false
+        hint: Formulario de registro al evento (Microsoft Forms, Google Forms, etc.)
       - name: published
         label: Publicado
         widget: boolean

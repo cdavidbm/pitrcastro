@@ -171,6 +171,7 @@ const events = {
     { name: "description", label: "Descripción", widget: "markdown", required: true },
     { name: "image", label: "Imagen del evento", widget: "image", required: false },
     { name: "virtualLink", label: "Enlace virtual (Meet, Zoom, etc.)", widget: "string", required: false },
+    { name: "inscriptionLink", label: "Enlace de inscripción", widget: "string", required: false, hint: "Formulario de registro al evento (Microsoft Forms, Google Forms, etc.)" },
     { name: "published", label: "Publicado", widget: "boolean", default: true, hint: "Si está desmarcado, el evento no aparece en los listados" },
     { name: "archived", label: "Archivado", widget: "boolean", default: false, required: false, hint: "Oculta el evento de los listados sin borrarlo (útil para eventos antiguos que conviene conservar)" },
   ],
