@@ -7347,6 +7347,11 @@ collections:
               - name: definicion
                 label: Definición
                 widget: text
+              - name: imagen
+                label: Ilustración (opcional)
+                widget: image
+                required: false
+                hint: "Ej: /imagenes/glosario-ninos/etica.webp. Si está vacío, se muestra una tarjeta con el nombre del término."
       - name: observatorio-libro-infantil
         label: Libro Infantil (PDF)
         file: src/content/pages/observatorio/eje-de-educacion/libro-infantil.json

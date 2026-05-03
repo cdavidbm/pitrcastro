@@ -153,6 +153,7 @@ export const observatorio = {
         { name: "terminos", label: "Términos", widget: "list", collapsed: true, summary: "{{fields.termino}}", fields: [
           { name: "termino", label: "Término", widget: "string" },
           { name: "definicion", label: "Definición", widget: "text" },
+          { name: "imagen", label: "Ilustración (opcional)", widget: "image", required: false, hint: "Ej: /imagenes/glosario-ninos/etica.webp. Si está vacío, se muestra una tarjeta con el nombre del término." },
         ]},
       ],
     },

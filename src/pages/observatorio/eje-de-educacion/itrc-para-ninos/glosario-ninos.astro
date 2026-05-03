@@ -12,26 +12,13 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-function normalize(char: string) {
-  return char.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase();
+const palette = ['#e63946', '#f4a261', '#f6c453', '#2a9d8f', '#5b8def', '#9d4edd', '#0943b5', '#b38b40', '#198754', '#6f42c1'];
+function colorFor(idx: number) {
+  return palette[idx % palette.length];
 }
 
-const grouped = new Map<string, typeof pageData.terminos>();
-for (const t of pageData.terminos) {
-  const letter = normalize(t.termino.charAt(0));
-  if (!grouped.has(letter)) grouped.set(letter, []);
-  grouped.get(letter)!.push(t);
-}
-const groupedSorted = [...grouped.entries()].sort(([a], [b]) => a.localeCompare(b));
-
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-const activeLetters = new Set(grouped.keys());
-
-const palette = ['#e63946', '#f4a261', '#f6c453', '#2a9d8f', '#5b8def', '#9d4edd'];
-function letterColor(letter: string) {
-  const i = letter.charCodeAt(0) % palette.length;
-  return palette[i];
-}
+const totalTerminos = pageData.terminos.length;
+const conImagen = pageData.terminos.filter((t: any) => t.imagen).length;
 ---
 
 <Base title={pageData.title} description={pageData.description}>
@@ -41,234 +28,283 @@ function letterColor(letter: string) {
     <div class="container">
       <p class="gn-intro">{pageData.intro}</p>
 
-      <div class="gn-count" id="gnCount">
-        <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>
-        {pageData.terminos.length} palabras para descubrir
+      <div class="gn-meta">
+        <span class="gn-meta__item"><i class="fa-solid fa-images" aria-hidden="true"></i> {conImagen} ilustradas</span>
+        <span class="gn-meta__sep">·</span>
+        <span class="gn-meta__item"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> {totalTerminos} términos</span>
       </div>
 
       <div class="gn-search">
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-        <input type="text" id="gnSearch" placeholder="¿Qué palabra buscas?" aria-label="Buscar en el glosario" />
+        <input type="search" id="gnSearchInput" placeholder="Buscar un término..." aria-label="Buscar término" autocomplete="off" />
+        <button type="button" class="gn-clear" id="gnClearBtn" aria-label="Limpiar búsqueda" hidden>
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
       </div>
 
-      <nav class="gn-alpha" aria-label="Índice alfabético">
-        {alphabet.map(letter => (
-          <a
-            href={activeLetters.has(letter) ? `#letra-${letter}` : undefined}
-            class={`gn-alpha__letter ${activeLetters.has(letter) ? 'active' : 'disabled'}`}
-            aria-disabled={!activeLetters.has(letter) ? 'true' : undefined}
-            style={activeLetters.has(letter) ? `--letter-color: ${letterColor(letter)}` : undefined}
-          >
-            {letter}
-          </a>
-        ))}
-      </nav>
+      <div class="gn-gallery" id="gnGallery">
+        {pageData.terminos.map((t: any, i: number) => {
+          const accent = colorFor(i);
+          const tipo = t.imagen ? 'imagen' : 'icono';
+          return (
+            <article
+              class={`gn-card gn-card--${tipo}`}
+              style={`--card-accent: ${accent}`}
+              data-term={t.termino.toLowerCase()}
+              tabindex="0"
+            >
+              {t.imagen ? (
+                <img
+                  class="gn-card__img"
+                  src={resolveUrl(t.imagen)}
+                  alt={`Ilustración: ${t.termino}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div class="gn-card__placeholder" aria-hidden="true">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                  <span class="gn-card__placeholder-text">{t.termino}</span>
+                </div>
+              )}
 
-      <div class="gn-no-results" id="gnNoResults" hidden>
-        <i class="fa-solid fa-face-sad-tear" aria-hidden="true"></i>
-        <p>No encontramos esa palabra. ¡Prueba con otra!</p>
+              <div class="gn-card__overlay">
+                <h3 class="gn-card__title">{t.termino}</h3>
+                <p class="gn-card__def">{t.definicion}</p>
+              </div>
+
+              <div class="gn-card__label">
+                <span>{t.termino}</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </div>
+            </article>
+          );
+        })}
       </div>
 
-      <div class="gn-content" id="gnContent">
-        {groupedSorted.map(([letter, terms]) => (
-          <div class="gn-group" id={`letra-${letter}`} data-letter={letter} style={`--letter-color: ${letterColor(letter)}`}>
-            <div class="gn-group__header">
-              <span class="gn-group__letter">{letter}</span>
-              <span class="gn-group__count">{terms.length} {terms.length === 1 ? 'palabra' : 'palabras'}</span>
-            </div>
+      <p class="gn-empty" id="gnEmpty" hidden>
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        No encontramos ningún término. Prueba con otra palabra.
+      </p>
 
-            <div class="gn-terms">
-              {terms.map(term => (
-                <details class="gn-term" data-term={term.termino.toLowerCase()}>
-                  <summary>
-                    <span class="gn-term__title">{term.termino}</span>
-                    <i class="fa-solid fa-chevron-down gn-term__chev" aria-hidden="true"></i>
-                  </summary>
-                  <p class="gn-term__def">{term.definicion}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        ))}
+      <div class="back-link">
+        <a href={resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos')}>
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a ITRC para Niños
+        </a>
       </div>
-
-      <div class="back-link"><a href={resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos')}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a ITRC para Niños</a></div>
     </div>
   </section>
 </Base>
 
 <style>
   .gn-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
-  .gn-section .container { max-width: 880px; margin: 0 auto; }
-  .gn-intro { font-size: var(--font-size-base); line-height: 1.8; color: var(--theme-text); text-align: center; margin-bottom: var(--space-5); }
-  .gn-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-5); }
+  .gn-section .container { max-width: 1200px; margin: 0 auto; }
 
-  /* Buscador estilo lúdico */
-  .gn-search { position: relative; margin-bottom: var(--space-6); }
-  .gn-search > i { position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); font-size: var(--font-size-base); }
+  .gn-intro { font-size: var(--font-size-lg); line-height: 1.8; color: var(--theme-text); text-align: center; margin: 0 auto var(--space-5); max-width: 820px; }
+
+  .gn-meta { display: flex; justify-content: center; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); font-size: var(--font-size-sm); margin-bottom: var(--space-6); }
+  .gn-meta__item i { color: var(--itrc-gold); margin-right: var(--space-1); }
+  .gn-meta__sep { opacity: 0.5; }
+
+  .gn-search {
+    position: relative; max-width: 480px; margin: 0 auto var(--space-8);
+  }
+  .gn-search > i:first-child { position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); }
   .gn-search input {
-    width: 100%; padding: var(--space-4) var(--space-5) var(--space-4) var(--space-12);
+    width: 100%; padding: var(--space-3) var(--space-10) var(--space-3) var(--space-10);
     border: 2px solid var(--theme-border); border-radius: var(--radius-full);
-    font-size: var(--font-size-base); font-family: var(--font-family);
     background: var(--theme-surface); color: var(--theme-text);
+    font-family: var(--font-family); font-size: var(--font-size-base);
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
-  .gn-search input:focus { outline: none; border-color: var(--itrc-gold); box-shadow: 0 0 0 3px rgba(var(--itrc-gold-rgb), 0.15); }
-
-  /* Índice alfabético */
-  .gn-alpha {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1);
-    margin-bottom: var(--space-8); padding: var(--space-3);
-    background: var(--theme-surface-alt); border-radius: var(--radius-xl);
+  .gn-search input:focus { outline: none; border-color: var(--itrc-gold); box-shadow: 0 0 0 4px color-mix(in srgb, var(--itrc-gold) 20%, transparent); }
+  .gn-clear {
+    position: absolute; right: var(--space-3); top: 50%; transform: translateY(-50%);
+    width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+    border: none; background: var(--theme-surface-alt); color: var(--theme-text-muted);
+    border-radius: 50%; cursor: pointer;
   }
-  .gn-alpha__letter {
-    width: 36px; height: 36px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm); font-weight: 800; text-decoration: none;
-    transition: all var(--transition-fast);
-  }
-  .gn-alpha__letter.active { color: var(--theme-heading); cursor: pointer; }
-  .gn-alpha__letter.active:hover { background: var(--letter-color, var(--itrc-gold)); color: #fff; transform: scale(1.1); }
-  .gn-alpha__letter.disabled { color: var(--theme-text-muted); opacity: 0.3; cursor: default; }
+  .gn-clear:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .gn-clear[hidden] { display: none; }
 
-  /* Sin resultados */
-  .gn-no-results { text-align: center; padding: var(--space-12) var(--space-6); color: var(--theme-text-muted); }
-  .gn-no-results i { font-size: var(--font-size-3xl); margin-bottom: var(--space-3); opacity: 0.4; }
-  .gn-no-results p { font-size: var(--font-size-base); }
-
-  /* Grupos por letra */
-  .gn-group { margin-bottom: var(--space-8); }
-  .gn-group:last-child { margin-bottom: 0; }
-  .gn-group.hidden { display: none; }
-
-  .gn-group__header {
-    display: flex; align-items: center; gap: var(--space-3);
-    margin-bottom: var(--space-4); scroll-margin-top: var(--space-6);
-  }
-  .gn-group__letter {
-    width: 56px; height: 56px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--letter-color, var(--itrc-gold));
-    color: #fff; border-radius: var(--radius-lg);
-    font-size: var(--font-size-2xl); font-weight: 900;
-    box-shadow: 0 4px 0 0 color-mix(in srgb, var(--letter-color, var(--itrc-gold)) 60%, #000);
-  }
-  .gn-group__count {
-    padding: 4px 12px;
-    background: color-mix(in srgb, var(--letter-color, var(--itrc-gold)) 12%, transparent);
-    color: var(--letter-color, var(--itrc-gold));
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs); font-weight: 700;
+  .gn-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-4);
   }
 
-  /* Acordeones por término */
-  .gn-terms { display: flex; flex-direction: column; gap: var(--space-2); }
-  .gn-term {
+  .gn-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
     background: var(--theme-surface);
-    border: 2px solid var(--theme-border-light);
-    border-left: 4px solid var(--letter-color, var(--itrc-gold));
-    border-radius: var(--radius-lg);
+    border: 2px solid var(--card-accent);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: all var(--transition-fast);
-  }
-  .gn-term[open] { border-color: var(--letter-color, var(--itrc-gold)); box-shadow: var(--shadow-sm); }
-  .gn-term.hidden { display: none; }
-
-  .gn-term summary {
-    list-style: none;
     cursor: pointer;
-    padding: var(--space-4) var(--space-5);
-    display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
-    font-size: var(--font-size-base); font-weight: 800; color: var(--theme-heading);
-    transition: background var(--transition-fast);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    outline: none;
   }
-  .gn-term summary::-webkit-details-marker { display: none; }
-  .gn-term summary:hover { background: var(--theme-surface-alt); }
+  .gn-card:hover, .gn-card:focus-visible { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+  .gn-card:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--itrc-gold) 35%, transparent), var(--shadow-xl); }
 
-  .gn-term__title { flex: 1; }
-
-  .gn-term__chev {
-    flex-shrink: 0;
-    color: var(--letter-color, var(--itrc-gold));
-    transition: transform var(--transition-fast);
+  .gn-card__img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease, filter 0.4s ease;
   }
-  .gn-term[open] .gn-term__chev { transform: rotate(180deg); }
+  .gn-card:hover .gn-card__img, .gn-card.is-active .gn-card__img { transform: scale(1.06); filter: blur(2px) brightness(0.55); }
 
-  .gn-term__def {
+  .gn-card__placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: var(--space-3); padding: var(--space-4);
+    background: linear-gradient(135deg, var(--card-accent) 0%, color-mix(in srgb, var(--card-accent) 70%, #000 30%) 100%);
+    color: var(--white);
+    transition: opacity 0.3s ease;
+  }
+  .gn-card__placeholder i { font-size: 2.5rem; opacity: 0.85; }
+  .gn-card__placeholder-text {
+    font-size: var(--font-size-lg); font-weight: 800; text-align: center;
+    line-height: 1.2; letter-spacing: 0.01em;
+  }
+  .gn-card:hover .gn-card__placeholder, .gn-card.is-active .gn-card__placeholder { opacity: 0.25; }
+
+  .gn-card__label {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: var(--space-3) var(--space-4);
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 60%, transparent 100%);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: space-between;
+    font-weight: 800; font-size: var(--font-size-base);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .gn-card--icono .gn-card__label { background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%); }
+  .gn-card__label i { font-size: var(--font-size-sm); opacity: 0.8; transition: transform var(--transition-fast); }
+  .gn-card:hover .gn-card__label, .gn-card.is-active .gn-card__label { opacity: 0; transform: translateY(8px); }
+
+  .gn-card__overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: var(--space-5);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 92%, #000 8%) 0%, color-mix(in srgb, var(--card-accent) 75%, #000 25%) 100%);
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+    overflow-y: auto;
+  }
+  .gn-card:hover .gn-card__overlay,
+  .gn-card:focus-visible .gn-card__overlay,
+  .gn-card.is-active .gn-card__overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .gn-card__title {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .gn-card__def {
     margin: 0;
-    padding: 0 var(--space-5) var(--space-5);
-    font-size: var(--font-size-sm); line-height: 1.7;
-    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: rgba(255,255,255,0.95);
   }
+
+  .gn-empty {
+    text-align: center; color: var(--theme-text-muted);
+    padding: var(--space-8) var(--space-4);
+    font-size: var(--font-size-base);
+  }
+  .gn-empty i { color: var(--itrc-gold); margin-right: var(--space-2); }
 
   .back-link { margin-top: var(--space-10); text-align: center; }
   .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
   .back-link a:hover { color: var(--itrc-gold); }
 
+  .gn-card[hidden] { display: none; }
+
   @media (max-width: 768px) {
     .gn-section { padding: var(--space-6) var(--space-4) var(--space-12); }
-    .gn-search input { font-size: var(--font-size-sm); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10); }
-    .gn-alpha { gap: 2px; padding: var(--space-2); }
-    .gn-alpha__letter { width: 30px; height: 30px; font-size: var(--font-size-xs); }
-    .gn-group__letter { width: 44px; height: 44px; font-size: var(--font-size-lg); }
-    .gn-term summary { padding: var(--space-3) var(--space-4); font-size: var(--font-size-sm); }
-    .gn-term__def { padding: 0 var(--space-4) var(--space-4); font-size: var(--font-size-xs); }
+    .gn-gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+    .gn-card__title { font-size: var(--font-size-base); }
+    .gn-card__def { font-size: var(--font-size-xs); line-height: 1.45; }
+    .gn-card__placeholder i { font-size: 1.8rem; }
+    .gn-card__placeholder-text { font-size: var(--font-size-base); }
+    .gn-card__label { padding: var(--space-2) var(--space-3); font-size: var(--font-size-sm); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gn-card, .gn-card__img, .gn-card__overlay, .gn-card__label, .gn-card__placeholder {
+      transition: none !important;
+    }
+    .gn-card:hover .gn-card__img, .gn-card.is-active .gn-card__img { transform: none; }
   }
 </style>
 
 <script>
-  function initGnGlosario() {
-    const input = document.getElementById('gnSearch') as HTMLInputElement | null;
-    const groups = document.querySelectorAll<HTMLElement>('.gn-group');
-    const terms = document.querySelectorAll<HTMLElement>('.gn-term');
-    const noResults = document.getElementById('gnNoResults') as HTMLElement | null;
-    const count = document.getElementById('gnCount');
-    const total = terms.length;
-    let timer: ReturnType<typeof setTimeout>;
+  function initGlosarioGallery() {
+    const input = document.getElementById('gnSearchInput') as HTMLInputElement | null;
+    const clear = document.getElementById('gnClearBtn') as HTMLButtonElement | null;
+    const empty = document.getElementById('gnEmpty');
+    const gallery = document.getElementById('gnGallery');
+    if (!input || !gallery) return;
 
-    function filter() {
-      const q = (input?.value || '').toLowerCase().trim();
-      let visible = 0;
+    const cards = Array.from(gallery.querySelectorAll<HTMLElement>('.gn-card'));
 
-      groups.forEach(group => {
-        const groupTerms = group.querySelectorAll<HTMLElement>('.gn-term');
-        let groupVisible = 0;
-        groupTerms.forEach(term => {
-          const termText = term.dataset.term || '';
-          const def = term.querySelector('.gn-term__def')?.textContent?.toLowerCase() || '';
-          const matches = !q || termText.includes(q) || def.includes(q);
-          term.classList.toggle('hidden', !matches);
-          if (matches) { groupVisible++; visible++; }
-          if (q && matches) { (term as HTMLDetailsElement).open = true; }
-          else if (!q) { (term as HTMLDetailsElement).open = false; }
-        });
-        group.classList.toggle('hidden', groupVisible === 0);
+    function applyFilter() {
+      const q = (input!.value || '').trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const t = card.dataset.term || '';
+        const match = q === '' || t.includes(q);
+        card.hidden = !match;
+        if (match) shown++;
       });
-
-      if (count) {
-        count.innerHTML = q
-          ? `<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> ${visible} ${visible === 1 ? 'resultado' : 'resultados'}`
-          : `<i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> ${total} palabras para descubrir`;
-      }
-      if (noResults) noResults.hidden = visible > 0;
+      if (clear) clear.hidden = q === '';
+      if (empty) empty.hidden = shown !== 0;
     }
 
-    input?.addEventListener('input', () => {
-      clearTimeout(timer);
-      timer = setTimeout(filter, 180);
+    input.addEventListener('input', applyFilter);
+    clear?.addEventListener('click', () => {
+      input.value = '';
+      applyFilter();
+      input.focus();
     });
 
-    document.querySelectorAll<HTMLAnchorElement>('.gn-alpha__letter.active').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        if (!href) return;
-        const target = document.querySelector(href + ' .gn-group__header');
-        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Touch/click toggle: en móvil sin hover, una pulsación abre el overlay,
+    // una segunda navega/cierra. También permite enfocarse y leer con teclado.
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        const isCoarse = window.matchMedia('(hover: none)').matches;
+        if (!isCoarse) return;
+        if (!card.classList.contains('is-active')) {
+          cards.forEach(c => c.classList.remove('is-active'));
+          card.classList.add('is-active');
+          e.preventDefault?.();
+        } else {
+          card.classList.remove('is-active');
+        }
+      });
+      card.addEventListener('keydown', (e) => {
+        const ke = e as KeyboardEvent;
+        if (ke.key === 'Enter' || ke.key === ' ') {
+          ke.preventDefault();
+          card.classList.toggle('is-active');
+        }
+        if (ke.key === 'Escape') card.classList.remove('is-active');
       });
     });
+
+    document.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (!t.closest('.gn-card')) {
+        cards.forEach(c => c.classList.remove('is-active'));
+      }
+    });
   }
-  initGnGlosario();
-  document.addEventListener('astro:after-swap', initGnGlosario);
+  initGlosarioGallery();
+  document.addEventListener('astro:after-swap', initGlosarioGallery);
 </script>
