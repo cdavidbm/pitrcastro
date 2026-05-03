@@ -47,4 +47,10 @@ reports/
 # Binarios migrados desde itrc.gov.co al filesystem local.
 # Ver .local-docs/ESTRATEGIA.md para el plan de hosting final.
 # Backup cubierto por OneDrive. No se publican en el remoto de pruebas.
-public/documentos/
+# Ignorar todo lo que esté directamente bajo public/documentos/
+# pero permitir excepciones específicas (CIPREP) más abajo.
+public/documentos/*
+# Excepción: documentos CIPREP sí se commitean (volumen pequeño, recursos
+# del Congreso publicados en la landing /ciprep)
+!public/documentos/ciprep/
+!public/documentos/ciprep/**

@@ -260,7 +260,14 @@ const sections = [
               <p>{r.descripcion}</p>
             </div>
             {r.url ? (
-              <a href={r.url} class="btn btn--ghost" target="_blank" rel="noopener">
+              <a
+                href={r.url.startsWith('/') ? resolveUrl(r.url) : r.url}
+                class="btn btn--download"
+                target="_blank"
+                rel="noopener"
+                {...(r.url.startsWith('/') ? { download: true } : {})}
+              >
+                <i class={`fa-solid ${r.tipo === 'video' ? 'fa-play' : 'fa-download'}`}></i>
                 {r.tipo === 'video' ? 'Ver' : 'Descargar'}
               </a>
             ) : (
@@ -362,6 +369,18 @@ const sections = [
   .btn--ghost:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--itrc-gold);
+  }
+  .btn--download {
+    background: var(--itrc-navy);
+    color: var(--white);
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-xs);
+  }
+  .btn--download:hover {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
   }
 
   /* === Tabs sticky === */

@@ -504,13 +504,19 @@
     "youtubeId": "zdRnZvAl_9Q",
     "recursos": [
       {
+        "titulo": "Diapositivas resumen del Congreso",
+        "descripcion": "Presentación oficial con el resumen del evento (PPTX)",
+        "tipo": "descarga",
+        "url": "/documentos/ciprep/CIPREP2025_Presentacion.pptx"
+      },
+      {
         "titulo": "Sesiones Día 1 y Día 2",
         "descripcion": "Grabaciones completas de ambas jornadas",
         "tipo": "video",
         "url": ""
       },
       {
-        "titulo": "Presentaciones",
+        "titulo": "Presentaciones por ponencia",
         "descripcion": "Diapositivas en PDF de cada ponencia",
         "tipo": "descarga",
         "url": ""
