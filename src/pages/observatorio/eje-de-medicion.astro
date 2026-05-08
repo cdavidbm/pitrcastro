@@ -13,11 +13,7 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Del Observatorio', descripcion: 'Antecedentes y objetivos', url: '/observatorio/del-observatorio', icon: 'fa-landmark' },
-  { titulo: 'Eje de Educación', descripcion: 'Material pedagógico', url: '/observatorio/eje-de-educacion', icon: 'fa-graduation-cap' },
-  { titulo: 'Eje de Participación', descripcion: 'Participación ciudadana', url: '/observatorio/eje-de-participacion', icon: 'fa-people-group' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

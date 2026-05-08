@@ -1,6 +1,9 @@
 // Colección CMS para el Observatorio de Fraude y Corrupción
 
-import { postFields } from "../templates/fields.js";
+import {
+  postFields,
+  relatedLinksField,
+} from "../templates/fields.js";
 
 const headerFields = [
   { name: "title", label: "Título", widget: "string", required: true },
@@ -38,6 +41,7 @@ export const observatorio = {
           { name: "titulo", label: "Título", widget: "string" },
           { name: "contenido", label: "Contenido (markdown)", widget: "text" },
         ]},
+        relatedLinksField(),
       ],
     },
     {
@@ -53,6 +57,7 @@ export const observatorio = {
           { name: "url", label: "URL PowerBI", widget: "string" },
           { name: "icon", label: "Icono", widget: "string" },
         ]},
+        relatedLinksField(),
       ],
     },
     {

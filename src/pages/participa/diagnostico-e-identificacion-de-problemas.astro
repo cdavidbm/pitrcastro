@@ -27,11 +27,7 @@ function linkColor(tipo: string) {
   return 'var(--itrc-gold)';
 }
 
-const enlacesRelacionados = [
-  { titulo: 'Planeación y Presupuesto', descripcion: 'Formulación e implementación de políticas', url: '/participa/planeacion-y-presupuesto-participativo', icon: 'fa-chart-pie' },
-  { titulo: 'Consulta Ciudadana', descripcion: 'Mecanismos de participación ciudadana', url: '/participa/consulta-ciudadana', icon: 'fa-comments' },
-  { titulo: 'Rendición de Cuentas', descripcion: 'Informes de gestión y resultados', url: '/participa/rendicion-de-cuentas', icon: 'fa-file-contract' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

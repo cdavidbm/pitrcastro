@@ -106,5 +106,25 @@
         }
       ]
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Normativa Aplicable",
+      "descripcion": "Normograma institucional completo",
+      "url": "/normativa-aplicada",
+      "icon": "fa-scale-balanced"
+    },
+    {
+      "titulo": "Decretos",
+      "descripcion": "Decretos de creación y estructura",
+      "url": "/decretos",
+      "icon": "fa-file-lines"
+    },
+    {
+      "titulo": "Resoluciones y Circulares",
+      "descripcion": "Actos administrativos por vigencia",
+      "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos",
+      "icon": "fa-file-signature"
+    }
   ]
 }

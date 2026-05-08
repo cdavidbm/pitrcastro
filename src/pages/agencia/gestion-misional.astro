@@ -15,26 +15,7 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const enlacesRelacionados = [
-  {
-    titulo: 'Observatorio ITRC',
-    descripcion: 'Estadísticas y análisis sobre fraude y corrupción',
-    url: '/observatorio',
-    icon: 'fa-chart-pie'
-  },
-  {
-    titulo: 'Informes de Gestión',
-    descripcion: 'Informes institucionales y de seguimiento',
-    url: 'agencia/direccionamiento-estrategico/informes',
-    icon: 'fa-chart-line'
-  },
-  {
-    titulo: 'Estructura Orgánica',
-    descripcion: 'Organigrama y funciones por dependencia',
-    url: 'agencia/organigrama',
-    icon: 'fa-sitemap'
-  }
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} class="page-gestion-misional">

@@ -22,5 +22,25 @@
       "url": "https://app.powerbi.com/view?r=eyJrIjoiMmQ1NWIxZTQtM2RlMC00YmQ3LWFmYjItZDAzNmE3YWI2NTMyIiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9&pageName=ReportSection5a551728860be3021900",
       "icon": "fa-gavel"
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Del Observatorio",
+      "descripcion": "Antecedentes y objetivos",
+      "url": "/observatorio/del-observatorio",
+      "icon": "fa-landmark"
+    },
+    {
+      "titulo": "Eje de Educación",
+      "descripcion": "Material pedagógico",
+      "url": "/observatorio/eje-de-educacion",
+      "icon": "fa-graduation-cap"
+    },
+    {
+      "titulo": "Eje de Participación",
+      "descripcion": "Participación ciudadana",
+      "url": "/observatorio/eje-de-participacion",
+      "icon": "fa-people-group"
+    }
   ]
 }

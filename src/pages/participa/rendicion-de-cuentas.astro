@@ -32,11 +32,7 @@ function docColorClass(tipo: string) {
 
 const totalDocs = pageData.anios.reduce((sum, a) => sum + a.documentos.length, 0);
 
-const enlacesRelacionados = [
-  { titulo: 'Control Social', descripcion: 'Vigilancia de la gestión pública', url: '/participa/control-social', icon: 'fa-shield-halved' },
-  { titulo: 'Diagnóstico de Problemas', descripcion: 'Identificación de necesidades', url: '/participa/diagnostico-e-identificacion-de-problemas', icon: 'fa-magnifying-glass-chart' },
-  { titulo: 'Colaboración e Innovación', descripcion: 'Soluciones a problemáticas públicas', url: '/participa/colaboracion-e-innovacion', icon: 'fa-lightbulb' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

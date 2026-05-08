@@ -2640,5 +2640,25 @@
       "descripcion": "Por el cual se modifican las normas que regulan la administración del personal civil y se dictan otras disposiciones.",
       "proceso": "Auditoría y Gestión del Riesgo - Gestión Instrucción  Disciplinaria - Gestión Jurídica - Gestión Juzgamiento"
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Decretos",
+      "descripcion": "Decretos expedidos por la ITRC",
+      "url": "/decretos",
+      "icon": "fa-file-lines"
+    },
+    {
+      "titulo": "Marco Legal",
+      "descripcion": "Marco legal de la entidad",
+      "url": "/marco-legal",
+      "icon": "fa-landmark"
+    },
+    {
+      "titulo": "Transparencia",
+      "descripcion": "Transparencia y acceso a la información",
+      "url": "/transparencia",
+      "icon": "fa-eye"
+    }
   ]
 }

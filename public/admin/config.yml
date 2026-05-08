@@ -431,6 +431,26 @@ collections:
               - name: documentos
                 label: Cantidad de documentos
                 widget: number
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: direccionamiento-politicas
         label: "    > Políticas"
         file: src/content/pages/agencia/direccionamiento/politicas.json
@@ -735,6 +755,26 @@ collections:
                         label: Año
                         widget: string
                         required: false
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: informacion-financiera
         label: Información Financiera
         file: src/content/pages/agencia/informacion-financiera.json
@@ -884,6 +924,26 @@ collections:
                   - name: file
                     label: Archivo
                     widget: file
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: sistema-control-interno
         label: Sistema de Control Interno
         file: src/content/pages/agencia/sistema-de-control-interno.json
@@ -3822,6 +3882,26 @@ collections:
                 widget: string
                 required: true
                 hint: Separar múltiples procesos con " - "
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: decretos
         label: Decretos
         file: src/content/pages/normativa/decretos.json
@@ -3861,6 +3941,26 @@ collections:
                 label: URL del archivo PDF
                 widget: string
                 required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: resoluciones-circulares
         label: Resoluciones, Circulares y Otros Actos
         file: src/content/pages/normativa/resoluciones.json
@@ -3921,6 +4021,26 @@ collections:
                 default: GENERAL
               - name: pdfUrl
                 label: URL del PDF
+                widget: string
+                required: false
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
                 widget: string
                 required: false
       - name: suin-juriscol
@@ -3988,6 +4108,26 @@ collections:
                 label: URL en SUIN Juriscol
                 widget: string
                 required: false
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: marco-legal
         label: Marco Legal
         file: src/content/pages/normativa/marco-legal.json
@@ -4043,6 +4183,26 @@ collections:
                     widget: boolean
                     default: false
                     required: false
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
   - name: normativa-general
     label: "    > Otras Páginas Normativas"
     label_singular: Página Normativa
@@ -5314,6 +5474,26 @@ collections:
             label: Cita legal (blockquote)
             widget: text
             required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: correo-notificaciones
         label: Correo Notificaciones Judiciales
         file: src/content/pages/atencion/correo-notificaciones-judiciales.json
@@ -5338,6 +5518,26 @@ collections:
             label: Correo electrónico
             widget: string
             required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: vinculacion-terceros
         label: Vinculación a Terceros
         file: src/content/pages/atencion/vinculacion-a-terceros.json
@@ -5373,6 +5573,26 @@ collections:
                 label: URL del PDF
                 widget: string
                 required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: canales-atencion
         label: Canales de Atención
         file: src/content/pages/atencion/canales-de-atencion.json
@@ -5450,6 +5670,26 @@ collections:
               - name: file
                 label: URL del PDF
                 widget: string
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: preguntas-frecuentes
         label: Preguntas Frecuentes
         file: src/content/pages/atencion/preguntas-frecuentes.json
@@ -5481,6 +5721,26 @@ collections:
                 label: Respuesta
                 widget: text
                 required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: pqrs
         label: P.Q.R.S
         file: src/content/pages/atencion/pqrs.json
@@ -5574,6 +5834,26 @@ collections:
                       - pptx
                       - xlsx
                     default: pdf
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: glosario
         label: Glosario Institucional
         file: src/content/pages/atencion/glosario.json
@@ -5605,6 +5885,26 @@ collections:
                 label: Definición
                 widget: text
                 required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
   - name: atencion-servicios
     label: "    > Otras Páginas de Atención"
     label_singular: Página de Atención
@@ -5937,6 +6237,26 @@ collections:
             required: false
             summary: "{{fields.texto}}"
             fields: *shared_5
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: planeacion
         label: Planeación y Presupuesto Participativo
         file: src/content/pages/participa/planeacion.json
@@ -5968,6 +6288,26 @@ collections:
             collapsed: true
             summary: "{{fields.texto}}"
             fields: *shared_5
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: consulta-ciudadana
         label: Consulta Ciudadana
         file: src/content/pages/participa/consulta-ciudadana.json
@@ -6010,6 +6350,26 @@ collections:
             collapsed: true
             summary: "{{fields.texto}}"
             fields: *shared_5
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: colaboracion
         label: Colaboración e Innovación
         file: src/content/pages/participa/colaboracion.json
@@ -6065,6 +6425,26 @@ collections:
                 label: Es enlace interno
                 widget: boolean
                 default: false
+                required: false
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
                 required: false
       - name: rendicion-cuentas
         label: Rendición de Cuentas
@@ -6126,6 +6506,26 @@ collections:
                       - form
                       - external
                     default: pdf
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: control-social
         label: Control Social
         file: src/content/pages/participa/control-social.json
@@ -6153,6 +6553,26 @@ collections:
             collapsed: true
             summary: "{{fields.texto}}"
             fields: *shared_5
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
   # ==========================================
   # PRENSA
   # # Noticias, eventos y comunicaciones
@@ -6312,6 +6732,26 @@ collections:
                 label: Icono
                 widget: string
                 default: fa-youtube
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: galeria-pagina
         label: Página Galería
         file: src/content/pages/prensa/galeria.json
@@ -6356,6 +6796,26 @@ collections:
                 required: false
               - name: nota
                 label: Nota visible cuando está pendiente
+                widget: string
+                required: false
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
                 widget: string
                 required: false
       - name: capsulas-pagina
@@ -6409,6 +6869,26 @@ collections:
                 label: URL del video (MP4)
                 widget: string
                 required: true
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
   - name: news
     label: "    > Noticias"
     label_singular: Noticia
@@ -7039,6 +7519,26 @@ collections:
               - name: contenido
                 label: Contenido (markdown)
                 widget: text
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: observatorio-medicion
         label: Eje de Medición
         file: src/content/pages/observatorio/eje-de-medicion.json
@@ -7067,6 +7567,26 @@ collections:
               - name: icon
                 label: Icono
                 widget: string
+          - name: enlacesRelacionados
+            label: Enlaces Relacionados
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: observatorio-educacion-landing
         label: Eje de Educación — Landing
         file: src/content/pages/observatorio/eje-de-educacion.json

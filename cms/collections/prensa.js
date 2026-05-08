@@ -1,4 +1,8 @@
-import { albumFields, SLUG_PATTERN } from "../templates/fields.js";
+import {
+  albumFields,
+  SLUG_PATTERN,
+  relatedLinksField,
+} from "../templates/fields.js";
 
 // ============================================================
 // Pagina principal de Prensa
@@ -78,6 +82,7 @@ const prensaPrincipal = {
           { name: "url", label: "URL", widget: "string", required: true },
           { name: "icon", label: "Icono", widget: "string", default: "fa-youtube" },
         ] },
+        relatedLinksField(),
       ],
     },
     {
@@ -95,6 +100,7 @@ const prensaPrincipal = {
           { name: "disabled", label: "Pendiente (no clickeable)", widget: "boolean", default: false, required: false },
           { name: "nota", label: "Nota visible cuando está pendiente", widget: "string", required: false },
         ] },
+        relatedLinksField(),
       ],
     },
     {
@@ -113,6 +119,7 @@ const prensaPrincipal = {
           { name: "posterImagen", label: "Imagen poster (thumbnail)", widget: "string", required: false, hint: "URL de la miniatura mostrada antes del play." },
           { name: "url", label: "URL del video (MP4)", widget: "string", required: true },
         ] },
+        relatedLinksField(),
       ],
     },
   ],

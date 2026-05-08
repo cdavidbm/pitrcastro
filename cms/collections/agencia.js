@@ -7,6 +7,7 @@ import {
   docFieldsFull,
   docFieldsMinimal,
   ctaSection,
+  relatedLinksField,
 } from "../templates/fields.js";
 
 // ============================================================
@@ -287,6 +288,7 @@ function direccionamientoEstrategico() {
           { name: "documentos", label: "Cantidad de documentos", widget: "number" },
         ],
       },
+      relatedLinksField(),
     ],
   };
 }
@@ -381,6 +383,7 @@ function gestionMisional() {
           },
         ],
       },
+      relatedLinksField(),
     ],
   };
 }
@@ -462,6 +465,7 @@ function sistemaIntegradoGestion() {
     fields: [
       ...pageHeader({ icon: "fa-folder-open" }),
       documentSections(docFieldsMinimal),
+      relatedLinksField(),
     ],
   };
 }

@@ -84,5 +84,25 @@
       "posterImagen": "",
       "url": "/documentos/media/2019/ITRC-Cap12-Canales-de-atencion-WebHD.mp4"
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Videos ITRC",
+      "descripcion": "Videos institucionales",
+      "url": "/videos-itrc",
+      "icon": "fa-video"
+    },
+    {
+      "titulo": "Galería",
+      "descripcion": "Galería fotográfica de eventos",
+      "url": "/galeria",
+      "icon": "fa-images"
+    },
+    {
+      "titulo": "Noticias",
+      "descripcion": "Noticias de la Agencia ITRC",
+      "url": "/prensa/noticias",
+      "icon": "fa-newspaper"
+    }
   ]
 }

@@ -46,11 +46,7 @@ const breadcrumb = [
   { label: 'Normativa Aplicable' }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Decretos', descripcion: 'Decretos expedidos por la ITRC', url: '/decretos', icon: 'fa-file-lines' },
-  { titulo: 'Marco Legal', descripcion: 'Marco legal de la entidad', url: '/marco-legal', icon: 'fa-landmark' },
-  { titulo: 'Transparencia', descripcion: 'Transparencia y acceso a la información', url: '/transparencia', icon: 'fa-eye' },
-];
+const enlacesRelacionados = normograma.enlacesRelacionados ?? [];
 ---
 
 <Base title="Normativa Aplicable" description="Normograma institucional de la ITRC - Ley 1712 de 2014">

@@ -50,5 +50,25 @@
       "fecha": "23 de febrero de 2020",
       "file": "/documentos/atencion/001-Cancelacion-RPCA-Lianna-Rendon-1.pdf"
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Notificaciones y Traslados",
+      "descripcion": "Edictos, estados y traslados de actos administrativos",
+      "url": "/notificaciones-y-traslados",
+      "icon": "fa-bell"
+    },
+    {
+      "titulo": "Notificaciones por Aviso",
+      "descripcion": "Notificaciones conforme a la Ley 1437 de 2011",
+      "url": "/notificaciones-por-aviso",
+      "icon": "fa-bullhorn"
+    },
+    {
+      "titulo": "Canales de Atención",
+      "descripcion": "Directorio institucional y canales de contacto",
+      "url": "/canales-de-atencion-al-ciudadano",
+      "icon": "fa-headset"
+    }
   ]
 }

@@ -15,5 +15,25 @@
       "titulo": "Antecedentes",
       "contenido": "Para conocer la historia de la Agencia ITRC y de su Observatorio Anticorrupción, es menester remitirnos a la Organización para la Cooperación y el Desarrollo Económicos — OCDE, también conocida como «el Club de las buenas prácticas», cuya principal misión es promover los más altos estándares en las políticas públicas mundiales para mejorar el bienestar y la calidad de vida de sus ciudadanos, y de la cual Colombia es parte desde el año 2020.\n\nEn Colombia en el año 2011, la Ley 1444 mediante su artículo 18, confirió facultades extraordinarias al Presidente de la República para crear entidades u organismos de la Rama Ejecutiva del orden nacional. Estas facultades fueron ejercidas para crear la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC — a través del Decreto 4173 del 11 de noviembre de 2011.\n\nLas Bases del Plan Nacional de Desarrollo 2014-2018 formulan entre las principales medidas la «Protección del patrimonio público y la transparencia en el recaudo y administración de tributos, rentas y contribuciones parafiscales — ITRC», estableciendo que la Agencia liderará iniciativas estratégicas tendientes a la generación de política pública, entre las cuales se destaca implementar una Herramienta de Gestión Pública que funcione como un observatorio que ofrezca conocimiento sustentado sobre el fenómeno de la corrupción.\n\nPosteriormente, las Bases del Plan Nacional de Desarrollo 2018-2022 determinaron como estrategia el fortalecimiento del «Conocimiento y comprensión del fenómeno de la corrupción», estableciendo que la Agencia ITRC consolidará su Observatorio Anticorrupción como una herramienta de estudio, promoción, intercambio y análisis de información.\n\nDesde el año 2020, el Observatorio de Fraude y Corrupción de la Agencia ITRC hace parte de la Red Nacional de Observatorios Anticorrupción — RENOBA, liderada por la Secretaría de Transparencia de la Presidencia de la República, de conformidad con la Ley 2195 de 2022.\n\nLa Agencia ITRC como órgano de control externo, prevención, investigación y sanción de la corrupción en el sector hacienda, así como su observatorio de fraude y corrupción se encuentran claramente alineados con los objetivos planteados en las Bases del Plan Nacional de Desarrollo 2022-2026."
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Eje de Medición",
+      "descripcion": "Indicadores y dashboards",
+      "url": "/observatorio/eje-de-medicion",
+      "icon": "fa-chart-bar"
+    },
+    {
+      "titulo": "Eje de Educación",
+      "descripcion": "Material pedagógico y publicaciones",
+      "url": "/observatorio/eje-de-educacion",
+      "icon": "fa-graduation-cap"
+    },
+    {
+      "titulo": "Eje de Participación",
+      "descripcion": "Encuestas y participación ciudadana",
+      "url": "/observatorio/eje-de-participacion",
+      "icon": "fa-people-group"
+    }
   ]
 }

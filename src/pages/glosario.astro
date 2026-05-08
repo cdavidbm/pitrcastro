@@ -28,11 +28,7 @@ for (const t of pageData.terminos) {
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const activeLetters = new Set(grouped.keys());
 
-const enlacesRelacionados = [
-  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
-  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
-  { titulo: 'P.Q.R.S', descripcion: 'Peticiones, Quejas, Reclamos y Sugerencias', url: '/tu-p-q-r-s-al-dia', icon: 'fa-comments' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title="Glosario" description={pageData.description}>

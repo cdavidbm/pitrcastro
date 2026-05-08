@@ -21,11 +21,7 @@ const colorMap: Record<string, string> = {
   purple: '#6f42c1',
 };
 
-const enlacesRelacionados = [
-  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
-  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
-  { titulo: 'Correo para Notificaciones Judiciales', descripcion: 'Correo electrónico exclusivo para despachos judiciales', url: '/correo-electronico-para-notificaciones-judiciales', icon: 'fa-envelope-open-text' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

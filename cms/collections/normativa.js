@@ -2,6 +2,7 @@ import {
   pageHeader,
   documentSections,
   docFieldsUrl,
+  relatedLinksField,
 } from "../templates/fields.js";
 
 // ============================================================
@@ -89,6 +90,7 @@ const normativaPaginas = {
           summary: "{{fields.tipo}} {{fields.numero}} de {{fields.anio}} — {{fields.vigencia}}",
           fields: normaFields,
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -113,6 +115,7 @@ const normativaPaginas = {
             { name: "file", label: "URL del archivo PDF", widget: "string", required: true },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -153,6 +156,7 @@ const normativaPaginas = {
             { name: "pdfUrl", label: "URL del PDF", widget: "string", required: false },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -172,6 +176,7 @@ const normativaPaginas = {
           summary: "{{fields.tipo}} {{fields.numero}} de {{fields.anio}} — {{fields.estado}}",
           fields: suinNormaFields,
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -208,6 +213,7 @@ const normativaPaginas = {
             },
           ],
         },
+        relatedLinksField(),
       ],
     },
   ],

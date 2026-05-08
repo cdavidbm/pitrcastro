@@ -36,11 +36,7 @@ function fileColorClass(tipo: string) {
 
 const totalInformes = pageData.informes.reduce((sum, g) => sum + g.reportes.length, 0);
 
-const enlacesRelacionados = [
-  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
-  { titulo: 'Preguntas Frecuentes', descripcion: 'Respuestas a las preguntas más comunes', url: '/preguntas-frecuentes', icon: 'fa-circle-question' },
-  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

@@ -1,4 +1,8 @@
-import { docFieldsUrlSimple, SLUG_PATTERN } from "../templates/fields.js";
+import {
+  docFieldsUrlSimple,
+  SLUG_PATTERN,
+  relatedLinksField,
+} from "../templates/fields.js";
 
 const DISPLAY_MODE_SIMPLE = {
   name: "displayMode",
@@ -93,6 +97,7 @@ const notificaciones = {
         { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-bullhorn" },
         { name: "textoLegal", label: "Texto introductorio", widget: "text", required: true },
         { name: "citaLegal", label: "Cita legal (blockquote)", widget: "text", required: true },
+        relatedLinksField(),
       ],
     },
     {
@@ -105,6 +110,7 @@ const notificaciones = {
         { name: "icon", label: "Icono FontAwesome", widget: "string", default: "fa-envelope-open-text" },
         { name: "texto", label: "Texto introductorio", widget: "text", required: true },
         { name: "email", label: "Correo electrónico", widget: "string", required: true },
+        relatedLinksField(),
       ],
     },
     {
@@ -128,6 +134,7 @@ const notificaciones = {
             { name: "file", label: "URL del PDF", widget: "string", required: true },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -176,6 +183,7 @@ const notificaciones = {
             { name: "file", label: "URL del PDF", widget: "string" },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -198,6 +206,7 @@ const notificaciones = {
             { name: "respuesta", label: "Respuesta", widget: "text", required: true },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -251,6 +260,7 @@ const notificaciones = {
             },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -273,6 +283,7 @@ const notificaciones = {
             { name: "definicion", label: "Definición", widget: "text", required: true },
           ],
         },
+        relatedLinksField(),
       ],
     },
   ],

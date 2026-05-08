@@ -157,5 +157,25 @@
       "pdfUrl": "/documentos/normativa/DECRETO-075-DEL-21-DE-ENERO-DE-2022-1.pdf",
       "suinUrl": "https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/30043795"
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Normativa Aplicable",
+      "descripcion": "Normograma institucional completo",
+      "url": "/normativa-aplicada",
+      "icon": "fa-scale-balanced"
+    },
+    {
+      "titulo": "Decretos",
+      "descripcion": "Decretos expedidos por la ITRC",
+      "url": "/decretos",
+      "icon": "fa-file-lines"
+    },
+    {
+      "titulo": "Marco Legal",
+      "descripcion": "Marco legal de la entidad",
+      "url": "/marco-legal",
+      "icon": "fa-landmark"
+    }
   ]
 }

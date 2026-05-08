@@ -233,6 +233,37 @@ export function ctaSection(name = "ctaSection", label = "Sección de enlace exte
 }
 
 // ============================================================
+// Related Links (sección "Enlaces relacionados" al pie de página)
+// ============================================================
+
+/**
+ * Campo "Enlaces Relacionados" — lista de tarjetas con título, descripción,
+ * URL e icono. Usado en el componente RelatedLinks.astro al pie de las
+ * páginas de contenido.
+ */
+export function relatedLinksField(opts = {}) {
+  const {
+    name = "enlacesRelacionados",
+    label = "Enlaces Relacionados",
+    required = false,
+  } = opts;
+  return {
+    name,
+    label,
+    widget: "list",
+    label_singular: "Enlace",
+    required,
+    collapsed: true,
+    fields: [
+      { name: "titulo", label: "Título", widget: "string" },
+      { name: "descripcion", label: "Descripción", widget: "string" },
+      { name: "url", label: "URL", widget: "string" },
+      { name: "icon", label: "Icono FontAwesome", widget: "string", required: false },
+    ],
+  };
+}
+
+// ============================================================
 // Album fields (galería fotográfica)
 // ============================================================
 

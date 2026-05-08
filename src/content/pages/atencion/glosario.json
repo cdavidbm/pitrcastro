@@ -201,5 +201,25 @@
       "termino": "Triángulo del fraude",
       "definicion": "La teoría del Triángulo del Fraude explica las razones por las que una persona puede cometer un fraude y determina tres factores: presión, oportunidad, y justificación o racionalización."
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Preguntas Frecuentes",
+      "descripcion": "Respuestas a las preguntas más comunes",
+      "url": "/preguntas-frecuentes",
+      "icon": "fa-circle-question"
+    },
+    {
+      "titulo": "Canales de Atención",
+      "descripcion": "Directorio institucional y canales de contacto",
+      "url": "/canales-de-atencion-al-ciudadano",
+      "icon": "fa-headset"
+    },
+    {
+      "titulo": "P.Q.R.S",
+      "descripcion": "Peticiones, Quejas, Reclamos y Sugerencias",
+      "url": "/tu-p-q-r-s-al-dia",
+      "icon": "fa-comments"
+    }
   ]
 }

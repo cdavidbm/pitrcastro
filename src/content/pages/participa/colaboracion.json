@@ -28,5 +28,25 @@
       "textoEnlace": "Conozca la versión final del Plan Anticorrupción",
       "interno": true
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Planeación y Presupuesto",
+      "descripcion": "Formulación e implementación de políticas",
+      "url": "/participa/planeacion-y-presupuesto-participativo",
+      "icon": "fa-chart-pie"
+    },
+    {
+      "titulo": "Consulta Ciudadana",
+      "descripcion": "Mecanismos de participación",
+      "url": "/participa/consulta-ciudadana",
+      "icon": "fa-comments"
+    },
+    {
+      "titulo": "Rendición de Cuentas",
+      "descripcion": "Informes de gestión y resultados",
+      "url": "/participa/rendicion-de-cuentas",
+      "icon": "fa-file-contract"
+    }
   ]
 }

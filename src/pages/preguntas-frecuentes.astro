@@ -13,11 +13,7 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Canales de Atención', descripcion: 'Directorio institucional y canales de contacto', url: '/canales-de-atencion-al-ciudadano', icon: 'fa-headset' },
-  { titulo: 'Notificaciones y Traslados', descripcion: 'Edictos, estados y traslados de actos administrativos', url: '/notificaciones-y-traslados', icon: 'fa-bell' },
-  { titulo: 'Vinculación a Terceros', descripcion: 'Cancelación de Registro Público de Carrera Administrativa', url: '/vinculacion-a-terceros-cancelacion-de-registro-publico', icon: 'fa-user-xmark' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

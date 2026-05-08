@@ -14,11 +14,7 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Rendición de Cuentas', descripcion: 'Informes de gestión y resultados', url: '/participa/rendicion-de-cuentas', icon: 'fa-file-contract' },
-  { titulo: 'Consulta Ciudadana', descripcion: 'Mecanismos de participación', url: '/participa/consulta-ciudadana', icon: 'fa-comments' },
-  { titulo: 'Diagnóstico de Problemas', descripcion: 'Identificación de necesidades', url: '/participa/diagnostico-e-identificacion-de-problemas', icon: 'fa-magnifying-glass-chart' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

@@ -13,11 +13,7 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Cápsulas Informativas', descripcion: 'Videos cortos sobre la gestión de la ITRC', url: '/capsulas-informativas', icon: 'fa-play-circle' },
-  { titulo: 'Galería', descripcion: 'Galería fotográfica de eventos', url: '/galeria', icon: 'fa-images' },
-  { titulo: 'Noticias', descripcion: 'Noticias de la Agencia ITRC', url: '/prensa/noticias', icon: 'fa-newspaper' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

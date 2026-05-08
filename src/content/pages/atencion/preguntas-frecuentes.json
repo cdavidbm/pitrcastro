@@ -57,5 +57,25 @@
       "pregunta": "¿Cómo puede hacer seguimiento a su queja ante la Agencia ITRC?",
       "respuesta": "En el portal de consultas de la Agencia ITRC (https://www.itrc.gov.co/denuncias/consulta) puede consultar el estado de su queja, ingresando el número de «Radicado» o el número de documento si lo registró al momento de realizarla.\n\nTambién puede hacerlo de manera presencial en la entidad ubicada en la Calle 26 No. 69-63 Piso 6, Bogotá D.C."
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Canales de Atención",
+      "descripcion": "Directorio institucional y canales de contacto",
+      "url": "/canales-de-atencion-al-ciudadano",
+      "icon": "fa-headset"
+    },
+    {
+      "titulo": "Notificaciones y Traslados",
+      "descripcion": "Edictos, estados y traslados de actos administrativos",
+      "url": "/notificaciones-y-traslados",
+      "icon": "fa-bell"
+    },
+    {
+      "titulo": "Vinculación a Terceros",
+      "descripcion": "Cancelación de Registro Público de Carrera Administrativa",
+      "url": "/vinculacion-a-terceros-cancelacion-de-registro-publico",
+      "icon": "fa-user-xmark"
+    }
   ]
 }

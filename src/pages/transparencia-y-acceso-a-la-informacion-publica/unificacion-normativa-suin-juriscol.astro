@@ -37,11 +37,7 @@ const breadcrumb = [
   { label: 'Unificación Normativa SUIN Juriscol' }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Normativa Aplicable', descripcion: 'Normograma institucional completo', url: '/normativa-aplicada', icon: 'fa-scale-balanced' },
-  { titulo: 'Decretos', descripcion: 'Decretos expedidos por la ITRC', url: '/decretos', icon: 'fa-file-lines' },
-  { titulo: 'Marco Legal', descripcion: 'Marco legal de la entidad', url: '/marco-legal', icon: 'fa-landmark' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>

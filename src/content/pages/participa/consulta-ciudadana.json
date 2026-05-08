@@ -15,9 +15,49 @@
     }
   ],
   "enlaces": [
-    { "texto": "Canales de atención al ciudadano", "url": "/canales-de-atencion-al-ciudadano", "tipo": "internal", "icon": "fa-headset" },
-    { "texto": "Normativa", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol", "tipo": "internal", "icon": "fa-scale-balanced" },
-    { "texto": "Medición de la experiencia de las ciudadanías", "url": "https://www.funcionpublica.gov.co/participacion-transparencia-y-servicio-al-ciudadano/evaluacion-experiencia-ciudadana", "tipo": "external", "icon": "fa-chart-bar" },
-    { "texto": "Conozca y envíe sus comentarios del nuevo Manual de Identidad Visual ITRC", "url": "https://www.itrc.gov.co/Itrc/manual-de-identidad-visual-itrc/", "tipo": "external", "icon": "fa-palette" }
+    {
+      "texto": "Canales de atención al ciudadano",
+      "url": "/canales-de-atencion-al-ciudadano",
+      "tipo": "internal",
+      "icon": "fa-headset"
+    },
+    {
+      "texto": "Normativa",
+      "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol",
+      "tipo": "internal",
+      "icon": "fa-scale-balanced"
+    },
+    {
+      "texto": "Medición de la experiencia de las ciudadanías",
+      "url": "https://www.funcionpublica.gov.co/participacion-transparencia-y-servicio-al-ciudadano/evaluacion-experiencia-ciudadana",
+      "tipo": "external",
+      "icon": "fa-chart-bar"
+    },
+    {
+      "texto": "Conozca y envíe sus comentarios del nuevo Manual de Identidad Visual ITRC",
+      "url": "https://www.itrc.gov.co/Itrc/manual-de-identidad-visual-itrc/",
+      "tipo": "external",
+      "icon": "fa-palette"
+    }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Diagnóstico de Problemas",
+      "descripcion": "Identificación de necesidades",
+      "url": "/participa/diagnostico-e-identificacion-de-problemas",
+      "icon": "fa-magnifying-glass-chart"
+    },
+    {
+      "titulo": "Planeación y Presupuesto",
+      "descripcion": "Formulación de políticas y planes",
+      "url": "/participa/planeacion-y-presupuesto-participativo",
+      "icon": "fa-chart-pie"
+    },
+    {
+      "titulo": "Control Social",
+      "descripcion": "Vigilancia de la gestión pública",
+      "url": "/participa/control-social",
+      "icon": "fa-shield-halved"
+    }
   ]
 }

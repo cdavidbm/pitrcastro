@@ -5,7 +5,37 @@
   "icon": "fa-shield-halved",
   "intro": "El control social es un derecho y deber de los ciudadanos a participar en la vigilancia de la gestión pública buscando la correcta utilización de los recursos públicos y la gestión institucional.",
   "enlaces": [
-    { "texto": "Plan de participación ciudadana", "url": "/agencia/direccionamiento-estrategico/planes", "tipo": "internal", "icon": "fa-list-check" },
-    { "texto": "Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones", "url": "/tu-p-q-r-s-al-dia", "tipo": "internal", "icon": "fa-comments" }
+    {
+      "texto": "Plan de participación ciudadana",
+      "url": "/agencia/direccionamiento-estrategico/planes",
+      "tipo": "internal",
+      "icon": "fa-list-check"
+    },
+    {
+      "texto": "Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones",
+      "url": "/tu-p-q-r-s-al-dia",
+      "tipo": "internal",
+      "icon": "fa-comments"
+    }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Rendición de Cuentas",
+      "descripcion": "Informes de gestión y resultados",
+      "url": "/participa/rendicion-de-cuentas",
+      "icon": "fa-file-contract"
+    },
+    {
+      "titulo": "Consulta Ciudadana",
+      "descripcion": "Mecanismos de participación",
+      "url": "/participa/consulta-ciudadana",
+      "icon": "fa-comments"
+    },
+    {
+      "titulo": "Diagnóstico de Problemas",
+      "descripcion": "Identificación de necesidades",
+      "url": "/participa/diagnostico-e-identificacion-de-problemas",
+      "icon": "fa-magnifying-glass-chart"
+    }
   ]
 }

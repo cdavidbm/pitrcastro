@@ -56,74 +56,242 @@
       "anio": "2025",
       "label": "2025",
       "reportes": [
-        { "nombre": "Informe Primer Trimestre 2025 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-I-Trimestre-2025-002.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2025 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-II-Trimestre-2025.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2025 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-III-Trimestre-2025-V2.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2025 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-IV-Trimestre-2025.pptx", "tipo": "pptx" },
-        { "nombre": "PQRSDF Unificado 2025", "file": "/documentos/atencion/PQRSDF-unificado.xlsx", "tipo": "xlsx" }
+        {
+          "nombre": "Informe Primer Trimestre 2025 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-I-Trimestre-2025-002.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2025 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-II-Trimestre-2025.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2025 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-III-Trimestre-2025-V2.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2025 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-IV-Trimestre-2025.pptx",
+          "tipo": "pptx"
+        },
+        {
+          "nombre": "PQRSDF Unificado 2025",
+          "file": "/documentos/atencion/PQRSDF-unificado.xlsx",
+          "tipo": "xlsx"
+        }
       ]
     },
     {
       "anio": "2024",
       "label": "2024",
       "reportes": [
-        { "nombre": "Informe Primer Trimestre 2024 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-1o.-Trimestre-2024-.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2024 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-2do-Trimestre-2024.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2024 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-III-Trimestre-2024.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2024 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-IV-Trimestre-2024-V2.pdf", "tipo": "pdf" }
+        {
+          "nombre": "Informe Primer Trimestre 2024 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-1o.-Trimestre-2024-.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2024 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-2do-Trimestre-2024.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2024 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-III-Trimestre-2024.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2024 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-P.Q.R.S.D.F-IV-Trimestre-2024-V2.pdf",
+          "tipo": "pdf"
+        }
       ]
     },
     {
       "anio": "2023",
       "label": "2023",
       "reportes": [
-        { "nombre": "Informe Primer Trimestre 2023 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2023 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-2do.-Trimestre.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2023 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-3er.-Trimestre.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2023 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-Cuarto-trimestre.pdf", "tipo": "pdf" }
+        {
+          "nombre": "Informe Primer Trimestre 2023 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2023 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-2do.-Trimestre.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2023 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-3er.-Trimestre.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2023 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F.-Cuarto-trimestre.pdf",
+          "tipo": "pdf"
+        }
       ]
     },
     {
       "anio": "2022",
       "label": "2022",
       "reportes": [
-        { "nombre": "Informe Primer Trimestre 2022 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-f3-2-1.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2022 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F-Segundo-trimestre-2022..pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2022 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atención-al-Ciudadano-P.Q.R.S.D.F-Tercer-trimestre-2022..pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2022 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Atención-al-Ciudadano-P.Q.R.S.D.F.-4to.-Trimestre.pdf", "tipo": "pdf" }
+        {
+          "nombre": "Informe Primer Trimestre 2022 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-f3-2-1.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2022 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atencion-al-Ciudadano-P.Q.R.S.D.F-Segundo-trimestre-2022..pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2022 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atención-al-Ciudadano-P.Q.R.S.D.F-Tercer-trimestre-2022..pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2022 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Atención-al-Ciudadano-P.Q.R.S.D.F.-4to.-Trimestre.pdf",
+          "tipo": "pdf"
+        }
       ]
     },
     {
       "anio": "2021",
       "label": "2021",
       "reportes": [
-        { "nombre": "Informe Primer Trimestre 2021 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Primer-Trimestre-2021-PQRSDF..pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2021 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Segundo-Trimestre-2021-PQRSDF.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2021 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-3-Trimestre-2021-PQRSDF-AGENCIA-ITRC-.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2021 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Cuarto-Trimestre-2021-PQRSDF-version-7-01-2022.pdf", "tipo": "pdf" }
+        {
+          "nombre": "Informe Primer Trimestre 2021 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Primer-Trimestre-2021-PQRSDF..pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2021 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Segundo-Trimestre-2021-PQRSDF.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2021 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-3-Trimestre-2021-PQRSDF-AGENCIA-ITRC-.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2021 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Cuarto-Trimestre-2021-PQRSDF-version-7-01-2022.pdf",
+          "tipo": "pdf"
+        }
       ]
     },
     {
       "anio": "2020-anteriores",
       "label": "2020 y Anteriores",
       "reportes": [
-        { "nombre": "Informe Cuarto Trimestre 2020 PQRSDF", "file": "/documentos/atencion/Informe-Cuarto-Trimestre-2020-PQRSDF.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2020 PQRSDF", "file": "/documentos/atencion/Informe-Tercer-Trimestre-2020-PQRSDF-Definitivo-Correcciones.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2020 PQRSDF", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Informe-Segundo-Trimestre-2020-PQRSDF-Versi%C3%B3n-para-publicar.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Primer Trimestre 2020 P.Q.R.S.D.F", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/Informe-Primer-Trimestre-2020-PQRSDF-versi%C3%B3n-para-la-publicaci%C3%B3n.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2019 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Cuarto-Trimestre-2019-PQRSDF.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2019 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Tercer-Trimestre-2019-PQRSDF-1.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2019 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-PQRSDF-Segundo-Trimestre-2019.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Primer Trimestre 2019 P.Q.R.S.D.F", "file": "/documentos/atencion/Informe-Primer-Trimestre-2019-PQRSDF.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre Atención al Ciudadano P.Q.R.S 2018", "file": "/documentos/atencion/INFORME-PQRS-CUARTO-TRIMESTRE-29-01-2019-PUBLICAR.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre Atención al Ciudadano 2018", "file": "/documentos/atencion/INFORME-PQRS-TERCER-TRIMESTRE-FORMATO-16-10-2018.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre Atención al Ciudadano 2018", "file": "/documentos/atencion/pqrs-2-trimestre-formato.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Primer Trimestre 2018", "file": "/documentos/atencion/INFORME-TRIMESTRAL-DE-PETICIONES.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Cuarto Trimestre 2017", "file": "/documentos/atencion/INFORME-DE-PETICIONES-4to-trimestre-2017.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Tercer Trimestre 2017", "file": "/documentos/atencion/INFORME-TRIMESTRAL-DE-PETICIONES-3ER-TRIMESTRE-2-version.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Segundo Trimestre 2017", "file": "/documentos/atencion/INFORME-TRIMESTRAL-DE-PETICIONES-2-TRIMESTRE.pdf", "tipo": "pdf" },
-        { "nombre": "Informe Primer Trimestre 2017", "file": "/documentos/atencion/Informe-Primer-Trimeste-2017.pdf", "tipo": "pdf" }
+        {
+          "nombre": "Informe Cuarto Trimestre 2020 PQRSDF",
+          "file": "/documentos/atencion/Informe-Cuarto-Trimestre-2020-PQRSDF.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2020 PQRSDF",
+          "file": "/documentos/atencion/Informe-Tercer-Trimestre-2020-PQRSDF-Definitivo-Correcciones.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2020 PQRSDF",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/07/Informe-Segundo-Trimestre-2020-PQRSDF-Versi%C3%B3n-para-publicar.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Primer Trimestre 2020 P.Q.R.S.D.F",
+          "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/Informe-Primer-Trimestre-2020-PQRSDF-versi%C3%B3n-para-la-publicaci%C3%B3n.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2019 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Cuarto-Trimestre-2019-PQRSDF.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2019 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Tercer-Trimestre-2019-PQRSDF-1.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2019 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-PQRSDF-Segundo-Trimestre-2019.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Primer Trimestre 2019 P.Q.R.S.D.F",
+          "file": "/documentos/atencion/Informe-Primer-Trimestre-2019-PQRSDF.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre Atención al Ciudadano P.Q.R.S 2018",
+          "file": "/documentos/atencion/INFORME-PQRS-CUARTO-TRIMESTRE-29-01-2019-PUBLICAR.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre Atención al Ciudadano 2018",
+          "file": "/documentos/atencion/INFORME-PQRS-TERCER-TRIMESTRE-FORMATO-16-10-2018.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre Atención al Ciudadano 2018",
+          "file": "/documentos/atencion/pqrs-2-trimestre-formato.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Primer Trimestre 2018",
+          "file": "/documentos/atencion/INFORME-TRIMESTRAL-DE-PETICIONES.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Cuarto Trimestre 2017",
+          "file": "/documentos/atencion/INFORME-DE-PETICIONES-4to-trimestre-2017.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Tercer Trimestre 2017",
+          "file": "/documentos/atencion/INFORME-TRIMESTRAL-DE-PETICIONES-3ER-TRIMESTRE-2-version.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Segundo Trimestre 2017",
+          "file": "/documentos/atencion/INFORME-TRIMESTRAL-DE-PETICIONES-2-TRIMESTRE.pdf",
+          "tipo": "pdf"
+        },
+        {
+          "nombre": "Informe Primer Trimestre 2017",
+          "file": "/documentos/atencion/Informe-Primer-Trimeste-2017.pdf",
+          "tipo": "pdf"
+        }
       ]
+    }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Canales de Atención",
+      "descripcion": "Directorio institucional y canales de contacto",
+      "url": "/canales-de-atencion-al-ciudadano",
+      "icon": "fa-headset"
+    },
+    {
+      "titulo": "Preguntas Frecuentes",
+      "descripcion": "Respuestas a las preguntas más comunes",
+      "url": "/preguntas-frecuentes",
+      "icon": "fa-circle-question"
+    },
+    {
+      "titulo": "Notificaciones y Traslados",
+      "descripcion": "Edictos, estados y traslados de actos administrativos",
+      "url": "/notificaciones-y-traslados",
+      "icon": "fa-bell"
     }
   ]
 }

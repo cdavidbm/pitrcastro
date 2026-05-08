@@ -45,5 +45,25 @@
       "descripcion": "Por el cual se crea la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC.",
       "file": "/documentos/normativa/Decreto-4173.pdf"
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Normativa Aplicable",
+      "descripcion": "Normograma institucional completo",
+      "url": "/normativa-aplicada",
+      "icon": "fa-scale-balanced"
+    },
+    {
+      "titulo": "Unificación Normativa",
+      "descripcion": "Normas registradas en SUIN Juriscol",
+      "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol",
+      "icon": "fa-landmark-dome"
+    },
+    {
+      "titulo": "Marco Legal",
+      "descripcion": "Marco legal de la entidad",
+      "url": "/marco-legal",
+      "icon": "fa-landmark"
+    }
   ]
 }

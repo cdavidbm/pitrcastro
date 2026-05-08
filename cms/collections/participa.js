@@ -1,3 +1,5 @@
+import { relatedLinksField } from "../templates/fields.js";
+
 // ============================================================
 // Campos compartidos para enlaces de sub-páginas Participa
 // ============================================================
@@ -67,6 +69,7 @@ export const participa = {
           summary: "{{fields.texto}}",
           fields: enlaceFields,
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -88,6 +91,7 @@ export const participa = {
           summary: "{{fields.texto}}",
           fields: enlaceFields,
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -120,6 +124,7 @@ export const participa = {
           summary: "{{fields.texto}}",
           fields: enlaceFields,
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -148,6 +153,7 @@ export const participa = {
             { name: "interno", label: "Es enlace interno", widget: "boolean", default: false, required: false },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -184,6 +190,7 @@ export const participa = {
             },
           ],
         },
+        relatedLinksField(),
       ],
     },
     {
@@ -204,6 +211,7 @@ export const participa = {
           summary: "{{fields.texto}}",
           fields: enlaceFields,
         },
+        relatedLinksField(),
       ],
     },
   ],

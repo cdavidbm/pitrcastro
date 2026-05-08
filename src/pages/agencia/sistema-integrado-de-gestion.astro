@@ -25,26 +25,7 @@ const accordionSections = (pageData.sections as DocumentSection[]).map((section)
     externo: doc.externo || false
   }))
 }));
-const enlacesRelacionados = [
-  {
-    titulo: 'Políticas Institucionales',
-    descripcion: 'Marco normativo de políticas de la Agencia',
-    url: 'agencia/direccionamiento-estrategico/politicas',
-    icon: 'fa-scale-balanced'
-  },
-  {
-    titulo: 'Planes Institucionales',
-    descripcion: 'Planes estratégicos y de gestión',
-    url: 'agencia/direccionamiento-estrategico/planes',
-    icon: 'fa-clipboard-list'
-  },
-  {
-    titulo: 'Estructura Orgánica',
-    descripcion: 'Organigrama y funciones por dependencia',
-    url: 'agencia/organigrama',
-    icon: 'fa-sitemap'
-  }
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} class="page-sig">

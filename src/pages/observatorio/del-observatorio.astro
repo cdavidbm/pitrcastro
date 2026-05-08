@@ -13,11 +13,7 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const enlacesRelacionados = [
-  { titulo: 'Eje de Medición', descripcion: 'Indicadores y dashboards', url: '/observatorio/eje-de-medicion', icon: 'fa-chart-bar' },
-  { titulo: 'Eje de Educación', descripcion: 'Material pedagógico y publicaciones', url: '/observatorio/eje-de-educacion', icon: 'fa-graduation-cap' },
-  { titulo: 'Eje de Participación', descripcion: 'Encuestas y participación ciudadana', url: '/observatorio/eje-de-participacion', icon: 'fa-people-group' },
-];
+const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} description={pageData.description}>
