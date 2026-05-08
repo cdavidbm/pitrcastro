@@ -1,7 +1,7 @@
 ---
 title: "Agencia ITRC detecta alteración fraudulenta de software para evadir impuestos y facilitar el contrabando"
 date: 2025-12-16
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/12/1.jpg"
+image: "/documentos/media/2025/1.jpg"
 excerpt: "En el marco de sus funciones de inspección y control a la Dirección de Impuestos y Aduanas Nacionales -DIAN, la Agencia ITRC identificó diferentes hechos..."
 tags: ["noticias"]
 categoria: noticia

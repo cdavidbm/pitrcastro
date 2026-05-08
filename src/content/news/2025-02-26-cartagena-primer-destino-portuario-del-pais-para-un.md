@@ -1,7 +1,7 @@
 ---
 title: "Cartagena, primer destino portuario del país para un efectivo y transparente recaudo"
 date: 2025-02-26
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/ITRC-Cartagena.jpg"
+image: "/documentos/media/2025/ITRC-Cartagena.jpg"
 excerpt: "En marcha estrategia ITRC: Fortalecimiento de la participación ciudadana en la denuncia contra la corrupción y por la transparencia del recaudo’ Cartagena,..."
 tags: ["noticias"]
 categoria: noticia
@@ -36,4 +36,4 @@ Es importante recordar que la misión de la Agencia ITRC, es la de proteger el
 
 patrimonio público frente a acciones de fraude y corrupción de las entidades que vigila como son: Dian, UGPP, Coljuegos.
 
-[Descargar Comunicado en PDF](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Comunicado-En-Marcha-estrategia-de-Agencia-ITRC.pdf)
+[Descargar Comunicado en PDF](/documentos/media/prensa/Comunicado-En-Marcha-estrategia-de-Agencia-ITRC.pdf)

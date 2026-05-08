@@ -114,27 +114,27 @@
     {
       "titulo": "Informes de Evaluación Control Interno Contable",
       "documentos": [
-        { "name": "Evaluación Control Interno Contable Vigencia 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Evaluacion_Control_Interno_Contable_Vigencia_2024-1.xls", "anio": "2024" },
-        { "name": "Evaluación Control Interno Contable Vigencia 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Matriz-Eval-CIC-Vigencia-2023-.xls", "anio": "2023" },
-        { "name": "Evaluación Control Interno Contable Vigencia 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/Evaluacion-Control-Interno-Contable-Vigencia-2022.xlsx", "anio": "2022" },
-        { "name": "Evaluación Control Interno Contable Vigencia 2021", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2021.xls", "anio": "2021" },
-        { "name": "Evaluación Control Interno Contable Vigencia 2020", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2020.xls", "anio": "2020" },
-        { "name": "Evaluación Control Interno Contable Vigencia 2019", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2019.xls", "anio": "2019" },
-        { "name": "Evaluación Control Interno Contable Vigencia 2018", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/03/Evaluacion-Control-Interno-Contable-Vigencia-2018.xls", "anio": "2018" }
+        { "name": "Evaluación Control Interno Contable Vigencia 2024", "file": "/documentos/agencia/Evaluacion_Control_Interno_Contable_Vigencia_2024-1.xls", "anio": "2024" },
+        { "name": "Evaluación Control Interno Contable Vigencia 2023", "file": "/documentos/agencia/Matriz-Eval-CIC-Vigencia-2023-.xls", "anio": "2023" },
+        { "name": "Evaluación Control Interno Contable Vigencia 2022", "file": "/documentos/agencia/Evaluacion-Control-Interno-Contable-Vigencia-2022.xlsx", "anio": "2022" },
+        { "name": "Evaluación Control Interno Contable Vigencia 2021", "file": "/documentos/agencia/Evaluacion-Control-Interno-Contable-Vigencia-2021.xls", "anio": "2021" },
+        { "name": "Evaluación Control Interno Contable Vigencia 2020", "file": "/documentos/agencia/Evaluacion-Control-Interno-Contable-Vigencia-2020.xls", "anio": "2020" },
+        { "name": "Evaluación Control Interno Contable Vigencia 2019", "file": "/documentos/agencia/Evaluacion-Control-Interno-Contable-Vigencia-2019.xls", "anio": "2019" },
+        { "name": "Evaluación Control Interno Contable Vigencia 2018", "file": "/documentos/agencia/Evaluacion-Control-Interno-Contable-Vigencia-2018.xls", "anio": "2018" }
       ]
     },
     {
       "titulo": "Modelo de Seguridad y Privacidad de la Información (MSPI)",
       "documentos": [
-        { "name": "Autodiagnostico MSPI - Instrumento de Evaluacion", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx", "anio": "2025" }
+        { "name": "Autodiagnostico MSPI - Instrumento de Evaluacion", "file": "/documentos/transparencia/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx", "anio": "2025" }
       ]
     },
     {
       "titulo": "Informes Software Legal",
       "documentos": [
-        { "name": "Informe Software Legal Vigencia 2024", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/Informe-derechos-de-autor-publicacion-1.pdf", "anio": "2024" },
-        { "name": "Informe Software Legal Vigencia 2023", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/03/Inf-Software-Legal-ITRC-2023.pdf", "anio": "2023" },
-        { "name": "Informe Software Legal Vigencia 2022", "file": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Inf-Software-Legal-ITRC-2022.pdf", "anio": "2022" }
+        { "name": "Informe Software Legal Vigencia 2024", "file": "/documentos/agencia/Informe-derechos-de-autor-publicacion-1.pdf", "anio": "2024" },
+        { "name": "Informe Software Legal Vigencia 2023", "file": "/documentos/agencia/Inf-Software-Legal-ITRC-2023.pdf", "anio": "2023" },
+        { "name": "Informe Software Legal Vigencia 2022", "file": "/documentos/agencia/Inf-Software-Legal-ITRC-2022.pdf", "anio": "2022" }
       ]
     }
   ],

@@ -20,4 +20,4 @@ Dentro de las jornadas la Agencia ITRC promueve sus canales de atención y los d
 
 Más de mil funcionarios y contratistas de estas dos entidades que vigila la Agencia ITRC recibirán estas charlas. Posteriormente también se realizará en la DIAN.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Boletin-017-AGENCIA-ITRC-3-de-Junio.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-017-AGENCIA-ITRC-3-de-Junio.pdf)

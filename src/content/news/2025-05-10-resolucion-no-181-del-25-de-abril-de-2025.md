@@ -1,7 +1,7 @@
 ---
 title: "RESOLUCIÓN No. 181 DEL 25 DE ABRIL DE 2025"
 date: 2025-05-10
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/imagen-resolucion-1.jpeg"
+image: "/documentos/media/2025/imagen-resolucion-1.jpeg"
 excerpt: "Por medio de la cual se adoptan mecanismos internos para dar cumplimiento a la Ley 2097 de 2021 - Registro de Deudores Alimentarios Morosos (REDAM) y su..."
 tags: ["noticias", "resoluciones"]
 categoria: noticia
@@ -52,4 +52,4 @@ PUBLÍQUESE, COMUNÍQUESE Y CÚMPLASE.
 
 Dado en la ciudad de Bogotá D.C., a los 25 días del mes de abril de 2025.
 
-[Descargar Resolución](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/Resolucion-181-del-2025.pdf)
+[Descargar Resolución](/documentos/media/prensa/Resolucion-181-del-2025.pdf)

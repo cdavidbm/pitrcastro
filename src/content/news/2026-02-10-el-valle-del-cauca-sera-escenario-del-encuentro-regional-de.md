@@ -1,7 +1,7 @@
 ---
 title: "El Valle del Cauca será escenario del Encuentro Regional de Vigilancia de los Recursos Públicos, liderado por la Agencia ITRC"
 date: 2026-02-10
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/PALMIRA-BANNER.jpeg"
+image: "/documentos/media/2026/PALMIRA-BANNER.jpeg"
 excerpt: "COMUNICADO DE PRENSA El Valle del Cauca será escenario del Encuentro Regional de Vigilancia de los Recursos Públicos, liderado por la Agencia ITRC • La..."
 tags: ["noticias"]
 categoria: noticia
@@ -44,8 +44,8 @@ En materia aduanera, la Agencia ITRC también cumplió un papel determinante al 
 
 La Agencia ITRC le cumple a Colombia.
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/PALMIRA-BANNER.jpeg)
+![](/documentos/media/2026/PALMIRA-BANNER.jpeg)
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/CALI-BANNER.jpeg)
+![](/documentos/media/2026/CALI-BANNER.jpeg)
 
-[Comunicado-de-prensa-Palmira-y-Cali](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Comunicado-de-prensa-Palmira-y-Cali.pdf)[Descarga](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Comunicado-de-prensa-Palmira-y-Cali.pdf)
+[Comunicado-de-prensa-Palmira-y-Cali](/documentos/media/prensa/Comunicado-de-prensa-Palmira-y-Cali.pdf)[Descarga](/documentos/media/prensa/Comunicado-de-prensa-Palmira-y-Cali.pdf)

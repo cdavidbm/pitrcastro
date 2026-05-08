@@ -20,4 +20,4 @@ La Agencia ITRC determinó que Triana Medina incurrió en la falta disciplinaria
 
 Contra este fallo de segunda instancia no procede recurso alguno, por lo que la sanción quedó en firme.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Boletin-019-AGENCIA-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-019-AGENCIA-ITRC.pdf)

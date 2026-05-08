@@ -26,4 +26,4 @@ Como retos institucionales para el 2025, la Agencia ITRC tiene previsto actualiz
 
 Para más información, los invitamos a consultar nuestro informe de rendición de cuentas en el siguiente enlace: [https://acortar.link/Zm9OB3](https://acortar.link/Zm9OB3)
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Boletin_prensa.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin_prensa.pdf)

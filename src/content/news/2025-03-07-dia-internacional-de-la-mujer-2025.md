@@ -1,7 +1,7 @@
 ---
 title: "Día Internacional de la Mujer 2025"
 date: 2025-03-07
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/03/Dia-de-la-mujer-2025.jpg"
+image: "/documentos/media/2025/Dia-de-la-mujer-2025.jpg"
 excerpt: "Bogotá, D.C., marzo de 2025. El 8 de marzo nació para reconocer y promover los derechos de las mujeres en todo el mundo. Se trata de una jornada de..."
 tags: ["noticias"]
 categoria: noticia

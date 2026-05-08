@@ -5,7 +5,7 @@
   "icon": "fa-eye",
   "published": true,
   "introTexto": "En cumplimiento a la Ley 1712 del 6 de marzo de 2014, la Unidad Administrativa Especial Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) pone a disposición de la ciudadanía la siguiente información.",
-  "ley1712Url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/05/LEY-1712-DEL-06-DE-MARZO-DE-2014.pdf",
+  "ley1712Url": "/documentos/transparencia/LEY-1712-DEL-06-DE-MARZO-DE-2014.pdf",
   "secciones": [
     {
       "numero": "1",
@@ -27,7 +27,7 @@
         {
           "num": "1.3",
           "texto": "Mapas y cartas descriptivas de los procesos",
-          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Procesos-y-Procedimientos-de-la-Agencia-ITRC.pdf",
+          "url": "/documentos/transparencia/Procesos-y-Procedimientos-de-la-Agencia-ITRC.pdf",
           "tipo": "pdf"
         },
         {
@@ -254,7 +254,7 @@
         {
           "num": "4.1",
           "texto": "Presupuesto general de ingresos, gastos e inversión",
-          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/01/Plan-de-Gasto-2026.pdf",
+          "url": "/documentos/transparencia/Plan-de-Gasto-2026.pdf",
           "tipo": "pdf"
         },
         {
@@ -272,7 +272,7 @@
         {
           "num": "4.3.1",
           "texto": "Plan de acción anual",
-          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Plan-de-Accion-Anual-2026-1.xlsx",
+          "url": "/documentos/transparencia/Plan-de-Accion-Anual-2026-1.xlsx",
           "tipo": "xlsx"
         },
         {
@@ -517,7 +517,7 @@
       "items": [
         {
           "texto": "Autodiagnóstico MSPI — Instrumento de evaluación",
-          "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx",
+          "url": "/documentos/transparencia/Autodiagnostico-ITRC-MSPI-Instrumento.xlsx",
           "tipo": "xlsx"
         }
       ]

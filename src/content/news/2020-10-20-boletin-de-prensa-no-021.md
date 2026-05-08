@@ -25,4 +25,4 @@ La entidad invita a seguir denunciando la corrupción. Cada denuncia, permite qu
 
  
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/10/Agencia-ITRC-Boletín-de-Prensa-021.pdf)
+[Descargar Boletín](/documentos/media/prensa/Agencia-ITRC-Boletín-de-Prensa-021.pdf)

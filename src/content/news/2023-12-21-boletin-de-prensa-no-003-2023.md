@@ -28,6 +28,6 @@ Como retos institucionales, para el año 2024, se consolidará la implementació
 
 Por otra parte, en el marco del Plan Nacional de Desarrollo, la Agencia ITRC se suma, desde su labor anticorrupción y de protección del patrimonio público, a la importante iniciativa estratégica nacional de lucha contra la corrupción del Gobierno Nacional.
 
-Para más información los invitamos a consultar nuestro informe de rendición de cuentas en el siguiente enlace:  [https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/INFORME-RENDICION-DE-CUENTAS-2023_AGENCIA-ITRC.pdf](https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/INFORME-RENDICION-DE-CUENTAS-2023_AGENCIA-ITRC.pdf)
+Para más información los invitamos a consultar nuestro informe de rendición de cuentas en el siguiente enlace:  [/documentos/participa/INFORME-RENDICION-DE-CUENTAS-2023_AGENCIA-ITRC.pdf](/documentos/participa/INFORME-RENDICION-DE-CUENTAS-2023_AGENCIA-ITRC.pdf)
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/12/Comunicado-de-Prensa-03-.pdf)
+[Descargar Boletín](/documentos/media/prensa/Comunicado-de-Prensa-03-.pdf)

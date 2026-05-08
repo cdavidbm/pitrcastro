@@ -24,4 +24,4 @@ La medida cautelar de suspensión provisional del disciplinado fue adoptada teni
 
 La suspensión provisional es de inmediato cumplimiento, la decreta inicialmente el operador disciplinario de primera instancia, que para el caso es el subdirector de Investigaciones Disciplinarias y luego pasa a revisión de la Dirección de la Agencia como superior jerárquico. Durante el término de duración de la medida el funcionario suspendido no tiene derecho a remuneración, según lo previsto en el artículo 157 del Código Disciplinario Único.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Boletin-018-AGENCIA-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-018-AGENCIA-ITRC.pdf)

@@ -1,14 +1,14 @@
 ---
 title: "Comunicado de prensa – 05 Invitación Rendición de Cuentas"
 date: 2024-12-09
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Boletin.jpg"
+image: "/documentos/media/2024/Boletin.jpg"
 excerpt: "La Agencia ITRC realizará su Audiencia Pública de Rendición de Cuentas Participe en este espacio de diálogo el próximo 12 de diciembre Bogotá D.C., 9 de..."
 tags: ["noticias", "comunicados"]
 categoria: comunicado
 draft: false
 ---
 
-[![Boletin](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Boletin.jpg)](#)
+[![Boletin](/documentos/media/2024/Boletin.jpg)](#)
 
 **La Agencia ITRC realizará su Audiencia Pública de Rendición de Cuentas**
 
@@ -32,4 +32,4 @@ YouTube: Agencia ITRC
 
 Facebook: Agencia ITRC.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Comunicado-de-Prensa-Invitacion-rendicion-05.pdf)
+[Descargar Boletín](/documentos/media/prensa/Comunicado-de-Prensa-Invitacion-rendicion-05.pdf)

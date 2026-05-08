@@ -6,11 +6,11 @@
   "audios": [
     {
       "titulo": "Audio institucional ITRC #1",
-      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/1.mp3"
+      "url": "/documentos/media/2024/1.mp3"
     },
     {
       "titulo": "Audio institucional ITRC #2",
-      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/08/2.mp3"
+      "url": "/documentos/media/2024/2.mp3"
     }
   ]
 }

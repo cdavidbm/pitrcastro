@@ -24,4 +24,4 @@ La participación de la Agencia ITRC en este tipo de escenarios internacionales 
 
 La Agencia continuará impulsando iniciativas orientadas a una gestión pública íntegra, eficiente y centrada en el servicio a la ciudadanía, contribuyendo así al fortalecimiento de la confianza en las instituciones del Estado colombiano.
 
-[Colombia, sede del Encuentro del Comité Permanente de Ética del CIAT en Cartagena](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Colombia-sede-del-Encuentro-del-Comite-Permanente-de-Etica-del-CIAT-en-Cartagena.pdf)[Descarga](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Colombia-sede-del-Encuentro-del-Comite-Permanente-de-Etica-del-CIAT-en-Cartagena.pdf)
+[Colombia, sede del Encuentro del Comité Permanente de Ética del CIAT en Cartagena](/documentos/media/prensa/Colombia-sede-del-Encuentro-del-Comite-Permanente-de-Etica-del-CIAT-en-Cartagena.pdf)[Descarga](/documentos/media/prensa/Colombia-sede-del-Encuentro-del-Comite-Permanente-de-Etica-del-CIAT-en-Cartagena.pdf)

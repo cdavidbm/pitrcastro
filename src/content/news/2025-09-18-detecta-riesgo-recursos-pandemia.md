@@ -1,7 +1,7 @@
 ---
 title: "ITRC detecta riesgo de pérdida de $942.000 millones de pesos, por dineros entregados por el Gobierno Nacional, en pandemia"
 date: 2025-09-18
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/COMUNICADO-DE-PRENSA-18-DE-SEPTIEMBRE-2025.png"
+image: "/documentos/media/2025/COMUNICADO-DE-PRENSA-18-DE-SEPTIEMBRE-2025.png"
 excerpt: "Bogotá, 18 de septiembre de 2025. Una auditoría técnica realizada por la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales..."
 tags: ["noticias"]
 categoria: noticia
@@ -36,4 +36,4 @@ Una auditoría técnica realizada por la Agencia del Inspector General de Tribut
 
 ***Como órgano supervisor de la DIAN, la UGPP y Coljuegos, la Agencia ITRC reitera su compromiso con la transparencia y la correcta ejecución de los recursos públicos.***
 
-[Descargar Comunicado](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/ITRC-detecta-riesgo-de-perdida-de-942.000-millones-de-pesos-por-dineros-entregados-por-el-Gobierno-Nacional-en-pandemia.pdf)
+[Descargar Comunicado](/documentos/media/prensa/ITRC-detecta-riesgo-de-perdida-de-942.000-millones-de-pesos-por-dineros-entregados-por-el-Gobierno-Nacional-en-pandemia.pdf)

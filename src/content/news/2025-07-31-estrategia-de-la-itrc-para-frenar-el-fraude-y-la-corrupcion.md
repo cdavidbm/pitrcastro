@@ -1,7 +1,7 @@
 ---
 title: "Estrategia de la ITRC para frenar el fraude y la corrupción llega al Casanare"
 date: 2025-07-31
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/yopal.jpeg"
+image: "/documentos/media/2025/yopal.jpeg"
 excerpt: "Encuentro con entidades públicas, privadas y la ciudadanía en Yopal, donde se presentará la labor contra el fraude y la corrupción que realiza la Agencia..."
 tags: ["noticias"]
 categoria: noticia

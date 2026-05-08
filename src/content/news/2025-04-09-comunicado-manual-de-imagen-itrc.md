@@ -1,7 +1,7 @@
 ---
 title: "Comunicado Manual de Imagen ITRC"
 date: 2025-04-09
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/MENSAJE-1.jpg"
+image: "/documentos/media/2025/MENSAJE-1.jpg"
 excerpt: "Desde el área de Comunicaciones, hacemos un llamado al compromiso colectivo en el uso adecuado de la imagen institucional de la Agencia ITRC. La identidad..."
 tags: ["noticias", "comunicados"]
 categoria: comunicado
@@ -34,4 +34,4 @@ Equipo de Comunicaciones
 
 Agencia ITRC
 
-![Manual de Imagen ITRC](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/04/MENSAJE-2.jpg)
+![Manual de Imagen ITRC](/documentos/media/2025/MENSAJE-2.jpg)

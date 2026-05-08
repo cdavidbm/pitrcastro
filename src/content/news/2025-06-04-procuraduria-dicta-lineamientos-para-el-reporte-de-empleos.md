@@ -26,4 +26,4 @@ Entre las disposiciones principales, la Procuraduría:
 
 La Circular ordena publicar el documento en los portales web e intranet institucionales, en garantía de los principios de transparencia y acceso a la información pública. Con esta medida, la Procuraduría busca fortalecer la planeación del talento humano estatal y asegurar la provisión meritocrática de los cargos de carrera a nivel nacional y territorial.
 
-[DESCARGAR CIRCULAR 001 DEL 2025](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/06/Circular-01-del-30-de-mayo-20250530_0111.pdf)
+[DESCARGAR CIRCULAR 001 DEL 2025](/documentos/media/prensa/Circular-01-del-30-de-mayo-20250530_0111.pdf)

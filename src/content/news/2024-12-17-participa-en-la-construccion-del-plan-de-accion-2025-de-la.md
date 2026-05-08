@@ -14,4 +14,4 @@ La participación ciudadana en el Plan de Acción es fundamental para establecer
 
 Remite tus aportes, propuestas e ideas al correo [oficinaplaneacion@itrc.gov.co](mailto:oficinaplaneacion@itrc.gov.co).
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Noticia-plan-de-accion-2025_.pdf)
+[Descargar Boletín](/documentos/media/prensa/Noticia-plan-de-accion-2025_.pdf)

@@ -26,4 +26,4 @@ Puntualizó Carolina Madrid, la forma cómo estos eventos internacionales permit
 
 La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, es la entidad anticorrupción de la Hacienda Pública de Colombia, referente internacional, adscrita al Ministerio de Hacienda y Crédito Público, y la encargada de proteger el patrimonio público frente a acciones de fraude y corrupción, mediante un modelo especializado e innovador de prevención, aseguramiento e investigación disciplinaria, para fortalecer la transparencia y la efectividad en la DIAN, COLJUEGOS y la Unidad de Gestión Pensional y Parafiscales-UGPP.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/Comunicado-de-prensa-04.pdf)
+[Descargar Boletín](/documentos/media/prensa/Comunicado-de-prensa-04.pdf)

@@ -18,4 +18,4 @@ Invitamos a la ciudadanía a enviarnos su comentarios u opiniones sobre el Manua
 
 Agradecemos su participación. Los comentarios se recibirán hasta el próximo lunes 24 de junio.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/06/COMUNICADO-DE-PRENSA.pdf)
+[Descargar Boletín](/documentos/media/prensa/COMUNICADO-DE-PRENSA.pdf)

@@ -18,4 +18,4 @@ La ejecución de esta inspección generó en la Agencia ITRC una transición de 
 
 Los resultados permitirán prevenir posibles espacios de fraude y corrupción que detecte la entidad en el marco de las inspecciones adelantadas.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/Boletín-de-Prensa-022-Agencia-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletín-de-Prensa-022-Agencia-ITRC.pdf)

@@ -21,4 +21,4 @@ los funcionarios de la DIAN, Coljuegos y la Unidad de Gestión Pensional y Paraf
 Asimismo, en el marco de su misionalidad, la entidad tiene la competencia de fiscalizar las declaraciones de renta y trámites aduaneros de los funcionarios del nivel directivo y asesor de la
 DIAN. En ese contexto, la Agencia ITRC realizará las investigaciones conducentes a determinar si existen presuntos hechos disciplinables frente a la información relacionada con Pandora Papers.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/10/Boletin-de-Prensa-004-de-2021-Agencia-ITRC-.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-de-Prensa-004-de-2021-Agencia-ITRC-.pdf)

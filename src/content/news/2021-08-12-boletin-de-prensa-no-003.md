@@ -30,4 +30,4 @@ Estos resultados han sido realizables gracias a las denuncias ciudadanas que han
 
 Las denuncias se pueden realizar a través del Sistema de Denuncia Virtual de la Agencia ITRC ingresando a la página web [www.itrc.gov.co](https://www.itrc.gov.co/Itrc)  y hacer clic en el botón DENUNCIE. También, puede hacerlo a través de la línea gratuita nación 01 800 123 004, de forma presencial en la oficina principal de la entidad en Bogotá ubicada en la calle 26 # 69-76 piso 8 Torre 1, o al correo [contactenos@itrc.gov.co](mailto:contactenos@itrc.gov.co)
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/08/Boletin-de-Prensa-003-de-2021-Agencia-ITRC-1.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-de-Prensa-003-de-2021-Agencia-ITRC-1.pdf)

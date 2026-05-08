@@ -1,7 +1,7 @@
 ---
 title: "Pliego de cargos contra 12 funcionarios de la Dian"
 date: 2025-07-10
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/08/logo.jpg"
+image: "/documentos/media/2019/logo.jpg"
 excerpt: "Bogotá, julio 10 de 2025 La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales, ITRC, formuló pliego de cargos a doce (12)..."
 tags: ["noticias"]
 categoria: noticia

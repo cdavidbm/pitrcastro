@@ -1,7 +1,7 @@
 ---
 title: "La Agencia ITRC identificó un impacto fiscal de $44.000 millones en la Dian"
 date: 2025-06-19
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/06/thumbnail_ef40d2f6-0caf-49ec-8406-82af72d3a33c.jpg"
+image: "/documentos/media/2025/thumbnail_ef40d2f6-0caf-49ec-8406-82af72d3a33c.jpg"
 excerpt: "Desde la labor preventiva que desarrolla la Agencia ITRC y con el apoyo de análisis de datos, se identificó en la Dian un caso por cuantía de $44.000..."
 tags: ["noticias"]
 categoria: noticia
@@ -16,4 +16,4 @@ Esto se presentó, dado que el memorial correspondiente no fue remitido oportuna
 
 Es importante mencionar que, desde la Subdirección de Auditoría y Gestión del Riesgo, se remitió Alerta a la DIAN que tiene como fin proponer de manera oportuna la implementación de controles.
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/06/thumbnail_ef40d2f6-0caf-49ec-8406-82af72d3a33c.jpg)
+![](/documentos/media/2025/thumbnail_ef40d2f6-0caf-49ec-8406-82af72d3a33c.jpg)

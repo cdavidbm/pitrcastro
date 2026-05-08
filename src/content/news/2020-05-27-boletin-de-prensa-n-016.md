@@ -22,4 +22,4 @@ Diana Richardson, directora general de la Agencia ITRC indicó que “la entidad
 
 La Agencia ITRC también investiga las faltas disciplinarias gravísimas cometidas por funcionarios de la DIAN, Coljuegos y la UGPP y tiene la facultad de sancionar cualquier acto de fraude y corrupción para salvaguardar los ingresos de la nación. 
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Boletín-016-AGENCIA-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletín-016-AGENCIA-ITRC.pdf)

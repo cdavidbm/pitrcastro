@@ -1,7 +1,7 @@
 ---
 title: "Actualización Manual de Comunicaciones – ITRC"
 date: 2025-07-22
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/07/banner-nota-informativa.jpg"
+image: "/documentos/media/2025/banner-nota-informativa.jpg"
 excerpt: "La Agencia ITRC fortalece su comunicación institucional con la actualización del Manual de Comunicaciones La Agencia del Inspector General de Tributos,..."
 tags: ["noticias"]
 categoria: noticia

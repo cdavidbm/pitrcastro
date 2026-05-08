@@ -1,7 +1,7 @@
 ---
 title: "AGENCIA ITRC invita a denunciar la corrupción a través de su nuevo sistema de denuncia virtual"
 date: 2019-10-28
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/10/DSC_0324.jpg"
+image: "/documentos/media/2019/DSC_0324.jpg"
 excerpt: "La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales –ITRC, realiza el lanzamiento del Sistema de Denuncia Virtual con el..."
 tags: ["noticias"]
 categoria: noticia

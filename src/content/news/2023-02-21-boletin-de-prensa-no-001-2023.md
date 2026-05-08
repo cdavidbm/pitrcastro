@@ -36,4 +36,4 @@ Asimismo, se informa que mediante Resolución **No. 036 del 20 de febrero de 202
 
 .title-section{display:none!important;}p{hyphens:none!important;text-align:justify;}
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Comunicado-de-Prensa-01-Agencia-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Comunicado-de-Prensa-01-Agencia-ITRC.pdf)

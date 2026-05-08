@@ -20,4 +20,4 @@ Asimismo, ITRC, verificará mensualmente que el traslado de esos recursos llegue
 
 Desde su labor misional preventiva, la Agencia ITRC realiza auditoría y control sobre la DIAN, COLJUEGOS y la UGPP para prevenir actos de fraude y corrupción.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Boletin-014-AGENCIA-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-014-AGENCIA-ITRC.pdf)

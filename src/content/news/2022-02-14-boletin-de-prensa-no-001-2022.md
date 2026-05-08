@@ -28,4 +28,4 @@ En ese contexto, la estructura actual de las subdirecciones de la Agencia ITRC e
 
 La Agencia ITRC, entidad adscrita al Ministerio de Hacienda y Crédito Público, ejerce vigilancia y control en la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscales -UGPP.  Desde su labor preventiva y sancionatoria, tiene la facultad de auditar los procesos misionales, operativos, tecnológicos y administrativos, así como, investigar y sancionar a los funcionarios por conductas irregulares y faltas disciplinarias gravísimas.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/02/Boletin-01-de-2022-Agencia-ITRC-of.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-01-de-2022-Agencia-ITRC-of.pdf)

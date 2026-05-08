@@ -18,4 +18,4 @@ La nueva directora es Contadora de la Universidad Pública de Pamplona, quien se
 
 Con su posesión en el cargo, la directora liderará a la Agencia ITRC, entidad que tiene como misión, proteger el patrimonio público frente a acciones de fraude y corrupción, mediante un modelo especializado e innovador de prevención, aseguramiento e investigación disciplinaria, para fortalecer la transparencia y la efectividad en las entidades objeto de control.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Comunicado-de-Prensa-Agencia-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Comunicado-de-Prensa-Agencia-ITRC.pdf)

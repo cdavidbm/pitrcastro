@@ -4,20 +4,20 @@
   "fecha": "2019-09-17",
   "descripcion": "",
   "portada": {
-    "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/DSC_0177-1024x683.jpg",
+    "url": "/documentos/media/2019/DSC_0177-1024x683.jpg",
     "alt": "Visitas Internacionales"
   },
   "imagenes": [
     {
-      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/DSC_0177-1024x683.jpg",
+      "url": "/documentos/media/2019/DSC_0177-1024x683.jpg",
       "alt": "Visitas Internacionales"
     },
     {
-      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/IMG-3420-1024x768.jpg",
+      "url": "/documentos/media/2019/IMG-3420-1024x768.jpg",
       "alt": "Visitas Internacionales"
     },
     {
-      "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/09/REINO-UNIDO-1024x683.jpg",
+      "url": "/documentos/media/2019/REINO-UNIDO-1024x683.jpg",
       "alt": "Visitas Internacionales"
     }
   ],

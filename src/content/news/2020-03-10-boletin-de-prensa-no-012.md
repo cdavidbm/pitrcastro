@@ -24,4 +24,4 @@ La Agencia ITRC calificó provisionalmente la presunta falta del investigado com
 
 El disciplinado podrá solicitar o aportar pruebas pertinentes para su defensa
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/03/Boletin-012-AGENCIA-ITRC-CASO-AMBUILA.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-012-AGENCIA-ITRC-CASO-AMBUILA.pdf)

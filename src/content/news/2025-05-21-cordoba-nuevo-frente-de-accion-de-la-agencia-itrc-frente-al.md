@@ -1,7 +1,7 @@
 ---
 title: "Córdoba, nuevo frente de acción de la Agencia ITRC frente al fraude y la corrupción"
 date: 2025-05-21
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/Image.jpeg"
+image: "/documentos/media/2025/Image.jpeg"
 excerpt: "Bogotá, 21 de mayo de 2025 Montería será la sede del encuentro 'Fortalecimiento de la participación' ciudadana en la denuncia contra la corrupción y por la..."
 tags: ["noticias"]
 categoria: noticia

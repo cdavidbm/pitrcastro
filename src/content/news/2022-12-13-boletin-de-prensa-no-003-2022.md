@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 003 2022"
 date: 2022-12-13
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-14-at-10.15.26-AM.jpeg"
+image: "/documentos/media/2022/WhatsApp-Image-2022-12-14-at-10.15.26-AM.jpeg"
 excerpt: "Agencia ITRC realizará su audiencia pública de Rendición de Cuentas 2022 Boletín de Prensa 003 - 13 de diciembre de 2022 Invitamos a la ciudadanía, grupos..."
 tags: ["noticias", "boletines"]
 categoria: boletin
@@ -12,7 +12,7 @@ draft: false
 
  
 
-![Boletin de prensa numero 3 del 2022](https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-14-at-10.15.26-AM-1024x661.jpeg)
+![Boletin de prensa numero 3 del 2022](/documentos/media/2022/WhatsApp-Image-2022-12-14-at-10.15.26-AM-1024x661.jpeg)
 
  
 
@@ -34,4 +34,4 @@ Durante la Audiencia Pública, podrá enviar preguntas sobre temas relacionados 
 
 La Agencia ITRC, entidad adscrita al Ministerio de Hacienda y Crédito Público, ejerce vigilancia y control en la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscales -UGPP. Desde su labor preventiva y sancionatoria, tiene la facultad de auditar los procesos misionales, operativos, tecnológicos y administrativos de estas entidades vigiladas, así como, investigar y sancionar a los funcionarios por conductas irregulares y faltas disciplinarias gravísimas.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/12/boletin.pdf)
+[Descargar Boletín](/documentos/media/prensa/boletin.pdf)

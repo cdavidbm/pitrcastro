@@ -22,4 +22,4 @@ Contra este fallo de segunda instancia no procede recurso.
 
 En su misión de proteger el patrimonio público contra acciones de fraude y corrupción, la Agencia tiene la facultad de ejercer control y sanción disciplinaria contra servidores públicos de la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscal -UGPP.
 
-[Descarga Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/03/Boletin-de-Prensa-Agencia-ITRC.pdf)
+[Descarga Boletín](/documentos/media/prensa/Boletin-de-Prensa-Agencia-ITRC.pdf)

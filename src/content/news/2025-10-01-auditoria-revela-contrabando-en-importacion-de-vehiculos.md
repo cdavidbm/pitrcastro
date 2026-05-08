@@ -40,4 +40,4 @@ Los diplomáticos colombianos que regresan al país al finalizar su misión goza
 
 Cabe resaltar que los más de treinta y ocho mil millones de pesos dejados de pagar afectan gravemente las finanzas del Estado y su capacidad de recaudo aduanero.
 
-[DESCARGAR BOLETÍN](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/10/ITRC-revela-que-la-DIAN-dejo-de-recaudar-una-millonaria-suma-en-tributos-aduaneros-por-la-importacion-de-vehiculos-realizada-por-diplomaticos-colombianos.pdf)
+[DESCARGAR BOLETÍN](/documentos/media/prensa/ITRC-revela-que-la-DIAN-dejo-de-recaudar-una-millonaria-suma-en-tributos-aduaneros-por-la-importacion-de-vehiculos-realizada-por-diplomaticos-colombianos.pdf)

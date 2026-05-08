@@ -20,4 +20,4 @@ Este convenio fue suscrito por la directora general de la Agencia ITRC, Diana Ri
 
 La Agencia ITRC, entidad adscrita al Ministerio de Hacienda y Crédito Público, desde su labor preventiva y sancionatoria ejerce vigilancia y control en la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscales -UGPP. La entidad tiene la facultad de investigar y sancionar las conductas por faltas disciplinarias gravísimas, así como la facultad de auditar los procesos operativos, tecnológicos y administrativos de estas entidades vigiladas, partiendo de la identificación, análisis y valoración de riesgos que amenacen los procesos, áreas y funcionarios de las entidades objeto de control.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/Boletín-de-Prensa-024-Agencia-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletín-de-Prensa-024-Agencia-ITRC.pdf)

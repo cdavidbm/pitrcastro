@@ -20,4 +20,4 @@ El evento virtual contó con la participación de más de 2500 servidores públi
 
 La Agencia ITRC continuará promoviendo esta campaña pedagógica en su labor preventiva durante el 2021.
 
-[Descarga Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/12/Boletín-de-Prensa-026-Agencia-ITRC.pdf)
+[Descarga Boletín](/documentos/media/prensa/Boletín-de-Prensa-026-Agencia-ITRC.pdf)

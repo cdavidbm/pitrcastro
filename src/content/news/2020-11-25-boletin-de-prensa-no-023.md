@@ -20,4 +20,4 @@ Durante la audiencia pública, la Directora General de la Agencia ITRC, Diana Ri
 
 Durante la audiencia pública los ciudadanos podrán remitir sus preguntas al correo [rendiciondecuentas@itrc.gov.co](mailto:rendiciondecuentas@itrc.gov.co)  o a través de las redes sociales de la entidad.  Asimismo, se encuentra publicado en la página web de la entidad [www.itrc.gov.co](http://www.itrc.gov.co), el informe de rendición de cuentas vigencia 2020 para consulta y acceso de todos los ciudadanos.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/11/Boletín-de-Prensa-023-Agencia-ITRC-Rendición-de-Cuentas.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletín-de-Prensa-023-Agencia-ITRC-Rendición-de-Cuentas.pdf)

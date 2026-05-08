@@ -42,4 +42,4 @@ En materia aduanera, la Agencia ITRC también cumplió un papel determinante al 
 
 La Agencia ITRC le cumple a Colombia.
 
-[Comunicado de prensa - Medellín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Comunicado-de-prensa-Medellin-.pdf)[Descarga](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Comunicado-de-prensa-Medellin-.pdf)
+[Comunicado de prensa - Medellín](/documentos/media/prensa/Comunicado-de-prensa-Medellin-.pdf)[Descarga](/documentos/media/prensa/Comunicado-de-prensa-Medellin-.pdf)

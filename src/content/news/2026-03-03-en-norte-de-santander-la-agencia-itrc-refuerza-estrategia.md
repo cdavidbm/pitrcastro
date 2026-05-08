@@ -1,7 +1,7 @@
 ---
 title: "En Norte de Santander, la Agencia ITRC refuerza estrategia nacional contra la corrupción fiscal"
 date: 2026-03-03
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-1.jpeg"
+image: "/documentos/media/2026/ITRC-1.jpeg"
 excerpt: "En Norte de Santander, la Agencia ITRC refuerza estrategia nacional contra la corrupción fiscal Cúcuta, Norte de Santander – 2026. En el marco del Encuentro..."
 tags: ["noticias"]
 categoria: noticia
@@ -56,12 +56,12 @@ La Agencia ITRC invita a la ciudadanía a denunciar cualquier conducta irregular
 
 - www.itrc.gov.co
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-1.jpeg)
+![](/documentos/media/2026/ITRC-1.jpeg)
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-3.jpeg)
+![](/documentos/media/2026/ITRC-3.jpeg)
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-8.jpeg)
+![](/documentos/media/2026/ITRC-8.jpeg)
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-9.jpeg)
+![](/documentos/media/2026/ITRC-9.jpeg)
 
-![](https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/ITRC-11.jpeg)
+![](/documentos/media/2026/ITRC-11.jpeg)

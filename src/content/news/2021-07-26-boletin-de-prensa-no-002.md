@@ -24,4 +24,4 @@ La conducta de Peña Pérez fue calificada como una falta gravísima cometida a 
 
 La Agencia ITRC, entidad adscrita al Ministerio de Hacienda y Crédito Público, ejerce vigilancia y control en la DIAN, Coljuegos y la Unidad de Gestión Pensional y Parafiscales -UGPP.  Desde su labor preventiva y sancionatoria, tiene la facultad de auditar los procesos misionales, operativos, tecnológicos y administrativos de estas entidades vigiladas, así como, investigar y sancionar a los funcionarios por conductas irregulares y faltas disciplinarias gravísimas.
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2021/07/Boletin-de-Prensa-002-1.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-de-Prensa-002-1.pdf)

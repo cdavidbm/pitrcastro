@@ -41,4 +41,4 @@ proteger el patrimonio público.
 
 15 de mayo de 2020
 Boletín de Prensa 015 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/09/Boletin-015-AGENCIA-ITRC-PLIEGO-DE-CARGOS-CONTRA-OMAR-AMBUILA.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-015-AGENCIA-ITRC-PLIEGO-DE-CARGOS-CONTRA-OMAR-AMBUILA.pdf)

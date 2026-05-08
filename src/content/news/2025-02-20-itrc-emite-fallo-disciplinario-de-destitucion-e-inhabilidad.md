@@ -1,7 +1,7 @@
 ---
 title: "ITRC emite fallo disciplinario de destitución e inhabilidad general contra funcionaria de la DIAN"
 date: 2025-02-20
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/Notijuridico-10-2.png"
+image: "/documentos/media/2025/Notijuridico-10-2.png"
 excerpt: "Bogotá, febrero 20 de 2025. La Agencia ITRC sancionó disciplinariamente con destitución e inhabilidad general de diez (10) años, a una funcionaria de la..."
 tags: ["noticias"]
 categoria: noticia
@@ -18,4 +18,4 @@ Contra el fallo de primera instancia, la sancionada interpuso recurso de apelaci
 
 Es importante resaltar que la misión de la Agencia ITRC, es la de proteger el patrimonio público frente a acciones de fraude y corrupción de las entidades vigiladas, las cuales son: DIAN, COLJUEGOS y UGPP.
 
-[Descargar Comunicado](https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/NOTA-FALLO-DISCIPLINARIO-ASUNTOS-LEGALES-logo-superior.pdf)
+[Descargar Comunicado](/documentos/media/prensa/NOTA-FALLO-DISCIPLINARIO-ASUNTOS-LEGALES-logo-superior.pdf)

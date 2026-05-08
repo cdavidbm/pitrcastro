@@ -41,7 +41,7 @@
     },
     {
       "items": [
-        { "texto": "Portafolio de servicios", "url": "https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/11/Portafolio-de-servicios-Agencia-ITRC.pdf", "tipo": "external" },
+        { "texto": "Portafolio de servicios", "url": "/documentos/home/Portafolio-de-servicios-Agencia-ITRC.pdf", "tipo": "external" },
         { "texto": "Normativa aplicable", "url": "normativa-aplicada", "tipo": "internal" },
         { "texto": "Colombia compra eficiente", "url": "https://www.colombiacompra.gov.co/", "tipo": "external" },
         { "texto": "Sistema Único de Información Normativa", "url": "https://www.suin-juriscol.gov.co/", "tipo": "external" },

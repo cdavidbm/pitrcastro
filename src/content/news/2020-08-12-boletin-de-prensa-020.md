@@ -20,4 +20,4 @@ El evento está dirigido a la ciudadanía en general y pretende fomentar el ejer
 
 Para realizar la inscripción por favor hacer clic en el siguiente enlace: [https://www.itrc.gov.co/inscripcion/](https://www.itrc.gov.co/inscripcion/)
 
-[Descargar Boletín](https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/08/Boletin-020-AGENCIA-ITRC.pdf)
+[Descargar Boletín](/documentos/media/prensa/Boletin-020-AGENCIA-ITRC.pdf)

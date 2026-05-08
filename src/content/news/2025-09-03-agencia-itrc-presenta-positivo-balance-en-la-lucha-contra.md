@@ -1,7 +1,7 @@
 ---
 title: "Agencia ITRC presenta positivo balance en la lucha contra la corrupción"
 date: 2025-09-03
-image: "https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/boletin.png"
+image: "/documentos/media/2025/boletin.png"
 excerpt: "Quinientos setenta y seis procesos disciplinarios contra funcionarios de las entidades vigiladas, por presuntas conductas disciplinarias relacionadas con..."
 tags: ["noticias"]
 categoria: noticia
