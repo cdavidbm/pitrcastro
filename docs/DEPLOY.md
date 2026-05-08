@@ -2,6 +2,8 @@
 
 Esta guía cubre el flujo de despliegue **actual** del portal ITRC al servidor de pruebas. Para el plan completo de la arquitectura (auto-deploy, dominio público, TLS), ver [`docs/manual-operador/09-despliegue-datacenter.md`](manual-operador/09-despliegue-datacenter.md).
 
+> **Auto-deploy operativo desde 2026-05-08.** Cada `push` a `main` dispara el workflow `.github/workflows/deploy.yml` que corre en runner self-hosted. Cambios solo en `docs/`, `README.md`, `LICENSE`, `.gitignore`, `CLAUDE.md` o `GEMINI.md` **no disparan deploy** (paths-ignore configurado).
+
 ## TL;DR
 
 ```bash
