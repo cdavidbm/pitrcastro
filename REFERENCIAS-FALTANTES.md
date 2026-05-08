@@ -10,7 +10,7 @@
 > - `duplicado-en-origen`: el mismo PDF aparece múltiples veces en WP (preservado tal cual).
 > - `enlace-externo-perdido`: sistema externo citado por WP ya no existe (SIRECI viejo, Liferay legacy, etc.).
 >
-> **Última actualización**: 2026-04-15
+> **Última actualización**: 2026-05-08
 
 ---
 
@@ -37,7 +37,8 @@
 | AUDIT-6 Prensa | Sin correcciones; 2 URLs 404 en WP (boletines legacy) |
 | AUDIT-7 Observatorio | Sin correcciones; 3 páginas con texto descriptivo WP más largo (memorias, del-observatorio) pero 0 deltas de contenido/PDFs |
 | AUDIT-8 Contratación/Informes/Vigencias | Sin correcciones; 55 URLs legacy `/pestana/documentos/` dan 404, 2 URLs a intranet privada dan 301 |
-| **Total** | **~100+ items bajo auditoría** |
+| **BIN-4 (2026-05-08)** | **273 binarios referenciados desde 37 JSONs no existen** en `public/documentos/`. Detectado al ejecutar `scripts/rewrite-urls.py`. Mayoría coincide con los 255 ya reportados como 404 en WP origen (`reports/binarios-404-wp.md`). Top: ejecucion-contratos.json (50), contratacion-suscrita.json (46), planes.json (44), informes.json (31), resoluciones.json (15). Listado detallado en `reports/bin4-missing-files.json` (gitignored). |
+| **Total** | **~370+ items bajo auditoría** |
 
 ---
 
@@ -409,6 +410,36 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 **Cómo se manejó en el portal nuevo**: se preservó fidelidad 1:1 con el origen — los 314 items (73 duplicados incluidos) se migraron tal cual, organizados en 6 paneles colapsables por vigencia. La limpieza editorial (mantener cada PDF en una sola vigencia) es tarea sugerida pero no ejecutada — puede hacerse desde Sveltia CMS.
 
 **Pendiente**: decidir si se consolida la lista (mantener cada PDF una sola vez en la vigencia más representativa) o se preserva la redundancia original.
+
+---
+
+### BIN-4 — 273 binarios referenciados que no existen (consolidado)
+
+**Detectado**: 2026-05-08, al ejecutar `scripts/rewrite-urls.py --docs-base /documentos` (BIN-4: reescritura de URLs WP origen → paths locales).
+
+**Estado**: `enlace-roto` (273 archivos)
+
+**Descripción**: 273 de las 4452 URLs reescritas apuntan a archivos que no existen en `public/documentos/` ni en el filesystem del servidor. La mayoría (~92%) coincide con los 255 archivos ya reportados como 404 en el WP origen durante BIN-3a (`reports/binarios-404-wp.md`). Es decir: WP referencia archivos que él mismo no sirve; ya estaban rotos antes de migrar.
+
+**Distribución por JSON afectado** (top 10):
+
+| Archivo JSON | Refs rotas |
+|---|---:|
+| `pages/transparencia/contratacion/ejecucion-contratos.json` | 50 |
+| `pages/transparencia/contratacion/contratacion-suscrita.json` | 46 |
+| `pages/agencia/direccionamiento/planes.json` | 44 |
+| `pages/agencia/direccionamiento/informes.json` | 31 |
+| `pages/normativa/resoluciones.json` | 15 |
+| ... (32 más con 1-12 refs cada uno) | ~87 |
+
+**Cómo se maneja ahora**:
+- Las URLs en los JSONs **se reescribieron de WP a `/documentos/<area>/<archivo>`** igual que las que sí existen. Cuando un visitante haga click en una de estas URLs rotas, recibirá 404 desde nginx (mismo comportamiento que tenía WP origen).
+- El listado completo URL-por-URL queda en `reports/bin4-missing-files.json` (gitignored, generado por script auxiliar a partir de `bin4-rewrite-map.json`).
+- No se eliminaron las referencias del HTML/JSON: preservar fidelidad con el origen, dejar que cada área provea los faltantes desde Sveltia.
+
+**Pendiente / responsable**: las áreas afectadas (contratación, planeación, normativa) deben proveer los archivos faltantes o eliminar las referencias muertas. La aplicación Sveltia (cuando esté operativa con upload endpoint) facilitará esto. Hasta entonces, el operador puede:
+- Editar el JSON correspondiente en `src/content/pages/...` y eliminar la línea
+- O esperar a tener los PDFs y hacer `npm run deploy:binarios` con ellos en `public/documentos/<area>/`
 
 ---
 

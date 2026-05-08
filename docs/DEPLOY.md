@@ -11,14 +11,25 @@ Esta guía cubre el flujo de despliegue **actual** del portal ITRC al servidor d
 cp .env.deploy.example .env.deploy
 # editar .env.deploy con valores del servidor
 
-# Cada vez que quieras desplegar
+# Caso normal: push a main → auto-deploy via runner self-hosted
+git push origin main
+
+# Caso fallback: deploy manual de fallback (si el runner está caído)
 npm run deploy
+
+# Subir binarios (PDFs, imágenes, etc.) desde local al servidor
+npm run deploy:binarios
 ```
 
-`npm run deploy` ejecuta `bash ops/deploy.sh` que:
-1. Lee `.env.deploy`
-2. Compila con Astro usando `SITE_URL` y `BASE_PATH` del env
-3. Sincroniza `dist/` al servidor con `rsync --delete` por SSH
+### Tres flujos distintos
+
+| Cuándo usarlo | Qué hace |
+|---|---|
+| `git push` a `main` | Workflow `.github/workflows/deploy.yml` corre en runner self-hosted: build + rsync + reload nginx + smoke test. Es el camino normal. |
+| `npm run deploy` | Igual, pero ejecutado localmente desde tu máquina. Fallback si el runner está caído. |
+| `npm run deploy:binarios` | **Solo binarios**. Sube `public/documentos/` local al servidor sin `--delete`. Necesario porque los ~3.5 GB de binarios NO están commiteados al repo (gitignored), entonces ni el runner ni el deploy manual del sitio los conocen. |
+
+**Importante**: tanto el workflow como `npm run deploy` excluyen `/documentos/` del rsync. Eso evita que un deploy del sitio borre los binarios del servidor. El precio es que **los binarios viven solo en el filesystem del servidor + en el local del operador**. No hay backup automático todavía. Cuando exista el endpoint Node de uploads, este flujo se reemplaza.
 
 ## Prerrequisitos
 
