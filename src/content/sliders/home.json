@@ -42,34 +42,6 @@
       "link": "/agencia/mision-vision",
       "active": true,
       "order": 4
-    },
-    {
-      "image": "/images/slider-14-anios.jpg",
-      "imageAlt": "La Agencia ITRC cumple 14 años",
-      "overlay": false,
-      "active": true,
-      "order": 5
-    },
-    {
-      "image": "/images/slider-dia-agua.jpg",
-      "imageAlt": "Día Mundial del Agua",
-      "overlay": false,
-      "active": true,
-      "order": 6
-    },
-    {
-      "image": "/images/slider-choco-ec.jpg",
-      "imageAlt": "Encuentros Ciudadanos ITRC Chocó",
-      "overlay": false,
-      "active": true,
-      "order": 7
-    },
-    {
-      "image": "/images/slider-cundinamarca.jpg",
-      "imageAlt": "Encuentros Ciudadanos ITRC Cundinamarca",
-      "overlay": false,
-      "active": true,
-      "order": 8
     }
   ]
 }
