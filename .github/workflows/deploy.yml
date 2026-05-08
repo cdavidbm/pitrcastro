@@ -1,0 +1,56 @@
+name: Deploy to test server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita deploys simultáneos sobre el mismo branch.
+# Si llegan dos pushes, el segundo espera a que termine el primero (no cancela).
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: [self-hosted, itrc-server]
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          BASE_PATH: ${{ vars.BASE_PATH }}
+
+      - name: Sync dist/ to webroot
+        env:
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+        run: |
+          if [ -z "${DEPLOY_PATH}" ]; then
+            echo "ERROR: DEPLOY_PATH no configurado en repo variables" >&2
+            exit 1
+          fi
+          rsync -a --delete \
+            --exclude=".DS_Store" \
+            --exclude="Thumbs.db" \
+            dist/ "${DEPLOY_PATH%/}/"
+
+      - name: Reload nginx
+        run: sudo /usr/bin/systemctl reload nginx
+
+      - name: Smoke test
+        run: |
+          status=$(curl -s -o /dev/null -w '%{http_code}' http://localhost/)
+          if [ "$status" != "200" ]; then
+            echo "ERROR: home devolvió HTTP $status" >&2
+            exit 1
+          fi
+          echo "Sitio respondiendo HTTP 200 en localhost"
