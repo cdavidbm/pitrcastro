@@ -68,9 +68,16 @@ jobs:
           # --no-o --no-g: no intentar cambiar owner/group de archivos
           # (el runner no es root y archivos existentes pueden tener owner distinto;
           # el grupo lo hereda del setgid del dir parent)
+          # --exclude=/documentos/: NO sincronizar /documentos/ desde el repo. El
+          # repo solo tiene commiteados ciprep/ninos/relatorias (~50 MB); los demás
+          # ~3.5 GB de binarios viven solo en el filesystem del servidor (rsync
+          # manual desde local del operador hasta que exista el endpoint custom).
+          # Sin esta exclusión, --delete borraría todos los binarios no-commiteados
+          # en cada deploy automático.
           rsync -a --no-o --no-g --delete \
             --exclude=".DS_Store" \
             --exclude="Thumbs.db" \
+            --exclude="/documentos/" \
             dist/ "${DEPLOY_PATH%/}/"
 
       - name: Reload nginx

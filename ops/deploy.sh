@@ -42,10 +42,16 @@ echo "==> Sincronizando dist/ → ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
 # --no-t:        no set-times (solo el owner puede). Trade-off: rsync se basa
 #                en size para detectar cambios; suficiente para sitios estáticos
 #                regenerables (un re-build da contenido idéntico).
+# --exclude=/documentos/: ver comentario equivalente en .github/workflows/deploy.yml.
+#                Resumen: los binarios viven SOLO en el filesystem del servidor;
+#                sin esta exclusión, --delete borraría 3.5 GB en cada deploy.
+#                Para subir binarios usar `npm run deploy:binarios` (script
+#                separado, ver ops/deploy-binarios.sh).
 rsync -avz --no-o --no-g --no-p --no-t --delete \
   -e "${SSH_BIN}" \
   --exclude=".DS_Store" \
   --exclude="Thumbs.db" \
+  --exclude="/documentos/" \
   dist/ \
   "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
 

@@ -12,6 +12,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "deploy": "bash ops/deploy.sh",
+    "deploy:binarios": "bash ops/deploy-binarios.sh",
     "lint": "eslint 'src/**/*.{astro,ts}'",
     "format": "prettier --write 'src/**/*.{astro,ts,css}'",
     "astro": "astro",
