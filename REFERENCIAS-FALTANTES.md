@@ -38,7 +38,8 @@
 | AUDIT-7 Observatorio | Sin correcciones; 3 páginas con texto descriptivo WP más largo (memorias, del-observatorio) pero 0 deltas de contenido/PDFs |
 | AUDIT-8 Contratación/Informes/Vigencias | Sin correcciones; 55 URLs legacy `/pestana/documentos/` dan 404, 2 URLs a intranet privada dan 301 |
 | **BIN-4 (2026-05-08)** | **273 binarios referenciados desde 37 JSONs no existen** en `public/documentos/`. Detectado al ejecutar `scripts/rewrite-urls.py`. Mayoría coincide con los 255 ya reportados como 404 en WP origen (`reports/binarios-404-wp.md`). Top: ejecucion-contratos.json (50), contratacion-suscrita.json (46), planes.json (44), informes.json (31), resoluciones.json (15). Listado detallado en `reports/bin4-missing-files.json` (gitignored). |
-| **Total** | **~370+ items bajo auditoría** |
+| **BIN-5 (2026-05-08)** | **350 enlaces externos detectados como missing** vs WP origen al correr `scripts/audit-links.py`. Análisis: ~204 son **falsos positivos predecibles** (ConverTIC eliminado a propósito + botones share descontinuados, ambos en cada layout). ~104 a `www.funcionpublica.gov.co` son **probablemente reales** (WP los tenía clickables, local los dejó como texto). ~40 misceláneos. Páginas con más gaps reales: `directorio-de-entidades` (14), `marco-legal` (9), `historico-sistema-de-control-interno` (8). Detalle en `reports/audit-links-2026-05-08.json`. |
+| **Total** | **~720+ items bajo auditoría** (mayoría en categorías ya conocidas) |
 
 ---
 
