@@ -38,7 +38,10 @@ jobs:
             echo "ERROR: DEPLOY_PATH no configurado en repo variables" >&2
             exit 1
           fi
-          rsync -a --delete \
+          # --no-o --no-g: no intentar cambiar owner/group de archivos
+          # (el runner no es root y archivos existentes pueden tener owner distinto;
+          # el grupo lo hereda del setgid del dir parent)
+          rsync -a --no-o --no-g --delete \
             --exclude=".DS_Store" \
             --exclude="Thumbs.db" \
             dist/ "${DEPLOY_PATH%/}/"

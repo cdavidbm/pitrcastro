@@ -34,7 +34,10 @@ echo "==> Build con SITE_URL=${SITE_URL} BASE_PATH=${BASE_PATH}"
 SITE_URL="${SITE_URL}" BASE_PATH="${BASE_PATH}" npm run build
 
 echo "==> Sincronizando dist/ → ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
-rsync -avz --delete \
+# --no-o --no-g: no preservar owner/group para evitar conflictos con archivos
+# previamente creados por otro usuario (ej. el runner self-hosted). El grupo
+# se hereda del setgid del directorio destino (configurado en el server).
+rsync -avz --no-o --no-g --delete \
   -e "${SSH_BIN}" \
   --exclude=".DS_Store" \
   --exclude="Thumbs.db" \
