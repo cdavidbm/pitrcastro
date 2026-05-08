@@ -1,20 +1,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Detectar si estamos en produccion (GitHub Pages)
-const isProduction = process.env.NODE_ENV === 'production';
-const githubRepo = 'pitrcastro';
+// Configuración env-driven. Sin valores hardcoded de hosting.
+// Defaults seguros para desarrollo local; deploy/producción aportan vars.
+const SITE_URL = process.env.SITE_URL || 'http://localhost:4321';
+const BASE_PATH = process.env.BASE_PATH || '/';
 
-// https://astro.build/config
 export default defineConfig({
-  // En produccion usa GitHub Pages, en desarrollo usa localhost
-  site: isProduction
-    ? 'https://cdavidbm.github.io'
-    : 'http://localhost:4321',
-
-  // Base path solo en produccion (GitHub Pages)
-  base: isProduction ? `/${githubRepo}/` : '/',
-
+  site: SITE_URL,
+  base: BASE_PATH,
   output: 'static',
   trailingSlash: 'ignore',
   build: {

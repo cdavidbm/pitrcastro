@@ -4,6 +4,39 @@ Este capítulo describe cómo publicar el portal ITRC en el servidor institucion
 
 ---
 
+## Estado actual del despliegue (2026-05-08)
+
+El flujo descrito en este capítulo es la **arquitectura objetivo**. El estado real avanza por etapas; esta sección registra dónde estamos hoy.
+
+### ✅ Ya hecho (servidor de pruebas)
+
+- Servidor de pruebas (`192.168.82.13`, Ubuntu 24.04) configurado con nginx 1.24, ufw activo, llave SSH instalada.
+- Server block dedicado en `/etc/nginx/sites-available/itrc-web`, default site eliminado, security headers en producción.
+- Primer deploy del sitio Astro (~360 páginas + 3.5 GB de binarios) completado vía rsync.
+- `astro.config.mjs` migrado a configuración env-driven (`SITE_URL` + `BASE_PATH`), sin valores hardcoded.
+- Script `ops/deploy.sh` (`npm run deploy`) realiza build + rsync con configuración leída desde `.env.deploy` (gitignored).
+- Workflow de GitHub Pages eliminado (era solo para demos, no es el deploy oficial).
+- Para guía operativa rápida del deploy ver [`docs/DEPLOY.md`](../DEPLOY.md). Para detalles del servidor ver `.local-docs/SERVER.md` (interno).
+
+### ⏳ Pendiente para fase siguiente
+
+- **Auto-deploy con runner self-hosted**: hoy el deploy es manual (operador con VPN ejecuta `npm run deploy`). El plan estable es un GitHub Actions self-hosted runner instalado en el servidor (o en otra máquina dentro de la VPN) que dispare deploy automático en cada `push` a `main`. Sección D de este capítulo describe el workflow definitivo; lo que hoy está en `.github/workflows/` está vacío hasta entonces.
+- **`/admin/` accesible vía servidor**: actualmente bloqueado con `404` en nginx. Sin auto-deploy, los edits desde Sveltia se commitean al repo pero el sitio no se actualiza, lo que confundiría a webmasters. Se desbloquea cuando el runner esté operativo.
+- **Endpoint de upload para binarios**: la sección E de este capítulo describía meter los ~3.5 GB de binarios al repo git. **Esa decisión cambió** (ver detalle en sección E actualizada). El plan vigente es un endpoint Node liviano corriendo en el mismo servidor que reciba uploads desde Sveltia y los deposite en `/var/www/uploads/`, sin pasar por el repo. Hasta que ese endpoint exista, los binarios se sincronizan en cada `npm run deploy` (transitorio, no escala).
+- **TLS + dominio público**: el servidor solo es accesible vía VPN (HTTP plano sobre red privada). Para exposición pública se requiere DNS, Certbot/Let's Encrypt, redirect 80→443, HSTS.
+- **Política de backups**: los binarios no están en git. Hay que definir backup separado (rsync periódico a otra ubicación, snapshot LVM, o backup institucional).
+- **Self-hosted runner setup**: requiere Node, pat o token de runner, servicio systemd. No instalado aún.
+
+### ⚠ Decisiones operativas tomadas hoy que difieren del plan original
+
+| Decisión original (fase de planeación) | Decisión actual (2026-05-08) | Razón |
+|---|---|---|
+| Binarios commiteados al repo (~3.5 GB) | Binarios separados, endpoint dedicado pendiente | Repo bloat + 1100+ archivos planeados a migrar (fase BIN) lo hacen impráctico. |
+| GitHub Actions runner público con SSH al servidor | Self-hosted runner dentro de la VPN | El servidor es privado (`192.168.x.x`); los runners de github.com no pueden alcanzarlo. |
+| GitHub Pages como deploy oficial | Eliminado | Solo se usaba para demos personales; el datacenter ya es el destino oficial. |
+
+---
+
 ## A. Arquitectura general
 
 El portal es un sitio completamente estático: no hay base de datos, no hay PHP, no hay proceso de servidor en ejecución. Nginx recibe las peticiones HTTP y devuelve archivos generados previamente por Astro. El proceso de publicación sigue este flujo:
@@ -211,6 +244,8 @@ Si en el futuro algún documento o sección requiere autenticación (por ejemplo
 
 ## D. GitHub Action de despliegue
 
+> **Estado actual (2026-05-08):** esta sección describe el flujo objetivo (auto-deploy). En la etapa actual el deploy se ejecuta manualmente con `npm run deploy` (script `ops/deploy.sh`); el workflow de GitHub Actions descrito abajo aún no se ha creado. La diferencia clave con el plan original: **se usará un runner self-hosted dentro de la VPN** (no `runs-on: ubuntu-latest`) porque el servidor es privado y no es alcanzable desde los runners públicos de github.com. Cuando el runner esté instalado, el `runs-on` cambiará a `[self-hosted, itrc-deploy]` y los secretos `SSH_HOST`/`SSH_KEY`/etc. dejarán de ser necesarios (el runner ya está dentro de la red).
+
 ### Secretos necesarios en el repositorio
 
 Antes de crear el workflow, añada los siguientes secretos en GitHub: repositorio → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**.
@@ -300,17 +335,67 @@ jobs:
 
 ## E. Manejo de binarios
 
-### Cambio respecto a versiones anteriores del manual
+### Decisión vigente (2026-05-08): binarios fuera del repo, endpoint dedicado en el servidor
 
-En versiones anteriores del portal (cuando se contemplaba Azure Static Web Apps), la carpeta `public/documentos/` estaba excluida del repositorio mediante `.gitignore` para evitar superar los límites de Azure. **Eso ya no aplica.**
+> **Cambio respecto a la decisión del 2026-04-23.** En la fase de planeación se concluyó que con el datacenter propio (sin límite de tamaño tipo Azure SWA) tenía sentido commitear los ~3.5 GB de `public/documentos/` al repo. Tras revisar el flujo real con la perspectiva del webmaster y el volumen total esperado (~1100 archivos solo en migración + crecimiento orgánico), esa decisión cambió. Esta sección documenta la decisión nueva. El razonamiento original sobre Azure SWA queda como contexto histórico al final de la sección.
 
-Con el despliegue en el servidor propio del ITRC, `public/documentos/` **se trackea en git** junto con el resto del código fuente. Las razones son:
+#### Arquitectura de binarios
 
-- **No hay límite externo.** El servidor del ITRC no tiene la restricción de 500 MB de Azure SWA.
-- **Una sola fuente de verdad.** Los binarios viven en el mismo repositorio que los JSONs de contenido que los referencian. No hay estado separado que pueda desincronizarse.
-- **Sveltia CMS funciona correctamente.** El CMS puede subir archivos a `public/documentos/` y hacer commit automáticamente; el flujo no requiere configuración adicional.
-- **Rollback completo.** Si una actualización rompe algo, `git revert` restaura tanto el código como los documentos al estado anterior en un solo paso.
-- **Solo deltas.** El clone inicial del repositorio es pesado (aproximadamente 3,5 GB), pero los push y pull posteriores solo transfieren los archivos que cambiaron.
+```
+[Webmaster en Sveltia /admin]
+      │
+      │  sube PDF (formulario "Adjuntar archivo")
+      ▼
+[Endpoint Node ligero en el servidor] ← (autenticación: token compartido o reverse proxy)
+      │
+      │  guarda el archivo y devuelve URL pública
+      ▼
+[Filesystem del servidor: /var/www/uploads/...]
+      │
+      │  servido por nginx en /uploads/ (cacheado)
+      ▼
+[URL devuelta se pega en el campo del JSON de contenido]
+      │
+      │  el JSON se commitea al repo (solo metadatos, sin binario)
+      ▼
+[Auto-deploy compila el sitio con la URL ya escrita en el JSON]
+```
+
+Los binarios **nunca pasan por GitHub**. El repo solo contiene:
+- Código Astro / configuración / templates
+- JSONs y Markdown de contenido (que referencian binarios por URL relativa)
+
+Los binarios viven en `/var/www/uploads/` (separado del root del sitio) y nginx los sirve bajo `/uploads/`.
+
+#### Beneficios de este enfoque
+
+- **Repo pequeño y rápido**: clones, push y pull se mantienen ágiles incluso a largo plazo.
+- **Webmasters sin fricción**: el flujo "subir PDF + pegar datos" funciona como en cualquier CMS común; no hay que aprender git.
+- **Backups separados**: el código tiene git como historial; los binarios tienen su propia política de backup (más simple, no necesita historial granular por archivo).
+- **Coherente con el plan de migración**: los ~1100 binarios pendientes (fase BIN) se migran directo al servidor sin pasar por el repo.
+
+#### Trade-offs aceptados
+
+- **Hay que mantener el endpoint**: es un servicio adicional (Node + Express o similar) que requiere monitoreo y actualización ocasional.
+- **No hay rollback transaccional con git**: si se sube un binario equivocado, hay que borrarlo manualmente del filesystem (no se puede `git revert`).
+- **El endpoint es punto único de subida**: si el endpoint cae, los webmasters no pueden subir archivos hasta que se restaure.
+
+#### Estado del trabajo
+
+- ⏳ **Endpoint pendiente.** Hoy los binarios suben al servidor en cada `npm run deploy` (porque `dist/` los incluye al copiar `public/`). Este es un workaround transitorio.
+- ⏳ **Configuración de Sveltia pendiente.** El `media_folder` y `media_library` se reconfigurarán cuando el endpoint esté operativo.
+- ⏳ **Migración de los ~1100 binarios actuales** (fase BIN-4): se hará vía rsync directo al `/var/www/uploads/` una vez exista la estructura, no commiteándolos al repo.
+
+#### Contexto histórico (decisión del 2026-04-23, ya superada)
+
+En versiones anteriores del portal (cuando se contemplaba Azure Static Web Apps), la carpeta `public/documentos/` estaba excluida del repositorio mediante `.gitignore` para evitar superar los límites de Azure. Al confirmarse el datacenter propio en abril 2026, se planeó commitear los binarios al repo aprovechando que ya no había límite externo. Las razones que se esgrimieron entonces eran:
+
+- No hay límite externo de tamaño en el servidor propio.
+- Una sola fuente de verdad: binarios y referencias en el mismo lugar.
+- Rollback transaccional con `git revert`.
+- Solo deltas viajan en push/pull posteriores.
+
+La revisión de mayo concluyó que esos beneficios no compensan el costo de un repo de varios GB para webmasters no técnicos, y que un endpoint dedicado da una experiencia más cercana a lo que esperan (CMS clásico).
 
 ### Configuración de `DOCS_BASE_URL`
 
