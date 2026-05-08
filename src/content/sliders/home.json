@@ -5,26 +5,19 @@
   "interval": 6000,
   "slides": [
     {
-      "image": "/images/slider-dia-de-la-tierra.jpg",
-      "imageAlt": "Día Mundial de la Tierra",
-      "overlay": false,
-      "active": true,
-      "order": 0
-    },
-    {
       "image": "/images/slider-transparencia-2026.jpg",
       "imageAlt": "Participa en la construcción del Programa de Transparencia y Ética Pública de la Agencia ITRC",
       "overlay": false,
       "link": "/transparencia",
       "active": true,
-      "order": 1
+      "order": 0
     },
     {
       "image": "/images/slider-plan-accion-2026.jpg",
       "imageAlt": "Participa en la construcción del Plan de Acción 2025 de la Agencia ITRC",
       "overlay": false,
       "active": true,
-      "order": 2
+      "order": 1
     },
     {
       "image": "/images/slider-observatorio.jpg",
@@ -32,7 +25,7 @@
       "overlay": false,
       "link": "/observatorio/eje-de-medicion",
       "active": true,
-      "order": 3
+      "order": 2
     },
     {
       "image": "/images/slider-notificaciones.png",
@@ -40,7 +33,7 @@
       "overlay": false,
       "link": "/notificaciones-y-traslados",
       "active": true,
-      "order": 4
+      "order": 3
     },
     {
       "image": "/images/slider-entidades-vigiladas.png",
@@ -48,35 +41,35 @@
       "overlay": false,
       "link": "/agencia/mision-vision",
       "active": true,
-      "order": 5
+      "order": 4
     },
     {
       "image": "/images/slider-14-anios.jpg",
       "imageAlt": "La Agencia ITRC cumple 14 años",
       "overlay": false,
       "active": true,
-      "order": 6
+      "order": 5
     },
     {
       "image": "/images/slider-dia-agua.jpg",
       "imageAlt": "Día Mundial del Agua",
       "overlay": false,
       "active": true,
-      "order": 7
+      "order": 6
     },
     {
       "image": "/images/slider-choco-ec.jpg",
       "imageAlt": "Encuentros Ciudadanos ITRC Chocó",
       "overlay": false,
       "active": true,
-      "order": 8
+      "order": 7
     },
     {
       "image": "/images/slider-cundinamarca.jpg",
       "imageAlt": "Encuentros Ciudadanos ITRC Cundinamarca",
       "overlay": false,
       "active": true,
-      "order": 9
+      "order": 8
     }
   ]
 }
