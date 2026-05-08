@@ -861,6 +861,7 @@ function loteTEntries() {
             },
           ],
         },
+        relatedLinksField({ label: "Entes externos de control" }),
       ],
     },
   ];

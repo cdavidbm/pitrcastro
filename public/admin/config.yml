@@ -1724,6 +1724,26 @@ collections:
                     label: URL
                     widget: string
                     required: true
+          - name: enlacesRelacionados
+            label: Entes externos de control
+            widget: list
+            label_singular: Enlace
+            required: false
+            collapsed: true
+            fields:
+              - name: titulo
+                label: Título
+                widget: string
+              - name: descripcion
+                label: Descripción
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icono FontAwesome
+                widget: string
+                required: false
       - name: audios-itrc
         label: Audios institucionales ITRC
         file: src/content/pages/institucional/audios-itrc.json

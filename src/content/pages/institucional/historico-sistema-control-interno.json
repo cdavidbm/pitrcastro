@@ -239,5 +239,37 @@
         }
       ]
     }
+  ],
+  "enlacesRelacionados": [
+    {
+      "titulo": "Contaduría General de la Nación",
+      "descripcion": "Ente externo que regula la información contable pública",
+      "url": "https://www.contaduria.gov.co/",
+      "icon": "fa-calculator"
+    },
+    {
+      "titulo": "Contraloría General de la República",
+      "descripcion": "Control fiscal externo del Estado",
+      "url": "https://www.contraloria.gov.co/",
+      "icon": "fa-magnifying-glass-dollar"
+    },
+    {
+      "titulo": "Ministerio de Hacienda y Crédito Público",
+      "descripcion": "Ente rector de la política fiscal",
+      "url": "https://www.minhacienda.gov.co/webcenter/portal/Minhacienda",
+      "icon": "fa-landmark-dome"
+    },
+    {
+      "titulo": "Departamento Administrativo de la Función Pública (DAFP)",
+      "descripcion": "Política pública en materia administrativa y de control interno",
+      "url": "https://portal.dafp.gov.co/portal/page/portal/home",
+      "icon": "fa-people-roof"
+    },
+    {
+      "titulo": "Procuraduría General de la Nación",
+      "descripcion": "Control disciplinario y vigilancia del cumplimiento de la ley",
+      "url": "https://www.procuraduria.gov.co/",
+      "icon": "fa-scale-balanced"
+    }
   ]
 }
