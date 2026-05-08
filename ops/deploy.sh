@@ -47,7 +47,7 @@ echo "==> Sincronizando dist/ → ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
 #                sin esta exclusión, --delete borraría 3.5 GB en cada deploy.
 #                Para subir binarios usar `npm run deploy:binarios` (script
 #                separado, ver ops/deploy-binarios.sh).
-rsync -avz --no-o --no-g --no-p --no-t --delete \
+rsync -avz --no-o --no-g --no-p --no-t --chmod=Dg+rwX,Fg+rw --delete \
   -e "${SSH_BIN}" \
   --exclude=".DS_Store" \
   --exclude="Thumbs.db" \

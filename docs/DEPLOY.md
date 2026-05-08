@@ -50,19 +50,24 @@ npm run deploy:binarios
 | `DEPLOY_HOST` | `192.168.82.13` | Host SSH del servidor. |
 | `DEPLOY_USER` | `admweb` | Usuario SSH (debe poder escribir en `DEPLOY_PATH`). |
 | `DEPLOY_PATH` | `/var/www/itrc-web` | Carpeta servida por nginx. |
-| `SSH_BIN` *(opcional)* | `/mnt/c/Windows/System32/OpenSSH/ssh.exe` | Forzar binario SSH específico. Necesario en WSL si la VPN corre en Windows. |
+| `SSH_BIN` *(opcional)* | `ssh` | Forzar binario SSH específico. Por defecto usa el del PATH. |
 
 ## Notas importantes
 
-### El binario SSH desde WSL
+### Acceso a la VPN desde WSL
 
-Si trabajas en WSL y la VPN está en Windows (caso típico con FortiClient), WSL **no ve** las rutas de la VPN. Hay que usar el `ssh.exe` de Windows que sí las ve:
+El servidor de pruebas vive en `192.168.82.13`, accesible sólo por VPN FortiClient. La VPN se mantiene en el host Windows; WSL la "ve" gracias a `networkingMode=mirrored` configurado en `%UserProfile%\.wslconfig`:
 
+```ini
+[wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+autoProxy=true
 ```
-SSH_BIN=/mnt/c/Windows/System32/OpenSSH/ssh.exe
-```
 
-`rsync` usa este binario para conectar al servidor sin tocar configuración de WSL.
+Con esa configuración (Windows 11 + WSL 2.x), `ssh`, `rsync`, `curl` nativos de Linux funcionan contra la VPN sin modificación. Si por alguna razón hay que volver al modelo anterior (WSL aislado + ssh.exe del host), descomentar `SSH_BIN=/mnt/c/Windows/System32/OpenSSH/ssh.exe` en `.env.deploy`.
+
+Para aplicar cambios en `.wslconfig`: `wsl --shutdown` desde PowerShell y reabrir WSL.
 
 ### Lo que viaja al servidor
 

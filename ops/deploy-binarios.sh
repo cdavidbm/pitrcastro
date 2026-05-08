@@ -49,7 +49,7 @@ echo ""
 
 # SIN --delete por seguridad: si alguien subió algo al servidor que no
 # está en el repo, no lo perdemos. Para borrar uses rsync --delete manual.
-rsync -avz --no-o --no-g --no-p --no-t \
+rsync -avz --no-o --no-g --no-p --no-t --chmod=Dg+rwX,Fg+rw \
   -e "${SSH_BIN}" \
   --exclude=".DS_Store" \
   --exclude="Thumbs.db" \
