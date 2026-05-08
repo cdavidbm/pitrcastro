@@ -14,18 +14,19 @@ El flujo descrito en este capítulo es la **arquitectura objetivo**. El estado r
 - Server block dedicado en `/etc/nginx/sites-available/itrc-web`, default site eliminado, security headers en producción.
 - Primer deploy del sitio Astro (~360 páginas + 3.5 GB de binarios) completado vía rsync.
 - `astro.config.mjs` migrado a configuración env-driven (`SITE_URL` + `BASE_PATH`), sin valores hardcoded.
-- Script `ops/deploy.sh` (`npm run deploy`) realiza build + rsync con configuración leída desde `.env.deploy` (gitignored).
+- Script `ops/deploy.sh` (`npm run deploy`) realiza build + rsync con configuración leída desde `.env.deploy` (gitignored). Sirve como fallback manual cuando el runner está caído.
+- **Auto-deploy con runner self-hosted**: instalado y operativo. Cada `git push` a `main` dispara `.github/workflows/deploy.yml`, que corre en el runner (`runs-on: [self-hosted, itrc-server]`). Pasos: checkout, npm ci, build, rsync local a `/var/www/itrc-web/`, reload nginx, smoke test.
+- Variables del workflow leídas desde **Repository variables** de GitHub (`SITE_URL`, `BASE_PATH`, `DEPLOY_PATH`) — sin hardcoded en el repo.
 - Workflow de GitHub Pages eliminado (era solo para demos, no es el deploy oficial).
 - Para guía operativa rápida del deploy ver [`docs/DEPLOY.md`](../DEPLOY.md). Para detalles del servidor ver `.local-docs/SERVER.md` (interno).
 
 ### ⏳ Pendiente para fase siguiente
 
-- **Auto-deploy con runner self-hosted**: hoy el deploy es manual (operador con VPN ejecuta `npm run deploy`). El plan estable es un GitHub Actions self-hosted runner instalado en el servidor (o en otra máquina dentro de la VPN) que dispare deploy automático en cada `push` a `main`. Sección D de este capítulo describe el workflow definitivo; lo que hoy está en `.github/workflows/` está vacío hasta entonces.
-- **`/admin/` accesible vía servidor**: actualmente bloqueado con `404` en nginx. Sin auto-deploy, los edits desde Sveltia se commitean al repo pero el sitio no se actualiza, lo que confundiría a webmasters. Se desbloquea cuando el runner esté operativo.
-- **Endpoint de upload para binarios**: la sección E de este capítulo describía meter los ~3.5 GB de binarios al repo git. **Esa decisión cambió** (ver detalle en sección E actualizada). El plan vigente es un endpoint Node liviano corriendo en el mismo servidor que reciba uploads desde Sveltia y los deposite en `/var/www/uploads/`, sin pasar por el repo. Hasta que ese endpoint exista, los binarios se sincronizan en cada `npm run deploy` (transitorio, no escala).
+- **`/admin/` accesible vía servidor**: actualmente bloqueado con `404` en nginx. Aunque ya hay auto-deploy, falta decidir el CMS final (ver siguiente punto) antes de exponer `/admin`.
+- **Decisión sobre CMS** (sesión dedicada): Sveltia CMS es Git-based puro y solo soporta Cloudinary/Uploadcare como media library externa (servicios pagados, descartados para entidad pública). Hay que evaluar alternativas: TinaCMS (media plugins customizables), Directus, Strapi, Payload CMS (todos con media management built-in pero requieren BD + Node daemon corriendo). Trade-off: simplicidad Git-only vs CMS robusto con stack pesado.
+- **Endpoint de upload para binarios**: el diseño depende del CMS elegido. Si la decisión es mantener Sveltia + workaround, se construye endpoint genérico. Si es Directus/Strapi, ya viene con su propio media management. Sección E describe la arquitectura objetivo (binarios fuera del repo); sigue vigente como principio.
 - **TLS + dominio público**: el servidor solo es accesible vía VPN (HTTP plano sobre red privada). Para exposición pública se requiere DNS, Certbot/Let's Encrypt, redirect 80→443, HSTS.
 - **Política de backups**: los binarios no están en git. Hay que definir backup separado (rsync periódico a otra ubicación, snapshot LVM, o backup institucional).
-- **Self-hosted runner setup**: requiere Node, pat o token de runner, servicio systemd. No instalado aún.
 
 ### ⚠ Decisiones operativas tomadas hoy que difieren del plan original
 
@@ -244,7 +245,18 @@ Si en el futuro algún documento o sección requiere autenticación (por ejemplo
 
 ## D. GitHub Action de despliegue
 
-> **Estado actual (2026-05-08):** esta sección describe el flujo objetivo (auto-deploy). En la etapa actual el deploy se ejecuta manualmente con `npm run deploy` (script `ops/deploy.sh`); el workflow de GitHub Actions descrito abajo aún no se ha creado. La diferencia clave con el plan original: **se usará un runner self-hosted dentro de la VPN** (no `runs-on: ubuntu-latest`) porque el servidor es privado y no es alcanzable desde los runners públicos de github.com. Cuando el runner esté instalado, el `runs-on` cambiará a `[self-hosted, itrc-deploy]` y los secretos `SSH_HOST`/`SSH_KEY`/etc. dejarán de ser necesarios (el runner ya está dentro de la red).
+> **Estado actual (2026-05-08):** auto-deploy ya está operativo con runner self-hosted. La implementación actual difiere del flujo descrito originalmente abajo en aspectos clave que documentamos aquí. Esta sub-sección refleja el estado real; lo que sigue debajo (secretos SSH, `runs-on: ubuntu-latest`, etc.) era el plan inicial y queda como referencia histórica para cuando se traslade la arquitectura a otro entorno.
+>
+> **Diferencias respecto al plan original:**
+>
+> - **`runs-on: [self-hosted, itrc-server]`** (no `ubuntu-latest`). El servidor está en red privada (`192.168.x.x`); los runners públicos de github.com no pueden alcanzarlo.
+> - **Sin secretos SSH** (`SSH_HOST`/`SSH_KEY`/`SSH_USER`/`SSH_KNOWN_HOSTS`). El runner corre dentro del servidor mismo, por lo que copia archivos localmente sin SSH.
+> - **Sin `peaceiris/actions-gh-pages`** ni nada relacionado con GH Pages. Workflow eliminado.
+> - **Repository variables en lugar de hardcoded paths**: `SITE_URL`, `BASE_PATH`, `DEPLOY_PATH`. Se gestionan en GitHub → Settings → Actions → Variables.
+> - **Owner del webroot**: `github-runner:deploy` (no `portal-deploy:portal-deploy`). El usuario `admweb` mantiene acceso vía grupo `deploy`.
+> - **Sudo NOPASSWD**: `github-runner ALL=(ALL) NOPASSWD: /usr/bin/systemctl reload nginx` (solo el reload, no acceso sudo amplio).
+>
+> El workflow real vive en `.github/workflows/deploy.yml`. Para una guía operativa rápida ver [`docs/DEPLOY.md`](../DEPLOY.md).
 
 ### Secretos necesarios en el repositorio
 
