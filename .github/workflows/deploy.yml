@@ -3,6 +3,16 @@ name: Deploy to test server
 on:
   push:
     branches: [main]
+    # No disparar deploy cuando el push solo afecta archivos que no influyen
+    # en el sitio compilado. Ahorra ~5-7 min por edición de docs.
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - 'LICENSE'
+      - '.gitignore'
+      - 'CLAUDE.md'
+      - 'GEMINI.md'
+  # Permite disparar manualmente desde GitHub UI si hace falta
   workflow_dispatch:
 
 # Evita deploys simultáneos sobre el mismo branch.
@@ -18,6 +28,23 @@ jobs:
     timeout-minutes: 15
 
     steps:
+      - name: Show deploy context
+        # Datos del contexto github vienen de input de usuario (commit author,
+        # mensaje, etc.) — nunca interpolar directo en `run:` porque permitiría
+        # shell injection. Pasamos por `env:` y citamos como "$VAR".
+        env:
+          DEPLOY_SHA: ${{ github.sha }}
+          DEPLOY_ACTOR: ${{ github.actor }}
+          DEPLOY_TRIGGER: ${{ github.event_name }}
+          DEPLOY_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          echo "Commit:    $DEPLOY_SHA"
+          echo "Actor:     $DEPLOY_ACTOR"
+          echo "Trigger:   $DEPLOY_TRIGGER"
+          echo "Message:   $DEPLOY_MESSAGE"
+          echo "Started:   $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          echo "DEPLOY_START_TS=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -57,3 +84,20 @@ jobs:
             exit 1
           fi
           echo "Sitio respondiendo HTTP 200 en localhost"
+
+      - name: Deploy summary
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+          DEPLOY_SHA: ${{ github.sha }}
+          DEPLOY_SITE: ${{ vars.SITE_URL }}
+        run: |
+          end_ts=$(date +%s)
+          duration=$((end_ts - DEPLOY_START_TS))
+          minutes=$((duration / 60))
+          seconds=$((duration % 60))
+          echo "===================================="
+          echo "  Deploy $JOB_STATUS en ${minutes}m ${seconds}s"
+          echo "  Commit: $DEPLOY_SHA"
+          echo "  Sitio:  $DEPLOY_SITE"
+          echo "===================================="
