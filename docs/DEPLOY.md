@@ -75,7 +75,7 @@ Astro copia todo el contenido de `public/` a `dist/` durante el build. Esto sign
 
 ### `--delete` en rsync
 
-El script usa `rsync --delete`, lo que significa que **archivos que ya no existen en `dist/` se borran del servidor**. Esto mantiene el servidor sincronizado con tu build local. Si hay archivos que no deberían borrarse (uploads de Sveltia hechos en el servidor, cuando exista esa fase), van en una carpeta separada (`/var/www/uploads/` o similar) que rsync no toca.
+El script usa `rsync --delete`, lo que significa que **archivos que ya no existen en `dist/` se borran del servidor**. Esto mantiene el servidor sincronizado con tu build local. Los uploads administrados por Strapi viven en un volumen Docker dedicado (`itrc-cms-strapi-uploads`) y no son tocados por rsync.
 
 ## Diagnóstico de problemas comunes
 

@@ -1,5 +1,7 @@
 # Capítulo 1 — Introducción al portal ITRC
 
+> ⚠️ **Capítulo en revisión (mayo 2026).** Este texto fue escrito cuando el CMS planeado era Sveltia. En mayo de 2026 el portal cambió a **Strapi v5** como CMS oficial. La descripción general del portal sigue siendo válida (Astro estático, repositorio Git, despliegue automatizado); los detalles sobre Sveltia ya no aplican. Para la arquitectura actual ver `docs/arquitectura/arquitectura-portal-itrc.pdf` (v1.2).
+
 ## ¿Qué es el portal ITRC nuevo?
 
 El portal web de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) es el sitio institucional oficial de la entidad. Su propósito es publicar información pública de manera oportuna, cumplir con las obligaciones de transparencia establecidas por la Ley 1712 de 2014, y servir como canal de comunicación con la ciudadanía.

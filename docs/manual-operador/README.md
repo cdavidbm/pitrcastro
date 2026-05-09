@@ -2,6 +2,8 @@
 
 Manual de referencia para el webmaster o persona responsable de mantener el contenido del portal institucional de la Agencia ITRC.
 
+> ⚠️ **Estado: en migración (mayo 2026).** Este manual fue escrito para la pieza CMS Sveltia. En mayo de 2026 el portal migró a **Strapi v5** como CMS. Las rutas (`/admin/`), el modelo de cuentas y los flujos de publicación cambian respecto a lo descrito aquí. La fuente de verdad de la arquitectura actual es `docs/arquitectura/arquitectura-portal-itrc.pdf` (versión 1.2). Los capítulos de este manual se reescribirán para Strapi en una próxima iteración. Mientras tanto, los capítulos 04, 06, 07, 08, 09 siguen siendo válidos como referencia de manejo del repositorio y del servidor; los capítulos 02, 03, 05, 10 describen el flujo Sveltia ya sustituido y deben tomarse como histórico.
+
 ---
 
 ## Capítulos
