@@ -1,0 +1,32 @@
+# Stack de desarrollo del CMS (Strapi v5).
+#
+# Decisiones:
+#   - Postgres en Docker (reproducible, fácil de tirar abajo).
+#   - Strapi se ejecuta nativo desde ./cms-strapi (`npm run develop`),
+#     conectándose a este Postgres en localhost:5432. En POC eso da
+#     ciclo de iteración más rápido y mejor debugging.
+#   - Cuando el modelo se estabilice, dockerizamos Strapi también.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: itrc-cms-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${CMS_DB_NAME:-strapi}
+      POSTGRES_USER: ${CMS_DB_USER:-strapi}
+      POSTGRES_PASSWORD: ${CMS_DB_PASSWORD:-strapi_dev_password}
+    volumes:
+      - cms-postgres-data:/var/lib/postgresql/data
+    ports:
+      # Expuesto solo a localhost para que Strapi nativo conecte.
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CMS_DB_USER:-strapi} -d ${CMS_DB_NAME:-strapi}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  cms-postgres-data:
+    name: itrc-cms-postgres-data
