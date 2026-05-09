@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_observatorio_eje_de_participacion_cartillas_cartillas",
+  "info": {
+    "displayName": "Cartilla",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_plan_institucional_de_archivos_documentos",
+  "info": {
+    "displayName": "Documento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "anio": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

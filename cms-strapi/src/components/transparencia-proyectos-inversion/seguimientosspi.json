@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_proyectos_inversion_seguimientosspis",
+  "info": {
+    "displayName": "Seguimientosspi",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "proyecto": {
+      "type": "string"
+    },
+    "periodo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_formatos_formularios",
+  "info": {
+    "singularName": "transparencia-formatos-formularios",
+    "pluralName": "transparencia-formatos-formularioses",
+    "displayName": "Transparencia Formatos Formularios",
+    "description": "Auto-generado desde src/content/pages/transparencia/formatos-formularios.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "transparencia-formatos-formularios.seccion",
+      "repeatable": true
+    }
+  }
+}

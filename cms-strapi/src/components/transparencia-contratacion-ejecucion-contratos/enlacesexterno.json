@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_contratacion_ejecucion_contratos_enlacesexternos",
+  "info": {
+    "displayName": "Enlacesexterno",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ciprep_integridads",
+  "info": {
+    "displayName": "Integridad",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    }
+  }
+}

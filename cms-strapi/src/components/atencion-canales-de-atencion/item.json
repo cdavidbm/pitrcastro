@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_atencion_canales_de_atencion_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "valor": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

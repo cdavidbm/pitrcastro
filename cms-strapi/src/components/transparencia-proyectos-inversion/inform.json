@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_proyectos_inversion_informs",
+  "info": {
+    "displayName": "Inform",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "docs": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.doc",
+      "repeatable": true
+    }
+  }
+}

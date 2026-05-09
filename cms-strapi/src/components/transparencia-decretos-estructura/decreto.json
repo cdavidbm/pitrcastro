@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_transparencia_decretos_estructura_decretos",
+  "info": {
+    "displayName": "Decreto",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "numero": {
+      "type": "string"
+    },
+    "anio": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

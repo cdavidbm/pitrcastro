@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_direccionamiento_politicas",
+  "info": {
+    "singularName": "agencia-direccionamiento-politicas",
+    "pluralName": "agencia-direccionamiento-politicases",
+    "displayName": "Agencia Direccionamiento Politicas",
+    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento/politicas.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "sections": {
+      "type": "component",
+      "component": "agencia-direccionamiento-politicas.section",
+      "repeatable": true
+    }
+  }
+}

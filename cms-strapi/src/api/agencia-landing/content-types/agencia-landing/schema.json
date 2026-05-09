@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_landing",
+  "info": {
+    "singularName": "agencia-landing",
+    "pluralName": "agencia-landings",
+    "displayName": "Agencia Landing",
+    "description": "Auto-generado desde src/content/pages/agencia/landing.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "agencia-landing.seccion",
+      "repeatable": true
+    }
+  }
+}

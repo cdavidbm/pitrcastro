@@ -2,8 +2,8 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
-import pageData from '../content/pages/transparencia/politicas-manuales.json';
-
+import { getTransparenciaPoliticasManuales } from '../utils/strapi-fetchers';
+const pageData = await getTransparenciaPoliticasManuales();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

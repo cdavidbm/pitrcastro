@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_informacion_mujeres_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "component": "transparencia-informacion-mujeres.link",
+      "repeatable": true
+    }
+  }
+}

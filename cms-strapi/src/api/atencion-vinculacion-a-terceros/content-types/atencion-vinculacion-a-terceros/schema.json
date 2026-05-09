@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_vinculacion_a_terceros",
+  "info": {
+    "singularName": "atencion-vinculacion-a-terceros",
+    "pluralName": "atencion-vinculacion-a-terceroses",
+    "displayName": "Atencion Vinculacion A Terceros",
+    "description": "Auto-generado desde src/content/pages/atencion/vinculacion-a-terceros.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "atencion-vinculacion-a-terceros.documento",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

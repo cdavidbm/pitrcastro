@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ciprep_speakersindexs",
+  "info": {
+    "displayName": "Speakersindex",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

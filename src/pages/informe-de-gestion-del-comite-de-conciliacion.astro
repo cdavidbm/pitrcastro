@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/participa-atencion/informe-comite-conciliacion.json';
+import { getParticipaAtencionInformeComiteConciliacion } from '../utils/strapi-fetchers';
+const pageData = await getParticipaAtencionInformeComiteConciliacion();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

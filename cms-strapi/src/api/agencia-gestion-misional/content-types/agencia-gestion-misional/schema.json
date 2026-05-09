@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_gestion_misional",
+  "info": {
+    "singularName": "agencia-gestion-misional",
+    "pluralName": "agencia-gestion-misionals",
+    "displayName": "Agencia Gestion Misional",
+    "description": "Auto-generado desde src/content/pages/agencia/gestion-misional.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "subdirecciones": {
+      "type": "component",
+      "component": "agencia-gestion-misional.subdireccion",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

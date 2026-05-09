@@ -1,0 +1,72 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_sistema_de_control_interno",
+  "info": {
+    "singularName": "agencia-sistema-de-control-interno",
+    "pluralName": "agencia-sistema-de-control-internos",
+    "displayName": "Agencia Sistema De Control Interno",
+    "description": "Auto-generado desde src/content/pages/agencia/sistema-de-control-interno.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "introTitle": {
+      "type": "string"
+    },
+    "introContent": {
+      "type": "text"
+    },
+    "entidadesExternas": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.entidadesexterna",
+      "repeatable": true
+    },
+    "controlPolitico": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.controlpolitico",
+      "repeatable": true
+    },
+    "controlInterno": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.controlinterno",
+      "repeatable": true
+    },
+    "contactoInterno": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.contactointerno",
+      "repeatable": false
+    },
+    "informesLegales": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.informeslegal",
+      "repeatable": true
+    },
+    "planesMejoramiento": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.planesmejoramiento",
+      "repeatable": false
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

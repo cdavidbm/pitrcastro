@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_organigrama_funcionesporareas",
+  "info": {
+    "displayName": "Funcionesporarea",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "matrizUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_proyectos_normas_comentarios",
+  "info": {
+    "singularName": "transparencia-proyectos-normas-comentarios",
+    "pluralName": "transparencia-proyectos-normas-comentarioses",
+    "displayName": "Transparencia Proyectos Normas Comentarios",
+    "description": "Auto-generado desde src/content/pages/transparencia/proyectos-normas-comentarios.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "enlacesExternos": {
+      "type": "component",
+      "component": "transparencia-proyectos-normas-comentarios.enlacesexterno",
+      "repeatable": true
+    },
+    "proyectosLocales": {
+      "type": "json"
+    }
+  }
+}

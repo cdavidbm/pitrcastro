@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "normativa_landing",
+  "info": {
+    "singularName": "normativa-landing",
+    "pluralName": "normativa-landings",
+    "displayName": "Normativa Landing",
+    "description": "Auto-generado desde src/content/pages/normativa/landing.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "normativa-landing.seccion",
+      "repeatable": true
+    }
+  }
+}

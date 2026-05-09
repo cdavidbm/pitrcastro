@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_atencion_preguntas_frecuentes_faqs",
+  "info": {
+    "displayName": "Faq",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "pregunta": {
+      "type": "string"
+    },
+    "respuesta": {
+      "type": "text"
+    }
+  }
+}

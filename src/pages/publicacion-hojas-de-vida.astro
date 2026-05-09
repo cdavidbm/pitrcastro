@@ -2,8 +2,9 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 
-import pageData from '../content/pages/transparencia/hojas-de-vida.json';
+import { getTransparenciaHojasDeVida } from '../utils/strapi-fetchers';
 
+const pageData = await getTransparenciaHojasDeVida();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

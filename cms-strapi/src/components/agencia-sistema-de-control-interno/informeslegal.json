@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_agencia_sistema_de_control_interno_informeslegals",
+  "info": {
+    "displayName": "Informeslegal",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "agencia-sistema-de-control-interno.documento",
+      "repeatable": true
+    }
+  }
+}

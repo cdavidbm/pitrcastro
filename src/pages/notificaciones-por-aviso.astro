@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
-import pageData from '../content/pages/atencion/notificaciones-por-aviso.json';
+import { getAtencionNotificacionesPorAviso } from '../utils/strapi-fetchers';
 
+const pageData = await getAtencionNotificacionesPorAviso();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

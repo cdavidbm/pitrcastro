@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ciprep_dia2s",
+  "info": {
+    "displayName": "Dia2",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "fecha": {
+      "type": "string"
+    },
+    "fechaCorta": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "ciprep.item",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_prensa_galeria_albums",
+  "info": {
+    "displayName": "Album",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "nota": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

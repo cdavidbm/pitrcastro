@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_ciprep_agendas",
+  "info": {
+    "displayName": "Agenda",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "dia1": {
+      "type": "component",
+      "component": "ciprep.dia1",
+      "repeatable": false
+    },
+    "dia2": {
+      "type": "component",
+      "component": "ciprep.dia2",
+      "repeatable": false
+    }
+  }
+}

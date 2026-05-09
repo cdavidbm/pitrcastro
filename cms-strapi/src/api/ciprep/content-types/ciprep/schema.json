@@ -1,0 +1,86 @@
+{
+  "kind": "singleType",
+  "collectionName": "ciprep",
+  "info": {
+    "singularName": "ciprep",
+    "pluralName": "cipreps",
+    "displayName": "Ciprep",
+    "description": "Auto-generado desde src/content/pages/ciprep.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "shortTitle": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "edicion": {
+      "type": "integer"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "fechas": {
+      "type": "string"
+    },
+    "lugar": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "organizador": {
+      "type": "string"
+    },
+    "aliadoEstrategico": {
+      "type": "string"
+    },
+    "youtubeId": {
+      "type": "string"
+    },
+    "mapsUrl": {
+      "type": "string"
+    },
+    "wazeUrl": {
+      "type": "string"
+    },
+    "porQue": {
+      "type": "json"
+    },
+    "agenda": {
+      "type": "component",
+      "component": "ciprep.agenda",
+      "repeatable": false
+    },
+    "aliados": {
+      "type": "component",
+      "component": "ciprep.aliados",
+      "repeatable": false
+    },
+    "memorias": {
+      "type": "component",
+      "component": "ciprep.memorias",
+      "repeatable": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "ciprep.cta",
+      "repeatable": false
+    },
+    "speakersIndex": {
+      "type": "component",
+      "component": "ciprep.speakersindex",
+      "repeatable": true
+    }
+  }
+}

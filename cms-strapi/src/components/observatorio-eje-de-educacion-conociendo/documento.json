@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_conociendo_documentos",
+  "info": {
+    "displayName": "Documento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

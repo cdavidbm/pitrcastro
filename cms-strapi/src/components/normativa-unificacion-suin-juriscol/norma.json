@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_normativa_unificacion_suin_juriscol_normas",
+  "info": {
+    "displayName": "Norma",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "tipo": {
+      "type": "string"
+    },
+    "numero": {
+      "type": "string"
+    },
+    "anio": {
+      "type": "integer"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "epigrafe": {
+      "type": "text"
+    },
+    "entidadEmisora": {
+      "type": "string"
+    },
+    "diarioOficial": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "string"
+    },
+    "suinUrl": {
+      "type": "string"
+    }
+  }
+}

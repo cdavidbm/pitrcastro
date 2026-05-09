@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_agencia_empleo_rrhh_manual_especifico_funciones_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "agencia-empleo-rrhh-manual-especifico-funciones.documento",
+      "repeatable": true
+    }
+  }
+}

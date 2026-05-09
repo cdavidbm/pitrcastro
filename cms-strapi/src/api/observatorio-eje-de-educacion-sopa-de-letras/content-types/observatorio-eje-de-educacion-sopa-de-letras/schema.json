@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_educacion_sopa_de_letras",
+  "info": {
+    "singularName": "observatorio-eje-de-educacion-sopa-de-letras",
+    "pluralName": "observatorio-eje-de-educacion-sopa-de-letrases",
+    "displayName": "Observatorio Eje De Educacion Sopa De Letras",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/sopa-de-letras.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "palabras": {
+      "type": "json"
+    }
+  }
+}

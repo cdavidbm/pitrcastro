@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_leyes",
+  "info": {
+    "singularName": "transparencia-leyes",
+    "pluralName": "transparencia-leyeses",
+    "displayName": "Transparencia Leyes",
+    "description": "Auto-generado desde src/content/pages/transparencia/leyes.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "leyes": {
+      "type": "component",
+      "component": "transparencia-leyes.ley",
+      "repeatable": true
+    }
+  }
+}

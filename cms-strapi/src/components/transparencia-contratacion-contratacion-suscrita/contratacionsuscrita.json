@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_transparencia_contratacion_contratacion_suscrita_contratacionsuscritas",
+  "info": {
+    "displayName": "Contratacionsuscrita",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "anio": {
+      "type": "string"
+    },
+    "contratos": {
+      "type": "component",
+      "component": "transparencia-contratacion-contratacion-suscrita.contrato",
+      "repeatable": true
+    }
+  }
+}

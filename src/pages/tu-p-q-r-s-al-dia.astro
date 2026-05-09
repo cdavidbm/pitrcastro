@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
-import pageData from '../content/pages/atencion/pqrs.json';
+import { getAtencionPqrs } from '../utils/strapi-fetchers';
 
+const pageData = await getAtencionPqrs();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

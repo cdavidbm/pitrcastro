@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_contratacion_ejecucion",
+  "info": {
+    "singularName": "transparencia-contratacion-ejecucion",
+    "pluralName": "transparencia-contratacion-ejecucions",
+    "displayName": "Transparencia Contratacion Ejecucion",
+    "description": "Auto-generado desde src/content/pages/transparencia/contratacion/ejecucion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "secopI": {
+      "type": "string"
+    },
+    "secopII": {
+      "type": "string"
+    }
+  }
+}

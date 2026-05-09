@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_glosario",
+  "info": {
+    "singularName": "atencion-glosario",
+    "pluralName": "atencion-glosarios",
+    "displayName": "Atencion Glosario",
+    "description": "Auto-generado desde src/content/pages/atencion/glosario.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "terminos": {
+      "type": "component",
+      "component": "atencion-glosario.termino",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_informes_legales_docs",
+  "info": {
+    "displayName": "Doc",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "cat": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "transparencia-informes-legales.item",
+      "repeatable": true
+    }
+  }
+}

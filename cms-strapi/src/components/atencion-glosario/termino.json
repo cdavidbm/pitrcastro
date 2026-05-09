@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_atencion_glosario_terminos",
+  "info": {
+    "displayName": "Termino",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "termino": {
+      "type": "string"
+    },
+    "definicion": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_mision_vision",
+  "info": {
+    "singularName": "agencia-mision-vision",
+    "pluralName": "agencia-mision-visions",
+    "displayName": "Agencia Mision Vision",
+    "description": "Auto-generado desde src/content/pages/agencia/mision-vision.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "proposito": {
+      "type": "component",
+      "component": "agencia-mision-vision.proposito",
+      "repeatable": false
+    },
+    "mision": {
+      "type": "text"
+    },
+    "vision": {
+      "type": "text"
+    },
+    "quienesSomos": {
+      "type": "component",
+      "component": "agencia-mision-vision.quienessomos",
+      "repeatable": false
+    },
+    "queHacemos": {
+      "type": "component",
+      "component": "agencia-mision-vision.quehacemos",
+      "repeatable": false
+    },
+    "comoLoHacemos": {
+      "type": "component",
+      "component": "agencia-mision-vision.comolohacemo",
+      "repeatable": true
+    },
+    "funciones": {
+      "type": "component",
+      "component": "agencia-mision-vision.funciones",
+      "repeatable": false
+    },
+    "valores": {
+      "type": "component",
+      "component": "agencia-mision-vision.valor",
+      "repeatable": true
+    },
+    "mapaEstrategico": {
+      "type": "component",
+      "component": "agencia-mision-vision.mapaestrategico",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_indice_informacion_clasificada",
+  "info": {
+    "singularName": "transparencia-indice-informacion-clasificada",
+    "pluralName": "transparencia-indice-informacion-clasificadas",
+    "displayName": "Transparencia Indice Informacion Clasificada",
+    "description": "Auto-generado desde src/content/pages/transparencia/indice-informacion-clasificada.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "informes": {
+      "type": "component",
+      "component": "transparencia-indice-informacion-clasificada.inform",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ciprep_estrategicos",
+  "info": {
+    "displayName": "Estrategico",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    }
+  }
+}

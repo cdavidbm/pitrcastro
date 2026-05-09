@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_atencion_pqrs_informs",
+  "info": {
+    "displayName": "Inform",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "reportes": {
+      "type": "component",
+      "component": "atencion-pqrs.report",
+      "repeatable": true
+    }
+  }
+}

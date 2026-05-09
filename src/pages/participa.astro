@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
 
-import pageData from '../content/pages/participa.json';
+import { getParticipa } from '../utils/strapi-fetchers';
 
+const pageData = await getParticipa();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

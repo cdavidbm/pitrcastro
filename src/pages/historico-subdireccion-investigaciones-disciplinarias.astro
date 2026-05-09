@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/institucional/historico-investigaciones-disciplinarias.json';
+import { getInstitucionalHistoricoInvestigacionesDisciplinarias } from '../utils/strapi-fetchers';
+const pageData = await getInstitucionalHistoricoInvestigacionesDisciplinarias();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

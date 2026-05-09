@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_direccionamiento_planes",
+  "info": {
+    "singularName": "agencia-direccionamiento-planes",
+    "pluralName": "agencia-direccionamiento-planeses",
+    "displayName": "Agencia Direccionamiento Planes",
+    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento/planes.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "sections": {
+      "type": "component",
+      "component": "agencia-direccionamiento-planes.section",
+      "repeatable": true
+    }
+  }
+}

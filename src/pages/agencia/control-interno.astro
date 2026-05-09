@@ -4,8 +4,9 @@ import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Accordion from '../../components/Accordion.astro';
-import pageData from '../../content/pages/agencia/sistema-de-control-interno.json';
+import { getAgenciaSistemaDeControlInterno } from '../../utils/strapi-fetchers';
 
+const pageData = await getAgenciaSistemaDeControlInterno();
 const base = import.meta.env.BASE_URL;
 
 const {

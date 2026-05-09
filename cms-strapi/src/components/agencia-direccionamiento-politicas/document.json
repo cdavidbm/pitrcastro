@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_direccionamiento_politicas_documents",
+  "info": {
+    "displayName": "Document",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

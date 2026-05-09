@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_participacion_memorias_info",
+  "info": {
+    "singularName": "observatorio-eje-de-participacion-memorias-info",
+    "pluralName": "observatorio-eje-de-participacion-memorias-infos",
+    "displayName": "Observatorio Eje De Participacion Memorias Info",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "banner": {
+      "type": "string"
+    },
+    "anios": {
+      "type": "component",
+      "component": "observatorio-eje-de-participacion-memorias-info.anio",
+      "repeatable": true
+    }
+  }
+}

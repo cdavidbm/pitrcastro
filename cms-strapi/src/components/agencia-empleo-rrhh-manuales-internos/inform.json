@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_agencia_empleo_rrhh_manuales_internos_informs",
+  "info": {
+    "displayName": "Inform",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

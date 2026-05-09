@@ -1,14 +1,41 @@
 import type { Core } from '@strapi/strapi';
+import fs from 'node:fs';
+import path from 'node:path';
 
 /**
  * Permisos públicos garantizados en cada arranque (idempotente).
- * Astro consume estos endpoints en build-time. Mantén la lista corta:
- * solo content types de páginas públicas.
+ * Astro consume estos endpoints en build-time. Se construyen
+ * dinámicamente desde el manifest del autogen (scripts/.autogen-manifest.json).
+ * Si el manifest no existe, cae a la lista mínima histórica.
  */
-const PUBLIC_READ_PERMISSIONS: string[] = [
-  'api::marco-legal.marco-legal.find',
-  'api::marco-legal.marco-legal.findOne',
-];
+function loadPublicReadPermissions(): string[] {
+  // Strapi develop compila a dist/ y ejecuta desde dist/src, así que __dirname
+  // varía entre dev y build. process.cwd() siempre apunta al root del proyecto
+  // (cms-strapi/) cuando el comando se invoca con npm run develop|start.
+  const manifestPath = path.resolve(process.cwd(), 'scripts/.autogen-manifest.json');
+  const fallback = [
+    'api::marco-legal.marco-legal.find',
+    'api::marco-legal.marco-legal.findOne',
+  ];
+  if (!fs.existsSync(manifestPath)) return fallback;
+  try {
+    const m = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const perms: string[] = [];
+    for (const sp of m.singlePages || []) {
+      perms.push(`api::${sp.slug}.${sp.slug}.find`);
+      perms.push(`api::${sp.slug}.${sp.slug}.findOne`);
+    }
+    for (const c of m.collections || []) {
+      perms.push(`api::${c.slug}.${c.slug}.find`);
+      perms.push(`api::${c.slug}.${c.slug}.findOne`);
+    }
+    return perms.length > 0 ? perms : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+const PUBLIC_READ_PERMISSIONS: string[] = loadPublicReadPermissions();
 
 async function ensurePublicPermissions(strapi: Core.Strapi) {
   const publicRole = await strapi.db.query('plugin::users-permissions.role').findOne({

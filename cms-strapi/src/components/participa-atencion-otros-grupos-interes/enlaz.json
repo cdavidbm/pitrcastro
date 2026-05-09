@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_participa_atencion_otros_grupos_interes_enlaces",
+  "info": {
+    "displayName": "Enlaz",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

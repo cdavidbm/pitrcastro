@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_tablas_retencion_docs",
+  "info": {
+    "displayName": "Doc",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "n": {
+      "type": "string"
+    },
+    "u": {
+      "type": "string"
+    }
+  }
+}

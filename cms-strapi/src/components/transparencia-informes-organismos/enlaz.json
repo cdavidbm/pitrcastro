@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_informes_organismos_enlaces",
+  "info": {
+    "displayName": "Enlaz",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

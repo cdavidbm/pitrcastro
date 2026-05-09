@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_participa_control_social_enlaces",
+  "info": {
+    "displayName": "Enlaz",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

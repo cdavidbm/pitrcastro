@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_agencia_direccionamiento_informes_documents",
+  "info": {
+    "displayName": "Document",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "anio": {
+      "type": "string"
+    }
+  }
+}

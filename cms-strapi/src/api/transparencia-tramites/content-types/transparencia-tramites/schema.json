@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_tramites",
+  "info": {
+    "singularName": "transparencia-tramites",
+    "pluralName": "transparencia-tramiteses",
+    "displayName": "Transparencia Tramites",
+    "description": "Auto-generado desde src/content/pages/transparencia/tramites.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "text"
+    },
+    "costosUrl": {
+      "type": "string"
+    }
+  }
+}

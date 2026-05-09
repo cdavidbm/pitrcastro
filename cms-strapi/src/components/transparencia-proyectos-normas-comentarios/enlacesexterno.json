@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_transparencia_proyectos_normas_comentarios_enlacesexternos",
+  "info": {
+    "displayName": "Enlacesexterno",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

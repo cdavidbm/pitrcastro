@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_glosario_ninos_terminos",
+  "info": {
+    "displayName": "Termino",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "termino": {
+      "type": "string"
+    },
+    "definicion": {
+      "type": "text"
+    },
+    "imagen": {
+      "type": "string"
+    }
+  }
+}

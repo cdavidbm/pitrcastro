@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_prensa_capsulas_capsulas",
+  "info": {
+    "displayName": "Capsula",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "posterImagen": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

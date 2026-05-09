@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
-import pageData from '../../content/pages/participa/rendicion-de-cuentas.json';
+import { getParticipaRendicionDeCuentas } from '../../utils/strapi-fetchers';
 
+const pageData = await getParticipaRendicionDeCuentas();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

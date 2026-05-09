@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_empleo_rrhh_nombramientos",
+  "info": {
+    "singularName": "agencia-empleo-rrhh-nombramientos",
+    "pluralName": "agencia-empleo-rrhh-nombramientoses",
+    "displayName": "Agencia Empleo Rrhh Nombramientos",
+    "description": "Auto-generado desde src/content/pages/agencia/empleo-rrhh/nombramientos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "vigencias": {
+      "type": "component",
+      "component": "agencia-empleo-rrhh-nombramientos.vigencia",
+      "repeatable": true
+    },
+    "enlacesExternos": {
+      "type": "json"
+    }
+  }
+}

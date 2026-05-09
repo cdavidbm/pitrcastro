@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_atencion_vinculacion_a_terceros_documentos",
+  "info": {
+    "displayName": "Documento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    }
+  }
+}

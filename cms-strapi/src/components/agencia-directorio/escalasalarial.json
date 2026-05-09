@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_directorio_escalasalarials",
+  "info": {
+    "displayName": "Escalasalarial",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "subtitulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

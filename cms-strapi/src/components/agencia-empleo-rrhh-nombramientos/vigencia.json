@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_agencia_empleo_rrhh_nombramientos_vigencias",
+  "info": {
+    "displayName": "Vigencia",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "agencia-empleo-rrhh-nombramientos.documento",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_observatorio_eje_de_participacion_noticias_noticias",
+  "info": {
+    "displayName": "Noticia",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "fechaIso": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "resumen": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  }
+}

@@ -16,7 +16,7 @@
 const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://127.0.0.1:1337';
 const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN;
 
-async function strapiGet<T>(pathWithQuery: string): Promise<T> {
+export async function strapiGet<T>(pathWithQuery: string): Promise<T> {
   const url = `${STRAPI_URL}${pathWithQuery}`;
   const res = await fetch(url, {
     headers: STRAPI_TOKEN ? { Authorization: `Bearer ${STRAPI_TOKEN}` } : {},

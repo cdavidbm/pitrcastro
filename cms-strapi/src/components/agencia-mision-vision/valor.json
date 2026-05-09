@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_mision_vision_valors",
+  "info": {
+    "displayName": "Valor",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  }
+}

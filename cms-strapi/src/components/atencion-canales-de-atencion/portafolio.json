@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_atencion_canales_de_atencion_portafolios",
+  "info": {
+    "displayName": "Portafolio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    }
+  }
+}

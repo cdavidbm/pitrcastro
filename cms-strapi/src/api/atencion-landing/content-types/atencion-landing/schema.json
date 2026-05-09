@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_landing",
+  "info": {
+    "singularName": "atencion-landing",
+    "pluralName": "atencion-landings",
+    "displayName": "Atencion Landing",
+    "description": "Auto-generado desde src/content/pages/atencion/landing.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "atencion-landing.seccion",
+      "repeatable": true
+    },
+    "enlacesExternos": {
+      "type": "component",
+      "component": "atencion-landing.enlacesexterno",
+      "repeatable": true
+    }
+  }
+}

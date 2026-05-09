@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_sistema_integrado_de_gestion",
+  "info": {
+    "singularName": "agencia-sistema-integrado-de-gestion",
+    "pluralName": "agencia-sistema-integrado-de-gestions",
+    "displayName": "Agencia Sistema Integrado De Gestion",
+    "description": "Auto-generado desde src/content/pages/agencia/sistema-integrado-de-gestion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "sections": {
+      "type": "component",
+      "component": "agencia-sistema-integrado-de-gestion.section",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

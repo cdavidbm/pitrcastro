@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "prensa_comunicados_institucionales",
+  "info": {
+    "singularName": "prensa-comunicados-institucionales",
+    "pluralName": "prensa-comunicados-institucionaleses",
+    "displayName": "Prensa Comunicados Institucionales",
+    "description": "Auto-generado desde src/content/pages/prensa/comunicados-institucionales.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "anios": {
+      "type": "component",
+      "component": "prensa-comunicados-institucionales.anio",
+      "repeatable": true
+    }
+  }
+}

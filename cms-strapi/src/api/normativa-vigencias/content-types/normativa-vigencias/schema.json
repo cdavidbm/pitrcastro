@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "normativa_vigencias_items",
+  "info": {
+    "singularName": "normativa-vigencias",
+    "pluralName": "normativa-vigenciases",
+    "displayName": "Normativa Vigencias",
+    "description": "Auto-generado desde src/content/pages/normativa/vigencias"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "informes": {
+      "type": "component",
+      "component": "normativa-vigencias.inform",
+      "repeatable": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    }
+  }
+}

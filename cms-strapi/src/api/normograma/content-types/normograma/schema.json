@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "normograma",
+  "info": {
+    "singularName": "normograma",
+    "pluralName": "normogramas",
+    "displayName": "Normograma",
+    "description": "Auto-generado desde src/content/pages/normograma.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "normas": {
+      "type": "component",
+      "component": "normograma.norma",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

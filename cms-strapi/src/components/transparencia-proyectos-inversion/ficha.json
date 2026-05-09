@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_proyectos_inversion_fichas",
+  "info": {
+    "displayName": "Ficha",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

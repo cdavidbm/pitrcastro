@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_tablas_retencion_versions",
+  "info": {
+    "displayName": "Version",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "docs": {
+      "type": "component",
+      "component": "transparencia-tablas-retencion.doc",
+      "repeatable": true
+    }
+  }
+}

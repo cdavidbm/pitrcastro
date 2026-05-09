@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "prensa_capsulas",
+  "info": {
+    "singularName": "prensa-capsulas",
+    "pluralName": "prensa-capsulases",
+    "displayName": "Prensa Capsulas",
+    "description": "Auto-generado desde src/content/pages/prensa/capsulas.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "capsulas": {
+      "type": "component",
+      "component": "prensa-capsulas.capsula",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_normativa_resoluciones_actos",
+  "info": {
+    "displayName": "Acto",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "tipo": {
+      "type": "string"
+    },
+    "numero": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "vigencia": {
+      "type": "integer"
+    },
+    "dependencia": {
+      "type": "string"
+    },
+    "motivacion": {
+      "type": "text"
+    },
+    "interes": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "text"
+    }
+  }
+}

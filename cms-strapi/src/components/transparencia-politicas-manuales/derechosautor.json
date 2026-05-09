@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_politicas_manuales_derechosautors",
+  "info": {
+    "displayName": "Derechosautor",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "string"
+    },
+    "normas": {
+      "type": "json"
+    }
+  }
+}

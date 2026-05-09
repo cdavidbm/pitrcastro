@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/agencia/empleo-rrhh/manuales-internos.json';
+import { getAgenciaEmpleoRrhhManualesInternos } from '../utils/strapi-fetchers';
+const pageData = await getAgenciaEmpleoRrhhManualesInternos();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

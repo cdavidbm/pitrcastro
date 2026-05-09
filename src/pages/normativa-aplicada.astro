@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
-import normograma from '../content/pages/normograma.json';
+import { getNormograma } from '../utils/strapi-fetchers';
 
+const normograma = await getNormograma();
 const base = import.meta.env.BASE_URL;
 const normas = [...normograma.normas].sort((a, b) => b.anio - a.anio);
 

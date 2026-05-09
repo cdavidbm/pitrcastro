@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
-import pageData from '../content/pages/atencion/correo-notificaciones-judiciales.json';
+import { getAtencionCorreoNotificacionesJudiciales } from '../utils/strapi-fetchers';
 
+const pageData = await getAtencionCorreoNotificacionesJudiciales();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

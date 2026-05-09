@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_mision_vision_mapaestrategicos",
+  "info": {
+    "displayName": "Mapaestrategico",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "string"
+    }
+  }
+}

@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/institucional/estudios-investigaciones.json';
+import { getInstitucionalEstudiosInvestigaciones } from '../utils/strapi-fetchers';
+const pageData = await getInstitucionalEstudiosInvestigaciones();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

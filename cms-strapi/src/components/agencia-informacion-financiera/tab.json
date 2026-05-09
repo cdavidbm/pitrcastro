@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_agencia_informacion_financiera_tabs",
+  "info": {
+    "displayName": "Tab",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "idLogico": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "agencia-informacion-financiera.item",
+      "repeatable": true
+    }
+  }
+}

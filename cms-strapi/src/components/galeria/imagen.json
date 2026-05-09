@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_galeria_imagens",
+  "info": {
+    "displayName": "Imagen",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

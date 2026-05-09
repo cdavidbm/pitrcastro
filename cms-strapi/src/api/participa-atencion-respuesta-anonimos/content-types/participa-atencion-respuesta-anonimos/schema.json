@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_atencion_respuesta_anonimos",
+  "info": {
+    "singularName": "participa-atencion-respuesta-anonimos",
+    "pluralName": "participa-atencion-respuesta-anonimoses",
+    "displayName": "Participa Atencion Respuesta Anonimos",
+    "description": "Auto-generado desde src/content/pages/participa-atencion/respuesta-anonimos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "aviso": {
+      "type": "string"
+    },
+    "notificaciones": {
+      "type": "component",
+      "component": "participa-atencion-respuesta-anonimos.notificacion",
+      "repeatable": true
+    }
+  }
+}

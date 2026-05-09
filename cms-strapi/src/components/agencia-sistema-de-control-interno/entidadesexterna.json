@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_agencia_sistema_de_control_interno_entidadesexternas",
+  "info": {
+    "displayName": "Entidadesexterna",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
+    },
+    "control": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "lineaNacional": {
+      "type": "string"
+    }
+  }
+}

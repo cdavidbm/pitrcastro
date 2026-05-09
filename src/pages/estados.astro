@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-import pageData from '../content/pages/institucional/estados.json';
-
+import { getInstitucionalEstados } from '../utils/strapi-fetchers';
+const pageData = await getInstitucionalEstados();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

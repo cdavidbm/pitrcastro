@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_proyectos_inversion_enlacesexternos",
+  "info": {
+    "displayName": "Enlacesexterno",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_juego_de_roles_juegos",
+  "info": {
+    "displayName": "Juego",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "duracion": {
+      "type": "string"
+    }
+  }
+}

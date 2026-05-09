@@ -37,6 +37,10 @@ public/admin/sveltia-cms.js
 # Si en el futuro se necesitan scripts para el webmaster, agregarlos a
 # package.json scripts o crear docs/ops/ dedicado (tracked).
 scripts/
+# cms-strapi/scripts/ es infraestructura del CMS (autogen de schemas,
+# migración masiva, generación de fetchers). Sí debe trackearse.
+!cms-strapi/scripts/
+!cms-strapi/scripts/**
 
 # Salidas de los scripts anteriores
 reports/

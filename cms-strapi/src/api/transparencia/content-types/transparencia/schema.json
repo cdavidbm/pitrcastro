@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia",
+  "info": {
+    "singularName": "transparencia",
+    "pluralName": "transparencias",
+    "displayName": "Transparencia",
+    "description": "Auto-generado desde src/content/pages/transparencia.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "introTexto": {
+      "type": "text"
+    },
+    "ley1712Url": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "transparencia.seccion",
+      "repeatable": true
+    }
+  }
+}

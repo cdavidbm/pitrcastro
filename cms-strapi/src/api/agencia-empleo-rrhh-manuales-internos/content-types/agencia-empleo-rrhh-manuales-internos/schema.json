@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_empleo_rrhh_manuales_internos",
+  "info": {
+    "singularName": "agencia-empleo-rrhh-manuales-internos",
+    "pluralName": "agencia-empleo-rrhh-manuales-internoses",
+    "displayName": "Agencia Empleo Rrhh Manuales Internos",
+    "description": "Auto-generado desde src/content/pages/agencia/empleo-rrhh/manuales-internos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "informes": {
+      "type": "component",
+      "component": "agencia-empleo-rrhh-manuales-internos.inform",
+      "repeatable": true
+    }
+  }
+}

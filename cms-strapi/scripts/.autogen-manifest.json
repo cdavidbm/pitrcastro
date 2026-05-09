@@ -1,0 +1,2223 @@
+{
+  "singlePages": [
+    {
+      "slug": "ciprep",
+      "sourcePath": "src/content/pages/ciprep.json",
+      "displayName": "Ciprep"
+    },
+    {
+      "slug": "home",
+      "sourcePath": "src/content/pages/home.json",
+      "displayName": "Home"
+    },
+    {
+      "slug": "mapa-del-sitio",
+      "sourcePath": "src/content/pages/mapa-del-sitio.json",
+      "displayName": "Mapa Del Sitio"
+    },
+    {
+      "slug": "normograma",
+      "sourcePath": "src/content/pages/normograma.json",
+      "displayName": "Normograma"
+    },
+    {
+      "slug": "participa",
+      "sourcePath": "src/content/pages/participa.json",
+      "displayName": "Participa"
+    },
+    {
+      "slug": "prensa",
+      "sourcePath": "src/content/pages/prensa.json",
+      "displayName": "Prensa"
+    },
+    {
+      "slug": "transparencia",
+      "sourcePath": "src/content/pages/transparencia.json",
+      "displayName": "Transparencia"
+    },
+    {
+      "slug": "agencia-direccionamiento-estrategico",
+      "sourcePath": "src/content/pages/agencia/direccionamiento-estrategico.json",
+      "displayName": "Agencia Direccionamiento Estrategico"
+    },
+    {
+      "slug": "agencia-directorio",
+      "sourcePath": "src/content/pages/agencia/directorio.json",
+      "displayName": "Agencia Directorio"
+    },
+    {
+      "slug": "agencia-equipo-directivo",
+      "sourcePath": "src/content/pages/agencia/equipo-directivo.json",
+      "displayName": "Agencia Equipo Directivo"
+    },
+    {
+      "slug": "agencia-gestion-misional",
+      "sourcePath": "src/content/pages/agencia/gestion-misional.json",
+      "displayName": "Agencia Gestion Misional"
+    },
+    {
+      "slug": "agencia-informacion-financiera",
+      "sourcePath": "src/content/pages/agencia/informacion-financiera.json",
+      "displayName": "Agencia Informacion Financiera"
+    },
+    {
+      "slug": "agencia-landing",
+      "sourcePath": "src/content/pages/agencia/landing.json",
+      "displayName": "Agencia Landing"
+    },
+    {
+      "slug": "agencia-mision-vision",
+      "sourcePath": "src/content/pages/agencia/mision-vision.json",
+      "displayName": "Agencia Mision Vision"
+    },
+    {
+      "slug": "agencia-organigrama",
+      "sourcePath": "src/content/pages/agencia/organigrama.json",
+      "displayName": "Agencia Organigrama"
+    },
+    {
+      "slug": "agencia-plan-institucional-de-archivos",
+      "sourcePath": "src/content/pages/agencia/plan-institucional-de-archivos.json",
+      "displayName": "Agencia Plan Institucional De Archivos"
+    },
+    {
+      "slug": "agencia-sistema-de-control-interno",
+      "sourcePath": "src/content/pages/agencia/sistema-de-control-interno.json",
+      "displayName": "Agencia Sistema De Control Interno"
+    },
+    {
+      "slug": "agencia-sistema-integrado-de-gestion",
+      "sourcePath": "src/content/pages/agencia/sistema-integrado-de-gestion.json",
+      "displayName": "Agencia Sistema Integrado De Gestion"
+    },
+    {
+      "slug": "agencia-direccionamiento-informes",
+      "sourcePath": "src/content/pages/agencia/direccionamiento/informes.json",
+      "displayName": "Agencia Direccionamiento Informes"
+    },
+    {
+      "slug": "agencia-direccionamiento-planes",
+      "sourcePath": "src/content/pages/agencia/direccionamiento/planes.json",
+      "displayName": "Agencia Direccionamiento Planes"
+    },
+    {
+      "slug": "agencia-direccionamiento-politicas",
+      "sourcePath": "src/content/pages/agencia/direccionamiento/politicas.json",
+      "displayName": "Agencia Direccionamiento Politicas"
+    },
+    {
+      "slug": "agencia-empleo-rrhh-manual-especifico-funciones",
+      "sourcePath": "src/content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json",
+      "displayName": "Agencia Empleo Rrhh Manual Especifico Funciones"
+    },
+    {
+      "slug": "agencia-empleo-rrhh-manual-identidad-visual",
+      "sourcePath": "src/content/pages/agencia/empleo-rrhh/manual-identidad-visual.json",
+      "displayName": "Agencia Empleo Rrhh Manual Identidad Visual"
+    },
+    {
+      "slug": "agencia-empleo-rrhh-manuales-internos",
+      "sourcePath": "src/content/pages/agencia/empleo-rrhh/manuales-internos.json",
+      "displayName": "Agencia Empleo Rrhh Manuales Internos"
+    },
+    {
+      "slug": "agencia-empleo-rrhh-nombramientos",
+      "sourcePath": "src/content/pages/agencia/empleo-rrhh/nombramientos.json",
+      "displayName": "Agencia Empleo Rrhh Nombramientos"
+    },
+    {
+      "slug": "agencia-empleo-rrhh-ofertas-empleo",
+      "sourcePath": "src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json",
+      "displayName": "Agencia Empleo Rrhh Ofertas Empleo"
+    },
+    {
+      "slug": "atencion-canales-de-atencion",
+      "sourcePath": "src/content/pages/atencion/canales-de-atencion.json",
+      "displayName": "Atencion Canales De Atencion"
+    },
+    {
+      "slug": "atencion-correo-notificaciones-judiciales",
+      "sourcePath": "src/content/pages/atencion/correo-notificaciones-judiciales.json",
+      "displayName": "Atencion Correo Notificaciones Judiciales"
+    },
+    {
+      "slug": "atencion-glosario",
+      "sourcePath": "src/content/pages/atencion/glosario.json",
+      "displayName": "Atencion Glosario"
+    },
+    {
+      "slug": "atencion-landing",
+      "sourcePath": "src/content/pages/atencion/landing.json",
+      "displayName": "Atencion Landing"
+    },
+    {
+      "slug": "atencion-notificaciones-por-aviso",
+      "sourcePath": "src/content/pages/atencion/notificaciones-por-aviso.json",
+      "displayName": "Atencion Notificaciones Por Aviso"
+    },
+    {
+      "slug": "atencion-pqrs-servidores",
+      "sourcePath": "src/content/pages/atencion/pqrs-servidores.json",
+      "displayName": "Atencion Pqrs Servidores"
+    },
+    {
+      "slug": "atencion-pqrs",
+      "sourcePath": "src/content/pages/atencion/pqrs.json",
+      "displayName": "Atencion Pqrs"
+    },
+    {
+      "slug": "atencion-preguntas-frecuentes",
+      "sourcePath": "src/content/pages/atencion/preguntas-frecuentes.json",
+      "displayName": "Atencion Preguntas Frecuentes"
+    },
+    {
+      "slug": "atencion-vinculacion-a-terceros",
+      "sourcePath": "src/content/pages/atencion/vinculacion-a-terceros.json",
+      "displayName": "Atencion Vinculacion A Terceros"
+    },
+    {
+      "slug": "institucional-audios-itrc",
+      "sourcePath": "src/content/pages/institucional/audios-itrc.json",
+      "displayName": "Institucional Audios Itrc"
+    },
+    {
+      "slug": "institucional-calendario-eventos",
+      "sourcePath": "src/content/pages/institucional/calendario-eventos.json",
+      "displayName": "Institucional Calendario Eventos"
+    },
+    {
+      "slug": "institucional-defensa-judicial",
+      "sourcePath": "src/content/pages/institucional/defensa-judicial.json",
+      "displayName": "Institucional Defensa Judicial"
+    },
+    {
+      "slug": "institucional-estados",
+      "sourcePath": "src/content/pages/institucional/estados.json",
+      "displayName": "Institucional Estados"
+    },
+    {
+      "slug": "institucional-estudios-investigaciones",
+      "sourcePath": "src/content/pages/institucional/estudios-investigaciones.json",
+      "displayName": "Institucional Estudios Investigaciones"
+    },
+    {
+      "slug": "institucional-historico-investigaciones-disciplinarias",
+      "sourcePath": "src/content/pages/institucional/historico-investigaciones-disciplinarias.json",
+      "displayName": "Institucional Historico Investigaciones Disciplinarias"
+    },
+    {
+      "slug": "institucional-historico-sistema-control-interno",
+      "sourcePath": "src/content/pages/institucional/historico-sistema-control-interno.json",
+      "displayName": "Institucional Historico Sistema Control Interno"
+    },
+    {
+      "slug": "institucional-publicacion-datos-abiertos",
+      "sourcePath": "src/content/pages/institucional/publicacion-datos-abiertos.json",
+      "displayName": "Institucional Publicacion Datos Abiertos"
+    },
+    {
+      "slug": "normativa-decretos",
+      "sourcePath": "src/content/pages/normativa/decretos.json",
+      "displayName": "Normativa Decretos"
+    },
+    {
+      "slug": "normativa-landing",
+      "sourcePath": "src/content/pages/normativa/landing.json",
+      "displayName": "Normativa Landing"
+    },
+    {
+      "slug": "normativa-marco-legal",
+      "sourcePath": "src/content/pages/normativa/marco-legal.json",
+      "displayName": "Normativa Marco Legal"
+    },
+    {
+      "slug": "normativa-resoluciones",
+      "sourcePath": "src/content/pages/normativa/resoluciones.json",
+      "displayName": "Normativa Resoluciones"
+    },
+    {
+      "slug": "normativa-unificacion-suin-juriscol",
+      "sourcePath": "src/content/pages/normativa/unificacion-suin-juriscol.json",
+      "displayName": "Normativa Unificacion Suin Juriscol"
+    },
+    {
+      "slug": "observatorio-del-observatorio",
+      "sourcePath": "src/content/pages/observatorio/del-observatorio.json",
+      "displayName": "Observatorio Del Observatorio"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion.json",
+      "displayName": "Observatorio Eje De Educacion"
+    },
+    {
+      "slug": "observatorio-eje-de-medicion",
+      "sourcePath": "src/content/pages/observatorio/eje-de-medicion.json",
+      "displayName": "Observatorio Eje De Medicion"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion",
+      "sourcePath": "src/content/pages/observatorio/eje-de-participacion.json",
+      "displayName": "Observatorio Eje De Participacion"
+    },
+    {
+      "slug": "observatorio-observatorio",
+      "sourcePath": "src/content/pages/observatorio/observatorio.json",
+      "displayName": "Observatorio Observatorio"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-articulos",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/articulos.json",
+      "displayName": "Observatorio Eje De Educacion Articulos"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-cartilla-infantil",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/cartilla-infantil.json",
+      "displayName": "Observatorio Eje De Educacion Cartilla Infantil"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-conociendo",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/conociendo.json",
+      "displayName": "Observatorio Eje De Educacion Conociendo"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-cuento",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/cuento.json",
+      "displayName": "Observatorio Eje De Educacion Cuento"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-glosario-ninos",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json",
+      "displayName": "Observatorio Eje De Educacion Glosario Ninos"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-itrc-para-ninos",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json",
+      "displayName": "Observatorio Eje De Educacion Itrc Para Ninos"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-juego-de-roles",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json",
+      "displayName": "Observatorio Eje De Educacion Juego De Roles"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-libro-infantil",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/libro-infantil.json",
+      "displayName": "Observatorio Eje De Educacion Libro Infantil"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-memorias-info",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/memorias.json",
+      "displayName": "Observatorio Eje De Educacion Memorias Info"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-quiz",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/quiz.json",
+      "displayName": "Observatorio Eje De Educacion Quiz"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-repositorio-juridico",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json",
+      "displayName": "Observatorio Eje De Educacion Repositorio Juridico"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-sopa-de-letras",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/sopa-de-letras.json",
+      "displayName": "Observatorio Eje De Educacion Sopa De Letras"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-video-ninos",
+      "sourcePath": "src/content/pages/observatorio/eje-de-educacion/video-ninos.json",
+      "displayName": "Observatorio Eje De Educacion Video Ninos"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion-cartillas",
+      "sourcePath": "src/content/pages/observatorio/eje-de-participacion/cartillas.json",
+      "displayName": "Observatorio Eje De Participacion Cartillas"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion-encuesta",
+      "sourcePath": "src/content/pages/observatorio/eje-de-participacion/encuesta.json",
+      "displayName": "Observatorio Eje De Participacion Encuesta"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion-memorias-info",
+      "sourcePath": "src/content/pages/observatorio/eje-de-participacion/memorias.json",
+      "displayName": "Observatorio Eje De Participacion Memorias Info"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion-noticias",
+      "sourcePath": "src/content/pages/observatorio/eje-de-participacion/noticias.json",
+      "displayName": "Observatorio Eje De Participacion Noticias"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion-videos-tutoriales",
+      "sourcePath": "src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json",
+      "displayName": "Observatorio Eje De Participacion Videos Tutoriales"
+    },
+    {
+      "slug": "participa-colaboracion",
+      "sourcePath": "src/content/pages/participa/colaboracion.json",
+      "displayName": "Participa Colaboracion"
+    },
+    {
+      "slug": "participa-consulta-ciudadana",
+      "sourcePath": "src/content/pages/participa/consulta-ciudadana.json",
+      "displayName": "Participa Consulta Ciudadana"
+    },
+    {
+      "slug": "participa-control-social",
+      "sourcePath": "src/content/pages/participa/control-social.json",
+      "displayName": "Participa Control Social"
+    },
+    {
+      "slug": "participa-diagnostico",
+      "sourcePath": "src/content/pages/participa/diagnostico.json",
+      "displayName": "Participa Diagnostico"
+    },
+    {
+      "slug": "participa-planeacion",
+      "sourcePath": "src/content/pages/participa/planeacion.json",
+      "displayName": "Participa Planeacion"
+    },
+    {
+      "slug": "participa-rendicion-de-cuentas",
+      "sourcePath": "src/content/pages/participa/rendicion-de-cuentas.json",
+      "displayName": "Participa Rendicion De Cuentas"
+    },
+    {
+      "slug": "participa-atencion-informe-comite-conciliacion",
+      "sourcePath": "src/content/pages/participa-atencion/informe-comite-conciliacion.json",
+      "displayName": "Participa Atencion Informe Comite Conciliacion"
+    },
+    {
+      "slug": "participa-atencion-otros-grupos-interes",
+      "sourcePath": "src/content/pages/participa-atencion/otros-grupos-interes.json",
+      "displayName": "Participa Atencion Otros Grupos Interes"
+    },
+    {
+      "slug": "participa-atencion-respuesta-anonimos",
+      "sourcePath": "src/content/pages/participa-atencion/respuesta-anonimos.json",
+      "displayName": "Participa Atencion Respuesta Anonimos"
+    },
+    {
+      "slug": "prensa-capsulas",
+      "sourcePath": "src/content/pages/prensa/capsulas.json",
+      "displayName": "Prensa Capsulas"
+    },
+    {
+      "slug": "prensa-comunicados-institucionales",
+      "sourcePath": "src/content/pages/prensa/comunicados-institucionales.json",
+      "displayName": "Prensa Comunicados Institucionales"
+    },
+    {
+      "slug": "prensa-galeria",
+      "sourcePath": "src/content/pages/prensa/galeria.json",
+      "displayName": "Prensa Galeria"
+    },
+    {
+      "slug": "prensa-landing",
+      "sourcePath": "src/content/pages/prensa/landing.json",
+      "displayName": "Prensa Landing"
+    },
+    {
+      "slug": "prensa-videos",
+      "sourcePath": "src/content/pages/prensa/videos.json",
+      "displayName": "Prensa Videos"
+    },
+    {
+      "slug": "transparencia-accesibilidad",
+      "sourcePath": "src/content/pages/transparencia/accesibilidad.json",
+      "displayName": "Transparencia Accesibilidad"
+    },
+    {
+      "slug": "transparencia-agremiaciones",
+      "sourcePath": "src/content/pages/transparencia/agremiaciones.json",
+      "displayName": "Transparencia Agremiaciones"
+    },
+    {
+      "slug": "transparencia-comite-conciliacion",
+      "sourcePath": "src/content/pages/transparencia/comite-conciliacion.json",
+      "displayName": "Transparencia Comite Conciliacion"
+    },
+    {
+      "slug": "transparencia-datos-abiertos",
+      "sourcePath": "src/content/pages/transparencia/datos-abiertos.json",
+      "displayName": "Transparencia Datos Abiertos"
+    },
+    {
+      "slug": "transparencia-decreto-unico",
+      "sourcePath": "src/content/pages/transparencia/decreto-unico.json",
+      "displayName": "Transparencia Decreto Unico"
+    },
+    {
+      "slug": "transparencia-decretos-estructura",
+      "sourcePath": "src/content/pages/transparencia/decretos-estructura.json",
+      "displayName": "Transparencia Decretos Estructura"
+    },
+    {
+      "slug": "transparencia-defensa-publica",
+      "sourcePath": "src/content/pages/transparencia/defensa-publica.json",
+      "displayName": "Transparencia Defensa Publica"
+    },
+    {
+      "slug": "transparencia-directorio-entidades",
+      "sourcePath": "src/content/pages/transparencia/directorio-entidades.json",
+      "displayName": "Transparencia Directorio Entidades"
+    },
+    {
+      "slug": "transparencia-esquema-publicacion",
+      "sourcePath": "src/content/pages/transparencia/esquema-publicacion.json",
+      "displayName": "Transparencia Esquema Publicacion"
+    },
+    {
+      "slug": "transparencia-evaluacion-independiente",
+      "sourcePath": "src/content/pages/transparencia/evaluacion-independiente.json",
+      "displayName": "Transparencia Evaluacion Independiente"
+    },
+    {
+      "slug": "transparencia-formatos-contratos-pliegos-tipo",
+      "sourcePath": "src/content/pages/transparencia/formatos-contratos-pliegos-tipo.json",
+      "displayName": "Transparencia Formatos Contratos Pliegos Tipo"
+    },
+    {
+      "slug": "transparencia-formatos-formularios",
+      "sourcePath": "src/content/pages/transparencia/formatos-formularios.json",
+      "displayName": "Transparencia Formatos Formularios"
+    },
+    {
+      "slug": "transparencia-hojas-de-vida",
+      "sourcePath": "src/content/pages/transparencia/hojas-de-vida.json",
+      "displayName": "Transparencia Hojas De Vida"
+    },
+    {
+      "slug": "transparencia-indice-informacion-clasificada",
+      "sourcePath": "src/content/pages/transparencia/indice-informacion-clasificada.json",
+      "displayName": "Transparencia Indice Informacion Clasificada"
+    },
+    {
+      "slug": "transparencia-informacion-mujeres",
+      "sourcePath": "src/content/pages/transparencia/informacion-mujeres.json",
+      "displayName": "Transparencia Informacion Mujeres"
+    },
+    {
+      "slug": "transparencia-informes-empalme",
+      "sourcePath": "src/content/pages/transparencia/informes-empalme.json",
+      "displayName": "Transparencia Informes Empalme"
+    },
+    {
+      "slug": "transparencia-informes-legales",
+      "sourcePath": "src/content/pages/transparencia/informes-legales.json",
+      "displayName": "Transparencia Informes Legales"
+    },
+    {
+      "slug": "transparencia-informes-organismos-ivc",
+      "sourcePath": "src/content/pages/transparencia/informes-organismos-ivc.json",
+      "displayName": "Transparencia Informes Organismos Ivc"
+    },
+    {
+      "slug": "transparencia-informes-organismos",
+      "sourcePath": "src/content/pages/transparencia/informes-organismos.json",
+      "displayName": "Transparencia Informes Organismos"
+    },
+    {
+      "slug": "transparencia-leyes",
+      "sourcePath": "src/content/pages/transparencia/leyes.json",
+      "displayName": "Transparencia Leyes"
+    },
+    {
+      "slug": "transparencia-normas-servicio",
+      "sourcePath": "src/content/pages/transparencia/normas-servicio.json",
+      "displayName": "Transparencia Normas Servicio"
+    },
+    {
+      "slug": "transparencia-normatividad-especial",
+      "sourcePath": "src/content/pages/transparencia/normatividad-especial.json",
+      "displayName": "Transparencia Normatividad Especial"
+    },
+    {
+      "slug": "transparencia-otros-grupos",
+      "sourcePath": "src/content/pages/transparencia/otros-grupos.json",
+      "displayName": "Transparencia Otros Grupos"
+    },
+    {
+      "slug": "transparencia-planes-mejoramiento",
+      "sourcePath": "src/content/pages/transparencia/planes-mejoramiento.json",
+      "displayName": "Transparencia Planes Mejoramiento"
+    },
+    {
+      "slug": "transparencia-politicas-manuales",
+      "sourcePath": "src/content/pages/transparencia/politicas-manuales.json",
+      "displayName": "Transparencia Politicas Manuales"
+    },
+    {
+      "slug": "transparencia-procedimientos-decisiones",
+      "sourcePath": "src/content/pages/transparencia/procedimientos-decisiones.json",
+      "displayName": "Transparencia Procedimientos Decisiones"
+    },
+    {
+      "slug": "transparencia-procedimientos",
+      "sourcePath": "src/content/pages/transparencia/procedimientos.json",
+      "displayName": "Transparencia Procedimientos"
+    },
+    {
+      "slug": "transparencia-programa-gestion-documental",
+      "sourcePath": "src/content/pages/transparencia/programa-gestion-documental.json",
+      "displayName": "Transparencia Programa Gestion Documental"
+    },
+    {
+      "slug": "transparencia-protocolo-atencion",
+      "sourcePath": "src/content/pages/transparencia/protocolo-atencion.json",
+      "displayName": "Transparencia Protocolo Atencion"
+    },
+    {
+      "slug": "transparencia-proyectos-inversion",
+      "sourcePath": "src/content/pages/transparencia/proyectos-inversion.json",
+      "displayName": "Transparencia Proyectos Inversion"
+    },
+    {
+      "slug": "transparencia-proyectos-normas-comentarios",
+      "sourcePath": "src/content/pages/transparencia/proyectos-normas-comentarios.json",
+      "displayName": "Transparencia Proyectos Normas Comentarios"
+    },
+    {
+      "slug": "transparencia-registro-activos",
+      "sourcePath": "src/content/pages/transparencia/registro-activos.json",
+      "displayName": "Transparencia Registro Activos"
+    },
+    {
+      "slug": "transparencia-relatoria",
+      "sourcePath": "src/content/pages/transparencia/relatoria.json",
+      "displayName": "Transparencia Relatoria"
+    },
+    {
+      "slug": "transparencia-rendicion-cuenta-contraloria",
+      "sourcePath": "src/content/pages/transparencia/rendicion-cuenta-contraloria.json",
+      "displayName": "Transparencia Rendicion Cuenta Contraloria"
+    },
+    {
+      "slug": "transparencia-reporte-austeridad-gasto",
+      "sourcePath": "src/content/pages/transparencia/reporte-austeridad-gasto.json",
+      "displayName": "Transparencia Reporte Austeridad Gasto"
+    },
+    {
+      "slug": "transparencia-sede-horarios",
+      "sourcePath": "src/content/pages/transparencia/sede-horarios.json",
+      "displayName": "Transparencia Sede Horarios"
+    },
+    {
+      "slug": "transparencia-supervision-vigilancia",
+      "sourcePath": "src/content/pages/transparencia/supervision-vigilancia.json",
+      "displayName": "Transparencia Supervision Vigilancia"
+    },
+    {
+      "slug": "transparencia-tablas-retencion",
+      "sourcePath": "src/content/pages/transparencia/tablas-retencion.json",
+      "displayName": "Transparencia Tablas Retencion"
+    },
+    {
+      "slug": "transparencia-tramites",
+      "sourcePath": "src/content/pages/transparencia/tramites.json",
+      "displayName": "Transparencia Tramites"
+    },
+    {
+      "slug": "transparencia-contratacion-contratacion-suscrita",
+      "sourcePath": "src/content/pages/transparencia/contratacion/contratacion-suscrita.json",
+      "displayName": "Transparencia Contratacion Contratacion Suscrita"
+    },
+    {
+      "slug": "transparencia-contratacion-ejecucion-contratos",
+      "sourcePath": "src/content/pages/transparencia/contratacion/ejecucion-contratos.json",
+      "displayName": "Transparencia Contratacion Ejecucion Contratos"
+    },
+    {
+      "slug": "transparencia-contratacion-ejecucion",
+      "sourcePath": "src/content/pages/transparencia/contratacion/ejecucion.json",
+      "displayName": "Transparencia Contratacion Ejecucion"
+    },
+    {
+      "slug": "transparencia-contratacion-formatos",
+      "sourcePath": "src/content/pages/transparencia/contratacion/formatos.json",
+      "displayName": "Transparencia Contratacion Formatos"
+    },
+    {
+      "slug": "transparencia-contratacion-manual",
+      "sourcePath": "src/content/pages/transparencia/contratacion/manual.json",
+      "displayName": "Transparencia Contratacion Manual"
+    },
+    {
+      "slug": "transparencia-contratacion-plan-adquisiciones",
+      "sourcePath": "src/content/pages/transparencia/contratacion/plan-adquisiciones.json",
+      "displayName": "Transparencia Contratacion Plan Adquisiciones"
+    },
+    {
+      "slug": "transparencia-contratacion-procedimientos-adquisicion",
+      "sourcePath": "src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json",
+      "displayName": "Transparencia Contratacion Procedimientos Adquisicion"
+    },
+    {
+      "slug": "transparencia-documentacion-esquema-publicacion",
+      "sourcePath": "src/content/pages/transparencia/documentacion/esquema-publicacion.json",
+      "displayName": "Transparencia Documentacion Esquema Publicacion"
+    },
+    {
+      "slug": "transparencia-documentacion-formato-grupos-etnicos",
+      "sourcePath": "src/content/pages/transparencia/documentacion/formato-grupos-etnicos.json",
+      "displayName": "Transparencia Documentacion Formato Grupos Etnicos"
+    },
+    {
+      "slug": "transparencia-documentacion-proteccion-datos",
+      "sourcePath": "src/content/pages/transparencia/documentacion/proteccion-datos.json",
+      "displayName": "Transparencia Documentacion Proteccion Datos"
+    },
+    {
+      "slug": "transparencia-documentacion-registro-publicaciones",
+      "sourcePath": "src/content/pages/transparencia/documentacion/registro-publicaciones.json",
+      "displayName": "Transparencia Documentacion Registro Publicaciones"
+    }
+  ],
+  "collections": [
+    {
+      "slug": "ciprep-speakers",
+      "dirPath": "src/content/pages/ciprep/speakers",
+      "sourceFiles": [
+        "src/content/pages/ciprep/speakers/alejandra-arriaza-loeb.json",
+        "src/content/pages/ciprep/speakers/alejandro-juarez-espindola.json",
+        "src/content/pages/ciprep/speakers/andrea-agudelo.json",
+        "src/content/pages/ciprep/speakers/andres-idarraga.json",
+        "src/content/pages/ciprep/speakers/camilo-a-enciso-vanegas.json",
+        "src/content/pages/ciprep/speakers/carlos-emilio-betancourt-galeano.json",
+        "src/content/pages/ciprep/speakers/carlos-hernan-rodriguez-becerra.json",
+        "src/content/pages/ciprep/speakers/cesar-augusto-martinez-ariza.json",
+        "src/content/pages/ciprep/speakers/daniel-rodriguez-bravo.json",
+        "src/content/pages/ciprep/speakers/diego-rengifo-garcia.json",
+        "src/content/pages/ciprep/speakers/dr-daniel-serrano-zuniga.json",
+        "src/content/pages/ciprep/speakers/dr-pedro-jose-arrieta-melendrez.json",
+        "src/content/pages/ciprep/speakers/eva-carolina-madrid-torres.json",
+        "src/content/pages/ciprep/speakers/evert-montero-cardenas.json",
+        "src/content/pages/ciprep/speakers/german-avila-plazas.json",
+        "src/content/pages/ciprep/speakers/gregorio-eljach-pacheco.json",
+        "src/content/pages/ciprep/speakers/juan-david-huepe-suaza.json",
+        "src/content/pages/ciprep/speakers/juan-diego-cano.json",
+        "src/content/pages/ciprep/speakers/justino-hernandez-murcia.json",
+        "src/content/pages/ciprep/speakers/luciano-grisales-londono.json",
+        "src/content/pages/ciprep/speakers/luis-eduardo-llinas-chica.json",
+        "src/content/pages/ciprep/speakers/marco-emilio-hincapie-ramirez.json",
+        "src/content/pages/ciprep/speakers/maria-anayme-baron-duran.json",
+        "src/content/pages/ciprep/speakers/mariano-rojo-perez.json",
+        "src/content/pages/ciprep/speakers/marisol-nino-vargas.json",
+        "src/content/pages/ciprep/speakers/mauricio-michel-molano-currea.json",
+        "src/content/pages/ciprep/speakers/miguel-angel-espinosa.json",
+        "src/content/pages/ciprep/speakers/numa-rafael-ortiz-fernandez.json",
+        "src/content/pages/ciprep/speakers/ovidio-claros-polanco.json",
+        "src/content/pages/ciprep/speakers/rodolfo-enrique-zea-navarro.json",
+        "src/content/pages/ciprep/speakers/ruth-marisol-apraez-benavides.json",
+        "src/content/pages/ciprep/speakers/vicealmirante-camilo-ernesto-segovia-forero.json",
+        "src/content/pages/ciprep/speakers/vladimir-ruzynke-castano.json",
+        "src/content/pages/ciprep/speakers/zoila-llempen.json"
+      ],
+      "displayName": "Ciprep Speakers"
+    },
+    {
+      "slug": "galeria",
+      "dirPath": "src/content/pages/galeria",
+      "sourceFiles": [
+        "src/content/pages/galeria/capacitacion-en-fitac-buenaventura-abril-23-de-2018.json",
+        "src/content/pages/galeria/capacitaciones-de-la-agencia-itrc-a-agentes-aduaneros-de-fitac.json",
+        "src/content/pages/galeria/comite-de-etica-del-congreso-de-la-republica-por-la-lucha-contra-la-corrupcion.json",
+        "src/content/pages/galeria/dia-del-servidor-publico-itrc-2018.json",
+        "src/content/pages/galeria/evento-en-la-misma-via.json",
+        "src/content/pages/galeria/fadja-2019.json",
+        "src/content/pages/galeria/feria-americana-de-juegos-de-azar-fadja-abril-5-y-6-de-2018.json",
+        "src/content/pages/galeria/feria-de-atencion-al-ciudadano-cienaga.json",
+        "src/content/pages/galeria/feria-de-atencion-al-ciudadano-popayan.json",
+        "src/content/pages/galeria/feria-nacional-de-atencion-al-ciudadano-en-malambo-atlantico.json",
+        "src/content/pages/galeria/feria-nacional-de-servicio-al-ciudadano-en-cartago.json",
+        "src/content/pages/galeria/firma-del-pacto-por-la-legalidad-en-sincelejo-sucre-abril-20-de-2018.json",
+        "src/content/pages/galeria/foro-ley-annticontrabando-fitac-y-defensa.json",
+        "src/content/pages/galeria/gaming-market-octubre-25-de-2018.json",
+        "src/content/pages/galeria/inauguracion-olimpiadas-sector-hacienda.json",
+        "src/content/pages/galeria/lucha-contra-la-corrupcion-julio-2018.json",
+        "src/content/pages/galeria/rendicion-de-cuentas-2018-diciembre-2018.json",
+        "src/content/pages/galeria/tercer-pacto-por-la-legalidad-del-sector-de-juegos-de-suerte-y-azar-junio-29-de-2017.json",
+        "src/content/pages/galeria/v-cumbre-iberoamericana-del-juego-medellin-mayo-2018.json",
+        "src/content/pages/galeria/v-simposio-internacional-del-juego-sijuego-medellin-28-y-29-de-julio-de-2015.json",
+        "src/content/pages/galeria/vi-simposio-internacional-del-juego-sijuego-julio-12-de-2017.json",
+        "src/content/pages/galeria/visita-alcaldes-locales-y-personeros-de-bogota-a-la-agencia-itrc-julio-y-agosto-2018.json",
+        "src/content/pages/galeria/visita-de-la-superintendencia-de-chile-febrero-2018.json",
+        "src/content/pages/galeria/visitas-internacionales.json"
+      ],
+      "displayName": "Galeria"
+    },
+    {
+      "slug": "normativa-delitos",
+      "dirPath": "src/content/pages/normativa/delitos",
+      "sourceFiles": [
+        "src/content/pages/normativa/delitos/normativa-incumplimiento-al-regimen-cambiario-y-aduanero.json",
+        "src/content/pages/normativa/delitos/normativa-prevaricato.json",
+        "src/content/pages/normativa/delitos/normatividad-abuso-de-funcion-publica.json",
+        "src/content/pages/normativa/delitos/normatividad-alteracion-o-falsificacion-de-informacion.json",
+        "src/content/pages/normativa/delitos/normatividad-cohecho.json",
+        "src/content/pages/normativa/delitos/normatividad-concusion.json",
+        "src/content/pages/normativa/delitos/normatividad-conductas-que-integran-un-delito.json",
+        "src/content/pages/normativa/delitos/normatividad-falsedad-en-documento-publico.json",
+        "src/content/pages/normativa/delitos/normatividad-faltas-relacionadas-con-la-contratacion-publica.json",
+        "src/content/pages/normativa/delitos/normatividad-favorecimiento-de-la-evasion-de-impuestos.json",
+        "src/content/pages/normativa/delitos/normatividad-funcion-publica.json",
+        "src/content/pages/normativa/delitos/normatividad-incremento-patrimonial-injustificado.json",
+        "src/content/pages/normativa/delitos/normatividad-peculado.json",
+        "src/content/pages/normativa/delitos/normatividad-trafico-de-influencias.json",
+        "src/content/pages/normativa/delitos/politicas-y-lineamientos-sectoriales.json"
+      ],
+      "displayName": "Normativa Delitos"
+    },
+    {
+      "slug": "normativa-vigencias",
+      "dirPath": "src/content/pages/normativa/vigencias",
+      "sourceFiles": [
+        "src/content/pages/normativa/vigencias/vigencia-2012.json",
+        "src/content/pages/normativa/vigencias/vigencia-2013.json",
+        "src/content/pages/normativa/vigencias/vigencia-2014.json",
+        "src/content/pages/normativa/vigencias/vigencia-2015.json",
+        "src/content/pages/normativa/vigencias/vigencia-2016.json",
+        "src/content/pages/normativa/vigencias/vigencia-2017.json",
+        "src/content/pages/normativa/vigencias/vigencia-2018.json",
+        "src/content/pages/normativa/vigencias/vigencia-2019.json",
+        "src/content/pages/normativa/vigencias/vigencia-2020.json",
+        "src/content/pages/normativa/vigencias/vigencia-2021.json"
+      ],
+      "displayName": "Normativa Vigencias"
+    },
+    {
+      "slug": "observatorio-eje-de-educacion-memorias",
+      "dirPath": "src/content/pages/observatorio/eje-de-educacion/memorias",
+      "sourceFiles": [
+        "src/content/pages/observatorio/eje-de-educacion/memorias/agencia-itrc-herramientas-para-la-lucha-contra-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/agencia-itrc-participa-en-foro-virtual-de-prevencion-y-mitigacion-de-fraudes.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/agencia-itrc-realizara-evento-virtual-para-dar-a-conocer-su-rol-en-la-lucha-2.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/agencia-itrc-realizara-evento-virtual-para-dar-a-conocer-su-rol-en-la-lucha.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/asamblea-del-centro-interamericano-de-administraciones-tributarias.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/buenas-practicas-para-el-fortalecimiento-de-la-transparencia-institucional.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/capacitacion-que-es-la-falta-disciplinaria-y-como-denunciarla-incremento.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/catedra-colombiana-ciudadania-integridad-y-lucha-contra-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/conmemoracion-dia-nacional-de-la-lucha-contra-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/dia-internacional-de-la-lucha-contra-la-corrupcion-anterior-2.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/el-observatorio-de-fraude-y-corrupcion-de-la-agencia-itrc-hace-parte-de-la-red.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/evento-de-lanzamiento-catedra-colombiana-ciudadania-integridad-y-lucha-contra.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/evento-virtual-denuncia-efectiva-herramienta-anticorrupcion-para-facilitar-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/gestion-de-riesgos-de-fraude-y-corrupcion-en-materia-fiscal-10-anos-de-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/herramientas-anticorrupcion-en-la-administracion-tributaria-perspectivas.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/herramientas-para-la-lucha-contra-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/intervencion-de-la-agencia-itrc-en-segunda-version-de-mision-contador-publico.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/itrc-universidad-de-rosario.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/la-agencia-itrc-realizo-evento-internacional-sobre-medidas-fiscales-en-tiempos.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/la-agencia-itrc-y-transparencia-por-colombia-unidos-contra-el-fraude-y-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/lanzamiento-herramientas-innovadoras-para-la-lucha-contra-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/maestria-en-derecho-fiscal-de-la-universidad-externado-de-colombia.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memoria-conversatorio-juvenil.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memoria-encuentro-agencia-itrc-analdex-denuncia-efectiva.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memoria-evento-promoviendo-la-integridad-y-la-transparencia-en-ninos-y.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memoria-intervencion-directora-agencia-itrc-sesion-inaugural-cuarta-version-de.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memoria-participacion-de-la-agencia-itrc-en-la-sesion-no-35-de-la-iniciativa.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memoria-sesion-inaugural-sexta-version-de-la-catedra-colombiana-ciudadania.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-asistencia-tecnica-costa-rica-agencia-itrc.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-catedra-colombiana-ciudadania-integridad-lucha-corrupcion-version-3.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-colaboracion-asistencia-tecnica-agencia-itrc-sri-ecuador.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-evento-internacional-instrumentos-internacionales-de-transparencia-2.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-evento-internacional-instrumentos-internacionales-de-transparencia.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-evento-virtual-agencia-itrc-fitac.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-evento-virtual-apoyo-del-sector-aduanero-en-la-lucha-contra-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-evento-virtual-participacion-ciudadana-y-transparencia.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-intervencion-agencia-itrc-en-sesion-9-catedra-unal-construir-cultura.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-intervencion-directora-itrc-en-sesion-12-de-la-catedra-unal-un-estado.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-participacion-evento-virtual-mesa-redonda-aduanera-intervencion-y.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-segunda-participacion-de-la-directora-de-la-agencia-itrc-como-experta.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-segunda-sesion-de-colaboracion-asistencia-tecnica-agencia-itrc-sri.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-sesion-inaugural-catedra-septima-version-2024.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-sesion-no-10-catedra-unal-2024-1.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-sobre-participacion-agencia-itrc-en-comite-de-etica-ciat.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-taller-regional-agencia-itrc-promoviendo-la-transparencia-y-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-taller-virtual-agencia-itrc-y-su-contribucion-a-la-transparencia-de-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/memorias-webinar-buenas-practicas-para-prevenir-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/mesa-redonda-moral-tributaria.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/observatorio-de-fraude-y-corrupcion-de-la-agencia-itrc-presento-la-conferencia.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/participacion-de-agencia-itrc-en-sesion-de-consejo-directivo-ascun.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/participacion-en-sesion-octava-catedra-unal.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/plenaria-red-nacional-de-observatorios-anticorrupcion.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/propuesta-memorias-evento-anticorrupcion-primavera-2024-4a-edicion-nuevas-ideas.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/segunda-version-catedra-colombiana-ciudadania-integridad-y-lucha-contra-la.json",
+        "src/content/pages/observatorio/eje-de-educacion/memorias/taller-regional-agencia-itrc-y-personeria-distrital-de-bogota-promoviendo-la.json"
+      ],
+      "displayName": "Observatorio Eje De Educacion Memorias"
+    },
+    {
+      "slug": "observatorio-eje-de-participacion-memorias",
+      "dirPath": "src/content/pages/observatorio/eje-de-participacion/memorias",
+      "sourceFiles": [
+        "src/content/pages/observatorio/eje-de-participacion/memorias/buenas-practicas-para-el-fortalecimiento-de-la-transparencia-institucional.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/capacitacion-que-es-la-falta-disciplinaria-y-como-denunciarla-incremento.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/conmemoracion-dia-nacional-de-lucha-contra-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/decreto-1600.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/el-observatorio-de-la-itrc-asistio-a-la-rendicion-de-cuentas-de-apc-colombia.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/evento-virtual-denuncia-efectiva-herramienta-anticorrupcion-para-facilitar-la.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/funcionarios-y-contratistas-de-la-itrc-participaron-en-capacitacion-sobre-linea.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/herramientas-anticorrupcion-en-la-administracion-tributaria-perspectivas.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/intervencion-de-la-agencia-itrc-en-segunda-version-de-mision-contador-publico.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/itrc-ascun.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/itrc-ciat.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/la-itrc-participa-en-mesa-tecnica-interinstitucional-para-identificar-riesgos.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/la-itrc-participo-en-el-lanzamiento-de-la-campana-ciberseguridad-en-nuestras.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/mamoria-consolidacion-del-observatorio-de-fraude-y-corrupcion-visualizacion-de.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memoria-intervencion-directora-agencia-itrc-sesion-inaugural-cuarta-version-de.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memoria-itrc-contraloria-del-valle.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memoria-itrc-personeria-de-cartagena.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memoria-itrc-personeria-de-medellin.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memoria-sesion-inaugural-sexta-version-de-la-catedra-colombiana-ciudadania.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-asistencia-tecnica-costa-rica-agencia-itrc.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-catedra-colombiana-ciudadania-integridad-lucha-corrupcion-version-3.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-colaboracion-asistencia-tecnica-agencia-itrc-sri-ecuador.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-evento-internacional-instrumentos-internacionales-de-transparencia-2.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-evento-internacional-instrumentos-internacionales-de-transparencia.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-evento-virtual-agencia-itrc-promoviendo-la-transparencia-y-la.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-evento-virtual-apoyo-del-sector-aduanero-en-la-lucha-contra-la.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-intervencion-directora-itrc-en-sesion-12-de-la-catedra-unal-un-estado.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-participacion-evento-virtual-mesa-redonda-aduanera-intervencion-y.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-segunda-sesion-de-colaboracion-asistencia-tecnica-agencia-itrc-sri.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-sesion-inaugural-catedra-septima-version-2024.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-sesion-no-10-catedra-unal-2024-1.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-sobre-participacion-agencia-itrc-en-comite-de-etica-ciat.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-socializacion-decreto-1600-de-2024.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-taller-regional-agencia-itrc-promoviendo-la-transparencia-y-la.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-taller-virtual-agencia-itrc-y-su-contribucion-a-la-transparencia-de-la.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/memorias-webinar-buenas-practicas-para-prevenir-la-corrupcion.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/participacion-del-observatorio-anticorrupcion-de-la-agencia-itrc-en-la-sesion.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/propuesta-memorias-evento-anticorrupcion-primavera-2024-4a-edicion-nuevas-ideas.json",
+        "src/content/pages/observatorio/eje-de-participacion/memorias/taller-regional-agencia-itrc-y-personeria-distrital-de-bogota-promoviendo-la.json"
+      ],
+      "displayName": "Observatorio Eje De Participacion Memorias"
+    },
+    {
+      "slug": "transparencia-informes",
+      "dirPath": "src/content/pages/transparencia/informes",
+      "sourceFiles": [
+        "src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json",
+        "src/content/pages/transparencia/informes/evaluacion-independiente-sci.json",
+        "src/content/pages/transparencia/informes/informe-pormenorizado.json",
+        "src/content/pages/transparencia/informes/informes-software-legal.json",
+        "src/content/pages/transparencia/informes/rendicion-cuenta-fiscal-cgr.json",
+        "src/content/pages/transparencia/informes/seguimiento-plan-anticorrupcion.json"
+      ],
+      "displayName": "Transparencia Informes"
+    }
+  ],
+  "components": [
+    {
+      "key": "ciprep.item",
+      "category": "ciprep",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "ciprep.dia1",
+      "category": "ciprep",
+      "name": "dia1",
+      "displayName": "Dia1"
+    },
+    {
+      "key": "ciprep.dia2",
+      "category": "ciprep",
+      "name": "dia2",
+      "displayName": "Dia2"
+    },
+    {
+      "key": "ciprep.agenda",
+      "category": "ciprep",
+      "name": "agenda",
+      "displayName": "Agenda"
+    },
+    {
+      "key": "ciprep.estrategico",
+      "category": "ciprep",
+      "name": "estrategico",
+      "displayName": "Estrategico"
+    },
+    {
+      "key": "ciprep.integridad",
+      "category": "ciprep",
+      "name": "integridad",
+      "displayName": "Integridad"
+    },
+    {
+      "key": "ciprep.aliados",
+      "category": "ciprep",
+      "name": "aliados",
+      "displayName": "Aliados"
+    },
+    {
+      "key": "ciprep.recurso",
+      "category": "ciprep",
+      "name": "recurso",
+      "displayName": "Recurso"
+    },
+    {
+      "key": "ciprep.memorias",
+      "category": "ciprep",
+      "name": "memorias",
+      "displayName": "Memorias"
+    },
+    {
+      "key": "ciprep.cta",
+      "category": "ciprep",
+      "name": "cta",
+      "displayName": "Cta"
+    },
+    {
+      "key": "ciprep.speakersindex",
+      "category": "ciprep",
+      "name": "speakersindex",
+      "displayName": "Speakersindex"
+    },
+    {
+      "key": "home.entidadesvigilada",
+      "category": "home",
+      "name": "entidadesvigilada",
+      "displayName": "Entidadesvigilada"
+    },
+    {
+      "key": "home.item",
+      "category": "home",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "home.columnasservicio",
+      "category": "home",
+      "name": "columnasservicio",
+      "displayName": "Columnasservicio"
+    },
+    {
+      "key": "mapa-del-sitio.item",
+      "category": "mapa-del-sitio",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "mapa-del-sitio.extras",
+      "category": "mapa-del-sitio",
+      "name": "extras",
+      "displayName": "Extras"
+    },
+    {
+      "key": "normograma.norma",
+      "category": "normograma",
+      "name": "norma",
+      "displayName": "Norma"
+    },
+    {
+      "key": "participa.seccion",
+      "category": "participa",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "prensa.section",
+      "category": "prensa",
+      "name": "section",
+      "displayName": "Section"
+    },
+    {
+      "key": "transparencia.children",
+      "category": "transparencia",
+      "name": "children",
+      "displayName": "Children"
+    },
+    {
+      "key": "transparencia.item",
+      "category": "transparencia",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "transparencia.seccion",
+      "category": "transparencia",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "agencia-direccionamiento-estrategico.section",
+      "category": "agencia-direccionamiento-estrategico",
+      "name": "section",
+      "displayName": "Section"
+    },
+    {
+      "key": "agencia-direccionamiento-estrategico.norma",
+      "category": "agencia-direccionamiento-estrategico",
+      "name": "norma",
+      "displayName": "Norma"
+    },
+    {
+      "key": "agencia-direccionamiento-estrategico.marconormativo",
+      "category": "agencia-direccionamiento-estrategico",
+      "name": "marconormativo",
+      "displayName": "Marconormativo"
+    },
+    {
+      "key": "agencia-directorio.directorio",
+      "category": "agencia-directorio",
+      "name": "directorio",
+      "displayName": "Directorio"
+    },
+    {
+      "key": "agencia-directorio.escalasalarial",
+      "category": "agencia-directorio",
+      "name": "escalasalarial",
+      "displayName": "Escalasalarial"
+    },
+    {
+      "key": "agencia-directorio.infoadicional",
+      "category": "agencia-directorio",
+      "name": "infoadicional",
+      "displayName": "Infoadicional"
+    },
+    {
+      "key": "agencia-equipo-directivo.directora",
+      "category": "agencia-equipo-directivo",
+      "name": "directora",
+      "displayName": "Directora"
+    },
+    {
+      "key": "agencia-equipo-directivo.subdirector",
+      "category": "agencia-equipo-directivo",
+      "name": "subdirector",
+      "displayName": "Subdirector"
+    },
+    {
+      "key": "agencia-gestion-misional.observatorio",
+      "category": "agencia-gestion-misional",
+      "name": "observatorio",
+      "displayName": "Observatorio"
+    },
+    {
+      "key": "agencia-gestion-misional.documento",
+      "category": "agencia-gestion-misional",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "agencia-gestion-misional.categoria",
+      "category": "agencia-gestion-misional",
+      "name": "categoria",
+      "displayName": "Categoria"
+    },
+    {
+      "key": "agencia-gestion-misional.subdireccion",
+      "category": "agencia-gestion-misional",
+      "name": "subdireccion",
+      "displayName": "Subdireccion"
+    },
+    {
+      "key": "agencia-informacion-financiera.item",
+      "category": "agencia-informacion-financiera",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "agencia-informacion-financiera.tab",
+      "category": "agencia-informacion-financiera",
+      "name": "tab",
+      "displayName": "Tab"
+    },
+    {
+      "key": "agencia-informacion-financiera.infocard",
+      "category": "agencia-informacion-financiera",
+      "name": "infocard",
+      "displayName": "Infocard"
+    },
+    {
+      "key": "agencia-informacion-financiera.ctasection",
+      "category": "agencia-informacion-financiera",
+      "name": "ctasection",
+      "displayName": "Ctasection"
+    },
+    {
+      "key": "agencia-landing.seccion",
+      "category": "agencia-landing",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "agencia-mision-vision.proposito",
+      "category": "agencia-mision-vision",
+      "name": "proposito",
+      "displayName": "Proposito"
+    },
+    {
+      "key": "agencia-mision-vision.quienessomos",
+      "category": "agencia-mision-vision",
+      "name": "quienessomos",
+      "displayName": "Quienessomos"
+    },
+    {
+      "key": "agencia-mision-vision.entidad",
+      "category": "agencia-mision-vision",
+      "name": "entidad",
+      "displayName": "Entidad"
+    },
+    {
+      "key": "agencia-mision-vision.quehacemos",
+      "category": "agencia-mision-vision",
+      "name": "quehacemos",
+      "displayName": "Quehacemos"
+    },
+    {
+      "key": "agencia-mision-vision.comolohacemo",
+      "category": "agencia-mision-vision",
+      "name": "comolohacemo",
+      "displayName": "Comolohacemo"
+    },
+    {
+      "key": "agencia-mision-vision.item",
+      "category": "agencia-mision-vision",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "agencia-mision-vision.funciones",
+      "category": "agencia-mision-vision",
+      "name": "funciones",
+      "displayName": "Funciones"
+    },
+    {
+      "key": "agencia-mision-vision.valor",
+      "category": "agencia-mision-vision",
+      "name": "valor",
+      "displayName": "Valor"
+    },
+    {
+      "key": "agencia-mision-vision.mapaestrategico",
+      "category": "agencia-mision-vision",
+      "name": "mapaestrategico",
+      "displayName": "Mapaestrategico"
+    },
+    {
+      "key": "agencia-organigrama.organigrama",
+      "category": "agencia-organigrama",
+      "name": "organigrama",
+      "displayName": "Organigrama"
+    },
+    {
+      "key": "agencia-organigrama.funcionesporarea",
+      "category": "agencia-organigrama",
+      "name": "funcionesporarea",
+      "displayName": "Funcionesporarea"
+    },
+    {
+      "key": "agencia-organigrama.resolucionesseccion",
+      "category": "agencia-organigrama",
+      "name": "resolucionesseccion",
+      "displayName": "Resolucionesseccion"
+    },
+    {
+      "key": "agencia-organigrama.resolucion",
+      "category": "agencia-organigrama",
+      "name": "resolucion",
+      "displayName": "Resolucion"
+    },
+    {
+      "key": "agencia-organigrama.ctadirectorio",
+      "category": "agencia-organigrama",
+      "name": "ctadirectorio",
+      "displayName": "Ctadirectorio"
+    },
+    {
+      "key": "agencia-plan-institucional-de-archivos.documento",
+      "category": "agencia-plan-institucional-de-archivos",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.entidadesexterna",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "entidadesexterna",
+      "displayName": "Entidadesexterna"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.controlpolitico",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "controlpolitico",
+      "displayName": "Controlpolitico"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.controlinterno",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "controlinterno",
+      "displayName": "Controlinterno"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.contactointerno",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "contactointerno",
+      "displayName": "Contactointerno"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.documento",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.informeslegal",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "informeslegal",
+      "displayName": "Informeslegal"
+    },
+    {
+      "key": "agencia-sistema-de-control-interno.planesmejoramiento",
+      "category": "agencia-sistema-de-control-interno",
+      "name": "planesmejoramiento",
+      "displayName": "Planesmejoramiento"
+    },
+    {
+      "key": "agencia-sistema-integrado-de-gestion.document",
+      "category": "agencia-sistema-integrado-de-gestion",
+      "name": "document",
+      "displayName": "Document"
+    },
+    {
+      "key": "agencia-sistema-integrado-de-gestion.section",
+      "category": "agencia-sistema-integrado-de-gestion",
+      "name": "section",
+      "displayName": "Section"
+    },
+    {
+      "key": "agencia-direccionamiento-informes.document",
+      "category": "agencia-direccionamiento-informes",
+      "name": "document",
+      "displayName": "Document"
+    },
+    {
+      "key": "agencia-direccionamiento-informes.section",
+      "category": "agencia-direccionamiento-informes",
+      "name": "section",
+      "displayName": "Section"
+    },
+    {
+      "key": "agencia-direccionamiento-planes.document",
+      "category": "agencia-direccionamiento-planes",
+      "name": "document",
+      "displayName": "Document"
+    },
+    {
+      "key": "agencia-direccionamiento-planes.section",
+      "category": "agencia-direccionamiento-planes",
+      "name": "section",
+      "displayName": "Section"
+    },
+    {
+      "key": "agencia-direccionamiento-politicas.document",
+      "category": "agencia-direccionamiento-politicas",
+      "name": "document",
+      "displayName": "Document"
+    },
+    {
+      "key": "agencia-direccionamiento-politicas.section",
+      "category": "agencia-direccionamiento-politicas",
+      "name": "section",
+      "displayName": "Section"
+    },
+    {
+      "key": "agencia-empleo-rrhh-manual-especifico-funciones.documento",
+      "category": "agencia-empleo-rrhh-manual-especifico-funciones",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "agencia-empleo-rrhh-manual-especifico-funciones.seccion",
+      "category": "agencia-empleo-rrhh-manual-especifico-funciones",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "agencia-empleo-rrhh-manual-identidad-visual.inform",
+      "category": "agencia-empleo-rrhh-manual-identidad-visual",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "agencia-empleo-rrhh-manuales-internos.inform",
+      "category": "agencia-empleo-rrhh-manuales-internos",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "agencia-empleo-rrhh-nombramientos.documento",
+      "category": "agencia-empleo-rrhh-nombramientos",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "agencia-empleo-rrhh-nombramientos.vigencia",
+      "category": "agencia-empleo-rrhh-nombramientos",
+      "name": "vigencia",
+      "displayName": "Vigencia"
+    },
+    {
+      "key": "agencia-empleo-rrhh-ofertas-empleo.cta",
+      "category": "agencia-empleo-rrhh-ofertas-empleo",
+      "name": "cta",
+      "displayName": "Cta"
+    },
+    {
+      "key": "atencion-canales-de-atencion.item",
+      "category": "atencion-canales-de-atencion",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "atencion-canales-de-atencion.canal",
+      "category": "atencion-canales-de-atencion",
+      "name": "canal",
+      "displayName": "Canal"
+    },
+    {
+      "key": "atencion-canales-de-atencion.portafolio",
+      "category": "atencion-canales-de-atencion",
+      "name": "portafolio",
+      "displayName": "Portafolio"
+    },
+    {
+      "key": "atencion-glosario.termino",
+      "category": "atencion-glosario",
+      "name": "termino",
+      "displayName": "Termino"
+    },
+    {
+      "key": "atencion-landing.seccion",
+      "category": "atencion-landing",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "atencion-landing.enlacesexterno",
+      "category": "atencion-landing",
+      "name": "enlacesexterno",
+      "displayName": "Enlacesexterno"
+    },
+    {
+      "key": "atencion-pqrs-servidores.inform",
+      "category": "atencion-pqrs-servidores",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "atencion-pqrs.definicion",
+      "category": "atencion-pqrs",
+      "name": "definicion",
+      "displayName": "Definicion"
+    },
+    {
+      "key": "atencion-pqrs.report",
+      "category": "atencion-pqrs",
+      "name": "report",
+      "displayName": "Report"
+    },
+    {
+      "key": "atencion-pqrs.inform",
+      "category": "atencion-pqrs",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "atencion-preguntas-frecuentes.faq",
+      "category": "atencion-preguntas-frecuentes",
+      "name": "faq",
+      "displayName": "Faq"
+    },
+    {
+      "key": "atencion-vinculacion-a-terceros.documento",
+      "category": "atencion-vinculacion-a-terceros",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "institucional-audios-itrc.audio",
+      "category": "institucional-audios-itrc",
+      "name": "audio",
+      "displayName": "Audio"
+    },
+    {
+      "key": "institucional-calendario-eventos.cta",
+      "category": "institucional-calendario-eventos",
+      "name": "cta",
+      "displayName": "Cta"
+    },
+    {
+      "key": "institucional-defensa-judicial.inform",
+      "category": "institucional-defensa-judicial",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "institucional-estados.notificacion",
+      "category": "institucional-estados",
+      "name": "notificacion",
+      "displayName": "Notificacion"
+    },
+    {
+      "key": "institucional-estudios-investigaciones.inform",
+      "category": "institucional-estudios-investigaciones",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "institucional-historico-investigaciones-disciplinarias.inform",
+      "category": "institucional-historico-investigaciones-disciplinarias",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "institucional-historico-sistema-control-interno.seccion",
+      "category": "institucional-historico-sistema-control-interno",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "institucional-publicacion-datos-abiertos.cta",
+      "category": "institucional-publicacion-datos-abiertos",
+      "name": "cta",
+      "displayName": "Cta"
+    },
+    {
+      "key": "normativa-decretos.decreto",
+      "category": "normativa-decretos",
+      "name": "decreto",
+      "displayName": "Decreto"
+    },
+    {
+      "key": "normativa-landing.seccion",
+      "category": "normativa-landing",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "normativa-marco-legal.documento",
+      "category": "normativa-marco-legal",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "normativa-marco-legal.seccion",
+      "category": "normativa-marco-legal",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "normativa-resoluciones.acto",
+      "category": "normativa-resoluciones",
+      "name": "acto",
+      "displayName": "Acto"
+    },
+    {
+      "key": "normativa-unificacion-suin-juriscol.norma",
+      "category": "normativa-unificacion-suin-juriscol",
+      "name": "norma",
+      "displayName": "Norma"
+    },
+    {
+      "key": "observatorio-del-observatorio.tab",
+      "category": "observatorio-del-observatorio",
+      "name": "tab",
+      "displayName": "Tab"
+    },
+    {
+      "key": "observatorio-eje-de-educacion.seccion",
+      "category": "observatorio-eje-de-educacion",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "observatorio-eje-de-medicion.dashboard",
+      "category": "observatorio-eje-de-medicion",
+      "name": "dashboard",
+      "displayName": "Dashboard"
+    },
+    {
+      "key": "observatorio-eje-de-participacion.seccion",
+      "category": "observatorio-eje-de-participacion",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "observatorio-observatorio.seccion",
+      "category": "observatorio-observatorio",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-articulos.articulo",
+      "category": "observatorio-eje-de-educacion-articulos",
+      "name": "articulo",
+      "displayName": "Articulo"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-conociendo.documento",
+      "category": "observatorio-eje-de-educacion-conociendo",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-glosario-ninos.termino",
+      "category": "observatorio-eje-de-educacion-glosario-ninos",
+      "name": "termino",
+      "displayName": "Termino"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-itrc-para-ninos.seccion",
+      "category": "observatorio-eje-de-educacion-itrc-para-ninos",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-juego-de-roles.juego",
+      "category": "observatorio-eje-de-educacion-juego-de-roles",
+      "name": "juego",
+      "displayName": "Juego"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-memorias-info.entrada",
+      "category": "observatorio-eje-de-educacion-memorias-info",
+      "name": "entrada",
+      "displayName": "Entrada"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-memorias-info.anio",
+      "category": "observatorio-eje-de-educacion-memorias-info",
+      "name": "anio",
+      "displayName": "Anio"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-quiz.pregunta",
+      "category": "observatorio-eje-de-educacion-quiz",
+      "name": "pregunta",
+      "displayName": "Pregunta"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-repositorio-juridico.norma",
+      "category": "observatorio-eje-de-educacion-repositorio-juridico",
+      "name": "norma",
+      "displayName": "Norma"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-cartillas.cartilla",
+      "category": "observatorio-eje-de-participacion-cartillas",
+      "name": "cartilla",
+      "displayName": "Cartilla"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-encuesta.participar",
+      "category": "observatorio-eje-de-participacion-encuesta",
+      "name": "participar",
+      "displayName": "Participar"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-encuesta.resultados",
+      "category": "observatorio-eje-de-participacion-encuesta",
+      "name": "resultados",
+      "displayName": "Resultados"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-memorias-info.entrada",
+      "category": "observatorio-eje-de-participacion-memorias-info",
+      "name": "entrada",
+      "displayName": "Entrada"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-memorias-info.anio",
+      "category": "observatorio-eje-de-participacion-memorias-info",
+      "name": "anio",
+      "displayName": "Anio"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-noticias.noticia",
+      "category": "observatorio-eje-de-participacion-noticias",
+      "name": "noticia",
+      "displayName": "Noticia"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-videos-tutoriales.video",
+      "category": "observatorio-eje-de-participacion-videos-tutoriales",
+      "name": "video",
+      "displayName": "Video"
+    },
+    {
+      "key": "participa-colaboracion.iniciativa",
+      "category": "participa-colaboracion",
+      "name": "iniciativa",
+      "displayName": "Iniciativa"
+    },
+    {
+      "key": "participa-consulta-ciudadana.contenido",
+      "category": "participa-consulta-ciudadana",
+      "name": "contenido",
+      "displayName": "Contenido"
+    },
+    {
+      "key": "participa-consulta-ciudadana.enlaz",
+      "category": "participa-consulta-ciudadana",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "participa-control-social.enlaz",
+      "category": "participa-control-social",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "participa-diagnostico.enlaz",
+      "category": "participa-diagnostico",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "participa-diagnostico.cajaherramienta",
+      "category": "participa-diagnostico",
+      "name": "cajaherramienta",
+      "displayName": "Cajaherramienta"
+    },
+    {
+      "key": "participa-planeacion.enlaz",
+      "category": "participa-planeacion",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "participa-rendicion-de-cuentas.documento",
+      "category": "participa-rendicion-de-cuentas",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "participa-rendicion-de-cuentas.anio",
+      "category": "participa-rendicion-de-cuentas",
+      "name": "anio",
+      "displayName": "Anio"
+    },
+    {
+      "key": "participa-atencion-informe-comite-conciliacion.inform",
+      "category": "participa-atencion-informe-comite-conciliacion",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "participa-atencion-otros-grupos-interes.enlaz",
+      "category": "participa-atencion-otros-grupos-interes",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "participa-atencion-respuesta-anonimos.notificacion",
+      "category": "participa-atencion-respuesta-anonimos",
+      "name": "notificacion",
+      "displayName": "Notificacion"
+    },
+    {
+      "key": "prensa-capsulas.capsula",
+      "category": "prensa-capsulas",
+      "name": "capsula",
+      "displayName": "Capsula"
+    },
+    {
+      "key": "prensa-comunicados-institucionales.item",
+      "category": "prensa-comunicados-institucionales",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "prensa-comunicados-institucionales.anio",
+      "category": "prensa-comunicados-institucionales",
+      "name": "anio",
+      "displayName": "Anio"
+    },
+    {
+      "key": "prensa-galeria.album",
+      "category": "prensa-galeria",
+      "name": "album",
+      "displayName": "Album"
+    },
+    {
+      "key": "prensa-landing.seccion",
+      "category": "prensa-landing",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "prensa-videos.video",
+      "category": "prensa-videos",
+      "name": "video",
+      "displayName": "Video"
+    },
+    {
+      "key": "prensa-videos.enlaz",
+      "category": "prensa-videos",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "transparencia-accesibilidad.documento",
+      "category": "transparencia-accesibilidad",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-comite-conciliacion.doc",
+      "category": "transparencia-comite-conciliacion",
+      "name": "doc",
+      "displayName": "Doc"
+    },
+    {
+      "key": "transparencia-comite-conciliacion.anio",
+      "category": "transparencia-comite-conciliacion",
+      "name": "anio",
+      "displayName": "Anio"
+    },
+    {
+      "key": "transparencia-decreto-unico.documento",
+      "category": "transparencia-decreto-unico",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-decretos-estructura.decreto",
+      "category": "transparencia-decretos-estructura",
+      "name": "decreto",
+      "displayName": "Decreto"
+    },
+    {
+      "key": "transparencia-decretos-estructura.seccion",
+      "category": "transparencia-decretos-estructura",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "transparencia-defensa-publica.enlaz",
+      "category": "transparencia-defensa-publica",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "transparencia-directorio-entidades.entidad",
+      "category": "transparencia-directorio-entidades",
+      "name": "entidad",
+      "displayName": "Entidad"
+    },
+    {
+      "key": "transparencia-directorio-entidades.grupo",
+      "category": "transparencia-directorio-entidades",
+      "name": "grupo",
+      "displayName": "Grupo"
+    },
+    {
+      "key": "transparencia-evaluacion-independiente.documento",
+      "category": "transparencia-evaluacion-independiente",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-evaluacion-independiente.enlacerelacionado",
+      "category": "transparencia-evaluacion-independiente",
+      "name": "enlacerelacionado",
+      "displayName": "Enlacerelacionado"
+    },
+    {
+      "key": "transparencia-formatos-contratos-pliegos-tipo.inform",
+      "category": "transparencia-formatos-contratos-pliegos-tipo",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-formatos-formularios.seccion",
+      "category": "transparencia-formatos-formularios",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "transparencia-hojas-de-vida.aspirant",
+      "category": "transparencia-hojas-de-vida",
+      "name": "aspirant",
+      "displayName": "Aspirant"
+    },
+    {
+      "key": "transparencia-indice-informacion-clasificada.inform",
+      "category": "transparencia-indice-informacion-clasificada",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-informacion-mujeres.link",
+      "category": "transparencia-informacion-mujeres",
+      "name": "link",
+      "displayName": "Link"
+    },
+    {
+      "key": "transparencia-informacion-mujeres.seccion",
+      "category": "transparencia-informacion-mujeres",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "transparencia-informes-empalme.documento",
+      "category": "transparencia-informes-empalme",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-informes-legales.item",
+      "category": "transparencia-informes-legales",
+      "name": "item",
+      "displayName": "Item"
+    },
+    {
+      "key": "transparencia-informes-legales.doc",
+      "category": "transparencia-informes-legales",
+      "name": "doc",
+      "displayName": "Doc"
+    },
+    {
+      "key": "transparencia-informes-legales.seccion",
+      "category": "transparencia-informes-legales",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "transparencia-informes-organismos-ivc.enlaz",
+      "category": "transparencia-informes-organismos-ivc",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "transparencia-informes-organismos.enlaz",
+      "category": "transparencia-informes-organismos",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "transparencia-leyes.ley",
+      "category": "transparencia-leyes",
+      "name": "ley",
+      "displayName": "Ley"
+    },
+    {
+      "key": "transparencia-normas-servicio.norma",
+      "category": "transparencia-normas-servicio",
+      "name": "norma",
+      "displayName": "Norma"
+    },
+    {
+      "key": "transparencia-normatividad-especial.seccion",
+      "category": "transparencia-normatividad-especial",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "transparencia-otros-grupos.enlaz",
+      "category": "transparencia-otros-grupos",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "transparencia-planes-mejoramiento.seccion",
+      "category": "transparencia-planes-mejoramiento",
+      "name": "seccion",
+      "displayName": "Seccion"
+    },
+    {
+      "key": "transparencia-politicas-manuales.enlaz",
+      "category": "transparencia-politicas-manuales",
+      "name": "enlaz",
+      "displayName": "Enlaz"
+    },
+    {
+      "key": "transparencia-politicas-manuales.derechosautor",
+      "category": "transparencia-politicas-manuales",
+      "name": "derechosautor",
+      "displayName": "Derechosautor"
+    },
+    {
+      "key": "transparencia-procedimientos-decisiones.inform",
+      "category": "transparencia-procedimientos-decisiones",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-programa-gestion-documental.inform",
+      "category": "transparencia-programa-gestion-documental",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.enlacesexterno",
+      "category": "transparencia-proyectos-inversion",
+      "name": "enlacesexterno",
+      "displayName": "Enlacesexterno"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.doc",
+      "category": "transparencia-proyectos-inversion",
+      "name": "doc",
+      "displayName": "Doc"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.inform",
+      "category": "transparencia-proyectos-inversion",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.ficha",
+      "category": "transparencia-proyectos-inversion",
+      "name": "ficha",
+      "displayName": "Ficha"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.fichasebi",
+      "category": "transparencia-proyectos-inversion",
+      "name": "fichasebi",
+      "displayName": "Fichasebi"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.resumenejecutivo",
+      "category": "transparencia-proyectos-inversion",
+      "name": "resumenejecutivo",
+      "displayName": "Resumenejecutivo"
+    },
+    {
+      "key": "transparencia-proyectos-inversion.seguimientosspi",
+      "category": "transparencia-proyectos-inversion",
+      "name": "seguimientosspi",
+      "displayName": "Seguimientosspi"
+    },
+    {
+      "key": "transparencia-proyectos-normas-comentarios.enlacesexterno",
+      "category": "transparencia-proyectos-normas-comentarios",
+      "name": "enlacesexterno",
+      "displayName": "Enlacesexterno"
+    },
+    {
+      "key": "transparencia-relatoria.resolucion",
+      "category": "transparencia-relatoria",
+      "name": "resolucion",
+      "displayName": "Resolucion"
+    },
+    {
+      "key": "transparencia-relatoria.ficha",
+      "category": "transparencia-relatoria",
+      "name": "ficha",
+      "displayName": "Ficha"
+    },
+    {
+      "key": "transparencia-rendicion-cuenta-contraloria.documento",
+      "category": "transparencia-rendicion-cuenta-contraloria",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-reporte-austeridad-gasto.inform",
+      "category": "transparencia-reporte-austeridad-gasto",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-sede-horarios.sede",
+      "category": "transparencia-sede-horarios",
+      "name": "sede",
+      "displayName": "Sede"
+    },
+    {
+      "key": "transparencia-sede-horarios.horario",
+      "category": "transparencia-sede-horarios",
+      "name": "horario",
+      "displayName": "Horario"
+    },
+    {
+      "key": "transparencia-sede-horarios.contacto",
+      "category": "transparencia-sede-horarios",
+      "name": "contacto",
+      "displayName": "Contacto"
+    },
+    {
+      "key": "transparencia-sede-horarios.mapa",
+      "category": "transparencia-sede-horarios",
+      "name": "mapa",
+      "displayName": "Mapa"
+    },
+    {
+      "key": "transparencia-supervision-vigilancia.entidad",
+      "category": "transparencia-supervision-vigilancia",
+      "name": "entidad",
+      "displayName": "Entidad"
+    },
+    {
+      "key": "transparencia-tablas-retencion.doc",
+      "category": "transparencia-tablas-retencion",
+      "name": "doc",
+      "displayName": "Doc"
+    },
+    {
+      "key": "transparencia-tablas-retencion.version",
+      "category": "transparencia-tablas-retencion",
+      "name": "version",
+      "displayName": "Version"
+    },
+    {
+      "key": "transparencia-contratacion-contratacion-suscrita.proceso",
+      "category": "transparencia-contratacion-contratacion-suscrita",
+      "name": "proceso",
+      "displayName": "Proceso"
+    },
+    {
+      "key": "transparencia-contratacion-contratacion-suscrita.convocatoria",
+      "category": "transparencia-contratacion-contratacion-suscrita",
+      "name": "convocatoria",
+      "displayName": "Convocatoria"
+    },
+    {
+      "key": "transparencia-contratacion-contratacion-suscrita.contrato",
+      "category": "transparencia-contratacion-contratacion-suscrita",
+      "name": "contrato",
+      "displayName": "Contrato"
+    },
+    {
+      "key": "transparencia-contratacion-contratacion-suscrita.contratacionsuscrita",
+      "category": "transparencia-contratacion-contratacion-suscrita",
+      "name": "contratacionsuscrita",
+      "displayName": "Contratacionsuscrita"
+    },
+    {
+      "key": "transparencia-contratacion-ejecucion-contratos.documento",
+      "category": "transparencia-contratacion-ejecucion-contratos",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-contratacion-ejecucion-contratos.vigencia",
+      "category": "transparencia-contratacion-ejecucion-contratos",
+      "name": "vigencia",
+      "displayName": "Vigencia"
+    },
+    {
+      "key": "transparencia-contratacion-ejecucion-contratos.enlacesexterno",
+      "category": "transparencia-contratacion-ejecucion-contratos",
+      "name": "enlacesexterno",
+      "displayName": "Enlacesexterno"
+    },
+    {
+      "key": "transparencia-contratacion-formatos.formato",
+      "category": "transparencia-contratacion-formatos",
+      "name": "formato",
+      "displayName": "Formato"
+    },
+    {
+      "key": "transparencia-contratacion-manual.documento",
+      "category": "transparencia-contratacion-manual",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-contratacion-plan-adquisiciones.doc",
+      "category": "transparencia-contratacion-plan-adquisiciones",
+      "name": "doc",
+      "displayName": "Doc"
+    },
+    {
+      "key": "transparencia-contratacion-plan-adquisiciones.anio",
+      "category": "transparencia-contratacion-plan-adquisiciones",
+      "name": "anio",
+      "displayName": "Anio"
+    },
+    {
+      "key": "transparencia-contratacion-procedimientos-adquisicion.documento",
+      "category": "transparencia-contratacion-procedimientos-adquisicion",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-documentacion-esquema-publicacion.inform",
+      "category": "transparencia-documentacion-esquema-publicacion",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-documentacion-formato-grupos-etnicos.inform",
+      "category": "transparencia-documentacion-formato-grupos-etnicos",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "transparencia-documentacion-proteccion-datos.documento",
+      "category": "transparencia-documentacion-proteccion-datos",
+      "name": "documento",
+      "displayName": "Documento"
+    },
+    {
+      "key": "transparencia-documentacion-proteccion-datos.enlacesexterno",
+      "category": "transparencia-documentacion-proteccion-datos",
+      "name": "enlacesexterno",
+      "displayName": "Enlacesexterno"
+    },
+    {
+      "key": "transparencia-documentacion-registro-publicaciones.inform",
+      "category": "transparencia-documentacion-registro-publicaciones",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "galeria.portada",
+      "category": "galeria",
+      "name": "portada",
+      "displayName": "Portada"
+    },
+    {
+      "key": "galeria.imagen",
+      "category": "galeria",
+      "name": "imagen",
+      "displayName": "Imagen"
+    },
+    {
+      "key": "normativa-vigencias.inform",
+      "category": "normativa-vigencias",
+      "name": "inform",
+      "displayName": "Inform"
+    },
+    {
+      "key": "observatorio-eje-de-educacion-memorias.galeria",
+      "category": "observatorio-eje-de-educacion-memorias",
+      "name": "galeria",
+      "displayName": "Galeria"
+    },
+    {
+      "key": "observatorio-eje-de-participacion-memorias.galeria",
+      "category": "observatorio-eje-de-participacion-memorias",
+      "name": "galeria",
+      "displayName": "Galeria"
+    },
+    {
+      "key": "transparencia-informes.destino",
+      "category": "transparencia-informes",
+      "name": "destino",
+      "displayName": "Destino"
+    },
+    {
+      "key": "transparencia-informes.categoria",
+      "category": "transparencia-informes",
+      "name": "categoria",
+      "displayName": "Categoria"
+    },
+    {
+      "key": "transparencia-informes.inform",
+      "category": "transparencia-informes",
+      "name": "inform",
+      "displayName": "Inform"
+    }
+  ]
+}

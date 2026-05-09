@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/transparencia/documentacion/formato-grupos-etnicos.json';
+import { getTransparenciaDocumentacionFormatoGruposEtnicos } from '../utils/strapi-fetchers';
+const pageData = await getTransparenciaDocumentacionFormatoGruposEtnicos();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

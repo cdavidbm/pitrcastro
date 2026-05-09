@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
-import { getMarcoLegal } from '../utils/strapi';
+import { getNormativaMarcoLegal } from '../utils/strapi-fetchers';
 
-const pageData = await getMarcoLegal();
+const pageData = await getNormativaMarcoLegal();
 
 const base = import.meta.env.BASE_URL;
 

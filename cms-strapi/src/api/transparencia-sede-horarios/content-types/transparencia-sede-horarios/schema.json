@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_sede_horarios",
+  "info": {
+    "singularName": "transparencia-sede-horarios",
+    "pluralName": "transparencia-sede-horarioses",
+    "displayName": "Transparencia Sede Horarios",
+    "description": "Auto-generado desde src/content/pages/transparencia/sede-horarios.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "sede": {
+      "type": "component",
+      "component": "transparencia-sede-horarios.sede",
+      "repeatable": false
+    },
+    "horario": {
+      "type": "component",
+      "component": "transparencia-sede-horarios.horario",
+      "repeatable": false
+    },
+    "contacto": {
+      "type": "component",
+      "component": "transparencia-sede-horarios.contacto",
+      "repeatable": false
+    },
+    "mapa": {
+      "type": "component",
+      "component": "transparencia-sede-horarios.mapa",
+      "repeatable": false
+    }
+  }
+}

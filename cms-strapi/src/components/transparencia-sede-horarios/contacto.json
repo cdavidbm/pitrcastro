@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_transparencia_sede_horarios_contactos",
+  "info": {
+    "displayName": "Contacto",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "telefono": {
+      "type": "string"
+    },
+    "extension": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "lineaGratuita": {
+      "type": "string"
+    }
+  }
+}

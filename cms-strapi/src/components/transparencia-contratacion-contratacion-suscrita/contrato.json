@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_contratacion_contratacion_suscrita_contratos",
+  "info": {
+    "displayName": "Contrato",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "periodo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

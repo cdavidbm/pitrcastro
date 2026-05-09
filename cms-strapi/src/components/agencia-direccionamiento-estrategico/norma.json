@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_direccionamiento_estrategico_normas",
+  "info": {
+    "displayName": "Norma",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_institucional_audios_itrc_audios",
+  "info": {
+    "displayName": "Audio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

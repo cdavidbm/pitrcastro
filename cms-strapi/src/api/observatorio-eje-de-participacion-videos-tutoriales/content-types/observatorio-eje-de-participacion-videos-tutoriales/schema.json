@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_participacion_videos_tutoriales",
+  "info": {
+    "singularName": "observatorio-eje-de-participacion-videos-tutoriales",
+    "pluralName": "observatorio-eje-de-participacion-videos-tutorialeses",
+    "displayName": "Observatorio Eje De Participacion Videos Tutoriales",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "videos": {
+      "type": "component",
+      "component": "observatorio-eje-de-participacion-videos-tutoriales.video",
+      "repeatable": true
+    }
+  }
+}

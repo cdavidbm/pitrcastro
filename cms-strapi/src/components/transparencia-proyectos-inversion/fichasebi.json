@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_proyectos_inversion_fichasebis",
+  "info": {
+    "displayName": "Fichasebi",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "fichas": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.ficha",
+      "repeatable": true
+    }
+  }
+}

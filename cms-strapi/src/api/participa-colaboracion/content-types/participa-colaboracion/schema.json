@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_colaboracion",
+  "info": {
+    "singularName": "participa-colaboracion",
+    "pluralName": "participa-colaboracions",
+    "displayName": "Participa Colaboracion",
+    "description": "Auto-generado desde src/content/pages/participa/colaboracion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "textoAdicional": {
+      "type": "text"
+    },
+    "iniciativas": {
+      "type": "component",
+      "component": "participa-colaboracion.iniciativa",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

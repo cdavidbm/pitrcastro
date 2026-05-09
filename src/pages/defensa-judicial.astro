@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/institucional/defensa-judicial.json';
+import { getInstitucionalDefensaJudicial } from '../utils/strapi-fetchers';
+const pageData = await getInstitucionalDefensaJudicial();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

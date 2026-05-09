@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_mapa_del_sitio_extrases",
+  "info": {
+    "displayName": "Extras",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "mapa-del-sitio.item",
+      "repeatable": true
+    }
+  }
+}

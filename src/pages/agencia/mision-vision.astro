@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import Accordion from '../../components/Accordion.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
-import pageData from '../../content/pages/agencia/mision-vision.json';
+import { getAgenciaMisionVision } from '../../utils/strapi-fetchers';
 
+const pageData = await getAgenciaMisionVision();
 const base = import.meta.env.BASE_URL;
 const { proposito, mision, vision, quienesSomos, queHacemos, comoLoHacemos, funciones, valores, mapaEstrategico } = pageData;
 

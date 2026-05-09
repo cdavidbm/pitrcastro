@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_atencion_informe_comite_conciliacion",
+  "info": {
+    "singularName": "participa-atencion-informe-comite-conciliacion",
+    "pluralName": "participa-atencion-informe-comite-conciliacions",
+    "displayName": "Participa Atencion Informe Comite Conciliacion",
+    "description": "Auto-generado desde src/content/pages/participa-atencion/informe-comite-conciliacion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "informes": {
+      "type": "component",
+      "component": "participa-atencion-informe-comite-conciliacion.inform",
+      "repeatable": true
+    }
+  }
+}

@@ -4,8 +4,8 @@ import HeroPage from '../../../components/HeroPage.astro';
 import NewsCard from '../../../components/NewsCard.astro';
 import { resolveUrl } from '../../../utils/url';
 import type { MarkdownModule } from '../../../types/content';
-import comunicadosData from '../../../content/pages/prensa/comunicados-institucionales.json';
-
+import { getPrensaComunicadosInstitucionales } from '../../../utils/strapi-fetchers';
+const comunicadosData = await getPrensaComunicadosInstitucionales();
 const newsFiles = import.meta.glob<MarkdownModule>('../../../content/news/*.md', { eager: true });
 
 type News = {

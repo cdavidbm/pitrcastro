@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_educacion_conociendo",
+  "info": {
+    "singularName": "observatorio-eje-de-educacion-conociendo",
+    "pluralName": "observatorio-eje-de-educacion-conociendos",
+    "displayName": "Observatorio Eje De Educacion Conociendo",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/conociendo.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "observatorio-eje-de-educacion-conociendo.documento",
+      "repeatable": true
+    }
+  }
+}

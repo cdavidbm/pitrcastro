@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "institucional_calendario_eventos",
+  "info": {
+    "singularName": "institucional-calendario-eventos",
+    "pluralName": "institucional-calendario-eventoses",
+    "displayName": "Institucional Calendario Eventos",
+    "description": "Auto-generado desde src/content/pages/institucional/calendario-eventos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "institucional-calendario-eventos.cta",
+      "repeatable": false
+    }
+  }
+}

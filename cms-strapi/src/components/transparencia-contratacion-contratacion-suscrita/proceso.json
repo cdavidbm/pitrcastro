@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_transparencia_contratacion_contratacion_suscrita_procesos",
+  "info": {
+    "displayName": "Proceso",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "anio": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "string"
+    },
+    "secopRef": {
+      "type": "string"
+    },
+    "otros": {
+      "type": "json"
+    }
+  }
+}

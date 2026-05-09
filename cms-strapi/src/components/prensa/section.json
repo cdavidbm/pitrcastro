@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_prensa_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "idLogico": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

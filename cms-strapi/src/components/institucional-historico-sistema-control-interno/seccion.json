@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_institucional_historico_sistema_control_interno_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "json"
+    }
+  }
+}

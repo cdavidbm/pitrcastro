@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_agencia_mision_vision_quienessomoses",
+  "info": {
+    "displayName": "Quienessomos",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "intro": {
+      "type": "json"
+    },
+    "capacidades": {
+      "type": "json"
+    }
+  }
+}

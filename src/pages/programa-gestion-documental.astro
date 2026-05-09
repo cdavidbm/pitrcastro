@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/transparencia/programa-gestion-documental.json';
+import { getTransparenciaProgramaGestionDocumental } from '../utils/strapi-fetchers';
+const pageData = await getTransparenciaProgramaGestionDocumental();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

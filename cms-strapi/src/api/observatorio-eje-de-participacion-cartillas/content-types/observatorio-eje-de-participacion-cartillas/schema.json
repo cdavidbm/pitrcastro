@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_participacion_cartillas",
+  "info": {
+    "singularName": "observatorio-eje-de-participacion-cartillas",
+    "pluralName": "observatorio-eje-de-participacion-cartillases",
+    "displayName": "Observatorio Eje De Participacion Cartillas",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-participacion/cartillas.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "cartillas": {
+      "type": "component",
+      "component": "observatorio-eje-de-participacion-cartillas.cartilla",
+      "repeatable": true
+    }
+  }
+}

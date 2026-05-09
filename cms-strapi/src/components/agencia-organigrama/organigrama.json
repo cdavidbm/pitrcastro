@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_organigrama_organigramas",
+  "info": {
+    "displayName": "Organigrama",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "imagen": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

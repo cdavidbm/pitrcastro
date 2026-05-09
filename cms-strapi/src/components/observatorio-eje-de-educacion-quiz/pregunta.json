@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_quiz_preguntas",
+  "info": {
+    "displayName": "Pregunta",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "pregunta": {
+      "type": "string"
+    },
+    "opciones": {
+      "type": "json"
+    },
+    "correcta": {
+      "type": "integer"
+    },
+    "explicacion": {
+      "type": "string"
+    }
+  }
+}

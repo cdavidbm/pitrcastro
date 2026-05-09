@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_agencia_gestion_misional_categorias",
+  "info": {
+    "displayName": "Categoria",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "agencia-gestion-misional.documento",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_transparencia_decretos_estructura_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "decretos": {
+      "type": "component",
+      "component": "transparencia-decretos-estructura.decreto",
+      "repeatable": true
+    }
+  }
+}

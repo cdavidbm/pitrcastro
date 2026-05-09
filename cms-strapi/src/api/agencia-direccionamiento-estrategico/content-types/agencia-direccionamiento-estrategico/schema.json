@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_direccionamiento_estrategico",
+  "info": {
+    "singularName": "agencia-direccionamiento-estrategico",
+    "pluralName": "agencia-direccionamiento-estrategicos",
+    "displayName": "Agencia Direccionamiento Estrategico",
+    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento-estrategico.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "sections": {
+      "type": "component",
+      "component": "agencia-direccionamiento-estrategico.section",
+      "repeatable": true
+    },
+    "marcoNormativo": {
+      "type": "component",
+      "component": "agencia-direccionamiento-estrategico.marconormativo",
+      "repeatable": false
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

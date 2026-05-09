@@ -4,8 +4,9 @@ import HeroPage from '../../components/HeroPage.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import { resolveUrl } from '../../utils/url';
 
-import pageData from '../../content/pages/participa/planeacion.json';
+import { getParticipaPlaneacion } from '../../utils/strapi-fetchers';
 
+const pageData = await getParticipaPlaneacion();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

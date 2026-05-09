@@ -2,8 +2,9 @@
 import Base from '../../../layouts/Base.astro';
 import HeroPage from '../../../components/HeroPage.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
-import pageData from '../../../content/pages/agencia/direccionamiento-estrategico.json';
+import { getAgenciaDireccionamientoEstrategico } from '../../../utils/strapi-fetchers';
 
+const pageData = await getAgenciaDireccionamientoEstrategico();
 interface SeccionCard {
   id: string;
   titulo: string;

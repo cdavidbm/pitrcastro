@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_agencia_sistema_integrado_de_gestion_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string"
+    },
+    "sectionDescription": {
+      "type": "text"
+    },
+    "sectionIcon": {
+      "type": "string"
+    },
+    "displayMode": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "component",
+      "component": "agencia-sistema-integrado-de-gestion.document",
+      "repeatable": true
+    }
+  }
+}

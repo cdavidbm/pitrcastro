@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_participa_consulta_ciudadana_contenidos",
+  "info": {
+    "displayName": "Contenido",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "subtitulo": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "text"
+    }
+  }
+}

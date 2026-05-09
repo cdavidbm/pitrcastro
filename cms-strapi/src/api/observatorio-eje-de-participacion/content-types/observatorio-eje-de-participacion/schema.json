@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_participacion",
+  "info": {
+    "singularName": "observatorio-eje-de-participacion",
+    "pluralName": "observatorio-eje-de-participacions",
+    "displayName": "Observatorio Eje De Participacion",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-participacion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "observatorio-eje-de-participacion.seccion",
+      "repeatable": true
+    }
+  }
+}

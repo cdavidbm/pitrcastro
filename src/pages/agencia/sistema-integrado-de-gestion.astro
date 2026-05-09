@@ -5,8 +5,9 @@ import Accordion from '../../components/Accordion.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import type { DocumentSection } from '../../types/content';
-import pageData from '../../content/pages/agencia/sistema-integrado-de-gestion.json';
+import { getAgenciaSistemaIntegradoDeGestion } from '../../utils/strapi-fetchers';
 
+const pageData = await getAgenciaSistemaIntegradoDeGestion();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

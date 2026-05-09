@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "institucional_publicacion_datos_abiertos",
+  "info": {
+    "singularName": "institucional-publicacion-datos-abiertos",
+    "pluralName": "institucional-publicacion-datos-abiertoses",
+    "displayName": "Institucional Publicacion Datos Abiertos",
+    "description": "Auto-generado desde src/content/pages/institucional/publicacion-datos-abiertos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "institucional-publicacion-datos-abiertos.cta",
+      "repeatable": false
+    }
+  }
+}

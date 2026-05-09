@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_educacion_glosario_ninos",
+  "info": {
+    "singularName": "observatorio-eje-de-educacion-glosario-ninos",
+    "pluralName": "observatorio-eje-de-educacion-glosario-ninoses",
+    "displayName": "Observatorio Eje De Educacion Glosario Ninos",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "terminos": {
+      "type": "component",
+      "component": "observatorio-eje-de-educacion-glosario-ninos.termino",
+      "repeatable": true
+    }
+  }
+}

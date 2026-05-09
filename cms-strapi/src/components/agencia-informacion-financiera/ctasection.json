@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_agencia_informacion_financiera_ctasections",
+  "info": {
+    "displayName": "Ctasection",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "linkUrl": {
+      "type": "string"
+    },
+    "linkText": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

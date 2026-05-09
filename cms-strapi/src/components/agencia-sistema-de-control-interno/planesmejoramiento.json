@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_agencia_sistema_de_control_interno_planesmejoramientos",
+  "info": {
+    "displayName": "Planesmejoramiento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "linkUrl": {
+      "type": "string"
+    },
+    "linkText": {
+      "type": "string"
+    }
+  }
+}

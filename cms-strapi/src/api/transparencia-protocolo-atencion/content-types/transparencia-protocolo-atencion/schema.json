@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_protocolo_atencion",
+  "info": {
+    "singularName": "transparencia-protocolo-atencion",
+    "pluralName": "transparencia-protocolo-atencions",
+    "displayName": "Transparencia Protocolo Atencion",
+    "description": "Auto-generado desde src/content/pages/transparencia/protocolo-atencion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "string"
+    },
+    "pdfNombre": {
+      "type": "string"
+    }
+  }
+}

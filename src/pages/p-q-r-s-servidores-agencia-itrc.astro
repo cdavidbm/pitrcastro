@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/atencion/pqrs-servidores.json';
+import { getAtencionPqrsServidores } from '../utils/strapi-fetchers';
+const pageData = await getAtencionPqrsServidores();
 ---
 
 <Base title={pageData.title} description={pageData.description}>

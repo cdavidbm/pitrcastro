@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_itrc_para_ninos_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}
