@@ -42,29 +42,32 @@ git pull origin main
 ## Estructura de carpetas del proyecto
 
 ```
-pitrcastro/
+itrc-portal/
 ├── src/
-│   ├── content/           ← Contenido editable
-│   │   ├── pages/         ← Archivos JSON de páginas institucionales
-│   │   │   ├── agencia/   ← Páginas de La Agencia
-│   │   │   ├── transparencia/
-│   │   │   ├── prensa/
-│   │   │   └── ...
-│   │   ├── news/          ← Noticias en formato Markdown (.md)
-│   │   ├── events/        ← Eventos en formato JSON
+│   ├── content/           ← Contenido legacy migrado a Strapi
+│   │   ├── pages/         ← JSONs originales (fuente del autogen de schemas Strapi)
+│   │   ├── news/          ← Noticias en formato Markdown (.md) — pendiente migrar a Strapi
+│   │   ├── events/        ← Eventos en formato JSON — espejo del content type Strapi
 │   │   └── sliders/       ← Sliders en formato JSON
-│   ├── pages/             ← Plantillas Astro (.astro) — no editar sin conocimientos
-│   └── styles/            ← Estilos CSS — no editar sin conocimientos
+│   ├── pages/             ← Plantillas Astro (.astro) — UI del sitio
+│   ├── components/        ← Componentes Astro reutilizables
+│   ├── utils/             ← Utilidades, incluyendo strapi-fetchers.ts (autogenerado)
+│   └── styles/            ← Estilos CSS
+├── cms-strapi/            ← Código del CMS Strapi
+│   ├── src/api/           ← Schemas de los content types (uno por carpeta)
+│   ├── src/components/    ← Componentes reusables de Strapi
+│   ├── scripts/           ← Tooling: autogen-schemas.mjs, gen-strapi-fetchers.mjs, migrate-*
+│   └── config/            ← Configuración de Strapi
 ├── public/
-│   ├── uploads/           ← Archivos subidos desde el CMS
-│   └── images/            ← Imágenes del sitio
-└── cms/                   ← Configuración del CMS — no editar sin conocimientos
+│   ├── documentos/        ← PDFs históricos servidos por nginx (legacy)
+│   └── images/            ← Imágenes estáticas del sitio
+└── docs/                  ← Manual del operador, guías, decisiones técnicas
 ```
 
 Las carpetas que el operador puede editar con seguridad son:
-- `src/content/pages/` — archivos JSON de contenido
-- `src/content/news/` — archivos Markdown de noticias
-- `src/content/sliders/` — archivos JSON de sliders
+- `src/content/news/` — noticias en Markdown (mientras la migración a Strapi siga pendiente).
+- `src/content/sliders/` — sliders en JSON.
+- `cms-strapi/src/api/<slug>/content-types/<slug>/schema.json` — solo si necesita ajustar campos de un content type existente. Tras editar, regenerar fetchers con `node cms-strapi/scripts/gen-strapi-fetchers.mjs`.
 
 ## Editar un archivo JSON directamente
 

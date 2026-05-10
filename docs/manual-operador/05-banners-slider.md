@@ -83,7 +83,7 @@ Existen dos maneras de reordenar las diapositivas:
 Cambie el valor del campo `Orden` en cada diapositiva. El slider mostrará las diapositivas de menor a mayor número de orden.
 
 **Opción 2 — Arrastrando en el CMS:**
-Algunas versiones de Sveltia CMS permiten arrastrar las filas de la lista para reordenarlas. Si esta función está disponible, aparecerá un ícono de arrastre (seis puntos) a la izquierda de cada diapositiva.
+En el formulario del Slider Principal, las diapositivas se listan dentro del campo repetible **Diapositivas**. Cada fila tiene un ícono de arrastre (seis puntos) a la izquierda; mantenga el clic sobre él y arrastre la fila a la posición deseada. Strapi guarda el nuevo orden al pulsar **Save**.
 
 ## Agregar un slide temporal para un evento
 

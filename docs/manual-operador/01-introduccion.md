@@ -1,85 +1,84 @@
 # Capítulo 1 — Introducción al portal ITRC
 
-## ¿Qué es el portal ITRC nuevo?
+## Qué es el portal ITRC
 
 El portal web de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) es el sitio institucional oficial de la entidad. Su propósito es publicar información pública de manera oportuna, cumplir con las obligaciones de transparencia establecidas por la Ley 1712 de 2014, y servir como canal de comunicación con la ciudadanía.
 
-El portal fue construido con **Astro**, un generador de sitios estáticos moderno, como reemplazo del sitio anterior en WordPress (`www.itrc.gov.co`). A diferencia de WordPress, este portal no depende de una base de datos ni de un servidor de aplicaciones: los archivos que se publican son páginas HTML estáticas, lo que lo hace más rápido, más seguro y más fácil de respaldar.
+## Stack tecnológico
 
-## Diferencias con el WordPress anterior
+El portal se compone de tres piezas que conviven en el servidor del datacenter ITRC:
 
-| Aspecto | WordPress (anterior) | Portal Astro + Sveltia CMS (actual) |
-|---------|----------------------|-------------------------------------|
-| Base de datos | Sí (MySQL) | No — el contenido vive en archivos de texto |
-| Servidor requerido | Sí (PHP + MySQL) | No — archivos estáticos servidos desde la nube |
-| Panel de administración | wp-admin (propio) | Sveltia CMS en `/admin` |
-| Respaldo | Requiere exportar DB y archivos | El repositorio Git es el respaldo completo |
-| Historial de cambios | Limitado (revisiones de WP) | Completo — cada cambio queda registrado en Git con fecha y autor |
-| Velocidad del sitio | Variable | Alta — páginas pre-generadas |
+| Pieza | Función |
+|-------|---------|
+| **Astro** | Generador estático que produce las páginas HTML del sitio público. El sitio servido es archivos pre-compilados, no procesa peticiones dinámicas. |
+| **Strapi v5 CE** | CMS headless. Aloja todo el contenido editable (páginas, noticias, eventos, slider, configuración global) y expone una API REST que Astro consume al compilar. |
+| **PostgreSQL** | Base de datos del CMS. Persiste el contenido y los archivos subidos a través del Media Library de Strapi. |
 
-## ¿Qué es Sveltia CMS?
+Astro y Strapi son servicios independientes:
 
-Sveltia CMS es el panel de administración del portal. Es una herramienta de edición de contenidos que trabaja directamente sobre los archivos del repositorio Git, sin necesidad de base de datos. Desde este panel usted puede:
-
-- Crear y editar noticias.
-- Agregar documentos (PDFs, XLSX) a las páginas institucionales.
-- Modificar el slider o carrusel de la página de inicio.
-- Actualizar datos de contacto, menú de navegación y accesos rápidos.
-- Gestionar eventos, boletines, videos y galería.
-
-El CMS se diferencia de WordPress en que no tiene un servidor propio: actúa como una interfaz gráfica que guarda los cambios directamente en los archivos del repositorio GitHub.
-
-## Requisitos para usar el CMS
-
-Antes de comenzar, verifique que cuenta con lo siguiente:
-
-1. **Navegador**: Google Chrome o Microsoft Edge (versión reciente). El CMS utiliza la API de acceso al sistema de archivos del navegador, que no está disponible en Firefox ni Safari.
-
-2. **Cuenta de GitHub**: debe tener una cuenta en [github.com](https://github.com) con acceso de escritura al repositorio del portal ITRC. Si no tiene acceso, solicítelo al equipo técnico.
-
-3. **Acceso a internet**: el CMS en producción se conecta con GitHub para guardar los cambios.
-
-> **Nota:** Si necesita trabajar sin conexión a internet o hacer cambios estructurales avanzados, consulte el [Capítulo 7 — Edición directa en VS Code](07-edicion-directa-vscode.md).
+- El sitio público (`/`) lo sirve nginx desde `/var/www/itrc-web/` (HTML estático).
+- El CMS (`/admin/`) y la API (`/api/`) los sirve un contenedor Docker `itrc-cms-strapi` por proxy de nginx hacia `127.0.0.1:1337`.
+- Postgres corre en otro contenedor (`itrc-cms-postgres`) y solo es accesible desde el contenedor Strapi.
 
 ## Flujo general de trabajo
 
-Cada vez que usted realiza un cambio en el CMS, el proceso que ocurre es el siguiente:
+El editor opera siempre desde el panel `/admin/` de Strapi. El ciclo de publicación es:
 
 ```
-Usted edita en el CMS
-        |
-        v
-El CMS guarda el cambio en GitHub (commit automático)
-        |
-        v
-GitHub Actions detecta el nuevo commit
-        |
-        v
-Se ejecuta la construcción del sitio (npm run build)
-        |
-        v
-El sitio actualizado se publica automáticamente
+Editor en /admin/ (Strapi)
+        │
+        │ 1. Edita una entrada y pulsa "Publish"
+        ▼
+Strapi guarda el cambio en Postgres
+        │
+        │ 2. Strapi notifica a GitHub vía repository_dispatch
+        ▼
+GitHub Actions dispara el workflow de deploy
+        │
+        │ 3. El runner self-hosted compila el sitio (npm run build)
+        │    Astro lee la API de Strapi y genera el HTML estático
+        ▼
+El runner copia el sitio a /var/www/itrc-web/ y recarga nginx
+        │
+        ▼
+Cambio visible en el portal público
 ```
 
-Este proceso tarda entre **2 y 5 minutos** desde que usted guarda un cambio hasta que aparece en el sitio público. No es necesario hacer ninguna acción adicional: el despliegue es completamente automático.
+El tiempo habitual desde la publicación en el CMS hasta que el cambio aparece en el sitio es de **2 a 4 minutos**.
 
-> **Tip:** Si pasados 10 minutos el cambio no aparece en el sitio, revise la pestaña "Actions" en el repositorio GitHub para verificar si hubo algún error en la construcción.
+## Quién hace qué
 
-## Estructura del contenido
+| Tarea | Dónde se hace |
+|-------|---------------|
+| Crear o editar una noticia | `/admin/` → Content Manager → Noticia |
+| Subir un PDF a una página | `/admin/` → la página correspondiente, campo de documentos |
+| Cambiar el slider de la portada | `/admin/` → Slider Principal |
+| Modificar contacto, menú, accesos rápidos | `/admin/` → Configuración → bloque correspondiente |
+| Crear un tipo de contenido nuevo (estructura) | Edición directa en VS Code (`cms-strapi/src/api/`) por el equipo técnico |
+| Cambiar diseño visual o agregar una página estática | Edición directa en VS Code (`src/pages/`, `src/styles/`) |
 
-El contenido del portal está organizado en las siguientes colecciones, todas accesibles desde el menú lateral del CMS:
+> **Nota:** el manual está orientado al editor / webmaster que opera el CMS. Tareas que requieran tocar código fuente (estructura de schemas, layout, plantillas Astro) se cubren en el [Capítulo 7 — Edición directa en VS Code](07-edicion-directa-vscode.md).
 
-| Sección en el CMS | Qué contiene |
-|-------------------|--------------|
-| **INICIO** | Entidades vigiladas y enlaces de servicios de la página de inicio |
-| **LA AGENCIA** | Páginas institucionales: misión, visión, equipo directivo, organigrama, etc. |
-| **TRANSPARENCIA** | Índice de transparencia y sub-páginas asociadas |
-| **NORMATIVA** | Normograma, decretos, resoluciones y marco legal |
-| **ATENCION Y SERVICIOS** | Canales de atención, PQRS, glosario, notificaciones |
-| **PARTICIPA** | Mecanismos de participación ciudadana |
-| **PRENSA** | Noticias, eventos, boletines, videos, galería y cápsulas |
-| **OBSERVATORIO** | Observatorio de Fraude y Corrupción |
-| **SLIDERS** | Carruseles de imágenes del portal |
-| **CONFIGURACIÓN** | Contacto, menú de navegación, información del sitio, accesos rápidos |
+## Estructura del contenido en el CMS
 
-Cada una de estas secciones se explica en detalle en los capítulos siguientes.
+El sidebar del Content Manager agrupa todos los tipos de contenido del portal. Los grupos principales son:
+
+| Grupo en el CMS | Qué contiene |
+|-----------------|--------------|
+| **Inicio** | Slider principal, accesos rápidos, entidades vigiladas |
+| **La Agencia** | Páginas institucionales: misión, visión, equipo directivo, organigrama, etc. |
+| **Transparencia** | Índice de transparencia y sub-páginas asociadas |
+| **Normativa** | Normograma, decretos, resoluciones, marco legal |
+| **Atención y Servicios** | Canales de atención, PQRS, glosario, notificaciones |
+| **Participa** | Mecanismos de participación ciudadana |
+| **Prensa** | Noticias, eventos, boletines, videos, galería, cápsulas |
+| **Observatorio** | Observatorio de Fraude y Corrupción |
+| **Configuración** | Datos de contacto, menú de navegación, información del sitio |
+
+Cada grupo se compone de uno o varios *content types* (single-types para páginas únicas y collection-types para listados). Los capítulos siguientes detallan los flujos editoriales por grupo.
+
+## Requisitos para usar el CMS
+
+1. **Navegador**: Chrome, Edge o Firefox en versión reciente.
+2. **Cuenta de editor en Strapi**: usuario y contraseña asignados por el administrador del portal. La gestión de cuentas se describe en el [Capítulo 10](10-autenticacion-strapi.md).
+3. **Conexión a la red institucional o VPN ITRC**: el CMS está en `http://192.168.82.13/admin/`, dentro de la red privada del datacenter.

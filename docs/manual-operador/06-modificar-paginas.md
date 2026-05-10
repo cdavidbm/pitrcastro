@@ -22,8 +22,8 @@ Para esos cambios, consulte el [Capítulo 7 — Edición directa en VS Code](07-
 
 Los datos de contacto aparecen en el pie de página del portal y en la página de Atención al Ciudadano. Para modificarlos:
 
-1. En el CMS, haga clic en **CONFIGURACIÓN** en la barra lateral.
-2. Haga clic en **"Datos de Contacto"**.
+1. En el CMS, abra **Content Manager** desde el sidebar.
+2. En la lista de single types, haga clic en **Configuración Contacto**.
 3. Se abrirá el formulario con los siguientes campos:
 
 | Campo | Ejemplo |
@@ -45,7 +45,7 @@ Los datos de contacto aparecen en el pie de página del portal y en la página d
 
 ## Modificar el menú de navegación
 
-El menú principal del portal (barra horizontal en el encabezado) se administra desde **CONFIGURACIÓN > Menú de Navegación**.
+El menú principal del portal (barra horizontal en el encabezado) se administra desde Content Manager → **Configuración Navegación**.
 
 **Estructura del menú:**
 
@@ -64,14 +64,14 @@ Cada ítem del menú tiene los campos:
 
 **Para modificar un ítem existente:**
 
-1. En el CMS, vaya a **CONFIGURACIÓN > Menú de Navegación**.
+1. En el CMS, vaya a Content Manager → **Configuración Navegación**.
 2. Localice el ítem en la lista y haga clic sobre él para expandirlo.
 3. Realice el cambio (por ejemplo, actualizar la URL o el texto).
 4. Guarde.
 
 **Para agregar un nuevo ítem:**
 
-1. Haga clic en **"Add"** al final de la lista de ítems principales.
+1. Pulse **Add an entry** al final de la lista de ítems principales.
 2. Complete los campos `Texto` y `URL`.
 3. Si debe tener submenú, expanda la sección **"Submenú"** y agregue los ítems hijos.
 4. Guarde.
@@ -82,7 +82,7 @@ Cada ítem del menú tiene los campos:
 
 Los accesos rápidos son los botones o enlaces destacados que aparecen en la sección superior de la página de inicio. Para modificarlos:
 
-1. En el CMS, vaya a **CONFIGURACIÓN > Accesos Rápidos (Home)**.
+1. En el CMS, vaya a Content Manager → **Configuración Quick Access**.
 2. Verá la lista de accesos rápidos actuales. Cada uno tiene:
 
 | Campo | Descripción |
@@ -104,8 +104,8 @@ Las páginas como Misión y Visión, Propósito Estratégico, Quiénes Somos, et
 
 **Ejemplo — Actualizar el texto de la Misión:**
 
-1. En el CMS, haga clic en **LA AGENCIA**.
-2. Haga clic en **"Misión y Visión"**.
+1. En el CMS, abra **Content Manager**.
+2. En la lista de single types, haga clic en **Pagina Misión Visión**.
 3. Localice el campo `Misión`.
 4. El campo acepta texto con negritas en HTML básico: use `<strong>texto</strong>` para poner palabras en negrita dentro del párrafo.
 5. Actualice el texto.
@@ -113,8 +113,8 @@ Las páginas como Misión y Visión, Propósito Estratégico, Quiénes Somos, et
 
 **Ejemplo — Actualizar la fotografía y cargo de un subdirector:**
 
-1. En el CMS, haga clic en **LA AGENCIA**.
-2. Haga clic en **"Equipo Directivo"**.
+1. En el CMS, abra **Content Manager**.
+2. En la lista de single types, haga clic en **Agencia Equipo Directivo**.
 3. Localice la sección **"Subdirectores"** y expanda el subdirector que desea modificar.
 4. Actualice los campos `Cargo`, `Área/Dependencia` o `Foto` según corresponda.
 5. Guarde los cambios.

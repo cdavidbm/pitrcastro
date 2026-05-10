@@ -1,546 +1,334 @@
-# Capítulo 9 — Despliegue en datacenter propio (Ubuntu + nginx)
+# Capítulo 9 — Despliegue en datacenter (Ubuntu + nginx + Strapi)
 
-Este capítulo describe cómo publicar el portal ITRC en el servidor institucional del ITRC (Ubuntu con nginx), que actualmente aloja el sitio WordPress `www.itrc.gov.co`. Ese servidor reemplazará WordPress con el nuevo portal Astro. Se explica la configuración del servidor, el pipeline de despliegue automático, el manejo de binarios y el flujo de trabajo para varios webmasters.
-
----
-
-## Estado actual del despliegue (2026-05-08)
-
-El flujo descrito en este capítulo es la **arquitectura objetivo**. El estado real avanza por etapas; esta sección registra dónde estamos hoy.
-
-### ✅ Ya hecho (servidor de pruebas)
-
-- Servidor de pruebas (`192.168.82.13`, Ubuntu 24.04) configurado con nginx 1.24, ufw activo, llave SSH instalada.
-- Server block dedicado en `/etc/nginx/sites-available/itrc-web`, default site eliminado, security headers en producción.
-- Primer deploy del sitio Astro (~360 páginas + 3.5 GB de binarios) completado vía rsync.
-- `astro.config.mjs` migrado a configuración env-driven (`SITE_URL` + `BASE_PATH`), sin valores hardcoded.
-- Script `ops/deploy.sh` (`npm run deploy`) realiza build + rsync con configuración leída desde `.env.deploy` (gitignored). Sirve como fallback manual cuando el runner está caído.
-- **Auto-deploy con runner self-hosted**: instalado y operativo. Cada `git push` a `main` dispara `.github/workflows/deploy.yml`, que corre en el runner (`runs-on: [self-hosted, itrc-server]`). Pasos: checkout, npm ci, build, rsync local a `/var/www/itrc-web/`, reload nginx, smoke test.
-- Variables del workflow leídas desde **Repository variables** de GitHub (`SITE_URL`, `BASE_PATH`, `DEPLOY_PATH`) — sin hardcoded en el repo.
-- Workflow de GitHub Pages eliminado (era solo para demos, no es el deploy oficial).
-- Para guía operativa rápida del deploy ver [`docs/DEPLOY.md`](../DEPLOY.md). Para detalles del servidor ver `.local-docs/SERVER.md` (interno).
-
-### ⏳ Pendiente para fase siguiente
-
-- **`/admin/` accesible vía servidor**: actualmente bloqueado con `404` en nginx. Aunque ya hay auto-deploy, falta decidir el CMS final (ver siguiente punto) antes de exponer `/admin`.
-- **Decisión sobre CMS** (sesión dedicada): Sveltia CMS es Git-based puro y solo soporta Cloudinary/Uploadcare como media library externa (servicios pagados, descartados para entidad pública). Hay que evaluar alternativas: TinaCMS (media plugins customizables), Directus, Strapi, Payload CMS (todos con media management built-in pero requieren BD + Node daemon corriendo). Trade-off: simplicidad Git-only vs CMS robusto con stack pesado.
-- **Endpoint de upload para binarios**: el diseño depende del CMS elegido. Si la decisión es mantener Sveltia + workaround, se construye endpoint genérico. Si es Directus/Strapi, ya viene con su propio media management. Sección E describe la arquitectura objetivo (binarios fuera del repo); sigue vigente como principio.
-- **TLS + dominio público**: el servidor solo es accesible vía VPN (HTTP plano sobre red privada). Para exposición pública se requiere DNS, Certbot/Let's Encrypt, redirect 80→443, HSTS.
-- **Política de backups**: los binarios no están en git. Hay que definir backup separado (rsync periódico a otra ubicación, snapshot LVM, o backup institucional).
-
-### ⚠ Decisiones operativas tomadas hoy que difieren del plan original
-
-| Decisión original (fase de planeación) | Decisión actual (2026-05-08) | Razón |
-|---|---|---|
-| Binarios commiteados al repo (~3.5 GB) | Binarios separados, endpoint dedicado pendiente | Repo bloat + 1100+ archivos planeados a migrar (fase BIN) lo hacen impráctico. |
-| GitHub Actions runner público con SSH al servidor | Self-hosted runner dentro de la VPN | El servidor es privado (`192.168.x.x`); los runners de github.com no pueden alcanzarlo. |
-| GitHub Pages como deploy oficial | Eliminado | Solo se usaba para demos personales; el datacenter ya es el destino oficial. |
+Este capítulo describe la arquitectura del despliegue del portal en el servidor del datacenter ITRC, el flujo de auto-deploy y los procedimientos operativos para mantenerlo sano.
 
 ---
 
-## A. Arquitectura general
+## A. Arquitectura
 
-El portal es un sitio completamente estático: no hay base de datos, no hay PHP, no hay proceso de servidor en ejecución. Nginx recibe las peticiones HTTP y devuelve archivos generados previamente por Astro. El proceso de publicación sigue este flujo:
+El portal corre en una sola VM Ubuntu del datacenter ITRC. Los servicios involucrados son:
 
 ```
-Webmaster (VS Code / CMS)
-        |
-        | git push origin main
-        v
-  GitHub (repositorio)
-        |
-        | dispara GitHub Actions (push a main)
-        v
-  Runner de GitHub Actions
-        | 1. checkout del repositorio
-        | 2. npm ci
-        | 3. npm run build  →  carpeta dist/
-        | 4. rsync dist/ + public/documentos/ vía SSH
-        v
-  Servidor ITRC (Ubuntu + nginx)
-  /var/www/portal.itrc.gov.co/
-        |
-        | nginx sirve los archivos estáticos
-        v
-  Visitante en portal.itrc.gov.co
+                  ┌─────────────────────────────┐
+                  │     Visitante / editor      │
+                  └────────────┬────────────────┘
+                               │ HTTP (red privada / VPN)
+                               ▼
+                  ┌─────────────────────────────┐
+                  │           nginx             │
+                  │  /              → estático  │
+                  │  /admin/        → :1337     │
+                  │  /api/          → :1337     │
+                  └─────┬─────────────┬─────────┘
+                        │             │
+              archivos  │             │ proxy_pass
+                        ▼             ▼
+        /var/www/itrc-web/    ┌─────────────────────┐
+        (HTML estático        │ itrc-cms-strapi     │
+         generado por Astro)  │ (Docker, port 1337) │
+                              └──────────┬──────────┘
+                                         │
+                                         ▼
+                              ┌─────────────────────┐
+                              │ itrc-cms-postgres   │
+                              │ (Docker, volumen    │
+                              │  persistente)       │
+                              └─────────────────────┘
 ```
 
-Cada `push` a la rama `main` desencadena el proceso completo de compilación y transferencia al servidor. El tiempo habitual desde el push hasta que el cambio es visible en producción es de 2 a 4 minutos.
+Componentes:
+
+| Componente | Servicio | Detalle |
+|------------|----------|---------|
+| Sitio público | nginx + filesystem | HTML pre-compilado en `/var/www/itrc-web/`. |
+| CMS | Strapi v5 CE en Docker | Contenedor `itrc-cms-strapi`, puerto interno 1337. |
+| Base de datos del CMS | PostgreSQL en Docker | Contenedor `itrc-cms-postgres`, volumen `itrc-cms-postgres-data`. |
+| Reverse proxy | nginx | Enruta `/admin/` y `/api/` al contenedor Strapi. |
+| Auto-deploy | GitHub Actions runner self-hosted | Servicio `actions.runner.<owner>-<repo>.itrc-server.service`. |
+
+El sitio público es completamente estático: nginx sirve los archivos sin intermediarios. Strapi solo se consulta:
+
+1. Cuando el editor entra al panel (`/admin/`).
+2. Cuando Astro compila el sitio (lee la API de Strapi por `/api/`).
 
 ---
 
-## B. Preparación del servidor Ubuntu
+## B. Datos del servidor
 
-Los siguientes pasos los ejecuta el administrador de sistemas del ITRC con acceso root al servidor. Asuma Ubuntu 22.04 LTS o superior.
+| Campo | Valor |
+|-------|-------|
+| Hostname | `ubu24bolivia` |
+| IP privada | `192.168.82.13` |
+| Acceso | Sólo por VPN institucional (FortiClient) |
+| OS | Ubuntu 24.04 LTS |
+| Webroot del sitio público | `/var/www/itrc-web/` |
+| Compose del CMS | `/home/admweb/itrc-cms/docker-compose.yml` |
+| Variables del CMS | `/home/admweb/itrc-cms/.env.cms` |
+| Logs nginx | `/var/log/nginx/itrc-web.{access,error}.log` |
 
-### Crear el usuario de despliegue
-
-```bash
-# Crear usuario sin contraseña interactiva (solo autenticación por clave SSH)
-sudo adduser --disabled-password --gecos "" portal-deploy
-
-# Crear directorio del portal y asignar propietario
-sudo mkdir -p /var/www/portal.itrc.gov.co
-sudo chown portal-deploy:portal-deploy /var/www/portal.itrc.gov.co
-sudo chmod 755 /var/www/portal.itrc.gov.co
-```
-
-### Configurar la clave SSH para GitHub Actions
-
-En el servidor, genere el par de claves para el usuario `portal-deploy`:
-
-```bash
-sudo -u portal-deploy ssh-keygen -t ed25519 -C "github-actions-deploy" -f /home/portal-deploy/.ssh/id_ed25519 -N ""
-
-# Ver la clave pública (se añade a authorized_keys del mismo usuario)
-sudo cat /home/portal-deploy/.ssh/id_ed25519.pub
-```
-
-Añada la clave pública al archivo de claves autorizadas:
-
-```bash
-sudo -u portal-deploy bash -c "cat /home/portal-deploy/.ssh/id_ed25519.pub >> /home/portal-deploy/.ssh/authorized_keys"
-sudo chmod 600 /home/portal-deploy/.ssh/authorized_keys
-```
-
-La clave **privada** (`/home/portal-deploy/.ssh/id_ed25519`) se debe copiar al secreto `SSH_KEY` del repositorio en GitHub (ver sección D).
-
-### Instalar nginx
-
-```bash
-sudo apt update
-sudo apt install -y nginx
-sudo systemctl enable nginx
-sudo systemctl start nginx
-```
-
-### Instalar Certbot para TLS
-
-```bash
-sudo apt install -y certbot python3-certbot-nginx
-```
-
-El certificado se obtiene en la sección C, después de configurar nginx.
-
-### Configurar el firewall UFW
-
-```bash
-sudo ufw allow 22/tcp    # SSH
-sudo ufw allow 80/tcp    # HTTP (redirige a HTTPS)
-sudo ufw allow 443/tcp   # HTTPS
-sudo ufw enable
-sudo ufw status
-```
+Los detalles de credenciales y rutas internas viven en `.local-docs/SERVER.md` (no commiteado).
 
 ---
 
 ## C. Configuración nginx
 
-Cree el archivo de configuración del sitio:
-
-```bash
-sudo nano /etc/nginx/sites-available/portal.itrc.gov.co
-```
-
-Pegue el siguiente contenido completo:
+El server block está en `/etc/nginx/sites-available/itrc-web` con el siguiente patrón:
 
 ```nginx
-# /etc/nginx/sites-available/portal.itrc.gov.co
-# Portal estático ITRC — Astro JAMstack
-# Generado según manual-operador capítulo 09
-
-# Redirigir todo el tráfico HTTP a HTTPS
 server {
     listen 80;
-    listen [::]:80;
-    server_name portal.itrc.gov.co;
-    return 301 https://$host$request_uri;
-}
+    server_name 192.168.82.13;
 
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    server_name portal.itrc.gov.co;
+    # Logs
+    access_log /var/log/nginx/itrc-web.access.log;
+    error_log  /var/log/nginx/itrc-web.error.log;
 
-    root /var/www/portal.itrc.gov.co;
+    # Headers de seguridad
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=()" always;
+
+    # CMS Strapi: panel admin y API
+    location /admin/ {
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade           $http_upgrade;
+        proxy_set_header Connection        "upgrade";
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Sitio estático Astro
+    root  /var/www/itrc-web;
     index index.html;
 
-    # Certificados TLS (Certbot los rellena automáticamente)
-    ssl_certificate     /etc/letsencrypt/live/portal.itrc.gov.co/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/portal.itrc.gov.co/privkey.pem;
-    include             /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam         /etc/letsencrypt/ssl-dhparams.pem;
-
-    # Encabezados de seguridad
-    add_header X-Frame-Options           "SAMEORIGIN"                       always;
-    add_header X-Content-Type-Options    "nosniff"                          always;
-    add_header Referrer-Policy           "strict-origin-when-cross-origin"  always;
-    add_header Permissions-Policy        "geolocation=(), microphone=()"    always;
-
-    # Compresión gzip
-    gzip on;
-    gzip_types text/plain text/css application/javascript application/json
-               image/svg+xml application/xml;
-    gzip_min_length 1024;
-    gzip_vary on;
-
-    # Assets generados por Astro (hashes en nombre de archivo → cache inmutable)
-    location /_astro/ {
+    location /assets/ {
         expires max;
         add_header Cache-Control "public, max-age=31536000, immutable";
     }
 
-    # Documentos institucionales (PDFs, XLSX, etc.)
     location /documentos/ {
         expires 7d;
         add_header Cache-Control "public, max-age=604800";
     }
 
-    # Rutas del portal sin trailing slash
-    # Prueba: /pagina → /pagina.html → /pagina/index.html → 404 personalizado
     location / {
-        try_files $uri $uri.html $uri/index.html =404;
+        try_files $uri $uri/index.html $uri.html =404;
     }
-
-    # Página de error 404 personalizada
-    error_page 404 /404.html;
-    location = /404.html {
-        internal;
-    }
-
-    # Logs
-    access_log /var/log/nginx/portal.itrc.gov.co.access.log;
-    error_log  /var/log/nginx/portal.itrc.gov.co.error.log;
 }
 ```
 
-Active el sitio y verifique la configuración:
+Pruebas y recarga:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/portal.itrc.gov.co \
-           /etc/nginx/sites-enabled/
+sudo nginx -t                       # validar sintaxis
+sudo systemctl reload nginx         # recargar sin downtime
+```
 
-# Desactivar el sitio por defecto si aún está activo
-sudo rm -f /etc/nginx/sites-enabled/default
+---
 
-sudo nginx -t          # debe decir "syntax is ok" y "test is successful"
+## D. CMS en Docker (Strapi + Postgres)
+
+El CMS corre con Docker Compose en `/home/admweb/itrc-cms/`. Los contenedores son:
+
+| Contenedor | Imagen | Función |
+|------------|--------|---------|
+| `itrc-cms-strapi` | imagen local del repo | Strapi v5 CE, expone 1337 al host. |
+| `itrc-cms-postgres` | `postgres:16-alpine` | Base de datos. Volumen: `itrc-cms-postgres-data`. |
+
+Comandos comunes:
+
+```bash
+cd /home/admweb/itrc-cms
+
+# Estado
+docker compose --env-file .env.cms --profile server ps
+
+# Logs en vivo
+docker compose --env-file .env.cms --profile server logs -f strapi
+
+# Reiniciar Strapi (sin tocar Postgres)
+docker compose --env-file .env.cms --profile server restart strapi
+
+# Detener todo
+docker compose --env-file .env.cms --profile server stop
+
+# Levantar todo
+docker compose --env-file .env.cms --profile server up -d
+```
+
+> **Importante:** nunca borre el volumen `itrc-cms-postgres-data`. Contiene todo el contenido del portal. Backups en `/var/backups/itrc-cms/` (ver sección G).
+
+### Actualizar la imagen Strapi
+
+Cuando se cambia el código de `cms-strapi/` (schemas, plugins, código TS) hay que rebuildear la imagen y redeployarla. El procedimiento exacto está en `docs/CMS-DEPLOY.md` (resumen: `docker save` desde el local del operador → `rsync` al servidor → `docker load` en el servidor → `docker compose up -d --no-build strapi`).
+
+---
+
+## E. Auto-deploy
+
+El sitio público se redespliega automáticamente cuando ocurre cualquiera de estos eventos:
+
+1. **Push a `main`** del repo del portal.
+2. **Publicación / despublicación / borrado** de cualquier entrada en el CMS Strapi (Strapi notifica a GitHub vía `repository_dispatch`).
+
+El workflow `.github/workflows/deploy.yml` corre en el runner self-hosted (`runs-on: [self-hosted, itrc-server]`) instalado en el mismo servidor. Pasos:
+
+```
+1. checkout              actions/checkout@v4
+2. npm ci                instala dependencias
+3. npm run build         Astro compila el sitio leyendo Strapi vía /api/
+4. rsync dist/ →         /var/www/itrc-web/  (con --delete y --exclude=/documentos/)
+5. systemctl reload nginx (NOPASSWD configurado para el usuario github-runner)
+6. smoke test            curl localhost para verificar 200
+```
+
+Variables del workflow (configuradas en GitHub → Settings → Actions → Variables):
+
+| Variable | Valor actual |
+|----------|--------------|
+| `SITE_URL` | `http://192.168.82.13` |
+| `BASE_PATH` | `/` |
+| `DEPLOY_PATH` | `/var/www/itrc-web` |
+| `STRAPI_URL` | `http://127.0.0.1:1337` |
+
+Para mover a producción solo hay que actualizar las variables — el código no cambia.
+
+### Webhook desde Strapi
+
+`cms-strapi/src/index.ts` registra un middleware que escucha eventos `documents.publish`, `documents.unpublish` y `documents.delete`. Cuando ocurre uno, hace `POST` a `https://api.github.com/repos/<owner>/<repo>/dispatches` con `event_type: "strapi-publish"`. Variables requeridas en `.env.cms`:
+
+```
+GITHUB_REPO=<owner>/<repo>
+GITHUB_DISPATCH_TOKEN=<PAT con scope Actions:write>
+```
+
+Si esas variables no están definidas, el webhook es no-op (útil en dev).
+
+### Deploy manual (fallback)
+
+Si el runner está caído o se necesita deploy desde otra rama:
+
+```bash
+# Desde la máquina del operador (con VPN + repo clonado + Node)
+npm run deploy           # invoca ops/deploy.sh
+```
+
+`ops/deploy.sh` lee `.env.deploy` (gitignored), corre `npm run build` local y rsync hacia `admweb@192.168.82.13`. Es más lento que el runner porque transfiere por red.
+
+---
+
+## F. Manejo de binarios (PDFs, imágenes, etc.)
+
+Los binarios subidos por los editores se gestionan con el **Media Library de Strapi**. Cuando un editor sube un archivo desde el panel:
+
+1. Strapi guarda el archivo en `/srv/app/public/uploads/` dentro del contenedor (mapeado al volumen `itrc-cms-strapi-uploads` del host).
+2. El archivo queda accesible públicamente en `http://192.168.82.13/api/uploads/<nombre>`.
+3. La referencia (URL del archivo) queda en la entrada Strapi correspondiente.
+4. Cuando Astro compila, lee la URL y la incrusta en el HTML estático.
+
+Los binarios **no viven en el repo**. Esto mantiene el repo pequeño y permite que la edición de contenido en el CMS no requiera permisos de git.
+
+> **Nota:** la carpeta `public/documentos/` del repo contiene únicamente los binarios históricos migrados desde el portal anterior. El workflow de deploy excluye explícitamente esa carpeta del rsync (`--exclude=/documentos/`) para no borrarla del servidor en cada deploy. Las nuevas subidas siempre van al Media Library de Strapi.
+
+### `DOCS_BASE_URL` y rutas
+
+`src/config/docs.ts` declara `DOCS_BASE_URL=/documentos` por defecto, que es la ruta donde nginx expone los binarios históricos. Las URLs de archivos nuevos suben con prefijo `/api/uploads/` (gestionados por Strapi). Astro maneja ambas formas transparentemente.
+
+---
+
+## G. Operación
+
+### Logs
+
+```bash
+# nginx
+sudo tail -f /var/log/nginx/itrc-web.access.log
+sudo tail -f /var/log/nginx/itrc-web.error.log
+
+# Strapi
+docker compose --env-file /home/admweb/itrc-cms/.env.cms --profile server logs -f strapi
+
+# Workflow runner
+sudo journalctl -u 'actions.runner.*.service' -f
+```
+
+### Backups
+
+| Qué | Dónde | Frecuencia |
+|-----|-------|------------|
+| Sitio estático + binarios históricos | `/var/backups/itrc-web/` (snapshots Time-Machine-style con hardlinks) | Diario 02:00 UTC, retención 7 daily + 4 weekly + 6 monthly |
+| Volumen Postgres del CMS | `/var/backups/itrc-cms/postgres-*.sql.gz` | Diario, retención 30 días |
+| Configs (nginx, sudoers, runner) | `/var/backups/itrc-configs/` | Diario, retención 30 días |
+
+Detalles del sistema de backup en `docs/BACKUP.md`.
+
+> **Limitación actual:** el backup vive en el mismo servidor. Hasta que se asigne otra máquina institucional para off-site, una falla geográfica de la VM no está cubierta. Documentado como deuda técnica.
+
+### Rollback de un deploy
+
+Si después de un deploy el sitio queda mal:
+
+```bash
+# Opción 1 — revertir el último commit y dejar que el runner redeploye
+git revert HEAD --no-edit
+git push origin main
+
+# Opción 2 — restaurar la última snapshot de webroot
+sudo rsync -a --delete /var/backups/itrc-web/last/ /var/www/itrc-web/
 sudo systemctl reload nginx
 ```
 
-### Obtener el certificado TLS
+> **Nunca use `git push --force` en `main`.** Ese comando elimina el historial y puede causar pérdida de trabajo de otros editores.
 
-Una vez que el registro DNS `portal.itrc.gov.co` apunte a la IP del servidor:
+### Smoke tests rápidos
 
 ```bash
-sudo certbot --nginx -d portal.itrc.gov.co
+# Sitio público
+curl -I http://192.168.82.13/                       # debe ser 200
+curl -I http://192.168.82.13/agencia/mision-vision  # debe ser 200
+
+# CMS
+curl -I http://192.168.82.13/admin/                 # debe ser 200
+curl -I http://192.168.82.13/api/                   # 200/401 según permisos
+
+# Disco
+df -h /var
+du -sh /var/www/itrc-web /var/backups
 ```
-
-Certbot modificará el bloque `server` de nginx con las rutas del certificado y configurará la renovación automática.
-
-### Nota sobre protección de contenido específico
-
-Si en el futuro algún documento o sección requiere autenticación (por ejemplo, contenido de acceso restringido a funcionarios), se puede añadir un bloque `location` con `auth_basic`. El criterio editorial y legal sobre qué contenido debe protegerse debe definirse formalmente antes de implementar cualquier restricción. No implemente protección de acceso sin una decisión documentada del área jurídica o de la Dirección.
 
 ---
 
-## D. GitHub Action de despliegue
+## H. Multi-editor
 
-> **Estado actual (2026-05-08):** auto-deploy ya está operativo con runner self-hosted. La implementación actual difiere del flujo descrito originalmente abajo en aspectos clave que documentamos aquí. Esta sub-sección refleja el estado real; lo que sigue debajo (secretos SSH, `runs-on: ubuntu-latest`, etc.) era el plan inicial y queda como referencia histórica para cuando se traslade la arquitectura a otro entorno.
->
-> **Diferencias respecto al plan original:**
->
-> - **`runs-on: [self-hosted, itrc-server]`** (no `ubuntu-latest`). El servidor está en red privada (`192.168.x.x`); los runners públicos de github.com no pueden alcanzarlo.
-> - **Sin secretos SSH** (`SSH_HOST`/`SSH_KEY`/`SSH_USER`/`SSH_KNOWN_HOSTS`). El runner corre dentro del servidor mismo, por lo que copia archivos localmente sin SSH.
-> - **Sin `peaceiris/actions-gh-pages`** ni nada relacionado con GH Pages. Workflow eliminado.
-> - **Repository variables en lugar de hardcoded paths**: `SITE_URL`, `BASE_PATH`, `DEPLOY_PATH`. Se gestionan en GitHub → Settings → Actions → Variables.
-> - **Owner del webroot**: `github-runner:deploy` (no `portal-deploy:portal-deploy`). El usuario `admweb` mantiene acceso vía grupo `deploy`.
-> - **Sudo NOPASSWD**: `github-runner ALL=(ALL) NOPASSWD: /usr/bin/systemctl reload nginx` (solo el reload, no acceso sudo amplio).
->
-> El workflow real vive en `.github/workflows/deploy.yml`. Para una guía operativa rápida ver [`docs/DEPLOY.md`](../DEPLOY.md).
+Cada editor tiene una cuenta personal en Strapi (no se comparten credenciales). El alta y baja de usuarios se hace en el panel `/admin/` mismo (ver [Capítulo 10](10-autenticacion-strapi.md)).
 
-### Secretos necesarios en el repositorio
+El historial de cada entrada queda en Strapi: timestamp `Updated at`, autor `Updated by`. Esto reemplaza al historial git como auditoría editorial — git sigue siendo la auditoría de cambios de **código** (templates, schemas, infraestructura).
 
-Antes de crear el workflow, añada los siguientes secretos en GitHub: repositorio → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**.
-
-| Secreto | Valor |
-|---------|-------|
-| `SSH_HOST` | IP o nombre DNS del servidor (ejemplo: `10.0.1.5`) |
-| `SSH_USER` | `portal-deploy` |
-| `SSH_KEY` | Contenido completo de `/home/portal-deploy/.ssh/id_ed25519` (clave privada) |
-| `SSH_KNOWN_HOSTS` | Huella del servidor — obténgala con `ssh-keyscan -H <IP-del-servidor>` desde cualquier máquina |
-
-### Archivo del workflow
-
-Cree o reemplace el archivo `.github/workflows/deploy.yml` con el siguiente contenido:
-
-```yaml
-# .github/workflows/deploy.yml
-# Despliegue automático del portal ITRC al servidor datacenter Ubuntu + nginx
-# Se ejecuta en cada push a la rama main
-
-name: Deploy — Portal ITRC (datacenter)
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Obtener código fuente
-        uses: actions/checkout@v4
-        with:
-          submodules: false
-          fetch-depth: 1
-
-      - name: Configurar Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Instalar dependencias
-        run: npm ci
-
-      - name: Compilar portal (Astro)
-        run: npm run build
-        env:
-          DOCS_BASE_URL: /documentos
-
-      - name: Configurar clave SSH
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_KEY }}
-          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-
-      - name: Transferir portal compilado al servidor
-        run: |
-          rsync -avz --delete \
-            dist/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/portal.itrc.gov.co/
-
-      - name: Transferir documentos institucionales al servidor
-        run: |
-          rsync -avz --ignore-existing \
-            public/documentos/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/portal.itrc.gov.co/documentos/
-
-      - name: Recargar nginx
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: sudo systemctl reload nginx
-```
-
-> **Nota sobre `sudo reload nginx`:** Para que el usuario `portal-deploy` pueda recargar nginx sin contraseña, añada esta línea al archivo sudoers del servidor con `sudo visudo`:
->
-> ```
-> portal-deploy ALL=(ALL) NOPASSWD: /usr/bin/systemctl reload nginx
-> ```
+Los desarrolladores que toquen código siguen trabajando con cuentas de GitHub y push a `main` (o pull requests para cambios riesgosos). El runner self-hosted los ejecuta automáticamente.
 
 ---
 
-## E. Manejo de binarios
-
-### Decisión vigente (2026-05-08): binarios fuera del repo, endpoint dedicado en el servidor
-
-> **Cambio respecto a la decisión del 2026-04-23.** En la fase de planeación se concluyó que con el datacenter propio (sin límite de tamaño tipo Azure SWA) tenía sentido commitear los ~3.5 GB de `public/documentos/` al repo. Tras revisar el flujo real con la perspectiva del webmaster y el volumen total esperado (~1100 archivos solo en migración + crecimiento orgánico), esa decisión cambió. Esta sección documenta la decisión nueva. El razonamiento original sobre Azure SWA queda como contexto histórico al final de la sección.
-
-#### Arquitectura de binarios
-
-```
-[Webmaster en Sveltia /admin]
-      │
-      │  sube PDF (formulario "Adjuntar archivo")
-      ▼
-[Endpoint Node ligero en el servidor] ← (autenticación: token compartido o reverse proxy)
-      │
-      │  guarda el archivo y devuelve URL pública
-      ▼
-[Filesystem del servidor: /var/www/uploads/...]
-      │
-      │  servido por nginx en /uploads/ (cacheado)
-      ▼
-[URL devuelta se pega en el campo del JSON de contenido]
-      │
-      │  el JSON se commitea al repo (solo metadatos, sin binario)
-      ▼
-[Auto-deploy compila el sitio con la URL ya escrita en el JSON]
-```
-
-Los binarios **nunca pasan por GitHub**. El repo solo contiene:
-- Código Astro / configuración / templates
-- JSONs y Markdown de contenido (que referencian binarios por URL relativa)
-
-Los binarios viven en `/var/www/uploads/` (separado del root del sitio) y nginx los sirve bajo `/uploads/`.
-
-#### Beneficios de este enfoque
-
-- **Repo pequeño y rápido**: clones, push y pull se mantienen ágiles incluso a largo plazo.
-- **Webmasters sin fricción**: el flujo "subir PDF + pegar datos" funciona como en cualquier CMS común; no hay que aprender git.
-- **Backups separados**: el código tiene git como historial; los binarios tienen su propia política de backup (más simple, no necesita historial granular por archivo).
-- **Coherente con el plan de migración**: los ~1100 binarios pendientes (fase BIN) se migran directo al servidor sin pasar por el repo.
-
-#### Trade-offs aceptados
-
-- **Hay que mantener el endpoint**: es un servicio adicional (Node + Express o similar) que requiere monitoreo y actualización ocasional.
-- **No hay rollback transaccional con git**: si se sube un binario equivocado, hay que borrarlo manualmente del filesystem (no se puede `git revert`).
-- **El endpoint es punto único de subida**: si el endpoint cae, los webmasters no pueden subir archivos hasta que se restaure.
-
-#### Estado del trabajo
-
-- ⏳ **Endpoint pendiente.** Hoy los binarios suben al servidor en cada `npm run deploy` (porque `dist/` los incluye al copiar `public/`). Este es un workaround transitorio.
-- ⏳ **Configuración de Sveltia pendiente.** El `media_folder` y `media_library` se reconfigurarán cuando el endpoint esté operativo.
-- ⏳ **Migración de los ~1100 binarios actuales** (fase BIN-4): se hará vía rsync directo al `/var/www/uploads/` una vez exista la estructura, no commiteándolos al repo.
-
-#### Contexto histórico (decisión del 2026-04-23, ya superada)
-
-En versiones anteriores del portal (cuando se contemplaba Azure Static Web Apps), la carpeta `public/documentos/` estaba excluida del repositorio mediante `.gitignore` para evitar superar los límites de Azure. Al confirmarse el datacenter propio en abril 2026, se planeó commitear los binarios al repo aprovechando que ya no había límite externo. Las razones que se esgrimieron entonces eran:
-
-- No hay límite externo de tamaño en el servidor propio.
-- Una sola fuente de verdad: binarios y referencias en el mismo lugar.
-- Rollback transaccional con `git revert`.
-- Solo deltas viajan en push/pull posteriores.
-
-La revisión de mayo concluyó que esos beneficios no compensan el costo de un repo de varios GB para webmasters no técnicos, y que un endpoint dedicado da una experiencia más cercana a lo que esperan (CMS clásico).
-
-### Configuración de `DOCS_BASE_URL`
-
-El valor adecuado para este escenario es:
-
-```
-DOCS_BASE_URL=/documentos
-```
-
-Este es el valor por defecto en `src/config/docs.ts`. Con el despliegue en datacenter, nginx sirve los documentos desde `/var/www/portal.itrc.gov.co/documentos/` y los expone en la ruta `/documentos/` del portal. No se requiere ninguna variable de entorno adicional en el servidor; el workflow ya lo declara explícitamente en el paso de compilación.
-
----
-
-## F. Flujo multi-webmaster
-
-### Cuentas y acceso
-
-Cada webmaster tiene una cuenta GitHub propia con permisos de escritura al repositorio. El administrador del repo (o quien tenga rol Owner) otorga acceso desde GitHub → repositorio → **Settings** → **Collaborators**.
-
-No se comparten credenciales. Cada persona es responsable de sus commits y puede identificarse en el historial.
-
-### Flujo de trabajo diario
-
-```
-Antes de empezar       →  git pull origin main
-Editar contenido       →  VS Code (JSON, Markdown) o CMS en /admin
-Verificar localmente   →  npm run dev → http://localhost:4321
-Preparar commit        →  git add [archivos específicos]
-Registrar cambio       →  git commit -m "docs: descripción del cambio"
-Publicar               →  git push origin main
-Verificar deploy       →  GitHub → pestaña Actions → marca verde
-                           Revisar portal.itrc.gov.co en el navegador
-```
-
-> **Importante:** ejecute siempre `git pull` antes de empezar a editar. Si trabaja sobre una copia desactualizada y otro webmaster publicó cambios mientras tanto, Git le pedirá que resuelva las diferencias antes de poder hacer `push`.
-
-### Cuando dos personas editan lo mismo
-
-Git no sobrescribe el trabajo de nadie. Si dos webmasters hacen `push` al mismo tiempo:
-
-- El primero no tendrá ningún problema.
-- El segundo recibirá un error indicando que su copia local está desactualizada.
-
-El segundo webmaster debe ejecutar:
-
-```bash
-git pull origin main
-```
-
-Si editaron archivos distintos, Git combinará los cambios automáticamente. Si editaron el mismo archivo, aparecerá un conflicto que se resuelve en VS Code con la herramienta de merge integrada. Consulte el [Capítulo 8](08-mantenimiento-git.md) para el procedimiento detallado de resolución de conflictos.
-
-### Cuándo usar ramas
-
-Para cambios de contenido diarios (agregar un PDF, corregir un texto, publicar una noticia) **no se usan ramas**: se trabaja directamente en `main`. Cada `push` a `main` dispara el despliegue automático.
-
-Use una rama solo si el cambio es un refactor técnico extenso que tomará varios días y no debe publicarse hasta estar completo:
-
-```bash
-git checkout -b refactor-seccion-transparencia
-# ... realizar cambios durante varios días ...
-git push origin refactor-seccion-transparencia
-# Abrir pull request en GitHub cuando esté listo para revisión
-```
-
-### Autenticación de Sveltia CMS
-
-Para la configuración de cuentas en el panel `/admin` del CMS, consulte el Capítulo 10 (autenticación y gestión de usuarios de Sveltia CMS).
-
----
-
-## G. Rollback y monitoreo
-
-### Revertir un despliegue defectuoso
-
-Si después de un `push` el portal presenta problemas (página en blanco, error 404 generalizado, contenido incorrecto):
-
-**Revertir el último commit:**
-
-```bash
-git revert HEAD --no-edit
-git push origin main
-```
-
-Este comando crea un nuevo commit que deshace los cambios del commit anterior. GitHub Actions detecta el nuevo `push`, compila y despliega automáticamente la versión corregida. El tiempo de recuperación habitual es de 2 a 4 minutos.
-
-**Revertir un commit específico (cuando el error no es el último):**
-
-```bash
-# Ver los commits recientes
-git log --oneline -10
-
-# Revertir el commit con hash abc1234
-git revert abc1234 --no-edit
-git push origin main
-```
-
-> **Nunca use `git push --force` en `main`.** Ese comando elimina el historial y puede causar pérdida de trabajo de otros webmasters.
-
-### Ver logs del servidor
-
-Conéctese al servidor por SSH o solicite al administrador de sistemas que revise:
-
-```bash
-# Peticiones recibidas (acceso)
-sudo tail -f /var/log/nginx/portal.itrc.gov.co.access.log
-
-# Errores del servidor web
-sudo tail -f /var/log/nginx/portal.itrc.gov.co.error.log
-```
-
-### Ver logs del pipeline de despliegue
-
-Si el despliegue falla, el error aparecerá en GitHub:
-
-1. Abra el repositorio en GitHub.
-2. Haga clic en la pestaña **Actions**.
-3. Cada fila corresponde a un despliegue. La marca verde indica éxito; la X roja indica fallo.
-4. Haga clic sobre la fila con error para ver el log detallado de cada paso.
-
-Los errores más comunes son: fallo de conexión SSH (verificar secretos), error de compilación Astro (verificar el log del paso `npm run build`), o espacio insuficiente en el servidor.
-
----
-
-## H. Nota sobre la alternativa Azure (referencia histórica)
-
-Durante la fase de planificación del proyecto se evaluó Microsoft Azure Static Web Apps como plataforma de hosting. Las instrucciones detalladas para ese escenario están preservadas en el historial git de este archivo (consulte los commits anteriores al 2026-04-22 mediante `git log --follow docs/manual-operador/09-despliegue-datacenter.md`).
-
-La opción adoptada es el datacenter propio del ITRC por las siguientes razones:
-
-- El servidor ya existe y está operativo — no hay costo incremental de infraestructura.
-- El equipo técnico del ITRC ya administra Ubuntu y nginx para el WordPress actual.
-- No se depende de un proveedor externo para la disponibilidad del sitio institucional.
-- Control total sobre la configuración de seguridad, backups y acceso.
-- Los binarios (aproximadamente 3,5 GB) se pueden alojar sin restricciones de tamaño.
-
-Si en el futuro la agencia decide migrar a Azure o a cualquier otra plataforma de hosting estático, los únicos cambios requeridos en el código fuente son: actualizar `astro.config.mjs` (valores de `site` y `base`), reemplazar el workflow de GitHub Actions, y ajustar `DOCS_BASE_URL` según el destino de los binarios.
+## I. Solución de problemas frecuentes
+
+| Síntoma | Causa probable | Verificación / fix |
+|---------|----------------|-------------------|
+| `/admin/` devuelve 502 Bad Gateway | Contenedor `itrc-cms-strapi` caído | `docker compose --env-file .env.cms --profile server ps` → si está down, `restart strapi` |
+| `/admin/` devuelve 504 Gateway Timeout | Strapi arrancando (puede tomar 30-60s) | Esperar y reintentar; ver logs con `logs -f strapi` |
+| Editor publica pero el sitio no se actualiza | Falló el webhook a GitHub o el workflow | GitHub → Actions → última corrida del workflow `Deploy to test server`; revisar el job |
+| Workflow falla con error de ownership en rsync | Permisos del webroot rotos | `sudo chown -R github-runner:deploy /var/www/itrc-web && sudo chmod -R g+rw /var/www/itrc-web` |
+| Disco lleno | Logs nginx + imágenes Docker viejas | `sudo du -sh /var/log/nginx /var/lib/docker`; `docker system prune -a` para liberar espacio |
+| Postgres no arranca | Volumen corrupto o disco lleno | Logs: `docker compose ... logs postgres`. Restaurar backup desde `/var/backups/itrc-cms/` si se confirma corrupción. |
+| Workflow no se dispara al publicar en CMS | `GITHUB_DISPATCH_TOKEN` expirado o `GITHUB_REPO` mal escrito | Revisar `.env.cms` y logs de Strapi (`[github-dispatch]`); regenerar PAT en GitHub si expiró |

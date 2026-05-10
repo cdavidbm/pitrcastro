@@ -1,8 +1,10 @@
 # Capítulo 3 — Publicar una noticia
 
+> **Nota sobre el origen de las noticias.** Las noticias históricas del portal viven como archivos Markdown en `src/content/news/` y se gestionan con edición directa en VS Code (ver [Capítulo 7](07-edicion-directa-vscode.md)). El content type **Noticia** en Strapi reemplaza ese flujo cuando se publica el lote de migración correspondiente. Este capítulo describe el flujo desde el CMS Strapi.
+
 ## Estructura de las noticias
 
-Las noticias del portal se encuentran en la colección **"> Noticias"** dentro de la sección **PRENSA** del CMS. Cada noticia es un archivo Markdown independiente que contiene los siguientes campos:
+Las noticias del portal se gestionan desde el content type **Noticia** del CMS Strapi (Content Manager → Noticia). Cada noticia tiene los siguientes campos:
 
 | Campo | Obligatorio | Descripción |
 |-------|-------------|-------------|
@@ -16,9 +18,9 @@ Las noticias del portal se encuentran en la colección **"> Noticias"** dentro d
 
 ## Crear una nueva noticia
 
-1. En el CMS, haga clic en **PRENSA** en la barra lateral.
-2. Haga clic en la subsección **"> Noticias"**.
-3. Haga clic en el botón **"New Noticia"** (o equivalente según el idioma del CMS) en la esquina superior derecha del listado.
+1. En el CMS, abra **Content Manager** desde el sidebar izquierdo.
+2. En la lista de content types, haga clic en **Noticia**.
+3. Pulse el botón **Create new entry** en la esquina superior derecha del listado.
 4. Se abrirá el formulario de edición con los campos vacíos.
 
 ### Completar los campos
@@ -36,11 +38,11 @@ Seleccione la fecha con el selector de calendario o ingrésela manualmente en fo
 
 **Imagen destacada**
 
-Haga clic en el campo de imagen y luego en **"Choose an image"**. Puede:
-- Seleccionar una imagen ya subida al repositorio.
-- Cargar una imagen nueva desde su computador.
+Haga clic en el campo de imagen. Strapi abre el Media Library:
+- En la pestaña **Browse** puede seleccionar una imagen ya subida al CMS.
+- En la pestaña **Add new assets** puede cargar una imagen nueva desde su computador.
 
-Las imágenes se guardan en la carpeta `public/uploads/` del repositorio.
+Las imágenes se guardan en el Media Library de Strapi y quedan disponibles para reutilizar en cualquier otra entrada.
 
 > **Tip:** Use imágenes en formato JPG o WebP con un ancho mínimo de 800 píxeles. Evite imágenes demasiado pesadas (más de 500 KB) para no afectar la velocidad del sitio.
 
