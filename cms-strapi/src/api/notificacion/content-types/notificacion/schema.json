@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notificaciones",
+  "info": {
+    "singularName": "notificacion",
+    "pluralName": "notificaciones",
+    "displayName": "05. Atención / Notificaciones y Traslados",
+    "description": "Notificaciones por edicto, estados y traslados publicados por la Agencia ITRC."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "categoria": {
+      "type": "enumeration",
+      "enum": ["edicto", "estado", "traslado"],
+      "required": true
+    },
+    "expediente": {
+      "type": "string",
+      "required": true
+    },
+    "tipoAuto": {
+      "type": "string"
+    },
+    "tipoNotificacion": {
+      "type": "string"
+    },
+    "dependencia": {
+      "type": "string"
+    },
+    "fechaAuto": {
+      "type": "string"
+    },
+    "desde": {
+      "type": "string"
+    },
+    "hasta": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "string"
+    },
+    "vigencia": {
+      "type": "integer"
+    }
+  }
+}

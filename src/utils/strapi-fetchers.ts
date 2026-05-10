@@ -141,13 +141,14 @@ export const getTransparenciaDocumentacionFormatoGruposEtnicos = () => strapiGet
 export const getTransparenciaDocumentacionProteccionDatos = () => strapiGet<any>("/api/transparencia-documentacion-proteccion-datos?populate[documentos]=true&populate[enlacesExternos]=true");
 export const getTransparenciaDocumentacionRegistroPublicaciones = () => strapiGet<any>("/api/transparencia-documentacion-registro-publicaciones?populate[informes]=true");
 
-export const getCiprepSpeakerList = () => strapiGet<any[]>("/api/ciprep-speakers?pagination[pageSize]=200");
-export const getGaleriaList = () => strapiGet<any[]>("/api/galerias?pagination[pageSize]=200&populate[portada]=true&populate[imagenes]=true");
-export const getNormativaDelitoList = () => strapiGet<any[]>("/api/normativa-delitos?pagination[pageSize]=200");
-export const getNormativaVigenciaList = () => strapiGet<any[]>("/api/normativa-vigencias?pagination[pageSize]=200&populate[informes]=true");
-export const getObservatorioEjeDeEducacionMemoriaList = () => strapiGet<any[]>("/api/observatorio-eje-de-educacion-memorias?pagination[pageSize]=200&populate[galeria]=true");
-export const getObservatorioEjeDeParticipacionMemoriaList = () => strapiGet<any[]>("/api/observatorio-eje-de-participacion-memorias?pagination[pageSize]=200&populate[galeria]=true");
-export const getTransparenciaInformeList = () => strapiGet<any[]>("/api/transparencia-informes?pagination[pageSize]=200&populate[categorias][populate][destino]=true&populate[informes]=true");
+export const getCiprepSpeakerList = () => strapiGet<any[]>("/api/ciprep-speakers?pagination[pageSize]=2000");
+export const getGaleriaList = () => strapiGet<any[]>("/api/galerias?pagination[pageSize]=2000&populate[portada]=true&populate[imagenes]=true");
+export const getNormativaDelitoList = () => strapiGet<any[]>("/api/normativa-delitos?pagination[pageSize]=2000");
+export const getNormativaVigenciaList = () => strapiGet<any[]>("/api/normativa-vigencias?pagination[pageSize]=2000&populate[informes]=true");
+export const getObservatorioEjeDeEducacionMemoriaList = () => strapiGet<any[]>("/api/observatorio-eje-de-educacion-memorias?pagination[pageSize]=2000&populate[galeria]=true");
+export const getObservatorioEjeDeParticipacionMemoriaList = () => strapiGet<any[]>("/api/observatorio-eje-de-participacion-memorias?pagination[pageSize]=2000&populate[galeria]=true");
+export const getTransparenciaInformeList = () => strapiGet<any[]>("/api/transparencia-informes?pagination[pageSize]=2000&populate[categorias][populate][destino]=true&populate[informes]=true");
+export const getNotificacionList = () => strapiGet<any[]>("/api/notificaciones?pagination[pageSize]=2000");
 
 export const fetchers = {
   "ciprep": getCiprep,
@@ -292,4 +293,5 @@ export const fetchers = {
   "observatorio-eje-de-educacion-memoria__list": getObservatorioEjeDeEducacionMemoriaList,
   "observatorio-eje-de-participacion-memoria__list": getObservatorioEjeDeParticipacionMemoriaList,
   "transparencia-informe__list": getTransparenciaInformeList,
+  "notificacion__list": getNotificacionList,
 };

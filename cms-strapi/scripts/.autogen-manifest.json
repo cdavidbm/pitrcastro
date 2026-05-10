@@ -908,6 +908,16 @@
         "src/content/pages/transparencia/informes/seguimiento-plan-anticorrupcion.json"
       ],
       "displayName": "06. Transparencia / Informes"
+    },
+    {
+      "slug": "notificacion",
+      "dirPath": "src/content/notificaciones",
+      "sourceFiles": [
+        "src/content/notificaciones/edictos.json",
+        "src/content/notificaciones/estados.json",
+        "src/content/notificaciones/traslados.json"
+      ],
+      "displayName": "05. Atenci\u00f3n / Notificaciones y Traslados"
     }
   ],
   "components": [

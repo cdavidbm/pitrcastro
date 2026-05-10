@@ -132,7 +132,7 @@ function generate() {
     const schema = loadContentTypeSchema(coll.slug);
     if (!schema) continue;
     const populate = buildPopulate(schema.attributes || {});
-    const qs = populate === true ? 'pagination[pageSize]=200' : 'pagination[pageSize]=200&' + buildQs(populate);
+    const qs = populate === true ? 'pagination[pageSize]=2000' : 'pagination[pageSize]=2000&' + buildQs(populate);
     const fnName = `get${pascalCase(coll.slug)}List`;
     const pluralName = schema.info.pluralName;
     const url = `/api/${pluralName}?${qs}`;

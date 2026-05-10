@@ -1,21 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-
-import edictosData from '../content/notificaciones/edictos.json';
-import estadosData from '../content/notificaciones/estados.json';
-import trasladosData from '../content/notificaciones/traslados.json';
+import { getNotificacionList } from '../utils/strapi-fetchers';
 
 const base = import.meta.env.BASE_URL;
 
+interface NotificacionEntry {
+  categoria: 'edicto' | 'estado' | 'traslado';
+  expediente: string;
+  tipoAuto?: string;
+  tipoNotificacion?: string;
+  dependencia?: string;
+  fechaAuto?: string;
+  desde?: string;
+  hasta?: string;
+  pdfUrl?: string;
+  vigencia?: number;
+}
+
+const all = ((await getNotificacionList()) as NotificacionEntry[]) || [];
+
+const edictos = all.filter((e) => e.categoria === 'edicto');
+const estados = all.filter((e) => e.categoria === 'estado');
+const traslados = all.filter((e) => e.categoria === 'traslado');
+
 const tabs = [
-  { id: 'edictos', label: 'Edictos', icon: 'fa-scroll', entries: edictosData.entries, count: edictosData.entries.length },
-  { id: 'estados', label: 'Estados', icon: 'fa-file-circle-check', entries: estadosData.entries, count: estadosData.entries.length },
-  { id: 'traslados', label: 'Traslados', icon: 'fa-file-export', entries: trasladosData.entries, count: trasladosData.entries.length },
+  { id: 'edictos', label: 'Edictos', icon: 'fa-scroll', entries: edictos, count: edictos.length },
+  { id: 'estados', label: 'Estados', icon: 'fa-file-circle-check', entries: estados, count: estados.length },
+  { id: 'traslados', label: 'Traslados', icon: 'fa-file-export', entries: traslados, count: traslados.length },
 ];
 
-const allEntries = [...edictosData.entries, ...estadosData.entries, ...trasladosData.entries];
-const vigencias = [...new Set(allEntries.map(e => e.vigencia))].sort((a, b) => b - a);
+const vigencias = [...new Set(all.map((e) => e.vigencia).filter((v) => v != null))].sort(
+  (a, b) => (b as number) - (a as number)
+);
 
 const breadcrumb = [
   { label: 'Inicio', href: base },

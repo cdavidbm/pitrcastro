@@ -2024,6 +2024,40 @@ export interface ApiNormogramaNormograma extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNotificacionNotificacion extends Struct.CollectionTypeSchema {
+  collectionName: 'notificaciones';
+  info: {
+    description: 'Notificaciones por edicto, estados y traslados publicados por la Agencia ITRC.';
+    displayName: '05. Atenci\u00F3n / Notificaciones y Traslados';
+    pluralName: 'notificaciones';
+    singularName: 'notificacion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoria: Schema.Attribute.Enumeration<['edicto', 'estado', 'traslado']> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    dependencia: Schema.Attribute.String;
+    desde: Schema.Attribute.String;
+    expediente: Schema.Attribute.String & Schema.Attribute.Required;
+    fechaAuto: Schema.Attribute.String;
+    hasta: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::notificacion.notificacion'> &
+      Schema.Attribute.Private;
+    pdfUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    tipoAuto: Schema.Attribute.String;
+    tipoNotificacion: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    vigencia: Schema.Attribute.Integer;
+  };
+}
+
 export interface ApiObservatorioDelObservatorioObservatorioDelObservatorio
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_del_observatorio';
@@ -5569,6 +5603,7 @@ declare module '@strapi/strapi' {
       'api::normativa-unificacion-suin-juriscol.normativa-unificacion-suin-juriscol': ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuriscol;
       'api::normativa-vigencia.normativa-vigencia': ApiNormativaVigenciaNormativaVigencia;
       'api::normograma.normograma': ApiNormogramaNormograma;
+      'api::notificacion.notificacion': ApiNotificacionNotificacion;
       'api::observatorio-del-observatorio.observatorio-del-observatorio': ApiObservatorioDelObservatorioObservatorioDelObservatorio;
       'api::observatorio-eje-de-educacion-articulos.observatorio-eje-de-educacion-articulos': ApiObservatorioEjeDeEducacionArticulosObservatorioEjeDeEducacionArticulos;
       'api::observatorio-eje-de-educacion-cartilla-infantil.observatorio-eje-de-educacion-cartilla-infantil': ApiObservatorioEjeDeEducacionCartillaInfantilObservatorioEjeDeEducacionCartillaInfantil;
