@@ -29,9 +29,6 @@ npm-debug.log*
 # Astro
 .astro/
 
-# Sveltia CMS (regenerar con: npm run build:cms)
-public/admin/sveltia-cms.js
-
 # Tooling privado de migración y QA (no forma parte del producto final).
 # Incluye: download-binaries, rewrite-urls, audit-links, migrate-*, check-itrc-changes.
 # Si en el futuro se necesitan scripts para el webmaster, agregarlos a

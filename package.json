@@ -2,21 +2,18 @@
   "name": "itrc-sitio-institucional",
   "type": "module",
   "version": "1.0.0",
-  "description": "Sitio institucional de la Agencia ITRC - Astro + Sveltia CMS",
+  "description": "Sitio institucional de la Agencia ITRC - Astro + Strapi v5",
   "scripts": {
-    "cms:generate": "node cms/generate.js",
-    "cms:validate": "node cms/generate.js && node cms/validate.js",
-    "dev": "node cms/generate.js && astro dev",
-    "start": "node cms/generate.js && astro dev",
-    "build": "node cms/generate.js && astro build",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
     "deploy": "bash ops/deploy.sh",
     "deploy:binarios": "bash ops/deploy-binarios.sh",
     "lint": "eslint 'src/**/*.{astro,ts}'",
     "format": "prettier --write 'src/**/*.{astro,ts,css}'",
-    "astro": "astro",
-    "postinstall": "cp node_modules/@sveltia/cms/dist/sveltia-cms.mjs public/admin/sveltia-cms.js"
+    "astro": "astro"
   },
   "dependencies": {
     "astro": "^4.16.0"
@@ -24,7 +21,6 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
     "@astrojs/sitemap": "^3.4.2",
-    "@sveltia/cms": "^0.129.3",
     "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
