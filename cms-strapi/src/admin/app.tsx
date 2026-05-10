@@ -23,6 +23,7 @@ export default {
 
     const STORAGE_COLLAPSED = 'itrc-cm-collapsed';
     const STORAGE_FILTER = 'itrc-cm-filter';
+    const STORAGE_INITIALIZED = 'itrc-cm-initialized';
 
     const getCollapsed = (): Set<string> => {
       try {
@@ -35,13 +36,16 @@ export default {
       localStorage.setItem(STORAGE_COLLAPSED, JSON.stringify([...s]));
     const getFilter = () => localStorage.getItem(STORAGE_FILTER) || '*';
     const setFilter = (v: string) => localStorage.setItem(STORAGE_FILTER, v);
+    const isInitialized = () => localStorage.getItem(STORAGE_INITIALIZED) === '1';
+    const markInitialized = () => localStorage.setItem(STORAGE_INITIALIZED, '1');
 
     // Extrae la rama del displayName: "02. Agencia / Mision Vision" → "02. Agencia"
+    // El texto puede incluir basura al final (badges con número de docs,
+    // etc.). Solo anclamos al inicio y cortamos en la primera "/".
     const branchPrefix = (text: string): string | null => {
       if (!text) return null;
       const t = text.trim();
-      // Formato esperado: "NN. Branch / Subpath..." o "NN. Branch"
-      const m = t.match(/^(\d{2}\.\s+[^\/]+?)\s*(?:\/.*)?$/);
+      const m = t.match(/^(\d{2}\.\s+[^\/]+?)(?:\s*\/|\s{2,}|$)/);
       return m ? m[1].trim() : null;
     };
 
@@ -50,29 +54,37 @@ export default {
       const s = document.createElement('style');
       s.id = 'itrc-cm-styles';
       s.textContent = `
+        /* Sidebar más ancho. Targets el nav que contiene los enlaces del
+           Content Manager, ya sea en aside o nav. !important para superar
+           el width fijo que Strapi declara inline. */
+        nav:has(a[href*="/content-manager/"]),
+        aside:has(a[href*="/content-manager/"]) {
+          min-width: 280px !important;
+          width: 280px !important;
+        }
         .itrc-branch-filter {
-          padding: 8px 12px;
-          margin: 8px 12px;
+          padding: 10px 14px;
+          margin: 10px 12px 14px;
           background: rgba(255,255,255,0.04);
           border-radius: 4px;
         }
         .itrc-branch-filter label {
           display: block;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           color: rgba(255,255,255,0.7);
-          margin-bottom: 4px;
+          margin-bottom: 6px;
           text-transform: uppercase;
           font-weight: 700;
           letter-spacing: 0.04em;
         }
         .itrc-branch-filter select {
           width: 100%;
-          padding: 5px 8px;
+          padding: 6px 9px;
           background: rgba(0,0,0,0.25);
           color: #fff;
           border: 1px solid rgba(255,255,255,0.12);
           border-radius: 4px;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
           font-family: inherit;
           cursor: pointer;
         }
@@ -80,26 +92,27 @@ export default {
           outline: 2px solid #fbbf24;
           outline-offset: 1px;
         }
-        li[data-itrc-header] {
+        li[data-itrc-header],
+        div[data-itrc-header] {
           list-style: none;
-          margin: 6px 0 2px;
+          margin: 10px 0 4px;
         }
         .itrc-branch-btn {
           display: flex;
           align-items: center;
           width: 100%;
-          gap: 8px;
-          padding: 4px 14px;
+          gap: 10px;
+          padding: 6px 14px;
           background: transparent;
           border: none;
           color: #fbbf24;
           font-weight: 700;
-          font-size: 0.74rem;
+          font-size: 0.92rem;
           text-align: left;
           cursor: pointer;
           font-family: inherit;
           text-transform: uppercase;
-          letter-spacing: 0.03em;
+          letter-spacing: 0.04em;
           border-left: 3px solid transparent;
         }
         .itrc-branch-btn:hover {
@@ -107,18 +120,19 @@ export default {
           border-left-color: #fbbf24;
         }
         .itrc-arrow {
-          font-size: 0.6rem;
+          font-size: 0.7rem;
           opacity: 0.7;
-          width: 10px;
+          width: 12px;
           text-align: center;
         }
         .itrc-count {
-          opacity: 0.5;
-          font-weight: 400;
+          opacity: 0.55;
+          font-weight: 500;
           margin-left: auto;
-          font-size: 0.7rem;
+          font-size: 0.78rem;
         }
-        li[data-itrc-branch] {
+        li[data-itrc-branch],
+        div[data-itrc-branch] {
           padding-left: 8px;
         }
       `;
@@ -128,44 +142,106 @@ export default {
     // Aplica una pasada de agrupación y visibilidad sobre el sidebar.
     // Llamado debouncedamente desde el MutationObserver.
     const apply = () => {
-      const aside = document.querySelector('aside');
-      if (!aside) return;
-
-      const links = Array.from(
-        aside.querySelectorAll<HTMLAnchorElement>('a[href*="/content-manager/"]')
+      // Strapi v5 usa <nav> (no <aside>). Buscamos por rol y por presencia
+      // de muchos enlaces de content-manager para identificar la barra
+      // lateral del Content Manager.
+      const allLinks = Array.from(
+        document.querySelectorAll<HTMLAnchorElement>('a[href*="/content-manager/"]')
+      );
+      // Filtra solo enlaces a single-types o collection-types (excluye
+      // botones de navegación interna que también matchean).
+      const links = allLinks.filter((a) =>
+        /content-manager\/(single|collection)-types\//.test(a.href)
       );
       if (links.length < 5) return;
 
+      // Diagnóstico: log la primera vez que encontramos enough links.
+      if (!(window as any).__itrcCmDebugged) {
+        (window as any).__itrcCmDebugged = true;
+        console.info(
+          '[itrc-cm] content-types detectados:',
+          links.length,
+          'ejemplo:',
+          links.slice(0, 3).map((a) => a.textContent?.trim() || '')
+        );
+      }
+
       injectStyles();
 
-      const groups = new Map<string, HTMLLIElement[]>();
+      // Override inline-style width en el nav contenedor (CSS !important no
+      // puede vencer style="width: ..." inline; lo seteamos por JS).
+      const navHost = (links[0].closest('nav') || links[0].closest('aside')) as HTMLElement | null;
+      if (navHost && navHost.style.minWidth !== '280px') {
+        navHost.style.minWidth = '280px';
+        navHost.style.width = '280px';
+      }
+
+      const groups = new Map<string, HTMLElement[]>();
       for (const a of links) {
+        // Cada link puede estar en un <li>, en un <div> con role="listitem"
+        // o sin contenedor; tomamos el inmediato padre como "fila".
+        const row = (a.closest('li') ||
+          a.closest('[role="listitem"]') ||
+          a.parentElement) as HTMLElement | null;
+        if (!row) continue;
+
+        // Detección de la rama a partir del texto original. Si Strapi ya
+        // re-renderizó el link y lo dejamos sin prefijo, el branch original
+        // queda anclado en el dataset de la fila.
         const text = a.textContent || '';
-        const li = a.closest('li');
-        if (!li) continue;
-        const branch = branchPrefix(text);
+        let branch = branchPrefix(text);
+        if (!branch) branch = row.dataset.itrcBranch || null;
         if (!branch) continue;
-        if (li.dataset.itrcBranch !== branch) {
-          li.dataset.itrcBranch = branch;
+        row.dataset.itrcBranch = branch;
+
+        // Strip "NN. Branch / " (collection / single page) o "NN. " (page sola)
+        // del texto visible, una vez que ya extrajimos el branch. Reaplicable:
+        // si Strapi re-renderiza el link, el regex vuelve a matchear y se
+        // re-strippa.
+        if (/^\d{2}\.\s/.test(text)) {
+          const stripped = text
+            .replace(/^\d{2}\.\s+(?:[^\/]+\s*\/\s*)?/, '')
+            .trim();
+          if (stripped) a.textContent = stripped;
         }
+
         if (!groups.has(branch)) groups.set(branch, []);
-        groups.get(branch)!.push(li as HTMLLIElement);
+        groups.get(branch)!.push(row);
       }
       if (groups.size === 0) return;
+
+      // Primer render: colapsar todas las ramas salvo la activa, para que el
+      // editor abra a un sidebar limpio en lugar de a una lista de 50+ items.
+      // La detección del activo es best-effort; si falla, se queda todo
+      // colapsado y el usuario expande lo que necesite.
+      if (!isInitialized()) {
+        const activeLink = document.querySelector<HTMLAnchorElement>(
+          'a[href*="/content-manager/"][aria-current="page"]'
+        );
+        const activeBranch = activeLink ? branchPrefix(activeLink.textContent || '') : null;
+        const initial = new Set<string>();
+        for (const branch of groups.keys()) {
+          if (branch !== activeBranch) initial.add(branch);
+        }
+        setCollapsedSet(initial);
+        markInitialized();
+      }
 
       const collapsed = getCollapsed();
       const filter = getFilter();
 
       // Insertar/actualizar headers para cada rama.
-      for (const [branch, lis] of groups) {
-        const firstLi = lis[0];
-        const ul = firstLi.parentElement;
-        if (!ul) continue;
-        let header = ul.querySelector<HTMLLIElement>(
-          `li[data-itrc-header="${CSS.escape(branch)}"]`
+      for (const [branch, rows] of groups) {
+        const firstRow = rows[0];
+        const list = firstRow.parentElement;
+        if (!list) continue;
+        let header = list.querySelector<HTMLElement>(
+          `[data-itrc-header="${CSS.escape(branch)}"]`
         );
         if (!header) {
-          header = document.createElement('li');
+          // Usa el mismo tagName que las filas para no romper layout
+          // (algunos diseños esperan li dentro de ul; otros div dentro de div).
+          header = document.createElement(firstRow.tagName.toLowerCase()) as HTMLElement;
           header.setAttribute('data-itrc-header', branch);
           const btn = document.createElement('button');
           btn.type = 'button';
@@ -180,7 +256,7 @@ export default {
             apply();
           });
           header.appendChild(btn);
-          ul.insertBefore(header, firstLi);
+          list.insertBefore(header, firstRow);
         }
 
         const isCollapsed = collapsed.has(branch);
@@ -192,17 +268,35 @@ export default {
         const count = header.querySelector('.itrc-count');
         if (arrow) arrow.textContent = isCollapsed ? '▶' : '▼';
         if (label) label.textContent = branch;
-        if (count) count.textContent = `${lis.length}`;
+        if (count) count.textContent = `${rows.length}`;
 
-        for (const li of lis) {
-          (li as HTMLElement).style.display =
-            isHiddenByFilter || isCollapsed ? 'none' : '';
+        for (const row of rows) {
+          row.style.display = isHiddenByFilter || isCollapsed ? 'none' : '';
         }
       }
 
-      // Inyectar dropdown de filtro si no existe.
-      let filterEl = aside.querySelector<HTMLElement>('.itrc-branch-filter');
-      if (!filterEl) {
+      // Inyectar dropdown de filtro si no existe. Lo ubicamos en el tope
+      // del contenedor del sidebar, justo después del input de búsqueda.
+      // Evitamos meterlo entre filas de un grupo (donde quedaba flotando
+      // visualmente entre headers cuando los grupos arrancan colapsados).
+      const navRoot = (() => {
+        const link = links[0];
+        let n: HTMLElement | null = link.parentElement;
+        while (n) {
+          if (
+            n.querySelector(
+              'input[type="search"], input[placeholder*="Search"], input[placeholder*="Buscar"]'
+            )
+          ) {
+            return n;
+          }
+          n = n.parentElement;
+        }
+        return null;
+      })();
+
+      let filterEl = navRoot?.querySelector<HTMLElement>('.itrc-branch-filter') || null;
+      if (!filterEl && navRoot) {
         const branches = [...groups.keys()].sort();
         filterEl = document.createElement('div');
         filterEl.className = 'itrc-branch-filter';
@@ -221,12 +315,27 @@ export default {
           setFilter(select.value);
           apply();
         });
-        // Insertar arriba del primer ul de content-manager.
-        const firstUl = links[0].closest('ul');
-        if (firstUl && firstUl.parentElement) {
-          firstUl.parentElement.insertBefore(filterEl, firstUl);
+        const searchInput = navRoot.querySelector<HTMLElement>(
+          'input[type="search"], input[placeholder*="Search"], input[placeholder*="Buscar"]'
+        );
+        const searchContainer =
+          (searchInput?.closest('form, [role="search"]') as HTMLElement | null) ||
+          (searchInput?.parentElement as HTMLElement | null);
+        if (
+          searchContainer &&
+          searchContainer.parentElement === navRoot &&
+          searchContainer.nextSibling
+        ) {
+          navRoot.insertBefore(filterEl, searchContainer.nextSibling);
+        } else if (searchContainer && searchContainer.parentElement) {
+          searchContainer.parentElement.insertBefore(
+            filterEl,
+            searchContainer.nextSibling
+          );
+        } else {
+          navRoot.insertBefore(filterEl, navRoot.firstChild);
         }
-      } else {
+      } else if (filterEl) {
         const select = filterEl.querySelector<HTMLSelectElement>('select');
         if (select && select.value !== filter) select.value = filter;
       }
