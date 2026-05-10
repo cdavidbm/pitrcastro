@@ -1,9 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
-import pageData from '../content/pages/transparencia/informes/rendicion-cuenta-fiscal-cgr.json';
+import { getTransparenciaInformeList } from '../utils/strapi-fetchers';
+
+const SLUG = 'rendicion-cuenta-fiscal-cgr';
+const all = await getTransparenciaInformeList();
+const pageData = all.find((x: any) => x.slug === SLUG);
+if (!pageData) throw new Error(`Strapi: no se encontro slug ${SLUG} en transparencia-informe`);
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug={`transparencia-informe/${SLUG}`}>
   <ListadoInformes pageData={pageData} />
 </Base>

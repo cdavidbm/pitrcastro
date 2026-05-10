@@ -2,7 +2,12 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
-import pageData from '../content/pages/transparencia/informes/evaluacion-auditoria-3ld.json';
+import { getTransparenciaInformeList } from '../utils/strapi-fetchers';
+
+const SLUG = 'evaluacion-auditoria-3ld';
+const all = await getTransparenciaInformeList();
+const pageData = all.find((x: any) => x.slug === SLUG);
+if (!pageData) throw new Error(`Strapi: no se encontro slug ${SLUG} en transparencia-informe`);
 
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
@@ -11,8 +16,8 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const disponibles = pageData.categorias.filter((c) => c.destino.estado === 'disponible').length;
-const proximas = pageData.categorias.filter((c) => c.destino.estado === 'proximamente').length;
+const disponibles = pageData.categorias.filter((c: any) => c.destino?.estado === 'disponible').length;
+const proximas = pageData.categorias.filter((c: any) => c.destino?.estado === 'proximamente').length;
 ---
 
 <Base title={pageData.title} description={pageData.description}>
