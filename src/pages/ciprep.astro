@@ -4,7 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import { resolveUrl } from '../utils/url';
 
-import { getCiprep } from '../utils/strapi-fetchers';
+import { getCiprep, getCiprepSpeakerList } from '../utils/strapi-fetchers';
 
 const pageData = await getCiprep();
 const base = import.meta.env.BASE_URL;
@@ -15,7 +15,6 @@ const breadcrumb = [
   { label: 'CIPREP' },
 ];
 
-// Cargar todos los speakers desde la folder collection
 interface Speaker {
   order: number;
   slug: string;
@@ -26,11 +25,7 @@ interface Speaker {
   photo: string;
 }
 
-const speakerFiles = import.meta.glob<Speaker>(
-  '../content/pages/ciprep/speakers/*.json',
-  { eager: true }
-);
-const speakers: Speaker[] = Object.values(speakerFiles).sort(
+const speakers: Speaker[] = ((await getCiprepSpeakerList()) as Speaker[]).sort(
   (a, b) => (a.order ?? 999) - (b.order ?? 999)
 );
 const speakersBySlug: Record<string, Speaker> = Object.fromEntries(
