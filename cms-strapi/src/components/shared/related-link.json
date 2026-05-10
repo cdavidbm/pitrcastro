@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_related_links",
+  "info": {
+    "displayName": "Enlace relacionado",
+    "icon": "link",
+    "description": "Tarjeta de enlace usada en la sección \"Enlaces Relacionados\" al pie de las páginas. Reusable en todos los content types."
+  },
+  "options": {},
+  "attributes": {
+    "titulo": { "type": "string", "required": true },
+    "descripcion": { "type": "string" },
+    "url": { "type": "string", "required": true },
+    "icon": { "type": "string", "default": "fa-link" }
+  }
+}

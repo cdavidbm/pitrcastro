@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_normativa_decretos_decretos",
+  "info": {
+    "displayName": "Decreto",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "file": {
+      "type": "string"
+    }
+  }
+}

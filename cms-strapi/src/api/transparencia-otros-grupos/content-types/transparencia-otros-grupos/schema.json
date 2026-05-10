@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_otros_grupos",
+  "info": {
+    "singularName": "transparencia-otros-grupos",
+    "pluralName": "transparencia-otros-gruposes",
+    "displayName": "06. Transparencia / Otros Grupos",
+    "description": "Auto-generado desde src/content/pages/transparencia/otros-grupos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "transparencia-otros-grupos.enlaz",
+      "repeatable": true
+    }
+  }
+}

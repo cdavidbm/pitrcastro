@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_atencion_pqrs_reports",
+  "info": {
+    "displayName": "Report",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    }
+  }
+}

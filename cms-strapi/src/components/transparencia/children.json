@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_transparencia_childrens",
+  "info": {
+    "displayName": "Children",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "num": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "normativa_unificacion_suin_juriscol",
+  "info": {
+    "singularName": "normativa-unificacion-suin-juriscol",
+    "pluralName": "normativa-unificacion-suin-juriscols",
+    "displayName": "03. Normativa / Unificacion Suin Juriscol",
+    "description": "Auto-generado desde src/content/pages/normativa/unificacion-suin-juriscol.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "normas": {
+      "type": "component",
+      "component": "normativa-unificacion-suin-juriscol.norma",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

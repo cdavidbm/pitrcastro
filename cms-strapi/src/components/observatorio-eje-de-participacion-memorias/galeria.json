@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_observatorio_eje_de_participacion_memorias_galerias",
+  "info": {
+    "displayName": "Galeria",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

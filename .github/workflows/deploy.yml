@@ -14,6 +14,11 @@ on:
       - 'GEMINI.md'
   # Permite disparar manualmente desde GitHub UI si hace falta
   workflow_dispatch:
+  # Disparado por Strapi (webhook) cuando un editor publica/despublica contenido.
+  # Strapi POSTea a https://api.github.com/repos/{owner}/{repo}/dispatches con
+  # event_type="strapi-publish" — se documenta en cms-strapi/WEBHOOK.md.
+  repository_dispatch:
+    types: [strapi-publish]
 
 # Evita deploys simultáneos sobre el mismo branch.
 # Si llegan dos pushes, el segundo espera a que termine el primero (no cancela).
@@ -56,6 +61,13 @@ jobs:
         env:
           SITE_URL: ${{ vars.SITE_URL }}
           BASE_PATH: ${{ vars.BASE_PATH }}
+          # STRAPI_URL: URL accesible desde el runner. En el servidor de pruebas
+          # con Strapi corriendo en el mismo host: http://127.0.0.1:1337
+          # Si la variable no está configurada, src/utils/strapi.ts cae a default.
+          STRAPI_URL: ${{ vars.STRAPI_URL }}
+          # STRAPI_TOKEN: opcional. Solo necesario si los content types están
+          # restringidos. Hoy los públicos están abiertos via bootstrap.
+          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
 
       - name: Sync dist/ to webroot
         env:

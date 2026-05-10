@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_participa_rendicion_de_cuentas_anios",
+  "info": {
+    "displayName": "Anio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "participa-rendicion-de-cuentas.documento",
+      "repeatable": true
+    }
+  }
+}

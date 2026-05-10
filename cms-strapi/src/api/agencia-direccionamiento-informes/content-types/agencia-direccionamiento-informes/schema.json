@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_direccionamiento_informes",
+  "info": {
+    "singularName": "agencia-direccionamiento-informes",
+    "pluralName": "agencia-direccionamiento-informeses",
+    "displayName": "02. Agencia / Direccionamiento Informes",
+    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento/informes.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "sections": {
+      "type": "component",
+      "component": "agencia-direccionamiento-informes.section",
+      "repeatable": true
+    }
+  }
+}

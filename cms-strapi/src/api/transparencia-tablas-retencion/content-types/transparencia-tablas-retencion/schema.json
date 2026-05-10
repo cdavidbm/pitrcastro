@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_tablas_retencion",
+  "info": {
+    "singularName": "transparencia-tablas-retencion",
+    "pluralName": "transparencia-tablas-retencions",
+    "displayName": "06. Transparencia / Tablas Retencion",
+    "description": "Auto-generado desde src/content/pages/transparencia/tablas-retencion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "versiones": {
+      "type": "component",
+      "component": "transparencia-tablas-retencion.version",
+      "repeatable": true
+    }
+  }
+}

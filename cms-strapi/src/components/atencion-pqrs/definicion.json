@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_atencion_pqrs_definicions",
+  "info": {
+    "displayName": "Definicion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "letra": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    }
+  }
+}

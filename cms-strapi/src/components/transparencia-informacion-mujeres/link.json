@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_informacion_mujeres_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

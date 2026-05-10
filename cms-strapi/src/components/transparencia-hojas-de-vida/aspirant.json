@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_transparencia_hojas_de_vida_aspirants",
+  "info": {
+    "displayName": "Aspirant",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "cargo": {
+      "type": "string"
+    },
+    "fechaFijacion": {
+      "type": "string"
+    },
+    "fechaDesfijacion": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_memorias_info_entradas",
+  "info": {
+    "displayName": "Entrada",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

@@ -2,9 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
-import pageData from '../../content/pages/agencia/equipo-directivo.json';
-import gestionData from '../../content/pages/agencia/gestion-misional.json';
+import { getAgenciaEquipoDirectivo } from '../../utils/strapi-fetchers';
 
+const pageData = await getAgenciaEquipoDirectivo();
+import { getAgenciaGestionMisional } from '../../utils/strapi-fetchers';
+
+const gestionData = await getAgenciaGestionMisional();
 const base = import.meta.env.BASE_URL;
 const { title, subtitle, directora, subdirectores } = pageData;
 
@@ -25,7 +28,7 @@ const breadcrumb = [
 ];
 ---
 
-<Base title={title} class="page-equipo-directivo">
+<Base title={title} class="page-equipo-directivo" strapiSlug="agencia-equipo-directivo">
   <HeroPage
     title={title}
     subtitle={subtitle}

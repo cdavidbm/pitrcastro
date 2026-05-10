@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_medicion",
+  "info": {
+    "singularName": "observatorio-eje-de-medicion",
+    "pluralName": "observatorio-eje-de-medicions",
+    "displayName": "07. Observatorio ITRC / Eje De Medicion",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-medicion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "dashboards": {
+      "type": "component",
+      "component": "observatorio-eje-de-medicion.dashboard",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

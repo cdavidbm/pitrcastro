@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_contratacion_plan_adquisiciones",
+  "info": {
+    "singularName": "transparencia-contratacion-plan-adquisiciones",
+    "pluralName": "transparencia-contratacion-plan-adquisicioneses",
+    "displayName": "06. Transparencia / Contratacion Plan Adquisiciones",
+    "description": "Auto-generado desde src/content/pages/transparencia/contratacion/plan-adquisiciones.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secopUrl": {
+      "type": "string"
+    },
+    "anios": {
+      "type": "component",
+      "component": "transparencia-contratacion-plan-adquisiciones.anio",
+      "repeatable": true
+    }
+  }
+}

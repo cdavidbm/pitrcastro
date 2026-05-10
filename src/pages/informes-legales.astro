@@ -1,14 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-import pageData from '../content/pages/transparencia/informes-legales.json';
-
+import { getTransparenciaInformesLegales } from '../utils/strapi-fetchers';
+const pageData = await getTransparenciaInformesLegales();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 function fi(u: string) { return u.endsWith('.xls') || u.endsWith('.xlsx') ? 'fa-file-excel' : 'fa-file-pdf'; }
 function fc(u: string) { return u.endsWith('.xls') || u.endsWith('.xlsx') ? 'excel' : 'pdf'; }
 ---
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-informes-legales">
   <HeroPage title={pageData.title} subtitle="Oficina de Control Interno" icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="il-section"><div class="container">
     {pageData.secciones.map((sec, si) => (

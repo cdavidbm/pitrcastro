@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_consulta_ciudadana",
+  "info": {
+    "singularName": "participa-consulta-ciudadana",
+    "pluralName": "participa-consulta-ciudadanas",
+    "displayName": "05. Participa / Consulta Ciudadana",
+    "description": "Auto-generado desde src/content/pages/participa/consulta-ciudadana.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "contenido": {
+      "type": "component",
+      "component": "participa-consulta-ciudadana.contenido",
+      "repeatable": true
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "participa-consulta-ciudadana.enlaz",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

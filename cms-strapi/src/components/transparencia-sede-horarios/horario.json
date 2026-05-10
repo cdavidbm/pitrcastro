@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_transparencia_sede_horarios_horarios",
+  "info": {
+    "displayName": "Horario",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "dias": {
+      "type": "string"
+    },
+    "inicio": {
+      "type": "string"
+    },
+    "fin": {
+      "type": "string"
+    },
+    "nota": {
+      "type": "string"
+    }
+  }
+}

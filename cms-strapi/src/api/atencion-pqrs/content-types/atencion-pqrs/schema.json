@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_pqrs",
+  "info": {
+    "singularName": "atencion-pqrs",
+    "pluralName": "atencion-pqrses",
+    "displayName": "04. Atención y Servicios / Pqrs",
+    "description": "Auto-generado desde src/content/pages/atencion/pqrs.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "tramitesUrl": {
+      "type": "string"
+    },
+    "consultaUrl": {
+      "type": "string"
+    },
+    "definiciones": {
+      "type": "component",
+      "component": "atencion-pqrs.definicion",
+      "repeatable": true
+    },
+    "informes": {
+      "type": "component",
+      "component": "atencion-pqrs.inform",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

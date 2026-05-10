@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_relatoria",
+  "info": {
+    "singularName": "transparencia-relatoria",
+    "pluralName": "transparencia-relatorias",
+    "displayName": "06. Transparencia / Relatoria",
+    "description": "Auto-generado desde src/content/pages/transparencia/relatoria.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "criteriosSeleccion": {
+      "type": "text"
+    },
+    "resolucion": {
+      "type": "component",
+      "component": "transparencia-relatoria.resolucion",
+      "repeatable": false
+    },
+    "fichas": {
+      "type": "component",
+      "component": "transparencia-relatoria.ficha",
+      "repeatable": true
+    }
+  }
+}

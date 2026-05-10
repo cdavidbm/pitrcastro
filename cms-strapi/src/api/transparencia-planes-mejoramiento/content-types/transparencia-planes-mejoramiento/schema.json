@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_planes_mejoramiento",
+  "info": {
+    "singularName": "transparencia-planes-mejoramiento",
+    "pluralName": "transparencia-planes-mejoramientos",
+    "displayName": "06. Transparencia / Planes Mejoramiento",
+    "description": "Auto-generado desde src/content/pages/transparencia/planes-mejoramiento.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "transparencia-planes-mejoramiento.seccion",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ciprep_memoriases",
+  "info": {
+    "displayName": "Memorias",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "descripcion": {
+      "type": "string"
+    },
+    "youtubeId": {
+      "type": "string"
+    },
+    "recursos": {
+      "type": "component",
+      "component": "ciprep.recurso",
+      "repeatable": true
+    }
+  }
+}

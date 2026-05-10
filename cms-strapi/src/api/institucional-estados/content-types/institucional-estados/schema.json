@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "institucional_estados",
+  "info": {
+    "singularName": "institucional-estados",
+    "pluralName": "institucional-estadoses",
+    "displayName": "09. Institucional / Estados",
+    "description": "Auto-generado desde src/content/pages/institucional/estados.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "aviso": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "notificaciones": {
+      "type": "component",
+      "component": "institucional-estados.notificacion",
+      "repeatable": true
+    }
+  }
+}

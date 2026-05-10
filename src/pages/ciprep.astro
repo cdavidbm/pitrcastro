@@ -4,8 +4,9 @@ import HeroPage from '../components/HeroPage.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import { resolveUrl } from '../utils/url';
 
-import pageData from '../content/pages/ciprep.json';
+import { getCiprep } from '../utils/strapi-fetchers';
 
+const pageData = await getCiprep();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
@@ -46,7 +47,7 @@ const sections = [
 ];
 ---
 
-<Base title={pageData.title} description={pageData.subtitle}>
+<Base title={pageData.title} description={pageData.subtitle} strapiSlug="ciprep">
   <HeroPage
     title={pageData.title}
     subtitle={pageData.subtitle}

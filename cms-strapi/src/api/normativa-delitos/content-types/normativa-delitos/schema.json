@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "normativa_delitos_items",
+  "info": {
+    "singularName": "normativa-delitos",
+    "pluralName": "normativa-delitoses",
+    "displayName": "03. Normativa / Delitos",
+    "description": "Auto-generado desde src/content/pages/normativa/delitos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "contenido": {
+      "type": "text"
+    },
+    "normasRelacionadas": {
+      "type": "json"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    }
+  }
+}

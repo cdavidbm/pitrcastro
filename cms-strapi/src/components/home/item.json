@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_home_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    }
+  }
+}

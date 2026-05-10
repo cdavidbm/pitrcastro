@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_correo_notificaciones_judiciales",
+  "info": {
+    "singularName": "atencion-correo-notificaciones-judiciales",
+    "pluralName": "atencion-correo-notificaciones-judicialeses",
+    "displayName": "04. Atención y Servicios / Correo Notificaciones Judiciales",
+    "description": "Auto-generado desde src/content/pages/atencion/correo-notificaciones-judiciales.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "texto": {
+      "type": "text"
+    },
+    "email": {
+      "type": "string"
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

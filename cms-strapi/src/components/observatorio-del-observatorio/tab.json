@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_observatorio_del_observatorio_tabs",
+  "info": {
+    "displayName": "Tab",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "contenido": {
+      "type": "text"
+    }
+  }
+}

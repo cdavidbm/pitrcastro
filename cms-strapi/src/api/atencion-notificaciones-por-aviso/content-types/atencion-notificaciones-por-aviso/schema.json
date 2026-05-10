@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_notificaciones_por_aviso",
+  "info": {
+    "singularName": "atencion-notificaciones-por-aviso",
+    "pluralName": "atencion-notificaciones-por-avisos",
+    "displayName": "04. Atención y Servicios / Notificaciones Por Aviso",
+    "description": "Auto-generado desde src/content/pages/atencion/notificaciones-por-aviso.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "textoLegal": {
+      "type": "string"
+    },
+    "citaLegal": {
+      "type": "text"
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

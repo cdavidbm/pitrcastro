@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_control_social",
+  "info": {
+    "singularName": "participa-control-social",
+    "pluralName": "participa-control-socials",
+    "displayName": "05. Participa / Control Social",
+    "description": "Auto-generado desde src/content/pages/participa/control-social.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "participa-control-social.enlaz",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-import pageData from '../content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json';
-
+import { getAgenciaEmpleoRrhhManualEspecificoFunciones } from '../utils/strapi-fetchers';
+const pageData = await getAgenciaEmpleoRrhhManualEspecificoFunciones();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -12,7 +12,7 @@ const breadcrumb = [
 const total = pageData.secciones.reduce((acc, s) => acc + s.documentos.length, 0);
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="agencia-empleo-rrhh-manual-especifico-funciones">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="mef-section">
     <div class="container">

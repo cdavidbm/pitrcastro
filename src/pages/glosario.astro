@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
-import pageData from '../content/pages/atencion/glosario.json';
+import { getAtencionGlosario } from '../utils/strapi-fetchers';
 
+const pageData = await getAtencionGlosario();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
@@ -31,7 +32,7 @@ const activeLetters = new Set(grouped.keys());
 const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
-<Base title="Glosario" description={pageData.description}>
+<Base title="Glosario" description={pageData.description} strapiSlug="atencion-glosario">
   <HeroPage
     title="Glosario"
     subtitle={pageData.description}

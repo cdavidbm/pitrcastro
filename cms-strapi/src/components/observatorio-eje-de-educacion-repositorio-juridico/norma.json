@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_repositorio_juridico_normas",
+  "info": {
+    "displayName": "Norma",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "tipo": {
+      "type": "string"
+    },
+    "numero": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "palabrasClave": {
+      "type": "string"
+    }
+  }
+}

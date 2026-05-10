@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_directorio_entidades_grupos",
+  "info": {
+    "displayName": "Grupo",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "entidades": {
+      "type": "component",
+      "component": "transparencia-directorio-entidades.entidad",
+      "repeatable": true
+    }
+  }
+}

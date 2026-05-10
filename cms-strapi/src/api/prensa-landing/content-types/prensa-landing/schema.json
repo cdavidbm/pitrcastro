@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "prensa_landing",
+  "info": {
+    "singularName": "prensa-landing",
+    "pluralName": "prensa-landings",
+    "displayName": "08. Prensa / Landing",
+    "description": "Auto-generado desde src/content/pages/prensa/landing.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "prensa-landing.seccion",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_canales_de_atencion",
+  "info": {
+    "singularName": "atencion-canales-de-atencion",
+    "pluralName": "atencion-canales-de-atencions",
+    "displayName": "04. Atención y Servicios / Canales De Atencion",
+    "description": "Auto-generado desde src/content/pages/atencion/canales-de-atencion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "canales": {
+      "type": "component",
+      "component": "atencion-canales-de-atencion.canal",
+      "repeatable": true
+    },
+    "portafolio": {
+      "type": "component",
+      "component": "atencion-canales-de-atencion.portafolio",
+      "repeatable": false
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

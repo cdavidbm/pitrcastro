@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_transparencia_formatos_formularios_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "textoEnlace": {
+      "type": "string"
+    },
+    "externo": {
+      "type": "boolean"
+    }
+  }
+}

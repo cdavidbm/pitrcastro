@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_empleo_rrhh_ofertas_empleo",
+  "info": {
+    "singularName": "agencia-empleo-rrhh-ofertas-empleo",
+    "pluralName": "agencia-empleo-rrhh-ofertas-empleos",
+    "displayName": "02. Agencia / Empleo Rrhh Ofertas Empleo",
+    "description": "Auto-generado desde src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "agencia-empleo-rrhh-ofertas-empleo.cta",
+      "repeatable": false
+    }
+  }
+}

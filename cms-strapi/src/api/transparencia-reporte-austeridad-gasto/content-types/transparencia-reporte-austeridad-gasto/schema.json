@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_reporte_austeridad_gasto",
+  "info": {
+    "singularName": "transparencia-reporte-austeridad-gasto",
+    "pluralName": "transparencia-reporte-austeridad-gastos",
+    "displayName": "06. Transparencia / Reporte Austeridad Gasto",
+    "description": "Auto-generado desde src/content/pages/transparencia/reporte-austeridad-gasto.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "informes": {
+      "type": "component",
+      "component": "transparencia-reporte-austeridad-gasto.inform",
+      "repeatable": true
+    }
+  }
+}

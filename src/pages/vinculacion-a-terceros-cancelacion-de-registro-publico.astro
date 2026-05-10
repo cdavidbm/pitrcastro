@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
-import pageData from '../content/pages/atencion/vinculacion-a-terceros.json';
+import { getAtencionVinculacionATerceros } from '../utils/strapi-fetchers';
 
+const pageData = await getAtencionVinculacionATerceros();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
@@ -16,7 +17,7 @@ const breadcrumb = [
 const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="atencion-vinculacion-a-terceros">
   <HeroPage
     title={pageData.title}
     subtitle={pageData.description}

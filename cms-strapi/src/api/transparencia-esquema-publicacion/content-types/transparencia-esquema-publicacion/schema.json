@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_esquema_publicacion",
+  "info": {
+    "singularName": "transparencia-esquema-publicacion",
+    "pluralName": "transparencia-esquema-publicacions",
+    "displayName": "06. Transparencia / Esquema Publicacion",
+    "description": "Auto-generado desde src/content/pages/transparencia/esquema-publicacion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "string"
+    },
+    "pdfNombre": {
+      "type": "string"
+    }
+  }
+}

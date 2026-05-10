@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_hojas_de_vida",
+  "info": {
+    "singularName": "transparencia-hojas-de-vida",
+    "pluralName": "transparencia-hojas-de-vidas",
+    "displayName": "06. Transparencia / Hojas De Vida",
+    "description": "Auto-generado desde src/content/pages/transparencia/hojas-de-vida.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "enlaceExterno": {
+      "type": "string"
+    },
+    "aspirantes": {
+      "type": "component",
+      "component": "transparencia-hojas-de-vida.aspirant",
+      "repeatable": true
+    }
+  }
+}

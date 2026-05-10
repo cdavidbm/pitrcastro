@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_sede_horarios_mapas",
+  "info": {
+    "displayName": "Mapa",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "embedUrl": {
+      "type": "text"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "string"
+    }
+  }
+}

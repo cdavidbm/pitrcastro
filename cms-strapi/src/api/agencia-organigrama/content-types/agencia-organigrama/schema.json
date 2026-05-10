@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_organigrama",
+  "info": {
+    "singularName": "agencia-organigrama",
+    "pluralName": "agencia-organigramas",
+    "displayName": "02. Agencia / Organigrama",
+    "description": "Auto-generado desde src/content/pages/agencia/organigrama.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "organigrama": {
+      "type": "component",
+      "component": "agencia-organigrama.organigrama",
+      "repeatable": false
+    },
+    "funcionesPorArea": {
+      "type": "component",
+      "component": "agencia-organigrama.funcionesporarea",
+      "repeatable": false
+    },
+    "resolucionesSeccion": {
+      "type": "component",
+      "component": "agencia-organigrama.resolucionesseccion",
+      "repeatable": false
+    },
+    "resoluciones": {
+      "type": "component",
+      "component": "agencia-organigrama.resolucion",
+      "repeatable": true
+    },
+    "ctaDirectorio": {
+      "type": "component",
+      "component": "agencia-organigrama.ctadirectorio",
+      "repeatable": false
+    }
+  }
+}

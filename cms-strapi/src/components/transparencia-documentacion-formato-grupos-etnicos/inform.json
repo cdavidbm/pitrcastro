@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_documentacion_formato_grupos_etnicos_informs",
+  "info": {
+    "displayName": "Inform",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

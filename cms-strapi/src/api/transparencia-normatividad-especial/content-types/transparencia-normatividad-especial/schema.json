@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_normatividad_especial",
+  "info": {
+    "singularName": "transparencia-normatividad-especial",
+    "pluralName": "transparencia-normatividad-especials",
+    "displayName": "06. Transparencia / Normatividad Especial",
+    "description": "Auto-generado desde src/content/pages/transparencia/normatividad-especial.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "transparencia-normatividad-especial.seccion",
+      "repeatable": true
+    }
+  }
+}

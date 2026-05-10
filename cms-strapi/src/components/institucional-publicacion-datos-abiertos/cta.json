@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_institucional_publicacion_datos_abiertos_ctas",
+  "info": {
+    "displayName": "Cta",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "external": {
+      "type": "boolean"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

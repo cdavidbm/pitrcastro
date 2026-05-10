@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_memorias_info_anios",
+  "info": {
+    "displayName": "Anio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "entradas": {
+      "type": "component",
+      "component": "observatorio-eje-de-educacion-memorias-info.entrada",
+      "repeatable": true
+    }
+  }
+}

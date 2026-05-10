@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_observatorio",
+  "info": {
+    "singularName": "observatorio-observatorio",
+    "pluralName": "observatorio-observatorios",
+    "displayName": "07. Observatorio ITRC / Observatorio",
+    "description": "Auto-generado desde src/content/pages/observatorio/observatorio.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "observatorio-observatorio.seccion",
+      "repeatable": true
+    }
+  }
+}

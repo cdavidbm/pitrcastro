@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_planeacion",
+  "info": {
+    "singularName": "participa-planeacion",
+    "pluralName": "participa-planeacions",
+    "displayName": "05. Participa / Planeacion",
+    "description": "Auto-generado desde src/content/pages/participa/planeacion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "nota": {
+      "type": "text"
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "participa-planeacion.enlaz",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

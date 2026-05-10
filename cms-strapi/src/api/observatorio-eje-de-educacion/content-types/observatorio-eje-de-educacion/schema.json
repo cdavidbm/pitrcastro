@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_educacion",
+  "info": {
+    "singularName": "observatorio-eje-de-educacion",
+    "pluralName": "observatorio-eje-de-educacions",
+    "displayName": "07. Observatorio ITRC / Eje De Educacion",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "observatorio-eje-de-educacion.seccion",
+      "repeatable": true
+    }
+  }
+}

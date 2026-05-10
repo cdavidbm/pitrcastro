@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_proyectos_inversion",
+  "info": {
+    "singularName": "transparencia-proyectos-inversion",
+    "pluralName": "transparencia-proyectos-inversions",
+    "displayName": "06. Transparencia / Proyectos Inversion",
+    "description": "Auto-generado desde src/content/pages/transparencia/proyectos-inversion.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "enlacesExternos": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.enlacesexterno",
+      "repeatable": true
+    },
+    "informes": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.inform",
+      "repeatable": true
+    },
+    "fichasEbi": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.fichasebi",
+      "repeatable": true
+    },
+    "fichasEbiNota": {
+      "type": "string"
+    },
+    "resumenEjecutivo": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.resumenejecutivo",
+      "repeatable": true
+    },
+    "seguimientosSPI": {
+      "type": "component",
+      "component": "transparencia-proyectos-inversion.seguimientosspi",
+      "repeatable": true
+    }
+  }
+}

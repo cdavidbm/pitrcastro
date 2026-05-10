@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_observatorio_eje_de_medicion_dashboards",
+  "info": {
+    "displayName": "Dashboard",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

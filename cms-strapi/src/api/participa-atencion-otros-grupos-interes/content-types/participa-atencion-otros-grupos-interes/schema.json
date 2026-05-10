@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_atencion_otros_grupos_interes",
+  "info": {
+    "singularName": "participa-atencion-otros-grupos-interes",
+    "pluralName": "participa-atencion-otros-grupos-intereses",
+    "displayName": "05. Participa / Atencion Otros Grupos Interes",
+    "description": "Auto-generado desde src/content/pages/participa-atencion/otros-grupos-interes.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "participa-atencion-otros-grupos-interes.enlaz",
+      "repeatable": true
+    }
+  }
+}

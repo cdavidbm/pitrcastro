@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_normativa_marco_legal_documentos",
+  "info": {
+    "displayName": "Documento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    }
+  }
+}

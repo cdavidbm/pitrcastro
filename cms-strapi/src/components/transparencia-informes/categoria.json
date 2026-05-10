@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_transparencia_informes_categorias",
+  "info": {
+    "displayName": "Categoria",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "numero": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "destino": {
+      "type": "component",
+      "component": "transparencia-informes.destino",
+      "repeatable": false
+    }
+  }
+}

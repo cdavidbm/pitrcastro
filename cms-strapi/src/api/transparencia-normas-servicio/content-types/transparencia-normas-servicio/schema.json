@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_normas_servicio",
+  "info": {
+    "singularName": "transparencia-normas-servicio",
+    "pluralName": "transparencia-normas-servicios",
+    "displayName": "06. Transparencia / Normas Servicio",
+    "description": "Auto-generado desde src/content/pages/transparencia/normas-servicio.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "normas": {
+      "type": "component",
+      "component": "transparencia-normas-servicio.norma",
+      "repeatable": true
+    }
+  }
+}

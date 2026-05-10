@@ -5,8 +5,9 @@ import Accordion from '../../components/Accordion.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import type { DocumentSection } from '../../types/content';
-import pageData from '../../content/pages/agencia/sistema-integrado-de-gestion.json';
+import { getAgenciaSistemaIntegradoDeGestion } from '../../utils/strapi-fetchers';
 
+const pageData = await getAgenciaSistemaIntegradoDeGestion();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
@@ -28,7 +29,7 @@ const accordionSections = (pageData.sections as DocumentSection[]).map((section)
 const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
-<Base title={pageData.title} class="page-sig">
+<Base title={pageData.title} class="page-sig" strapiSlug="agencia-sistema-integrado-de-gestion">
   <HeroPage
     title={pageData.title}
     subtitle="Marco de gestión institucional que integra calidad, ética y sostenibilidad ambiental"

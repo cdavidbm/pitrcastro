@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_observatorio_eje_de_participacion_videos_tutoriales_videos",
+  "info": {
+    "displayName": "Video",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "poster": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_agencia_mision_vision_quehacemoses",
+  "info": {
+    "displayName": "Quehacemos",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "intro": {
+      "type": "text"
+    },
+    "entidades": {
+      "type": "component",
+      "component": "agencia-mision-vision.entidad",
+      "repeatable": true
+    },
+    "cierre": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_agencia_mision_vision_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

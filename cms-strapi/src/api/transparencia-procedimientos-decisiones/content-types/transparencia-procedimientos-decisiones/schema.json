@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_procedimientos_decisiones",
+  "info": {
+    "singularName": "transparencia-procedimientos-decisiones",
+    "pluralName": "transparencia-procedimientos-decisioneses",
+    "displayName": "06. Transparencia / Procedimientos Decisiones",
+    "description": "Auto-generado desde src/content/pages/transparencia/procedimientos-decisiones.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "informes": {
+      "type": "component",
+      "component": "transparencia-procedimientos-decisiones.inform",
+      "repeatable": true
+    }
+  }
+}

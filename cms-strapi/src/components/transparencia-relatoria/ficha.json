@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_transparencia_relatoria_fichas",
+  "info": {
+    "displayName": "Ficha",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "idLogico": {
+      "type": "string"
+    },
+    "jcatid": {
+      "type": "string"
+    },
+    "jslug": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "yearCategoria": {
+      "type": "string"
+    },
+    "instancia": {
+      "type": "string"
+    },
+    "expediente": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "tamano": {
+      "type": "string"
+    },
+    "filenameOrigen": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "archivo": {
+      "type": "string"
+    },
+    "origenUrl": {
+      "type": "string"
+    }
+  }
+}

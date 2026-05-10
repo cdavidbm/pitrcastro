@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_leyes_leys",
+  "info": {
+    "displayName": "Ley",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

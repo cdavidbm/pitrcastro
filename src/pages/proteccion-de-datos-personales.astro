@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-import pageData from '../content/pages/transparencia/documentacion/proteccion-datos.json';
-
+import { getTransparenciaDocumentacionProteccionDatos } from '../utils/strapi-fetchers';
+const pageData = await getTransparenciaDocumentacionProteccionDatos();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -11,7 +11,7 @@ const breadcrumb = [
 ];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-documentacion-proteccion-datos">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="pd-section">
     <div class="container">

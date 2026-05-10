@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_documentacion_proteccion_datos",
+  "info": {
+    "singularName": "transparencia-documentacion-proteccion-datos",
+    "pluralName": "transparencia-documentacion-proteccion-datoses",
+    "displayName": "06. Transparencia / Documentacion Proteccion Datos",
+    "description": "Auto-generado desde src/content/pages/transparencia/documentacion/proteccion-datos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "transparencia-documentacion-proteccion-datos.documento",
+      "repeatable": true
+    },
+    "enlacesExternos": {
+      "type": "component",
+      "component": "transparencia-documentacion-proteccion-datos.enlacesexterno",
+      "repeatable": true
+    }
+  }
+}

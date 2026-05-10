@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_transparencia_otros_grupos_enlaces",
+  "info": {
+    "displayName": "Enlaz",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

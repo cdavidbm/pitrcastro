@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_agencia_direccionamiento_informes_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string"
+    },
+    "displayMode": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "component",
+      "component": "agencia-direccionamiento-informes.document",
+      "repeatable": true
+    }
+  }
+}

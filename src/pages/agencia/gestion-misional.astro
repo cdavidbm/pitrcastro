@@ -4,8 +4,10 @@ import HeroPage from '../../components/HeroPage.astro';
 import Accordion from '../../components/Accordion.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
-import pageData from '../../content/pages/agencia/gestion-misional.json';
+import { getAgenciaGestionMisional } from '../../utils/strapi-fetchers';
 
+
+const pageData = await getAgenciaGestionMisional();
 const base = import.meta.env.BASE_URL;
 const subdirecciones = pageData.subdirecciones;
 
@@ -18,7 +20,7 @@ const breadcrumb = [
 const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
-<Base title={pageData.title} class="page-gestion-misional">
+<Base title={pageData.title} class="page-gestion-misional" strapiSlug="agencia-gestion-misional">
   <HeroPage
     title={pageData.title}
     subtitle={pageData.description}

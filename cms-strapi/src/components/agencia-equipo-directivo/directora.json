@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_agencia_equipo_directivo_directoras",
+  "info": {
+    "displayName": "Directora",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "cargo": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "json"
+    }
+  }
+}

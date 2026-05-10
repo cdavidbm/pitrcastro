@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "home",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "01. Inicio",
+    "description": "Auto-generado desde src/content/pages/home.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entidadesVigiladas": {
+      "type": "component",
+      "component": "home.entidadesvigilada",
+      "repeatable": true
+    },
+    "columnasServicios": {
+      "type": "component",
+      "component": "home.columnasservicio",
+      "repeatable": true
+    }
+  }
+}

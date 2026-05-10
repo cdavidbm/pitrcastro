@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_columnasservicios",
+  "info": {
+    "displayName": "Columnasservicio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "home.item",
+      "repeatable": true
+    }
+  }
+}

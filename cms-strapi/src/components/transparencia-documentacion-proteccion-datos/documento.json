@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_documentacion_proteccion_datos_documentos",
+  "info": {
+    "displayName": "Documento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    }
+  }
+}

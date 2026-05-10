@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_observatorio_eje_de_educacion_articulos_articulos",
+  "info": {
+    "displayName": "Articulo",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "autor": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_agencia_directorio_infoadicionals",
+  "info": {
+    "displayName": "Infoadicional",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "enlace": {
+      "type": "string"
+    },
+    "textoEnlace": {
+      "type": "string"
+    },
+    "externo": {
+      "type": "boolean"
+    }
+  }
+}

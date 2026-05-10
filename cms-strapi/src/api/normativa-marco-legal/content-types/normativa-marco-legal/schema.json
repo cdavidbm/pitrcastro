@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "normativa_marco_legal",
+  "info": {
+    "singularName": "normativa-marco-legal",
+    "pluralName": "normativa-marco-legals",
+    "displayName": "03. Normativa / Marco Legal",
+    "description": "Auto-generado desde src/content/pages/normativa/marco-legal.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "secciones": {
+      "type": "component",
+      "component": "normativa-marco-legal.seccion",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

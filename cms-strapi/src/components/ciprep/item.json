@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_ciprep_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "hora": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "franja": {
+      "type": "string"
+    },
+    "moderador": {
+      "type": "string"
+    },
+    "ponentes": {
+      "type": "json"
+    }
+  }
+}

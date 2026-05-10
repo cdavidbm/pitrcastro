@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_proyectos_inversion_resumenejecutivos",
+  "info": {
+    "displayName": "Resumenejecutivo",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "proyecto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

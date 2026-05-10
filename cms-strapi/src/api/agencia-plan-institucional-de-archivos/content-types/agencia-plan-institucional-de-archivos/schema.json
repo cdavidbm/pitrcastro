@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_plan_institucional_de_archivos",
+  "info": {
+    "singularName": "agencia-plan-institucional-de-archivos",
+    "pluralName": "agencia-plan-institucional-de-archivoses",
+    "displayName": "02. Agencia / Plan Institucional De Archivos",
+    "description": "Auto-generado desde src/content/pages/agencia/plan-institucional-de-archivos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "agencia-plan-institucional-de-archivos.documento",
+      "repeatable": true
+    }
+  }
+}

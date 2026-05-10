@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_directorio",
+  "info": {
+    "singularName": "agencia-directorio",
+    "pluralName": "agencia-directorios",
+    "displayName": "02. Agencia / Directorio",
+    "description": "Auto-generado desde src/content/pages/agencia/directorio.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "directorios": {
+      "type": "component",
+      "component": "agencia-directorio.directorio",
+      "repeatable": true
+    },
+    "escalaSalarial": {
+      "type": "component",
+      "component": "agencia-directorio.escalasalarial",
+      "repeatable": false
+    },
+    "infoAdicional": {
+      "type": "component",
+      "component": "agencia-directorio.infoadicional",
+      "repeatable": true
+    }
+  }
+}

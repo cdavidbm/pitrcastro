@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_participa_atencion_respuesta_anonimos_notificacions",
+  "info": {
+    "displayName": "Notificacion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "fecha": {
+      "type": "string"
+    },
+    "radicadoPqrs": {
+      "type": "string"
+    },
+    "radicadoRespuesta": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

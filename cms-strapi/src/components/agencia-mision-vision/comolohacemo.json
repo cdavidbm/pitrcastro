@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_mision_vision_comolohacemos",
+  "info": {
+    "displayName": "Comolohacemo",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    }
+  }
+}

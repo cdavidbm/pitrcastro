@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_agencia_informacion_financiera_infocards",
+  "info": {
+    "displayName": "Infocard",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

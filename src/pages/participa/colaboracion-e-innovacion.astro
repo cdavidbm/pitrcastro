@@ -4,8 +4,9 @@ import HeroPage from '../../components/HeroPage.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import { resolveUrl } from '../../utils/url';
 
-import pageData from '../../content/pages/participa/colaboracion.json';
+import { getParticipaColaboracion } from '../../utils/strapi-fetchers';
 
+const pageData = await getParticipaColaboracion();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
@@ -17,7 +18,7 @@ const breadcrumb = [
 const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="participa-colaboracion">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="colab-section">

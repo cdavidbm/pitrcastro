@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_reporte_austeridad_gasto_informs",
+  "info": {
+    "displayName": "Inform",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

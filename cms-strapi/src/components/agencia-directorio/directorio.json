@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_agencia_directorio_directorios",
+  "info": {
+    "displayName": "Directorio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "external": {
+      "type": "boolean"
+    }
+  }
+}

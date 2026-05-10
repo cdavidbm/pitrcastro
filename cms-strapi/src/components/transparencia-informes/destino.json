@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_informes_destinos",
+  "info": {
+    "displayName": "Destino",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "string"
+    }
+  }
+}

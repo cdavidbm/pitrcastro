@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_participa_atencion_informe_comite_conciliacion_informs",
+  "info": {
+    "displayName": "Inform",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

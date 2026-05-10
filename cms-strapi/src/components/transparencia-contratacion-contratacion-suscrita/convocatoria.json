@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_contratacion_contratacion_suscrita_convocatorias",
+  "info": {
+    "displayName": "Convocatoria",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "categoria": {
+      "type": "string"
+    },
+    "procesos": {
+      "type": "component",
+      "component": "transparencia-contratacion-contratacion-suscrita.proceso",
+      "repeatable": true
+    }
+  }
+}

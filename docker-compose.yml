@@ -1,0 +1,80 @@
+# Stack del CMS (Strapi v5).
+#
+# Dos modos:
+#
+#   1) Local dev (default profile):
+#        docker compose up -d
+#      Levanta SOLO Postgres. Strapi se corre nativo desde ./cms-strapi
+#      con `npm run develop` para iterar rápido en local.
+#
+#   2) Servidor de pruebas / producción (profile "server"):
+#        docker compose --profile server up -d --build
+#      Levanta Postgres + Strapi (build desde ./cms-strapi/Dockerfile).
+#      Strapi corre en modo production (`npm run start`).
+#
+# El archivo .env.cms (gitignored) provee credenciales y secretos.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: itrc-cms-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${CMS_DB_NAME:-strapi}
+      POSTGRES_USER: ${CMS_DB_USER:-strapi}
+      POSTGRES_PASSWORD: ${CMS_DB_PASSWORD:-strapi_dev_password}
+    volumes:
+      - cms-postgres-data:/var/lib/postgresql/data
+    ports:
+      # Expuesto solo a localhost.
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CMS_DB_USER:-strapi} -d ${CMS_DB_NAME:-strapi}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  strapi:
+    profiles: ["server"]
+    build:
+      context: ./cms-strapi
+      dockerfile: Dockerfile
+    container_name: itrc-cms-strapi
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 1337
+      # Conexión a Postgres: usa el nombre de servicio del compose.
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ${CMS_DB_NAME:-strapi}
+      DATABASE_USERNAME: ${CMS_DB_USER:-strapi}
+      DATABASE_PASSWORD: ${CMS_DB_PASSWORD:-strapi_dev_password}
+      DATABASE_SSL: "false"
+      # Secretos (obligatorios — generar con `openssl rand -base64 16`)
+      APP_KEYS: ${STRAPI_APP_KEYS}
+      API_TOKEN_SALT: ${STRAPI_API_TOKEN_SALT}
+      ADMIN_JWT_SECRET: ${STRAPI_ADMIN_JWT_SECRET}
+      JWT_SECRET: ${STRAPI_JWT_SECRET}
+      TRANSFER_TOKEN_SALT: ${STRAPI_TRANSFER_TOKEN_SALT}
+      ENCRYPTION_KEY: ${STRAPI_ENCRYPTION_KEY}
+      # Dispatch a GitHub al publicar (opcional)
+      GITHUB_REPO: ${GITHUB_REPO:-}
+      GITHUB_DISPATCH_TOKEN: ${GITHUB_DISPATCH_TOKEN:-}
+    volumes:
+      # Persistir uploads (binarios subidos por editores via panel).
+      - cms-strapi-uploads:/opt/app/public/uploads
+    ports:
+      # Expuesto solo a localhost; nginx hace proxy desde /admin y /api.
+      - "127.0.0.1:1337:1337"
+
+volumes:
+  cms-postgres-data:
+    name: itrc-cms-postgres-data
+  cms-strapi-uploads:
+    name: itrc-cms-strapi-uploads

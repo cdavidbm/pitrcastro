@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
-import pageData from '../../content/pages/normativa/unificacion-suin-juriscol.json';
+import { getNormativaUnificacionSuinJuriscol } from '../../utils/strapi-fetchers';
 
+const pageData = await getNormativaUnificacionSuinJuriscol();
 const base = import.meta.env.BASE_URL;
 const normas = pageData.normas;
 
@@ -40,7 +41,7 @@ const breadcrumb = [
 const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="normativa-unificacion-suin-juriscol">
   <HeroPage
     title={pageData.title}
     subtitle={pageData.description}

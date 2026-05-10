@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "normativa_resoluciones",
+  "info": {
+    "singularName": "normativa-resoluciones",
+    "pluralName": "normativa-resolucioneses",
+    "displayName": "03. Normativa / Resoluciones",
+    "description": "Auto-generado desde src/content/pages/normativa/resoluciones.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "actos": {
+      "type": "component",
+      "component": "normativa-resoluciones.acto",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

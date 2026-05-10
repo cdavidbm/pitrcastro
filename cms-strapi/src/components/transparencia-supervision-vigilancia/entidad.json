@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_transparencia_supervision_vigilancia_entidads",
+  "info": {
+    "displayName": "Entidad",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
+    },
+    "control": {
+      "type": "string"
+    }
+  }
+}

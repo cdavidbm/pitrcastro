@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_evaluacion_independiente_documentos",
+  "info": {
+    "displayName": "Documento",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

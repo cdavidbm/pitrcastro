@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_transparencia_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "num": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "children": {
+      "type": "component",
+      "component": "transparencia.children",
+      "repeatable": true
+    }
+  }
+}

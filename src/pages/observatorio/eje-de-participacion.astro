@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
 
-import pageData from '../../content/pages/observatorio/eje-de-participacion.json';
+import { getObservatorioEjeDeParticipacion } from '../../utils/strapi-fetchers';
 
+const pageData = await getObservatorioEjeDeParticipacion();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -13,7 +14,7 @@ const breadcrumb = [
 ];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="observatorio-eje-de-participacion">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
 
   <section class="part-section">

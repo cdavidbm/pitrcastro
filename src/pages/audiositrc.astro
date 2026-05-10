@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
-import pageData from '../content/pages/institucional/audios-itrc.json';
-
+import { getInstitucionalAudiosItrc } from '../utils/strapi-fetchers';
+const pageData = await getInstitucionalAudiosItrc();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -11,7 +11,7 @@ const breadcrumb = [
 ];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="institucional-audios-itrc">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="aud-section">
     <div class="container">

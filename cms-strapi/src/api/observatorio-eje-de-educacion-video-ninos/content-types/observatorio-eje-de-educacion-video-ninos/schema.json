@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_educacion_video_ninos",
+  "info": {
+    "singularName": "observatorio-eje-de-educacion-video-ninos",
+    "pluralName": "observatorio-eje-de-educacion-video-ninoses",
+    "displayName": "07. Observatorio ITRC / Eje De Educacion Video Ninos",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/video-ninos.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "youtubeId": {
+      "type": "string"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  }
+}

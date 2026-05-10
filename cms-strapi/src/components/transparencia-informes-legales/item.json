@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_transparencia_informes_legales_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "n": {
+      "type": "string"
+    },
+    "u": {
+      "type": "string"
+    }
+  }
+}

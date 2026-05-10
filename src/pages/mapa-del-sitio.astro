@@ -6,7 +6,9 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
 
-import pageData from '../content/pages/mapa-del-sitio.json';
+import { getMapaDelSitio } from '../utils/strapi-fetchers';
+
+const pageData = await getMapaDelSitio();
 import nav from '../content/settings/navigation.json';
 
 const base = import.meta.env.BASE_URL;
@@ -69,7 +71,7 @@ function humanize(slug: string): string {
 }
 
 const JSON_IMPORT_RE = /from\s+['"](?:\.\.\/)+content\/pages\/([^'"]+)\.json['"]/;
-const BASE_TITLE_RE = /<Base[^>]+title=\{?["']([^"']+)["']/;
+const BASE_TITLE_RE = /<Base[^ strapiSlug="mapa-del-sitio">]+title=\{?["']([^"']+)["']/;
 
 const allRoutes: DiscoveredRoute[] = [];
 for (const filePath of walkAstro(PAGES_DIR)) {

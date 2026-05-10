@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_transparencia_comite_conciliacion_anios",
+  "info": {
+    "displayName": "Anio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "docs": {
+      "type": "component",
+      "component": "transparencia-comite-conciliacion.doc",
+      "repeatable": true
+    }
+  }
+}

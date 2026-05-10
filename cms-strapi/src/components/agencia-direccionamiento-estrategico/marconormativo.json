@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_agencia_direccionamiento_estrategico_marconormativos",
+  "info": {
+    "displayName": "Marconormativo",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "normas": {
+      "type": "component",
+      "component": "agencia-direccionamiento-estrategico.norma",
+      "repeatable": true
+    }
+  }
+}

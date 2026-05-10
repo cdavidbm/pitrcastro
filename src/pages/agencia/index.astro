@@ -2,8 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
-import pageData from '../../content/pages/agencia/landing.json';
-
+import { getAgenciaLanding } from '../../utils/strapi-fetchers';
+const pageData = await getAgenciaLanding();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
@@ -12,7 +12,7 @@ const breadcrumb = [
 ];
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="agencia-landing">
   <HeroPage
     title={pageData.title}
     subtitle="Información institucional de la Agencia ITRC"

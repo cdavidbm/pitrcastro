@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_agencia_mision_vision_entidads",
+  "info": {
+    "displayName": "Entidad",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  }
+}

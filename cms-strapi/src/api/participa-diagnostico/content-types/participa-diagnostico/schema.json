@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "participa_diagnostico",
+  "info": {
+    "singularName": "participa-diagnostico",
+    "pluralName": "participa-diagnosticos",
+    "displayName": "05. Participa / Diagnostico",
+    "description": "Auto-generado desde src/content/pages/participa/diagnostico.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "participa-diagnostico.enlaz",
+      "repeatable": true
+    },
+    "cajaHerramientas": {
+      "type": "component",
+      "component": "participa-diagnostico.cajaherramienta",
+      "repeatable": true
+    },
+    "enlacesRelacionados": {
+      "type": "component",
+      "component": "shared.related-link",
+      "repeatable": true
+    }
+  }
+}

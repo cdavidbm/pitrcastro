@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_normativa_marco_legal_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "documentos": {
+      "type": "component",
+      "component": "normativa-marco-legal.documento",
+      "repeatable": true
+    }
+  }
+}

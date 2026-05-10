@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_prensa_comunicados_institucionales_anios",
+  "info": {
+    "displayName": "Anio",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "anio": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "prensa-comunicados-institucionales.item",
+      "repeatable": true
+    }
+  }
+}

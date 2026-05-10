@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "transparencia_defensa_publica",
+  "info": {
+    "singularName": "transparencia-defensa-publica",
+    "pluralName": "transparencia-defensa-publicas",
+    "displayName": "06. Transparencia / Defensa Publica",
+    "description": "Auto-generado desde src/content/pages/transparencia/defensa-publica.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "enlaces": {
+      "type": "component",
+      "component": "transparencia-defensa-publica.enlaz",
+      "repeatable": true
+    }
+  }
+}

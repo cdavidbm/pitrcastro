@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_ciprep_ctas",
+  "info": {
+    "displayName": "Cta",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "enlaceLabel": {
+      "type": "string"
+    },
+    "enlaceAncla": {
+      "type": "string"
+    }
+  }
+}

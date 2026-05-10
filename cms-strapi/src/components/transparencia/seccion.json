@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_transparencia_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "numero": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "transparencia.item",
+      "repeatable": true
+    },
+    "tituloUrl": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  }
+}

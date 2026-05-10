@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_atencion_canales_de_atencion_canals",
+  "info": {
+    "displayName": "Canal",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "atencion-canales-de-atencion.item",
+      "repeatable": true
+    }
+  }
+}

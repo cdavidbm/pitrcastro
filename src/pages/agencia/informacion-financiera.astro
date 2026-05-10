@@ -3,8 +3,10 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 
-import pageData from '../../content/pages/agencia/informacion-financiera.json';
+import { getAgenciaInformacionFinanciera } from '../../utils/strapi-fetchers';
 
+
+const pageData = await getAgenciaInformacionFinanciera();
 const base = import.meta.env.BASE_URL;
 
 const { title, subtitle, tabs: tabsData, infoCards, ctaSection } = pageData;
@@ -16,7 +18,7 @@ const breadcrumb = [
 ];
 ---
 
-<Base title={title} class="page-informacion-financiera">
+<Base title={title} class="page-informacion-financiera" strapiSlug="agencia-informacion-financiera">
   <HeroPage
     title={title}
     subtitle={subtitle}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_prensa_videos_videos",
+  "info": {
+    "displayName": "Video",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string"
+    },
+    "youtubeId": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "destacado": {
+      "type": "boolean"
+    },
+    "transcripcion": {
+      "type": "string"
+    }
+  }
+}

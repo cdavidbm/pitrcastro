@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "observatorio_eje_de_educacion_quiz",
+  "info": {
+    "singularName": "observatorio-eje-de-educacion-quiz",
+    "pluralName": "observatorio-eje-de-educacion-quices",
+    "displayName": "07. Observatorio ITRC / Eje De Educacion Quiz",
+    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/quiz.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "preguntas": {
+      "type": "component",
+      "component": "observatorio-eje-de-educacion-quiz.pregunta",
+      "repeatable": true
+    }
+  }
+}

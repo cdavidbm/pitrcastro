@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "mapa_del_sitio",
+  "info": {
+    "singularName": "mapa-del-sitio",
+    "pluralName": "mapa-del-sitios",
+    "displayName": "99. Sistema / Mapa del sitio",
+    "description": "Auto-generado desde src/content/pages/mapa-del-sitio.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "branchIcons": {
+      "type": "json"
+    },
+    "branchDescriptions": {
+      "type": "json"
+    },
+    "extras": {
+      "type": "component",
+      "component": "mapa-del-sitio.extras",
+      "repeatable": false
+    }
+  }
+}

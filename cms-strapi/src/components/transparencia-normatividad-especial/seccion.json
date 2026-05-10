@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_transparencia_normatividad_especial_seccions",
+  "info": {
+    "displayName": "Seccion",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

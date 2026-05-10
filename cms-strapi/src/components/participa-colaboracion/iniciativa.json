@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_participa_colaboracion_iniciativas",
+  "info": {
+    "displayName": "Iniciativa",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "enlace": {
+      "type": "string"
+    },
+    "textoEnlace": {
+      "type": "string"
+    },
+    "interno": {
+      "type": "boolean"
+    }
+  }
+}
