@@ -5,19 +5,29 @@ import Accordion from '../../../components/Accordion.astro';
 import Tabs from '../../../components/Tabs.astro';
 import DocumentItem from '../../../components/DocumentItem.astro';
 import type { DocumentPage } from '../../../types/content';
+import {
+  getAgenciaDireccionamientoInformes,
+  getAgenciaDireccionamientoPlanes,
+  getAgenciaDireccionamientoPoliticas,
+} from '../../../utils/strapi-fetchers';
 
 const base = import.meta.env.BASE_URL;
 
-export function getStaticPaths() {
-  const pageFiles = import.meta.glob<DocumentPage>(
-    '../../../content/pages/agencia/direccionamiento/*.json',
-    { eager: true, import: 'default' }
-  );
-
-  return Object.entries(pageFiles).map(([path, data]) => {
-    const slug = path.split('/').pop()?.replace('.json', '') || '';
-    return { params: { slug }, props: { pageData: data } };
-  });
+export async function getStaticPaths() {
+  const [politicas, planes, informes] = await Promise.all([
+    getAgenciaDireccionamientoPoliticas(),
+    getAgenciaDireccionamientoPlanes(),
+    getAgenciaDireccionamientoInformes(),
+  ]);
+  const entries: Array<{ slug: string; data: DocumentPage }> = [
+    { slug: 'politicas', data: politicas as DocumentPage },
+    { slug: 'planes', data: planes as DocumentPage },
+    { slug: 'informes', data: informes as DocumentPage },
+  ];
+  return entries.map(({ slug, data }) => ({
+    params: { slug },
+    props: { pageData: data },
+  }));
 }
 
 const { slug } = Astro.params;
