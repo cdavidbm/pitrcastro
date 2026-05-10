@@ -6,8 +6,8 @@ Propuesta Portal web de la Agencia del Inspector General de Tributos, Rentas y C
 
 ## Tecnologías
 
-- Astro 4.x
-- Sveltia CMS
+- Astro 4.x (sitio estático)
+- Strapi v5 + Postgres (CMS headless en Docker)
 
 ## Inicio Rápido
 

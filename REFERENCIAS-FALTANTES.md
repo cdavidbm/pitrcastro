@@ -73,7 +73,7 @@
 | 25 | Gobierno Digital MinTIC | TICs | Crear página con seguimientos |
 | 27 | Acoso laboral | Talento Humano | Crear página con seguimientos (Ley 1010/2006) |
 
-**Activar una categoría desde el CMS**: cuando su página destino exista, editar `src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json` (o desde Sveltia → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
+**Activar una categoría desde el CMS**: cuando su página destino exista, editar el content type correspondiente en Strapi (Content Manager → Transparencia → "Informes de Evaluación y Auditoría 3LD"): cambiar `destino.url` al path nuevo y `destino.estado` de `proximamente` a `disponible`.
 
 ---
 
@@ -260,7 +260,7 @@ Huérfanos: no se detectaron nuevas páginas WP fuera del listado del sitemap.
 
 Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
-**Acción pendiente / responsable**: Planeación + Financiera — usar Sveltia CMS para integrar los PDFs históricos en la sección/tab/categoría correcta. Los reports listan los URLs y títulos para copiar manualmente. Estimado: ~2-3h editoriales.
+**Acción pendiente / responsable**: Planeación + Financiera — usar el panel de Strapi para integrar los PDFs históricos en la sección/tab/categoría correcta. Los reports listan los URLs y títulos para copiar manualmente. Estimado: ~2-3h editoriales.
 
 **Origen #1 sí actualizado**: la página `/contratacion-suscrita/` se reescribió completamente en este mismo ciclo (era wrapper SECOP de 2 enlaces; ahora muestra 67 procesos de selección + 118 contratos suscritos por vigencia = 229 documentos completos extraídos del JSON embedded WP).
 
@@ -308,7 +308,7 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 **Estado**: `migrado` (la entrada quedó como histórico de auditoría)
 **Reabierto**: 2026-05-03 — el usuario confirmó la 2ª edición 2026 y pidió migrar la landing al portal Astro.
 
-**Descripción**: CIPREP (Primer Congreso Internacional para la Protección de los Recursos Públicos) se realizó el 20–21 de octubre de 2025 en la Cámara de Comercio de Bogotá – Sede Chapinero. La sub-app WP de Elementor que sirve la landing se reemplaza por la página nativa `/ciprep` con contenido editable desde Sveltia CMS y un folder collection de speakers preparado para la edición 2026.
+**Descripción**: CIPREP (Primer Congreso Internacional para la Protección de los Recursos Públicos) se realizó el 20–21 de octubre de 2025 en la Cámara de Comercio de Bogotá – Sede Chapinero. La sub-app WP de Elementor que sirve la landing se reemplaza por la página nativa `/ciprep` con contenido editable desde Strapi y un content type de speakers preparado para la edición 2026.
 
 **Cómo se manejó**:
 - Página single-page con secciones ancladas (`#por-que`, `#agenda`, `#aliados`, `#speakers`, `#memorias`, `#info`).
@@ -338,7 +338,7 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 **Cómo se manejó**:
 - **Catálogo migrado** (152 fichas con título, expediente, año, instancia inferida, tamaño declarado, filename original, ID Joomla legacy y URL origen para auditoría) en `src/content/pages/transparencia/relatoria.json` campo `fichas[]`.
 - **Página `/relatoria` reemplazada**: tabla con buscador (título/expediente/número), filtros por año e instancia, paginación cliente. Mismo molde que `/notificaciones-y-traslados`.
-- **Slots de descarga** marcados con icono "pendiente" hasta que jurídica suba los PDFs originales vía Sveltia CMS. Cuando los provean, basta llenar el campo `archivo` por ficha en el CMS.
+- **Slots de descarga** marcados con icono "pendiente" hasta que jurídica suba los PDFs originales desde el panel de Strapi. Cuando los provean, basta llenar el campo `archivo` por ficha en el CMS.
 - **CTA externo eliminado** (apuntaba a `/Itrc/relatorias/` que devuelve 404 y al sub-portal Joomla roto).
 
 **Pendientes conocidos**:
@@ -376,7 +376,7 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
 **Cómo se maneja ahora**: se preserva el enlace tal cual en el JSON consolidado `decretos-estructura.json`, y se añade un campo `nota` que se renderiza visiblemente en la página con triángulo de alerta amarillo: *"Enlace en origen WP apunta a archivo con nombre inconsistente; verificar con Jurídica el documento correcto."*
 
-**Pendiente / responsable**: Subdirección de Asuntos Legales / área Jurídica — debe (a) confirmar si el archivo actualmente enlazado es efectivamente el Decreto 0664 de 2024 o es un documento incorrecto, (b) proveer el PDF correcto si aplica, (c) actualizar la URL desde Sveltia CMS cuando se corrija.
+**Pendiente / responsable**: Subdirección de Asuntos Legales / área Jurídica — debe (a) confirmar si el archivo actualmente enlazado es efectivamente el Decreto 0664 de 2024 o es un documento incorrecto, (b) proveer el PDF correcto si aplica, (c) actualizar la URL desde Strapi cuando se corrija.
 
 ---
 
@@ -391,7 +391,7 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
 **Correlación con análisis secundario**: corresponde al **#78 "Informe Comité de Conciliación"** listado en `analisis_web_ITRC.md` §3.3 como Prioridad MEDIA pendiente.
 
-**Cómo se maneja ahora**: se preserva el enlace en el JSON (visible en la lista de recursos) pero apunta a destino 404. El usuario puede editar desde Sveltia CMS para:
+**Cómo se maneja ahora**: se preserva el enlace (visible en la lista de recursos) pero apunta a destino 404. El usuario puede editar desde Strapi para:
 - Remover el enlace (si se considera que no va a existir).
 - O dejarlo y crear la página destino en un lote futuro dedicado a #78.
 
@@ -408,7 +408,7 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
 **Descripción**: el WP origen lista **314 documentos** distribuidos en 6 tabs (vigencias 2019-2024). Al analizar las URLs únicas, se detectaron **73 entradas duplicadas** (50 URLs que aparecen 2-3 veces cada una entre tabs). Ejemplo: "Informe de Supervisión CPS 032 2022" figura simultáneamente en tabs 2022, 2023 y 2024.
 
-**Cómo se manejó en el portal nuevo**: se preservó fidelidad 1:1 con el origen — los 314 items (73 duplicados incluidos) se migraron tal cual, organizados en 6 paneles colapsables por vigencia. La limpieza editorial (mantener cada PDF en una sola vigencia) es tarea sugerida pero no ejecutada — puede hacerse desde Sveltia CMS.
+**Cómo se manejó en el portal nuevo**: se preservó fidelidad 1:1 con el origen — los 314 items (73 duplicados incluidos) se migraron tal cual, organizados en 6 paneles colapsables por vigencia. La limpieza editorial (mantener cada PDF en una sola vigencia) es tarea sugerida pero no ejecutada — puede hacerse desde Strapi.
 
 **Pendiente**: decidir si se consolida la lista (mantener cada PDF una sola vez en la vigencia más representativa) o se preserva la redundancia original.
 
@@ -436,9 +436,9 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 **Cómo se maneja ahora**:
 - Las URLs en los JSONs **se reescribieron de WP a `/documentos/<area>/<archivo>`** igual que las que sí existen. Cuando un visitante haga click en una de estas URLs rotas, recibirá 404 desde nginx (mismo comportamiento que tenía WP origen).
 - El listado completo URL-por-URL queda en `reports/bin4-missing-files.json` (gitignored, generado por script auxiliar a partir de `bin4-rewrite-map.json`).
-- No se eliminaron las referencias del HTML/JSON: preservar fidelidad con el origen, dejar que cada área provea los faltantes desde Sveltia.
+- No se eliminaron las referencias del HTML/JSON: preservar fidelidad con el origen, dejar que cada área provea los faltantes desde Strapi.
 
-**Pendiente / responsable**: las áreas afectadas (contratación, planeación, normativa) deben proveer los archivos faltantes o eliminar las referencias muertas. La aplicación Sveltia (cuando esté operativa con upload endpoint) facilitará esto. Hasta entonces, el operador puede:
+**Pendiente / responsable**: las áreas afectadas (contratación, planeación, normativa) deben proveer los archivos faltantes o eliminar las referencias muertas. El panel de Strapi (que ya soporta upload nativo a `public/uploads/`) facilita la gestión. El operador puede:
 - Editar el JSON correspondiente en `src/content/pages/...` y eliminar la línea
 - O esperar a tener los PDFs y hacer `npm run deploy:binarios` con ellos en `public/documentos/<area>/`
 
