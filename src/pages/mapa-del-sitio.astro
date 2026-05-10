@@ -197,10 +197,6 @@ const otrasPaginas = allRoutes.filter(
 );
 
 const externalBranches = (nav.mainMenu as any[]).filter((b) => b.external);
-
-function isExternal(url: string) {
-  return /^https?:\/\//.test(url);
-}
 ---
 
 <Base title={pageData.title} description={pageData.subtitle}>
