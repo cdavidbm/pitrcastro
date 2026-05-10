@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
+import { getGaleriaList } from '../../utils/strapi-fetchers';
 
 interface AlbumImage {
   url: string;
@@ -21,16 +22,12 @@ interface Album {
 
 const base = import.meta.env.BASE_URL;
 
-export function getStaticPaths() {
-  const albumFiles = import.meta.glob<Album>(
-    '../../content/pages/galeria/*.json',
-    { eager: true, import: 'default' }
-  );
-
-  return Object.entries(albumFiles).map(([path, data]) => {
-    const slug = path.split('/').pop()?.replace('.json', '') || '';
-    return { params: { slug }, props: { album: data } };
-  });
+export async function getStaticPaths() {
+  const albums = await getGaleriaList();
+  return (albums as Album[]).map((data) => ({
+    params: { slug: data.slug },
+    props: { album: data },
+  }));
 }
 
 interface Props { album: Album; }
