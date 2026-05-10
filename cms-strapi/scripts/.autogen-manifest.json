@@ -133,47 +133,47 @@
     {
       "slug": "atencion-canales-de-atencion",
       "sourcePath": "src/content/pages/atencion/canales-de-atencion.json",
-      "displayName": "04. Atención y Servicios / Canales De Atencion"
+      "displayName": "04. Atenci\u00f3n y Servicios / Canales De Atencion"
     },
     {
       "slug": "atencion-correo-notificaciones-judiciales",
       "sourcePath": "src/content/pages/atencion/correo-notificaciones-judiciales.json",
-      "displayName": "04. Atención y Servicios / Correo Notificaciones Judiciales"
+      "displayName": "04. Atenci\u00f3n y Servicios / Correo Notificaciones Judiciales"
     },
     {
       "slug": "atencion-glosario",
       "sourcePath": "src/content/pages/atencion/glosario.json",
-      "displayName": "04. Atención y Servicios / Glosario"
+      "displayName": "04. Atenci\u00f3n y Servicios / Glosario"
     },
     {
       "slug": "atencion-landing",
       "sourcePath": "src/content/pages/atencion/landing.json",
-      "displayName": "04. Atención y Servicios / Landing"
+      "displayName": "04. Atenci\u00f3n y Servicios / Landing"
     },
     {
       "slug": "atencion-notificaciones-por-aviso",
       "sourcePath": "src/content/pages/atencion/notificaciones-por-aviso.json",
-      "displayName": "04. Atención y Servicios / Notificaciones Por Aviso"
+      "displayName": "04. Atenci\u00f3n y Servicios / Notificaciones Por Aviso"
     },
     {
       "slug": "atencion-pqrs-servidores",
       "sourcePath": "src/content/pages/atencion/pqrs-servidores.json",
-      "displayName": "04. Atención y Servicios / Pqrs Servidores"
+      "displayName": "04. Atenci\u00f3n y Servicios / Pqrs Servidores"
     },
     {
       "slug": "atencion-pqrs",
       "sourcePath": "src/content/pages/atencion/pqrs.json",
-      "displayName": "04. Atención y Servicios / Pqrs"
+      "displayName": "04. Atenci\u00f3n y Servicios / Pqrs"
     },
     {
       "slug": "atencion-preguntas-frecuentes",
       "sourcePath": "src/content/pages/atencion/preguntas-frecuentes.json",
-      "displayName": "04. Atención y Servicios / Preguntas Frecuentes"
+      "displayName": "04. Atenci\u00f3n y Servicios / Preguntas Frecuentes"
     },
     {
       "slug": "atencion-vinculacion-a-terceros",
       "sourcePath": "src/content/pages/atencion/vinculacion-a-terceros.json",
-      "displayName": "04. Atención y Servicios / Vinculacion A Terceros"
+      "displayName": "04. Atenci\u00f3n y Servicios / Vinculacion A Terceros"
     },
     {
       "slug": "institucional-audios-itrc",
@@ -678,7 +678,7 @@
   ],
   "collections": [
     {
-      "slug": "ciprep-speakers",
+      "slug": "ciprep-speaker",
       "dirPath": "src/content/pages/ciprep/speakers",
       "sourceFiles": [
         "src/content/pages/ciprep/speakers/alejandra-arriaza-loeb.json",
@@ -747,10 +747,10 @@
         "src/content/pages/galeria/visita-de-la-superintendencia-de-chile-febrero-2018.json",
         "src/content/pages/galeria/visitas-internacionales.json"
       ],
-      "displayName": "08. Prensa / Galería"
+      "displayName": "08. Prensa / Galer\u00eda"
     },
     {
-      "slug": "normativa-delitos",
+      "slug": "normativa-delito",
       "dirPath": "src/content/pages/normativa/delitos",
       "sourceFiles": [
         "src/content/pages/normativa/delitos/normativa-incumplimiento-al-regimen-cambiario-y-aduanero.json",
@@ -772,7 +772,7 @@
       "displayName": "03. Normativa / Delitos"
     },
     {
-      "slug": "normativa-vigencias",
+      "slug": "normativa-vigencia",
       "dirPath": "src/content/pages/normativa/vigencias",
       "sourceFiles": [
         "src/content/pages/normativa/vigencias/vigencia-2012.json",
@@ -789,7 +789,7 @@
       "displayName": "03. Normativa / Vigencias"
     },
     {
-      "slug": "observatorio-eje-de-educacion-memorias",
+      "slug": "observatorio-eje-de-educacion-memoria",
       "dirPath": "src/content/pages/observatorio/eje-de-educacion/memorias",
       "sourceFiles": [
         "src/content/pages/observatorio/eje-de-educacion/memorias/agencia-itrc-herramientas-para-la-lucha-contra-la-corrupcion.json",
@@ -851,7 +851,7 @@
       "displayName": "07. Observatorio ITRC / Eje De Educacion Memorias"
     },
     {
-      "slug": "observatorio-eje-de-participacion-memorias",
+      "slug": "observatorio-eje-de-participacion-memoria",
       "dirPath": "src/content/pages/observatorio/eje-de-participacion/memorias",
       "sourceFiles": [
         "src/content/pages/observatorio/eje-de-participacion/memorias/buenas-practicas-para-el-fortalecimiento-de-la-transparencia-institucional.json",
@@ -897,7 +897,7 @@
       "displayName": "07. Observatorio ITRC / Eje De Participacion Memorias"
     },
     {
-      "slug": "transparencia-informes",
+      "slug": "transparencia-informe",
       "dirPath": "src/content/pages/transparencia/informes",
       "sourceFiles": [
         "src/content/pages/transparencia/informes/evaluacion-auditoria-3ld.json",

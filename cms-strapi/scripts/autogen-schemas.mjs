@@ -60,7 +60,11 @@ function singularize(s) {
 }
 
 function pluralize(s) {
-  if (s.endsWith('s')) return s + 'es';
+  // Si el slug ya termina en 's', asumimos que es plural (la mayoría de los
+  // slugs derivados del path JSON original ya vienen pluralizados, p. ej.
+  // 'normativa-delitos', 'ciprep-speakers'). Devolverlo como está y dejar que
+  // singularize() derive la forma singular para singularName.
+  if (s.endsWith('s')) return s;
   if (s.endsWith('z')) return s.slice(0, -1) + 'ces';
   return s + 's';
 }
@@ -337,7 +341,11 @@ function writeText(filePath, content) {
 }
 
 function writeContentType({ slug, kind, attributes, displayName: dn, sourcePath }) {
-  const singularName = slug;
+  // Strapi requiere singularName != pluralName. Si el slug ya es plural
+  // (termina en 's'), derivamos el singular con singularize() y conservamos
+  // el slug como pluralName.
+  const slugIsPlural = slug.endsWith('s');
+  const singularName = slugIsPlural ? singularize(slug) : slug;
   const pluralName = pluralize(slug);
   const collectionName = slug.replace(/-/g, '_') + (kind === 'collectionType' ? '_items' : '');
   const schema = {

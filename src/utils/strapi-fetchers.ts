@@ -141,13 +141,13 @@ export const getTransparenciaDocumentacionFormatoGruposEtnicos = () => strapiGet
 export const getTransparenciaDocumentacionProteccionDatos = () => strapiGet<any>("/api/transparencia-documentacion-proteccion-datos?populate[documentos]=true&populate[enlacesExternos]=true");
 export const getTransparenciaDocumentacionRegistroPublicaciones = () => strapiGet<any>("/api/transparencia-documentacion-registro-publicaciones?populate[informes]=true");
 
-export const getCiprepSpeakersList = () => strapiGet<any[]>("/api/ciprep-speakerses?pagination[pageSize]=200");
+export const getCiprepSpeakerList = () => strapiGet<any[]>("/api/ciprep-speakers?pagination[pageSize]=200");
 export const getGaleriaList = () => strapiGet<any[]>("/api/galerias?pagination[pageSize]=200&populate[portada]=true&populate[imagenes]=true");
-export const getNormativaDelitosList = () => strapiGet<any[]>("/api/normativa-delitoses?pagination[pageSize]=200");
-export const getNormativaVigenciasList = () => strapiGet<any[]>("/api/normativa-vigenciases?pagination[pageSize]=200&populate[informes]=true");
-export const getObservatorioEjeDeEducacionMemoriasList = () => strapiGet<any[]>("/api/observatorio-eje-de-educacion-memoriases?pagination[pageSize]=200&populate[galeria]=true");
-export const getObservatorioEjeDeParticipacionMemoriasList = () => strapiGet<any[]>("/api/observatorio-eje-de-participacion-memoriases?pagination[pageSize]=200&populate[galeria]=true");
-export const getTransparenciaInformesList = () => strapiGet<any[]>("/api/transparencia-informeses?pagination[pageSize]=200&populate[categorias][populate][destino]=true&populate[informes]=true");
+export const getNormativaDelitoList = () => strapiGet<any[]>("/api/normativa-delitos?pagination[pageSize]=200");
+export const getNormativaVigenciaList = () => strapiGet<any[]>("/api/normativa-vigencias?pagination[pageSize]=200&populate[informes]=true");
+export const getObservatorioEjeDeEducacionMemoriaList = () => strapiGet<any[]>("/api/observatorio-eje-de-educacion-memorias?pagination[pageSize]=200&populate[galeria]=true");
+export const getObservatorioEjeDeParticipacionMemoriaList = () => strapiGet<any[]>("/api/observatorio-eje-de-participacion-memorias?pagination[pageSize]=200&populate[galeria]=true");
+export const getTransparenciaInformeList = () => strapiGet<any[]>("/api/transparencia-informes?pagination[pageSize]=200&populate[categorias][populate][destino]=true&populate[informes]=true");
 
 export const fetchers = {
   "ciprep": getCiprep,
@@ -285,11 +285,11 @@ export const fetchers = {
   "transparencia-documentacion-formato-grupos-etnicos": getTransparenciaDocumentacionFormatoGruposEtnicos,
   "transparencia-documentacion-proteccion-datos": getTransparenciaDocumentacionProteccionDatos,
   "transparencia-documentacion-registro-publicaciones": getTransparenciaDocumentacionRegistroPublicaciones,
-  "ciprep-speakers__list": getCiprepSpeakersList,
+  "ciprep-speaker__list": getCiprepSpeakerList,
   "galeria__list": getGaleriaList,
-  "normativa-delitos__list": getNormativaDelitosList,
-  "normativa-vigencias__list": getNormativaVigenciasList,
-  "observatorio-eje-de-educacion-memorias__list": getObservatorioEjeDeEducacionMemoriasList,
-  "observatorio-eje-de-participacion-memorias__list": getObservatorioEjeDeParticipacionMemoriasList,
-  "transparencia-informes__list": getTransparenciaInformesList,
+  "normativa-delito__list": getNormativaDelitoList,
+  "normativa-vigencia__list": getNormativaVigenciaList,
+  "observatorio-eje-de-educacion-memoria__list": getObservatorioEjeDeEducacionMemoriaList,
+  "observatorio-eje-de-participacion-memoria__list": getObservatorioEjeDeParticipacionMemoriaList,
+  "transparencia-informe__list": getTransparenciaInformeList,
 };

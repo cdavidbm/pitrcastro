@@ -1359,13 +1359,13 @@ export interface ApiAtencionVinculacionATercerosAtencionVinculacionATerceros
   };
 }
 
-export interface ApiCiprepSpeakersCiprepSpeakers extends Struct.CollectionTypeSchema {
+export interface ApiCiprepSpeakerCiprepSpeaker extends Struct.CollectionTypeSchema {
   collectionName: 'ciprep_speakers_items';
   info: {
     description: 'Auto-generado desde src/content/pages/ciprep/speakers';
     displayName: '08. Prensa / Congreso CIPREP / Speakers';
-    pluralName: 'ciprep-speakerses';
-    singularName: 'ciprep-speakers';
+    pluralName: 'ciprep-speakers';
+    singularName: 'ciprep-speaker';
   };
   options: {
     draftAndPublish: true;
@@ -1376,7 +1376,7 @@ export interface ApiCiprepSpeakersCiprepSpeakers extends Struct.CollectionTypeSc
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ciprep-speakers.ciprep-speakers'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ciprep-speaker.ciprep-speaker'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     order: Schema.Attribute.Integer;
@@ -1810,13 +1810,13 @@ export interface ApiNormativaDecretosNormativaDecretos extends Struct.SingleType
   };
 }
 
-export interface ApiNormativaDelitosNormativaDelitos extends Struct.CollectionTypeSchema {
+export interface ApiNormativaDelitoNormativaDelito extends Struct.CollectionTypeSchema {
   collectionName: 'normativa_delitos_items';
   info: {
     description: 'Auto-generado desde src/content/pages/normativa/delitos';
     displayName: '03. Normativa / Delitos';
-    pluralName: 'normativa-delitoses';
-    singularName: 'normativa-delitos';
+    pluralName: 'normativa-delitos';
+    singularName: 'normativa-delito';
   };
   options: {
     draftAndPublish: true;
@@ -1831,7 +1831,7 @@ export interface ApiNormativaDelitosNormativaDelitos extends Struct.CollectionTy
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::normativa-delitos.normativa-delitos'
+      'api::normativa-delito.normativa-delito'
     > &
       Schema.Attribute.Private;
     normasRelacionadas: Schema.Attribute.JSON;
@@ -1967,13 +1967,13 @@ export interface ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuri
   };
 }
 
-export interface ApiNormativaVigenciasNormativaVigencias extends Struct.CollectionTypeSchema {
+export interface ApiNormativaVigenciaNormativaVigencia extends Struct.CollectionTypeSchema {
   collectionName: 'normativa_vigencias_items';
   info: {
     description: 'Auto-generado desde src/content/pages/normativa/vigencias';
     displayName: '03. Normativa / Vigencias';
-    pluralName: 'normativa-vigenciases';
-    singularName: 'normativa-vigencias';
+    pluralName: 'normativa-vigencias';
+    singularName: 'normativa-vigencia';
   };
   options: {
     draftAndPublish: true;
@@ -1988,7 +1988,7 @@ export interface ApiNormativaVigenciasNormativaVigencias extends Struct.Collecti
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::normativa-vigencias.normativa-vigencias'
+      'api::normativa-vigencia.normativa-vigencia'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -2321,6 +2321,41 @@ export interface ApiObservatorioEjeDeEducacionLibroInfantilObservatorioEjeDeEduc
   };
 }
 
+export interface ApiObservatorioEjeDeEducacionMemoriaObservatorioEjeDeEducacionMemoria
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'observatorio_eje_de_educacion_memorias_items';
+  info: {
+    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias';
+    displayName: '07. Observatorio ITRC / Eje De Educacion Memorias';
+    pluralName: 'observatorio-eje-de-educacion-memorias';
+    singularName: 'observatorio-eje-de-educacion-memoria';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contenido: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    fecha: Schema.Attribute.String;
+    galeria: Schema.Attribute.Component<'observatorio-eje-de-educacion-memorias.galeria', true>;
+    imagenDestacada: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::observatorio-eje-de-educacion-memoria.observatorio-eje-de-educacion-memoria'
+    > &
+      Schema.Attribute.Private;
+    originalUrl: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    resumen: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiObservatorioEjeDeEducacionMemoriasInfoObservatorioEjeDeEducacionMemoriasInfo
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_memorias_info';
@@ -2348,41 +2383,6 @@ export interface ApiObservatorioEjeDeEducacionMemoriasInfoObservatorioEjeDeEduca
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-  };
-}
-
-export interface ApiObservatorioEjeDeEducacionMemoriasObservatorioEjeDeEducacionMemorias
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'observatorio_eje_de_educacion_memorias_items';
-  info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Memorias';
-    pluralName: 'observatorio-eje-de-educacion-memoriases';
-    singularName: 'observatorio-eje-de-educacion-memorias';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    contenido: Schema.Attribute.Text;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-    fecha: Schema.Attribute.String;
-    galeria: Schema.Attribute.Component<'observatorio-eje-de-educacion-memorias.galeria', true>;
-    imagenDestacada: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::observatorio-eje-de-educacion-memorias.observatorio-eje-de-educacion-memorias'
-    > &
-      Schema.Attribute.Private;
-    originalUrl: Schema.Attribute.Text;
-    publishedAt: Schema.Attribute.DateTime;
-    resumen: Schema.Attribute.Text;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
@@ -2658,6 +2658,41 @@ export interface ApiObservatorioEjeDeParticipacionEncuestaObservatorioEjeDeParti
   };
 }
 
+export interface ApiObservatorioEjeDeParticipacionMemoriaObservatorioEjeDeParticipacionMemoria
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'observatorio_eje_de_participacion_memorias_items';
+  info: {
+    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias';
+    displayName: '07. Observatorio ITRC / Eje De Participacion Memorias';
+    pluralName: 'observatorio-eje-de-participacion-memorias';
+    singularName: 'observatorio-eje-de-participacion-memoria';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contenido: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    fecha: Schema.Attribute.String;
+    galeria: Schema.Attribute.Component<'observatorio-eje-de-participacion-memorias.galeria', true>;
+    imagenDestacada: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::observatorio-eje-de-participacion-memoria.observatorio-eje-de-participacion-memoria'
+    > &
+      Schema.Attribute.Private;
+    originalUrl: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    resumen: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiObservatorioEjeDeParticipacionMemoriasInfoObservatorioEjeDeParticipacionMemoriasInfo
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_memorias_info';
@@ -2685,41 +2720,6 @@ export interface ApiObservatorioEjeDeParticipacionMemoriasInfoObservatorioEjeDeP
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-  };
-}
-
-export interface ApiObservatorioEjeDeParticipacionMemoriasObservatorioEjeDeParticipacionMemorias
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'observatorio_eje_de_participacion_memorias_items';
-  info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Memorias';
-    pluralName: 'observatorio-eje-de-participacion-memoriases';
-    singularName: 'observatorio-eje-de-participacion-memorias';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    contenido: Schema.Attribute.Text;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-    fecha: Schema.Attribute.String;
-    galeria: Schema.Attribute.Component<'observatorio-eje-de-participacion-memorias.galeria', true>;
-    imagenDestacada: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::observatorio-eje-de-participacion-memorias.observatorio-eje-de-participacion-memorias'
-    > &
-      Schema.Attribute.Private;
-    originalUrl: Schema.Attribute.Text;
-    publishedAt: Schema.Attribute.DateTime;
-    resumen: Schema.Attribute.Text;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
@@ -4243,6 +4243,39 @@ export interface ApiTransparenciaInformacionMujeresTransparenciaInformacionMujer
   };
 }
 
+export interface ApiTransparenciaInformeTransparenciaInforme extends Struct.CollectionTypeSchema {
+  collectionName: 'transparencia_informes_items';
+  info: {
+    description: 'Auto-generado desde src/content/pages/transparencia/informes';
+    displayName: '06. Transparencia / Informes';
+    pluralName: 'transparencia-informes';
+    singularName: 'transparencia-informe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categorias: Schema.Attribute.Component<'transparencia-informes.categoria', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.String;
+    informes: Schema.Attribute.Component<'transparencia-informes.inform', true>;
+    intro: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::transparencia-informe.transparencia-informe'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTransparenciaInformesEmpalmeTransparenciaInformesEmpalme
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_informes_empalme';
@@ -4362,39 +4395,6 @@ export interface ApiTransparenciaInformesOrganismosTransparenciaInformesOrganism
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTransparenciaInformesTransparenciaInformes extends Struct.CollectionTypeSchema {
-  collectionName: 'transparencia_informes_items';
-  info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informes';
-    displayName: '06. Transparencia / Informes';
-    pluralName: 'transparencia-informeses';
-    singularName: 'transparencia-informes';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    categorias: Schema.Attribute.Component<'transparencia-informes.categoria', true>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    icon: Schema.Attribute.String;
-    informes: Schema.Attribute.Component<'transparencia-informes.inform', true>;
-    intro: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::transparencia-informes.transparencia-informes'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
@@ -5548,7 +5548,7 @@ declare module '@strapi/strapi' {
       'api::atencion-pqrs.atencion-pqrs': ApiAtencionPqrsAtencionPqrs;
       'api::atencion-preguntas-frecuentes.atencion-preguntas-frecuentes': ApiAtencionPreguntasFrecuentesAtencionPreguntasFrecuentes;
       'api::atencion-vinculacion-a-terceros.atencion-vinculacion-a-terceros': ApiAtencionVinculacionATercerosAtencionVinculacionATerceros;
-      'api::ciprep-speakers.ciprep-speakers': ApiCiprepSpeakersCiprepSpeakers;
+      'api::ciprep-speaker.ciprep-speaker': ApiCiprepSpeakerCiprepSpeaker;
       'api::ciprep.ciprep': ApiCiprepCiprep;
       'api::galeria.galeria': ApiGaleriaGaleria;
       'api::home.home': ApiHomeHome;
@@ -5562,12 +5562,12 @@ declare module '@strapi/strapi' {
       'api::institucional-publicacion-datos-abiertos.institucional-publicacion-datos-abiertos': ApiInstitucionalPublicacionDatosAbiertosInstitucionalPublicacionDatosAbiertos;
       'api::mapa-del-sitio.mapa-del-sitio': ApiMapaDelSitioMapaDelSitio;
       'api::normativa-decretos.normativa-decretos': ApiNormativaDecretosNormativaDecretos;
-      'api::normativa-delitos.normativa-delitos': ApiNormativaDelitosNormativaDelitos;
+      'api::normativa-delito.normativa-delito': ApiNormativaDelitoNormativaDelito;
       'api::normativa-landing.normativa-landing': ApiNormativaLandingNormativaLanding;
       'api::normativa-marco-legal.normativa-marco-legal': ApiNormativaMarcoLegalNormativaMarcoLegal;
       'api::normativa-resoluciones.normativa-resoluciones': ApiNormativaResolucionesNormativaResoluciones;
       'api::normativa-unificacion-suin-juriscol.normativa-unificacion-suin-juriscol': ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuriscol;
-      'api::normativa-vigencias.normativa-vigencias': ApiNormativaVigenciasNormativaVigencias;
+      'api::normativa-vigencia.normativa-vigencia': ApiNormativaVigenciaNormativaVigencia;
       'api::normograma.normograma': ApiNormogramaNormograma;
       'api::observatorio-del-observatorio.observatorio-del-observatorio': ApiObservatorioDelObservatorioObservatorioDelObservatorio;
       'api::observatorio-eje-de-educacion-articulos.observatorio-eje-de-educacion-articulos': ApiObservatorioEjeDeEducacionArticulosObservatorioEjeDeEducacionArticulos;
@@ -5578,8 +5578,8 @@ declare module '@strapi/strapi' {
       'api::observatorio-eje-de-educacion-itrc-para-ninos.observatorio-eje-de-educacion-itrc-para-ninos': ApiObservatorioEjeDeEducacionItrcParaNinosObservatorioEjeDeEducacionItrcParaNinos;
       'api::observatorio-eje-de-educacion-juego-de-roles.observatorio-eje-de-educacion-juego-de-roles': ApiObservatorioEjeDeEducacionJuegoDeRolesObservatorioEjeDeEducacionJuegoDeRoles;
       'api::observatorio-eje-de-educacion-libro-infantil.observatorio-eje-de-educacion-libro-infantil': ApiObservatorioEjeDeEducacionLibroInfantilObservatorioEjeDeEducacionLibroInfantil;
+      'api::observatorio-eje-de-educacion-memoria.observatorio-eje-de-educacion-memoria': ApiObservatorioEjeDeEducacionMemoriaObservatorioEjeDeEducacionMemoria;
       'api::observatorio-eje-de-educacion-memorias-info.observatorio-eje-de-educacion-memorias-info': ApiObservatorioEjeDeEducacionMemoriasInfoObservatorioEjeDeEducacionMemoriasInfo;
-      'api::observatorio-eje-de-educacion-memorias.observatorio-eje-de-educacion-memorias': ApiObservatorioEjeDeEducacionMemoriasObservatorioEjeDeEducacionMemorias;
       'api::observatorio-eje-de-educacion-quiz.observatorio-eje-de-educacion-quiz': ApiObservatorioEjeDeEducacionQuizObservatorioEjeDeEducacionQuiz;
       'api::observatorio-eje-de-educacion-repositorio-juridico.observatorio-eje-de-educacion-repositorio-juridico': ApiObservatorioEjeDeEducacionRepositorioJuridicoObservatorioEjeDeEducacionRepositorioJuridico;
       'api::observatorio-eje-de-educacion-sopa-de-letras.observatorio-eje-de-educacion-sopa-de-letras': ApiObservatorioEjeDeEducacionSopaDeLetrasObservatorioEjeDeEducacionSopaDeLetras;
@@ -5588,8 +5588,8 @@ declare module '@strapi/strapi' {
       'api::observatorio-eje-de-medicion.observatorio-eje-de-medicion': ApiObservatorioEjeDeMedicionObservatorioEjeDeMedicion;
       'api::observatorio-eje-de-participacion-cartillas.observatorio-eje-de-participacion-cartillas': ApiObservatorioEjeDeParticipacionCartillasObservatorioEjeDeParticipacionCartillas;
       'api::observatorio-eje-de-participacion-encuesta.observatorio-eje-de-participacion-encuesta': ApiObservatorioEjeDeParticipacionEncuestaObservatorioEjeDeParticipacionEncuesta;
+      'api::observatorio-eje-de-participacion-memoria.observatorio-eje-de-participacion-memoria': ApiObservatorioEjeDeParticipacionMemoriaObservatorioEjeDeParticipacionMemoria;
       'api::observatorio-eje-de-participacion-memorias-info.observatorio-eje-de-participacion-memorias-info': ApiObservatorioEjeDeParticipacionMemoriasInfoObservatorioEjeDeParticipacionMemoriasInfo;
-      'api::observatorio-eje-de-participacion-memorias.observatorio-eje-de-participacion-memorias': ApiObservatorioEjeDeParticipacionMemoriasObservatorioEjeDeParticipacionMemorias;
       'api::observatorio-eje-de-participacion-noticias.observatorio-eje-de-participacion-noticias': ApiObservatorioEjeDeParticipacionNoticiasObservatorioEjeDeParticipacionNoticias;
       'api::observatorio-eje-de-participacion-videos-tutoriales.observatorio-eje-de-participacion-videos-tutoriales': ApiObservatorioEjeDeParticipacionVideosTutorialesObservatorioEjeDeParticipacionVideosTutoriales;
       'api::observatorio-eje-de-participacion.observatorio-eje-de-participacion': ApiObservatorioEjeDeParticipacionObservatorioEjeDeParticipacion;
@@ -5636,11 +5636,11 @@ declare module '@strapi/strapi' {
       'api::transparencia-hojas-de-vida.transparencia-hojas-de-vida': ApiTransparenciaHojasDeVidaTransparenciaHojasDeVida;
       'api::transparencia-indice-informacion-clasificada.transparencia-indice-informacion-clasificada': ApiTransparenciaIndiceInformacionClasificadaTransparenciaIndiceInformacionClasificada;
       'api::transparencia-informacion-mujeres.transparencia-informacion-mujeres': ApiTransparenciaInformacionMujeresTransparenciaInformacionMujeres;
+      'api::transparencia-informe.transparencia-informe': ApiTransparenciaInformeTransparenciaInforme;
       'api::transparencia-informes-empalme.transparencia-informes-empalme': ApiTransparenciaInformesEmpalmeTransparenciaInformesEmpalme;
       'api::transparencia-informes-legales.transparencia-informes-legales': ApiTransparenciaInformesLegalesTransparenciaInformesLegales;
       'api::transparencia-informes-organismos-ivc.transparencia-informes-organismos-ivc': ApiTransparenciaInformesOrganismosIvcTransparenciaInformesOrganismosIvc;
       'api::transparencia-informes-organismos.transparencia-informes-organismos': ApiTransparenciaInformesOrganismosTransparenciaInformesOrganismos;
-      'api::transparencia-informes.transparencia-informes': ApiTransparenciaInformesTransparenciaInformes;
       'api::transparencia-leyes.transparencia-leyes': ApiTransparenciaLeyesTransparenciaLeyes;
       'api::transparencia-normas-servicio.transparencia-normas-servicio': ApiTransparenciaNormasServicioTransparenciaNormasServicio;
       'api::transparencia-normatividad-especial.transparencia-normatividad-especial': ApiTransparenciaNormatividadEspecialTransparenciaNormatividadEspecial;

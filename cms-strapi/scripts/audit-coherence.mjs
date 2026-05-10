@@ -28,10 +28,17 @@ function loadSchemas() {
     const schemaPath = path.join(API_DIR, slug, 'content-types', slug, 'schema.json');
     if (!fs.existsSync(schemaPath)) continue;
     const j = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
+    // Strapi expone los content-types en /api/<pluralName> para collections y
+    // /api/<singularName> para single-types. Si el slug del directorio difiere
+    // del nombre que Strapi usa en la URL, hay que conservar ambos.
+    const apiName = j.kind === 'collectionType'
+      ? (j.info?.pluralName || slug)
+      : (j.info?.singularName || slug);
     schemas[slug] = {
       kind: j.kind,
       displayName: j.info?.displayName || slug,
       attributes: Object.keys(j.attributes || {}),
+      apiName,
       raw: j,
     };
   }
@@ -87,11 +94,18 @@ function main() {
   const usage = findFetcherUsage(Object.keys(fetchers));
 
   const fetcherApis = new Set(Object.values(fetchers).map((f) => f.api).filter(Boolean));
-  const schemaSlugs = new Set(Object.keys(schemas));
+  // Mapeo apiName → slug para que la coherencia se evalúe contra el nombre que
+  // Strapi expone en URLs (pluralName | singularName), no el slug del directorio.
+  const apiNameToSlug = new Map(
+    Object.entries(schemas).map(([slug, s]) => [s.apiName, slug])
+  );
+  const schemaApiNames = new Set(apiNameToSlug.keys());
 
-  const schemasSinFetcher = [...schemaSlugs].filter((s) => !fetcherApis.has(s));
+  const schemasSinFetcher = Object.keys(schemas).filter(
+    (slug) => !fetcherApis.has(schemas[slug].apiName)
+  );
   const fetchersSinSchema = Object.entries(fetchers)
-    .filter(([, f]) => f.api && !schemaSlugs.has(f.api))
+    .filter(([, f]) => f.api && !schemaApiNames.has(f.api))
     .map(([name, f]) => ({ name, api: f.api }));
   const fetchersNoUsados = Object.keys(fetchers).filter((n) => usage[n].length === 0);
   const usedFetchers = Object.entries(usage).filter(([, files]) => files.length > 0);
@@ -104,7 +118,7 @@ function main() {
   push('Generado por `cms-strapi/scripts/audit-coherence.mjs`. No editar a mano.');
   push('');
   push('## Resumen');
-  push(`- **Schemas Strapi**: ${schemaSlugs.size}`);
+  push(`- **Schemas Strapi**: ${Object.keys(schemas).length}`);
   push(`- **Fetchers Astro**: ${Object.keys(fetchers).length}`);
   push(`- **Páginas .astro analizadas**: ${walk(PAGES_DIR, '.astro').length}`);
   push(`- **Schemas sin fetcher** (huérfanos en Strapi): ${schemasSinFetcher.length}`);
