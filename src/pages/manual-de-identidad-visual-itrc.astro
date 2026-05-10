@@ -5,6 +5,6 @@ import { getAgenciaEmpleoRrhhManualIdentidadVisual } from '../utils/strapi-fetch
 const pageData = await getAgenciaEmpleoRrhhManualIdentidadVisual();
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="agencia-empleo-rrhh-manual-identidad-visual">
   <ListadoInformes pageData={pageData} />
 </Base>

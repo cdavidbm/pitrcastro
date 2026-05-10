@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 const isExcel = 'xlsx' === 'xlsx' || pageData.pdfUrl?.endsWith('.xlsx');
 ---
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-registro-activos">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="simple-page"><div class="container">
     <a href={pageData.pdfUrl} target="_blank" rel="noopener" class={`doc-cta doc-cta--${isExcel ? 'excel' : 'pdf'}`}>

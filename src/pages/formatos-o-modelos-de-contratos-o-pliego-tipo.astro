@@ -5,6 +5,6 @@ import { getTransparenciaFormatosContratosPliegosTipo } from '../utils/strapi-fe
 const pageData = await getTransparenciaFormatosContratosPliegosTipo();
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-formatos-contratos-pliegos-tipo">
   <ListadoInformes pageData={pageData} />
 </Base>

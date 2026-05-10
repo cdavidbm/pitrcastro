@@ -72,6 +72,63 @@ function displayName(s) {
     .join(' ');
 }
 
+// Asocia cada slug con la rama del menú principal del sitio. El primer
+// segmento del slug suele coincidir con la rama; los slugs sueltos
+// (singletons) van en SLUG_TO_BRANCH. El número fuerza el orden alfabético
+// del sidebar para que coincida con el orden de la nav del sitio.
+const BRANCH_BY_PREFIX = {
+  agencia: { order: '02', label: 'Agencia' },
+  normativa: { order: '03', label: 'Normativa' },
+  atencion: { order: '04', label: 'Atención y Servicios' },
+  participa: { order: '05', label: 'Participa' },
+  transparencia: { order: '06', label: 'Transparencia' },
+  observatorio: { order: '07', label: 'Observatorio ITRC' },
+  prensa: { order: '08', label: 'Prensa' },
+  institucional: { order: '09', label: 'Institucional' },
+};
+const SLUG_TO_BRANCH = {
+  // Singletons en raíz que pertenecen a una rama específica
+  home: { order: '01', label: 'Inicio' },
+  ciprep: { order: '08', label: 'Prensa', sub: ['Congreso CIPREP'] },
+  'ciprep-speakers': { order: '08', label: 'Prensa', sub: ['Congreso CIPREP', 'Speakers'] },
+  galeria: { order: '08', label: 'Prensa', sub: ['Galería'] },
+  normograma: { order: '03', label: 'Normativa', sub: ['Normograma'] },
+  participa: { order: '05', label: 'Participa', sub: ['Inicio'] },
+  prensa: { order: '08', label: 'Prensa', sub: ['Inicio'] },
+  transparencia: { order: '06', label: 'Transparencia', sub: ['Inicio'] },
+  'mapa-del-sitio': { order: '99', label: 'Sistema', sub: ['Mapa del sitio'] },
+};
+
+// Devuelve el displayName con prefijo numérico + rama + sub-rama legible.
+// Ejemplos:
+//   normativa-marco-legal → "03. Normativa / Marco Legal"
+//   agencia-direccionamiento-estrategico → "02. Agencia / Direccionamiento / Estratégico"
+//   home → "01. Inicio"
+//   ciprep → "08. Prensa / Congreso CIPREP"
+function brandedDisplayName(slug) {
+  const explicit = SLUG_TO_BRANCH[slug];
+  if (explicit) {
+    const sub = explicit.sub ? ' / ' + explicit.sub.join(' / ') : '';
+    return `${explicit.order}. ${explicit.label}${sub}`;
+  }
+  const segments = slug.split('-');
+  const branchKey = segments[0];
+  const branch = BRANCH_BY_PREFIX[branchKey];
+  if (!branch) {
+    return `99. ${displayName(slug)}`;
+  }
+  const rest = segments.slice(1).join(' ');
+  if (!rest) {
+    return `${branch.order}. ${branch.label}`;
+  }
+  // Capitaliza palabras del resto preservando el espacio como separador
+  const restPretty = rest
+    .split(' ')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+  return `${branch.order}. ${branch.label} / ${restPretty}`;
+}
+
 /**
  * Calcula el slug del content type a partir del path relativo del JSON.
  * src/content/pages/marco-legal.json                 → marco-legal
@@ -430,7 +487,7 @@ function main() {
   for (const sp of singlePages) {
     const data = JSON.parse(fs.readFileSync(sp.jsonPath, 'utf8'));
     const attributes = buildAttributes(data, sp.slug, componentRegistry);
-    const dn = displayName(sp.slug);
+    const dn = brandedDisplayName(sp.slug);
     writeContentType({
       slug: sp.slug,
       kind: 'singleType',
@@ -460,7 +517,7 @@ function main() {
     } else if (typeof attributes.slug === 'object' && attributes.slug.type === 'string') {
       attributes.slug = { type: 'uid', required: true };
     }
-    const dn = displayName(coll.slug);
+    const dn = brandedDisplayName(coll.slug);
     writeContentType({
       slug: coll.slug,
       kind: 'collectionType',

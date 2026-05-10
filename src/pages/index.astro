@@ -15,7 +15,7 @@ const homeData = await getHome();
 const base = import.meta.env.BASE_URL;
 ---
 
-<Base title="Inicio" class="page-home">
+<Base title="Inicio" class="page-home" strapiSlug="home">
   <HeroSlider slider="home" />
   <QuickAccess />
   <NewsSection limit={3} />

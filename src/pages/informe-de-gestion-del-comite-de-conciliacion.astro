@@ -5,6 +5,6 @@ import { getParticipaAtencionInformeComiteConciliacion } from '../utils/strapi-f
 const pageData = await getParticipaAtencionInformeComiteConciliacion();
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="participa-atencion-informe-comite-conciliacion">
   <ListadoInformes pageData={pageData} />
 </Base>

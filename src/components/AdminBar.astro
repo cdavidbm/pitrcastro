@@ -1,0 +1,206 @@
+---
+// Barra superior visible solo si el usuario está autenticado en Strapi.
+// Detecta la sesión llamando /admin/users/me en cliente (con cookies del
+// dominio). Si responde 200, renderiza la barra y construye un enlace a la
+// vista de edición del content type que alimenta la página actual.
+//
+// El AdminBar es opcional: las páginas que no apuntan a un content type de
+// Strapi (404, search-index, etc.) lo reciben sin slug y la barra no
+// muestra el botón "Editar página", solo "Panel de Strapi".
+interface Props {
+  slug?: string;
+  kind?: 'singleType' | 'collectionType';
+}
+const { slug, kind = 'singleType' } = Astro.props;
+// El AdminBar siempre usa rutas relativas (mismo origen que el sitio
+// público). En producción, nginx proxea /admin y /api al contenedor de
+// Strapi. STRAPI_URL solo afecta el fetch SSR durante el build.
+---
+
+<div id="itrc-admin-bar" class="itrc-admin-bar" hidden>
+  <div class="itrc-admin-bar__left">
+    <span class="itrc-admin-bar__brand">
+      <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+      Modo edición
+    </span>
+    {slug && (
+      <a
+        id="itrc-admin-bar-edit"
+        class="itrc-admin-bar__btn itrc-admin-bar__btn--primary"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa-solid fa-edit" aria-hidden="true"></i>
+        Editar esta página
+      </a>
+    )}
+    <a
+      class="itrc-admin-bar__btn"
+      href="/admin"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fa-solid fa-gauge" aria-hidden="true"></i>
+      Panel Strapi
+    </a>
+  </div>
+  <div class="itrc-admin-bar__right">
+    <span id="itrc-admin-bar-user" class="itrc-admin-bar__user"></span>
+    <button id="itrc-admin-bar-logout" class="itrc-admin-bar__btn" type="button">
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+      Salir
+    </button>
+  </div>
+</div>
+
+<script
+  is:inline
+  data-strapi-slug={slug || ''}
+  data-strapi-kind={kind}
+>
+  (function () {
+    const cur = document.currentScript;
+    const slug = cur.dataset.strapiSlug || '';
+    const kind = cur.dataset.strapiKind || 'singleType';
+
+    async function check() {
+      try {
+        const res = await fetch(`/admin/users/me`, {
+          credentials: 'include',
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) return null;
+        const json = await res.json();
+        return json.data || null;
+      } catch {
+        return null;
+      }
+    }
+
+    function show(user) {
+      const bar = document.getElementById('itrc-admin-bar');
+      if (!bar) return;
+      bar.hidden = false;
+      document.body.classList.add('has-admin-bar');
+
+      const userEl = document.getElementById('itrc-admin-bar-user');
+      if (userEl) {
+        userEl.textContent = user.email || user.username || 'Editor';
+      }
+
+      const editBtn = document.getElementById('itrc-admin-bar-edit');
+      if (editBtn && slug) {
+        const uid = `api::${slug}.${slug}`;
+        editBtn.href =
+          kind === 'collectionType'
+            ? `/admin/content-manager/collection-types/${uid}`
+            : `/admin/content-manager/single-types/${uid}`;
+      }
+
+      const logoutBtn = document.getElementById('itrc-admin-bar-logout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          document.cookie = 'jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/admin;';
+          try {
+            localStorage.removeItem('jwtToken');
+            sessionStorage.removeItem('jwtToken');
+          } catch {}
+          window.location.reload();
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () =>
+        check().then((u) => u && show(u))
+      );
+    } else {
+      check().then((u) => u && show(u));
+    }
+  })();
+</script>
+
+<style is:global>
+  .itrc-admin-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 1rem;
+    background: #1f2937;
+    color: #f9fafb;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .itrc-admin-bar[hidden] {
+    display: none;
+  }
+  .itrc-admin-bar__left,
+  .itrc-admin-bar__right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .itrc-admin-bar__brand {
+    font-weight: 700;
+    color: #fbbf24;
+    margin-right: 0.4rem;
+  }
+  .itrc-admin-bar__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .itrc-admin-bar__btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+  }
+  .itrc-admin-bar__btn--primary {
+    background: #b38b40;
+    border-color: #b38b40;
+    color: #fff;
+    font-weight: 600;
+  }
+  .itrc-admin-bar__btn--primary:hover {
+    background: #9a7635;
+    color: #fff;
+  }
+  .itrc-admin-bar__user {
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  /* Empuja el contenido para que la barra no tape el GovcoBar */
+  body.has-admin-bar {
+    padding-top: 38px;
+  }
+  @media (max-width: 600px) {
+    .itrc-admin-bar {
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.6rem;
+    }
+    .itrc-admin-bar__btn {
+      padding: 0.25rem 0.5rem;
+    }
+    body.has-admin-bar {
+      padding-top: 70px;
+    }
+  }
+</style>

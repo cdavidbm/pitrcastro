@@ -6,6 +6,7 @@ import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
 import SocialBar from '../components/layout/SocialBar.astro';
 import WcagWidget from '../components/WcagWidget.astro';
+import AdminBar from '../components/AdminBar.astro';
 
 import siteConfig from '../content/settings/site.json';
 import contactConfig from '../content/settings/contact.json';
@@ -14,9 +15,20 @@ interface Props {
   title: string;
   description?: string;
   class?: string;
+  // Identifica el content type de Strapi que alimenta esta página, para que
+  // el AdminBar (visible solo si hay sesión Strapi) pueda enlazar al editor.
+  // Ejemplo: strapiSlug="normativa-marco-legal" strapiKind="singleType"
+  strapiSlug?: string;
+  strapiKind?: 'singleType' | 'collectionType';
 }
 
-const { title, description = siteConfig.description, class: className = '' } = Astro.props;
+const {
+  title,
+  description = siteConfig.description,
+  class: className = '',
+  strapiSlug,
+  strapiKind = 'singleType',
+} = Astro.props;
 const pageTitle = `${title} | ${siteConfig.name}`;
 const base = import.meta.env.BASE_URL;
 
@@ -105,6 +117,8 @@ const schemaOrgData = {
   <a href="#main-content" class="skip-link">
     Saltar al contenido principal
   </a>
+
+  <AdminBar slug={strapiSlug} kind={strapiKind} />
 
   <GovcoBar />
   <Header />

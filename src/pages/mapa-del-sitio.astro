@@ -71,7 +71,7 @@ function humanize(slug: string): string {
 }
 
 const JSON_IMPORT_RE = /from\s+['"](?:\.\.\/)+content\/pages\/([^'"]+)\.json['"]/;
-const BASE_TITLE_RE = /<Base[^>]+title=\{?["']([^"']+)["']/;
+const BASE_TITLE_RE = /<Base[^ strapiSlug="mapa-del-sitio">]+title=\{?["']([^"']+)["']/;
 
 const allRoutes: DiscoveredRoute[] = [];
 for (const filePath of walkAstro(PAGES_DIR)) {

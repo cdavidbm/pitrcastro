@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home",
+    "displayName": "01. Inicio",
     "description": "Auto-generado desde src/content/pages/home.json"
   },
   "options": {

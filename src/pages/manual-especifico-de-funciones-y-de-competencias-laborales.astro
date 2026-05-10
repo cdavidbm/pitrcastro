@@ -12,7 +12,7 @@ const breadcrumb = [
 const total = pageData.secciones.reduce((acc, s) => acc + s.documentos.length, 0);
 ---
 
-<Base title={pageData.title} description={pageData.description}>
+<Base title={pageData.title} description={pageData.description} strapiSlug="agencia-empleo-rrhh-manual-especifico-funciones">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="mef-section">
     <div class="container">

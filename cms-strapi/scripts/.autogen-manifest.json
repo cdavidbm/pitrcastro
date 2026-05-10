@@ -3,677 +3,677 @@
     {
       "slug": "ciprep",
       "sourcePath": "src/content/pages/ciprep.json",
-      "displayName": "Ciprep"
+      "displayName": "08. Prensa / Congreso CIPREP"
     },
     {
       "slug": "home",
       "sourcePath": "src/content/pages/home.json",
-      "displayName": "Home"
+      "displayName": "01. Inicio"
     },
     {
       "slug": "mapa-del-sitio",
       "sourcePath": "src/content/pages/mapa-del-sitio.json",
-      "displayName": "Mapa Del Sitio"
+      "displayName": "99. Sistema / Mapa del sitio"
     },
     {
       "slug": "normograma",
       "sourcePath": "src/content/pages/normograma.json",
-      "displayName": "Normograma"
+      "displayName": "03. Normativa / Normograma"
     },
     {
       "slug": "participa",
       "sourcePath": "src/content/pages/participa.json",
-      "displayName": "Participa"
+      "displayName": "05. Participa / Inicio"
     },
     {
       "slug": "prensa",
       "sourcePath": "src/content/pages/prensa.json",
-      "displayName": "Prensa"
+      "displayName": "08. Prensa / Inicio"
     },
     {
       "slug": "transparencia",
       "sourcePath": "src/content/pages/transparencia.json",
-      "displayName": "Transparencia"
+      "displayName": "06. Transparencia / Inicio"
     },
     {
       "slug": "agencia-direccionamiento-estrategico",
       "sourcePath": "src/content/pages/agencia/direccionamiento-estrategico.json",
-      "displayName": "Agencia Direccionamiento Estrategico"
+      "displayName": "02. Agencia / Direccionamiento Estrategico"
     },
     {
       "slug": "agencia-directorio",
       "sourcePath": "src/content/pages/agencia/directorio.json",
-      "displayName": "Agencia Directorio"
+      "displayName": "02. Agencia / Directorio"
     },
     {
       "slug": "agencia-equipo-directivo",
       "sourcePath": "src/content/pages/agencia/equipo-directivo.json",
-      "displayName": "Agencia Equipo Directivo"
+      "displayName": "02. Agencia / Equipo Directivo"
     },
     {
       "slug": "agencia-gestion-misional",
       "sourcePath": "src/content/pages/agencia/gestion-misional.json",
-      "displayName": "Agencia Gestion Misional"
+      "displayName": "02. Agencia / Gestion Misional"
     },
     {
       "slug": "agencia-informacion-financiera",
       "sourcePath": "src/content/pages/agencia/informacion-financiera.json",
-      "displayName": "Agencia Informacion Financiera"
+      "displayName": "02. Agencia / Informacion Financiera"
     },
     {
       "slug": "agencia-landing",
       "sourcePath": "src/content/pages/agencia/landing.json",
-      "displayName": "Agencia Landing"
+      "displayName": "02. Agencia / Landing"
     },
     {
       "slug": "agencia-mision-vision",
       "sourcePath": "src/content/pages/agencia/mision-vision.json",
-      "displayName": "Agencia Mision Vision"
+      "displayName": "02. Agencia / Mision Vision"
     },
     {
       "slug": "agencia-organigrama",
       "sourcePath": "src/content/pages/agencia/organigrama.json",
-      "displayName": "Agencia Organigrama"
+      "displayName": "02. Agencia / Organigrama"
     },
     {
       "slug": "agencia-plan-institucional-de-archivos",
       "sourcePath": "src/content/pages/agencia/plan-institucional-de-archivos.json",
-      "displayName": "Agencia Plan Institucional De Archivos"
+      "displayName": "02. Agencia / Plan Institucional De Archivos"
     },
     {
       "slug": "agencia-sistema-de-control-interno",
       "sourcePath": "src/content/pages/agencia/sistema-de-control-interno.json",
-      "displayName": "Agencia Sistema De Control Interno"
+      "displayName": "02. Agencia / Sistema De Control Interno"
     },
     {
       "slug": "agencia-sistema-integrado-de-gestion",
       "sourcePath": "src/content/pages/agencia/sistema-integrado-de-gestion.json",
-      "displayName": "Agencia Sistema Integrado De Gestion"
+      "displayName": "02. Agencia / Sistema Integrado De Gestion"
     },
     {
       "slug": "agencia-direccionamiento-informes",
       "sourcePath": "src/content/pages/agencia/direccionamiento/informes.json",
-      "displayName": "Agencia Direccionamiento Informes"
+      "displayName": "02. Agencia / Direccionamiento Informes"
     },
     {
       "slug": "agencia-direccionamiento-planes",
       "sourcePath": "src/content/pages/agencia/direccionamiento/planes.json",
-      "displayName": "Agencia Direccionamiento Planes"
+      "displayName": "02. Agencia / Direccionamiento Planes"
     },
     {
       "slug": "agencia-direccionamiento-politicas",
       "sourcePath": "src/content/pages/agencia/direccionamiento/politicas.json",
-      "displayName": "Agencia Direccionamiento Politicas"
+      "displayName": "02. Agencia / Direccionamiento Politicas"
     },
     {
       "slug": "agencia-empleo-rrhh-manual-especifico-funciones",
       "sourcePath": "src/content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json",
-      "displayName": "Agencia Empleo Rrhh Manual Especifico Funciones"
+      "displayName": "02. Agencia / Empleo Rrhh Manual Especifico Funciones"
     },
     {
       "slug": "agencia-empleo-rrhh-manual-identidad-visual",
       "sourcePath": "src/content/pages/agencia/empleo-rrhh/manual-identidad-visual.json",
-      "displayName": "Agencia Empleo Rrhh Manual Identidad Visual"
+      "displayName": "02. Agencia / Empleo Rrhh Manual Identidad Visual"
     },
     {
       "slug": "agencia-empleo-rrhh-manuales-internos",
       "sourcePath": "src/content/pages/agencia/empleo-rrhh/manuales-internos.json",
-      "displayName": "Agencia Empleo Rrhh Manuales Internos"
+      "displayName": "02. Agencia / Empleo Rrhh Manuales Internos"
     },
     {
       "slug": "agencia-empleo-rrhh-nombramientos",
       "sourcePath": "src/content/pages/agencia/empleo-rrhh/nombramientos.json",
-      "displayName": "Agencia Empleo Rrhh Nombramientos"
+      "displayName": "02. Agencia / Empleo Rrhh Nombramientos"
     },
     {
       "slug": "agencia-empleo-rrhh-ofertas-empleo",
       "sourcePath": "src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json",
-      "displayName": "Agencia Empleo Rrhh Ofertas Empleo"
+      "displayName": "02. Agencia / Empleo Rrhh Ofertas Empleo"
     },
     {
       "slug": "atencion-canales-de-atencion",
       "sourcePath": "src/content/pages/atencion/canales-de-atencion.json",
-      "displayName": "Atencion Canales De Atencion"
+      "displayName": "04. Atención y Servicios / Canales De Atencion"
     },
     {
       "slug": "atencion-correo-notificaciones-judiciales",
       "sourcePath": "src/content/pages/atencion/correo-notificaciones-judiciales.json",
-      "displayName": "Atencion Correo Notificaciones Judiciales"
+      "displayName": "04. Atención y Servicios / Correo Notificaciones Judiciales"
     },
     {
       "slug": "atencion-glosario",
       "sourcePath": "src/content/pages/atencion/glosario.json",
-      "displayName": "Atencion Glosario"
+      "displayName": "04. Atención y Servicios / Glosario"
     },
     {
       "slug": "atencion-landing",
       "sourcePath": "src/content/pages/atencion/landing.json",
-      "displayName": "Atencion Landing"
+      "displayName": "04. Atención y Servicios / Landing"
     },
     {
       "slug": "atencion-notificaciones-por-aviso",
       "sourcePath": "src/content/pages/atencion/notificaciones-por-aviso.json",
-      "displayName": "Atencion Notificaciones Por Aviso"
+      "displayName": "04. Atención y Servicios / Notificaciones Por Aviso"
     },
     {
       "slug": "atencion-pqrs-servidores",
       "sourcePath": "src/content/pages/atencion/pqrs-servidores.json",
-      "displayName": "Atencion Pqrs Servidores"
+      "displayName": "04. Atención y Servicios / Pqrs Servidores"
     },
     {
       "slug": "atencion-pqrs",
       "sourcePath": "src/content/pages/atencion/pqrs.json",
-      "displayName": "Atencion Pqrs"
+      "displayName": "04. Atención y Servicios / Pqrs"
     },
     {
       "slug": "atencion-preguntas-frecuentes",
       "sourcePath": "src/content/pages/atencion/preguntas-frecuentes.json",
-      "displayName": "Atencion Preguntas Frecuentes"
+      "displayName": "04. Atención y Servicios / Preguntas Frecuentes"
     },
     {
       "slug": "atencion-vinculacion-a-terceros",
       "sourcePath": "src/content/pages/atencion/vinculacion-a-terceros.json",
-      "displayName": "Atencion Vinculacion A Terceros"
+      "displayName": "04. Atención y Servicios / Vinculacion A Terceros"
     },
     {
       "slug": "institucional-audios-itrc",
       "sourcePath": "src/content/pages/institucional/audios-itrc.json",
-      "displayName": "Institucional Audios Itrc"
+      "displayName": "09. Institucional / Audios Itrc"
     },
     {
       "slug": "institucional-calendario-eventos",
       "sourcePath": "src/content/pages/institucional/calendario-eventos.json",
-      "displayName": "Institucional Calendario Eventos"
+      "displayName": "09. Institucional / Calendario Eventos"
     },
     {
       "slug": "institucional-defensa-judicial",
       "sourcePath": "src/content/pages/institucional/defensa-judicial.json",
-      "displayName": "Institucional Defensa Judicial"
+      "displayName": "09. Institucional / Defensa Judicial"
     },
     {
       "slug": "institucional-estados",
       "sourcePath": "src/content/pages/institucional/estados.json",
-      "displayName": "Institucional Estados"
+      "displayName": "09. Institucional / Estados"
     },
     {
       "slug": "institucional-estudios-investigaciones",
       "sourcePath": "src/content/pages/institucional/estudios-investigaciones.json",
-      "displayName": "Institucional Estudios Investigaciones"
+      "displayName": "09. Institucional / Estudios Investigaciones"
     },
     {
       "slug": "institucional-historico-investigaciones-disciplinarias",
       "sourcePath": "src/content/pages/institucional/historico-investigaciones-disciplinarias.json",
-      "displayName": "Institucional Historico Investigaciones Disciplinarias"
+      "displayName": "09. Institucional / Historico Investigaciones Disciplinarias"
     },
     {
       "slug": "institucional-historico-sistema-control-interno",
       "sourcePath": "src/content/pages/institucional/historico-sistema-control-interno.json",
-      "displayName": "Institucional Historico Sistema Control Interno"
+      "displayName": "09. Institucional / Historico Sistema Control Interno"
     },
     {
       "slug": "institucional-publicacion-datos-abiertos",
       "sourcePath": "src/content/pages/institucional/publicacion-datos-abiertos.json",
-      "displayName": "Institucional Publicacion Datos Abiertos"
+      "displayName": "09. Institucional / Publicacion Datos Abiertos"
     },
     {
       "slug": "normativa-decretos",
       "sourcePath": "src/content/pages/normativa/decretos.json",
-      "displayName": "Normativa Decretos"
+      "displayName": "03. Normativa / Decretos"
     },
     {
       "slug": "normativa-landing",
       "sourcePath": "src/content/pages/normativa/landing.json",
-      "displayName": "Normativa Landing"
+      "displayName": "03. Normativa / Landing"
     },
     {
       "slug": "normativa-marco-legal",
       "sourcePath": "src/content/pages/normativa/marco-legal.json",
-      "displayName": "Normativa Marco Legal"
+      "displayName": "03. Normativa / Marco Legal"
     },
     {
       "slug": "normativa-resoluciones",
       "sourcePath": "src/content/pages/normativa/resoluciones.json",
-      "displayName": "Normativa Resoluciones"
+      "displayName": "03. Normativa / Resoluciones"
     },
     {
       "slug": "normativa-unificacion-suin-juriscol",
       "sourcePath": "src/content/pages/normativa/unificacion-suin-juriscol.json",
-      "displayName": "Normativa Unificacion Suin Juriscol"
+      "displayName": "03. Normativa / Unificacion Suin Juriscol"
     },
     {
       "slug": "observatorio-del-observatorio",
       "sourcePath": "src/content/pages/observatorio/del-observatorio.json",
-      "displayName": "Observatorio Del Observatorio"
+      "displayName": "07. Observatorio ITRC / Del Observatorio"
     },
     {
       "slug": "observatorio-eje-de-educacion",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion.json",
-      "displayName": "Observatorio Eje De Educacion"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion"
     },
     {
       "slug": "observatorio-eje-de-medicion",
       "sourcePath": "src/content/pages/observatorio/eje-de-medicion.json",
-      "displayName": "Observatorio Eje De Medicion"
+      "displayName": "07. Observatorio ITRC / Eje De Medicion"
     },
     {
       "slug": "observatorio-eje-de-participacion",
       "sourcePath": "src/content/pages/observatorio/eje-de-participacion.json",
-      "displayName": "Observatorio Eje De Participacion"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion"
     },
     {
       "slug": "observatorio-observatorio",
       "sourcePath": "src/content/pages/observatorio/observatorio.json",
-      "displayName": "Observatorio Observatorio"
+      "displayName": "07. Observatorio ITRC / Observatorio"
     },
     {
       "slug": "observatorio-eje-de-educacion-articulos",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/articulos.json",
-      "displayName": "Observatorio Eje De Educacion Articulos"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Articulos"
     },
     {
       "slug": "observatorio-eje-de-educacion-cartilla-infantil",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/cartilla-infantil.json",
-      "displayName": "Observatorio Eje De Educacion Cartilla Infantil"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Cartilla Infantil"
     },
     {
       "slug": "observatorio-eje-de-educacion-conociendo",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/conociendo.json",
-      "displayName": "Observatorio Eje De Educacion Conociendo"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Conociendo"
     },
     {
       "slug": "observatorio-eje-de-educacion-cuento",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/cuento.json",
-      "displayName": "Observatorio Eje De Educacion Cuento"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Cuento"
     },
     {
       "slug": "observatorio-eje-de-educacion-glosario-ninos",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json",
-      "displayName": "Observatorio Eje De Educacion Glosario Ninos"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Glosario Ninos"
     },
     {
       "slug": "observatorio-eje-de-educacion-itrc-para-ninos",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json",
-      "displayName": "Observatorio Eje De Educacion Itrc Para Ninos"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Itrc Para Ninos"
     },
     {
       "slug": "observatorio-eje-de-educacion-juego-de-roles",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json",
-      "displayName": "Observatorio Eje De Educacion Juego De Roles"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Juego De Roles"
     },
     {
       "slug": "observatorio-eje-de-educacion-libro-infantil",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/libro-infantil.json",
-      "displayName": "Observatorio Eje De Educacion Libro Infantil"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Libro Infantil"
     },
     {
       "slug": "observatorio-eje-de-educacion-memorias-info",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/memorias.json",
-      "displayName": "Observatorio Eje De Educacion Memorias Info"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Memorias Info"
     },
     {
       "slug": "observatorio-eje-de-educacion-quiz",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/quiz.json",
-      "displayName": "Observatorio Eje De Educacion Quiz"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Quiz"
     },
     {
       "slug": "observatorio-eje-de-educacion-repositorio-juridico",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json",
-      "displayName": "Observatorio Eje De Educacion Repositorio Juridico"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Repositorio Juridico"
     },
     {
       "slug": "observatorio-eje-de-educacion-sopa-de-letras",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/sopa-de-letras.json",
-      "displayName": "Observatorio Eje De Educacion Sopa De Letras"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Sopa De Letras"
     },
     {
       "slug": "observatorio-eje-de-educacion-video-ninos",
       "sourcePath": "src/content/pages/observatorio/eje-de-educacion/video-ninos.json",
-      "displayName": "Observatorio Eje De Educacion Video Ninos"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Video Ninos"
     },
     {
       "slug": "observatorio-eje-de-participacion-cartillas",
       "sourcePath": "src/content/pages/observatorio/eje-de-participacion/cartillas.json",
-      "displayName": "Observatorio Eje De Participacion Cartillas"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion Cartillas"
     },
     {
       "slug": "observatorio-eje-de-participacion-encuesta",
       "sourcePath": "src/content/pages/observatorio/eje-de-participacion/encuesta.json",
-      "displayName": "Observatorio Eje De Participacion Encuesta"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion Encuesta"
     },
     {
       "slug": "observatorio-eje-de-participacion-memorias-info",
       "sourcePath": "src/content/pages/observatorio/eje-de-participacion/memorias.json",
-      "displayName": "Observatorio Eje De Participacion Memorias Info"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion Memorias Info"
     },
     {
       "slug": "observatorio-eje-de-participacion-noticias",
       "sourcePath": "src/content/pages/observatorio/eje-de-participacion/noticias.json",
-      "displayName": "Observatorio Eje De Participacion Noticias"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion Noticias"
     },
     {
       "slug": "observatorio-eje-de-participacion-videos-tutoriales",
       "sourcePath": "src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json",
-      "displayName": "Observatorio Eje De Participacion Videos Tutoriales"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion Videos Tutoriales"
     },
     {
       "slug": "participa-colaboracion",
       "sourcePath": "src/content/pages/participa/colaboracion.json",
-      "displayName": "Participa Colaboracion"
+      "displayName": "05. Participa / Colaboracion"
     },
     {
       "slug": "participa-consulta-ciudadana",
       "sourcePath": "src/content/pages/participa/consulta-ciudadana.json",
-      "displayName": "Participa Consulta Ciudadana"
+      "displayName": "05. Participa / Consulta Ciudadana"
     },
     {
       "slug": "participa-control-social",
       "sourcePath": "src/content/pages/participa/control-social.json",
-      "displayName": "Participa Control Social"
+      "displayName": "05. Participa / Control Social"
     },
     {
       "slug": "participa-diagnostico",
       "sourcePath": "src/content/pages/participa/diagnostico.json",
-      "displayName": "Participa Diagnostico"
+      "displayName": "05. Participa / Diagnostico"
     },
     {
       "slug": "participa-planeacion",
       "sourcePath": "src/content/pages/participa/planeacion.json",
-      "displayName": "Participa Planeacion"
+      "displayName": "05. Participa / Planeacion"
     },
     {
       "slug": "participa-rendicion-de-cuentas",
       "sourcePath": "src/content/pages/participa/rendicion-de-cuentas.json",
-      "displayName": "Participa Rendicion De Cuentas"
+      "displayName": "05. Participa / Rendicion De Cuentas"
     },
     {
       "slug": "participa-atencion-informe-comite-conciliacion",
       "sourcePath": "src/content/pages/participa-atencion/informe-comite-conciliacion.json",
-      "displayName": "Participa Atencion Informe Comite Conciliacion"
+      "displayName": "05. Participa / Atencion Informe Comite Conciliacion"
     },
     {
       "slug": "participa-atencion-otros-grupos-interes",
       "sourcePath": "src/content/pages/participa-atencion/otros-grupos-interes.json",
-      "displayName": "Participa Atencion Otros Grupos Interes"
+      "displayName": "05. Participa / Atencion Otros Grupos Interes"
     },
     {
       "slug": "participa-atencion-respuesta-anonimos",
       "sourcePath": "src/content/pages/participa-atencion/respuesta-anonimos.json",
-      "displayName": "Participa Atencion Respuesta Anonimos"
+      "displayName": "05. Participa / Atencion Respuesta Anonimos"
     },
     {
       "slug": "prensa-capsulas",
       "sourcePath": "src/content/pages/prensa/capsulas.json",
-      "displayName": "Prensa Capsulas"
+      "displayName": "08. Prensa / Capsulas"
     },
     {
       "slug": "prensa-comunicados-institucionales",
       "sourcePath": "src/content/pages/prensa/comunicados-institucionales.json",
-      "displayName": "Prensa Comunicados Institucionales"
+      "displayName": "08. Prensa / Comunicados Institucionales"
     },
     {
       "slug": "prensa-galeria",
       "sourcePath": "src/content/pages/prensa/galeria.json",
-      "displayName": "Prensa Galeria"
+      "displayName": "08. Prensa / Galeria"
     },
     {
       "slug": "prensa-landing",
       "sourcePath": "src/content/pages/prensa/landing.json",
-      "displayName": "Prensa Landing"
+      "displayName": "08. Prensa / Landing"
     },
     {
       "slug": "prensa-videos",
       "sourcePath": "src/content/pages/prensa/videos.json",
-      "displayName": "Prensa Videos"
+      "displayName": "08. Prensa / Videos"
     },
     {
       "slug": "transparencia-accesibilidad",
       "sourcePath": "src/content/pages/transparencia/accesibilidad.json",
-      "displayName": "Transparencia Accesibilidad"
+      "displayName": "06. Transparencia / Accesibilidad"
     },
     {
       "slug": "transparencia-agremiaciones",
       "sourcePath": "src/content/pages/transparencia/agremiaciones.json",
-      "displayName": "Transparencia Agremiaciones"
+      "displayName": "06. Transparencia / Agremiaciones"
     },
     {
       "slug": "transparencia-comite-conciliacion",
       "sourcePath": "src/content/pages/transparencia/comite-conciliacion.json",
-      "displayName": "Transparencia Comite Conciliacion"
+      "displayName": "06. Transparencia / Comite Conciliacion"
     },
     {
       "slug": "transparencia-datos-abiertos",
       "sourcePath": "src/content/pages/transparencia/datos-abiertos.json",
-      "displayName": "Transparencia Datos Abiertos"
+      "displayName": "06. Transparencia / Datos Abiertos"
     },
     {
       "slug": "transparencia-decreto-unico",
       "sourcePath": "src/content/pages/transparencia/decreto-unico.json",
-      "displayName": "Transparencia Decreto Unico"
+      "displayName": "06. Transparencia / Decreto Unico"
     },
     {
       "slug": "transparencia-decretos-estructura",
       "sourcePath": "src/content/pages/transparencia/decretos-estructura.json",
-      "displayName": "Transparencia Decretos Estructura"
+      "displayName": "06. Transparencia / Decretos Estructura"
     },
     {
       "slug": "transparencia-defensa-publica",
       "sourcePath": "src/content/pages/transparencia/defensa-publica.json",
-      "displayName": "Transparencia Defensa Publica"
+      "displayName": "06. Transparencia / Defensa Publica"
     },
     {
       "slug": "transparencia-directorio-entidades",
       "sourcePath": "src/content/pages/transparencia/directorio-entidades.json",
-      "displayName": "Transparencia Directorio Entidades"
+      "displayName": "06. Transparencia / Directorio Entidades"
     },
     {
       "slug": "transparencia-esquema-publicacion",
       "sourcePath": "src/content/pages/transparencia/esquema-publicacion.json",
-      "displayName": "Transparencia Esquema Publicacion"
+      "displayName": "06. Transparencia / Esquema Publicacion"
     },
     {
       "slug": "transparencia-evaluacion-independiente",
       "sourcePath": "src/content/pages/transparencia/evaluacion-independiente.json",
-      "displayName": "Transparencia Evaluacion Independiente"
+      "displayName": "06. Transparencia / Evaluacion Independiente"
     },
     {
       "slug": "transparencia-formatos-contratos-pliegos-tipo",
       "sourcePath": "src/content/pages/transparencia/formatos-contratos-pliegos-tipo.json",
-      "displayName": "Transparencia Formatos Contratos Pliegos Tipo"
+      "displayName": "06. Transparencia / Formatos Contratos Pliegos Tipo"
     },
     {
       "slug": "transparencia-formatos-formularios",
       "sourcePath": "src/content/pages/transparencia/formatos-formularios.json",
-      "displayName": "Transparencia Formatos Formularios"
+      "displayName": "06. Transparencia / Formatos Formularios"
     },
     {
       "slug": "transparencia-hojas-de-vida",
       "sourcePath": "src/content/pages/transparencia/hojas-de-vida.json",
-      "displayName": "Transparencia Hojas De Vida"
+      "displayName": "06. Transparencia / Hojas De Vida"
     },
     {
       "slug": "transparencia-indice-informacion-clasificada",
       "sourcePath": "src/content/pages/transparencia/indice-informacion-clasificada.json",
-      "displayName": "Transparencia Indice Informacion Clasificada"
+      "displayName": "06. Transparencia / Indice Informacion Clasificada"
     },
     {
       "slug": "transparencia-informacion-mujeres",
       "sourcePath": "src/content/pages/transparencia/informacion-mujeres.json",
-      "displayName": "Transparencia Informacion Mujeres"
+      "displayName": "06. Transparencia / Informacion Mujeres"
     },
     {
       "slug": "transparencia-informes-empalme",
       "sourcePath": "src/content/pages/transparencia/informes-empalme.json",
-      "displayName": "Transparencia Informes Empalme"
+      "displayName": "06. Transparencia / Informes Empalme"
     },
     {
       "slug": "transparencia-informes-legales",
       "sourcePath": "src/content/pages/transparencia/informes-legales.json",
-      "displayName": "Transparencia Informes Legales"
+      "displayName": "06. Transparencia / Informes Legales"
     },
     {
       "slug": "transparencia-informes-organismos-ivc",
       "sourcePath": "src/content/pages/transparencia/informes-organismos-ivc.json",
-      "displayName": "Transparencia Informes Organismos Ivc"
+      "displayName": "06. Transparencia / Informes Organismos Ivc"
     },
     {
       "slug": "transparencia-informes-organismos",
       "sourcePath": "src/content/pages/transparencia/informes-organismos.json",
-      "displayName": "Transparencia Informes Organismos"
+      "displayName": "06. Transparencia / Informes Organismos"
     },
     {
       "slug": "transparencia-leyes",
       "sourcePath": "src/content/pages/transparencia/leyes.json",
-      "displayName": "Transparencia Leyes"
+      "displayName": "06. Transparencia / Leyes"
     },
     {
       "slug": "transparencia-normas-servicio",
       "sourcePath": "src/content/pages/transparencia/normas-servicio.json",
-      "displayName": "Transparencia Normas Servicio"
+      "displayName": "06. Transparencia / Normas Servicio"
     },
     {
       "slug": "transparencia-normatividad-especial",
       "sourcePath": "src/content/pages/transparencia/normatividad-especial.json",
-      "displayName": "Transparencia Normatividad Especial"
+      "displayName": "06. Transparencia / Normatividad Especial"
     },
     {
       "slug": "transparencia-otros-grupos",
       "sourcePath": "src/content/pages/transparencia/otros-grupos.json",
-      "displayName": "Transparencia Otros Grupos"
+      "displayName": "06. Transparencia / Otros Grupos"
     },
     {
       "slug": "transparencia-planes-mejoramiento",
       "sourcePath": "src/content/pages/transparencia/planes-mejoramiento.json",
-      "displayName": "Transparencia Planes Mejoramiento"
+      "displayName": "06. Transparencia / Planes Mejoramiento"
     },
     {
       "slug": "transparencia-politicas-manuales",
       "sourcePath": "src/content/pages/transparencia/politicas-manuales.json",
-      "displayName": "Transparencia Politicas Manuales"
+      "displayName": "06. Transparencia / Politicas Manuales"
     },
     {
       "slug": "transparencia-procedimientos-decisiones",
       "sourcePath": "src/content/pages/transparencia/procedimientos-decisiones.json",
-      "displayName": "Transparencia Procedimientos Decisiones"
+      "displayName": "06. Transparencia / Procedimientos Decisiones"
     },
     {
       "slug": "transparencia-procedimientos",
       "sourcePath": "src/content/pages/transparencia/procedimientos.json",
-      "displayName": "Transparencia Procedimientos"
+      "displayName": "06. Transparencia / Procedimientos"
     },
     {
       "slug": "transparencia-programa-gestion-documental",
       "sourcePath": "src/content/pages/transparencia/programa-gestion-documental.json",
-      "displayName": "Transparencia Programa Gestion Documental"
+      "displayName": "06. Transparencia / Programa Gestion Documental"
     },
     {
       "slug": "transparencia-protocolo-atencion",
       "sourcePath": "src/content/pages/transparencia/protocolo-atencion.json",
-      "displayName": "Transparencia Protocolo Atencion"
+      "displayName": "06. Transparencia / Protocolo Atencion"
     },
     {
       "slug": "transparencia-proyectos-inversion",
       "sourcePath": "src/content/pages/transparencia/proyectos-inversion.json",
-      "displayName": "Transparencia Proyectos Inversion"
+      "displayName": "06. Transparencia / Proyectos Inversion"
     },
     {
       "slug": "transparencia-proyectos-normas-comentarios",
       "sourcePath": "src/content/pages/transparencia/proyectos-normas-comentarios.json",
-      "displayName": "Transparencia Proyectos Normas Comentarios"
+      "displayName": "06. Transparencia / Proyectos Normas Comentarios"
     },
     {
       "slug": "transparencia-registro-activos",
       "sourcePath": "src/content/pages/transparencia/registro-activos.json",
-      "displayName": "Transparencia Registro Activos"
+      "displayName": "06. Transparencia / Registro Activos"
     },
     {
       "slug": "transparencia-relatoria",
       "sourcePath": "src/content/pages/transparencia/relatoria.json",
-      "displayName": "Transparencia Relatoria"
+      "displayName": "06. Transparencia / Relatoria"
     },
     {
       "slug": "transparencia-rendicion-cuenta-contraloria",
       "sourcePath": "src/content/pages/transparencia/rendicion-cuenta-contraloria.json",
-      "displayName": "Transparencia Rendicion Cuenta Contraloria"
+      "displayName": "06. Transparencia / Rendicion Cuenta Contraloria"
     },
     {
       "slug": "transparencia-reporte-austeridad-gasto",
       "sourcePath": "src/content/pages/transparencia/reporte-austeridad-gasto.json",
-      "displayName": "Transparencia Reporte Austeridad Gasto"
+      "displayName": "06. Transparencia / Reporte Austeridad Gasto"
     },
     {
       "slug": "transparencia-sede-horarios",
       "sourcePath": "src/content/pages/transparencia/sede-horarios.json",
-      "displayName": "Transparencia Sede Horarios"
+      "displayName": "06. Transparencia / Sede Horarios"
     },
     {
       "slug": "transparencia-supervision-vigilancia",
       "sourcePath": "src/content/pages/transparencia/supervision-vigilancia.json",
-      "displayName": "Transparencia Supervision Vigilancia"
+      "displayName": "06. Transparencia / Supervision Vigilancia"
     },
     {
       "slug": "transparencia-tablas-retencion",
       "sourcePath": "src/content/pages/transparencia/tablas-retencion.json",
-      "displayName": "Transparencia Tablas Retencion"
+      "displayName": "06. Transparencia / Tablas Retencion"
     },
     {
       "slug": "transparencia-tramites",
       "sourcePath": "src/content/pages/transparencia/tramites.json",
-      "displayName": "Transparencia Tramites"
+      "displayName": "06. Transparencia / Tramites"
     },
     {
       "slug": "transparencia-contratacion-contratacion-suscrita",
       "sourcePath": "src/content/pages/transparencia/contratacion/contratacion-suscrita.json",
-      "displayName": "Transparencia Contratacion Contratacion Suscrita"
+      "displayName": "06. Transparencia / Contratacion Contratacion Suscrita"
     },
     {
       "slug": "transparencia-contratacion-ejecucion-contratos",
       "sourcePath": "src/content/pages/transparencia/contratacion/ejecucion-contratos.json",
-      "displayName": "Transparencia Contratacion Ejecucion Contratos"
+      "displayName": "06. Transparencia / Contratacion Ejecucion Contratos"
     },
     {
       "slug": "transparencia-contratacion-ejecucion",
       "sourcePath": "src/content/pages/transparencia/contratacion/ejecucion.json",
-      "displayName": "Transparencia Contratacion Ejecucion"
+      "displayName": "06. Transparencia / Contratacion Ejecucion"
     },
     {
       "slug": "transparencia-contratacion-formatos",
       "sourcePath": "src/content/pages/transparencia/contratacion/formatos.json",
-      "displayName": "Transparencia Contratacion Formatos"
+      "displayName": "06. Transparencia / Contratacion Formatos"
     },
     {
       "slug": "transparencia-contratacion-manual",
       "sourcePath": "src/content/pages/transparencia/contratacion/manual.json",
-      "displayName": "Transparencia Contratacion Manual"
+      "displayName": "06. Transparencia / Contratacion Manual"
     },
     {
       "slug": "transparencia-contratacion-plan-adquisiciones",
       "sourcePath": "src/content/pages/transparencia/contratacion/plan-adquisiciones.json",
-      "displayName": "Transparencia Contratacion Plan Adquisiciones"
+      "displayName": "06. Transparencia / Contratacion Plan Adquisiciones"
     },
     {
       "slug": "transparencia-contratacion-procedimientos-adquisicion",
       "sourcePath": "src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json",
-      "displayName": "Transparencia Contratacion Procedimientos Adquisicion"
+      "displayName": "06. Transparencia / Contratacion Procedimientos Adquisicion"
     },
     {
       "slug": "transparencia-documentacion-esquema-publicacion",
       "sourcePath": "src/content/pages/transparencia/documentacion/esquema-publicacion.json",
-      "displayName": "Transparencia Documentacion Esquema Publicacion"
+      "displayName": "06. Transparencia / Documentacion Esquema Publicacion"
     },
     {
       "slug": "transparencia-documentacion-formato-grupos-etnicos",
       "sourcePath": "src/content/pages/transparencia/documentacion/formato-grupos-etnicos.json",
-      "displayName": "Transparencia Documentacion Formato Grupos Etnicos"
+      "displayName": "06. Transparencia / Documentacion Formato Grupos Etnicos"
     },
     {
       "slug": "transparencia-documentacion-proteccion-datos",
       "sourcePath": "src/content/pages/transparencia/documentacion/proteccion-datos.json",
-      "displayName": "Transparencia Documentacion Proteccion Datos"
+      "displayName": "06. Transparencia / Documentacion Proteccion Datos"
     },
     {
       "slug": "transparencia-documentacion-registro-publicaciones",
       "sourcePath": "src/content/pages/transparencia/documentacion/registro-publicaciones.json",
-      "displayName": "Transparencia Documentacion Registro Publicaciones"
+      "displayName": "06. Transparencia / Documentacion Registro Publicaciones"
     }
   ],
   "collections": [
@@ -716,7 +716,7 @@
         "src/content/pages/ciprep/speakers/vladimir-ruzynke-castano.json",
         "src/content/pages/ciprep/speakers/zoila-llempen.json"
       ],
-      "displayName": "Ciprep Speakers"
+      "displayName": "08. Prensa / Congreso CIPREP / Speakers"
     },
     {
       "slug": "galeria",
@@ -747,7 +747,7 @@
         "src/content/pages/galeria/visita-de-la-superintendencia-de-chile-febrero-2018.json",
         "src/content/pages/galeria/visitas-internacionales.json"
       ],
-      "displayName": "Galeria"
+      "displayName": "08. Prensa / Galería"
     },
     {
       "slug": "normativa-delitos",
@@ -769,7 +769,7 @@
         "src/content/pages/normativa/delitos/normatividad-trafico-de-influencias.json",
         "src/content/pages/normativa/delitos/politicas-y-lineamientos-sectoriales.json"
       ],
-      "displayName": "Normativa Delitos"
+      "displayName": "03. Normativa / Delitos"
     },
     {
       "slug": "normativa-vigencias",
@@ -786,7 +786,7 @@
         "src/content/pages/normativa/vigencias/vigencia-2020.json",
         "src/content/pages/normativa/vigencias/vigencia-2021.json"
       ],
-      "displayName": "Normativa Vigencias"
+      "displayName": "03. Normativa / Vigencias"
     },
     {
       "slug": "observatorio-eje-de-educacion-memorias",
@@ -848,7 +848,7 @@
         "src/content/pages/observatorio/eje-de-educacion/memorias/segunda-version-catedra-colombiana-ciudadania-integridad-y-lucha-contra-la.json",
         "src/content/pages/observatorio/eje-de-educacion/memorias/taller-regional-agencia-itrc-y-personeria-distrital-de-bogota-promoviendo-la.json"
       ],
-      "displayName": "Observatorio Eje De Educacion Memorias"
+      "displayName": "07. Observatorio ITRC / Eje De Educacion Memorias"
     },
     {
       "slug": "observatorio-eje-de-participacion-memorias",
@@ -894,7 +894,7 @@
         "src/content/pages/observatorio/eje-de-participacion/memorias/propuesta-memorias-evento-anticorrupcion-primavera-2024-4a-edicion-nuevas-ideas.json",
         "src/content/pages/observatorio/eje-de-participacion/memorias/taller-regional-agencia-itrc-y-personeria-distrital-de-bogota-promoviendo-la.json"
       ],
-      "displayName": "Observatorio Eje De Participacion Memorias"
+      "displayName": "07. Observatorio ITRC / Eje De Participacion Memorias"
     },
     {
       "slug": "transparencia-informes",
@@ -907,7 +907,7 @@
         "src/content/pages/transparencia/informes/rendicion-cuenta-fiscal-cgr.json",
         "src/content/pages/transparencia/informes/seguimiento-plan-anticorrupcion.json"
       ],
-      "displayName": "Transparencia Informes"
+      "displayName": "06. Transparencia / Informes"
     }
   ],
   "components": [
