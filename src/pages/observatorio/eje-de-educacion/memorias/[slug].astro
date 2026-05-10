@@ -2,6 +2,7 @@
 import Base from '../../../../layouts/Base.astro';
 import HeroPage from '../../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../../utils/url';
+import { getObservatorioEjeDeEducacionMemoriaList } from '../../../../utils/strapi-fetchers';
 
 interface Memoria {
   titulo: string;
@@ -16,15 +17,12 @@ interface Memoria {
 
 const base = import.meta.env.BASE_URL;
 
-export function getStaticPaths() {
-  const files = import.meta.glob<Memoria>(
-    '../../../../content/pages/observatorio/eje-de-educacion/memorias/*.json',
-    { eager: true, import: 'default' }
-  );
-  return Object.entries(files).map(([path, data]) => {
-    const slug = path.split('/').pop()?.replace('.json', '') || '';
-    return { params: { slug }, props: { memoria: data } };
-  });
+export async function getStaticPaths() {
+  const memorias = await getObservatorioEjeDeEducacionMemoriaList();
+  return (memorias as Memoria[]).map((data) => ({
+    params: { slug: data.slug },
+    props: { memoria: data },
+  }));
 }
 
 interface Props { memoria: Memoria; }
