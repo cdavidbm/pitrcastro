@@ -49,6 +49,12 @@ export default {
       return m ? m[1].trim() : null;
     };
 
+    // Label legible del branch para mostrar en headers y dropdown.
+    // El branch internamente conserva el "NN. " para mantener orden y
+    // matching estable; solo el texto visible se limpia.
+    const branchLabel = (branch: string): string =>
+      branch.replace(/^\d{2}\.\s+/, '');
+
     const injectStyles = () => {
       if (document.getElementById('itrc-cm-styles')) return;
       const s = document.createElement('style');
@@ -267,7 +273,7 @@ export default {
         const label = header.querySelector('.itrc-label');
         const count = header.querySelector('.itrc-count');
         if (arrow) arrow.textContent = isCollapsed ? '▶' : '▼';
-        if (label) label.textContent = branch;
+        if (label) label.textContent = branchLabel(branch);
         if (count) count.textContent = `${rows.length}`;
 
         for (const row of rows) {
@@ -305,7 +311,7 @@ export default {
           branches
             .map(
               (b) =>
-                `<option value="${b.replace(/"/g, '&quot;')}">${b}</option>`
+                `<option value="${b.replace(/"/g, '&quot;')}">${branchLabel(b)}</option>`
             )
             .join('') +
           '</select>';
