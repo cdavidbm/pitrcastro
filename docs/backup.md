@@ -139,7 +139,7 @@ El script imprime `WARN: disco al X% — considerar reducir retención o expandi
 
 3. **Email de fallo requiere `postfix`**: el cron tiene `MAILTO=daniel@digitalia.gov.co` pero necesita un MTA configurado en el servidor. Sin él, revisar manualmente el log.
 
-4. **Base de datos de Strapi aparte**: el script backupea webroot y configs. La base de datos de Strapi (Postgres en Docker) se backupea por separado con `pg_dump` desde el contenedor.
+4. **No incluye la base de datos de Strapi**: el script backupea webroot y configs. El Postgres del contenedor `itrc-cms-postgres` (donde vive todo el contenido editable) no se respalda con este script. Para incluirlo hay que extender el cron con `pg_dump` contra el contenedor.
 
 5. **El cron file no se backupea**: el script `/usr/local/bin/itrc-backup.sh` vive en `ops/server-backup.sh` del repo. El cron file `/etc/cron.d/itrc-backup` se re-crea manualmente si se reprovisiona el servidor.
 

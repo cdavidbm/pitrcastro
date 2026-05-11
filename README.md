@@ -11,7 +11,6 @@ Front estático en **Astro 4** consumiendo un CMS headless **Strapi v5** + **Pos
 - **[Backup](docs/backup.md)** — snapshots y restauración del servidor.
 - **[Manual del operador](docs/manual-operador/)** — publicar noticias, gestionar documentos, banners, etc.
 - **[CMS](cms-strapi/README.md)** — content types, scripts, convenciones del Strapi.
-- **[`CLAUDE.md`](CLAUDE.md)** — convenciones del repo (también consumidas por asistentes de código).
 
 ## Comandos rápidos
 

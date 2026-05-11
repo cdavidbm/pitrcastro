@@ -32,4 +32,3 @@ El [`manual-operador/`](manual-operador/) cubre todo el flujo editorial:
 | Documento | Para qué sirve |
 |---|---|
 | [`arquitectura/`](arquitectura/) | Manual técnico en LaTeX (compilable) con la arquitectura del sistema. |
-| [`/CLAUDE.md`](../CLAUDE.md) | Convenciones del repo para asistentes de código. |
