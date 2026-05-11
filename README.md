@@ -1,31 +1,63 @@
-# Sitio Institucional ITRC
+# Portal ITRC
 
-Propuesta Portal web de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (UAE ITRC).
+Sitio institucional de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (UAE ITRC).
 
-**Demo:** https://cdavidbm.github.io/pitrcastro/
+Front estático en **Astro 4** consumiendo un CMS headless **Strapi v5** + **Postgres**. El contenido se renderiza en build-time; el sitio servido por nginx es HTML estático.
 
-## Tecnologías
+## Documentación
 
-- Astro 4.x (sitio estático)
-- Strapi v5 + Postgres (CMS headless en Docker)
+- **[Instalación](docs/instalacion.md)** — levantar el repo en una máquina nueva.
+- **[Despliegue](docs/despliegue.md)** — flujo de build + push al servidor.
+- **[Backup](docs/backup.md)** — snapshots y restauración del servidor.
+- **[Manual del operador](docs/manual-operador/)** — publicar noticias, gestionar documentos, banners, etc.
+- **[CMS](cms-strapi/README.md)** — content types, scripts, convenciones del Strapi.
+- **[`CLAUDE.md`](CLAUDE.md)** — convenciones del repo (también consumidas por asistentes de código).
 
-## Inicio Rápido
+## Comandos rápidos
 
 ```bash
+# Frontend
 npm install
-npm run dev
+npm run dev       # http://localhost:4321
+npm run build     # dist/
+
+# CMS
+cd cms-strapi
+docker compose up -d
+npm install
+npm run develop   # http://localhost:1337/admin
+
+# Deploy
+git push origin main          # auto-deploy via runner self-hosted
+npm run deploy                # fallback manual
+npm run deploy:binarios       # subir documentos al servidor
 ```
 
-Servidor: http://localhost:4321
+## Estructura
 
-## Comandos
+```
+.
+├── src/                    # Frontend Astro
+│   ├── pages/              # Routing file-based
+│   ├── components/         # Componentes .astro reusables
+│   ├── content/            # JSON fuente (también respaldo)
+│   ├── styles/             # CSS con tema multi-paleta
+│   └── utils/              # strapi-fetchers, url, files
+├── cms-strapi/             # CMS Strapi v5
+├── public/                 # Assets estáticos (gitignored: documentos/)
+├── docs/                   # Documentación pública
+├── ops/                    # Scripts de servidor (backup, etc.)
+└── .github/workflows/      # CI/CD (deploy.yml)
+```
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm run dev` | Desarrollo |
-| `npm run build` | Producción |
-| `npm run preview` | Vista previa |
+## Stack técnico
 
-## Administración
-
-Panel CMS disponible en `/admin` (requiere Chrome/Edge).
+| Capa | Tecnología |
+|---|---|
+| Frontend | Astro 4, TypeScript, CSS variables (sin framework CSS) |
+| CMS | Strapi v5 CE |
+| Base de datos | Postgres en Docker |
+| Servidor | nginx en Ubuntu, VPN FortiClient |
+| CI/CD | GitHub Actions con runner self-hosted |
+| Iconos | Font Awesome 6 |
+| Tipografía | Nunito Sans |

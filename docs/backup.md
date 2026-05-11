@@ -1,6 +1,6 @@
-# Backup del servidor — guía operativa
+# Backup
 
-Esta guía describe la política y el procedimiento de backup del servidor de pruebas ITRC. Para detalles del servidor y otras decisiones operativas, ver [`docs/manual-operador/09-despliegue-datacenter.md`](manual-operador/09-despliegue-datacenter.md).
+Política y procedimiento de backup del servidor ITRC. Para detalles del servidor (nginx, runner, systemd, ufw), ver [`manual-operador/09-despliegue-datacenter.md`](manual-operador/09-despliegue-datacenter.md).
 
 ## Qué se backupea
 
@@ -131,17 +131,17 @@ sudo rm -rf /tmp/restore-test
 
 El script imprime `WARN: disco al X% — considerar reducir retención o expandir LVM` cuando supera el 85%. Estos warnings van al `/var/log/itrc-backup.log` y, cuando esté configurado postfix, también por email.
 
-## Limitaciones conocidas (importante)
+## Limitaciones conocidas
 
-1. **Single-host**: el backup vive en el mismo servidor. Si el servidor entero falla (disco principal muere, VM corrupta), los backups locales se pierden con él. Mitigación pendiente: configurar push periódico a otra máquina institucional (cuando se nos asigne una) o repo privado de GitHub para los configs.
+1. **Single-host**: el backup vive en el mismo servidor. Si el servidor entero falla, los backups locales se pierden con él. Para mitigar conviene configurar push periódico a otra máquina institucional o a un repo privado para los configs.
 
-2. **No protege contra ataque al cron**: si un atacante con root corrompe el cron mismo, los backups dejan de generarse silenciosamente. Mitigación: monitorear el log, healthcheck file (pendiente).
+2. **No protege contra ataque al cron**: si un atacante con root corrompe el cron, los backups dejan de generarse silenciosamente. Mitigación: monitorear `/var/log/itrc-backup.log`.
 
-3. **Email de fallo no operativo aún**: el cron tiene `MAILTO=daniel@digitalia.gov.co` pero requiere `postfix` (o equivalente) configurado en el servidor. No instalado todavía. Mientras: revisar manualmente `/var/log/itrc-backup.log` cada cierto tiempo.
+3. **Email de fallo requiere `postfix`**: el cron tiene `MAILTO=daniel@digitalia.gov.co` pero necesita un MTA configurado en el servidor. Sin él, revisar manualmente el log.
 
-4. **No incluye base de datos**: actualmente el sitio es 100% estático sin BD. Si en el futuro se introduce PostgreSQL/MongoDB (CMS pesado, ver `project_cms_evaluacion.md`), hay que extender el script.
+4. **Base de datos de Strapi aparte**: el script backupea webroot y configs. La base de datos de Strapi (Postgres en Docker) se backupea por separado con `pg_dump` desde el contenedor.
 
-5. **No incluye configuración del propio backup**: el script `/usr/local/bin/itrc-backup.sh` está commiteado en `ops/server-backup.sh` del repo, así que recuperable. Pero el cron file `/etc/cron.d/itrc-backup` debería re-crearse manualmente.
+5. **El cron file no se backupea**: el script `/usr/local/bin/itrc-backup.sh` vive en `ops/server-backup.sh` del repo. El cron file `/etc/cron.d/itrc-backup` se re-crea manualmente si se reprovisiona el servidor.
 
 ## Modificar la política
 

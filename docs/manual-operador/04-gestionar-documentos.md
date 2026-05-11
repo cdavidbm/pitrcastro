@@ -30,11 +30,11 @@ Los campos típicos del componente **Documento** son:
 |-------|-------------|
 | `Nombre` | Texto que verá el usuario en el portal (ejemplo: "Informe de Gestión I Semestre 2025") |
 | `Archivo` | Selector del Media Library de Strapi — sube o elige un PDF/XLSX ya cargado |
-| `URL` | Alternativa al campo Archivo cuando el documento está en otro servidor (legacy `/documentos/...`) |
+| `URL` | Alternativa al campo Archivo cuando el documento ya vive en `/documentos/...` o en otro servidor |
 | `Año` | Año del documento, usado para ordenar y filtrar (ejemplo: `2025`) |
 | `Descripción` | Campo opcional con información adicional sobre el documento |
 
-> **Nota:** schemas más antiguos pueden tener solo `URL del archivo` (sin selector de Media Library). En esos casos use la URL absoluta del archivo si está alojado externamente, o la ruta relativa `/documentos/...` si está dentro del servidor del portal.
+> **Nota:** algunos schemas tienen solo `URL del archivo` (sin selector de Media Library). En esos casos use la URL absoluta del archivo si está alojado externamente, o la ruta relativa `/documentos/...` si está dentro del servidor del portal.
 
 ## Ejemplo práctico 1: Agregar un nuevo informe de gestión
 

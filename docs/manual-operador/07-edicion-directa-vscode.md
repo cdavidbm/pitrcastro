@@ -44,10 +44,10 @@ git pull origin main
 ```
 itrc-portal/
 ├── src/
-│   ├── content/           ← Contenido legacy migrado a Strapi
-│   │   ├── pages/         ← JSONs originales (fuente del autogen de schemas Strapi)
-│   │   ├── news/          ← Noticias en formato Markdown (.md) — pendiente migrar a Strapi
-│   │   ├── events/        ← Eventos en formato JSON — espejo del content type Strapi
+│   ├── content/           ← JSONs respaldo y noticias en Markdown
+│   │   ├── pages/         ← JSONs fuente del autogen de schemas Strapi
+│   │   ├── news/          ← Noticias en formato Markdown (.md)
+│   │   ├── events/        ← Eventos en formato JSON
 │   │   └── sliders/       ← Sliders en formato JSON
 │   ├── pages/             ← Plantillas Astro (.astro) — UI del sitio
 │   ├── components/        ← Componentes Astro reutilizables
@@ -59,13 +59,13 @@ itrc-portal/
 │   ├── scripts/           ← Tooling: autogen-schemas.mjs, gen-strapi-fetchers.mjs, migrate-*
 │   └── config/            ← Configuración de Strapi
 ├── public/
-│   ├── documentos/        ← PDFs históricos servidos por nginx (legacy)
+│   ├── documentos/        ← PDFs institucionales servidos por nginx
 │   └── images/            ← Imágenes estáticas del sitio
 └── docs/                  ← Manual del operador, guías, decisiones técnicas
 ```
 
 Las carpetas que el operador puede editar con seguridad son:
-- `src/content/news/` — noticias en Markdown (mientras la migración a Strapi siga pendiente).
+- `src/content/news/` — noticias en Markdown que aún no están en Strapi.
 - `src/content/sliders/` — sliders en JSON.
 - `cms-strapi/src/api/<slug>/content-types/<slug>/schema.json` — solo si necesita ajustar campos de un content type existente. Tras editar, regenerar fetchers con `node cms-strapi/scripts/gen-strapi-fetchers.mjs`.
 

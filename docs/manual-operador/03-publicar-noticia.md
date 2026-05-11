@@ -1,6 +1,6 @@
 # Capítulo 3 — Publicar una noticia
 
-> **Nota sobre el origen de las noticias.** Las noticias históricas del portal viven como archivos Markdown en `src/content/news/` y se gestionan con edición directa en VS Code (ver [Capítulo 7](07-edicion-directa-vscode.md)). El content type **Noticia** en Strapi reemplaza ese flujo cuando se publica el lote de migración correspondiente. Este capítulo describe el flujo desde el CMS Strapi.
+Este capítulo describe el flujo de publicación de noticias desde el CMS Strapi. Las noticias antiguas que viven como archivos Markdown en `src/content/news/` se editan directamente en VS Code (ver [Capítulo 7](07-edicion-directa-vscode.md)).
 
 ## Estructura de las noticias
 
