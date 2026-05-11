@@ -191,6 +191,46 @@ for (const branch of nav.mainMenu as any[]) {
   });
 }
 
+// Segundo pase: asignar URLs huérfanas a sus ramas vía reglas explícitas.
+// Muchas páginas (cumplimiento ITA, transparencia, normativa) viven en raíz
+// `/<slug>` en vez de bajo `/<rama>/<slug>`, así que el prefix-match las
+// deja como "Otras páginas". Estas reglas las recolocan en su rama natural
+// sin tocar navigation.json. Sólo aplica a páginas no asignadas todavía.
+//
+// El orden importa: la primera regla que matchea gana. Más específico arriba.
+const sectionRules: Array<{ section: string; pattern: RegExp }> = [
+  // ===== Agencia =====
+  { section: 'Agencia', pattern: /^\/(escala-salarial|ofertas-de-empleo|nombramientos|manuales-internos|manual-de-identidad-visual-itrc|manual-especifico-de-funciones-y-de-competencias-laborales|manual-contratacion|historico-sistema-de-control-interno|supervision-y-vigilancia|planes-de-mejoramiento|programa-gestion-documental|tablas-retencion-documental|informes-de-empalme|defensa-judicial|informes-software-legal|p-q-r-s-servidores-agencia-itrc|informe-comite-conciliacion|informe-de-gestion-del-comite-de-conciliacion|informe-defensa-publica|informe-rendicion-cuenta-contraloria|informe-de-rendicion-de-la-cuenta-fiscal-.*|informes-organismos-inspeccion|informes-a-organismos-de-inspeccion-.*|informe-pormenorizado|informes-de-evaluacion-y-auditoria-de-la-agencia-3ld|informes-legales|evaluacion-independiente-control-interno|evaluacion-independiente-sistema-de-control-interno|reporte-austeridad-en-el-gasto|seguimiento-al-plan-anticorrupcion-y-atencion-al-ciudadano)$/ },
+  // ===== Atención y Servicios =====
+  { section: 'Atención y Servicios', pattern: /^\/(cartilla-al-ciudadano|carta-trato-digno|informacion-adicional|glosario|preguntas-frecuentes|protocolo-de-atencion-al-ciudadano|respuesta-anonimos|otros-de-grupos-de-interes|otros-grupos-de-interes|informacion-para-mujeres|formato-alternativo-para-grupos-etnicos-y-culturales|sede-y-horarios)$/ },
+  // ===== Normativa =====
+  { section: 'Normativa', pattern: /^\/(decreto-unico-reglamentario|decretos-de-estructura-salarios-leyes-marco-y-otros|leyes|normas-servicio-publico|normativa-incumplimiento-al-regimen-cambiario-y-aduanero|normativa-prevaricato|normatividad-.*|publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras|politicas-lineamientos-y-manuales|politicas-y-lineamientos-sectoriales)$/ },
+  // ===== Transparencia =====
+  { section: 'Transparencia', pattern: /^\/(contratacion-suscrita|publicacion-ejecucion-contratos|publicacion-de-la-ejecucion-de-contratos|publicacion-datos-abiertos|publicacion-de-datos-abiertos|publicacion-hojas-de-vida|procedimientos-decisiones|procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas|registro-activos-informacion|registro-de-publicaciones|esquema-publicacion-informacion|esquema-de-publicacion-de-la-informacion|directorio-de-agremiaciones|directorio-de-entidades|relatoria|tramites|vigencia-\d{4}|formatos-contratos-pliego-tipo|formatos-o-modelos-de-contratos-o-pliego-tipo|formatos-y-formularios|indice-de-informacion-clasificada-y-reservada|historico-subdireccion-investigaciones-disciplinarias|plan-de-adquisiciones|estudios-investigaciones-y-otras-publicaciones|estados|programas-y-proyectos-en-ejecucion|proteccion-de-datos-personales|proyectos-de-normas-para-comentarios)$/ },
+  // ===== Prensa =====
+  { section: 'Prensa', pattern: /^\/(audiositrc|calendario-de-eventos)$/ },
+];
+
+// Aplicar reglas
+for (const route of allRoutes) {
+  if (assigned.has(route.url)) continue;
+  for (const rule of sectionRules) {
+    if (rule.pattern.test(route.url)) {
+      const target = branchGroups.find((b) => b.label === rule.section);
+      if (target) {
+        target.extraItems.push(route);
+        assigned.add(route.url);
+      }
+      break;
+    }
+  }
+}
+
+// Re-ordenar los extras de cada rama por título dentro de su sección
+for (const branch of branchGroups) {
+  branch.extraItems.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+}
+
 // Otras páginas: todas las rutas no asignadas a ninguna rama
 const otrasPaginas = allRoutes.filter(
   (r) => !assigned.has(r.url) && r.url !== '/'
