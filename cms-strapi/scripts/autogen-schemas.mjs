@@ -95,18 +95,109 @@ const SLUG_TO_BRANCH = {
   home: { order: '01', label: 'Inicio' },
   ciprep: { order: '08', label: 'Prensa', sub: ['Congreso CIPREP'] },
   'ciprep-speakers': { order: '08', label: 'Prensa', sub: ['Congreso CIPREP', 'Speakers'] },
+  'ciprep-speaker': { order: '08', label: 'Prensa', sub: ['Congreso CIPREP', 'Speakers'] },
   galeria: { order: '08', label: 'Prensa', sub: ['Galería'] },
   normograma: { order: '03', label: 'Normativa', sub: ['Normograma'] },
   participa: { order: '05', label: 'Participa', sub: ['Inicio'] },
   prensa: { order: '08', label: 'Prensa', sub: ['Inicio'] },
   transparencia: { order: '06', label: 'Transparencia', sub: ['Inicio'] },
   'mapa-del-sitio': { order: '99', label: 'Sistema', sub: ['Mapa del sitio'] },
+  // Collections cuyo slug en el manifest es el singular (singularName del schema).
+  notificacion: { order: '04', label: 'Atención y Servicios', sub: ['Notificaciones y Traslados'] },
+  evento: { order: '08', label: 'Prensa', sub: ['Eventos'] },
+  'normativa-delito': { order: '03', label: 'Normativa', sub: ['Delitos'] },
+  'normativa-vigencia': { order: '03', label: 'Normativa', sub: ['Vigencias'] },
+  'observatorio-eje-de-educacion-memoria': { order: '07', label: 'Observatorio ITRC', sub: ['Eje de Educación', 'Memorias'] },
+  'observatorio-eje-de-participacion-memoria': { order: '07', label: 'Observatorio ITRC', sub: ['Eje de Participación', 'Memorias'] },
+  'transparencia-informe': { order: '06', label: 'Transparencia', sub: ['Informes'] },
 };
+
+// Diccionario para mejorar legibilidad del displayName. Los slugs vienen
+// sin acentos y con todo en minúscula; aquí restauramos forma humana.
+// - WORD_OVERRIDES: palabras concretas (con acentos, mayúsculas mixtas).
+// - ACRONYMS: siglas conocidas (siempre en mayúsculas).
+// - CONNECTORS: palabras de unión que NO se capitalizan al medio.
+const WORD_OVERRIDES = {
+  adquisicion: 'Adquisición',
+  anonimos: 'Anónimos',
+  articulos: 'Artículos',
+  atencion: 'Atención',
+  comite: 'Comité',
+  conciliacion: 'Conciliación',
+  contratacion: 'Contratación',
+  contraloria: 'Contraloría',
+  cuenta: 'Cuenta',
+  decision: 'Decisión',
+  decisiones: 'Decisiones',
+  documentacion: 'Documentación',
+  economico: 'Económico',
+  educacion: 'Educación',
+  ejecucion: 'Ejecución',
+  especifico: 'Específico',
+  especificas: 'Específicas',
+  estrategico: 'Estratégico',
+  etnicos: 'Étnicos',
+  evaluacion: 'Evaluación',
+  formacion: 'Formación',
+  galeria: 'Galería',
+  gestion: 'Gestión',
+  glosario: 'Glosario',
+  historico: 'Histórico',
+  indice: 'Índice',
+  informacion: 'Información',
+  informe: 'Informe',
+  informes: 'Informes',
+  interes: 'Interés',
+  juridico: 'Jurídico',
+  medicion: 'Medición',
+  ninos: 'Niños',
+  organico: 'Orgánico',
+  participacion: 'Participación',
+  politicas: 'Políticas',
+  proteccion: 'Protección',
+  publica: 'Pública',
+  publicacion: 'Publicación',
+  publicaciones: 'Publicaciones',
+  publicos: 'Públicos',
+  rendicion: 'Rendición',
+  republica: 'República',
+  resoluciones: 'Resoluciones',
+  resolucion: 'Resolución',
+  supervision: 'Supervisión',
+  tramites: 'Trámites',
+  unificacion: 'Unificación',
+  vinculacion: 'Vinculación',
+};
+const ACRONYMS = new Set([
+  'rrhh', 'pqrs', 'spfc', 'sci', 'ivc', 'sagr', 'cgr', 'suin',
+  'itrc', 'dian', 'ugpp', 'pai',
+]);
+const CONNECTORS = new Set(['de', 'del', 'la', 'las', 'el', 'los', 'y', 'a', 'o', 'u', 'e']);
+
+function prettyWord(w, isFirst) {
+  if (!w) return w;
+  const lower = w.toLowerCase();
+  if (WORD_OVERRIDES[lower]) return WORD_OVERRIDES[lower];
+  if (ACRONYMS.has(lower)) return lower.toUpperCase();
+  if (!isFirst && CONNECTORS.has(lower)) return lower;
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
+
+function prettyPhrase(text) {
+  // Acepta espacios o guiones como separador
+  return text
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .map((w, i) => prettyWord(w, i === 0))
+    .join(' ');
+}
 
 // Devuelve el displayName con prefijo numérico + rama + sub-rama legible.
 // Ejemplos:
 //   normativa-marco-legal → "03. Normativa / Marco Legal"
-//   agencia-direccionamiento-estrategico → "02. Agencia / Direccionamiento / Estratégico"
+//   agencia-direccionamiento-estrategico → "02. Agencia / Direccionamiento Estratégico"
+//   agencia-empleo-rrhh-manual-especifico-funciones →
+//     "02. Agencia / Empleo RRHH / Manual Específico Funciones"
 //   home → "01. Inicio"
 //   ciprep → "08. Prensa / Congreso CIPREP"
 function brandedDisplayName(slug) {
@@ -119,18 +210,13 @@ function brandedDisplayName(slug) {
   const branchKey = segments[0];
   const branch = BRANCH_BY_PREFIX[branchKey];
   if (!branch) {
-    return `99. ${displayName(slug)}`;
+    return `99. ${prettyPhrase(slug)}`;
   }
   const rest = segments.slice(1).join(' ');
   if (!rest) {
     return `${branch.order}. ${branch.label}`;
   }
-  // Capitaliza palabras del resto preservando el espacio como separador
-  const restPretty = rest
-    .split(' ')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
-  return `${branch.order}. ${branch.label} / ${restPretty}`;
+  return `${branch.order}. ${branch.label} / ${prettyPhrase(rest)}`;
 }
 
 /**
