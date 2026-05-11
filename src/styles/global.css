@@ -135,7 +135,6 @@
   --theme-hero-text-secondary: rgba(255, 255, 255, 0.85);
   --theme-hero-breadcrumb: rgba(255, 255, 255, 0.7);
   --theme-hero-icon-bg: rgba(255, 255, 255, 0.15);
-  --theme-hero-icon-color: #02234A;
 
   --theme-dark-section-bg: #f0f0f0;
   --theme-dark-section-text: rgba(67, 67, 67, 0.85);
@@ -207,7 +206,6 @@ html.theme-institucional {
   --theme-hero-text-secondary: rgba(255, 255, 255, 0.85);
   --theme-hero-breadcrumb: rgba(255, 255, 255, 0.7);
   --theme-hero-icon-bg: rgba(255, 255, 255, 0.15);
-  --theme-hero-icon-color: var(--itrc-gold);
 
   --theme-dark-section-bg: var(--itrc-navy);
   --theme-dark-section-text: rgba(255, 255, 255, 0.8);
@@ -279,7 +277,6 @@ html.theme-oscuro {
   --theme-hero-text-secondary: rgba(255, 255, 255, 0.85);
   --theme-hero-breadcrumb: rgba(255, 255, 255, 0.6);
   --theme-hero-icon-bg: rgba(255, 255, 255, 0.1);
-  --theme-hero-icon-color: var(--itrc-gold);
 
   --theme-dark-section-bg: #1a1a2e;
   --theme-dark-section-text: rgba(255, 255, 255, 0.75);
