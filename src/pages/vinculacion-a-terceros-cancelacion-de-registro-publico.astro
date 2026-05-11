@@ -4,6 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
 import { getAtencionVinculacionATerceros } from '../utils/strapi-fetchers';
+import { mediaUrl } from '../utils/strapi-media';
 
 const pageData = await getAtencionVinculacionATerceros();
 const base = import.meta.env.BASE_URL;
@@ -36,7 +37,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 
       <div class="vinculacion-list">
         {pageData.documentos.map((doc) => (
-          <a href={doc.file} target="_blank" rel="noopener" class="vinculacion-card">
+          <a href={mediaUrl(doc.file)} target="_blank" rel="noopener" class="vinculacion-card">
             <div class="vinculacion-card__icon">
               <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
             </div>

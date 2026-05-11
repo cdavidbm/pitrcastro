@@ -40,7 +40,13 @@
       "type": "string"
     },
     "archivo": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
     },
     "origenUrl": {
       "type": "string"

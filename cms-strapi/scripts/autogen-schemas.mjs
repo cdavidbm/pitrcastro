@@ -182,7 +182,48 @@ function hasValidStrapiAttrNames(obj) {
   return keys.every((k) => SAFE_ATTR_RE.test(k));
 }
 
+// Campos del JSON fuente que históricamente apuntan a binarios alojados.
+// Aunque su valor sea un string (URL o path), Strapi los maneja mejor como
+// media nativo: el editor sube/elige el archivo desde el Media Library sin
+// salir del componente.
+const MEDIA_FIELD_NAMES = new Set([
+  'file',
+  'fileUrl',
+  'archivo',
+  'pdfUrl',
+  'pdf',
+]);
+const BINARY_EXT_RE = /\.(pdf|docx?|xlsx?|pptx?|zip|rar|7z|csv|txt|odt|ods|odp|epub|mobi|mp3|mp4|webm|ogg|wav|jpe?g|png|gif|svg|webp|avif|tiff?)(\?[^/]*)?$/i;
+
+function looksLikeBinaryRef(value) {
+  if (typeof value !== 'string' || !value) return false;
+  if (BINARY_EXT_RE.test(value)) return true;
+  // Path explícito a carpetas conocidas (legacy /documentos/, /uploads/).
+  if (/^\/(documentos|uploads|api\/uploads)\//.test(value)) return true;
+  return false;
+}
+
+function mediaField() {
+  return {
+    type: 'media',
+    multiple: false,
+    required: false,
+    allowedTypes: ['files', 'images'],
+  };
+}
+
 function inferField(fieldName, value, ctSlug, componentRegistry, pathStack = []) {
+  // Detección temprana de campos de archivo, independiente del tipo del valor.
+  // Si el nombre canónico es de binario, lo tratamos como media salvo que el
+  // valor explícitamente NO parezca un path/URL de binario (ej. un objeto).
+  if (MEDIA_FIELD_NAMES.has(fieldName)) {
+    if (value === null || value === undefined || looksLikeBinaryRef(value)) {
+      return mediaField();
+    }
+    // Si el valor existe pero no parece binario, caemos al inferidor genérico
+    // (puede ser un id, una entrada con shape distinta, etc.).
+  }
+
   if (value === null || value === undefined) {
     // Sin info; default a string opcional.
     return { type: 'string' };
@@ -341,13 +382,21 @@ function writeText(filePath, content) {
 }
 
 function writeContentType({ slug, kind, attributes, displayName: dn, sourcePath }) {
-  // Strapi requiere singularName != pluralName. Si el slug ya es plural
-  // (termina en 's'), derivamos el singular con singularize() y conservamos
-  // el slug como pluralName.
+  // Strapi requiere singularName != pluralName y, crucial: el directorio
+  // del content type debe llamarse igual que singularName (la "key" del UID
+  // api::<key>.<key>). Para slugs plurales (terminan en 's') derivamos el
+  // singular con singularize() y lo usamos como dirname y como key del UID.
+  // El pluralName se conserva como el slug original.
   const slugIsPlural = slug.endsWith('s');
   const singularName = slugIsPlural ? singularize(slug) : slug;
   const pluralName = pluralize(slug);
-  const collectionName = slug.replace(/-/g, '_') + (kind === 'collectionType' ? '_items' : '');
+  const ctKey = singularName;
+  // collectionName define la tabla DB y NO se cambia entre regeneraciones
+  // (eso destruiría datos). Para colecciones plurales usamos el slug plural
+  // tal cual (sin sufijo _items, ya es plural).
+  const collectionName = slugIsPlural
+    ? slug.replace(/-/g, '_')
+    : slug.replace(/-/g, '_') + (kind === 'collectionType' ? '_items' : '');
   const schema = {
     kind,
     collectionName,
@@ -361,20 +410,20 @@ function writeContentType({ slug, kind, attributes, displayName: dn, sourcePath 
     pluginOptions: {},
     attributes,
   };
-  const apiDir = path.join(STRAPI_API_DIR, slug);
-  writeJson(path.join(apiDir, 'content-types', slug, 'schema.json'), schema);
+  const apiDir = path.join(STRAPI_API_DIR, ctKey);
+  writeJson(path.join(apiDir, 'content-types', ctKey, 'schema.json'), schema);
 
-  const factoryUid = `api::${slug}.${slug}`;
+  const factoryUid = `api::${ctKey}.${ctKey}`;
   writeText(
-    path.join(apiDir, 'controllers', `${slug}.ts`),
+    path.join(apiDir, 'controllers', `${ctKey}.ts`),
     `import { factories } from '@strapi/strapi';\n\nexport default factories.createCoreController('${factoryUid}');\n`
   );
   writeText(
-    path.join(apiDir, 'services', `${slug}.ts`),
+    path.join(apiDir, 'services', `${ctKey}.ts`),
     `import { factories } from '@strapi/strapi';\n\nexport default factories.createCoreService('${factoryUid}');\n`
   );
   writeText(
-    path.join(apiDir, 'routes', `${slug}.ts`),
+    path.join(apiDir, 'routes', `${ctKey}.ts`),
     `import { factories } from '@strapi/strapi';\n\nexport default factories.createCoreRouter('${factoryUid}');\n`
   );
 }
@@ -450,22 +499,69 @@ function detectInputs() {
 // Main
 // ============================================================
 
+function loadManualSlugsFromManifest() {
+  // Slugs de content types y categorías de componentes que NO vienen de
+  // src/content/pages y por tanto el autogen no los conoce. wipeAutogenOutputs
+  // debe respetarlos para no borrarlos antes de regenerar.
+  if (!fs.existsSync(MANIFEST_PATH)) return { apiSlugs: new Set(), compCategories: new Set() };
+  try {
+    const prev = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const apiSlugs = new Set();
+    const compCategories = new Set();
+    const isManual = (entry) => {
+      const sample =
+        (entry.sourceFiles && entry.sourceFiles[0]) ||
+        entry.sourcePath ||
+        entry.dirPath ||
+        '';
+      return sample && !sample.startsWith('src/content/pages');
+    };
+    for (const s of prev.singlePages || []) {
+      if (isManual(s)) {
+        apiSlugs.add(s.slug);
+        compCategories.add(s.slug);
+      }
+    }
+    for (const c of prev.collections || []) {
+      if (isManual(c)) {
+        apiSlugs.add(c.slug);
+        compCategories.add(c.slug);
+      }
+    }
+    return { apiSlugs, compCategories };
+  } catch {
+    return { apiSlugs: new Set(), compCategories: new Set() };
+  }
+}
+
 function wipeAutogenOutputs() {
   // Limpia artefactos viejos antes de regenerar para evitar archivos huérfanos
   // cuando un content type se elimina o un componente cambia de shape.
-  // Preserva src/components/shared/ (componentes manuales como related-link).
+  // Preserva:
+  //   - src/components/shared/ (componentes manuales como related-link).
+  //   - Content types manuales (notificacion, evento, etc.) — detectados
+  //     porque su sourcePath en el manifest previo no apunta a src/content/pages.
   const apiDir = path.resolve(__dirname, '..', 'src', 'api');
   const compDir = path.resolve(__dirname, '..', 'src', 'components');
+  const { apiSlugs: preserveApi, compCategories: preserveComp } =
+    loadManualSlugsFromManifest();
   if (fs.existsSync(apiDir)) {
     for (const entry of fs.readdirSync(apiDir)) {
+      if (preserveApi.has(entry)) continue;
       fs.rmSync(path.join(apiDir, entry), { recursive: true, force: true });
     }
   }
   if (fs.existsSync(compDir)) {
     for (const entry of fs.readdirSync(compDir)) {
       if (entry === 'shared') continue;
+      if (preserveComp.has(entry)) continue;
       fs.rmSync(path.join(compDir, entry), { recursive: true, force: true });
     }
+  }
+  if (preserveApi.size > 0) {
+    console.log(
+      `[autogen] preservando manuales: ${[...preserveApi].join(', ')}`
+    );
   }
 }
 
@@ -549,6 +645,49 @@ function main() {
     manifest.components.push({ key, ...comp, attributes: undefined });
   }
   console.log(`  [components] ${componentRegistry.size} (excluyendo shared.related-link)`);
+
+  // Merge con entradas manuales preexistentes. El autogen solo lee
+  // src/content/pages/; content types craftados a mano que migran desde
+  // otras fuentes (notificacion ← src/content/notificaciones, evento ←
+  // src/content/events) deben sobrevivir a la regeneración.
+  if (fs.existsSync(MANIFEST_PATH)) {
+    try {
+      const prev = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+      const isManual = (entry) => {
+        const sample =
+          (entry.sourceFiles && entry.sourceFiles[0]) ||
+          entry.sourcePath ||
+          entry.dirPath ||
+          '';
+        return sample && !sample.startsWith('src/content/pages');
+      };
+      const manualSingles = (prev.singlePages || []).filter(isManual);
+      const manualCollections = (prev.collections || []).filter(isManual);
+      const manualKeys = new Set([
+        ...manualSingles.map((s) => s.slug),
+        ...manualCollections.map((c) => c.slug),
+      ]);
+      for (const s of manualSingles) {
+        if (!manifest.singlePages.some((x) => x.slug === s.slug)) {
+          manifest.singlePages.push(s);
+        }
+      }
+      for (const c of manualCollections) {
+        if (!manifest.collections.some((x) => x.slug === c.slug)) {
+          manifest.collections.push(c);
+        }
+      }
+      if (manualKeys.size > 0) {
+        console.log(
+          `  [manual]    preservados: ${[...manualKeys].join(', ')}`
+        );
+      }
+    } catch (e) {
+      console.warn(
+        `[autogen] no pude mergear manifest previo: ${e.message}`
+      );
+    }
+  }
 
   writeJson(MANIFEST_PATH, manifest);
   console.log(`\n[autogen] manifest: ${path.relative(REPO_ROOT, MANIFEST_PATH)}`);

@@ -1,5 +1,6 @@
 ---
 import { getFileInfo } from '../utils/files';
+import { mediaUrl } from '../utils/strapi-media';
 import type { Document } from '../types/content';
 
 interface Props {
@@ -7,11 +8,17 @@ interface Props {
 }
 
 const { document } = Astro.props;
-const fileType = getFileInfo(document.file);
+const href = mediaUrl(document.file as any);
+// Para detección de extensión usamos el nombre del file si viene como objeto
+// media de Strapi (que trae name + ext), o el string legacy.
+const fileRef = typeof document.file === 'string'
+  ? document.file
+  : (document.file as any)?.name || (document.file as any)?.url || '';
+const fileType = getFileInfo(fileRef);
 ---
 
 <a
-  href={document.file}
+  href={href}
   class="doc-item"
   target="_blank"
   rel="noopener"

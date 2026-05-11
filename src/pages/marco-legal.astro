@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { getNormativaMarcoLegal } from '../utils/strapi-fetchers';
+import { mediaUrl } from '../utils/strapi-media';
 
 const pageData = await getNormativaMarcoLegal();
 
@@ -54,13 +55,13 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
           <div class="seccion__docs">
             {seccion.documentos.map((doc) => (
               <a
-                href={doc.file}
+                href={mediaUrl(doc.file)}
                 target="_blank"
                 rel="noopener"
                 class="doc-card"
               >
-                <div class={`doc-card__icon doc-card__icon--${fileColor(doc.file)}`}>
-                  <i class={`fa-solid ${fileIcon(doc.file)}`} aria-hidden="true"></i>
+                <div class={`doc-card__icon doc-card__icon--${fileColor(mediaUrl(doc.file))}`}>
+                  <i class={`fa-solid ${fileIcon(mediaUrl(doc.file))}`} aria-hidden="true"></i>
                 </div>
                 <div class="doc-card__content">
                   <h3 class="doc-card__title">{doc.nombre}</h3>

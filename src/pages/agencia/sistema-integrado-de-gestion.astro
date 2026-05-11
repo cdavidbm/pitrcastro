@@ -6,6 +6,7 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import type { DocumentSection } from '../../types/content';
 import { getAgenciaSistemaIntegradoDeGestion } from '../../utils/strapi-fetchers';
+import { mediaUrl } from '../../utils/strapi-media';
 
 const pageData = await getAgenciaSistemaIntegradoDeGestion();
 const base = import.meta.env.BASE_URL;

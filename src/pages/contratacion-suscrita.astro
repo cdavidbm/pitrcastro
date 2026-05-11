@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getTransparenciaContratacionContratacionSuscrita } from '../utils/strapi-fetchers';
+import { mediaUrl } from '../utils/strapi-media';
 const pageData = await getTransparenciaContratacionContratacionSuscrita();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
@@ -55,7 +56,7 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => 
                   <tr>
                     <td class="cs-c-proc">
                       {p.pdfUrl ? (
-                        <a href={p.pdfUrl} target="_blank" rel="noopener noreferrer" class="cs-link">
+                        <a href={mediaUrl(p.pdfUrl)} target="_blank" rel="noopener noreferrer" class="cs-link">
                           <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
                           <strong>{p.label}</strong>
                         </a>

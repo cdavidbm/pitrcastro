@@ -28,7 +28,13 @@
       "type": "string"
     },
     "pdfUrl": {
-      "type": "text"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
     }
   }
 }

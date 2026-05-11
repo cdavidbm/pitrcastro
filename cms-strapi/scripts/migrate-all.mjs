@@ -113,6 +113,93 @@ function hasValidStrapiAttrNames(obj) {
 }
 
 // ========================================================================
+// Uploads (campos media)
+// ========================================================================
+
+// Campos del JSON fuente que el autogen mapea a Strapi `media`. Cualquier
+// string en estos keys debe subirse al Media Library antes de POSTear el
+// payload, sustituyendo el valor por el id del file uploaded.
+const MEDIA_FIELDS = new Set(['file', 'fileUrl', 'archivo', 'pdfUrl', 'pdf']);
+
+// Caché por path: si dos entries comparten el mismo binario, una sola subida.
+const uploadCache = new Map();
+
+function resolveBinaryPath(url) {
+  // Solo manejamos rutas dentro del repo. URLs externas (https://...) las
+  // dejamos como null (el editor las re-subirá manualmente en su momento).
+  if (!url || typeof url !== 'string') return null;
+  if (/^https?:\/\//i.test(url)) return null;
+  // Acepta paths que empiezan con / (relativos al sitio) o relativos al repo.
+  const cleaned = url.replace(/^\/+/, '');
+  const candidates = [
+    path.join(REPO_ROOT, 'public', cleaned),
+    path.join(REPO_ROOT, cleaned),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c) && fs.statSync(c).isFile()) return c;
+  }
+  return null;
+}
+
+async function uploadFile(token, absPath) {
+  if (uploadCache.has(absPath)) return uploadCache.get(absPath);
+  const buf = await fs.promises.readFile(absPath);
+  const fd = new FormData();
+  fd.append(
+    'files',
+    new Blob([buf]),
+    path.basename(absPath)
+  );
+  const res = await fetch(`${STRAPI_URL}/api/upload`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: fd,
+  });
+  if (!res.ok) {
+    throw new Error(`upload ${path.basename(absPath)} → ${res.status} ${await res.text()}`);
+  }
+  const json = await res.json();
+  const id = Array.isArray(json) ? json[0]?.id : json?.id;
+  if (!id) throw new Error(`upload ${path.basename(absPath)} → respuesta sin id`);
+  uploadCache.set(absPath, id);
+  return id;
+}
+
+// Recorre el payload reemplazando in-place cada string en campos media por el
+// id del file subido a Strapi. Si el binario no existe en disco o la URL es
+// externa, deja el campo como null (Strapi acepta null para media opcional).
+async function uploadMediaFieldsInPayload(token, payload, stats) {
+  if (!payload || typeof payload !== 'object') return;
+  if (Array.isArray(payload)) {
+    for (const item of payload) await uploadMediaFieldsInPayload(token, item, stats);
+    return;
+  }
+  for (const [k, v] of Object.entries(payload)) {
+    if (MEDIA_FIELDS.has(k) && typeof v === 'string') {
+      const abs = resolveBinaryPath(v);
+      if (!abs) {
+        stats.skipped++;
+        if (v && !/^https?:\/\//i.test(v)) {
+          console.warn(`    [upload skip] no encontrado: ${v}`);
+        }
+        payload[k] = null;
+        continue;
+      }
+      try {
+        payload[k] = await uploadFile(token, abs);
+        stats.uploaded++;
+      } catch (e) {
+        stats.failed++;
+        console.warn(`    [upload fail] ${v}: ${e.message.split('\n')[0].slice(0, 120)}`);
+        payload[k] = null;
+      }
+    } else if (v && typeof v === 'object') {
+      await uploadMediaFieldsInPayload(token, v, stats);
+    }
+  }
+}
+
+// ========================================================================
 // Strapi Admin API helpers
 // ========================================================================
 
@@ -221,8 +308,11 @@ async function publishCollectionEntry(token, uid, documentId) {
 // Main
 // ========================================================================
 
-async function migrateSinglePage(token, sp) {
-  const uid = `api::${sp.slug}.${sp.slug}`;
+async function migrateSinglePage(token, sp, mediaStats) {
+  // Para single types Strapi usa el slug (singular cuando viene de pages,
+  // o lo que esté en el manifest). El UID coincide con singularName del schema.
+  const ctKey = sp.singularName || sp.slug;
+  const uid = `api::${ctKey}.${ctKey}`;
   if (ONLY && !ONLY.has(sp.slug)) return { skipped: true };
   const sourcePath = path.join(REPO_ROOT, sp.sourcePath);
   if (!fs.existsSync(sourcePath)) {
@@ -231,13 +321,23 @@ async function migrateSinglePage(token, sp) {
   }
   const data = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
   const payload = transformObject(data);
+  await uploadMediaFieldsInPayload(token, payload, mediaStats);
   await putSingleType(token, uid, payload);
   await publishSingleType(token, uid);
   return { ok: true };
 }
 
-async function migrateCollection(token, coll) {
-  const uid = `api::${coll.slug}.${coll.slug}`;
+async function migrateCollection(token, coll, mediaStats) {
+  // El dir del content type en Strapi v5 = singularName (no slug plural).
+  // Si el manifest no lo trae explícito, derivar del slug.
+  const ctKey =
+    coll.singularName ||
+    (coll.slug.endsWith('s') && coll.slug.length > 3
+      ? coll.slug.endsWith('es') && coll.slug.length > 4
+        ? coll.slug.slice(0, -2)
+        : coll.slug.slice(0, -1)
+      : coll.slug);
+  const uid = `api::${ctKey}.${ctKey}`;
   if (ONLY && !ONLY.has(coll.slug)) return { skipped: true };
 
   // Limpia entries existentes (idempotencia: cada run reescribe el set completo).
@@ -256,6 +356,7 @@ async function migrateCollection(token, coll) {
     if (!payload.slug) {
       payload.slug = path.basename(relPath, '.json');
     }
+    await uploadMediaFieldsInPayload(token, payload, mediaStats);
     const created = await createCollectionEntry(token, uid, payload);
     const documentId =
       created.data?.documentId || created.documentId || created.data?.id;
@@ -274,12 +375,14 @@ async function main() {
   console.log(`[migrate-all] login admin → ${STRAPI_URL}`);
   const token = await adminLogin();
 
+  const mediaStats = { uploaded: 0, skipped: 0, failed: 0 };
+
   let okSingles = 0, failSingles = 0;
   if (!SKIP_SINGLES) {
     console.log(`\n[migrate-all] === ${manifest.singlePages.length} single-pages ===`);
     for (const sp of manifest.singlePages) {
       try {
-        const r = await migrateSinglePage(token, sp);
+        const r = await migrateSinglePage(token, sp, mediaStats);
         if (r.skipped) continue;
         okSingles++;
         if (okSingles % 10 === 0) console.log(`  ... ${okSingles} ok`);
@@ -296,7 +399,7 @@ async function main() {
     console.log(`\n[migrate-all] === ${manifest.collections.length} collections ===`);
     for (const coll of manifest.collections) {
       try {
-        const r = await migrateCollection(token, coll);
+        const r = await migrateCollection(token, coll, mediaStats);
         if (r.skipped) continue;
         okColls++;
         totalEntries += r.count || 0;
@@ -308,6 +411,10 @@ async function main() {
     }
     console.log(`[migrate-all] collections: ${okColls} ok (${totalEntries} entries), ${failColls} fail`);
   }
+
+  console.log(
+    `\n[migrate-all] media: ${mediaStats.uploaded} uploaded, ${mediaStats.skipped} skipped (no local), ${mediaStats.failed} failed`
+  );
 }
 
 main().catch((e) => {

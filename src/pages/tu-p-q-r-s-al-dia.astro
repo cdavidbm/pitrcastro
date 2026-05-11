@@ -4,6 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
 import { getAtencionPqrs } from '../utils/strapi-fetchers';
+import { mediaUrl } from '../utils/strapi-media';
 
 const pageData = await getAtencionPqrs();
 const base = import.meta.env.BASE_URL;
@@ -119,7 +120,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
         >
           <div class="informes-list">
             {grupo.reportes.map((reporte) => (
-              <a href={reporte.file} target="_blank" rel="noopener" class={`informe-card ${fileColorClass(reporte.tipo)}`}>
+              <a href={mediaUrl(reporte.file)} target="_blank" rel="noopener" class={`informe-card ${fileColorClass(reporte.tipo)}`}>
                 <div class="informe-card__icon">
                   <i class={`fa-solid ${fileIcon(reporte.tipo)}`} aria-hidden="true"></i>
                 </div>

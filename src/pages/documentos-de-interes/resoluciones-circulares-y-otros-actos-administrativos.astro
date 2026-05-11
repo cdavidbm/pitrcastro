@@ -4,6 +4,7 @@ import HeroPage from '../../components/HeroPage.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import { getNormativaResoluciones } from '../../utils/strapi-fetchers';
+import { mediaUrl } from '../../utils/strapi-media';
 
 const pageData = await getNormativaResoluciones();
 const base = import.meta.env.BASE_URL;
@@ -177,7 +178,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
                 </td>
                 <td data-label="PDF" class="td-center">
                   {a.pdfUrl && (
-                    <a href={a.pdfUrl} target="_blank" rel="noopener" class="pdf-link" title="Descargar PDF">
+                    <a href={mediaUrl(a.pdfUrl)} target="_blank" rel="noopener" class="pdf-link" title="Descargar PDF">
                       <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
                     </a>
                   )}

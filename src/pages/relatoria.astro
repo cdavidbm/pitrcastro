@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
 import { getTransparenciaRelatoria } from '../utils/strapi-fetchers';
+import { mediaUrl } from '../utils/strapi-media';
 const pageData = await getTransparenciaRelatoria();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
@@ -147,9 +148,9 @@ const conArchivo = fichas.filter((f) => f.archivo).length;
                 <td data-label="Título" class="td-titulo">{f.titulo}</td>
                 <td data-label="Tamaño" class="td-tamano">{f.tamano || '—'}</td>
                 <td data-label="Archivo" class="td-center">
-                  {f.archivo ? (
+                  {(() => { const u = mediaUrl(f.archivo); return u ? (
                     <a
-                      href={f.archivo.startsWith('/') ? resolveUrl(f.archivo) : f.archivo}
+                      href={u.startsWith('/') && !u.startsWith('//') ? resolveUrl(u) : u}
                       target="_blank"
                       rel="noopener"
                       class="pdf-link"
@@ -162,7 +163,7 @@ const conArchivo = fichas.filter((f) => f.archivo).length;
                     <span class="pdf-pending" title="Documento pendiente de carga">
                       <i class="fa-solid fa-clock" aria-hidden="true"></i>
                     </span>
-                  )}
+                  ); })()}
                 </td>
               </tr>
             ))}

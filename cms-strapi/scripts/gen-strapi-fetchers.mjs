@@ -45,19 +45,24 @@ function buildPopulate(attributes, depth = 0, seen = new Set()) {
   const out = {};
   let any = false;
   for (const [name, attr] of Object.entries(attributes || {})) {
-    if (attr.type !== 'component') continue;
-    any = true;
-    const compSchema = loadComponentSchema(attr.component);
-    if (!compSchema || seen.has(attr.component)) {
+    if (attr.type === 'component') {
+      any = true;
+      const compSchema = loadComponentSchema(attr.component);
+      if (!compSchema || seen.has(attr.component)) {
+        out[name] = true;
+        continue;
+      }
+      const nested = buildPopulate(
+        compSchema.attributes || {},
+        depth + 1,
+        new Set([...seen, attr.component])
+      );
+      out[name] = nested === true ? true : { populate: nested };
+    } else if (attr.type === 'media') {
+      // Strapi v5 no popula media por defecto; hay que pedirlo explícito.
+      any = true;
       out[name] = true;
-      continue;
     }
-    const nested = buildPopulate(
-      compSchema.attributes || {},
-      depth + 1,
-      new Set([...seen, attr.component])
-    );
-    out[name] = nested === true ? true : { populate: nested };
   }
   return any ? out : true;
 }

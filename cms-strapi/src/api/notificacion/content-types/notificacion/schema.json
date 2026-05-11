@@ -14,7 +14,11 @@
   "attributes": {
     "categoria": {
       "type": "enumeration",
-      "enum": ["edicto", "estado", "traslado"],
+      "enum": [
+        "edicto",
+        "estado",
+        "traslado"
+      ],
       "required": true
     },
     "expediente": {
@@ -40,7 +44,13 @@
       "type": "string"
     },
     "pdfUrl": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
     },
     "vigencia": {
       "type": "integer"

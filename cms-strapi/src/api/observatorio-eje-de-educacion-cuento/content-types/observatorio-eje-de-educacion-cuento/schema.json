@@ -25,7 +25,13 @@
       "type": "string"
     },
     "pdfUrl": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
     },
     "pdfSize": {
       "type": "string"

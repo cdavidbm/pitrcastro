@@ -4,6 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
 import { getAtencionCanalesDeAtencion } from '../utils/strapi-fetchers';
+import { mediaUrl } from '../utils/strapi-media';
 
 const pageData = await getAtencionCanalesDeAtencion();
 const base = import.meta.env.BASE_URL;
@@ -77,7 +78,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 
       {pageData.portafolio && (
         <div class="portafolio-section">
-          <a href={pageData.portafolio.file} target="_blank" rel="noopener" class="portafolio-link">
+          <a href={mediaUrl(pageData.portafolio.file)} target="_blank" rel="noopener" class="portafolio-link">
             <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
             <span>{pageData.portafolio.nombre}</span>
             <i class="fa-solid fa-download" aria-hidden="true"></i>
