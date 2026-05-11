@@ -14,12 +14,21 @@ interface PageData {
   informes: InformeItem[];
 }
 
-const { pageData } = Astro.props as { pageData: PageData };
+interface Props {
+  pageData: PageData;
+  // Sección padre del breadcrumb. Default Transparencia (90% de los uses);
+  // override para las páginas que conceptualmente cuelgan de Agencia
+  // (manuales-internos, manual-de-identidad-visual-itrc) u otras secciones.
+  section?: { label: string; href: string };
+}
+
+const { pageData, section } = Astro.props as Props;
 const base = import.meta.env.BASE_URL;
+const parent = section ?? { label: 'Transparencia', href: `${base}transparencia` };
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: parent.label, href: parent.href },
   { label: pageData.title }
 ];
 
@@ -51,8 +60,8 @@ const total = pageData.informes.length;
     </ul>
 
     <div class="back-link">
-      <a href={`${base}transparencia`}>
-        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia
+      <a href={parent.href}>
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a {parent.label}
       </a>
     </div>
   </div>

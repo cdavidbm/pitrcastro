@@ -2,9 +2,10 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getAgenciaEmpleoRrhhManualesInternos } from '../utils/strapi-fetchers';
+import { resolveUrl } from '../utils/url';
 const pageData = await getAgenciaEmpleoRrhhManualesInternos();
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="agencia-empleo-rrhh-manuales-internos">
-  <ListadoInformes pageData={pageData} />
+  <ListadoInformes pageData={pageData} section={{ label: 'Agencia', href: resolveUrl('/agencia') }} />
 </Base>
