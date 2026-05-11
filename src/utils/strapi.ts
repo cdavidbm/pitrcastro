@@ -2,9 +2,12 @@
  * Fetcher para Strapi v5 usado durante el build de Astro.
  *
  * Convención: cada función getXxx() devuelve el objeto `data` ya desempacado
- * (sin la envoltura `{ data: ... }` de Strapi). Si Strapi está caído o el
- * endpoint falla, la función lanza un error que detiene el build con un
- * mensaje claro (mejor que producir HTML vacío silenciosamente).
+ * (sin la envoltura `{ data: ... }` de Strapi). Errores de red o status >= 500
+ * detienen el build con un mensaje claro. Un 404 se trata como "content type
+ * aún no desplegado": se devuelve null y se loggea un warning, para que el
+ * build no se rompa cuando un schema nuevo se mergea antes de actualizar la
+ * imagen Strapi del server. Los consumers deben manejar null sin asumir
+ * presencia del campo.
  *
  * Variables de entorno (definidas en .env durante dev, en repo variables
  * del workflow durante build CI):
@@ -21,6 +24,14 @@ export async function strapiGet<T>(pathWithQuery: string): Promise<T> {
   const res = await fetch(url, {
     headers: STRAPI_TOKEN ? { Authorization: `Bearer ${STRAPI_TOKEN}` } : {},
   });
+  if (res.status === 404) {
+    // Content type aún no desplegado al server. Tolerable durante el rollout
+    // de un schema nuevo. El consumer debe esperar null y degradar.
+    console.warn(
+      `[strapi] GET ${pathWithQuery} → 404. Content type aún no desplegado; devuelvo null.`
+    );
+    return null as T;
+  }
   if (!res.ok) {
     throw new Error(
       `[strapi] GET ${pathWithQuery} → ${res.status}: ${await res.text()}`

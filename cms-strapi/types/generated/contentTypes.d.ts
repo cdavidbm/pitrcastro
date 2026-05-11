@@ -399,7 +399,7 @@ export interface ApiAgenciaDireccionamientoEstrategicoAgenciaDireccionamientoEst
   collectionName: 'agencia_direccionamiento_estrategico';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/direccionamiento-estrategico.json';
-    displayName: '02. Agencia / Direccionamiento Estrategico';
+    displayName: '02. Agencia / Direccionamiento Estrat\u00E9gico';
     pluralName: 'agencia-direccionamiento-estrategicos';
     singularName: 'agencia-direccionamiento-estrategico';
   };
@@ -503,7 +503,7 @@ export interface ApiAgenciaDireccionamientoPoliticasAgenciaDireccionamientoPolit
   collectionName: 'agencia_direccionamiento_politicas';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/direccionamiento/politicas.json';
-    displayName: '02. Agencia / Direccionamiento Politicas';
+    displayName: '02. Agencia / Direccionamiento Pol\u00EDticas';
     pluralName: 'agencia-direccionamiento-politicases';
     singularName: 'agencia-direccionamiento-politicas';
   };
@@ -569,7 +569,7 @@ export interface ApiAgenciaEmpleoRrhhManualEspecificoFuncionesAgenciaEmpleoRrhhM
   collectionName: 'agencia_empleo_rrhh_manual_especifico_funciones';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json';
-    displayName: '02. Agencia / Empleo Rrhh Manual Especifico Funciones';
+    displayName: '02. Agencia / Empleo RRHH Manual Espec\u00EDfico Funciones';
     pluralName: 'agencia-empleo-rrhh-manual-especifico-funcioneses';
     singularName: 'agencia-empleo-rrhh-manual-especifico-funciones';
   };
@@ -604,7 +604,7 @@ export interface ApiAgenciaEmpleoRrhhManualIdentidadVisualAgenciaEmpleoRrhhManua
   collectionName: 'agencia_empleo_rrhh_manual_identidad_visual';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/manual-identidad-visual.json';
-    displayName: '02. Agencia / Empleo Rrhh Manual Identidad Visual';
+    displayName: '02. Agencia / Empleo RRHH Manual Identidad Visual';
     pluralName: 'agencia-empleo-rrhh-manual-identidad-visuals';
     singularName: 'agencia-empleo-rrhh-manual-identidad-visual';
   };
@@ -639,7 +639,7 @@ export interface ApiAgenciaEmpleoRrhhManualesInternosAgenciaEmpleoRrhhManualesIn
   collectionName: 'agencia_empleo_rrhh_manuales_internos';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/manuales-internos.json';
-    displayName: '02. Agencia / Empleo Rrhh Manuales Internos';
+    displayName: '02. Agencia / Empleo RRHH Manuales Internos';
     pluralName: 'agencia-empleo-rrhh-manuales-internoses';
     singularName: 'agencia-empleo-rrhh-manuales-internos';
   };
@@ -671,7 +671,7 @@ export interface ApiAgenciaEmpleoRrhhNombramientosAgenciaEmpleoRrhhNombramientos
   collectionName: 'agencia_empleo_rrhh_nombramientos';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/nombramientos.json';
-    displayName: '02. Agencia / Empleo Rrhh Nombramientos';
+    displayName: '02. Agencia / Empleo RRHH Nombramientos';
     pluralName: 'agencia-empleo-rrhh-nombramientoses';
     singularName: 'agencia-empleo-rrhh-nombramientos';
   };
@@ -704,7 +704,7 @@ export interface ApiAgenciaEmpleoRrhhOfertasEmpleoAgenciaEmpleoRrhhOfertasEmpleo
   collectionName: 'agencia_empleo_rrhh_ofertas_empleo';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json';
-    displayName: '02. Agencia / Empleo Rrhh Ofertas Empleo';
+    displayName: '02. Agencia / Empleo RRHH Ofertas Empleo';
     pluralName: 'agencia-empleo-rrhh-ofertas-empleos';
     singularName: 'agencia-empleo-rrhh-ofertas-empleo';
   };
@@ -765,7 +765,7 @@ export interface ApiAgenciaGestionMisionalAgenciaGestionMisional extends Struct.
   collectionName: 'agencia_gestion_misional';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/gestion-misional.json';
-    displayName: '02. Agencia / Gestion Misional';
+    displayName: '02. Agencia / Gesti\u00F3n Misional';
     pluralName: 'agencia-gestion-misionals';
     singularName: 'agencia-gestion-misional';
   };
@@ -799,7 +799,7 @@ export interface ApiAgenciaInformacionFinancieraAgenciaInformacionFinanciera
   collectionName: 'agencia_informacion_financiera';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/informacion-financiera.json';
-    displayName: '02. Agencia / Informacion Financiera';
+    displayName: '02. Agencia / Informaci\u00F3n Financiera';
     pluralName: 'agencia-informacion-financieras';
     singularName: 'agencia-informacion-financiera';
   };
@@ -932,7 +932,7 @@ export interface ApiAgenciaPlanInstitucionalDeArchivosAgenciaPlanInstitucionalDe
   collectionName: 'agencia_plan_institucional_de_archivos';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/plan-institucional-de-archivos.json';
-    displayName: '02. Agencia / Plan Institucional De Archivos';
+    displayName: '02. Agencia / Plan Institucional de Archivos';
     pluralName: 'agencia-plan-institucional-de-archivoses';
     singularName: 'agencia-plan-institucional-de-archivos';
   };
@@ -967,7 +967,7 @@ export interface ApiAgenciaSistemaDeControlInternoAgenciaSistemaDeControlInterno
   collectionName: 'agencia_sistema_de_control_interno';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/sistema-de-control-interno.json';
-    displayName: '02. Agencia / Sistema De Control Interno';
+    displayName: '02. Agencia / Sistema de Control Interno';
     pluralName: 'agencia-sistema-de-control-internos';
     singularName: 'agencia-sistema-de-control-interno';
   };
@@ -1026,7 +1026,7 @@ export interface ApiAgenciaSistemaIntegradoDeGestionAgenciaSistemaIntegradoDeGes
   collectionName: 'agencia_sistema_integrado_de_gestion';
   info: {
     description: 'Auto-generado desde src/content/pages/agencia/sistema-integrado-de-gestion.json';
-    displayName: '02. Agencia / Sistema Integrado De Gestion';
+    displayName: '02. Agencia / Sistema Integrado de Gesti\u00F3n';
     pluralName: 'agencia-sistema-integrado-de-gestions';
     singularName: 'agencia-sistema-integrado-de-gestion';
   };
@@ -1061,7 +1061,7 @@ export interface ApiAtencionCanalesDeAtencionAtencionCanalesDeAtencion
   collectionName: 'atencion_canales_de_atencion';
   info: {
     description: 'Auto-generado desde src/content/pages/atencion/canales-de-atencion.json';
-    displayName: '04. Atenci\u00F3n y Servicios / Canales De Atencion';
+    displayName: '04. Atenci\u00F3n y Servicios / Canales de Atenci\u00F3n';
     pluralName: 'atencion-canales-de-atencions';
     singularName: 'atencion-canales-de-atencion';
   };
@@ -1230,7 +1230,7 @@ export interface ApiAtencionPqrsServidoresAtencionPqrsServidores extends Struct.
   collectionName: 'atencion_pqrs_servidores';
   info: {
     description: 'Auto-generado desde src/content/pages/atencion/pqrs-servidores.json';
-    displayName: '04. Atenci\u00F3n y Servicios / Pqrs Servidores';
+    displayName: '04. Atenci\u00F3n y Servicios / PQRS Servidores';
     pluralName: 'atencion-pqrs-servidoreses';
     singularName: 'atencion-pqrs-servidores';
   };
@@ -1261,7 +1261,7 @@ export interface ApiAtencionPqrsAtencionPqrs extends Struct.SingleTypeSchema {
   collectionName: 'atencion_pqrs';
   info: {
     description: 'Auto-generado desde src/content/pages/atencion/pqrs.json';
-    displayName: '04. Atenci\u00F3n y Servicios / Pqrs';
+    displayName: '04. Atenci\u00F3n y Servicios / PQRS';
     pluralName: 'atencion-pqrses';
     singularName: 'atencion-pqrs';
   };
@@ -1330,7 +1330,7 @@ export interface ApiAtencionVinculacionATercerosAtencionVinculacionATerceros
   collectionName: 'atencion_vinculacion_a_terceros';
   info: {
     description: 'Auto-generado desde src/content/pages/atencion/vinculacion-a-terceros.json';
-    displayName: '04. Atenci\u00F3n y Servicios / Vinculacion A Terceros';
+    displayName: '04. Atenci\u00F3n y Servicios / Vinculaci\u00F3n a Terceros';
     pluralName: 'atencion-vinculacion-a-terceroses';
     singularName: 'atencion-vinculacion-a-terceros';
   };
@@ -1432,6 +1432,39 @@ export interface ApiCiprepCiprep extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
+  collectionName: 'eventos';
+  info: {
+    description: 'Calendario de eventos institucionales de la Agencia ITRC.';
+    displayName: '08. Prensa / Eventos';
+    pluralName: 'eventos';
+    singularName: 'evento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    archived: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    endDate: Schema.Attribute.DateTime;
+    image: Schema.Attribute.String;
+    inscriptionLink: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::evento.evento'> &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    published: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    publishedAt: Schema.Attribute.DateTime;
+    startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    virtualLink: Schema.Attribute.String;
+  };
+}
+
 export interface ApiGaleriaGaleria extends Struct.CollectionTypeSchema {
   collectionName: 'galeria_items';
   info: {
@@ -1491,7 +1524,7 @@ export interface ApiInstitucionalAudiosItrcInstitucionalAudiosItrc extends Struc
   collectionName: 'institucional_audios_itrc';
   info: {
     description: 'Auto-generado desde src/content/pages/institucional/audios-itrc.json';
-    displayName: '09. Institucional / Audios Itrc';
+    displayName: '09. Institucional / Audios ITRC';
     pluralName: 'institucional-audios-itrcs';
     singularName: 'institucional-audios-itrc';
   };
@@ -1651,7 +1684,7 @@ export interface ApiInstitucionalHistoricoInvestigacionesDisciplinariasInstituci
   collectionName: 'institucional_historico_investigaciones_disciplinarias';
   info: {
     description: 'Auto-generado desde src/content/pages/institucional/historico-investigaciones-disciplinarias.json';
-    displayName: '09. Institucional / Historico Investigaciones Disciplinarias';
+    displayName: '09. Institucional / Hist\u00F3rico Investigaciones Disciplinarias';
     pluralName: 'institucional-historico-investigaciones-disciplinariases';
     singularName: 'institucional-historico-investigaciones-disciplinarias';
   };
@@ -1686,7 +1719,7 @@ export interface ApiInstitucionalHistoricoSistemaControlInternoInstitucionalHist
   collectionName: 'institucional_historico_sistema_control_interno';
   info: {
     description: 'Auto-generado desde src/content/pages/institucional/historico-sistema-control-interno.json';
-    displayName: '09. Institucional / Historico Sistema Control Interno';
+    displayName: '09. Institucional / Hist\u00F3rico Sistema Control Interno';
     pluralName: 'institucional-historico-sistema-control-internos';
     singularName: 'institucional-historico-sistema-control-interno';
   };
@@ -1722,7 +1755,7 @@ export interface ApiInstitucionalPublicacionDatosAbiertosInstitucionalPublicacio
   collectionName: 'institucional_publicacion_datos_abiertos';
   info: {
     description: 'Auto-generado desde src/content/pages/institucional/publicacion-datos-abiertos.json';
-    displayName: '09. Institucional / Publicacion Datos Abiertos';
+    displayName: '09. Institucional / Publicaci\u00F3n Datos Abiertos';
     pluralName: 'institucional-publicacion-datos-abiertoses';
     singularName: 'institucional-publicacion-datos-abiertos';
   };
@@ -1940,7 +1973,7 @@ export interface ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuri
   collectionName: 'normativa_unificacion_suin_juriscol';
   info: {
     description: 'Auto-generado desde src/content/pages/normativa/unificacion-suin-juriscol.json';
-    displayName: '03. Normativa / Unificacion Suin Juriscol';
+    displayName: '03. Normativa / Unificaci\u00F3n SUIN Juriscol';
     pluralName: 'normativa-unificacion-suin-juriscols';
     singularName: 'normativa-unificacion-suin-juriscol';
   };
@@ -2028,7 +2061,7 @@ export interface ApiNotificacionNotificacion extends Struct.CollectionTypeSchema
   collectionName: 'notificaciones';
   info: {
     description: 'Notificaciones por edicto, estados y traslados publicados por la Agencia ITRC.';
-    displayName: '05. Atenci\u00F3n / Notificaciones y Traslados';
+    displayName: '04. Atenci\u00F3n y Servicios / Notificaciones y Traslados';
     pluralName: 'notificaciones';
     singularName: 'notificacion';
   };
@@ -2048,7 +2081,7 @@ export interface ApiNotificacionNotificacion extends Struct.CollectionTypeSchema
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::notificacion.notificacion'> &
       Schema.Attribute.Private;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     tipoAuto: Schema.Attribute.String;
     tipoNotificacion: Schema.Attribute.String;
@@ -2095,7 +2128,7 @@ export interface ApiObservatorioEjeDeEducacionArticulosObservatorioEjeDeEducacio
   collectionName: 'observatorio_eje_de_educacion_articulos';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/articulos.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Articulos';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Art\u00EDculos';
     pluralName: 'observatorio-eje-de-educacion-articuloses';
     singularName: 'observatorio-eje-de-educacion-articulos';
   };
@@ -2126,7 +2159,7 @@ export interface ApiObservatorioEjeDeEducacionCartillaInfantilObservatorioEjeDeE
   collectionName: 'observatorio_eje_de_educacion_cartilla_infantil';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/cartilla-infantil.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Cartilla Infantil';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Cartilla Infantil';
     pluralName: 'observatorio-eje-de-educacion-cartilla-infantils';
     singularName: 'observatorio-eje-de-educacion-cartilla-infantil';
   };
@@ -2157,7 +2190,7 @@ export interface ApiObservatorioEjeDeEducacionConociendoObservatorioEjeDeEducaci
   collectionName: 'observatorio_eje_de_educacion_conociendo';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/conociendo.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Conociendo';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Conociendo';
     pluralName: 'observatorio-eje-de-educacion-conociendos';
     singularName: 'observatorio-eje-de-educacion-conociendo';
   };
@@ -2191,7 +2224,7 @@ export interface ApiObservatorioEjeDeEducacionCuentoObservatorioEjeDeEducacionCu
   collectionName: 'observatorio_eje_de_educacion_cuento';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/cuento.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Cuento';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Cuento';
     pluralName: 'observatorio-eje-de-educacion-cuentos';
     singularName: 'observatorio-eje-de-educacion-cuento';
   };
@@ -2212,7 +2245,7 @@ export interface ApiObservatorioEjeDeEducacionCuentoObservatorioEjeDeEducacionCu
       Schema.Attribute.Private;
     pdfPaginas: Schema.Attribute.Integer;
     pdfSize: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -2225,7 +2258,7 @@ export interface ApiObservatorioEjeDeEducacionGlosarioNinosObservatorioEjeDeEduc
   collectionName: 'observatorio_eje_de_educacion_glosario_ninos';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Glosario Ninos';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Glosario Ni\u00F1os';
     pluralName: 'observatorio-eje-de-educacion-glosario-ninoses';
     singularName: 'observatorio-eje-de-educacion-glosario-ninos';
   };
@@ -2260,7 +2293,7 @@ export interface ApiObservatorioEjeDeEducacionItrcParaNinosObservatorioEjeDeEduc
   collectionName: 'observatorio_eje_de_educacion_itrc_para_ninos';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Itrc Para Ninos';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n ITRC Para Ni\u00F1os';
     pluralName: 'observatorio-eje-de-educacion-itrc-para-ninoses';
     singularName: 'observatorio-eje-de-educacion-itrc-para-ninos';
   };
@@ -2295,7 +2328,7 @@ export interface ApiObservatorioEjeDeEducacionJuegoDeRolesObservatorioEjeDeEduca
   collectionName: 'observatorio_eje_de_educacion_juego_de_roles';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Juego De Roles';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Juego de Roles';
     pluralName: 'observatorio-eje-de-educacion-juego-de-roleses';
     singularName: 'observatorio-eje-de-educacion-juego-de-roles';
   };
@@ -2327,7 +2360,7 @@ export interface ApiObservatorioEjeDeEducacionLibroInfantilObservatorioEjeDeEduc
   collectionName: 'observatorio_eje_de_educacion_libro_infantil';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/libro-infantil.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Libro Infantil';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Libro Infantil';
     pluralName: 'observatorio-eje-de-educacion-libro-infantils';
     singularName: 'observatorio-eje-de-educacion-libro-infantil';
   };
@@ -2347,7 +2380,7 @@ export interface ApiObservatorioEjeDeEducacionLibroInfantilObservatorioEjeDeEduc
       Schema.Attribute.Private;
     pdfPaginas: Schema.Attribute.Integer;
     pdfSize: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -2360,7 +2393,7 @@ export interface ApiObservatorioEjeDeEducacionMemoriaObservatorioEjeDeEducacionM
   collectionName: 'observatorio_eje_de_educacion_memorias_items';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Memorias';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n / Memorias';
     pluralName: 'observatorio-eje-de-educacion-memorias';
     singularName: 'observatorio-eje-de-educacion-memoria';
   };
@@ -2395,7 +2428,7 @@ export interface ApiObservatorioEjeDeEducacionMemoriasInfoObservatorioEjeDeEduca
   collectionName: 'observatorio_eje_de_educacion_memorias_info';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Memorias Info';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Memorias Info';
     pluralName: 'observatorio-eje-de-educacion-memorias-infos';
     singularName: 'observatorio-eje-de-educacion-memorias-info';
   };
@@ -2427,7 +2460,7 @@ export interface ApiObservatorioEjeDeEducacionQuizObservatorioEjeDeEducacionQuiz
   collectionName: 'observatorio_eje_de_educacion_quiz';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/quiz.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Quiz';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Quiz';
     pluralName: 'observatorio-eje-de-educacion-quices';
     singularName: 'observatorio-eje-de-educacion-quiz';
   };
@@ -2459,7 +2492,7 @@ export interface ApiObservatorioEjeDeEducacionRepositorioJuridicoObservatorioEje
   collectionName: 'observatorio_eje_de_educacion_repositorio_juridico';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Repositorio Juridico';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Repositorio Jur\u00EDdico';
     pluralName: 'observatorio-eje-de-educacion-repositorio-juridicos';
     singularName: 'observatorio-eje-de-educacion-repositorio-juridico';
   };
@@ -2494,7 +2527,7 @@ export interface ApiObservatorioEjeDeEducacionSopaDeLetrasObservatorioEjeDeEduca
   collectionName: 'observatorio_eje_de_educacion_sopa_de_letras';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/sopa-de-letras.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Sopa De Letras';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Sopa de Letras';
     pluralName: 'observatorio-eje-de-educacion-sopa-de-letrases';
     singularName: 'observatorio-eje-de-educacion-sopa-de-letras';
   };
@@ -2526,7 +2559,7 @@ export interface ApiObservatorioEjeDeEducacionVideoNinosObservatorioEjeDeEducaci
   collectionName: 'observatorio_eje_de_educacion_video_ninos';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/video-ninos.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion Video Ninos';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Video Ni\u00F1os';
     pluralName: 'observatorio-eje-de-educacion-video-ninoses';
     singularName: 'observatorio-eje-de-educacion-video-ninos';
   };
@@ -2559,7 +2592,7 @@ export interface ApiObservatorioEjeDeEducacionObservatorioEjeDeEducacion
   collectionName: 'observatorio_eje_de_educacion';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion.json';
-    displayName: '07. Observatorio ITRC / Eje De Educacion';
+    displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n';
     pluralName: 'observatorio-eje-de-educacions';
     singularName: 'observatorio-eje-de-educacion';
   };
@@ -2591,7 +2624,7 @@ export interface ApiObservatorioEjeDeMedicionObservatorioEjeDeMedicion
   collectionName: 'observatorio_eje_de_medicion';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-medicion.json';
-    displayName: '07. Observatorio ITRC / Eje De Medicion';
+    displayName: '07. Observatorio ITRC / Eje de Medici\u00F3n';
     pluralName: 'observatorio-eje-de-medicions';
     singularName: 'observatorio-eje-de-medicion';
   };
@@ -2624,7 +2657,7 @@ export interface ApiObservatorioEjeDeParticipacionCartillasObservatorioEjeDePart
   collectionName: 'observatorio_eje_de_participacion_cartillas';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/cartillas.json';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Cartillas';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Cartillas';
     pluralName: 'observatorio-eje-de-participacion-cartillases';
     singularName: 'observatorio-eje-de-participacion-cartillas';
   };
@@ -2658,7 +2691,7 @@ export interface ApiObservatorioEjeDeParticipacionEncuestaObservatorioEjeDeParti
   collectionName: 'observatorio_eje_de_participacion_encuesta';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/encuesta.json';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Encuesta';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Encuesta';
     pluralName: 'observatorio-eje-de-participacion-encuestas';
     singularName: 'observatorio-eje-de-participacion-encuesta';
   };
@@ -2697,7 +2730,7 @@ export interface ApiObservatorioEjeDeParticipacionMemoriaObservatorioEjeDePartic
   collectionName: 'observatorio_eje_de_participacion_memorias_items';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Memorias';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n / Memorias';
     pluralName: 'observatorio-eje-de-participacion-memorias';
     singularName: 'observatorio-eje-de-participacion-memoria';
   };
@@ -2732,7 +2765,7 @@ export interface ApiObservatorioEjeDeParticipacionMemoriasInfoObservatorioEjeDeP
   collectionName: 'observatorio_eje_de_participacion_memorias_info';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias.json';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Memorias Info';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Memorias Info';
     pluralName: 'observatorio-eje-de-participacion-memorias-infos';
     singularName: 'observatorio-eje-de-participacion-memorias-info';
   };
@@ -2764,7 +2797,7 @@ export interface ApiObservatorioEjeDeParticipacionNoticiasObservatorioEjeDeParti
   collectionName: 'observatorio_eje_de_participacion_noticias';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/noticias.json';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Noticias';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Noticias';
     pluralName: 'observatorio-eje-de-participacion-noticiases';
     singularName: 'observatorio-eje-de-participacion-noticias';
   };
@@ -2799,7 +2832,7 @@ export interface ApiObservatorioEjeDeParticipacionVideosTutorialesObservatorioEj
   collectionName: 'observatorio_eje_de_participacion_videos_tutoriales';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json';
-    displayName: '07. Observatorio ITRC / Eje De Participacion Videos Tutoriales';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Videos Tutoriales';
     pluralName: 'observatorio-eje-de-participacion-videos-tutorialeses';
     singularName: 'observatorio-eje-de-participacion-videos-tutoriales';
   };
@@ -2833,7 +2866,7 @@ export interface ApiObservatorioEjeDeParticipacionObservatorioEjeDeParticipacion
   collectionName: 'observatorio_eje_de_participacion';
   info: {
     description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion.json';
-    displayName: '07. Observatorio ITRC / Eje De Participacion';
+    displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n';
     pluralName: 'observatorio-eje-de-participacions';
     singularName: 'observatorio-eje-de-participacion';
   };
@@ -2899,7 +2932,7 @@ export interface ApiParticipaAtencionInformeComiteConciliacionParticipaAtencionI
   collectionName: 'participa_atencion_informe_comite_conciliacion';
   info: {
     description: 'Auto-generado desde src/content/pages/participa-atencion/informe-comite-conciliacion.json';
-    displayName: '05. Participa / Atencion Informe Comite Conciliacion';
+    displayName: '05. Participa / Atenci\u00F3n Informe Comit\u00E9 Conciliaci\u00F3n';
     pluralName: 'participa-atencion-informe-comite-conciliacions';
     singularName: 'participa-atencion-informe-comite-conciliacion';
   };
@@ -2934,7 +2967,7 @@ export interface ApiParticipaAtencionOtrosGruposInteresParticipaAtencionOtrosGru
   collectionName: 'participa_atencion_otros_grupos_interes';
   info: {
     description: 'Auto-generado desde src/content/pages/participa-atencion/otros-grupos-interes.json';
-    displayName: '05. Participa / Atencion Otros Grupos Interes';
+    displayName: '05. Participa / Atenci\u00F3n Otros Grupos Inter\u00E9s';
     pluralName: 'participa-atencion-otros-grupos-intereses';
     singularName: 'participa-atencion-otros-grupos-interes';
   };
@@ -2966,7 +2999,7 @@ export interface ApiParticipaAtencionRespuestaAnonimosParticipaAtencionRespuesta
   collectionName: 'participa_atencion_respuesta_anonimos';
   info: {
     description: 'Auto-generado desde src/content/pages/participa-atencion/respuesta-anonimos.json';
-    displayName: '05. Participa / Atencion Respuesta Anonimos';
+    displayName: '05. Participa / Atenci\u00F3n Respuesta An\u00F3nimos';
     pluralName: 'participa-atencion-respuesta-anonimoses';
     singularName: 'participa-atencion-respuesta-anonimos';
   };
@@ -3171,7 +3204,7 @@ export interface ApiParticipaRendicionDeCuentasParticipaRendicionDeCuentas
   collectionName: 'participa_rendicion_de_cuentas';
   info: {
     description: 'Auto-generado desde src/content/pages/participa/rendicion-de-cuentas.json';
-    displayName: '05. Participa / Rendicion De Cuentas';
+    displayName: '05. Participa / Rendici\u00F3n de Cuentas';
     pluralName: 'participa-rendicion-de-cuentases';
     singularName: 'participa-rendicion-de-cuentas';
   };
@@ -3296,7 +3329,7 @@ export interface ApiPrensaGaleriaPrensaGaleria extends Struct.SingleTypeSchema {
   collectionName: 'prensa_galeria';
   info: {
     description: 'Auto-generado desde src/content/pages/prensa/galeria.json';
-    displayName: '08. Prensa / Galeria';
+    displayName: '08. Prensa / Galer\u00EDa';
     pluralName: 'prensa-galerias';
     singularName: 'prensa-galeria';
   };
@@ -3404,6 +3437,34 @@ export interface ApiPrensaPrensa extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSliderSlider extends Struct.SingleTypeSchema {
+  collectionName: 'sliders';
+  info: {
+    description: 'Carrusel de banners de la p\u00E1gina de inicio. Migrado desde src/content/sliders/home.json.';
+    displayName: '01. Inicio / Slider Principal';
+    pluralName: 'sliders';
+    singularName: 'slider';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    autoplay: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    interval: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<6000>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::slider.slider'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Slider Principal'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slides: Schema.Attribute.Component<'slider.slide', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTransparenciaAccesibilidadTransparenciaAccesibilidad
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_accesibilidad';
@@ -3460,7 +3521,7 @@ export interface ApiTransparenciaAgremiacionesTransparenciaAgremiaciones
     > &
       Schema.Attribute.Private;
     pdfNombre: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -3473,7 +3534,7 @@ export interface ApiTransparenciaComiteConciliacionTransparenciaComiteConciliaci
   collectionName: 'transparencia_comite_conciliacion';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/comite-conciliacion.json';
-    displayName: '06. Transparencia / Comite Conciliacion';
+    displayName: '06. Transparencia / Comit\u00E9 Conciliaci\u00F3n';
     pluralName: 'transparencia-comite-conciliacions';
     singularName: 'transparencia-comite-conciliacion';
   };
@@ -3505,7 +3566,7 @@ export interface ApiTransparenciaContratacionContratacionSuscritaTransparenciaCo
   collectionName: 'transparencia_contratacion_contratacion_suscrita';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/contratacion-suscrita.json';
-    displayName: '06. Transparencia / Contratacion Contratacion Suscrita';
+    displayName: '06. Transparencia / Contrataci\u00F3n Contrataci\u00F3n Suscrita';
     pluralName: 'transparencia-contratacion-contratacion-suscritas';
     singularName: 'transparencia-contratacion-contratacion-suscrita';
   };
@@ -3546,7 +3607,7 @@ export interface ApiTransparenciaContratacionEjecucionContratosTransparenciaCont
   collectionName: 'transparencia_contratacion_ejecucion_contratos';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/ejecucion-contratos.json';
-    displayName: '06. Transparencia / Contratacion Ejecucion Contratos';
+    displayName: '06. Transparencia / Contrataci\u00F3n Ejecuci\u00F3n Contratos';
     pluralName: 'transparencia-contratacion-ejecucion-contratoses';
     singularName: 'transparencia-contratacion-ejecucion-contratos';
   };
@@ -3585,7 +3646,7 @@ export interface ApiTransparenciaContratacionEjecucionTransparenciaContratacionE
   collectionName: 'transparencia_contratacion_ejecucion';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/ejecucion.json';
-    displayName: '06. Transparencia / Contratacion Ejecucion';
+    displayName: '06. Transparencia / Contrataci\u00F3n Ejecuci\u00F3n';
     pluralName: 'transparencia-contratacion-ejecucions';
     singularName: 'transparencia-contratacion-ejecucion';
   };
@@ -3618,7 +3679,7 @@ export interface ApiTransparenciaContratacionFormatosTransparenciaContratacionFo
   collectionName: 'transparencia_contratacion_formatos';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/formatos.json';
-    displayName: '06. Transparencia / Contratacion Formatos';
+    displayName: '06. Transparencia / Contrataci\u00F3n Formatos';
     pluralName: 'transparencia-contratacion-formatoses';
     singularName: 'transparencia-contratacion-formatos';
   };
@@ -3649,7 +3710,7 @@ export interface ApiTransparenciaContratacionManualTransparenciaContratacionManu
   collectionName: 'transparencia_contratacion_manual';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/manual.json';
-    displayName: '06. Transparencia / Contratacion Manual';
+    displayName: '06. Transparencia / Contrataci\u00F3n Manual';
     pluralName: 'transparencia-contratacion-manuals';
     singularName: 'transparencia-contratacion-manual';
   };
@@ -3680,7 +3741,7 @@ export interface ApiTransparenciaContratacionPlanAdquisicionesTransparenciaContr
   collectionName: 'transparencia_contratacion_plan_adquisiciones';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/plan-adquisiciones.json';
-    displayName: '06. Transparencia / Contratacion Plan Adquisiciones';
+    displayName: '06. Transparencia / Contrataci\u00F3n Plan Adquisiciones';
     pluralName: 'transparencia-contratacion-plan-adquisicioneses';
     singularName: 'transparencia-contratacion-plan-adquisiciones';
   };
@@ -3712,7 +3773,7 @@ export interface ApiTransparenciaContratacionProcedimientosAdquisicionTransparen
   collectionName: 'transparencia_contratacion_procedimientos_adquisicion';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json';
-    displayName: '06. Transparencia / Contratacion Procedimientos Adquisicion';
+    displayName: '06. Transparencia / Contrataci\u00F3n Procedimientos Adquisici\u00F3n';
     pluralName: 'transparencia-contratacion-procedimientos-adquisicions';
     singularName: 'transparencia-contratacion-procedimientos-adquisicion';
   };
@@ -3842,7 +3903,7 @@ export interface ApiTransparenciaDefensaPublicaTransparenciaDefensaPublica
   collectionName: 'transparencia_defensa_publica';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/defensa-publica.json';
-    displayName: '06. Transparencia / Defensa Publica';
+    displayName: '06. Transparencia / Defensa P\u00FAblica';
     pluralName: 'transparencia-defensa-publicas';
     singularName: 'transparencia-defensa-publica';
   };
@@ -3904,7 +3965,7 @@ export interface ApiTransparenciaDocumentacionEsquemaPublicacionTransparenciaDoc
   collectionName: 'transparencia_documentacion_esquema_publicacion';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/documentacion/esquema-publicacion.json';
-    displayName: '06. Transparencia / Documentacion Esquema Publicacion';
+    displayName: '06. Transparencia / Documentaci\u00F3n Esquema Publicaci\u00F3n';
     pluralName: 'transparencia-documentacion-esquema-publicacions';
     singularName: 'transparencia-documentacion-esquema-publicacion';
   };
@@ -3939,7 +4000,7 @@ export interface ApiTransparenciaDocumentacionFormatoGruposEtnicosTransparenciaD
   collectionName: 'transparencia_documentacion_formato_grupos_etnicos';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/documentacion/formato-grupos-etnicos.json';
-    displayName: '06. Transparencia / Documentacion Formato Grupos Etnicos';
+    displayName: '06. Transparencia / Documentaci\u00F3n Formato Grupos \u00C9tnicos';
     pluralName: 'transparencia-documentacion-formato-grupos-etnicoses';
     singularName: 'transparencia-documentacion-formato-grupos-etnicos';
   };
@@ -3974,7 +4035,7 @@ export interface ApiTransparenciaDocumentacionProteccionDatosTransparenciaDocume
   collectionName: 'transparencia_documentacion_proteccion_datos';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/documentacion/proteccion-datos.json';
-    displayName: '06. Transparencia / Documentacion Proteccion Datos';
+    displayName: '06. Transparencia / Documentaci\u00F3n Protecci\u00F3n Datos';
     pluralName: 'transparencia-documentacion-proteccion-datoses';
     singularName: 'transparencia-documentacion-proteccion-datos';
   };
@@ -4013,7 +4074,7 @@ export interface ApiTransparenciaDocumentacionRegistroPublicacionesTransparencia
   collectionName: 'transparencia_documentacion_registro_publicaciones';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/documentacion/registro-publicaciones.json';
-    displayName: '06. Transparencia / Documentacion Registro Publicaciones';
+    displayName: '06. Transparencia / Documentaci\u00F3n Registro Publicaciones';
     pluralName: 'transparencia-documentacion-registro-publicacioneses';
     singularName: 'transparencia-documentacion-registro-publicaciones';
   };
@@ -4048,7 +4109,7 @@ export interface ApiTransparenciaEsquemaPublicacionTransparenciaEsquemaPublicaci
   collectionName: 'transparencia_esquema_publicacion';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/esquema-publicacion.json';
-    displayName: '06. Transparencia / Esquema Publicacion';
+    displayName: '06. Transparencia / Esquema Publicaci\u00F3n';
     pluralName: 'transparencia-esquema-publicacions';
     singularName: 'transparencia-esquema-publicacion';
   };
@@ -4067,7 +4128,7 @@ export interface ApiTransparenciaEsquemaPublicacionTransparenciaEsquemaPublicaci
     > &
       Schema.Attribute.Private;
     pdfNombre: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -4080,7 +4141,7 @@ export interface ApiTransparenciaEvaluacionIndependienteTransparenciaEvaluacionI
   collectionName: 'transparencia_evaluacion_independiente';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/evaluacion-independiente.json';
-    displayName: '06. Transparencia / Evaluacion Independiente';
+    displayName: '06. Transparencia / Evaluaci\u00F3n Independiente';
     pluralName: 'transparencia-evaluacion-independientes';
     singularName: 'transparencia-evaluacion-independiente';
   };
@@ -4184,7 +4245,7 @@ export interface ApiTransparenciaHojasDeVidaTransparenciaHojasDeVida
   collectionName: 'transparencia_hojas_de_vida';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/hojas-de-vida.json';
-    displayName: '06. Transparencia / Hojas De Vida';
+    displayName: '06. Transparencia / Hojas de Vida';
     pluralName: 'transparencia-hojas-de-vidas';
     singularName: 'transparencia-hojas-de-vida';
   };
@@ -4216,7 +4277,7 @@ export interface ApiTransparenciaIndiceInformacionClasificadaTransparenciaIndice
   collectionName: 'transparencia_indice_informacion_clasificada';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/indice-informacion-clasificada.json';
-    displayName: '06. Transparencia / Indice Informacion Clasificada';
+    displayName: '06. Transparencia / \u00CDndice Informaci\u00F3n Clasificada';
     pluralName: 'transparencia-indice-informacion-clasificadas';
     singularName: 'transparencia-indice-informacion-clasificada';
   };
@@ -4251,7 +4312,7 @@ export interface ApiTransparenciaInformacionMujeresTransparenciaInformacionMujer
   collectionName: 'transparencia_informacion_mujeres';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/informacion-mujeres.json';
-    displayName: '06. Transparencia / Informacion Mujeres';
+    displayName: '06. Transparencia / Informaci\u00F3n Mujeres';
     pluralName: 'transparencia-informacion-mujereses';
     singularName: 'transparencia-informacion-mujeres';
   };
@@ -4377,7 +4438,7 @@ export interface ApiTransparenciaInformesOrganismosIvcTransparenciaInformesOrgan
   collectionName: 'transparencia_informes_organismos_ivc';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/informes-organismos-ivc.json';
-    displayName: '06. Transparencia / Informes Organismos Ivc';
+    displayName: '06. Transparencia / Informes Organismos IVC';
     pluralName: 'transparencia-informes-organismos-ivcs';
     singularName: 'transparencia-informes-organismos-ivc';
   };
@@ -4595,7 +4656,7 @@ export interface ApiTransparenciaPoliticasManualesTransparenciaPoliticasManuales
   collectionName: 'transparencia_politicas_manuales';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/politicas-manuales.json';
-    displayName: '06. Transparencia / Politicas Manuales';
+    displayName: '06. Transparencia / Pol\u00EDticas Manuales';
     pluralName: 'transparencia-politicas-manualeses';
     singularName: 'transparencia-politicas-manuales';
   };
@@ -4681,7 +4742,7 @@ export interface ApiTransparenciaProcedimientosTransparenciaProcedimientos
     > &
       Schema.Attribute.Private;
     pdfNombre: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -4694,7 +4755,7 @@ export interface ApiTransparenciaProgramaGestionDocumentalTransparenciaProgramaG
   collectionName: 'transparencia_programa_gestion_documental';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/programa-gestion-documental.json';
-    displayName: '06. Transparencia / Programa Gestion Documental';
+    displayName: '06. Transparencia / Programa Gesti\u00F3n Documental';
     pluralName: 'transparencia-programa-gestion-documentals';
     singularName: 'transparencia-programa-gestion-documental';
   };
@@ -4726,7 +4787,7 @@ export interface ApiTransparenciaProtocoloAtencionTransparenciaProtocoloAtencion
   collectionName: 'transparencia_protocolo_atencion';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/protocolo-atencion.json';
-    displayName: '06. Transparencia / Protocolo Atencion';
+    displayName: '06. Transparencia / Protocolo Atenci\u00F3n';
     pluralName: 'transparencia-protocolo-atencions';
     singularName: 'transparencia-protocolo-atencion';
   };
@@ -4745,7 +4806,7 @@ export interface ApiTransparenciaProtocoloAtencionTransparenciaProtocoloAtencion
     > &
       Schema.Attribute.Private;
     pdfNombre: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -4858,7 +4919,7 @@ export interface ApiTransparenciaRegistroActivosTransparenciaRegistroActivos
     > &
       Schema.Attribute.Private;
     pdfNombre: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     publishedAt: Schema.Attribute.DateTime;
     tipoArchivo: Schema.Attribute.String;
     title: Schema.Attribute.String;
@@ -4905,7 +4966,7 @@ export interface ApiTransparenciaRendicionCuentaContraloriaTransparenciaRendicio
   collectionName: 'transparencia_rendicion_cuenta_contraloria';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/rendicion-cuenta-contraloria.json';
-    displayName: '06. Transparencia / Rendicion Cuenta Contraloria';
+    displayName: '06. Transparencia / Rendici\u00F3n Cuenta Contralor\u00EDa';
     pluralName: 'transparencia-rendicion-cuenta-contralorias';
     singularName: 'transparencia-rendicion-cuenta-contraloria';
   };
@@ -5005,7 +5066,7 @@ export interface ApiTransparenciaSupervisionVigilanciaTransparenciaSupervisionVi
   collectionName: 'transparencia_supervision_vigilancia';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/supervision-vigilancia.json';
-    displayName: '06. Transparencia / Supervision Vigilancia';
+    displayName: '06. Transparencia / Supervisi\u00F3n Vigilancia';
     pluralName: 'transparencia-supervision-vigilancias';
     singularName: 'transparencia-supervision-vigilancia';
   };
@@ -5067,7 +5128,7 @@ export interface ApiTransparenciaTramitesTransparenciaTramites extends Struct.Si
   collectionName: 'transparencia_tramites';
   info: {
     description: 'Auto-generado desde src/content/pages/transparencia/tramites.json';
-    displayName: '06. Transparencia / Tramites';
+    displayName: '06. Transparencia / Tr\u00E1mites';
     pluralName: 'transparencia-tramiteses';
     singularName: 'transparencia-tramites';
   };
@@ -5584,6 +5645,7 @@ declare module '@strapi/strapi' {
       'api::atencion-vinculacion-a-terceros.atencion-vinculacion-a-terceros': ApiAtencionVinculacionATercerosAtencionVinculacionATerceros;
       'api::ciprep-speaker.ciprep-speaker': ApiCiprepSpeakerCiprepSpeaker;
       'api::ciprep.ciprep': ApiCiprepCiprep;
+      'api::evento.evento': ApiEventoEvento;
       'api::galeria.galeria': ApiGaleriaGaleria;
       'api::home.home': ApiHomeHome;
       'api::institucional-audios-itrc.institucional-audios-itrc': ApiInstitucionalAudiosItrcInstitucionalAudiosItrc;
@@ -5645,6 +5707,7 @@ declare module '@strapi/strapi' {
       'api::prensa-landing.prensa-landing': ApiPrensaLandingPrensaLanding;
       'api::prensa-videos.prensa-videos': ApiPrensaVideosPrensaVideos;
       'api::prensa.prensa': ApiPrensaPrensa;
+      'api::slider.slider': ApiSliderSlider;
       'api::transparencia-accesibilidad.transparencia-accesibilidad': ApiTransparenciaAccesibilidadTransparenciaAccesibilidad;
       'api::transparencia-agremiaciones.transparencia-agremiaciones': ApiTransparenciaAgremiacionesTransparenciaAgremiaciones;
       'api::transparencia-comite-conciliacion.transparencia-comite-conciliacion': ApiTransparenciaComiteConciliacionTransparenciaComiteConciliacion;

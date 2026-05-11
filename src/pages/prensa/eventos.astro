@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
-import type { EventModule } from '../../types/content';
+import { getEventoList } from '../../utils/strapi-fetchers';
 
 const base = import.meta.env.BASE_URL;
 
@@ -11,19 +11,11 @@ const breadcrumb = [
   { label: 'Eventos' }
 ];
 
-const eventFiles = import.meta.glob<EventModule>('../../content/events/*.json', { eager: true });
+const all = ((await getEventoList()) as any[]) || [];
 
 const now = new Date();
 
-const events = Object.entries(eventFiles)
-  .map(([path, file]) => {
-    const slug = path.split('/').pop()?.replace('.json', '') || '';
-    return {
-      slug,
-      ...file.default
-    };
-  })
-  .filter(event => event.published !== false && !event.archived);
+const events = all.filter((event) => event.published !== false && !event.archived);
 
 // Separar eventos futuros y pasados
 const futureEvents = events

@@ -1,40 +1,29 @@
 ---
-import type { Slide } from '../types/content';
-
-interface SliderConfig {
-  name?: string;
-  autoplay?: boolean;
-  interval?: number;
-  slides?: Slide[];
-  default?: { name?: string; autoplay?: boolean; interval?: number; slides?: Slide[] };
-}
-
 interface Props {
   slider?: string;
   class?: string;
 }
 
 import { resolveUrl } from '../utils/url';
+import { mediaUrl } from '../utils/strapi-media';
+import { getSlider } from '../utils/strapi-fetchers';
 
 const { slider = 'home', class: className = '' } = Astro.props;
 
-let sliderData: SliderConfig | undefined;
-try {
-  const sliders = import.meta.glob<SliderConfig>('../content/sliders/*.json', { eager: true });
-  sliderData = sliders[`../content/sliders/${slider}.json`];
-} catch (e) {
-  console.error(`Slider "${slider}" no encontrado`);
-}
+// El portal usa hoy un único slider (single type Strapi). El prop `slider`
+// queda como anclaje de identidad por si en el futuro se expone como
+// collection con un slug por slider.
+const sliderData = (await getSlider().catch(() => null)) as any;
 
-const slides = sliderData?.slides || sliderData?.default?.slides || [];
+const slides = (sliderData?.slides || []) as any[];
 const config = {
-  autoplay: sliderData?.autoplay ?? sliderData?.default?.autoplay ?? true,
-  interval: sliderData?.interval ?? sliderData?.default?.interval ?? 5000
+  autoplay: sliderData?.autoplay ?? true,
+  interval: sliderData?.interval ?? 5000,
 };
 
 const activeSlides = slides
-  .filter((s) => s.active !== false)
-  .sort((a, b) => (a.order || 0) - (b.order || 0));
+  .filter((s: any) => s.active !== false)
+  .sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
 
 const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)}`;
 ---
@@ -49,10 +38,12 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
     data-interval={config.interval}
   >
     <div class="hero-slider__track">
-      {activeSlides.map((slide, index) => {
+      {activeSlides.map((slide: any, index: number) => {
         const hasContent = slide.title || slide.subtitle || slide.description;
         const isImageOnly = slide.link && !hasContent;
         const slideUrl = slide.external ? slide.link : resolveUrl(slide.link);
+        const imgUrl = mediaUrl(slide.image);
+        const imgMobileUrl = mediaUrl(slide.imageMobile);
 
         return (
           <div
@@ -63,11 +54,11 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
             aria-hidden={index !== 0 ? "true" : "false"}
             data-slide
           >
-            {slide.imageMobile ? (
+            {imgMobileUrl ? (
               <picture>
-                <source media="(max-width: 768px)" srcset={resolveUrl(slide.imageMobile)} />
+                <source media="(max-width: 768px)" srcset={imgMobileUrl} />
                 <img
-                  src={resolveUrl(slide.image)}
+                  src={imgUrl}
                   alt={slide.imageAlt}
                   class="hero-slide__image"
                   loading={index === 0 ? "eager" : "lazy"}
@@ -75,7 +66,7 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
               </picture>
             ) : (
               <img
-                src={resolveUrl(slide.image)}
+                src={imgUrl}
                 alt={slide.imageAlt}
                 class="hero-slide__image"
                 loading={index === 0 ? "eager" : "lazy"}

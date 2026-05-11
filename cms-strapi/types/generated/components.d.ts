@@ -1978,6 +1978,28 @@ export interface SharedRelatedLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SliderSlide extends Struct.ComponentSchema {
+  collectionName: 'components_slider_slides';
+  info: {
+    displayName: 'Slide';
+    icon: 'image';
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    description: Schema.Attribute.Text;
+    external: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imageAlt: Schema.Attribute.String & Schema.Attribute.Required;
+    imageMobile: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    linkText: Schema.Attribute.String;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    overlay: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface TransparenciaAccesibilidadDocumento extends Struct.ComponentSchema {
   collectionName: 'components_transparencia_accesibilidad_documentos';
   info: {
@@ -3110,6 +3132,7 @@ declare module '@strapi/strapi' {
       'prensa-videos.video': PrensaVideosVideo;
       'prensa.section': PrensaSection;
       'shared.related-link': SharedRelatedLink;
+      'slider.slide': SliderSlide;
       'transparencia-accesibilidad.documento': TransparenciaAccesibilidadDocumento;
       'transparencia-comite-conciliacion.anio': TransparenciaComiteConciliacionAnio;
       'transparencia-comite-conciliacion.doc': TransparenciaComiteConciliacionDoc;

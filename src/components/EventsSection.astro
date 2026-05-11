@@ -1,6 +1,6 @@
 ---
 import { resolveUrl } from '../utils/url';
-import type { EventModule } from '../types/content';
+import { getEventoList } from '../utils/strapi-fetchers';
 
 interface Props {
   limit?: number;
@@ -8,16 +8,12 @@ interface Props {
 
 const { limit = 3 } = Astro.props;
 
-const eventFiles = import.meta.glob<EventModule>('../content/events/*.json', { eager: true });
+const all = ((await getEventoList()) as any[]) || [];
 
 const now = new Date();
 
-const events = Object.entries(eventFiles)
-  .map(([path, file]) => {
-    const slug = path.split('/').pop()?.replace('.json', '') || '';
-    return { slug, ...file.default };
-  })
-  .filter(e => e.published !== false && !e.archived && new Date(e.startDate) >= now)
+const events = all
+  .filter((e) => e.published !== false && !e.archived && new Date(e.startDate) >= now)
   .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
   .slice(0, limit);
 

@@ -5,6 +5,7 @@
  */
 import { strapiGet } from './strapi';
 
+export const getSlider = () => strapiGet<any>("/api/slider?populate[slides][populate][image]=true&populate[slides][populate][imageMobile]=true");
 export const getCiprep = () => strapiGet<any>("/api/ciprep?populate[agenda][populate][dia1][populate][items]=true&populate[agenda][populate][dia2][populate][items]=true&populate[aliados][populate][estrategico]=true&populate[aliados][populate][integridad]=true&populate[memorias][populate][recursos]=true&populate[cta]=true&populate[speakersIndex]=true");
 export const getHome = () => strapiGet<any>("/api/home?populate[entidadesVigiladas]=true&populate[columnasServicios][populate][items]=true");
 export const getMapaDelSitio = () => strapiGet<any>("/api/mapa-del-sitio?populate[extras][populate][items]=true");
@@ -18,8 +19,8 @@ export const getAgenciaEquipoDirectivo = () => strapiGet<any>("/api/agencia-equi
 export const getAgenciaGestionMisional = () => strapiGet<any>("/api/agencia-gestion-misional?populate[subdirecciones][populate][observatorio]=true&populate[subdirecciones][populate][categorias][populate][documentos][populate][file]=true&populate[enlacesRelacionados]=true");
 export const getAgenciaInformacionFinanciera = () => strapiGet<any>("/api/agencia-informacion-financiera?populate[tabs][populate][items]=true&populate[infoCards]=true&populate[ctaSection]=true");
 export const getAgenciaLanding = () => strapiGet<any>("/api/agencia-landing?populate[secciones]=true");
-export const getAgenciaMisionVision = () => strapiGet<any>("/api/agencia-mision-vision?populate[proposito]=true&populate[quienesSomos]=true&populate[queHacemos][populate][entidades]=true&populate[comoLoHacemos]=true&populate[funciones][populate][items]=true&populate[valores]=true&populate[mapaEstrategico]=true");
-export const getAgenciaOrganigrama = () => strapiGet<any>("/api/agencia-organigrama?populate[organigrama]=true&populate[funcionesPorArea]=true&populate[resolucionesSeccion]=true&populate[resoluciones]=true&populate[ctaDirectorio]=true");
+export const getAgenciaMisionVision = () => strapiGet<any>("/api/agencia-mision-vision?populate[proposito]=true&populate[quienesSomos]=true&populate[queHacemos][populate][entidades]=true&populate[comoLoHacemos]=true&populate[funciones][populate][items]=true&populate[valores]=true&populate[mapaEstrategico][populate][pdf]=true");
+export const getAgenciaOrganigrama = () => strapiGet<any>("/api/agencia-organigrama?populate[organigrama][populate][pdf]=true&populate[funcionesPorArea]=true&populate[resolucionesSeccion]=true&populate[resoluciones]=true&populate[ctaDirectorio]=true");
 export const getAgenciaPlanInstitucionalDeArchivos = () => strapiGet<any>("/api/agencia-plan-institucional-de-archivos?populate[documentos]=true");
 export const getAgenciaSistemaDeControlInterno = () => strapiGet<any>("/api/agencia-sistema-de-control-interno?populate[entidadesExternas]=true&populate[controlPolitico]=true&populate[controlInterno]=true&populate[contactoInterno]=true&populate[informesLegales][populate][documentos][populate][file]=true&populate[planesMejoramiento]=true&populate[enlacesRelacionados]=true");
 export const getAgenciaSistemaIntegradoDeGestion = () => strapiGet<any>("/api/agencia-sistema-integrado-de-gestion?populate[sections][populate][documents][populate][file]=true&populate[enlacesRelacionados]=true");
@@ -102,7 +103,7 @@ export const getTransparenciaEsquemaPublicacion = () => strapiGet<any>("/api/tra
 export const getTransparenciaEvaluacionIndependiente = () => strapiGet<any>("/api/transparencia-evaluacion-independiente?populate[documentos]=true&populate[enlaceRelacionado]=true");
 export const getTransparenciaFormatosContratosPliegosTipo = () => strapiGet<any>("/api/transparencia-formatos-contratos-pliegos-tipo?populate[informes]=true");
 export const getTransparenciaFormatosFormularios = () => strapiGet<any>("/api/transparencia-formatos-formularios?populate[secciones]=true");
-export const getTransparenciaHojasDeVida = () => strapiGet<any>("/api/transparencia-hojas-de-vida?populate[aspirantes]=true");
+export const getTransparenciaHojasDeVida = () => strapiGet<any>("/api/transparencia-hojas-de-vida?populate[aspirantes][populate][pdf]=true");
 export const getTransparenciaIndiceInformacionClasificada = () => strapiGet<any>("/api/transparencia-indice-informacion-clasificada?populate[informes]=true");
 export const getTransparenciaInformacionMujeres = () => strapiGet<any>("/api/transparencia-informacion-mujeres?populate[secciones][populate][links]=true");
 export const getTransparenciaInformesEmpalme = () => strapiGet<any>("/api/transparencia-informes-empalme?populate[documentos]=true");
@@ -152,6 +153,7 @@ export const getNotificacionList = () => strapiGet<any[]>("/api/notificaciones?p
 export const getEventoList = () => strapiGet<any[]>("/api/eventos?pagination[pageSize]=2000");
 
 export const fetchers = {
+  "slider": getSlider,
   "ciprep": getCiprep,
   "home": getHome,
   "mapa-del-sitio": getMapaDelSitio,

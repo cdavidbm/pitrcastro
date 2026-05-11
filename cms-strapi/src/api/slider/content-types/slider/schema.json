@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "sliders",
+  "info": {
+    "singularName": "slider",
+    "pluralName": "sliders",
+    "displayName": "01. Inicio / Slider Principal",
+    "description": "Carrusel de banners de la página de inicio. Migrado desde src/content/sliders/home.json."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Slider Principal"
+    },
+    "description": {
+      "type": "text"
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "interval": {
+      "type": "integer",
+      "default": 6000
+    },
+    "slides": {
+      "type": "component",
+      "component": "slider.slide",
+      "repeatable": true
+    }
+  }
+}
