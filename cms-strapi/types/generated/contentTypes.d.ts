@@ -761,6 +761,37 @@ export interface ApiAgenciaEquipoDirectivoAgenciaEquipoDirectivo extends Struct.
   };
 }
 
+export interface ApiAgenciaEscalaSalarialAgenciaEscalaSalarial extends Struct.SingleTypeSchema {
+  collectionName: 'agencia_escala_salarial';
+  info: {
+    description: 'Auto-generado desde src/content/pages/agencia/escala-salarial.json';
+    displayName: '02. Agencia / Escala Salarial';
+    pluralName: 'agencia-escala-salarials';
+    singularName: 'agencia-escala-salarial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::agencia-escala-salarial.agencia-escala-salarial'
+    > &
+      Schema.Attribute.Private;
+    pdfNombre: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAgenciaGestionMisionalAgenciaGestionMisional extends Struct.SingleTypeSchema {
   collectionName: 'agencia_gestion_misional';
   info: {
@@ -1086,6 +1117,69 @@ export interface ApiAtencionCanalesDeAtencionAtencionCanalesDeAtencion
     published: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAtencionCartaTratoDignoAtencionCartaTratoDigno extends Struct.SingleTypeSchema {
+  collectionName: 'atencion_carta_trato_digno';
+  info: {
+    description: 'Auto-generado desde src/content/pages/atencion/carta-trato-digno.json';
+    displayName: '04. Atenci\u00F3n y Servicios / Carta Trato Digno';
+    pluralName: 'atencion-carta-trato-dignos';
+    singularName: 'atencion-carta-trato-digno';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::atencion-carta-trato-digno.atencion-carta-trato-digno'
+    > &
+      Schema.Attribute.Private;
+    pdfNombre: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAtencionCartillaAlCiudadanoAtencionCartillaAlCiudadano
+  extends Struct.SingleTypeSchema {
+  collectionName: 'atencion_cartilla_al_ciudadano';
+  info: {
+    description: 'Auto-generado desde src/content/pages/atencion/cartilla-al-ciudadano.json';
+    displayName: '04. Atenci\u00F3n y Servicios / Cartilla Al Ciudadano';
+    pluralName: 'atencion-cartilla-al-ciudadanos';
+    singularName: 'atencion-cartilla-al-ciudadano';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::atencion-cartilla-al-ciudadano.atencion-cartilla-al-ciudadano'
+    > &
+      Schema.Attribute.Private;
+    pdfNombre: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
+    publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
@@ -5626,6 +5720,7 @@ declare module '@strapi/strapi' {
       'api::agencia-empleo-rrhh-nombramientos.agencia-empleo-rrhh-nombramientos': ApiAgenciaEmpleoRrhhNombramientosAgenciaEmpleoRrhhNombramientos;
       'api::agencia-empleo-rrhh-ofertas-empleo.agencia-empleo-rrhh-ofertas-empleo': ApiAgenciaEmpleoRrhhOfertasEmpleoAgenciaEmpleoRrhhOfertasEmpleo;
       'api::agencia-equipo-directivo.agencia-equipo-directivo': ApiAgenciaEquipoDirectivoAgenciaEquipoDirectivo;
+      'api::agencia-escala-salarial.agencia-escala-salarial': ApiAgenciaEscalaSalarialAgenciaEscalaSalarial;
       'api::agencia-gestion-misional.agencia-gestion-misional': ApiAgenciaGestionMisionalAgenciaGestionMisional;
       'api::agencia-informacion-financiera.agencia-informacion-financiera': ApiAgenciaInformacionFinancieraAgenciaInformacionFinanciera;
       'api::agencia-landing.agencia-landing': ApiAgenciaLandingAgenciaLanding;
@@ -5635,6 +5730,8 @@ declare module '@strapi/strapi' {
       'api::agencia-sistema-de-control-interno.agencia-sistema-de-control-interno': ApiAgenciaSistemaDeControlInternoAgenciaSistemaDeControlInterno;
       'api::agencia-sistema-integrado-de-gestion.agencia-sistema-integrado-de-gestion': ApiAgenciaSistemaIntegradoDeGestionAgenciaSistemaIntegradoDeGestion;
       'api::atencion-canales-de-atencion.atencion-canales-de-atencion': ApiAtencionCanalesDeAtencionAtencionCanalesDeAtencion;
+      'api::atencion-carta-trato-digno.atencion-carta-trato-digno': ApiAtencionCartaTratoDignoAtencionCartaTratoDigno;
+      'api::atencion-cartilla-al-ciudadano.atencion-cartilla-al-ciudadano': ApiAtencionCartillaAlCiudadanoAtencionCartillaAlCiudadano;
       'api::atencion-correo-notificaciones-judiciales.atencion-correo-notificaciones-judiciales': ApiAtencionCorreoNotificacionesJudicialesAtencionCorreoNotificacionesJudiciales;
       'api::atencion-glosario.atencion-glosario': ApiAtencionGlosarioAtencionGlosario;
       'api::atencion-landing.atencion-landing': ApiAtencionLandingAtencionLanding;

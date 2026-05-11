@@ -17,6 +17,9 @@ export default defineConfig({
   redirects: {
     '/rendicion-de-cuentas': '/participa/rendicion-de-cuentas',
     '/control-social': '/participa/control-social',
+    // Página ITA "normas que sustentan a la entidad" se cubre con el
+    // listado completo de marco legal (decretos, leyes, resoluciones).
+    '/normas-que-los-sustentan': '/marco-legal',
   },
   build: {
     assets: 'assets'

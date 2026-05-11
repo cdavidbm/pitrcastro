@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "atencion_carta_trato_digno",
+  "info": {
+    "singularName": "atencion-carta-trato-digno",
+    "pluralName": "atencion-carta-trato-dignos",
+    "displayName": "04. Atención y Servicios / Carta Trato Digno",
+    "description": "Auto-generado desde src/content/pages/atencion/carta-trato-digno.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "pdfNombre": {
+      "type": "string"
+    }
+  }
+}

@@ -32,7 +32,10 @@ export const getAgenciaEmpleoRrhhManualIdentidadVisual = () => strapiGet<any>("/
 export const getAgenciaEmpleoRrhhManualesInternos = () => strapiGet<any>("/api/agencia-empleo-rrhh-manuales-internos?populate[informes]=true");
 export const getAgenciaEmpleoRrhhNombramientos = () => strapiGet<any>("/api/agencia-empleo-rrhh-nombramientos?populate[vigencias][populate][documentos]=true");
 export const getAgenciaEmpleoRrhhOfertasEmpleo = () => strapiGet<any>("/api/agencia-empleo-rrhh-ofertas-empleo?populate[cta]=true");
+export const getAgenciaEscalaSalarial = () => strapiGet<any>("/api/agencia-escala-salarial?populate[pdfUrl]=true");
 export const getAtencionCanalesDeAtencion = () => strapiGet<any>("/api/atencion-canales-de-atencion?populate[canales][populate][items]=true&populate[portafolio][populate][file]=true&populate[enlacesRelacionados]=true");
+export const getAtencionCartaTratoDigno = () => strapiGet<any>("/api/atencion-carta-trato-digno?populate[pdfUrl]=true");
+export const getAtencionCartillaAlCiudadano = () => strapiGet<any>("/api/atencion-cartilla-al-ciudadano?populate[pdfUrl]=true");
 export const getAtencionCorreoNotificacionesJudiciales = () => strapiGet<any>("/api/atencion-correo-notificaciones-judiciales?populate[enlacesRelacionados]=true");
 export const getAtencionGlosario = () => strapiGet<any>("/api/atencion-glosario?populate[terminos]=true&populate[enlacesRelacionados]=true");
 export const getAtencionLanding = () => strapiGet<any>("/api/atencion-landing?populate[secciones]=true&populate[enlacesExternos]=true");
@@ -180,7 +183,10 @@ export const fetchers = {
   "agencia-empleo-rrhh-manuales-internos": getAgenciaEmpleoRrhhManualesInternos,
   "agencia-empleo-rrhh-nombramientos": getAgenciaEmpleoRrhhNombramientos,
   "agencia-empleo-rrhh-ofertas-empleo": getAgenciaEmpleoRrhhOfertasEmpleo,
+  "agencia-escala-salarial": getAgenciaEscalaSalarial,
   "atencion-canales-de-atencion": getAtencionCanalesDeAtencion,
+  "atencion-carta-trato-digno": getAtencionCartaTratoDigno,
+  "atencion-cartilla-al-ciudadano": getAtencionCartillaAlCiudadano,
   "atencion-correo-notificaciones-judiciales": getAtencionCorreoNotificacionesJudiciales,
   "atencion-glosario": getAtencionGlosario,
   "atencion-landing": getAtencionLanding,

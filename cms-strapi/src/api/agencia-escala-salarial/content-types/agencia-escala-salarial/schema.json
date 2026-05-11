@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "agencia_escala_salarial",
+  "info": {
+    "singularName": "agencia-escala-salarial",
+    "pluralName": "agencia-escala-salarials",
+    "displayName": "02. Agencia / Escala Salarial",
+    "description": "Auto-generado desde src/content/pages/agencia/escala-salarial.json"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "pdfUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "pdfNombre": {
+      "type": "string"
+    }
+  }
+}
