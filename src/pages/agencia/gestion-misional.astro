@@ -5,6 +5,7 @@ import Accordion from '../../components/Accordion.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import { getAgenciaGestionMisional } from '../../utils/strapi-fetchers';
+import { resolveUrl } from '../../utils/url';
 
 
 const pageData = await getAgenciaGestionMisional();
@@ -13,7 +14,7 @@ const subdirecciones = pageData.subdirecciones;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: pageData.title }
 ];
 

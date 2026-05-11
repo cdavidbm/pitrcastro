@@ -6,6 +6,7 @@ import { getAgenciaEquipoDirectivo } from '../../utils/strapi-fetchers';
 
 const pageData = await getAgenciaEquipoDirectivo();
 import { getAgenciaGestionMisional } from '../../utils/strapi-fetchers';
+import { resolveUrl } from '../../utils/url';
 
 const gestionData = await getAgenciaGestionMisional();
 const base = import.meta.env.BASE_URL;
@@ -23,7 +24,7 @@ function getSubdireccionUrl(area: string) {
 // Breadcrumb
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: title }
 ];
 ---

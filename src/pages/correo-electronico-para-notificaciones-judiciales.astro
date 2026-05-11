@@ -4,13 +4,14 @@ import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
 import { getAtencionCorreoNotificacionesJudiciales } from '../utils/strapi-fetchers';
+import { resolveUrl } from '../utils/url';
 
 const pageData = await getAtencionCorreoNotificacionesJudiciales();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Atención y Servicios', href: '#' },
+  { label: 'Atención y Servicios', href: resolveUrl('/atencion-y-servicios') },
   { label: pageData.title }
 ];
 

@@ -4,6 +4,7 @@ import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 
 import { getAgenciaInformacionFinanciera } from '../../utils/strapi-fetchers';
+import { resolveUrl } from '../../utils/url';
 
 
 const pageData = await getAgenciaInformacionFinanciera();
@@ -13,7 +14,7 @@ const { title, subtitle, tabs: tabsData, infoCards, ctaSection } = pageData;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: title }
 ];
 ---

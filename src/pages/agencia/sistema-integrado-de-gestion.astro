@@ -7,13 +7,14 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 import type { DocumentSection } from '../../types/content';
 import { getAgenciaSistemaIntegradoDeGestion } from '../../utils/strapi-fetchers';
 import { mediaUrl } from '../../utils/strapi-media';
+import { resolveUrl } from '../../utils/url';
 
 const pageData = await getAgenciaSistemaIntegradoDeGestion();
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: 'Sistema Integrado de Gestión' }
 ];
 

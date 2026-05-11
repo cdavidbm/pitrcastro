@@ -4,6 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
 import { getNormograma } from '../utils/strapi-fetchers';
+import { resolveUrl } from '../utils/url';
 
 const normograma = await getNormograma();
 const base = import.meta.env.BASE_URL;
@@ -43,7 +44,7 @@ function vigenciaLabel(v: string) {
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Normativa', href: '#' },
+  { label: 'Normativa', href: resolveUrl('/normativa') },
   { label: 'Normativa Aplicable' }
 ];
 

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import { getAgenciaOrganigrama } from '../../utils/strapi-fetchers';
+import { resolveUrl } from '../../utils/url';
 
 const pageData = await getAgenciaOrganigrama();
 const base = import.meta.env.BASE_URL;
@@ -11,7 +12,7 @@ const { title, subtitle, organigrama, funcionesPorArea, resolucionesSeccion, res
 // Breadcrumb
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: title }
 ];
 ---

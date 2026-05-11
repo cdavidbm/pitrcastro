@@ -2,12 +2,13 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { getEventoList } from '../../utils/strapi-fetchers';
+import { resolveUrl } from '../../utils/url';
 
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Prensa', href: '#' },
+  { label: 'Prensa', href: resolveUrl('/prensa') },
   { label: 'Eventos' }
 ];
 

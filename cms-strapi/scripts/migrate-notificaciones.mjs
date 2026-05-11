@@ -94,6 +94,50 @@ async function publishOne(token, documentId) {
   if (!r.ok) throw new Error(`publish ${documentId}: ${r.status} ${await r.text()}`);
 }
 
+// Sube el PDF al Media Library de Strapi. Si no está localmente devuelve null.
+// Cache por path para deduplicar uploads cuando varios entries comparten PDF.
+const uploadCache = new Map();
+function resolveBinaryPath(url) {
+  if (!url || typeof url !== 'string') return null;
+  if (/^https?:\/\//i.test(url)) return null;
+  const cleaned = url.replace(/^\/+/, '');
+  const candidates = [
+    path.join(REPO_ROOT, 'public', cleaned),
+    path.join(REPO_ROOT, cleaned),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c) && fs.statSync(c).isFile()) return c;
+  }
+  return null;
+}
+async function uploadPdfIfPresent(token, url, stats) {
+  const abs = resolveBinaryPath(url);
+  if (!abs) {
+    if (url) stats.skipped++;
+    return null;
+  }
+  if (uploadCache.has(abs)) return uploadCache.get(abs);
+  const buf = await fs.promises.readFile(abs);
+  const fd = new FormData();
+  fd.append('files', new Blob([buf]), path.basename(abs));
+  const res = await fetch(`${STRAPI_URL}/upload`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: fd,
+  });
+  if (!res.ok) {
+    stats.failed++;
+    return null;
+  }
+  const json = await res.json();
+  const id = Array.isArray(json) ? json[0]?.id : json?.id;
+  if (id) {
+    uploadCache.set(abs, id);
+    stats.uploaded++;
+  }
+  return id || null;
+}
+
 function loadCategoriaEntries(categoria, file) {
   const j = JSON.parse(fs.readFileSync(file, 'utf8'));
   return (j.entries || []).map((e) => ({
@@ -105,7 +149,7 @@ function loadCategoriaEntries(categoria, file) {
     fechaAuto: e.fechaAuto || '',
     desde: e.desde || '',
     hasta: e.hasta || '',
-    pdfUrl: e.pdfUrl || '',
+    _pdfUrlSource: e.pdfUrl || '', // string original; se resuelve a id en main()
     vigencia: typeof e.vigencia === 'number' ? e.vigencia : parseInt(e.vigencia, 10) || null,
   }));
 }
@@ -131,10 +175,16 @@ async function main() {
   ];
   console.log(`payloads: ${payloads.length}`);
 
+  const mediaStats = { uploaded: 0, skipped: 0, failed: 0 };
   let ok = 0;
   for (let i = 0; i < payloads.length; i++) {
     try {
-      const created = await withTokenRefresh(holder, (t) => createOne(t, payloads[i]));
+      const { _pdfUrlSource, ...rest } = payloads[i];
+      const pdfId = await withTokenRefresh(holder, (t) =>
+        uploadPdfIfPresent(t, _pdfUrlSource, mediaStats)
+      );
+      const payload = { ...rest, pdfUrl: pdfId };
+      const created = await withTokenRefresh(holder, (t) => createOne(t, payload));
       const documentId = created?.data?.documentId || created?.documentId;
       if (documentId) await withTokenRefresh(holder, (t) => publishOne(t, documentId));
       ok++;
@@ -144,6 +194,9 @@ async function main() {
     }
   }
   console.log(`done. created+published ${ok}/${payloads.length}`);
+  console.log(
+    `media: ${mediaStats.uploaded} uploaded, ${mediaStats.skipped} skipped (no local), ${mediaStats.failed} failed`
+  );
 }
 
 main().catch((e) => {

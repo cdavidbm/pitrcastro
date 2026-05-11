@@ -2,11 +2,12 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getAgenciaEmpleoRrhhNombramientos } from '../utils/strapi-fetchers';
+import { resolveUrl } from '../utils/url';
 const pageData = await getAgenciaEmpleoRrhhNombramientos();
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: pageData.title }
 ];
 const total = pageData.vigencias.reduce((acc, v) => acc + v.documentos.length, 0);

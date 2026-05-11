@@ -3,10 +3,14 @@ import Base from '../../../layouts/Base.astro';
 import HeroPage from '../../../components/HeroPage.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
 import { getAgenciaDireccionamientoEstrategico } from '../../../utils/strapi-fetchers';
+import { resolveUrl } from '../../../utils/url';
 
 const pageData = await getAgenciaDireccionamientoEstrategico();
 interface SeccionCard {
-  id: string;
+  // idLogico es el slug ('politicas'|'planes'|'informes') que matchea
+  // [slug].astro dinámico. Strapi expone además un `id` numérico autogen
+  // del component item, que NO sirve como URL.
+  idLogico: string;
   titulo: string;
   descripcion: string;
   icon: string;
@@ -20,7 +24,7 @@ const { title, subtitle, intro, sections: secciones, marcoNormativo, enlacesRela
 // Breadcrumb
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Agencia', href: '#' },
+  { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: title }
 ];
 ---
@@ -55,7 +59,7 @@ const breadcrumb = [
       <div class="secciones-grid">
         {secciones.map((seccion: SeccionCard) => (
           <a
-            href={`${base}agencia/direccionamiento-estrategico/${seccion.id}`}
+            href={`${base}agencia/direccionamiento-estrategico/${seccion.idLogico}`}
             class={`seccion-card seccion-card--${seccion.color}`}
           >
             <div class="seccion-card__icon">
