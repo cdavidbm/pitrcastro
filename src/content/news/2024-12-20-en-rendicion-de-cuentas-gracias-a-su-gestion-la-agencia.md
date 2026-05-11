@@ -1,7 +1,7 @@
 ---
 title: "En rendición de cuentas, gracias a su gestión, la Agencia ITRC alertó para proteger 248.000 millones de pesos"
 date: 2024-12-20
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "En Audiencia Pública de Rendición de Cuentas, la Agencia ITRC destacó los resultados y avances de la entidad para prevenir la corrupción en la..."
 tags: ["noticias"]
 categoria: noticia

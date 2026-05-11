@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 012"
 date: 2020-03-10
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC profirió pliego de cargos a exfuncionario de la DIAN por presunto incremento patrimonial injustificado La Agencia del Inspector General de..."
 tags: ["noticias", "boletines"]
 categoria: boletin

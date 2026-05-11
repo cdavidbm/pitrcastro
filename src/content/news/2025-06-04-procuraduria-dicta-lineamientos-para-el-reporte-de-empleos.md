@@ -1,7 +1,7 @@
 ---
 title: "Procuraduría dicta lineamientos para el reporte de empleos de carrera en vacancia definitiva"
 date: 2025-06-04
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Mediante la Circular 001 de 2025, el Procurador General de la Nación exhortó a los representantes legales, secretarios generales y jefes de talento humano..."
 tags: ["noticias"]
 categoria: noticia

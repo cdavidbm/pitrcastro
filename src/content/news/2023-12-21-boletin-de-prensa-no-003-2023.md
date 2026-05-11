@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 003 2023"
 date: 2023-12-21
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Comunicado de Prensa Bogotá D.C., 21 de diciembre de 2023 La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales -ITRC, realizó..."
 tags: ["noticias", "boletines"]
 categoria: boletin

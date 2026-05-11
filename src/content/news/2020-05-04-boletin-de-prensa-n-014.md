@@ -1,7 +1,7 @@
 ---
 title: "Boletín de prensa N° 014"
 date: 2020-05-04
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "AGENCIA ITRC vigilará la distribución y transferencia de los recursos destinados a la salud administrados por Coljuegos La Agencia ITRC, entidad adscrita al..."
 tags: ["noticias", "boletines"]
 categoria: boletin

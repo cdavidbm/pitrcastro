@@ -1,7 +1,7 @@
 ---
 title: "ITRC descubre nuevo fraude en sistemas informáticos de la DIAN"
 date: 2025-04-21
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Pesquisas evidenciaron alteraciones en los datos digitales de la entidad, lo que afecta la operación aduanera. Bogotá, marzo 17 de 2025 Una investigación de..."
 tags: ["noticias"]
 categoria: noticia

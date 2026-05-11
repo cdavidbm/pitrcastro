@@ -1,7 +1,7 @@
 ---
 title: "Líneas telefónicas en mantenimiento"
 date: 2023-03-23
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Líneas telefónicas en mantenimiento Informamos a la ciudadanía que nuestras líneas telefónicas se encuentran en mantenimiento.Línea gratuita nacional: 01..."
 tags: ["noticias"]
 categoria: noticia

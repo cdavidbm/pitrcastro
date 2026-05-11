@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 026"
 date: 2020-12-18
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC culmina charlas de prevención disciplinara en las entidades objeto de control La Subdirección de Investigaciones Disciplinarias de la..."
 tags: ["boletines"]
 categoria: boletin

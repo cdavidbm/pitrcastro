@@ -1,7 +1,7 @@
 ---
 title: "¡Nunca más hacia atrás!: La Agencia ITRC se une a la Conmemoración del Día Nacional de la Memoria y Solidaridad con las Víctimas del Conflicto Armado"
 date: 2026-04-10
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Bogotá, D.C., 9 de abril de 2026. En el marco del Día Nacional de la Memoria y Solidaridad con las Víctimas del Conflicto Armado, la Agencia de la..."
 tags: []
 categoria: noticia

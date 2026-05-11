@@ -1,7 +1,7 @@
 ---
 title: "Colombia reafirma su soberanía y rechaza declaraciones injerencistas del Gobierno de los Estados Unidos"
 date: 2025-10-25
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "El Gobierno de la República de Colombia rechaza de manera categórica las recientes declaraciones del Gobierno de los Estados Unidos que pretenden..."
 tags: ["noticias"]
 categoria: noticia

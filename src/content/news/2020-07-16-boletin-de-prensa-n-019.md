@@ -1,7 +1,7 @@
 ---
 title: "Boletín de prensa N° 019"
 date: 2020-07-16
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Agencia ITRC confirmó destitución e inhabilidad por 11 años a funcionario de la DIAN por hechos de corrupción en proceso de cobro de impuestos La Agencia..."
 tags: ["noticias", "boletines"]
 categoria: boletin

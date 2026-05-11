@@ -1,7 +1,7 @@
 ---
 title: "Comunicado de Prensa – 04 La Agencia ITRC se tecnifica frente a lucha contra el contrabando"
 date: 2024-12-05
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC, Entidad encargada de proteger el patrimonio público frente a acciones de fraude y corrupción y contribuir a la lucha contra el contrabando,..."
 tags: ["noticias", "comunicados"]
 categoria: comunicado

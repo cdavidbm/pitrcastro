@@ -1,7 +1,7 @@
 ---
 title: "Boletín de prensa N° 018"
 date: 2020-06-30
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC suspendió provisionalmente a Omar Ambuila, funcionario de la DIAN La Agencia del Inspector General de Tributos, Rentas y Contribuciones..."
 tags: ["noticias", "boletines"]
 categoria: boletin

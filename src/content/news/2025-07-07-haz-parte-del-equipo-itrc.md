@@ -1,7 +1,7 @@
 ---
 title: "Forma parte del equipo ITRC"
 date: 2025-07-07
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Invitamos a practicantes, pasantes y judicantes para que participen en la convocatoria para vacantes publicadas en el Servicio Público de empleo."
 tags: ["noticias"]
 categoria: noticia

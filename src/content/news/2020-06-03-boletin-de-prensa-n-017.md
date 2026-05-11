@@ -1,7 +1,7 @@
 ---
 title: "Boletín de prensa N° 017"
 date: 2020-06-03
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Agencia ITRC inicia charlas virtuales de prevención disciplinaria para más de mil funcionarios de Coljuegos y la UGPP La Agencia del Inspector General de..."
 tags: ["noticias", "boletines"]
 categoria: boletin

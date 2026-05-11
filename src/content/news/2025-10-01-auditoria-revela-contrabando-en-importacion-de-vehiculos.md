@@ -1,7 +1,7 @@
 ---
 title: "ITRC revela que la DIAN dejó de recaudar una millonaria suma en tributos aduaneros por la importación de vehículos realizada por diplomáticos colombianos"
 date: 2025-10-01
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Bogotá, octubre 1 de 2025 Tras una auditoría a la Dian, la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, descubrió..."
 tags: ["noticias"]
 categoria: noticia

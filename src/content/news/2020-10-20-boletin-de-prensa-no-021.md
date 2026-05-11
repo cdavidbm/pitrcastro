@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 021"
 date: 2020-10-20
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Con el sistema de denuncia virtual de la Agencia ITRC, ciudadanos pueden denunciar actos de fraude y corrupción desde cualquier lugar del país La Agencia..."
 tags: ["noticias", "boletines"]
 categoria: boletin

@@ -1,7 +1,7 @@
 ---
 title: "Colombia, sede del Encuentro del Comité Permanente de Ética del CIAT en Cartagena"
 date: 2026-03-26
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Cartagena de Indias, marzo 26 de 2026 - Colombia es anfitriona del Encuentro del Comité Permanente de Ética del Centro Interamericano de Administraciones..."
 tags: []
 categoria: noticia

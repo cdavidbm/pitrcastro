@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 005"
 date: 2021-12-01
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Boletín de Prensa 005 - 01 de diciembre de 2021 Agencia ITRC realizará audiencia pública de Rendición de Cuentas 2021 La Agencia del Inspector General de..."
 tags: ["noticias", "boletines"]
 categoria: boletin

@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 001"
 date: 2021-03-19
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Boletín de Prensa 001 - 19 de marzo de 2021 La Agencia ITRC confirmó sanción de destitución e inhabilidad por el término de 18 años a funcionario de la DIAN..."
 tags: ["noticias", "boletines"]
 categoria: boletin

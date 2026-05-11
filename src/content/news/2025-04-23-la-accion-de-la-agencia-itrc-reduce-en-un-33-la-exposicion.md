@@ -1,7 +1,7 @@
 ---
 title: "La acción de la Agencia ITRC reduce en un 33% la exposición a riesgos de fraude y corrupción en las entidades vigiladas"
 date: 2025-04-23
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Bogotá, 24 de abril de 2025 La Agencia ITRC, encargada de cuidar los recursos públicos y prevenir el fraude y la corrupción, ha logrado reducir en un 33% la..."
 tags: ["noticias"]
 categoria: noticia

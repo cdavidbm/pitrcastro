@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 001 2023"
 date: 2023-02-21
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC cambia de sede. A partir del miércoles 1 de marzo de 2023, la entidad estará ubicada en la Calle 26 #69-63 Piso 6, en la ciudad de Bogotá..."
 tags: ["noticias", "boletines"]
 categoria: boletin

@@ -1,7 +1,7 @@
 ---
 title: "Destacada participación de la Agencia ITRC en el XVIII Congreso de Derecho Disciplinario"
 date: 2025-05-22
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Bogotá, 22 de mayo de 2025 La participación de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (ITRC) en el XVIII..."
 tags: ["noticias"]
 categoria: noticia

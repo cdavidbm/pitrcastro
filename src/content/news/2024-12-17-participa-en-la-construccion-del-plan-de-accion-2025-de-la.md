@@ -1,7 +1,7 @@
 ---
 title: "Participa en la construcción del Plan de Acción 2025 de la Agencia ITRC"
 date: 2024-12-17
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC invita a participar en la construcción del Plan de Acción 2025, el cual es la hoja de ruta que consolida las metas, indicadores,..."
 tags: ["noticias"]
 categoria: noticia

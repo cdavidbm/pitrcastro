@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Noticia Agencia ITRC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#002147"/>
+      <stop offset="1" stop-color="#0943b5"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g fill="#b38b40" stroke="#b38b40" stroke-width="2" transform="translate(285 80)">
+    <rect x="0" y="0" width="70" height="86" rx="3" fill="none"/>
+    <line x1="10" y1="20" x2="60" y2="20"/>
+    <line x1="10" y1="32" x2="60" y2="32"/>
+    <line x1="10" y1="44" x2="40" y2="44"/>
+    <line x1="10" y1="60" x2="60" y2="60"/>
+    <line x1="10" y1="72" x2="60" y2="72"/>
+  </g>
+  <g text-anchor="middle" font-family="system-ui, sans-serif" fill="#ffffff">
+    <text x="320" y="220" font-size="44" font-weight="800" fill="#b38b40" letter-spacing="3">PRENSA</text>
+    <text x="320" y="262" font-size="28" font-weight="700" letter-spacing="2">AGENCIA ITRC</text>
+    <text x="320" y="300" font-size="14" opacity="0.7" letter-spacing="1">Sala de prensa institucional</text>
+  </g>
+</svg>

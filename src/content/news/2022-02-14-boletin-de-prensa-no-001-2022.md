@@ -1,7 +1,7 @@
 ---
 title: "Boletín de Prensa No 001 2022"
 date: 2022-02-14
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "Boletín de Prensa 001 - 14 de febrero de 2022 Agencia ITRC realiza modificación de estructura misional disciplinaria La Agencia del Inspector General de..."
 tags: ["noticias", "boletines"]
 categoria: boletin

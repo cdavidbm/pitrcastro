@@ -1,7 +1,7 @@
 ---
 title: "La ITRC abre Punto de Atención al Ciudadano en el Aeropuerto Internacional El Dorado"
 date: 2025-11-22
-image: ""
+image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales-ITRC anuncia la apertura de su nuevo punto de atención al ciudadano en el..."
 tags: []
 categoria: noticia
