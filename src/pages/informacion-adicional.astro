@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Participa', href: resolveUrl('/participa') },
+  { label: 'Información adicional' }
+];
+
+const recursos = [
+  {
+    titulo: 'Atención y Servicios',
+    descripcion: 'Canales de atención, PQRS, notificaciones y protocolos de servicio al ciudadano.',
+    url: '/atencion-y-servicios',
+    icon: 'fa-headset',
+  },
+  {
+    titulo: 'Transparencia y Acceso a la Información Pública',
+    descripcion: 'Información institucional, presupuestal, contractual y de gestión pública en cumplimiento de la Ley 1712.',
+    url: '/transparencia',
+    icon: 'fa-shield-halved',
+  },
+  {
+    titulo: 'Marco Legal',
+    descripcion: 'Normativa, decretos, resoluciones y demás actos administrativos que rigen a la Agencia ITRC.',
+    url: '/marco-legal',
+    icon: 'fa-scale-balanced',
+  },
+  {
+    titulo: 'Directorio de Servidores y Contratistas',
+    descripcion: 'Información de contacto y hojas de vida del personal vinculado a la Agencia.',
+    url: '/agencia/directorio',
+    icon: 'fa-address-book',
+  },
+];
+---
+
+<Base
+  title="Información adicional"
+  description="Recursos institucionales complementarios para grupos de interés de la Agencia ITRC."
+>
+  <HeroPage
+    title="Información adicional"
+    subtitle="Recursos institucionales complementarios para grupos de interés de la Agencia ITRC"
+    icon="fa-circle-info"
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="info-adic-section">
+    <div class="container">
+      <p class="info-adic-intro">
+        Encuentre aquí enlaces a los principales recursos institucionales que pueden
+        ser de su interés según el grupo poblacional al que pertenezca. Para
+        consultas específicas no cubiertas en estas secciones, comuníquese a través
+        de los <a href={resolveUrl('/canales-de-atencion-al-ciudadano')}>canales
+        oficiales de atención al ciudadano</a>.
+      </p>
+
+      <ul class="info-adic-list">
+        {recursos.map((r) => (
+          <li>
+            <a href={resolveUrl(r.url)} class="info-adic-item">
+              <div class="info-adic-item__icon">
+                <i class={`fa-solid ${r.icon}`} aria-hidden="true"></i>
+              </div>
+              <div class="info-adic-item__body">
+                <h3>{r.titulo}</h3>
+                <p>{r.descripcion}</p>
+              </div>
+              <i class="fa-solid fa-arrow-right info-adic-item__arrow" aria-hidden="true"></i>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="back-link">
+        <a href={resolveUrl('/participa')}>
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Participa
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .info-adic-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
+  .info-adic-section .container { max-width: 900px; margin: 0 auto; }
+  .info-adic-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-8); }
+  .info-adic-intro a { color: var(--itrc-gold); text-decoration: underline; }
+
+  .info-adic-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+  .info-adic-item { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface-alt); border: 1px solid var(--theme-border-light); border-radius: var(--radius-xl); text-decoration: none; color: inherit; transition: all var(--transition-base); }
+  .info-adic-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--itrc-gold); }
+
+  .info-adic-item__icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold); border-radius: var(--radius-lg); font-size: var(--font-size-xl); flex-shrink: 0; }
+  .info-adic-item__body { flex: 1; min-width: 0; }
+  .info-adic-item__body h3 { font-size: var(--font-size-base); font-weight: 700; color: var(--theme-heading); margin: 0 0 var(--space-1); }
+  .info-adic-item__body p { font-size: var(--font-size-sm); color: var(--theme-text-secondary); margin: 0; line-height: 1.5; }
+  .info-adic-item__arrow { color: var(--theme-text-muted); flex-shrink: 0; }
+  .info-adic-item:hover .info-adic-item__arrow { color: var(--itrc-gold); }
+
+  .back-link { margin-top: var(--space-8); text-align: center; }
+  .back-link a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--theme-text-muted); text-decoration: none; font-size: var(--font-size-sm); font-weight: 600; }
+  .back-link a:hover { color: var(--itrc-gold); }
+</style>

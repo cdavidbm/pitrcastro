@@ -11,6 +11,13 @@ export default defineConfig({
   base: BASE_PATH,
   output: 'static',
   trailingSlash: 'ignore',
+  // El WP origen exponía /rendicion-de-cuentas/ y /control-social/ en raíz;
+  // el portal nuevo los reubicó bajo /participa/. Estos redirects preservan
+  // los enlaces externos indexados (Google, prensa, gov.co) sin tocar nginx.
+  redirects: {
+    '/rendicion-de-cuentas': '/participa/rendicion-de-cuentas',
+    '/control-social': '/participa/control-social',
+  },
   build: {
     assets: 'assets'
   },
