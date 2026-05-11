@@ -154,7 +154,59 @@ function dynamicTitle(mod: DynamicItem): string | undefined {
 // 4. Helpers
 // ---------------------------------------------------------------------------
 
+// Slugs cuya humanización por defecto produce textos torpes (ej.
+// "Tu P Q R S Al Dia"). Mapeo manual a un título más legible para los hits
+// de búsqueda que sólo tienen el URL como pista.
+const SLUG_TITLE_OVERRIDES: Record<string, string> = {
+  '/tu-p-q-r-s-al-dia': 'PQRSD — Peticiones, Quejas, Reclamos y Solicitudes',
+  '/p-q-r-s-servidores-agencia-itrc': 'PQRSD para servidores de la Agencia ITRC',
+  '/audiositrc': 'Audios ITRC',
+  '/ciprep': 'Congreso CIPREP',
+};
+
+// Decodifica entidades HTML comunes que aparecen en títulos heredados del
+// WP origen (en-dash, em-dash, comillas tipográficas, ampersand). Sin esto
+// los hits muestran literalmente "&#8211;" en el panel del buscador.
+function decodeEntities(s: string): string {
+  if (!s) return s;
+  return s
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8212;/g, '—')
+    .replace(/&#8216;/g, '‘')
+    .replace(/&#8217;/g, '’')
+    .replace(/&#8220;/g, '“')
+    .replace(/&#8221;/g, '”')
+    .replace(/&#8230;/g, '…')
+    .replace(/&#0*39;/g, "'")
+    .replace(/&#0*34;/g, '"')
+    .replace(/&ldquo;/g, '“')
+    .replace(/&rdquo;/g, '”')
+    .replace(/&lsquo;/g, '‘')
+    .replace(/&rsquo;/g, '’')
+    .replace(/&ndash;/g, '–')
+    .replace(/&mdash;/g, '—')
+    .replace(/&hellip;/g, '…')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&aacute;/g, 'á')
+    .replace(/&eacute;/g, 'é')
+    .replace(/&iacute;/g, 'í')
+    .replace(/&oacute;/g, 'ó')
+    .replace(/&uacute;/g, 'ú')
+    .replace(/&ntilde;/g, 'ñ')
+    .replace(/&Aacute;/g, 'Á')
+    .replace(/&Eacute;/g, 'É')
+    .replace(/&Iacute;/g, 'Í')
+    .replace(/&Oacute;/g, 'Ó')
+    .replace(/&Uacute;/g, 'Ú')
+    .replace(/&Ntilde;/g, 'Ñ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
+
 function deriveTitle(astroRoute: AstroRoute, json?: PageJson): string {
+  if (SLUG_TITLE_OVERRIDES[astroRoute.url]) return SLUG_TITLE_OVERRIDES[astroRoute.url];
   if (json?.title) return json.title;
   if (astroRoute.fallbackTitle) return astroRoute.fallbackTitle;
   // Fallback: humanize URL last segment
@@ -314,14 +366,62 @@ export const GET: APIRoute = () => {
     }
   }
 
-  // 5.8 Dedupe: mismo título + URL
-  const seen = new Set<string>();
-  const unique = entries.filter((e) => {
-    const key = `${e.t}|${e.u}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  // 5.8 Alias / sinónimos: términos que el ciudadano busca pero no están
+  // en el título canónico de la página destino. Se inyectan como entradas
+  // extra (no reemplazan al título oficial).
+  const aliases: SearchEntry[] = [
+    { t: 'Contacto', u: '/canales-de-atencion-al-ciudadano', k: 's', p: 'Alias' },
+    { t: 'Sede principal', u: '/sede-y-horarios', k: 's', p: 'Alias' },
+    { t: 'Horarios de atención', u: '/sede-y-horarios', k: 's', p: 'Alias' },
+    { t: 'Trabajo en la Agencia', u: '/ofertas-de-empleo', k: 's', p: 'Alias' },
+    { t: 'Empleo', u: '/ofertas-de-empleo', k: 's', p: 'Alias' },
+    { t: 'Convocatorias', u: '/ofertas-de-empleo', k: 's', p: 'Alias' },
+    { t: 'Salario', u: '/escala-salarial', k: 's', p: 'Alias' },
+    { t: 'Sueldos', u: '/escala-salarial', k: 's', p: 'Alias' },
+    { t: 'Sanciones disciplinarias', u: '/relatoria', k: 's', p: 'Alias' },
+    { t: 'Fallos disciplinarios', u: '/relatoria', k: 's', p: 'Alias' },
+    { t: 'PQRSD', u: '/tu-p-q-r-s-al-dia', k: 's', p: 'Alias' },
+    { t: 'Denuncias', u: 'https://www.itrc.gov.co/denuncias', k: 's', p: 'Alias (externo)' },
+    { t: 'Hoja de vida funcionarios', u: '/agencia/directorio', k: 's', p: 'Alias' },
+    { t: 'Contratos públicos', u: '/contratacion-suscrita', k: 's', p: 'Alias' },
+    { t: 'SECOP', u: '/contratacion-suscrita', k: 's', p: 'Alias' },
+    { t: 'Galería de fotos', u: '/galeria', k: 's', p: 'Alias' },
+    { t: 'Información para niños', u: '/observatorio/eje-de-educacion/itrc-para-ninos', k: 's', p: 'Alias' },
+    { t: 'Cartilla', u: '/cartilla-al-ciudadano', k: 's', p: 'Alias' },
+    { t: 'Carta de trato digno', u: '/carta-trato-digno', k: 's', p: 'Alias' },
+    { t: 'Organigrama', u: '/agencia/organigrama', k: 's', p: 'Alias' },
+    { t: 'Director', u: '/agencia/equipo-directivo', k: 's', p: 'Alias' },
+    { t: 'Equipo directivo', u: '/agencia/equipo-directivo', k: 's', p: 'Alias' },
+  ];
+  entries.push(...aliases);
+
+  // 5.9 Normalizar títulos (decodificar entidades HTML legadas del WP origen)
+  for (const e of entries) {
+    e.t = decodeEntities(e.t);
+    if (e.p) e.p = decodeEntities(e.p);
+  }
+
+  // 5.10 Dedupe: una entrada por URL. La primera entrada en una URL gana
+  // (orden: menú principal → páginas → noticias → memorias → aliases).
+  // Esto evita que el slug autogenerado "Cartilla Al Ciudadano" oculte al
+  // título correcto del menú "Cartilla al ciudadano". Los aliases sólo
+  // entran si su URL aún no apareció con un título oficial.
+  const seenUrls = new Set<string>();
+  const unique: SearchEntry[] = [];
+  for (const e of entries) {
+    // Secciones (k='s') sí permiten duplicar URL — son anclas distintas
+    // dentro de la misma página y aportan al buscador.
+    if (e.k === 's') {
+      const key = `${e.t}|${e.u}`;
+      if (seenUrls.has(key)) continue;
+      seenUrls.add(key);
+      unique.push(e);
+      continue;
+    }
+    if (seenUrls.has(e.u)) continue;
+    seenUrls.add(e.u);
+    unique.push(e);
+  }
 
   return new Response(JSON.stringify(unique), {
     headers: { 'Content-Type': 'application/json' },
