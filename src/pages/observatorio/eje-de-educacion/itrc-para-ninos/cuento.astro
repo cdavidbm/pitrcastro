@@ -12,7 +12,7 @@ const breadcrumb = [
   { label: 'ITRC para Niños', href: resolveUrl('/observatorio/eje-de-educacion/itrc-para-ninos') },
   { label: pageData.title }
 ];
-const pdfHref = resolveUrl(pageData.pdfUrl);
+const pdfHref = mediaUrl(pageData.pdfUrl);
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="observatorio-eje-de-educacion-cuento">

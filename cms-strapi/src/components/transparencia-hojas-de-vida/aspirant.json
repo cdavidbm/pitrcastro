@@ -19,7 +19,13 @@
       "type": "string"
     },
     "pdf": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
     }
   }
 }

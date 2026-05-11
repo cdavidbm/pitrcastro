@@ -150,7 +150,10 @@ async function uploadFile(token, absPath) {
     new Blob([buf]),
     path.basename(absPath)
   );
-  const res = await fetch(`${STRAPI_URL}/api/upload`, {
+  // En Strapi v5 /api/upload requiere permission del rol Public o un API
+  // token; el JWT admin (que usamos en el resto del script) solo es válido
+  // contra el namespace /upload del admin namespace.
+  const res = await fetch(`${STRAPI_URL}/upload`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` },
     body: fd,
@@ -327,6 +330,11 @@ async function migrateSinglePage(token, sp, mediaStats) {
   return { ok: true };
 }
 
+// Collections manuales con script de migración dedicado: el generador masivo
+// no puede inferir su shape (notificacion necesita `categoria` derivada del
+// filename, eventos puede tener campos no presentes en el JSON fuente, etc.).
+const MANUAL_COLLECTIONS = new Set(['notificacion', 'evento']);
+
 async function migrateCollection(token, coll, mediaStats) {
   // El dir del content type en Strapi v5 = singularName (no slug plural).
   // Si el manifest no lo trae explícito, derivar del slug.
@@ -339,6 +347,10 @@ async function migrateCollection(token, coll, mediaStats) {
       : coll.slug);
   const uid = `api::${ctKey}.${ctKey}`;
   if (ONLY && !ONLY.has(coll.slug)) return { skipped: true };
+  if (MANUAL_COLLECTIONS.has(coll.slug)) {
+    console.log(`  [skip] ${coll.slug}: usar migrate-${coll.slug}s.mjs específico`);
+    return { skipped: true };
+  }
 
   // Limpia entries existentes (idempotencia: cada run reescribe el set completo).
   const existing = await listCollectionEntries(token, uid);

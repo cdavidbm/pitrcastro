@@ -51,7 +51,7 @@ export interface AgenciaDireccionamientoInformesDocument extends Struct.Componen
   attributes: {
     anio: Schema.Attribute.String;
     category: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -78,7 +78,7 @@ export interface AgenciaDireccionamientoPlanesDocument extends Struct.ComponentS
   attributes: {
     anio: Schema.Attribute.String;
     category: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -104,7 +104,7 @@ export interface AgenciaDireccionamientoPoliticasDocument extends Struct.Compone
   };
   attributes: {
     description: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -308,7 +308,7 @@ export interface AgenciaGestionMisionalDocumento extends Struct.ComponentSchema 
   };
   attributes: {
     anio: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -470,7 +470,7 @@ export interface AgenciaMisionVisionMapaestrategico extends Struct.ComponentSche
   };
   attributes: {
     imagen: Schema.Attribute.String;
-    pdf: Schema.Attribute.String;
+    pdf: Schema.Attribute.Media<'files' | 'images'>;
     titulo: Schema.Attribute.String;
   };
 }
@@ -560,7 +560,7 @@ export interface AgenciaOrganigramaOrganigrama extends Struct.ComponentSchema {
   attributes: {
     alt: Schema.Attribute.String;
     imagen: Schema.Attribute.String;
-    pdf: Schema.Attribute.String;
+    pdf: Schema.Attribute.Media<'files' | 'images'>;
   };
 }
 
@@ -653,7 +653,7 @@ export interface AgenciaSistemaDeControlInternoDocumento extends Struct.Componen
   };
   attributes: {
     anio: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -710,7 +710,7 @@ export interface AgenciaSistemaIntegradoDeGestionDocument extends Struct.Compone
   };
   attributes: {
     externo: Schema.Attribute.Boolean;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -764,7 +764,7 @@ export interface AtencionCanalesDeAtencionPortafolio extends Struct.ComponentSch
     icon: 'cube';
   };
   attributes: {
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     nombre: Schema.Attribute.String;
   };
 }
@@ -856,7 +856,7 @@ export interface AtencionPqrsReport extends Struct.ComponentSchema {
     icon: 'cube';
   };
   attributes: {
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     nombre: Schema.Attribute.String;
     tipo: Schema.Attribute.String;
   };
@@ -882,7 +882,7 @@ export interface AtencionVinculacionATercerosDocumento extends Struct.ComponentS
   };
   attributes: {
     fecha: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     nombre: Schema.Attribute.String;
   };
 }
@@ -1228,7 +1228,7 @@ export interface NormativaDecretosDecreto extends Struct.ComponentSchema {
   attributes: {
     descripcion: Schema.Attribute.Text;
     fecha: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     nombre: Schema.Attribute.String;
   };
 }
@@ -1256,7 +1256,7 @@ export interface NormativaMarcoLegalDocumento extends Struct.ComponentSchema {
   };
   attributes: {
     descripcion: Schema.Attribute.String;
-    file: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files' | 'images'>;
     nombre: Schema.Attribute.String;
   };
 }
@@ -1286,7 +1286,7 @@ export interface NormativaResolucionesActo extends Struct.ComponentSchema {
     interes: Schema.Attribute.String;
     motivacion: Schema.Attribute.Text;
     numero: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.Text;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     tipo: Schema.Attribute.String;
     vigencia: Schema.Attribute.Integer;
   };
@@ -1305,7 +1305,7 @@ export interface NormativaUnificacionSuinJuriscolNorma extends Struct.ComponentS
     epigrafe: Schema.Attribute.Text;
     estado: Schema.Attribute.String;
     numero: Schema.Attribute.String;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     suinUrl: Schema.Attribute.String;
     tipo: Schema.Attribute.String;
   };
@@ -2072,7 +2072,7 @@ export interface TransparenciaContratacionContratacionSuscritaProceso
     anio: Schema.Attribute.String;
     label: Schema.Attribute.String;
     otros: Schema.Attribute.JSON;
-    pdfUrl: Schema.Attribute.String;
+    pdfUrl: Schema.Attribute.Media<'files' | 'images'>;
     secopRef: Schema.Attribute.String;
   };
 }
@@ -2391,7 +2391,7 @@ export interface TransparenciaHojasDeVidaAspirant extends Struct.ComponentSchema
     fechaDesfijacion: Schema.Attribute.String;
     fechaFijacion: Schema.Attribute.String;
     nombre: Schema.Attribute.String;
-    pdf: Schema.Attribute.String;
+    pdf: Schema.Attribute.Media<'files' | 'images'>;
   };
 }
 
@@ -2769,7 +2769,7 @@ export interface TransparenciaRelatoriaFicha extends Struct.ComponentSchema {
     icon: 'cube';
   };
   attributes: {
-    archivo: Schema.Attribute.String;
+    archivo: Schema.Attribute.Media<'files' | 'images'>;
     expediente: Schema.Attribute.String;
     filenameOrigen: Schema.Attribute.String;
     idLogico: Schema.Attribute.String;
