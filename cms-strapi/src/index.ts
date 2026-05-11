@@ -46,11 +46,19 @@ async function ensurePublicPermissions(strapi: Core.Strapi) {
     return;
   }
 
-  for (const action of PUBLIC_READ_PERMISSIONS) {
-    const existing = await strapi.db.query('plugin::users-permissions.permission').findOne({
-      where: { action, role: publicRole.id },
-    });
-    if (existing) continue;
+  // Una sola query para todos los permisos del rol public. Sin esto el
+  // arranque hacía 2N+1 queries secuenciales (con N=144 content types
+  // = ~290 queries) — pesaba ~30-60s del "Loading Strapi" en cada start.
+  const existing = await strapi.db.query('plugin::users-permissions.permission').findMany({
+    where: { role: publicRole.id, action: { $in: PUBLIC_READ_PERMISSIONS } },
+    select: ['action'],
+  });
+  const existingActions = new Set<string>(existing.map((p: { action: string }) => p.action));
+
+  const missing = PUBLIC_READ_PERMISSIONS.filter((a) => !existingActions.has(a));
+  if (missing.length === 0) return;
+
+  for (const action of missing) {
     await strapi.db.query('plugin::users-permissions.permission').create({
       data: { action, role: publicRole.id },
     });
