@@ -1496,6 +1496,7 @@ export interface ApiCiprepCiprep extends Struct.SingleTypeSchema {
   };
   attributes: {
     agenda: Schema.Attribute.Component<'ciprep.agenda', false>;
+    agendaLead: Schema.Attribute.Text;
     aliadoEstrategico: Schema.Attribute.String;
     aliados: Schema.Attribute.Component<'ciprep.aliados', false>;
     createdAt: Schema.Attribute.DateTime;
@@ -1517,6 +1518,7 @@ export interface ApiCiprepCiprep extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     shortTitle: Schema.Attribute.String;
     speakersIndex: Schema.Attribute.Component<'ciprep.speakersindex', true>;
+    speakersLead: Schema.Attribute.Text;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

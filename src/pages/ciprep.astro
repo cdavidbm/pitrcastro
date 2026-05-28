@@ -89,8 +89,8 @@ const sections = [
     <div class="container">
       <SectionTitle title="Agenda" />
       <p class="ciprep-section__lead">
-        Dos jornadas en el Auditorio CCB Chapinero, organizadas en franjas
-        temáticas que recorren contrabando, fraude y lecciones aprendidas.
+        {pageData.agendaLead ??
+          'Dos jornadas en el Auditorio CCB Chapinero, organizadas en franjas temáticas que recorren contrabando, fraude y lecciones aprendidas.'}
       </p>
 
       <div class="ciprep-agenda">
@@ -202,8 +202,9 @@ const sections = [
     <div class="container">
       <SectionTitle title="Conoce nuestros speakers" />
       <p class="ciprep-section__lead">
-        {speakers.length} expertos nacionales e internacionales del sector
-        público, organismos multilaterales y el ámbito académico.
+        {speakers.length}{' '}
+        {pageData.speakersLead ??
+          'expertos nacionales e internacionales del sector público, organismos multilaterales y el ámbito académico.'}
       </p>
       <div class="ciprep-speakers">
         {speakers.map((sp) => (

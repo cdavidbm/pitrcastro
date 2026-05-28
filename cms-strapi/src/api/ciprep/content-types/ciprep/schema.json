@@ -57,6 +57,12 @@
     "porQue": {
       "type": "json"
     },
+    "agendaLead": {
+      "type": "text"
+    },
+    "speakersLead": {
+      "type": "text"
+    },
     "agenda": {
       "type": "component",
       "component": "ciprep.agenda",
