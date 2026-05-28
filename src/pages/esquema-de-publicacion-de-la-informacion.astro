@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getTransparenciaDocumentacionEsquemaPublicacion } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaDocumentacionEsquemaPublicacion();
+const pageData: any = (await getTransparenciaDocumentacionEsquemaPublicacion()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-documentacion-esquema-publicacion">

@@ -6,7 +6,7 @@ import { resolveUrl } from '../../utils/url';
 
 import { getParticipaColaboracion } from '../../utils/strapi-fetchers';
 
-const pageData = await getParticipaColaboracion();
+const pageData: any = (await getParticipaColaboracion()) ?? {};
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getTransparenciaReporteAusteridadGasto } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaReporteAusteridadGasto();
+const pageData: any = (await getTransparenciaReporteAusteridadGasto()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-reporte-austeridad-gasto">

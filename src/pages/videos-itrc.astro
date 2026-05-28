@@ -6,7 +6,7 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import { getPrensaVideos } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
 
-const pageData = await getPrensaVideos();
+const pageData: any = (await getPrensaVideos()) ?? {};
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

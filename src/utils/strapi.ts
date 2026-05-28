@@ -2,12 +2,21 @@
  * Fetcher para Strapi v5 usado durante el build de Astro.
  *
  * Convención: cada función getXxx() devuelve el objeto `data` ya desempacado
- * (sin la envoltura `{ data: ... }` de Strapi). Errores de red o status >= 500
- * detienen el build con un mensaje claro. Un 404 se trata como "content type
- * aún no desplegado": se devuelve null y se loggea un warning, para que el
- * build no se rompa cuando un schema nuevo se mergea antes de actualizar la
- * imagen Strapi del server. Los consumers deben manejar null sin asumir
- * presencia del campo.
+ * (sin la envoltura `{ data: ... }` de Strapi). Cualquier respuesta no-2xx
+ * (404, 400, 403, 5xx) y los fetch que tiran se tratan como "data no
+ * disponible": se devuelve null con un warning detallado en stdout, en vez
+ * de matar el build.
+ *
+ * Por qué tolerar todo error: el build genera 360 páginas que dependen de
+ * Strapi prod. Schemas en transición, permisos del rol Public, queries que
+ * referencian campos que existen local pero no en prod, etc. — cualquiera
+ * tira 4xx. Si el build muere en la primera página fallida, ningún cambio
+ * llega a prod hasta que se arregle. Es preferible que el build complete
+ * con páginas degradadas y un log visible del problema, y que cada consumer
+ * .astro maneje null defensivamente.
+ *
+ * Los warnings quedan en el log de GitHub Actions y son la señal para
+ * investigar deuda de schema/permisos sin bloquear deploys.
  *
  * Variables de entorno (definidas en .env durante dev, en repo variables
  * del workflow durante build CI):
@@ -21,21 +30,23 @@ const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN;
 
 export async function strapiGet<T>(pathWithQuery: string): Promise<T> {
   const url = `${STRAPI_URL}${pathWithQuery}`;
-  const res = await fetch(url, {
-    headers: STRAPI_TOKEN ? { Authorization: `Bearer ${STRAPI_TOKEN}` } : {},
-  });
-  if (res.status === 404) {
-    // Content type aún no desplegado al server. Tolerable durante el rollout
-    // de un schema nuevo. El consumer debe esperar null y degradar.
+  let res: Response;
+  try {
+    res = await fetch(url, {
+      headers: STRAPI_TOKEN ? { Authorization: `Bearer ${STRAPI_TOKEN}` } : {},
+    });
+  } catch (e) {
     console.warn(
-      `[strapi] GET ${pathWithQuery} → 404. Content type aún no desplegado; devuelvo null.`
+      `[strapi] GET ${pathWithQuery} → fetch falló (${(e as Error).message}); devuelvo null.`
     );
     return null as T;
   }
   if (!res.ok) {
-    throw new Error(
-      `[strapi] GET ${pathWithQuery} → ${res.status}: ${await res.text()}`
+    const body = await res.text().catch(() => '');
+    console.warn(
+      `[strapi] GET ${pathWithQuery} → ${res.status}: ${body.slice(0, 200)}; devuelvo null.`
     );
+    return null as T;
   }
   const json = await res.json();
   return json.data as T;

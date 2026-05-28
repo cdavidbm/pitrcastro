@@ -6,7 +6,7 @@ import { getNormativaMarcoLegal } from '../utils/strapi-fetchers';
 import { mediaUrl } from '../utils/strapi-media';
 import { resolveUrl } from '../utils/url';
 
-const pageData = await getNormativaMarcoLegal();
+const pageData: any = (await getNormativaMarcoLegal()) ?? {};
 
 const base = import.meta.env.BASE_URL;
 

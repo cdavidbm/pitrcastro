@@ -7,7 +7,7 @@ import { getNormativaUnificacionSuinJuriscol } from '../../utils/strapi-fetchers
 import { mediaUrl } from '../../utils/strapi-media';
 import { resolveUrl } from '../../utils/url';
 
-const pageData = await getNormativaUnificacionSuinJuriscol();
+const pageData: any = (await getNormativaUnificacionSuinJuriscol()) ?? {};
 const base = import.meta.env.BASE_URL;
 const normas = pageData.normas;
 

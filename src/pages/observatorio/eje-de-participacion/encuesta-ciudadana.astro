@@ -3,7 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import HeroPage from '../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../utils/url';
 import { getObservatorioEjeDeParticipacionEncuesta } from '../../../utils/strapi-fetchers';
-const pageData = await getObservatorioEjeDeParticipacionEncuesta();
+const pageData: any = (await getObservatorioEjeDeParticipacionEncuesta()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

@@ -5,7 +5,7 @@ import SectionTitle from '../../../components/SectionTitle.astro';
 import { getAgenciaDireccionamientoEstrategico } from '../../../utils/strapi-fetchers';
 import { resolveUrl } from '../../../utils/url';
 
-const pageData = await getAgenciaDireccionamientoEstrategico();
+const pageData: any = (await getAgenciaDireccionamientoEstrategico()) ?? {};
 interface SeccionCard {
   // idLogico es el slug ('politicas'|'planes'|'informes') que matchea
   // [slug].astro dinámico. Strapi expone además un `id` numérico autogen

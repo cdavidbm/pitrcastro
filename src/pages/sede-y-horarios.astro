@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getTransparenciaSedeHorarios } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaSedeHorarios();
+const pageData: any = (await getTransparenciaSedeHorarios()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

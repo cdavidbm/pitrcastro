@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getInstitucionalDefensaJudicial } from '../utils/strapi-fetchers';
-const pageData = await getInstitucionalDefensaJudicial();
+const pageData: any = (await getInstitucionalDefensaJudicial()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="institucional-defensa-judicial">

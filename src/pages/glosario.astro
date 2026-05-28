@@ -6,7 +6,7 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import { getAtencionGlosario } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
 
-const pageData = await getAtencionGlosario();
+const pageData: any = (await getAtencionGlosario()) ?? {};
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

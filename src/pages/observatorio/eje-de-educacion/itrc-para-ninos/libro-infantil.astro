@@ -4,7 +4,7 @@ import HeroPage from '../../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../../utils/url';
 import { getObservatorioEjeDeEducacionLibroInfantil } from '../../../../utils/strapi-fetchers';
 import { mediaUrl } from '../../../../utils/strapi-media';
-const pageData = await getObservatorioEjeDeEducacionLibroInfantil();
+const pageData: any = (await getObservatorioEjeDeEducacionLibroInfantil()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

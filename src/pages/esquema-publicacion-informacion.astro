@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getTransparenciaEsquemaPublicacion } from '../utils/strapi-fetchers';
 import { mediaUrl } from '../utils/strapi-media';
-const pageData = await getTransparenciaEsquemaPublicacion();
+const pageData: any = (await getTransparenciaEsquemaPublicacion()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 const pdfHref = mediaUrl(pageData.pdfUrl);

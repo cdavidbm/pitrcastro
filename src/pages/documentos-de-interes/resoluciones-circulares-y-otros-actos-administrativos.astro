@@ -7,7 +7,7 @@ import { getNormativaResoluciones } from '../../utils/strapi-fetchers';
 import { mediaUrl } from '../../utils/strapi-media';
 import { resolveUrl } from '../../utils/url';
 
-const pageData = await getNormativaResoluciones();
+const pageData: any = (await getNormativaResoluciones()) ?? {};
 const base = import.meta.env.BASE_URL;
 const actos = [...pageData.actos].sort((a, b) => {
   if (b.vigencia !== a.vigencia) return b.vigencia - a.vigencia;

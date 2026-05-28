@@ -4,7 +4,7 @@ import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import { getAgenciaDirectorio } from '../../utils/strapi-fetchers';
 import { resolveUrl } from '../../utils/url';
-const pageData = await getAgenciaDirectorio();
+const pageData: any = (await getAgenciaDirectorio()) ?? {};
 const base = import.meta.env.BASE_URL;
 
 // Breadcrumb

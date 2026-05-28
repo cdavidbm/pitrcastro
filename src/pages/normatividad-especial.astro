@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getTransparenciaNormatividadEspecial } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaNormatividadEspecial();
+const pageData: any = (await getTransparenciaNormatividadEspecial()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 ---

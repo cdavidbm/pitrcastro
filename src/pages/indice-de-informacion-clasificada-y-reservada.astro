@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getTransparenciaIndiceInformacionClasificada } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaIndiceInformacionClasificada();
+const pageData: any = (await getTransparenciaIndiceInformacionClasificada()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-indice-informacion-clasificada">

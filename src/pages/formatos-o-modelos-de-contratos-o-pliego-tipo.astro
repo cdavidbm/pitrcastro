@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getTransparenciaFormatosContratosPliegosTipo } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaFormatosContratosPliegosTipo();
+const pageData: any = (await getTransparenciaFormatosContratosPliegosTipo()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-formatos-contratos-pliegos-tipo">

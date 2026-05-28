@@ -6,7 +6,7 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import { getAtencionPreguntasFrecuentes } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
 
-const pageData = await getAtencionPreguntasFrecuentes();
+const pageData: any = (await getAtencionPreguntasFrecuentes()) ?? {};
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

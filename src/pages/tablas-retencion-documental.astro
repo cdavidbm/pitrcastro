@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getTransparenciaTablasRetencion } from '../utils/strapi-fetchers';
-const pageData = await getTransparenciaTablasRetencion();
+const pageData: any = (await getTransparenciaTablasRetencion()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
 function fileIcon(u: string) { return u.endsWith('.xlsx') ? 'fa-file-excel' : 'fa-file-pdf'; }

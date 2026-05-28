@@ -6,7 +6,7 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import { getAtencionCorreoNotificacionesJudiciales } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
 
-const pageData = await getAtencionCorreoNotificacionesJudiciales();
+const pageData: any = (await getAtencionCorreoNotificacionesJudiciales()) ?? {};
 const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [

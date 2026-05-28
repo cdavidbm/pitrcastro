@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getParticipaAtencionInformeComiteConciliacion } from '../utils/strapi-fetchers';
-const pageData = await getParticipaAtencionInformeComiteConciliacion();
+const pageData: any = (await getParticipaAtencionInformeComiteConciliacion()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="participa-atencion-informe-comite-conciliacion">

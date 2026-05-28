@@ -4,7 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 import { getAtencionCartillaAlCiudadano } from '../utils/strapi-fetchers';
 import { mediaUrl } from '../utils/strapi-media';
 import { resolveUrl } from '../utils/url';
-const pageData = await getAtencionCartillaAlCiudadano();
+const pageData: any = (await getAtencionCartillaAlCiudadano()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

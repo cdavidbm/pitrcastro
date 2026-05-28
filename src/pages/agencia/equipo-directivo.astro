@@ -4,7 +4,7 @@ import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import { getAgenciaEquipoDirectivo } from '../../utils/strapi-fetchers';
 
-const pageData = await getAgenciaEquipoDirectivo();
+const pageData: any = (await getAgenciaEquipoDirectivo()) ?? {};
 import { getAgenciaGestionMisional } from '../../utils/strapi-fetchers';
 import { resolveUrl } from '../../utils/url';
 

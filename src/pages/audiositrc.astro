@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { getInstitucionalAudiosItrc } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
-const pageData = await getInstitucionalAudiosItrc();
+const pageData: any = (await getInstitucionalAudiosItrc()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

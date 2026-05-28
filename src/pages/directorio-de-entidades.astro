@@ -4,7 +4,7 @@ import HeroPage from '../components/HeroPage.astro';
 
 import { getTransparenciaDirectorioEntidades } from '../utils/strapi-fetchers';
 
-const pageData = await getTransparenciaDirectorioEntidades();
+const pageData: any = (await getTransparenciaDirectorioEntidades()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },

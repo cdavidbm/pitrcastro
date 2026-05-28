@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
 import { getInstitucionalEstudiosInvestigaciones } from '../utils/strapi-fetchers';
-const pageData = await getInstitucionalEstudiosInvestigaciones();
+const pageData: any = (await getInstitucionalEstudiosInvestigaciones()) ?? {};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="institucional-estudios-investigaciones">
