@@ -119,7 +119,7 @@ function hasValidStrapiAttrNames(obj) {
 // Campos del JSON fuente que el autogen mapea a Strapi `media`. Cualquier
 // string en estos keys debe subirse al Media Library antes de POSTear el
 // payload, sustituyendo el valor por el id del file uploaded.
-const MEDIA_FIELDS = new Set(['file', 'fileUrl', 'archivo', 'pdfUrl', 'pdf']);
+const MEDIA_FIELDS = new Set(['file', 'fileUrl', 'archivo', 'pdfUrl', 'pdf', 'image', 'imageMobile']);
 
 // Caché por path: si dos entries comparten el mismo binario, una sola subida.
 const uploadCache = new Map();
