@@ -103,57 +103,57 @@
     {
       "slug": "atencion-canales-de-atencion",
       "sourcePath": "src/content/pages/atencion/canales-de-atencion.json",
-      "displayName": "04. Atención y Servicios / Canales De Atencion"
+      "displayName": "04. Atenci\u00f3n y Servicios / Canales De Atencion"
     },
     {
       "slug": "atencion-carta-trato-digno",
       "sourcePath": "src/content/pages/atencion/carta-trato-digno.json",
-      "displayName": "04. Atención y Servicios / Carta De Trato Digno"
+      "displayName": "04. Atenci\u00f3n y Servicios / Carta De Trato Digno"
     },
     {
       "slug": "atencion-cartilla-al-ciudadano",
       "sourcePath": "src/content/pages/atencion/cartilla-al-ciudadano.json",
-      "displayName": "04. Atención y Servicios / Cartilla Al Ciudadano"
+      "displayName": "04. Atenci\u00f3n y Servicios / Cartilla Al Ciudadano"
     },
     {
       "slug": "atencion-correo-notificaciones-judiciales",
       "sourcePath": "src/content/pages/atencion/correo-notificaciones-judiciales.json",
-      "displayName": "04. Atención y Servicios / Correo Notificaciones Judiciales"
+      "displayName": "04. Atenci\u00f3n y Servicios / Correo Notificaciones Judiciales"
     },
     {
       "slug": "atencion-glosario",
       "sourcePath": "src/content/pages/atencion/glosario.json",
-      "displayName": "04. Atención y Servicios / Glosario"
+      "displayName": "04. Atenci\u00f3n y Servicios / Glosario"
     },
     {
       "slug": "atencion-landing",
       "sourcePath": "src/content/pages/atencion/landing.json",
-      "displayName": "04. Atención y Servicios / Landing"
+      "displayName": "04. Atenci\u00f3n y Servicios / Landing"
     },
     {
       "slug": "atencion-notificaciones-por-aviso",
       "sourcePath": "src/content/pages/atencion/notificaciones-por-aviso.json",
-      "displayName": "04. Atención y Servicios / Notificaciones Por Aviso"
+      "displayName": "04. Atenci\u00f3n y Servicios / Notificaciones Por Aviso"
     },
     {
       "slug": "atencion-pqrs",
       "sourcePath": "src/content/pages/atencion/pqrs.json",
-      "displayName": "04. Atención y Servicios / Pqrs"
+      "displayName": "04. Atenci\u00f3n y Servicios / Pqrs"
     },
     {
       "slug": "atencion-pqrs-servidores",
       "sourcePath": "src/content/pages/atencion/pqrs-servidores.json",
-      "displayName": "04. Atención y Servicios / Pqrs Servidores"
+      "displayName": "04. Atenci\u00f3n y Servicios / Pqrs Servidores"
     },
     {
       "slug": "atencion-preguntas-frecuentes",
       "sourcePath": "src/content/pages/atencion/preguntas-frecuentes.json",
-      "displayName": "04. Atención y Servicios / Preguntas Frecuentes"
+      "displayName": "04. Atenci\u00f3n y Servicios / Preguntas Frecuentes"
     },
     {
       "slug": "atencion-vinculacion-a-terceros",
       "sourcePath": "src/content/pages/atencion/vinculacion-a-terceros.json",
-      "displayName": "04. Atención y Servicios / Vinculacion A Terceros"
+      "displayName": "04. Atenci\u00f3n y Servicios / Vinculacion A Terceros"
     },
     {
       "slug": "ciprep",
@@ -404,11 +404,6 @@
       "slug": "participa-rendicion-de-cuentas",
       "sourcePath": "src/content/pages/participa/rendicion-de-cuentas.json",
       "displayName": "05. Participa / Rendicion De Cuentas"
-    },
-    {
-      "slug": "prensa",
-      "sourcePath": "src/content/pages/prensa.json",
-      "displayName": "08. Prensa / Inicio"
     },
     {
       "slug": "prensa-capsulas",
@@ -767,7 +762,7 @@
         "src/content/pages/galeria/visita-de-la-superintendencia-de-chile-febrero-2018.json",
         "src/content/pages/galeria/visitas-internacionales.json"
       ],
-      "displayName": "08. Prensa / Galería"
+      "displayName": "08. Prensa / Galer\u00eda"
     },
     {
       "slug": "normativa-delito",
@@ -937,7 +932,7 @@
         "src/content/notificaciones/estados.json",
         "src/content/notificaciones/traslados.json"
       ],
-      "displayName": "05. Atención / Notificaciones y Traslados"
+      "displayName": "05. Atenci\u00f3n / Notificaciones y Traslados"
     },
     {
       "slug": "evento",
