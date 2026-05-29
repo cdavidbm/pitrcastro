@@ -7,8 +7,8 @@ Guía para desplegar el portal ITRC al servidor de pruebas (`192.168.82.13`, acc
 | Cuándo se usa | Qué hace |
 |---|---|
 | `git push origin main` | El workflow `.github/workflows/deploy.yml` corre en runner self-hosted instalado en el servidor: build + rsync + reload nginx + smoke test. Es el camino normal. |
-| `npm run deploy` | Igual, pero ejecutado localmente desde la máquina del operador. Sirve de fallback si el runner está caído. |
-| `npm run deploy:binarios` | Sube `public/documentos/` al servidor sin `--delete`. Los binarios no viajan en el repo (gitignored) y deben subirse aparte. |
+| `pnpm deploy` | Igual, pero ejecutado localmente desde la máquina del operador. Sirve de fallback si el runner está caído. |
+| `pnpm deploy:binarios` | Sube `public/documentos/` al servidor sin `--delete`. Los binarios no viajan en el repo (gitignored) y deben subirse aparte. |
 
 Cambios solo en `docs/`, `README.md`, `LICENSE`, `.gitignore`, `CLAUDE.md` o `GEMINI.md` no disparan el deploy (`paths-ignore` en el workflow).
 
@@ -23,19 +23,19 @@ cp .env.deploy.example .env.deploy
 git push origin main
 
 # Fallback manual si el runner no está disponible
-npm run deploy
+pnpm deploy
 
 # Subir binarios al servidor
-npm run deploy:binarios
+pnpm deploy:binarios
 ```
 
-Tanto el workflow como `npm run deploy` excluyen `/documentos/` del rsync, para que un deploy del sitio no borre los binarios que ya viven en el servidor.
+Tanto el workflow como `pnpm deploy` excluyen `/documentos/` del rsync, para que un deploy del sitio no borre los binarios que ya viven en el servidor.
 
 ## Prerrequisitos
 
 | Requisito | Cómo obtenerlo |
 |---|---|
-| Node.js 20 LTS + npm | `nvm install 20` o instalar desde nodejs.org |
+| Node.js 20 LTS + pnpm 10 | `nvm install 20` + `corepack enable && corepack prepare pnpm@10.34.1 --activate`. Detalle: [`instalacion.md`](instalacion.md#instalar-pnpm) |
 | `rsync` | Linux/WSL: `sudo apt install rsync`. macOS: `brew install rsync` |
 | `ssh` con llave pública en el servidor | Llave ED25519 agregada a `~/.ssh/authorized_keys` del usuario remoto |
 | Acceso a la VPN institucional | FortiClient configurado y con ruta a `192.168.82.13` |

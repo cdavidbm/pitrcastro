@@ -28,7 +28,7 @@ Si es la primera vez que trabaja con el proyecto localmente:
 ```bash
 git clone https://github.com/cdavidbm/pitrcastro.git
 cd pitrcastro
-npm install
+pnpm install
 ```
 
 Si ya clonó el repositorio antes, actualice su copia local antes de hacer cualquier cambio:
@@ -145,7 +145,7 @@ Párrafo de contenido...
 Antes de enviar los cambios al repositorio, verifique que el portal funciona correctamente en su máquina local:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Abra `http://localhost:4321` en su navegador. Navegue hasta las páginas que modificó y verifique que se ven correctamente.

@@ -35,7 +35,7 @@ Strapi guarda el cambio en Postgres
         ▼
 GitHub Actions dispara el workflow de deploy
         │
-        │ 3. El runner self-hosted compila el sitio (npm run build)
+        │ 3. El runner self-hosted compila el sitio (pnpm build)
         │    Astro lee la API de Strapi y genera el HTML estático
         ▼
 El runner copia el sitio a /var/www/itrc-web/ y recarga nginx

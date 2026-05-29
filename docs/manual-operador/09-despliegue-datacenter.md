@@ -187,12 +187,13 @@ El sitio público se redespliega automáticamente cuando ocurre cualquiera de es
 El workflow `.github/workflows/deploy.yml` corre en el runner self-hosted (`runs-on: [self-hosted, itrc-server]`) instalado en el mismo servidor. Pasos:
 
 ```
-1. checkout              actions/checkout@v4
-2. npm ci                instala dependencias
-3. npm run build         Astro compila el sitio leyendo Strapi vía /api/
-4. rsync dist/ →         /var/www/itrc-web/  (con --delete y --exclude=/documentos/)
-5. systemctl reload nginx (NOPASSWD configurado para el usuario github-runner)
-6. smoke test            curl localhost para verificar 200
+1. checkout                            actions/checkout@v4
+2. setup pnpm                          pnpm/action-setup@v4 (lee packageManager pin)
+3. pnpm install --frozen-lockfile      instala dependencias
+4. pnpm build                          Astro compila el sitio leyendo Strapi vía /api/
+5. rsync dist/ →                       /var/www/itrc-web/  (con --delete y --exclude=/documentos/)
+6. systemctl reload nginx              (NOPASSWD configurado para el usuario github-runner)
+7. smoke test                          curl localhost para verificar 200
 ```
 
 Variables del workflow (configuradas en GitHub → Settings → Actions → Variables):
@@ -222,11 +223,11 @@ Si esas variables no están definidas, el webhook es no-op (útil en dev).
 Si el runner está caído o se necesita deploy desde otra rama:
 
 ```bash
-# Desde la máquina del operador (con VPN + repo clonado + Node)
-npm run deploy           # invoca ops/deploy.sh
+# Desde la máquina del operador (con VPN + repo clonado + Node + pnpm)
+pnpm deploy              # invoca ops/deploy.sh
 ```
 
-`ops/deploy.sh` lee `.env.deploy` (gitignored), corre `npm run build` local y rsync hacia `admweb@192.168.82.13`. Es más lento que el runner porque transfiere por red.
+`ops/deploy.sh` lee `.env.deploy` (gitignored), corre `pnpm build` local y rsync hacia `admweb@192.168.82.13`. Es más lento que el runner porque transfiere por red.
 
 ---
 

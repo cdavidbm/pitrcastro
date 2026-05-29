@@ -13,7 +13,7 @@ El compose tiene dos modos:
 
 | Modo | Comando (desde raíz) | Qué levanta |
 |---|---|---|
-| Local dev | `docker compose up -d` | Solo Postgres. Strapi se corre nativo con `npm run develop` desde `cms-strapi/`. |
+| Local dev | `docker compose up -d` | Solo Postgres. Strapi se corre nativo con `pnpm develop` desde `cms-strapi/`. |
 | Server / producción | `docker compose --profile server up -d --build` | Postgres + Strapi (build desde `cms-strapi/Dockerfile`). |
 
 ## Comandos
@@ -22,13 +22,13 @@ El compose tiene dos modos:
 # Desde cms-strapi/
 
 # Desarrollo con autoReload (Strapi nativo, contra el Postgres del compose)
-npm run develop
+pnpm develop
 
 # Producción (sin autoReload)
-npm run start
+pnpm start
 
 # Build del admin panel
-npm run build
+pnpm build
 ```
 
 ## Scripts del proyecto (`cms-strapi/scripts/`)
@@ -67,10 +67,18 @@ npm run build
 ### Ciclo típico de cambio de schema
 
 ```bash
-node scripts/autogen-schemas.mjs       # regenera schemas
-node scripts/gen-strapi-fetchers.mjs   # regenera fetchers
-npm run develop                        # validar que Strapi cargue
-node scripts/migrate-all.mjs --only=<slug>   # migrar datos
+node scripts/autogen-schemas.mjs              # regenera schemas
+node scripts/gen-strapi-fetchers.mjs          # regenera fetchers
+pnpm develop                                  # validar que Strapi cargue
+node scripts/migrate-all.mjs --only=<slug>    # migrar datos (local)
+```
+
+Para migrar al **server de pruebas** (192.168.82.13), el endpoint `/upload` solo está expuesto en el bind interno de Strapi (no por nginx). Abrir túnel SSH primero:
+
+```bash
+ssh -N -L 11337:127.0.0.1:1337 admweb@192.168.82.13 &
+STRAPI_URL=http://localhost:11337 node scripts/migrate-all.mjs [--only=...]
+pkill -f "ssh -N -L 11337"                    # cerrar túnel al terminar
 ```
 
 ## Estructura

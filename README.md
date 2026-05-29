@@ -14,22 +14,24 @@ Front estático en **Astro 4** consumiendo un CMS headless **Strapi v5** + **Pos
 
 ## Comandos rápidos
 
+> **Gestor de paquetes**: `pnpm` (bloqueado por `preinstall: only-allow pnpm`). Si no lo tienes: `corepack enable && corepack prepare pnpm@10.34.1 --activate`. Detalle: [`docs/instalacion.md`](docs/instalacion.md#por-qué-pnpm).
+
 ```bash
 # Frontend
-npm install
-npm run dev       # http://localhost:4321
-npm run build     # dist/
+pnpm install
+pnpm dev          # http://localhost:4321
+pnpm build        # dist/
 
 # CMS
 cd cms-strapi
 docker compose up -d
-npm install
-npm run develop   # http://localhost:1337/admin
+pnpm install
+pnpm develop      # http://localhost:1337/admin
 
 # Deploy
 git push origin main          # auto-deploy via runner self-hosted
-npm run deploy                # fallback manual
-npm run deploy:binarios       # subir documentos al servidor
+pnpm deploy                   # fallback manual
+pnpm deploy:binarios          # subir documentos al servidor
 ```
 
 ## Estructura

@@ -108,7 +108,7 @@ Si el administrador perdió acceso completo al panel, hay un script de Strapi:
 # En el servidor
 cd /home/admweb/itrc-cms
 docker compose --env-file .env.cms --profile server exec strapi \
-  npx strapi admin:reset-user-password \
+  pnpm exec strapi admin:reset-user-password \
   --email admin@itrc.local --password 'NuevaPasswordSegura123!'
 ```
 

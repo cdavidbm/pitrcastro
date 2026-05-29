@@ -41,7 +41,7 @@ Edite los archivos necesarios en VS Code. Consulte el [Capítulo 7](07-edicion-d
 ### Paso 3 — Verificar el portal localmente
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Revise que el portal funciona correctamente en `http://localhost:4321` antes de continuar.
@@ -179,7 +179,7 @@ Para reportar un problema, incluya siempre:
 ```
 Antes de empezar      →  git pull origin main
 Editar archivos       →  VS Code (JSON o Markdown)
-Verificar en local    →  npm run dev → http://localhost:4321
+Verificar en local    →  pnpm dev → http://localhost:4321
 Preparar commit       →  git add [archivos]
 Registrar cambio      →  git commit -m "descripción clara"
 Publicar              →  git push origin main
