@@ -1,8 +1,16 @@
 # Dependencies
 node_modules/
+# Lockfiles de otros gestores (el proyecto usa pnpm, ver packageManager
+# en package.json). Bloquear evita que un `npm install` o `yarn install`
+# accidental genere su lockfile y se cuele al commit.
+package-lock.json
+yarn.lock
 
 # Build output
 dist/
+
+# pnpm store local (cuando alguien usa pnpm con store por proyecto).
+.pnpm-store/
 
 # IDE
 .vscode/

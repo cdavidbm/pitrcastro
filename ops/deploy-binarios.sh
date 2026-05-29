@@ -9,7 +9,7 @@
 # Solución transitoria. Cuando exista el endpoint Node de uploads, los
 # binarios subirán por ahí desde Sveltia o un panel admin separado.
 #
-# Uso:  npm run deploy:binarios
+# Uso:  pnpm deploy:binarios
 #       o: bash ops/deploy-binarios.sh
 
 set -euo pipefail

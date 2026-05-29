@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ops/deploy.sh — Build local + sync al servidor configurado en .env.deploy
-# Uso: npm run deploy
+# Uso: pnpm deploy
 
 set -euo pipefail
 
@@ -31,7 +31,7 @@ SSH_BIN="${SSH_BIN:-ssh}"
 cd "${ROOT_DIR}"
 
 echo "==> Build con SITE_URL=${SITE_URL} BASE_PATH=${BASE_PATH}"
-SITE_URL="${SITE_URL}" BASE_PATH="${BASE_PATH}" npm run build
+SITE_URL="${SITE_URL}" BASE_PATH="${BASE_PATH}" pnpm build
 
 echo "==> Sincronizando dist/ → ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
 # Defensive flags para que el rsync funcione aunque DEPLOY_USER no sea owner
@@ -45,7 +45,7 @@ echo "==> Sincronizando dist/ → ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
 # --exclude=/documentos/: ver comentario equivalente en .github/workflows/deploy.yml.
 #                Resumen: los binarios viven SOLO en el filesystem del servidor;
 #                sin esta exclusión, --delete borraría 3.5 GB en cada deploy.
-#                Para subir binarios usar `npm run deploy:binarios` (script
+#                Para subir binarios usar `pnpm deploy:binarios` (script
 #                separado, ver ops/deploy-binarios.sh).
 rsync -avz --no-o --no-g --no-p --no-t --chmod=Dg+rwX,Fg+rw --delete \
   -e "${SSH_BIN}" \

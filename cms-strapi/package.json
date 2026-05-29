@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
+  "packageManager": "pnpm@10.34.1",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "strapi build",
     "console": "strapi console",
     "deploy": "strapi deploy",
@@ -11,8 +13,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+    "upgrade": "pnpm dlx @strapi/upgrade latest",
+    "upgrade:dry": "pnpm dlx @strapi/upgrade latest --dry"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.45.0",
@@ -32,7 +34,14 @@
   },
   "engines": {
     "node": ">=20.0.0 <=24.x.x",
-    "npm": ">=6.0.0"
+    "pnpm": ">=10.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "esbuild",
+      "sharp"
+    ]
   },
   "strapi": {
     "uuid": "8f176066-cb93-4cca-889f-2fd5bc4fc7ea",

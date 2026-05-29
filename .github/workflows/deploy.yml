@@ -53,11 +53,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          # Lee la versión del campo "packageManager" en package.json.
+          run_install: false
+
       - name: Install dependencies
-        run: npm ci
+        # --frozen-lockfile: aborta si el lockfile no está al día, equivalente
+        # a `npm ci`. Reproducible y rápido (~5 s vs ~45 s en npm).
+        run: pnpm install --frozen-lockfile
 
       - name: Build Astro site
-        run: npm run build
+        run: pnpm build
         env:
           SITE_URL: ${{ vars.SITE_URL }}
           BASE_PATH: ${{ vars.BASE_PATH }}
