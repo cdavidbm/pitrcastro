@@ -30,7 +30,10 @@ jobs:
   deploy:
     name: Build and deploy
     runs-on: [self-hosted, itrc-server]
-    timeout-minutes: 15
+    # Subido a 30m porque la primera vez con pnpm el runner puede tardar
+    # más en poblar su store local (~500 paquetes + build scripts de
+    # esbuild/sharp). Runs subsiguientes con cache caliente son ~1-2 min.
+    timeout-minutes: 30
 
     steps:
       - name: Show deploy context
