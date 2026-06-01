@@ -83,10 +83,17 @@
       "children": [
         { "label": "Noticias", "url": "/prensa/noticias" },
         { "label": "Eventos", "url": "/prensa/eventos" },
-        { "label": "Congreso CIPREP", "url": "/ciprep" },
         { "label": "Videos", "url": "/videos-itrc" },
         { "label": "Galería", "url": "/galeria" },
         { "label": "Cápsulas informativas", "url": "/capsulas-informativas" }
+      ]
+    },
+    {
+      "label": "Congresos",
+      "url": "/ciprep2026",
+      "children": [
+        { "label": "CIPREP 2026", "url": "/ciprep2026" },
+        { "label": "CIPREP 2025", "url": "/ciprep2025" }
       ]
     },
     {

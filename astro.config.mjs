@@ -20,6 +20,9 @@ export default defineConfig({
     // Página ITA "normas que sustentan a la entidad" se cubre con el
     // listado completo de marco legal (decretos, leyes, resoluciones).
     '/normas-que-los-sustentan': '/marco-legal',
+    // CIPREP cambió de slug al introducir el II Congreso 2026: la URL
+    // anterior /ciprep apunta ahora a la edición 2025 (histórica).
+    '/ciprep': '/ciprep2025',
   },
   build: {
     assets: 'assets'
