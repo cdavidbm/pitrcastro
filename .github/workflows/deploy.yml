@@ -30,10 +30,12 @@ jobs:
   deploy:
     name: Build and deploy
     runs-on: [self-hosted, itrc-server]
-    # Subido a 30m porque la primera vez con pnpm el runner puede tardar
-    # más en poblar su store local (~500 paquetes + build scripts de
-    # esbuild/sharp). Runs subsiguientes con cache caliente son ~1-2 min.
-    timeout-minutes: 30
+    # Subido a 60m: el store de pnpm en el runner self-hosted se vacía
+    # periódicamente (cada N días sin uso); cuando eso pasa, repoblar los
+    # ~500 paquetes con sus build scripts (esbuild, sharp) toma ~29 min
+    # contra el registry npm. Vimos esto en runs #239 y #242 (ambos
+    # cancelados al pegar 30:00). Runs con store caliente son <2 min.
+    timeout-minutes: 60
 
     steps:
       - name: Show deploy context

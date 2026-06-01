@@ -12,7 +12,7 @@ const iconMap: Record<string, string> = { pdf: 'fa-file-pdf', xlsx: 'fa-file-exc
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="acc-page"><div class="container">
     <p class="acc-intro">{pageData.texto}</p>
-    <div class="acc-list">{pageData.documentos.map((d) => (
+    <div class="acc-list">{(pageData.documentos ?? []).map((d) => (
       <a href={d.url} target="_blank" rel="noopener" class={`acc-item acc--${d.tipo}`}><i class={`fa-solid ${iconMap[d.tipo] || 'fa-file-pdf'}`} aria-hidden="true"></i><span>{d.nombre}</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>
     ))}</div>
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
