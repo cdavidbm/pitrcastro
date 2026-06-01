@@ -23,7 +23,11 @@ export default {
 
     const STORAGE_COLLAPSED = 'itrc-cm-collapsed';
     const STORAGE_FILTER = 'itrc-cm-filter';
-    const STORAGE_INITIALIZED = 'itrc-cm-initialized';
+    // Bump cuando cambie el modelo de inicialización (ej. al pasar de
+    // "acordeones expandibles" a "dropdown navegador primario"). Garantiza
+    // que el primer render aplique el nuevo default para los usuarios que
+    // ya tenían estado guardado de versiones anteriores.
+    const STORAGE_INITIALIZED = 'itrc-cm-initialized-v2';
 
     const getCollapsed = (): Set<string> => {
       try {
@@ -49,11 +53,19 @@ export default {
       return m ? m[1].trim() : null;
     };
 
+    // Sentinel branch para items que no calzan en ninguno de los dominios
+    // NN. Dominio (típicamente el item "User" del plugin users-permissions).
+    // El valor "zz" garantiza que ordene al final alfabéticamente, después
+    // de cualquier prefijo numérico real (01..99).
+    const OTHER_BRANCH = 'zz. Otros';
+
     // Label legible del branch para mostrar en headers y dropdown.
     // El branch internamente conserva el "NN. " para mantener orden y
     // matching estable; solo el texto visible se limpia.
-    const branchLabel = (branch: string): string =>
-      branch.replace(/^\d{2}\.\s+/, '');
+    const branchLabel = (branch: string): string => {
+      if (branch === OTHER_BRANCH) return 'Otros';
+      return branch.replace(/^\d{2}\.\s+/, '');
+    };
 
     const injectStyles = () => {
       if (document.getElementById('itrc-cm-styles')) return;
@@ -141,8 +153,72 @@ export default {
         div[data-itrc-branch] {
           padding-left: 8px;
         }
+        /* Esconder headers nativos "Collection Types" / "Single Types"
+           (y sus variantes traducidas). Marcamos por dataset en apply(). */
+        [data-itrc-hide="native-section-title"] {
+          display: none !important;
+        }
+        /* Sección final para items sin prefijo NN. (ej. "User" del plugin
+           users-permissions). Visualmente separada del resto. */
+        [data-itrc-other-header] {
+          margin-top: 14px !important;
+          padding-top: 10px !important;
+          border-top: 1px solid rgba(255,255,255,0.08) !important;
+        }
       `;
       document.head.appendChild(s);
+    };
+
+    // Strapi v5 muestra dos títulos de sección en el sidebar del Content
+    // Manager: "Collection Types" y "Single Types" (traducidos según locale).
+    // Visualmente parten la lista en dos bloques que rompen el flujo del
+    // menú ordenado por prefijo NN. — los ocultamos. Los items siguen
+    // visibles, agrupados por nuestras branches.
+    const NATIVE_SECTION_TITLES = new Set([
+      // EN
+      'collection types', 'single types',
+      // ES
+      'tipos de colección', 'tipos individuales', 'tipos de coleccion',
+      // PT-BR
+      'tipos de coleção', 'tipos únicos', 'tipos de colecao', 'tipos unicos',
+      // FR (por si acaso)
+      'types de collection', 'types unique',
+    ]);
+
+    const hideNativeSectionTitles = (navHost: HTMLElement) => {
+      // Strapi marca los títulos como nodo de texto plano (span/h2/h3/div
+      // sin hijos). Buscamos por textContent exacto contra el set de
+      // títulos conocidos. Después subimos en el árbol con tope estricto
+      // (MAX 3 niveles) para esconder el wrapper inmediato del título y
+      // no algo mucho mayor que contiene también los items.
+      const MAX_UP = 3;
+      const candidates = navHost.querySelectorAll<HTMLElement>('span, h2, h3, div');
+      for (const el of candidates) {
+        if (el.children.length > 0) continue; // solo nodos con texto plano
+        const txt = (el.textContent || '').trim().toLowerCase();
+        if (!txt || txt.length > 40) continue;
+        if (!NATIVE_SECTION_TITLES.has(txt)) continue;
+
+        // Subir hasta encontrar un wrapper que NO contenga ningún link de
+        // content-manager (significa que es solo el título, no la lista).
+        // Si ya estamos en un elemento que NO tiene content link, se
+        // marca directo. Tope estricto: 3 hops, jamás navHost.
+        let target: HTMLElement = el;
+        for (let hop = 0; hop < MAX_UP; hop++) {
+          const parent = target.parentElement;
+          if (!parent || parent === navHost) break;
+          // Selector válido: dos clauses separadas por coma para single
+          // o collection types (CSS no soporta regex en [attr*=...]).
+          const hasContentLink = parent.querySelector(
+            'a[href*="/content-manager/single-types/"], a[href*="/content-manager/collection-types/"]'
+          );
+          if (hasContentLink) break;
+          target = parent;
+        }
+        if (target.dataset.itrcHide !== 'native-section-title') {
+          target.dataset.itrcHide = 'native-section-title';
+        }
+      }
     };
 
     // Aplica una pasada de agrupación y visibilidad sobre el sidebar.
@@ -182,10 +258,12 @@ export default {
         navHost.style.width = '280px';
       }
 
+      // Esconder los títulos nativos "Collection Types" / "Single Types"
+      // para que el menú fluya como una sola lista por dominios.
+      if (navHost) hideNativeSectionTitles(navHost);
+
       const groups = new Map<string, HTMLElement[]>();
       for (const a of links) {
-        // Cada link puede estar en un <li>, en un <div> con role="listitem"
-        // o sin contenedor; tomamos el inmediato padre como "fila".
         const row = (a.closest('li') ||
           a.closest('[role="listitem"]') ||
           a.parentElement) as HTMLElement | null;
@@ -197,7 +275,11 @@ export default {
         const text = a.textContent || '';
         let branch = branchPrefix(text);
         if (!branch) branch = row.dataset.itrcBranch || null;
-        if (!branch) continue;
+        // Si después de todo no detectamos branch, lo mandamos a la sección
+        // "Otros" (ej. el item "User" del plugin users-permissions, que no
+        // sigue el patrón NN. Dominio /). Así no se pierde y queda agrupado
+        // visualmente al final del sidebar.
+        if (!branch) branch = OTHER_BRANCH;
         row.dataset.itrcBranch = branch;
 
         // Strip "NN. Branch / " (collection / single page) o "NN. " (page sola)
@@ -216,20 +298,29 @@ export default {
       }
       if (groups.size === 0) return;
 
-      // Primer render: colapsar todas las ramas salvo la activa, para que el
-      // editor abra a un sidebar limpio en lugar de a una lista de 50+ items.
-      // La detección del activo es best-effort; si falla, se queda todo
-      // colapsado y el usuario expande lo que necesite.
+      // Primer render: pre-seleccionar la rama del item activo en el
+      // dropdown. Si no hay activo, default a la primera rama numérica
+      // (típicamente "01. Inicio"). Esto convierte al dropdown en el
+      // navegador primario: el editor entra al panel y ve directamente
+      // los items del dominio que está visitando.
       if (!isInitialized()) {
         const activeLink = document.querySelector<HTMLAnchorElement>(
           'a[href*="/content-manager/"][aria-current="page"]'
         );
         const activeBranch = activeLink ? branchPrefix(activeLink.textContent || '') : null;
-        const initial = new Set<string>();
-        for (const branch of groups.keys()) {
-          if (branch !== activeBranch) initial.add(branch);
+        const sortedBranches = [...groups.keys()].sort();
+        const defaultBranch =
+          activeBranch && groups.has(activeBranch) ? activeBranch : sortedBranches[0];
+        // Si veníamos del default "*" (Todas las ramas), forzar el cambio
+        // al modo de una sola rama. Solo respetamos un filter explícito
+        // distinto a "*" (que indica preferencia consciente del usuario).
+        const current = localStorage.getItem(STORAGE_FILTER);
+        if (defaultBranch && (!current || current === '*')) {
+          setFilter(defaultBranch);
         }
-        setCollapsedSet(initial);
+        // No colapsamos nada: con el filter de rama única, la rama activa
+        // está siempre visible y las otras escondidas por completo.
+        setCollapsedSet(new Set());
         markInitialized();
       }
 
@@ -249,6 +340,10 @@ export default {
           // (algunos diseños esperan li dentro de ul; otros div dentro de div).
           header = document.createElement(firstRow.tagName.toLowerCase()) as HTMLElement;
           header.setAttribute('data-itrc-header', branch);
+          // Marca visual extra para la sección "Otros" (al final de la lista).
+          if (branch === OTHER_BRANCH) {
+            header.setAttribute('data-itrc-other-header', '1');
+          }
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'itrc-branch-btn';
@@ -256,19 +351,37 @@ export default {
             '<span class="itrc-arrow"></span><span class="itrc-label"></span><span class="itrc-count"></span>';
           btn.addEventListener('click', () => {
             const c = getCollapsed();
-            if (c.has(branch)) c.delete(branch);
+            const wasCollapsed = c.has(branch);
+            if (wasCollapsed) c.delete(branch);
             else c.add(branch);
             setCollapsedSet(c);
             apply();
+            // Al expandir un branch, scrollear el header al tope del
+            // sidebar para que los items recién mostrados queden visibles
+            // debajo de él (sin esto, en branches con muchos items como
+            // Transparencia, el contenido se "abre en otra parte" del
+            // scroll y el editor tiene que perseguirlo).
+            if (wasCollapsed) {
+              header!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           });
           header.appendChild(btn);
           list.insertBefore(header, firstRow);
         }
 
-        const isCollapsed = collapsed.has(branch);
         const isHiddenByFilter = filter !== '*' && filter !== branch;
+        // En modo "una rama" (filter activo en este branch), el acordeón
+        // es redundante: solo se muestra una rama. Forzamos expandido y
+        // escondemos el header de acordeón (el editor sabe qué rama está
+        // viendo por el dropdown).
+        const singleBranchMode = filter !== '*' && filter === branch;
+        const isCollapsed = singleBranchMode ? false : collapsed.has(branch);
 
-        header.style.display = isHiddenByFilter ? 'none' : '';
+        if (isHiddenByFilter || singleBranchMode) {
+          header.style.display = 'none';
+        } else {
+          header.style.display = '';
+        }
         const arrow = header.querySelector('.itrc-arrow');
         const label = header.querySelector('.itrc-label');
         const count = header.querySelector('.itrc-count');
@@ -306,19 +419,31 @@ export default {
         const branches = [...groups.keys()].sort();
         filterEl = document.createElement('div');
         filterEl.className = 'itrc-branch-filter';
+        // El dropdown es el navegador primario. La opción primera es una
+        // rama concreta, no "todas". "Mostrar todo (avanzado)" queda como
+        // último elemento para casos puntuales donde el editor quiere ver
+        // el panorama completo.
         filterEl.innerHTML =
-          '<label>Filtrar por rama</label><select><option value="*">Todas las ramas</option>' +
+          '<label>Ir a la sección</label><select>' +
           branches
             .map(
               (b) =>
                 `<option value="${b.replace(/"/g, '&quot;')}">${branchLabel(b)}</option>`
             )
             .join('') +
-          '</select>';
+          '<option value="*">— Mostrar todo (avanzado) —</option></select>';
         const select = filterEl.querySelector('select') as HTMLSelectElement;
         select.value = filter;
         select.addEventListener('change', () => {
           setFilter(select.value);
+          // Al elegir una rama específica, dejarla expandida (limpiamos el
+          // estado de "colapsada" por si quedó de antes). En modo "Mostrar
+          // todo" mantenemos el estado de colapsado del usuario.
+          if (select.value !== '*') {
+            const c = getCollapsed();
+            c.delete(select.value);
+            setCollapsedSet(c);
+          }
           apply();
         });
         const searchInput = navRoot.querySelector<HTMLElement>(

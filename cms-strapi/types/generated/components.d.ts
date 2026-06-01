@@ -1948,21 +1948,6 @@ export interface PrensaVideosVideo extends Struct.ComponentSchema {
   };
 }
 
-export interface PrensaSection extends Struct.ComponentSchema {
-  collectionName: 'components_prensa_sections';
-  info: {
-    displayName: 'Section';
-    icon: 'cube';
-  };
-  attributes: {
-    descripcion: Schema.Attribute.String;
-    icon: Schema.Attribute.String;
-    idLogico: Schema.Attribute.String;
-    titulo: Schema.Attribute.String;
-    url: Schema.Attribute.String;
-  };
-}
-
 export interface SharedRelatedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_related_links';
   info: {
@@ -3130,7 +3115,6 @@ declare module '@strapi/strapi' {
       'prensa-landing.seccion': PrensaLandingSeccion;
       'prensa-videos.enlaz': PrensaVideosEnlaz;
       'prensa-videos.video': PrensaVideosVideo;
-      'prensa.section': PrensaSection;
       'shared.related-link': SharedRelatedLink;
       'slider.slide': SliderSlide;
       'transparencia-accesibilidad.documento': TransparenciaAccesibilidadDocumento;

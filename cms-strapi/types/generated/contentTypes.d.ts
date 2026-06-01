@@ -3507,32 +3507,6 @@ export interface ApiPrensaVideosPrensaVideos extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPrensaPrensa extends Struct.SingleTypeSchema {
-  collectionName: 'prensa';
-  info: {
-    description: 'Auto-generado desde src/content/pages/prensa.json';
-    displayName: '08. Prensa / Inicio';
-    pluralName: 'prensas';
-    singularName: 'prensa';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::prensa.prensa'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.Component<'prensa.section', true>;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
-  };
-}
-
 export interface ApiSliderSlider extends Struct.SingleTypeSchema {
   collectionName: 'sliders';
   info: {
@@ -5805,7 +5779,6 @@ declare module '@strapi/strapi' {
       'api::prensa-galeria.prensa-galeria': ApiPrensaGaleriaPrensaGaleria;
       'api::prensa-landing.prensa-landing': ApiPrensaLandingPrensaLanding;
       'api::prensa-videos.prensa-videos': ApiPrensaVideosPrensaVideos;
-      'api::prensa.prensa': ApiPrensaPrensa;
       'api::slider.slider': ApiSliderSlider;
       'api::transparencia-accesibilidad.transparencia-accesibilidad': ApiTransparenciaAccesibilidadTransparenciaAccesibilidad;
       'api::transparencia-agremiaciones.transparencia-agremiaciones': ApiTransparenciaAgremiacionesTransparenciaAgremiaciones;
