@@ -31,6 +31,46 @@ pnpm start
 pnpm build
 ```
 
+## Trabajar en el panel admin sin levantar Strapi local
+
+Para tareas que solo requieren **usar el panel admin** (publicar contenido, ajustar campos, revisar entradas, configurar el sidebar, etc.) no hace falta arrancar `pnpm develop` en local — que puede tardar 5–8 min la primera vez. En su lugar abre un túnel SSH al Strapi del servidor de pruebas:
+
+```bash
+# Desde la raíz del repo
+pnpm strapi:tunnel          # abre el túnel localhost:11337 → server:1337
+```
+
+Luego abre el panel en el navegador:
+
+```
+http://localhost:11337/admin
+```
+
+Inicia sesión con las credenciales del servidor (las administra el equipo, no se versionan).
+
+**Cuándo usar el túnel vs `pnpm develop`:**
+
+| Tarea | Túnel SSH | Local `pnpm develop` |
+|---|---|---|
+| Publicar/editar contenido | ✅ | ✅ |
+| Reordenar el menú del panel | ✅ | ✅ |
+| Configurar campos visibles | ✅ | ✅ |
+| Probar lifecycle hooks | ❌ (tocan código) | ✅ |
+| Editar `schema.json` de un content-type | ❌ (tocan código) | ✅ |
+| Modificar `cms-strapi/src/index.ts` | ❌ | ✅ |
+
+**Importante:** al usar el túnel estás editando datos **reales** del servidor. Lo que publiques sale al sitio en el próximo deploy.
+
+**Subcomandos del túnel:**
+
+```bash
+pnpm strapi:tunnel          # abrir (alias de strapi:tunnel:open)
+pnpm strapi:tunnel:status   # verificar si está activo
+pnpm strapi:tunnel:close    # cerrar
+```
+
+Requisitos: VPN del datacenter activa + llave SSH instalada en el servidor (`admweb@192.168.82.13`). Los detalles operativos viven en `.env.deploy` (gitignored).
+
 ## Scripts del proyecto (`cms-strapi/scripts/`)
 
 ### Schemas y fetchers

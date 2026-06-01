@@ -19,7 +19,10 @@
     "deploy:binarios": "bash ops/deploy-binarios.sh",
     "lint": "eslint 'src/**/*.{astro,ts}'",
     "format": "prettier --write 'src/**/*.{astro,ts,css}'",
-    "astro": "astro"
+    "astro": "astro",
+    "strapi:tunnel": "bash ops/strapi-tunnel.sh open",
+    "strapi:tunnel:close": "bash ops/strapi-tunnel.sh close",
+    "strapi:tunnel:status": "bash ops/strapi-tunnel.sh status"
   },
   "dependencies": {
     "astro": "^4.16.0"
