@@ -1,5 +1,7 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
 
+import PreviewButton from './PreviewButton';
+
 /**
  * Personalización del Content Manager: agrupa los content types por rama
  * del menú del sitio (la primera parte del displayName, ej. "02. Agencia
@@ -18,7 +20,17 @@ export default {
   config: {
     locales: [],
   },
-  bootstrap(_app: StrapiApp) {
+  bootstrap(app: StrapiApp) {
+    // F2 — Preview button "Ver en el sitio" en la barra derecha del
+    // editor del Content Manager. Usa la API oficial de inyección de
+    // componentes (sin manipulación DOM como el sidebar deshabilitado
+    // de abajo). El componente lee el slug del content-type desde la
+    // URL del browser y arma el link a la página pública correspondiente.
+    app.getPlugin('content-manager').injectComponent('editView', 'right-links', {
+      name: 'itrc-preview-button',
+      Component: PreviewButton,
+    });
+
     if (typeof window === 'undefined') return;
 
     // ⚠️ DEUDA TÉCNICA: el bloque de customización siguiente está

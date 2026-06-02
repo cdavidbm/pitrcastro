@@ -398,8 +398,9 @@ export interface ApiAgenciaDireccionamientoEstrategicoAgenciaDireccionamientoEst
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_direccionamiento_estrategico';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/direccionamiento-estrategico.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Direccionamiento Estrat\u00E9gico. Publicada en: /agencia/direccionamiento-estrategico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Direccionamiento Estrat\u00E9gico';
+    mainField: 'title';
     pluralName: 'agencia-direccionamiento-estrategicos';
     singularName: 'agencia-direccionamiento-estrategico';
   };
@@ -434,8 +435,9 @@ export interface ApiAgenciaDireccionamientoInformesAgenciaDireccionamientoInform
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_direccionamiento_informes';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/direccionamiento/informes.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Direccionamiento Informes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Direccionamiento Informes';
+    mainField: 'title';
     pluralName: 'agencia-direccionamiento-informeses';
     singularName: 'agencia-direccionamiento-informes';
   };
@@ -468,8 +470,9 @@ export interface ApiAgenciaDireccionamientoPlanesAgenciaDireccionamientoPlanes
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_direccionamiento_planes';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/direccionamiento/planes.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Direccionamiento Planes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Direccionamiento Planes';
+    mainField: 'title';
     pluralName: 'agencia-direccionamiento-planeses';
     singularName: 'agencia-direccionamiento-planes';
   };
@@ -502,8 +505,9 @@ export interface ApiAgenciaDireccionamientoPoliticasAgenciaDireccionamientoPolit
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_direccionamiento_politicas';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/direccionamiento/politicas.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Direccionamiento Pol\u00EDticas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Direccionamiento Pol\u00EDticas';
+    mainField: 'title';
     pluralName: 'agencia-direccionamiento-politicases';
     singularName: 'agencia-direccionamiento-politicas';
   };
@@ -535,8 +539,9 @@ export interface ApiAgenciaDireccionamientoPoliticasAgenciaDireccionamientoPolit
 export interface ApiAgenciaDirectorioAgenciaDirectorio extends Struct.SingleTypeSchema {
   collectionName: 'agencia_directorio';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/directorio.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Directorio. Publicada en: /agencia/directorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Directorio';
+    mainField: 'title';
     pluralName: 'agencia-directorios';
     singularName: 'agencia-directorio';
   };
@@ -568,8 +573,9 @@ export interface ApiAgenciaEmpleoRrhhManualEspecificoFuncionesAgenciaEmpleoRrhhM
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_empleo_rrhh_manual_especifico_funciones';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Manual Espec\u00EDfico Funciones. Publicada en: /manual-especifico-de-funciones-y-de-competencias-laborales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Empleo RRHH Manual Espec\u00EDfico Funciones';
+    mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-manual-especifico-funcioneses';
     singularName: 'agencia-empleo-rrhh-manual-especifico-funciones';
   };
@@ -603,8 +609,9 @@ export interface ApiAgenciaEmpleoRrhhManualIdentidadVisualAgenciaEmpleoRrhhManua
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_empleo_rrhh_manual_identidad_visual';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/manual-identidad-visual.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Manual Identidad Visual. Publicada en: /manual-de-identidad-visual-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Empleo RRHH Manual Identidad Visual';
+    mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-manual-identidad-visuals';
     singularName: 'agencia-empleo-rrhh-manual-identidad-visual';
   };
@@ -638,8 +645,9 @@ export interface ApiAgenciaEmpleoRrhhManualesInternosAgenciaEmpleoRrhhManualesIn
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_empleo_rrhh_manuales_internos';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/manuales-internos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Manuales Internos. Publicada en: /manuales-internos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Empleo RRHH Manuales Internos';
+    mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-manuales-internoses';
     singularName: 'agencia-empleo-rrhh-manuales-internos';
   };
@@ -670,8 +678,9 @@ export interface ApiAgenciaEmpleoRrhhNombramientosAgenciaEmpleoRrhhNombramientos
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_empleo_rrhh_nombramientos';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/nombramientos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Nombramientos. Publicada en: /nombramientos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Empleo RRHH Nombramientos';
+    mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-nombramientoses';
     singularName: 'agencia-empleo-rrhh-nombramientos';
   };
@@ -703,8 +712,9 @@ export interface ApiAgenciaEmpleoRrhhOfertasEmpleoAgenciaEmpleoRrhhOfertasEmpleo
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_empleo_rrhh_ofertas_empleo';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Ofertas Empleo. Publicada en: /ofertas-de-empleo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Empleo RRHH Ofertas Empleo';
+    mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-ofertas-empleos';
     singularName: 'agencia-empleo-rrhh-ofertas-empleo';
   };
@@ -734,8 +744,9 @@ export interface ApiAgenciaEmpleoRrhhOfertasEmpleoAgenciaEmpleoRrhhOfertasEmpleo
 export interface ApiAgenciaEquipoDirectivoAgenciaEquipoDirectivo extends Struct.SingleTypeSchema {
   collectionName: 'agencia_equipo_directivo';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/equipo-directivo.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Equipo Directivo. Publicada en: /agencia/equipo-directivo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Equipo Directivo';
+    mainField: 'title';
     pluralName: 'agencia-equipo-directivos';
     singularName: 'agencia-equipo-directivo';
   };
@@ -764,8 +775,9 @@ export interface ApiAgenciaEquipoDirectivoAgenciaEquipoDirectivo extends Struct.
 export interface ApiAgenciaEscalaSalarialAgenciaEscalaSalarial extends Struct.SingleTypeSchema {
   collectionName: 'agencia_escala_salarial';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/escala-salarial.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Escala Salarial. Publicada en: /escala-salarial. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Escala Salarial';
+    mainField: 'title';
     pluralName: 'agencia-escala-salarials';
     singularName: 'agencia-escala-salarial';
   };
@@ -795,8 +807,9 @@ export interface ApiAgenciaEscalaSalarialAgenciaEscalaSalarial extends Struct.Si
 export interface ApiAgenciaGestionMisionalAgenciaGestionMisional extends Struct.SingleTypeSchema {
   collectionName: 'agencia_gestion_misional';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/gestion-misional.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Gesti\u00F3n Misional. Publicada en: /agencia/gestion-misional. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Gesti\u00F3n Misional';
+    mainField: 'title';
     pluralName: 'agencia-gestion-misionals';
     singularName: 'agencia-gestion-misional';
   };
@@ -829,8 +842,9 @@ export interface ApiAgenciaInformacionFinancieraAgenciaInformacionFinanciera
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_informacion_financiera';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/informacion-financiera.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Informaci\u00F3n Financiera. Publicada en: /agencia/informacion-financiera. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Informaci\u00F3n Financiera';
+    mainField: 'title';
     pluralName: 'agencia-informacion-financieras';
     singularName: 'agencia-informacion-financiera';
   };
@@ -862,8 +876,9 @@ export interface ApiAgenciaInformacionFinancieraAgenciaInformacionFinanciera
 export interface ApiAgenciaLandingAgenciaLanding extends Struct.SingleTypeSchema {
   collectionName: 'agencia_landing';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/landing.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Landing. Publicada en: /agencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Landing';
+    mainField: 'title';
     pluralName: 'agencia-landings';
     singularName: 'agencia-landing';
   };
@@ -889,8 +904,9 @@ export interface ApiAgenciaLandingAgenciaLanding extends Struct.SingleTypeSchema
 export interface ApiAgenciaMisionVisionAgenciaMisionVision extends Struct.SingleTypeSchema {
   collectionName: 'agencia_mision_vision';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/mision-vision.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Mision Vision. Publicada en: /agencia/mision-vision. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Mision Vision';
+    mainField: 'title';
     pluralName: 'agencia-mision-visions';
     singularName: 'agencia-mision-vision';
   };
@@ -925,8 +941,9 @@ export interface ApiAgenciaMisionVisionAgenciaMisionVision extends Struct.Single
 export interface ApiAgenciaOrganigramaAgenciaOrganigrama extends Struct.SingleTypeSchema {
   collectionName: 'agencia_organigrama';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/organigrama.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Organigrama. Publicada en: /agencia/organigrama. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Organigrama';
+    mainField: 'title';
     pluralName: 'agencia-organigramas';
     singularName: 'agencia-organigrama';
   };
@@ -962,8 +979,9 @@ export interface ApiAgenciaPlanInstitucionalDeArchivosAgenciaPlanInstitucionalDe
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_plan_institucional_de_archivos';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/plan-institucional-de-archivos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Plan Institucional de Archivos. Publicada en: /agencia/plan-institucional-de-archivos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Plan Institucional de Archivos';
+    mainField: 'title';
     pluralName: 'agencia-plan-institucional-de-archivoses';
     singularName: 'agencia-plan-institucional-de-archivos';
   };
@@ -997,8 +1015,9 @@ export interface ApiAgenciaSistemaDeControlInternoAgenciaSistemaDeControlInterno
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_sistema_de_control_interno';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/sistema-de-control-interno.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Sistema de Control Interno. Publicada en: /agencia/control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Sistema de Control Interno';
+    mainField: 'title';
     pluralName: 'agencia-sistema-de-control-internos';
     singularName: 'agencia-sistema-de-control-interno';
   };
@@ -1056,8 +1075,9 @@ export interface ApiAgenciaSistemaIntegradoDeGestionAgenciaSistemaIntegradoDeGes
   extends Struct.SingleTypeSchema {
   collectionName: 'agencia_sistema_integrado_de_gestion';
   info: {
-    description: 'Auto-generado desde src/content/pages/agencia/sistema-integrado-de-gestion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Sistema Integrado de Gesti\u00F3n. Publicada en: /agencia/sistema-integrado-de-gestion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '02. Agencia / Sistema Integrado de Gesti\u00F3n';
+    mainField: 'title';
     pluralName: 'agencia-sistema-integrado-de-gestions';
     singularName: 'agencia-sistema-integrado-de-gestion';
   };
@@ -1091,8 +1111,9 @@ export interface ApiAtencionCanalesDeAtencionAtencionCanalesDeAtencion
   extends Struct.SingleTypeSchema {
   collectionName: 'atencion_canales_de_atencion';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/canales-de-atencion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Canales de Atenci\u00F3n. Publicada en: /canales-de-atencion-al-ciudadano. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Canales de Atenci\u00F3n';
+    mainField: 'title';
     pluralName: 'atencion-canales-de-atencions';
     singularName: 'atencion-canales-de-atencion';
   };
@@ -1126,8 +1147,9 @@ export interface ApiAtencionCanalesDeAtencionAtencionCanalesDeAtencion
 export interface ApiAtencionCartaTratoDignoAtencionCartaTratoDigno extends Struct.SingleTypeSchema {
   collectionName: 'atencion_carta_trato_digno';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/carta-trato-digno.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Carta Trato Digno. Publicada en: /carta-trato-digno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Carta Trato Digno';
+    mainField: 'title';
     pluralName: 'atencion-carta-trato-dignos';
     singularName: 'atencion-carta-trato-digno';
   };
@@ -1158,8 +1180,9 @@ export interface ApiAtencionCartillaAlCiudadanoAtencionCartillaAlCiudadano
   extends Struct.SingleTypeSchema {
   collectionName: 'atencion_cartilla_al_ciudadano';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/cartilla-al-ciudadano.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Cartilla Al Ciudadano. Publicada en: /cartilla-al-ciudadano. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Cartilla Al Ciudadano';
+    mainField: 'title';
     pluralName: 'atencion-cartilla-al-ciudadanos';
     singularName: 'atencion-cartilla-al-ciudadano';
   };
@@ -1190,8 +1213,9 @@ export interface ApiAtencionCorreoNotificacionesJudicialesAtencionCorreoNotifica
   extends Struct.SingleTypeSchema {
   collectionName: 'atencion_correo_notificaciones_judiciales';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/correo-notificaciones-judiciales.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Correo Notificaciones Judiciales. Publicada en: /correo-electronico-para-notificaciones-judiciales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Correo Notificaciones Judiciales';
+    mainField: 'title';
     pluralName: 'atencion-correo-notificaciones-judicialeses';
     singularName: 'atencion-correo-notificaciones-judiciales';
   };
@@ -1224,8 +1248,9 @@ export interface ApiAtencionCorreoNotificacionesJudicialesAtencionCorreoNotifica
 export interface ApiAtencionGlosarioAtencionGlosario extends Struct.SingleTypeSchema {
   collectionName: 'atencion_glosario';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/glosario.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Glosario. Publicada en: /glosario. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Glosario';
+    mainField: 'title';
     pluralName: 'atencion-glosarios';
     singularName: 'atencion-glosario';
   };
@@ -1257,8 +1282,9 @@ export interface ApiAtencionGlosarioAtencionGlosario extends Struct.SingleTypeSc
 export interface ApiAtencionLandingAtencionLanding extends Struct.SingleTypeSchema {
   collectionName: 'atencion_landing';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/landing.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Landing. Publicada en: /atencion-y-servicios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Landing';
+    mainField: 'title';
     pluralName: 'atencion-landings';
     singularName: 'atencion-landing';
   };
@@ -1289,8 +1315,9 @@ export interface ApiAtencionNotificacionesPorAvisoAtencionNotificacionesPorAviso
   extends Struct.SingleTypeSchema {
   collectionName: 'atencion_notificaciones_por_aviso';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/notificaciones-por-aviso.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Notificaciones Por Aviso. Publicada en: /notificaciones-por-aviso. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Notificaciones Por Aviso';
+    mainField: 'title';
     pluralName: 'atencion-notificaciones-por-avisos';
     singularName: 'atencion-notificaciones-por-aviso';
   };
@@ -1323,8 +1350,9 @@ export interface ApiAtencionNotificacionesPorAvisoAtencionNotificacionesPorAviso
 export interface ApiAtencionPqrsServidoresAtencionPqrsServidores extends Struct.SingleTypeSchema {
   collectionName: 'atencion_pqrs_servidores';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/pqrs-servidores.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": PQRS Servidores. Publicada en: /p-q-r-s-servidores-agencia-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / PQRS Servidores';
+    mainField: 'title';
     pluralName: 'atencion-pqrs-servidoreses';
     singularName: 'atencion-pqrs-servidores';
   };
@@ -1354,8 +1382,9 @@ export interface ApiAtencionPqrsServidoresAtencionPqrsServidores extends Struct.
 export interface ApiAtencionPqrsAtencionPqrs extends Struct.SingleTypeSchema {
   collectionName: 'atencion_pqrs';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/pqrs.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": PQRS. Publicada en: /tu-p-q-r-s-al-dia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / PQRS';
+    mainField: 'title';
     pluralName: 'atencion-pqrses';
     singularName: 'atencion-pqrs';
   };
@@ -1389,8 +1418,9 @@ export interface ApiAtencionPreguntasFrecuentesAtencionPreguntasFrecuentes
   extends Struct.SingleTypeSchema {
   collectionName: 'atencion_preguntas_frecuentes';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/preguntas-frecuentes.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Preguntas Frecuentes. Publicada en: /preguntas-frecuentes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Preguntas Frecuentes';
+    mainField: 'title';
     pluralName: 'atencion-preguntas-frecuenteses';
     singularName: 'atencion-preguntas-frecuentes';
   };
@@ -1423,8 +1453,9 @@ export interface ApiAtencionVinculacionATercerosAtencionVinculacionATerceros
   extends Struct.SingleTypeSchema {
   collectionName: 'atencion_vinculacion_a_terceros';
   info: {
-    description: 'Auto-generado desde src/content/pages/atencion/vinculacion-a-terceros.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Vinculaci\u00F3n a Terceros. Publicada en: /vinculacion-a-terceros-cancelacion-de-registro-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '04. Atenci\u00F3n y Servicios / Vinculaci\u00F3n a Terceros';
+    mainField: 'title';
     pluralName: 'atencion-vinculacion-a-terceroses';
     singularName: 'atencion-vinculacion-a-terceros';
   };
@@ -1456,8 +1487,9 @@ export interface ApiAtencionVinculacionATercerosAtencionVinculacionATerceros
 export interface ApiCiprepSpeakerCiprepSpeaker extends Struct.CollectionTypeSchema {
   collectionName: 'ciprep_speakers_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/ciprep/speakers';
+    description: 'Colecci\u00F3n de entradas del dominio "Prensa": Congreso CIPREP / Speakers. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Congreso CIPREP / Speakers';
+    mainField: 'name';
     pluralName: 'ciprep-speakers';
     singularName: 'ciprep-speaker';
   };
@@ -1486,8 +1518,9 @@ export interface ApiCiprepSpeakerCiprepSpeaker extends Struct.CollectionTypeSche
 export interface ApiCiprepCiprep extends Struct.SingleTypeSchema {
   collectionName: 'ciprep';
   info: {
-    description: 'Auto-generado desde src/content/pages/ciprep.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Congreso CIPREP. Publicada en: /ciprep2025. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Congreso CIPREP';
+    mainField: 'title';
     pluralName: 'cipreps';
     singularName: 'ciprep';
   };
@@ -1533,6 +1566,7 @@ export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
   info: {
     description: 'Calendario de eventos institucionales de la Agencia ITRC.';
     displayName: '08. Prensa / Eventos';
+    mainField: 'title';
     pluralName: 'eventos';
     singularName: 'evento';
   };
@@ -1564,8 +1598,9 @@ export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
 export interface ApiGaleriaGaleria extends Struct.CollectionTypeSchema {
   collectionName: 'galeria_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/galeria';
+    description: 'Colecci\u00F3n de entradas del dominio "Prensa": Galer\u00EDa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Galer\u00EDa';
+    mainField: 'titulo';
     pluralName: 'galerias';
     singularName: 'galeria';
   };
@@ -1594,8 +1629,8 @@ export interface ApiGaleriaGaleria extends Struct.CollectionTypeSchema {
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'home';
   info: {
-    description: 'Auto-generado desde src/content/pages/home.json';
-    displayName: '01. Inicio';
+    description: 'P\u00E1gina \u00FAnica del dominio "Inicio": Home. Publicada en: /. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
+    displayName: '01. Inicio / Home';
     pluralName: 'homes';
     singularName: 'home';
   };
@@ -1619,8 +1654,9 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
 export interface ApiInstitucionalAudiosItrcInstitucionalAudiosItrc extends Struct.SingleTypeSchema {
   collectionName: 'institucional_audios_itrc';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/audios-itrc.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Audios ITRC. Publicada en: /audiositrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Audios ITRC';
+    mainField: 'title';
     pluralName: 'institucional-audios-itrcs';
     singularName: 'institucional-audios-itrc';
   };
@@ -1651,8 +1687,9 @@ export interface ApiInstitucionalCalendarioEventosInstitucionalCalendarioEventos
   extends Struct.SingleTypeSchema {
   collectionName: 'institucional_calendario_eventos';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/calendario-eventos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Calendario Eventos. Publicada en: /calendario-de-eventos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Calendario Eventos';
+    mainField: 'title';
     pluralName: 'institucional-calendario-eventoses';
     singularName: 'institucional-calendario-eventos';
   };
@@ -1683,8 +1720,9 @@ export interface ApiInstitucionalDefensaJudicialInstitucionalDefensaJudicial
   extends Struct.SingleTypeSchema {
   collectionName: 'institucional_defensa_judicial';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/defensa-judicial.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Defensa Judicial. Publicada en: /defensa-judicial. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Defensa Judicial';
+    mainField: 'title';
     pluralName: 'institucional-defensa-judicials';
     singularName: 'institucional-defensa-judicial';
   };
@@ -1714,8 +1752,9 @@ export interface ApiInstitucionalDefensaJudicialInstitucionalDefensaJudicial
 export interface ApiInstitucionalEstadosInstitucionalEstados extends Struct.SingleTypeSchema {
   collectionName: 'institucional_estados';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/estados.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Estados. Publicada en: /estados. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Estados';
+    mainField: 'title';
     pluralName: 'institucional-estadoses';
     singularName: 'institucional-estados';
   };
@@ -1747,8 +1786,9 @@ export interface ApiInstitucionalEstudiosInvestigacionesInstitucionalEstudiosInv
   extends Struct.SingleTypeSchema {
   collectionName: 'institucional_estudios_investigaciones';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/estudios-investigaciones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Estudios Investigaciones. Publicada en: /estudios-investigaciones-y-otras-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Estudios Investigaciones';
+    mainField: 'title';
     pluralName: 'institucional-estudios-investigacioneses';
     singularName: 'institucional-estudios-investigaciones';
   };
@@ -1779,8 +1819,9 @@ export interface ApiInstitucionalHistoricoInvestigacionesDisciplinariasInstituci
   extends Struct.SingleTypeSchema {
   collectionName: 'institucional_historico_investigaciones_disciplinarias';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/historico-investigaciones-disciplinarias.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Hist\u00F3rico Investigaciones Disciplinarias. Publicada en: /historico-subdireccion-investigaciones-disciplinarias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Hist\u00F3rico Investigaciones Disciplinarias';
+    mainField: 'title';
     pluralName: 'institucional-historico-investigaciones-disciplinariases';
     singularName: 'institucional-historico-investigaciones-disciplinarias';
   };
@@ -1814,8 +1855,9 @@ export interface ApiInstitucionalHistoricoSistemaControlInternoInstitucionalHist
   extends Struct.SingleTypeSchema {
   collectionName: 'institucional_historico_sistema_control_interno';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/historico-sistema-control-interno.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Hist\u00F3rico Sistema Control Interno. Publicada en: /historico-sistema-de-control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Hist\u00F3rico Sistema Control Interno';
+    mainField: 'title';
     pluralName: 'institucional-historico-sistema-control-internos';
     singularName: 'institucional-historico-sistema-control-interno';
   };
@@ -1850,8 +1892,9 @@ export interface ApiInstitucionalPublicacionDatosAbiertosInstitucionalPublicacio
   extends Struct.SingleTypeSchema {
   collectionName: 'institucional_publicacion_datos_abiertos';
   info: {
-    description: 'Auto-generado desde src/content/pages/institucional/publicacion-datos-abiertos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Publicaci\u00F3n Datos Abiertos. Publicada en: /publicacion-de-datos-abiertos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '09. Institucional / Publicaci\u00F3n Datos Abiertos';
+    mainField: 'title';
     pluralName: 'institucional-publicacion-datos-abiertoses';
     singularName: 'institucional-publicacion-datos-abiertos';
   };
@@ -1881,8 +1924,9 @@ export interface ApiInstitucionalPublicacionDatosAbiertosInstitucionalPublicacio
 export interface ApiMapaDelSitioMapaDelSitio extends Struct.SingleTypeSchema {
   collectionName: 'mapa_del_sitio';
   info: {
-    description: 'Auto-generado desde src/content/pages/mapa-del-sitio.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Sistema": Mapa del sitio. Publicada en: /mapa-del-sitio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '99. Sistema / Mapa del sitio';
+    mainField: 'title';
     pluralName: 'mapa-del-sitios';
     singularName: 'mapa-del-sitio';
   };
@@ -1911,8 +1955,9 @@ export interface ApiMapaDelSitioMapaDelSitio extends Struct.SingleTypeSchema {
 export interface ApiNormativaDecretosNormativaDecretos extends Struct.SingleTypeSchema {
   collectionName: 'normativa_decretos';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/decretos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Decretos. Publicada en: /decretos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Decretos';
+    mainField: 'title';
     pluralName: 'normativa-decretoses';
     singularName: 'normativa-decretos';
   };
@@ -1942,8 +1987,9 @@ export interface ApiNormativaDecretosNormativaDecretos extends Struct.SingleType
 export interface ApiNormativaDelitoNormativaDelito extends Struct.CollectionTypeSchema {
   collectionName: 'normativa_delitos_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/delitos';
+    description: 'Colecci\u00F3n de entradas del dominio "Normativa": Delitos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Delitos';
+    mainField: 'title';
     pluralName: 'normativa-delitos';
     singularName: 'normativa-delito';
   };
@@ -1975,8 +2021,9 @@ export interface ApiNormativaDelitoNormativaDelito extends Struct.CollectionType
 export interface ApiNormativaLandingNormativaLanding extends Struct.SingleTypeSchema {
   collectionName: 'normativa_landing';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/landing.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Landing. Publicada en: /normativa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Landing';
+    mainField: 'title';
     pluralName: 'normativa-landings';
     singularName: 'normativa-landing';
   };
@@ -2005,8 +2052,9 @@ export interface ApiNormativaLandingNormativaLanding extends Struct.SingleTypeSc
 export interface ApiNormativaMarcoLegalNormativaMarcoLegal extends Struct.SingleTypeSchema {
   collectionName: 'normativa_marco_legal';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/marco-legal.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Marco Legal. Publicada en: /marco-legal. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Marco Legal';
+    mainField: 'title';
     pluralName: 'normativa-marco-legals';
     singularName: 'normativa-marco-legal';
   };
@@ -2036,8 +2084,9 @@ export interface ApiNormativaMarcoLegalNormativaMarcoLegal extends Struct.Single
 export interface ApiNormativaResolucionesNormativaResoluciones extends Struct.SingleTypeSchema {
   collectionName: 'normativa_resoluciones';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/resoluciones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Resoluciones. Publicada en: /documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Resoluciones';
+    mainField: 'title';
     pluralName: 'normativa-resolucioneses';
     singularName: 'normativa-resoluciones';
   };
@@ -2068,8 +2117,9 @@ export interface ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuri
   extends Struct.SingleTypeSchema {
   collectionName: 'normativa_unificacion_suin_juriscol';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/unificacion-suin-juriscol.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Unificaci\u00F3n SUIN Juriscol. Publicada en: /transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Unificaci\u00F3n SUIN Juriscol';
+    mainField: 'title';
     pluralName: 'normativa-unificacion-suin-juriscols';
     singularName: 'normativa-unificacion-suin-juriscol';
   };
@@ -2099,8 +2149,9 @@ export interface ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuri
 export interface ApiNormativaVigenciaNormativaVigencia extends Struct.CollectionTypeSchema {
   collectionName: 'normativa_vigencias_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/normativa/vigencias';
+    description: 'Colecci\u00F3n de entradas del dominio "Normativa": Vigencias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Vigencias';
+    mainField: 'title';
     pluralName: 'normativa-vigencias';
     singularName: 'normativa-vigencia';
   };
@@ -2131,7 +2182,7 @@ export interface ApiNormativaVigenciaNormativaVigencia extends Struct.Collection
 export interface ApiNormogramaNormograma extends Struct.SingleTypeSchema {
   collectionName: 'normograma';
   info: {
-    description: 'Auto-generado desde src/content/pages/normograma.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Normograma';
     pluralName: 'normogramas';
     singularName: 'normograma';
@@ -2191,8 +2242,9 @@ export interface ApiObservatorioDelObservatorioObservatorioDelObservatorio
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_del_observatorio';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/del-observatorio.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Del Observatorio. Publicada en: /observatorio/del-observatorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Del Observatorio';
+    mainField: 'title';
     pluralName: 'observatorio-del-observatorios';
     singularName: 'observatorio-del-observatorio';
   };
@@ -2223,8 +2275,9 @@ export interface ApiObservatorioEjeDeEducacionArticulosObservatorioEjeDeEducacio
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_articulos';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/articulos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Art\u00EDculos. Publicada en: /observatorio/eje-de-educacion/articulos-y-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Art\u00EDculos';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-articuloses';
     singularName: 'observatorio-eje-de-educacion-articulos';
   };
@@ -2254,8 +2307,9 @@ export interface ApiObservatorioEjeDeEducacionCartillaInfantilObservatorioEjeDeE
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_cartilla_infantil';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/cartilla-infantil.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Cartilla Infantil. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/cartilla-infantil. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Cartilla Infantil';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-cartilla-infantils';
     singularName: 'observatorio-eje-de-educacion-cartilla-infantil';
   };
@@ -2285,8 +2339,9 @@ export interface ApiObservatorioEjeDeEducacionConociendoObservatorioEjeDeEducaci
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_conociendo';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/conociendo.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Conociendo. Publicada en: /observatorio/eje-de-educacion/conociendo-mas-del-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Conociendo';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-conociendos';
     singularName: 'observatorio-eje-de-educacion-conociendo';
   };
@@ -2319,8 +2374,9 @@ export interface ApiObservatorioEjeDeEducacionCuentoObservatorioEjeDeEducacionCu
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_cuento';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/cuento.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Cuento. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/cuento. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Cuento';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-cuentos';
     singularName: 'observatorio-eje-de-educacion-cuento';
   };
@@ -2353,8 +2409,9 @@ export interface ApiObservatorioEjeDeEducacionGlosarioNinosObservatorioEjeDeEduc
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_glosario_ninos';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/glosario-ninos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Glosario Ni\u00F1os. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/glosario-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Glosario Ni\u00F1os';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-glosario-ninoses';
     singularName: 'observatorio-eje-de-educacion-glosario-ninos';
   };
@@ -2388,8 +2445,9 @@ export interface ApiObservatorioEjeDeEducacionItrcParaNinosObservatorioEjeDeEduc
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_itrc_para_ninos';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n ITRC Para Ni\u00F1os. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n ITRC Para Ni\u00F1os';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-itrc-para-ninoses';
     singularName: 'observatorio-eje-de-educacion-itrc-para-ninos';
   };
@@ -2423,8 +2481,9 @@ export interface ApiObservatorioEjeDeEducacionJuegoDeRolesObservatorioEjeDeEduca
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_juego_de_roles';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Juego de Roles. Publicada en: /observatorio/eje-de-educacion/juego-de-roles. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Juego de Roles';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-juego-de-roleses';
     singularName: 'observatorio-eje-de-educacion-juego-de-roles';
   };
@@ -2455,8 +2514,9 @@ export interface ApiObservatorioEjeDeEducacionLibroInfantilObservatorioEjeDeEduc
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_libro_infantil';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/libro-infantil.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Libro Infantil. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/libro-infantil. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Libro Infantil';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-libro-infantils';
     singularName: 'observatorio-eje-de-educacion-libro-infantil';
   };
@@ -2488,8 +2548,9 @@ export interface ApiObservatorioEjeDeEducacionMemoriaObservatorioEjeDeEducacionM
   extends Struct.CollectionTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_memorias_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias';
+    description: 'Colecci\u00F3n de entradas del dominio "Observatorio ITRC": Eje de Educaci\u00F3n / Memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n / Memorias';
+    mainField: 'titulo';
     pluralName: 'observatorio-eje-de-educacion-memorias';
     singularName: 'observatorio-eje-de-educacion-memoria';
   };
@@ -2523,8 +2584,9 @@ export interface ApiObservatorioEjeDeEducacionMemoriasInfoObservatorioEjeDeEduca
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_memorias_info';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Memorias Info. Publicada en: /observatorio/eje-de-educacion/memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Memorias Info';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-memorias-infos';
     singularName: 'observatorio-eje-de-educacion-memorias-info';
   };
@@ -2555,8 +2617,9 @@ export interface ApiObservatorioEjeDeEducacionQuizObservatorioEjeDeEducacionQuiz
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_quiz';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/quiz.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Quiz. Publicada en: /observatorio/eje-de-educacion/juego-de-roles/quiz. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Quiz';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-quices';
     singularName: 'observatorio-eje-de-educacion-quiz';
   };
@@ -2587,8 +2650,9 @@ export interface ApiObservatorioEjeDeEducacionRepositorioJuridicoObservatorioEje
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_repositorio_juridico';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Repositorio Jur\u00EDdico. Publicada en: /observatorio/eje-de-educacion/repositorio-juridico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Repositorio Jur\u00EDdico';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-repositorio-juridicos';
     singularName: 'observatorio-eje-de-educacion-repositorio-juridico';
   };
@@ -2622,8 +2686,9 @@ export interface ApiObservatorioEjeDeEducacionSopaDeLetrasObservatorioEjeDeEduca
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_sopa_de_letras';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/sopa-de-letras.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Sopa de Letras. Publicada en: /observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Sopa de Letras';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-sopa-de-letrases';
     singularName: 'observatorio-eje-de-educacion-sopa-de-letras';
   };
@@ -2654,8 +2719,9 @@ export interface ApiObservatorioEjeDeEducacionVideoNinosObservatorioEjeDeEducaci
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion_video_ninos';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion/video-ninos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Video Ni\u00F1os. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/video-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n Video Ni\u00F1os';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-video-ninoses';
     singularName: 'observatorio-eje-de-educacion-video-ninos';
   };
@@ -2687,8 +2753,9 @@ export interface ApiObservatorioEjeDeEducacionObservatorioEjeDeEducacion
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_educacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-educacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n. Publicada en: /observatorio/eje-de-educacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Educaci\u00F3n';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-educacions';
     singularName: 'observatorio-eje-de-educacion';
   };
@@ -2719,8 +2786,9 @@ export interface ApiObservatorioEjeDeMedicionObservatorioEjeDeMedicion
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_medicion';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-medicion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Medici\u00F3n. Publicada en: /observatorio/eje-de-medicion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Medici\u00F3n';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-medicions';
     singularName: 'observatorio-eje-de-medicion';
   };
@@ -2752,8 +2820,9 @@ export interface ApiObservatorioEjeDeParticipacionCartillasObservatorioEjeDePart
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_cartillas';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/cartillas.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Cartillas. Publicada en: /observatorio/eje-de-participacion/cartillas-divulgativas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Cartillas';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-cartillases';
     singularName: 'observatorio-eje-de-participacion-cartillas';
   };
@@ -2786,8 +2855,9 @@ export interface ApiObservatorioEjeDeParticipacionEncuestaObservatorioEjeDeParti
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_encuesta';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/encuesta.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Encuesta. Publicada en: /observatorio/eje-de-participacion/encuesta-ciudadana. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Encuesta';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-encuestas';
     singularName: 'observatorio-eje-de-participacion-encuesta';
   };
@@ -2825,8 +2895,9 @@ export interface ApiObservatorioEjeDeParticipacionMemoriaObservatorioEjeDePartic
   extends Struct.CollectionTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_memorias_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias';
+    description: 'Colecci\u00F3n de entradas del dominio "Observatorio ITRC": Eje de Participaci\u00F3n / Memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n / Memorias';
+    mainField: 'titulo';
     pluralName: 'observatorio-eje-de-participacion-memorias';
     singularName: 'observatorio-eje-de-participacion-memoria';
   };
@@ -2860,8 +2931,9 @@ export interface ApiObservatorioEjeDeParticipacionMemoriasInfoObservatorioEjeDeP
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_memorias_info';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/memorias.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Memorias Info. Publicada en: /observatorio/eje-de-participacion/memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Memorias Info';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-memorias-infos';
     singularName: 'observatorio-eje-de-participacion-memorias-info';
   };
@@ -2892,8 +2964,9 @@ export interface ApiObservatorioEjeDeParticipacionNoticiasObservatorioEjeDeParti
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_noticias';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/noticias.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Noticias. Publicada en: /observatorio/eje-de-participacion/noticias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Noticias';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-noticiases';
     singularName: 'observatorio-eje-de-participacion-noticias';
   };
@@ -2927,8 +3000,9 @@ export interface ApiObservatorioEjeDeParticipacionVideosTutorialesObservatorioEj
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion_videos_tutoriales';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion/videos-tutoriales.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Videos Tutoriales. Publicada en: /observatorio/eje-de-participacion/videos-tutoriales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n Videos Tutoriales';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-videos-tutorialeses';
     singularName: 'observatorio-eje-de-participacion-videos-tutoriales';
   };
@@ -2961,8 +3035,9 @@ export interface ApiObservatorioEjeDeParticipacionObservatorioEjeDeParticipacion
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_eje_de_participacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/eje-de-participacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n. Publicada en: /observatorio/eje-de-participacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Eje de Participaci\u00F3n';
+    mainField: 'title';
     pluralName: 'observatorio-eje-de-participacions';
     singularName: 'observatorio-eje-de-participacion';
   };
@@ -2993,8 +3068,9 @@ export interface ApiObservatorioObservatorioObservatorioObservatorio
   extends Struct.SingleTypeSchema {
   collectionName: 'observatorio_observatorio';
   info: {
-    description: 'Auto-generado desde src/content/pages/observatorio/observatorio.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Observatorio. Publicada en: /observatorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '07. Observatorio ITRC / Observatorio';
+    mainField: 'title';
     pluralName: 'observatorio-observatorios';
     singularName: 'observatorio-observatorio';
   };
@@ -3027,8 +3103,9 @@ export interface ApiParticipaAtencionInformeComiteConciliacionParticipaAtencionI
   extends Struct.SingleTypeSchema {
   collectionName: 'participa_atencion_informe_comite_conciliacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa-atencion/informe-comite-conciliacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Atenci\u00F3n Informe Comit\u00E9 Conciliaci\u00F3n. Publicada en: /informe-de-gestion-del-comite-de-conciliacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Atenci\u00F3n Informe Comit\u00E9 Conciliaci\u00F3n';
+    mainField: 'title';
     pluralName: 'participa-atencion-informe-comite-conciliacions';
     singularName: 'participa-atencion-informe-comite-conciliacion';
   };
@@ -3062,8 +3139,9 @@ export interface ApiParticipaAtencionOtrosGruposInteresParticipaAtencionOtrosGru
   extends Struct.SingleTypeSchema {
   collectionName: 'participa_atencion_otros_grupos_interes';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa-atencion/otros-grupos-interes.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Atenci\u00F3n Otros Grupos Inter\u00E9s. Publicada en: /otros-de-grupos-de-interes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Atenci\u00F3n Otros Grupos Inter\u00E9s';
+    mainField: 'title';
     pluralName: 'participa-atencion-otros-grupos-intereses';
     singularName: 'participa-atencion-otros-grupos-interes';
   };
@@ -3094,8 +3172,9 @@ export interface ApiParticipaAtencionRespuestaAnonimosParticipaAtencionRespuesta
   extends Struct.SingleTypeSchema {
   collectionName: 'participa_atencion_respuesta_anonimos';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa-atencion/respuesta-anonimos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Atenci\u00F3n Respuesta An\u00F3nimos. Publicada en: /respuesta-anonimos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Atenci\u00F3n Respuesta An\u00F3nimos';
+    mainField: 'title';
     pluralName: 'participa-atencion-respuesta-anonimoses';
     singularName: 'participa-atencion-respuesta-anonimos';
   };
@@ -3128,8 +3207,9 @@ export interface ApiParticipaAtencionRespuestaAnonimosParticipaAtencionRespuesta
 export interface ApiParticipaColaboracionParticipaColaboracion extends Struct.SingleTypeSchema {
   collectionName: 'participa_colaboracion';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa/colaboracion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Colaboracion. Publicada en: /participa/colaboracion-e-innovacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Colaboracion';
+    mainField: 'title';
     pluralName: 'participa-colaboracions';
     singularName: 'participa-colaboracion';
   };
@@ -3163,8 +3243,9 @@ export interface ApiParticipaConsultaCiudadanaParticipaConsultaCiudadana
   extends Struct.SingleTypeSchema {
   collectionName: 'participa_consulta_ciudadana';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa/consulta-ciudadana.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Consulta Ciudadana. Publicada en: /participa/consulta-ciudadana. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Consulta Ciudadana';
+    mainField: 'title';
     pluralName: 'participa-consulta-ciudadanas';
     singularName: 'participa-consulta-ciudadana';
   };
@@ -3197,8 +3278,9 @@ export interface ApiParticipaConsultaCiudadanaParticipaConsultaCiudadana
 export interface ApiParticipaControlSocialParticipaControlSocial extends Struct.SingleTypeSchema {
   collectionName: 'participa_control_social';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa/control-social.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Control Social. Publicada en: /participa/control-social. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Control Social';
+    mainField: 'title';
     pluralName: 'participa-control-socials';
     singularName: 'participa-control-social';
   };
@@ -3230,8 +3312,9 @@ export interface ApiParticipaControlSocialParticipaControlSocial extends Struct.
 export interface ApiParticipaDiagnosticoParticipaDiagnostico extends Struct.SingleTypeSchema {
   collectionName: 'participa_diagnostico';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa/diagnostico.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Diagnostico. Publicada en: /participa/diagnostico-e-identificacion-de-problemas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Diagnostico';
+    mainField: 'title';
     pluralName: 'participa-diagnosticos';
     singularName: 'participa-diagnostico';
   };
@@ -3264,8 +3347,9 @@ export interface ApiParticipaDiagnosticoParticipaDiagnostico extends Struct.Sing
 export interface ApiParticipaPlaneacionParticipaPlaneacion extends Struct.SingleTypeSchema {
   collectionName: 'participa_planeacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa/planeacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Planeacion. Publicada en: /participa/planeacion-y-presupuesto-participativo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Planeacion';
+    mainField: 'title';
     pluralName: 'participa-planeacions';
     singularName: 'participa-planeacion';
   };
@@ -3299,8 +3383,9 @@ export interface ApiParticipaRendicionDeCuentasParticipaRendicionDeCuentas
   extends Struct.SingleTypeSchema {
   collectionName: 'participa_rendicion_de_cuentas';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa/rendicion-de-cuentas.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Rendici\u00F3n de Cuentas. Publicada en: /participa/rendicion-de-cuentas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Rendici\u00F3n de Cuentas';
+    mainField: 'title';
     pluralName: 'participa-rendicion-de-cuentases';
     singularName: 'participa-rendicion-de-cuentas';
   };
@@ -3333,8 +3418,9 @@ export interface ApiParticipaRendicionDeCuentasParticipaRendicionDeCuentas
 export interface ApiParticipaParticipa extends Struct.SingleTypeSchema {
   collectionName: 'participa';
   info: {
-    description: 'Auto-generado desde src/content/pages/participa.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Participa": Inicio. Publicada en: /participa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '05. Participa / Inicio';
+    mainField: 'title';
     pluralName: 'participas';
     singularName: 'participa';
   };
@@ -3363,8 +3449,9 @@ export interface ApiParticipaParticipa extends Struct.SingleTypeSchema {
 export interface ApiPrensaCapsulasPrensaCapsulas extends Struct.SingleTypeSchema {
   collectionName: 'prensa_capsulas';
   info: {
-    description: 'Auto-generado desde src/content/pages/prensa/capsulas.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Capsulas. Publicada en: /capsulas-informativas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Capsulas';
+    mainField: 'title';
     pluralName: 'prensa-capsulases';
     singularName: 'prensa-capsulas';
   };
@@ -3393,8 +3480,9 @@ export interface ApiPrensaComunicadosInstitucionalesPrensaComunicadosInstitucion
   extends Struct.SingleTypeSchema {
   collectionName: 'prensa_comunicados_institucionales';
   info: {
-    description: 'Auto-generado desde src/content/pages/prensa/comunicados-institucionales.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Comunicados Institucionales. Publicada en: /prensa/noticias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Comunicados Institucionales';
+    mainField: 'title';
     pluralName: 'prensa-comunicados-institucionaleses';
     singularName: 'prensa-comunicados-institucionales';
   };
@@ -3424,8 +3512,9 @@ export interface ApiPrensaComunicadosInstitucionalesPrensaComunicadosInstitucion
 export interface ApiPrensaGaleriaPrensaGaleria extends Struct.SingleTypeSchema {
   collectionName: 'prensa_galeria';
   info: {
-    description: 'Auto-generado desde src/content/pages/prensa/galeria.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Galer\u00EDa. Publicada en: /galeria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Galer\u00EDa';
+    mainField: 'title';
     pluralName: 'prensa-galerias';
     singularName: 'prensa-galeria';
   };
@@ -3453,8 +3542,9 @@ export interface ApiPrensaGaleriaPrensaGaleria extends Struct.SingleTypeSchema {
 export interface ApiPrensaLandingPrensaLanding extends Struct.SingleTypeSchema {
   collectionName: 'prensa_landing';
   info: {
-    description: 'Auto-generado desde src/content/pages/prensa/landing.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Landing. Publicada en: /prensa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Landing';
+    mainField: 'title';
     pluralName: 'prensa-landings';
     singularName: 'prensa-landing';
   };
@@ -3480,8 +3570,9 @@ export interface ApiPrensaLandingPrensaLanding extends Struct.SingleTypeSchema {
 export interface ApiPrensaVideosPrensaVideos extends Struct.SingleTypeSchema {
   collectionName: 'prensa_videos';
   info: {
-    description: 'Auto-generado desde src/content/pages/prensa/videos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Videos. Publicada en: /videos-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '08. Prensa / Videos';
+    mainField: 'title';
     pluralName: 'prensa-videoses';
     singularName: 'prensa-videos';
   };
@@ -3512,6 +3603,7 @@ export interface ApiSliderSlider extends Struct.SingleTypeSchema {
   info: {
     description: 'Carrusel de banners de la p\u00E1gina de inicio. Migrado desde src/content/sliders/home.json.';
     displayName: '01. Inicio / Slider Principal';
+    mainField: 'name';
     pluralName: 'sliders';
     singularName: 'slider';
   };
@@ -3539,8 +3631,9 @@ export interface ApiTransparenciaAccesibilidadTransparenciaAccesibilidad
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_accesibilidad';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/accesibilidad.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Accesibilidad. Publicada en: /accesibilidad. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Accesibilidad';
+    mainField: 'title';
     pluralName: 'transparencia-accesibilidads';
     singularName: 'transparencia-accesibilidad';
   };
@@ -3571,8 +3664,9 @@ export interface ApiTransparenciaAgremiacionesTransparenciaAgremiaciones
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_agremiaciones';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/agremiaciones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Agremiaciones. Publicada en: /directorio-de-agremiaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Agremiaciones';
+    mainField: 'title';
     pluralName: 'transparencia-agremiacioneses';
     singularName: 'transparencia-agremiaciones';
   };
@@ -3603,8 +3697,9 @@ export interface ApiTransparenciaComiteConciliacionTransparenciaComiteConciliaci
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_comite_conciliacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/comite-conciliacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Comit\u00E9 Conciliaci\u00F3n. Publicada en: /informe-comite-conciliacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Comit\u00E9 Conciliaci\u00F3n';
+    mainField: 'title';
     pluralName: 'transparencia-comite-conciliacions';
     singularName: 'transparencia-comite-conciliacion';
   };
@@ -3635,8 +3730,9 @@ export interface ApiTransparenciaContratacionContratacionSuscritaTransparenciaCo
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_contratacion_suscrita';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/contratacion-suscrita.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Contrataci\u00F3n Suscrita. Publicada en: /contratacion-suscrita. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Contrataci\u00F3n Suscrita';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-contratacion-suscritas';
     singularName: 'transparencia-contratacion-contratacion-suscrita';
   };
@@ -3676,8 +3772,9 @@ export interface ApiTransparenciaContratacionEjecucionContratosTransparenciaCont
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_ejecucion_contratos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/ejecucion-contratos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Ejecuci\u00F3n Contratos. Publicada en: /publicacion-de-la-ejecucion-de-contratos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Ejecuci\u00F3n Contratos';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-ejecucion-contratoses';
     singularName: 'transparencia-contratacion-ejecucion-contratos';
   };
@@ -3715,8 +3812,9 @@ export interface ApiTransparenciaContratacionEjecucionTransparenciaContratacionE
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_ejecucion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/ejecucion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Ejecuci\u00F3n. Publicada en: /publicacion-ejecucion-contratos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Ejecuci\u00F3n';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-ejecucions';
     singularName: 'transparencia-contratacion-ejecucion';
   };
@@ -3748,8 +3846,9 @@ export interface ApiTransparenciaContratacionFormatosTransparenciaContratacionFo
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_formatos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/formatos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Formatos. Publicada en: /formatos-contratos-pliego-tipo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Formatos';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-formatoses';
     singularName: 'transparencia-contratacion-formatos';
   };
@@ -3779,8 +3878,9 @@ export interface ApiTransparenciaContratacionManualTransparenciaContratacionManu
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_manual';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/manual.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Manual. Publicada en: /manual-contratacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Manual';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-manuals';
     singularName: 'transparencia-contratacion-manual';
   };
@@ -3810,8 +3910,9 @@ export interface ApiTransparenciaContratacionPlanAdquisicionesTransparenciaContr
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_plan_adquisiciones';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/plan-adquisiciones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Plan Adquisiciones. Publicada en: /plan-de-adquisiciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Plan Adquisiciones';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-plan-adquisicioneses';
     singularName: 'transparencia-contratacion-plan-adquisiciones';
   };
@@ -3842,8 +3943,9 @@ export interface ApiTransparenciaContratacionProcedimientosAdquisicionTransparen
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_contratacion_procedimientos_adquisicion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Procedimientos Adquisici\u00F3n. Publicada en: /publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Contrataci\u00F3n Procedimientos Adquisici\u00F3n';
+    mainField: 'title';
     pluralName: 'transparencia-contratacion-procedimientos-adquisicions';
     singularName: 'transparencia-contratacion-procedimientos-adquisicion';
   };
@@ -3877,8 +3979,9 @@ export interface ApiTransparenciaDatosAbiertosTransparenciaDatosAbiertos
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_datos_abiertos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/datos-abiertos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Datos Abiertos. Publicada en: /publicacion-datos-abiertos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Datos Abiertos';
+    mainField: 'title';
     pluralName: 'transparencia-datos-abiertoses';
     singularName: 'transparencia-datos-abiertos';
   };
@@ -3909,8 +4012,9 @@ export interface ApiTransparenciaDecretoUnicoTransparenciaDecretoUnico
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_decreto_unico';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/decreto-unico.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Decreto Unico. Publicada en: /decreto-unico-reglamentario. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Decreto Unico';
+    mainField: 'title';
     pluralName: 'transparencia-decreto-unicos';
     singularName: 'transparencia-decreto-unico';
   };
@@ -3940,8 +4044,9 @@ export interface ApiTransparenciaDecretosEstructuraTransparenciaDecretosEstructu
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_decretos_estructura';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/decretos-estructura.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Decretos Estructura. Publicada en: /decretos-de-estructura-salarios-leyes-marco-y-otros. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Decretos Estructura';
+    mainField: 'title';
     pluralName: 'transparencia-decretos-estructuras';
     singularName: 'transparencia-decretos-estructura';
   };
@@ -3972,8 +4077,9 @@ export interface ApiTransparenciaDefensaPublicaTransparenciaDefensaPublica
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_defensa_publica';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/defensa-publica.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Defensa P\u00FAblica. Publicada en: /informe-defensa-publica. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Defensa P\u00FAblica';
+    mainField: 'title';
     pluralName: 'transparencia-defensa-publicas';
     singularName: 'transparencia-defensa-publica';
   };
@@ -4003,8 +4109,9 @@ export interface ApiTransparenciaDirectorioEntidadesTransparenciaDirectorioEntid
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_directorio_entidades';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/directorio-entidades.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Directorio Entidades. Publicada en: /directorio-de-entidades. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Directorio Entidades';
+    mainField: 'title';
     pluralName: 'transparencia-directorio-entidadeses';
     singularName: 'transparencia-directorio-entidades';
   };
@@ -4034,8 +4141,9 @@ export interface ApiTransparenciaDocumentacionEsquemaPublicacionTransparenciaDoc
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_documentacion_esquema_publicacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/documentacion/esquema-publicacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Esquema Publicaci\u00F3n. Publicada en: /esquema-de-publicacion-de-la-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Documentaci\u00F3n Esquema Publicaci\u00F3n';
+    mainField: 'title';
     pluralName: 'transparencia-documentacion-esquema-publicacions';
     singularName: 'transparencia-documentacion-esquema-publicacion';
   };
@@ -4069,8 +4177,9 @@ export interface ApiTransparenciaDocumentacionFormatoGruposEtnicosTransparenciaD
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_documentacion_formato_grupos_etnicos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/documentacion/formato-grupos-etnicos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Formato Grupos \u00C9tnicos. Publicada en: /formato-alternativo-para-grupos-etnicos-y-culturales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Documentaci\u00F3n Formato Grupos \u00C9tnicos';
+    mainField: 'title';
     pluralName: 'transparencia-documentacion-formato-grupos-etnicoses';
     singularName: 'transparencia-documentacion-formato-grupos-etnicos';
   };
@@ -4104,8 +4213,9 @@ export interface ApiTransparenciaDocumentacionProteccionDatosTransparenciaDocume
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_documentacion_proteccion_datos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/documentacion/proteccion-datos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Protecci\u00F3n Datos. Publicada en: /proteccion-de-datos-personales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Documentaci\u00F3n Protecci\u00F3n Datos';
+    mainField: 'title';
     pluralName: 'transparencia-documentacion-proteccion-datoses';
     singularName: 'transparencia-documentacion-proteccion-datos';
   };
@@ -4143,8 +4253,9 @@ export interface ApiTransparenciaDocumentacionRegistroPublicacionesTransparencia
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_documentacion_registro_publicaciones';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/documentacion/registro-publicaciones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Registro Publicaciones. Publicada en: /registro-de-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Documentaci\u00F3n Registro Publicaciones';
+    mainField: 'title';
     pluralName: 'transparencia-documentacion-registro-publicacioneses';
     singularName: 'transparencia-documentacion-registro-publicaciones';
   };
@@ -4178,8 +4289,9 @@ export interface ApiTransparenciaEsquemaPublicacionTransparenciaEsquemaPublicaci
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_esquema_publicacion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/esquema-publicacion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Esquema Publicaci\u00F3n. Publicada en: /esquema-publicacion-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Esquema Publicaci\u00F3n';
+    mainField: 'title';
     pluralName: 'transparencia-esquema-publicacions';
     singularName: 'transparencia-esquema-publicacion';
   };
@@ -4210,8 +4322,9 @@ export interface ApiTransparenciaEvaluacionIndependienteTransparenciaEvaluacionI
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_evaluacion_independiente';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/evaluacion-independiente.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Evaluaci\u00F3n Independiente. Publicada en: /evaluacion-independiente-control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Evaluaci\u00F3n Independiente';
+    mainField: 'title';
     pluralName: 'transparencia-evaluacion-independientes';
     singularName: 'transparencia-evaluacion-independiente';
   };
@@ -4248,8 +4361,9 @@ export interface ApiTransparenciaFormatosContratosPliegosTipoTransparenciaFormat
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_formatos_contratos_pliegos_tipo';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/formatos-contratos-pliegos-tipo.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Formatos Contratos Pliegos Tipo. Publicada en: /formatos-o-modelos-de-contratos-o-pliego-tipo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Formatos Contratos Pliegos Tipo';
+    mainField: 'title';
     pluralName: 'transparencia-formatos-contratos-pliegos-tipos';
     singularName: 'transparencia-formatos-contratos-pliegos-tipo';
   };
@@ -4283,8 +4397,9 @@ export interface ApiTransparenciaFormatosFormulariosTransparenciaFormatosFormula
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_formatos_formularios';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/formatos-formularios.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Formatos Formularios. Publicada en: /formatos-y-formularios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Formatos Formularios';
+    mainField: 'title';
     pluralName: 'transparencia-formatos-formularioses';
     singularName: 'transparencia-formatos-formularios';
   };
@@ -4314,8 +4429,9 @@ export interface ApiTransparenciaHojasDeVidaTransparenciaHojasDeVida
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_hojas_de_vida';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/hojas-de-vida.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Hojas de Vida. Publicada en: /publicacion-hojas-de-vida. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Hojas de Vida';
+    mainField: 'title';
     pluralName: 'transparencia-hojas-de-vidas';
     singularName: 'transparencia-hojas-de-vida';
   };
@@ -4346,8 +4462,9 @@ export interface ApiTransparenciaIndiceInformacionClasificadaTransparenciaIndice
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_indice_informacion_clasificada';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/indice-informacion-clasificada.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": \u00CDndice Informaci\u00F3n Clasificada. Publicada en: /indice-de-informacion-clasificada-y-reservada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / \u00CDndice Informaci\u00F3n Clasificada';
+    mainField: 'title';
     pluralName: 'transparencia-indice-informacion-clasificadas';
     singularName: 'transparencia-indice-informacion-clasificada';
   };
@@ -4381,8 +4498,9 @@ export interface ApiTransparenciaInformacionMujeresTransparenciaInformacionMujer
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_informacion_mujeres';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informacion-mujeres.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informaci\u00F3n Mujeres. Publicada en: /informacion-para-mujeres. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Informaci\u00F3n Mujeres';
+    mainField: 'title';
     pluralName: 'transparencia-informacion-mujereses';
     singularName: 'transparencia-informacion-mujeres';
   };
@@ -4411,8 +4529,9 @@ export interface ApiTransparenciaInformacionMujeresTransparenciaInformacionMujer
 export interface ApiTransparenciaInformeTransparenciaInforme extends Struct.CollectionTypeSchema {
   collectionName: 'transparencia_informes_items';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informes';
+    description: 'Colecci\u00F3n de entradas del dominio "Transparencia": Informes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Informes';
+    mainField: 'title';
     pluralName: 'transparencia-informes';
     singularName: 'transparencia-informe';
   };
@@ -4445,8 +4564,9 @@ export interface ApiTransparenciaInformesEmpalmeTransparenciaInformesEmpalme
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_informes_empalme';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informes-empalme.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Empalme. Publicada en: /informes-de-empalme. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Informes Empalme';
+    mainField: 'title';
     pluralName: 'transparencia-informes-empalmes';
     singularName: 'transparencia-informes-empalme';
   };
@@ -4476,8 +4596,9 @@ export interface ApiTransparenciaInformesLegalesTransparenciaInformesLegales
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_informes_legales';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informes-legales.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Legales. Publicada en: /informes-legales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Informes Legales';
+    mainField: 'title';
     pluralName: 'transparencia-informes-legaleses';
     singularName: 'transparencia-informes-legales';
   };
@@ -4507,8 +4628,9 @@ export interface ApiTransparenciaInformesOrganismosIvcTransparenciaInformesOrgan
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_informes_organismos_ivc';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informes-organismos-ivc.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Organismos IVC. Publicada en: /informes-a-organismos-de-inspeccion-vigilancia-y-control. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Informes Organismos IVC';
+    mainField: 'title';
     pluralName: 'transparencia-informes-organismos-ivcs';
     singularName: 'transparencia-informes-organismos-ivc';
   };
@@ -4539,8 +4661,9 @@ export interface ApiTransparenciaInformesOrganismosTransparenciaInformesOrganism
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_informes_organismos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/informes-organismos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Organismos. Publicada en: /informes-organismos-inspeccion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Informes Organismos';
+    mainField: 'title';
     pluralName: 'transparencia-informes-organismoses';
     singularName: 'transparencia-informes-organismos';
   };
@@ -4569,8 +4692,9 @@ export interface ApiTransparenciaInformesOrganismosTransparenciaInformesOrganism
 export interface ApiTransparenciaLeyesTransparenciaLeyes extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_leyes';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/leyes.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Leyes. Publicada en: /leyes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Leyes';
+    mainField: 'title';
     pluralName: 'transparencia-leyeses';
     singularName: 'transparencia-leyes';
   };
@@ -4600,8 +4724,9 @@ export interface ApiTransparenciaNormasServicioTransparenciaNormasServicio
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_normas_servicio';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/normas-servicio.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Normas Servicio. Publicada en: /normas-servicio-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Normas Servicio';
+    mainField: 'title';
     pluralName: 'transparencia-normas-servicios';
     singularName: 'transparencia-normas-servicio';
   };
@@ -4632,8 +4757,9 @@ export interface ApiTransparenciaNormatividadEspecialTransparenciaNormatividadEs
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_normatividad_especial';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/normatividad-especial.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Normatividad Especial. Publicada en: /normatividad-especial. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Normatividad Especial';
+    mainField: 'title';
     pluralName: 'transparencia-normatividad-especials';
     singularName: 'transparencia-normatividad-especial';
   };
@@ -4663,8 +4789,9 @@ export interface ApiTransparenciaOtrosGruposTransparenciaOtrosGrupos
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_otros_grupos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/otros-grupos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Otros Grupos. Publicada en: /otros-grupos-de-interes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Otros Grupos';
+    mainField: 'title';
     pluralName: 'transparencia-otros-gruposes';
     singularName: 'transparencia-otros-grupos';
   };
@@ -4694,8 +4821,9 @@ export interface ApiTransparenciaPlanesMejoramientoTransparenciaPlanesMejoramien
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_planes_mejoramiento';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/planes-mejoramiento.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Planes Mejoramiento. Publicada en: /planes-de-mejoramiento. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Planes Mejoramiento';
+    mainField: 'title';
     pluralName: 'transparencia-planes-mejoramientos';
     singularName: 'transparencia-planes-mejoramiento';
   };
@@ -4725,8 +4853,9 @@ export interface ApiTransparenciaPoliticasManualesTransparenciaPoliticasManuales
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_politicas_manuales';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/politicas-manuales.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Pol\u00EDticas Manuales. Publicada en: /politicas-lineamientos-y-manuales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Pol\u00EDticas Manuales';
+    mainField: 'title';
     pluralName: 'transparencia-politicas-manualeses';
     singularName: 'transparencia-politicas-manuales';
   };
@@ -4760,8 +4889,9 @@ export interface ApiTransparenciaProcedimientosDecisionesTransparenciaProcedimie
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_procedimientos_decisiones';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/procedimientos-decisiones.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Procedimientos Decisiones. Publicada en: /procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Procedimientos Decisiones';
+    mainField: 'title';
     pluralName: 'transparencia-procedimientos-decisioneses';
     singularName: 'transparencia-procedimientos-decisiones';
   };
@@ -4792,8 +4922,9 @@ export interface ApiTransparenciaProcedimientosTransparenciaProcedimientos
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_procedimientos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/procedimientos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Procedimientos. Publicada en: /procedimientos-decisiones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Procedimientos';
+    mainField: 'title';
     pluralName: 'transparencia-procedimientoses';
     singularName: 'transparencia-procedimientos';
   };
@@ -4824,8 +4955,9 @@ export interface ApiTransparenciaProgramaGestionDocumentalTransparenciaProgramaG
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_programa_gestion_documental';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/programa-gestion-documental.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Programa Gesti\u00F3n Documental. Publicada en: /programa-gestion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Programa Gesti\u00F3n Documental';
+    mainField: 'title';
     pluralName: 'transparencia-programa-gestion-documentals';
     singularName: 'transparencia-programa-gestion-documental';
   };
@@ -4856,8 +4988,9 @@ export interface ApiTransparenciaProtocoloAtencionTransparenciaProtocoloAtencion
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_protocolo_atencion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/protocolo-atencion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Protocolo Atenci\u00F3n. Publicada en: /protocolo-de-atencion-al-ciudadano. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Protocolo Atenci\u00F3n';
+    mainField: 'title';
     pluralName: 'transparencia-protocolo-atencions';
     singularName: 'transparencia-protocolo-atencion';
   };
@@ -4888,8 +5021,9 @@ export interface ApiTransparenciaProyectosInversionTransparenciaProyectosInversi
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_proyectos_inversion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/proyectos-inversion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Proyectos Inversion. Publicada en: /programas-y-proyectos-en-ejecucion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Proyectos Inversion';
+    mainField: 'title';
     pluralName: 'transparencia-proyectos-inversions';
     singularName: 'transparencia-proyectos-inversion';
   };
@@ -4933,8 +5067,9 @@ export interface ApiTransparenciaProyectosNormasComentariosTransparenciaProyecto
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_proyectos_normas_comentarios';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/proyectos-normas-comentarios.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Proyectos Normas Comentarios. Publicada en: /proyectos-de-normas-para-comentarios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Proyectos Normas Comentarios';
+    mainField: 'title';
     pluralName: 'transparencia-proyectos-normas-comentarioses';
     singularName: 'transparencia-proyectos-normas-comentarios';
   };
@@ -4969,8 +5104,9 @@ export interface ApiTransparenciaRegistroActivosTransparenciaRegistroActivos
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_registro_activos';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/registro-activos.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Registro Activos. Publicada en: /registro-activos-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Registro Activos';
+    mainField: 'title';
     pluralName: 'transparencia-registro-activoses';
     singularName: 'transparencia-registro-activos';
   };
@@ -5001,8 +5137,9 @@ export interface ApiTransparenciaRegistroActivosTransparenciaRegistroActivos
 export interface ApiTransparenciaRelatoriaTransparenciaRelatoria extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_relatoria';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/relatoria.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Relatoria. Publicada en: /relatoria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Relatoria';
+    mainField: 'title';
     pluralName: 'transparencia-relatorias';
     singularName: 'transparencia-relatoria';
   };
@@ -5035,8 +5172,9 @@ export interface ApiTransparenciaRendicionCuentaContraloriaTransparenciaRendicio
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_rendicion_cuenta_contraloria';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/rendicion-cuenta-contraloria.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Rendici\u00F3n Cuenta Contralor\u00EDa. Publicada en: /informe-rendicion-cuenta-contraloria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Rendici\u00F3n Cuenta Contralor\u00EDa';
+    mainField: 'title';
     pluralName: 'transparencia-rendicion-cuenta-contralorias';
     singularName: 'transparencia-rendicion-cuenta-contraloria';
   };
@@ -5069,8 +5207,9 @@ export interface ApiTransparenciaReporteAusteridadGastoTransparenciaReporteAuste
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_reporte_austeridad_gasto';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/reporte-austeridad-gasto.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Reporte Austeridad Gasto. Publicada en: /reporte-austeridad-en-el-gasto. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Reporte Austeridad Gasto';
+    mainField: 'title';
     pluralName: 'transparencia-reporte-austeridad-gastos';
     singularName: 'transparencia-reporte-austeridad-gasto';
   };
@@ -5101,8 +5240,9 @@ export interface ApiTransparenciaSedeHorariosTransparenciaSedeHorarios
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_sede_horarios';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/sede-horarios.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Sede Horarios. Publicada en: /sede-y-horarios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Sede Horarios';
+    mainField: 'title';
     pluralName: 'transparencia-sede-horarioses';
     singularName: 'transparencia-sede-horarios';
   };
@@ -5135,8 +5275,9 @@ export interface ApiTransparenciaSupervisionVigilanciaTransparenciaSupervisionVi
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_supervision_vigilancia';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/supervision-vigilancia.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Supervisi\u00F3n Vigilancia. Publicada en: /supervision-y-vigilancia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Supervisi\u00F3n Vigilancia';
+    mainField: 'title';
     pluralName: 'transparencia-supervision-vigilancias';
     singularName: 'transparencia-supervision-vigilancia';
   };
@@ -5167,8 +5308,9 @@ export interface ApiTransparenciaTablasRetencionTransparenciaTablasRetencion
   extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_tablas_retencion';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/tablas-retencion.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Tablas Retencion. Publicada en: /tablas-retencion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Tablas Retencion';
+    mainField: 'title';
     pluralName: 'transparencia-tablas-retencions';
     singularName: 'transparencia-tablas-retencion';
   };
@@ -5197,8 +5339,9 @@ export interface ApiTransparenciaTablasRetencionTransparenciaTablasRetencion
 export interface ApiTransparenciaTramitesTransparenciaTramites extends Struct.SingleTypeSchema {
   collectionName: 'transparencia_tramites';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia/tramites.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Tr\u00E1mites. Publicada en: /tramites. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Tr\u00E1mites';
+    mainField: 'title';
     pluralName: 'transparencia-tramiteses';
     singularName: 'transparencia-tramites';
   };
@@ -5228,8 +5371,9 @@ export interface ApiTransparenciaTramitesTransparenciaTramites extends Struct.Si
 export interface ApiTransparenciaTransparencia extends Struct.SingleTypeSchema {
   collectionName: 'transparencia';
   info: {
-    description: 'Auto-generado desde src/content/pages/transparencia.json';
+    description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Inicio. Publicada en: /transparencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '06. Transparencia / Inicio';
+    mainField: 'title';
     pluralName: 'transparencias';
     singularName: 'transparencia';
   };
