@@ -5,7 +5,8 @@
     "singularName": "agencia-landing",
     "pluralName": "agencia-landings",
     "displayName": "02. Agencia / Landing",
-    "description": "Auto-generado desde src/content/pages/agencia/landing.json"
+    "description": "Página única del dominio \"Agencia\": Landing. Publicada en: /agencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-repositorio-juridico",
     "pluralName": "observatorio-eje-de-educacion-repositorio-juridicos",
     "displayName": "07. Observatorio ITRC / Eje de Educación Repositorio Jurídico",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/repositorio-juridico.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Educación Repositorio Jurídico. Publicada en: /observatorio/eje-de-educacion/repositorio-juridico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

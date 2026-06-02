@@ -5,7 +5,8 @@
     "singularName": "transparencia-contratacion-contratacion-suscrita",
     "pluralName": "transparencia-contratacion-contratacion-suscritas",
     "displayName": "06. Transparencia / Contratación Contratación Suscrita",
-    "description": "Auto-generado desde src/content/pages/transparencia/contratacion/contratacion-suscrita.json"
+    "description": "Página única del dominio \"Transparencia\": Contratación Contratación Suscrita. Publicada en: /contratacion-suscrita. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "transparencia-otros-grupos",
     "pluralName": "transparencia-otros-gruposes",
     "displayName": "06. Transparencia / Otros Grupos",
-    "description": "Auto-generado desde src/content/pages/transparencia/otros-grupos.json"
+    "description": "Página única del dominio \"Transparencia\": Otros Grupos. Publicada en: /otros-grupos-de-interes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

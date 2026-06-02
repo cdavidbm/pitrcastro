@@ -5,7 +5,8 @@
     "singularName": "transparencia-informes-legales",
     "pluralName": "transparencia-informes-legaleses",
     "displayName": "06. Transparencia / Informes Legales",
-    "description": "Auto-generado desde src/content/pages/transparencia/informes-legales.json"
+    "description": "Página única del dominio \"Transparencia\": Informes Legales. Publicada en: /informes-legales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

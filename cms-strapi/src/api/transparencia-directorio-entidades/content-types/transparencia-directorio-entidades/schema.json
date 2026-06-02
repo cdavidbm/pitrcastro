@@ -5,7 +5,8 @@
     "singularName": "transparencia-directorio-entidades",
     "pluralName": "transparencia-directorio-entidadeses",
     "displayName": "06. Transparencia / Directorio Entidades",
-    "description": "Auto-generado desde src/content/pages/transparencia/directorio-entidades.json"
+    "description": "Página única del dominio \"Transparencia\": Directorio Entidades. Publicada en: /directorio-de-entidades. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

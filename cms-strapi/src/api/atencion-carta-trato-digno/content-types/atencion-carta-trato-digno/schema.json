@@ -5,7 +5,8 @@
     "singularName": "atencion-carta-trato-digno",
     "pluralName": "atencion-carta-trato-dignos",
     "displayName": "04. Atención y Servicios / Carta Trato Digno",
-    "description": "Auto-generado desde src/content/pages/atencion/carta-trato-digno.json"
+    "description": "Página única del dominio \"Atención y Servicios\": Carta Trato Digno. Publicada en: /carta-trato-digno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

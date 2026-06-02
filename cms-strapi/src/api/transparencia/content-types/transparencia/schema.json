@@ -5,7 +5,8 @@
     "singularName": "transparencia",
     "pluralName": "transparencias",
     "displayName": "06. Transparencia / Inicio",
-    "description": "Auto-generado desde src/content/pages/transparencia.json"
+    "description": "Página única del dominio \"Transparencia\": Inicio. Publicada en: /transparencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "transparencia-procedimientos-decisiones",
     "pluralName": "transparencia-procedimientos-decisioneses",
     "displayName": "06. Transparencia / Procedimientos Decisiones",
-    "description": "Auto-generado desde src/content/pages/transparencia/procedimientos-decisiones.json"
+    "description": "Página única del dominio \"Transparencia\": Procedimientos Decisiones. Publicada en: /procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

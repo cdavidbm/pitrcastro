@@ -5,7 +5,8 @@
     "singularName": "agencia-direccionamiento-estrategico",
     "pluralName": "agencia-direccionamiento-estrategicos",
     "displayName": "02. Agencia / Direccionamiento Estratégico",
-    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento-estrategico.json"
+    "description": "Página única del dominio \"Agencia\": Direccionamiento Estratégico. Publicada en: /agencia/direccionamiento-estrategico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

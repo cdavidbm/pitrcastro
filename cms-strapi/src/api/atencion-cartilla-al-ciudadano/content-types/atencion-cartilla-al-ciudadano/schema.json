@@ -5,7 +5,8 @@
     "singularName": "atencion-cartilla-al-ciudadano",
     "pluralName": "atencion-cartilla-al-ciudadanos",
     "displayName": "04. Atención y Servicios / Cartilla Al Ciudadano",
-    "description": "Auto-generado desde src/content/pages/atencion/cartilla-al-ciudadano.json"
+    "description": "Página única del dominio \"Atención y Servicios\": Cartilla Al Ciudadano. Publicada en: /cartilla-al-ciudadano. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

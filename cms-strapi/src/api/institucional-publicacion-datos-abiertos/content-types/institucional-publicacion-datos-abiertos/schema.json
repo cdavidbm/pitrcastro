@@ -5,7 +5,8 @@
     "singularName": "institucional-publicacion-datos-abiertos",
     "pluralName": "institucional-publicacion-datos-abiertoses",
     "displayName": "09. Institucional / Publicación Datos Abiertos",
-    "description": "Auto-generado desde src/content/pages/institucional/publicacion-datos-abiertos.json"
+    "description": "Página única del dominio \"Institucional\": Publicación Datos Abiertos. Publicada en: /publicacion-de-datos-abiertos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

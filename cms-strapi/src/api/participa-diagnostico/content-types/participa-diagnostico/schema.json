@@ -5,7 +5,8 @@
     "singularName": "participa-diagnostico",
     "pluralName": "participa-diagnosticos",
     "displayName": "05. Participa / Diagnostico",
-    "description": "Auto-generado desde src/content/pages/participa/diagnostico.json"
+    "description": "Página única del dominio \"Participa\": Diagnostico. Publicada en: /participa/diagnostico-e-identificacion-de-problemas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

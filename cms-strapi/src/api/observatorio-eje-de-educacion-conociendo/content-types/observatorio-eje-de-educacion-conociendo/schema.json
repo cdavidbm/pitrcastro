@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-conociendo",
     "pluralName": "observatorio-eje-de-educacion-conociendos",
     "displayName": "07. Observatorio ITRC / Eje de Educación Conociendo",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/conociendo.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Educación Conociendo. Publicada en: /observatorio/eje-de-educacion/conociendo-mas-del-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

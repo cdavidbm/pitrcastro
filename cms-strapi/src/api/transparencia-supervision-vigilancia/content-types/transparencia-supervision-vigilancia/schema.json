@@ -5,7 +5,8 @@
     "singularName": "transparencia-supervision-vigilancia",
     "pluralName": "transparencia-supervision-vigilancias",
     "displayName": "06. Transparencia / Supervisión Vigilancia",
-    "description": "Auto-generado desde src/content/pages/transparencia/supervision-vigilancia.json"
+    "description": "Página única del dominio \"Transparencia\": Supervisión Vigilancia. Publicada en: /supervision-y-vigilancia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -21,6 +21,26 @@ export default {
   bootstrap(_app: StrapiApp) {
     if (typeof window === 'undefined') return;
 
+    // ⚠️ DEUDA TÉCNICA: el bloque de customización siguiente está
+    // DESHABILITADO porque rompía la interactividad del admin de Strapi
+    // v5 (botón "Create new entry" desaparecía, engranaje no respondía).
+    //
+    // Causa raíz: el MutationObserver sobre `document.body` con
+    // `subtree: true` capturaba todas las mutaciones, y el callback
+    // `apply()` modificaba el DOM, lo que disparaba nuevas mutaciones
+    // que React también reconciliaba — loop infinito que bloqueaba el
+    // event loop del browser. Además un selector CSS `:has()` global
+    // sobre `nav` afectaba el header superior cortando el botón Create.
+    //
+    // Para retomar: ver
+    // /home/chris/.claude/projects/-home-chris-proyectos-implementacionP/memory/
+    // project_strapi_sidebar_custom_pendiente.md
+    //
+    // Camino recomendado: reescribir usando la API oficial de plugins
+    // de Strapi v5 (app.injectContentManagerComponent, etc.) en vez de
+    // manipular DOM con MutationObserver.
+    return;
+
     const STORAGE_COLLAPSED = 'itrc-cm-collapsed';
     const STORAGE_FILTER = 'itrc-cm-filter';
     // Bump cuando cambie el modelo de inicialización (ej. al pasar de
@@ -72,14 +92,11 @@ export default {
       const s = document.createElement('style');
       s.id = 'itrc-cm-styles';
       s.textContent = `
-        /* Sidebar más ancho. Targets el nav que contiene los enlaces del
-           Content Manager, ya sea en aside o nav. !important para superar
-           el width fijo que Strapi declara inline. */
-        nav:has(a[href*="/content-manager/"]),
-        aside:has(a[href*="/content-manager/"]) {
-          min-width: 280px !important;
-          width: 280px !important;
-        }
+        /* Sidebar más ancho. El width se aplica INLINE al navHost
+           específico en apply() (no via CSS global) porque selectores
+           como nav:has(a[href*="/content-manager/"]) matchean también el
+           nav superior de Strapi y le cambiaban el ancho rompiendo el
+           layout del header (escondía el botón "Create new entry"). */
         .itrc-branch-filter {
           padding: 10px 14px;
           margin: 10px 12px 14px;

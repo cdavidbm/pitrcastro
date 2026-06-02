@@ -5,7 +5,8 @@
     "singularName": "transparencia-protocolo-atencion",
     "pluralName": "transparencia-protocolo-atencions",
     "displayName": "06. Transparencia / Protocolo Atención",
-    "description": "Auto-generado desde src/content/pages/transparencia/protocolo-atencion.json"
+    "description": "Página única del dominio \"Transparencia\": Protocolo Atención. Publicada en: /protocolo-de-atencion-al-ciudadano. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

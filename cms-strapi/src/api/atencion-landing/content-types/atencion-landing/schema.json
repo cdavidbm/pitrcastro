@@ -5,7 +5,8 @@
     "singularName": "atencion-landing",
     "pluralName": "atencion-landings",
     "displayName": "04. Atención y Servicios / Landing",
-    "description": "Auto-generado desde src/content/pages/atencion/landing.json"
+    "description": "Página única del dominio \"Atención y Servicios\": Landing. Publicada en: /atencion-y-servicios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

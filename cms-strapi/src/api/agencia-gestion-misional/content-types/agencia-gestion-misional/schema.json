@@ -5,7 +5,8 @@
     "singularName": "agencia-gestion-misional",
     "pluralName": "agencia-gestion-misionals",
     "displayName": "02. Agencia / Gestión Misional",
-    "description": "Auto-generado desde src/content/pages/agencia/gestion-misional.json"
+    "description": "Página única del dominio \"Agencia\": Gestión Misional. Publicada en: /agencia/gestion-misional. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

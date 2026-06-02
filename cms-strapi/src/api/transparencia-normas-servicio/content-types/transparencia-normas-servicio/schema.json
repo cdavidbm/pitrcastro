@@ -5,7 +5,8 @@
     "singularName": "transparencia-normas-servicio",
     "pluralName": "transparencia-normas-servicios",
     "displayName": "06. Transparencia / Normas Servicio",
-    "description": "Auto-generado desde src/content/pages/transparencia/normas-servicio.json"
+    "description": "Página única del dominio \"Transparencia\": Normas Servicio. Publicada en: /normas-servicio-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

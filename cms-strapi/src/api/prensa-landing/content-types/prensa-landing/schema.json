@@ -5,7 +5,8 @@
     "singularName": "prensa-landing",
     "pluralName": "prensa-landings",
     "displayName": "08. Prensa / Landing",
-    "description": "Auto-generado desde src/content/pages/prensa/landing.json"
+    "description": "Página única del dominio \"Prensa\": Landing. Publicada en: /prensa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

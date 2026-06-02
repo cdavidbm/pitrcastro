@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-participacion-noticias",
     "pluralName": "observatorio-eje-de-participacion-noticiases",
     "displayName": "07. Observatorio ITRC / Eje de Participación Noticias",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-participacion/noticias.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Participación Noticias. Publicada en: /observatorio/eje-de-participacion/noticias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "observatorio-del-observatorio",
     "pluralName": "observatorio-del-observatorios",
     "displayName": "07. Observatorio ITRC / Del Observatorio",
-    "description": "Auto-generado desde src/content/pages/observatorio/del-observatorio.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Del Observatorio. Publicada en: /observatorio/del-observatorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

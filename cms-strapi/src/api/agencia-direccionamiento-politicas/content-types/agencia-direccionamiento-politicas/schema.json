@@ -5,7 +5,8 @@
     "singularName": "agencia-direccionamiento-politicas",
     "pluralName": "agencia-direccionamiento-politicases",
     "displayName": "02. Agencia / Direccionamiento Políticas",
-    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento/politicas.json"
+    "description": "Página única del dominio \"Agencia\": Direccionamiento Políticas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

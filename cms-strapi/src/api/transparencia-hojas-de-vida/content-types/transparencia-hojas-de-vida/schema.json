@@ -5,7 +5,8 @@
     "singularName": "transparencia-hojas-de-vida",
     "pluralName": "transparencia-hojas-de-vidas",
     "displayName": "06. Transparencia / Hojas de Vida",
-    "description": "Auto-generado desde src/content/pages/transparencia/hojas-de-vida.json"
+    "description": "Página única del dominio \"Transparencia\": Hojas de Vida. Publicada en: /publicacion-hojas-de-vida. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

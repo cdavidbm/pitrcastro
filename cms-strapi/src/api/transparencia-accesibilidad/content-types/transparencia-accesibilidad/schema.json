@@ -5,7 +5,8 @@
     "singularName": "transparencia-accesibilidad",
     "pluralName": "transparencia-accesibilidads",
     "displayName": "06. Transparencia / Accesibilidad",
-    "description": "Auto-generado desde src/content/pages/transparencia/accesibilidad.json"
+    "description": "Página única del dominio \"Transparencia\": Accesibilidad. Publicada en: /accesibilidad. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

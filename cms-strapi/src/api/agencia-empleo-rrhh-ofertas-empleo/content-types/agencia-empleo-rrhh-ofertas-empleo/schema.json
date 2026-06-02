@@ -5,7 +5,8 @@
     "singularName": "agencia-empleo-rrhh-ofertas-empleo",
     "pluralName": "agencia-empleo-rrhh-ofertas-empleos",
     "displayName": "02. Agencia / Empleo RRHH Ofertas Empleo",
-    "description": "Auto-generado desde src/content/pages/agencia/empleo-rrhh/ofertas-empleo.json"
+    "description": "Página única del dominio \"Agencia\": Empleo RRHH Ofertas Empleo. Publicada en: /ofertas-de-empleo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

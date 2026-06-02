@@ -5,7 +5,8 @@
     "singularName": "agencia-direccionamiento-informes",
     "pluralName": "agencia-direccionamiento-informeses",
     "displayName": "02. Agencia / Direccionamiento Informes",
-    "description": "Auto-generado desde src/content/pages/agencia/direccionamiento/informes.json"
+    "description": "Página única del dominio \"Agencia\": Direccionamiento Informes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

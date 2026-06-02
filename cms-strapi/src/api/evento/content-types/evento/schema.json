@@ -5,22 +5,47 @@
     "singularName": "evento",
     "pluralName": "eventos",
     "displayName": "08. Prensa / Eventos",
-    "description": "Calendario de eventos institucionales de la Agencia ITRC."
+    "description": "Calendario de eventos institucionales de la Agencia ITRC.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": { "type": "string", "required": true },
-    "startDate": { "type": "datetime", "required": true },
-    "endDate": { "type": "datetime" },
-    "location": { "type": "string" },
-    "description": { "type": "text" },
-    "inscriptionLink": { "type": "string" },
-    "virtualLink": { "type": "string" },
-    "image": { "type": "string" },
-    "published": { "type": "boolean", "default": true },
-    "archived": { "type": "boolean", "default": false }
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "location": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "inscriptionLink": {
+      "type": "string"
+    },
+    "virtualLink": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean",
+      "default": true
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    }
   }
 }

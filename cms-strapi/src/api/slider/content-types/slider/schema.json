@@ -5,7 +5,8 @@
     "singularName": "slider",
     "pluralName": "sliders",
     "displayName": "01. Inicio / Slider Principal",
-    "description": "Carrusel de banners de la página de inicio. Migrado desde src/content/sliders/home.json."
+    "description": "Carrusel de banners de la página de inicio. Migrado desde src/content/sliders/home.json.",
+    "mainField": "name"
   },
   "options": {
     "draftAndPublish": true

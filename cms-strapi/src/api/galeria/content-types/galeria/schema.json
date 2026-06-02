@@ -5,7 +5,8 @@
     "singularName": "galeria",
     "pluralName": "galerias",
     "displayName": "08. Prensa / Galería",
-    "description": "Auto-generado desde src/content/pages/galeria"
+    "description": "Colección de entradas del dominio \"Prensa\": Galería. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "titulo"
   },
   "options": {
     "draftAndPublish": true

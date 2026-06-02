@@ -5,7 +5,8 @@
     "singularName": "transparencia-decretos-estructura",
     "pluralName": "transparencia-decretos-estructuras",
     "displayName": "06. Transparencia / Decretos Estructura",
-    "description": "Auto-generado desde src/content/pages/transparencia/decretos-estructura.json"
+    "description": "Página única del dominio \"Transparencia\": Decretos Estructura. Publicada en: /decretos-de-estructura-salarios-leyes-marco-y-otros. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

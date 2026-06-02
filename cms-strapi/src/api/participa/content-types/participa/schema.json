@@ -5,7 +5,8 @@
     "singularName": "participa",
     "pluralName": "participas",
     "displayName": "05. Participa / Inicio",
-    "description": "Auto-generado desde src/content/pages/participa.json"
+    "description": "Página única del dominio \"Participa\": Inicio. Publicada en: /participa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

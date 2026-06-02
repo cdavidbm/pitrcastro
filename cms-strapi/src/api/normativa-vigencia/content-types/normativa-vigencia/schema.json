@@ -5,7 +5,8 @@
     "singularName": "normativa-vigencia",
     "pluralName": "normativa-vigencias",
     "displayName": "03. Normativa / Vigencias",
-    "description": "Auto-generado desde src/content/pages/normativa/vigencias"
+    "description": "Colección de entradas del dominio \"Normativa\": Vigencias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

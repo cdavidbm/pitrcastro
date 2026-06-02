@@ -5,7 +5,8 @@
     "singularName": "agencia-empleo-rrhh-manual-especifico-funciones",
     "pluralName": "agencia-empleo-rrhh-manual-especifico-funcioneses",
     "displayName": "02. Agencia / Empleo RRHH Manual Específico Funciones",
-    "description": "Auto-generado desde src/content/pages/agencia/empleo-rrhh/manual-especifico-funciones.json"
+    "description": "Página única del dominio \"Agencia\": Empleo RRHH Manual Específico Funciones. Publicada en: /manual-especifico-de-funciones-y-de-competencias-laborales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

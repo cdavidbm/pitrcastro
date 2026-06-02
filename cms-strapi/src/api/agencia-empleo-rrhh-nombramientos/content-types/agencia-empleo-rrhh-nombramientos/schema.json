@@ -5,7 +5,8 @@
     "singularName": "agencia-empleo-rrhh-nombramientos",
     "pluralName": "agencia-empleo-rrhh-nombramientoses",
     "displayName": "02. Agencia / Empleo RRHH Nombramientos",
-    "description": "Auto-generado desde src/content/pages/agencia/empleo-rrhh/nombramientos.json"
+    "description": "Página única del dominio \"Agencia\": Empleo RRHH Nombramientos. Publicada en: /nombramientos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

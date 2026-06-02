@@ -5,7 +5,8 @@
     "singularName": "transparencia-evaluacion-independiente",
     "pluralName": "transparencia-evaluacion-independientes",
     "displayName": "06. Transparencia / Evaluación Independiente",
-    "description": "Auto-generado desde src/content/pages/transparencia/evaluacion-independiente.json"
+    "description": "Página única del dominio \"Transparencia\": Evaluación Independiente. Publicada en: /evaluacion-independiente-control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "agencia-equipo-directivo",
     "pluralName": "agencia-equipo-directivos",
     "displayName": "02. Agencia / Equipo Directivo",
-    "description": "Auto-generado desde src/content/pages/agencia/equipo-directivo.json"
+    "description": "Página única del dominio \"Agencia\": Equipo Directivo. Publicada en: /agencia/equipo-directivo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

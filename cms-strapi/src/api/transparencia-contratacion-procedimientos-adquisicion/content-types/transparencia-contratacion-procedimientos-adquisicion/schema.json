@@ -5,7 +5,8 @@
     "singularName": "transparencia-contratacion-procedimientos-adquisicion",
     "pluralName": "transparencia-contratacion-procedimientos-adquisicions",
     "displayName": "06. Transparencia / Contratación Procedimientos Adquisición",
-    "description": "Auto-generado desde src/content/pages/transparencia/contratacion/procedimientos-adquisicion.json"
+    "description": "Página única del dominio \"Transparencia\": Contratación Procedimientos Adquisición. Publicada en: /publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

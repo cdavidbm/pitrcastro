@@ -5,7 +5,8 @@
     "singularName": "atencion-glosario",
     "pluralName": "atencion-glosarios",
     "displayName": "04. Atención y Servicios / Glosario",
-    "description": "Auto-generado desde src/content/pages/atencion/glosario.json"
+    "description": "Página única del dominio \"Atención y Servicios\": Glosario. Publicada en: /glosario. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

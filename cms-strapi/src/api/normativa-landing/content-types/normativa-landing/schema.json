@@ -5,7 +5,8 @@
     "singularName": "normativa-landing",
     "pluralName": "normativa-landings",
     "displayName": "03. Normativa / Landing",
-    "description": "Auto-generado desde src/content/pages/normativa/landing.json"
+    "description": "Página única del dominio \"Normativa\": Landing. Publicada en: /normativa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

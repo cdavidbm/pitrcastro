@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-itrc-para-ninos",
     "pluralName": "observatorio-eje-de-educacion-itrc-para-ninoses",
     "displayName": "07. Observatorio ITRC / Eje de Educación ITRC Para Niños",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/itrc-para-ninos.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Educación ITRC Para Niños. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

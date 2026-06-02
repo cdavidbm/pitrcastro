@@ -5,7 +5,8 @@
     "singularName": "transparencia-documentacion-proteccion-datos",
     "pluralName": "transparencia-documentacion-proteccion-datoses",
     "displayName": "06. Transparencia / Documentación Protección Datos",
-    "description": "Auto-generado desde src/content/pages/transparencia/documentacion/proteccion-datos.json"
+    "description": "Página única del dominio \"Transparencia\": Documentación Protección Datos. Publicada en: /proteccion-de-datos-personales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

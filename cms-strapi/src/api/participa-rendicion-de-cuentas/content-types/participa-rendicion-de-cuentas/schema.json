@@ -5,7 +5,8 @@
     "singularName": "participa-rendicion-de-cuentas",
     "pluralName": "participa-rendicion-de-cuentases",
     "displayName": "05. Participa / Rendición de Cuentas",
-    "description": "Auto-generado desde src/content/pages/participa/rendicion-de-cuentas.json"
+    "description": "Página única del dominio \"Participa\": Rendición de Cuentas. Publicada en: /participa/rendicion-de-cuentas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

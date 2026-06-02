@@ -5,7 +5,8 @@
     "singularName": "transparencia-datos-abiertos",
     "pluralName": "transparencia-datos-abiertoses",
     "displayName": "06. Transparencia / Datos Abiertos",
-    "description": "Auto-generado desde src/content/pages/transparencia/datos-abiertos.json"
+    "description": "Página única del dominio \"Transparencia\": Datos Abiertos. Publicada en: /publicacion-datos-abiertos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

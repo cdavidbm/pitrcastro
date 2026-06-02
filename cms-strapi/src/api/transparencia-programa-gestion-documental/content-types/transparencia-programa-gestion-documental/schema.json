@@ -5,7 +5,8 @@
     "singularName": "transparencia-programa-gestion-documental",
     "pluralName": "transparencia-programa-gestion-documentals",
     "displayName": "06. Transparencia / Programa Gestión Documental",
-    "description": "Auto-generado desde src/content/pages/transparencia/programa-gestion-documental.json"
+    "description": "Página única del dominio \"Transparencia\": Programa Gestión Documental. Publicada en: /programa-gestion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

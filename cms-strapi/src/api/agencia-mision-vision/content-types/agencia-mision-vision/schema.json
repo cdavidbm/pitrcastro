@@ -5,7 +5,8 @@
     "singularName": "agencia-mision-vision",
     "pluralName": "agencia-mision-visions",
     "displayName": "02. Agencia / Mision Vision",
-    "description": "Auto-generado desde src/content/pages/agencia/mision-vision.json"
+    "description": "Página única del dominio \"Agencia\": Mision Vision. Publicada en: /agencia/mision-vision. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

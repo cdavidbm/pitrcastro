@@ -5,7 +5,8 @@
     "singularName": "transparencia-rendicion-cuenta-contraloria",
     "pluralName": "transparencia-rendicion-cuenta-contralorias",
     "displayName": "06. Transparencia / Rendición Cuenta Contraloría",
-    "description": "Auto-generado desde src/content/pages/transparencia/rendicion-cuenta-contraloria.json"
+    "description": "Página única del dominio \"Transparencia\": Rendición Cuenta Contraloría. Publicada en: /informe-rendicion-cuenta-contraloria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

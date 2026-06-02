@@ -5,7 +5,8 @@
     "singularName": "transparencia-decreto-unico",
     "pluralName": "transparencia-decreto-unicos",
     "displayName": "06. Transparencia / Decreto Unico",
-    "description": "Auto-generado desde src/content/pages/transparencia/decreto-unico.json"
+    "description": "Página única del dominio \"Transparencia\": Decreto Unico. Publicada en: /decreto-unico-reglamentario. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-cuento",
     "pluralName": "observatorio-eje-de-educacion-cuentos",
     "displayName": "07. Observatorio ITRC / Eje de Educación Cuento",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/cuento.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Educación Cuento. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/cuento. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

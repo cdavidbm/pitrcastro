@@ -5,7 +5,8 @@
     "singularName": "transparencia-tablas-retencion",
     "pluralName": "transparencia-tablas-retencions",
     "displayName": "06. Transparencia / Tablas Retencion",
-    "description": "Auto-generado desde src/content/pages/transparencia/tablas-retencion.json"
+    "description": "Página única del dominio \"Transparencia\": Tablas Retencion. Publicada en: /tablas-retencion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

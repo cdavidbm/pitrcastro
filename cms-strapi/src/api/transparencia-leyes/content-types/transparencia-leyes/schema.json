@@ -5,7 +5,8 @@
     "singularName": "transparencia-leyes",
     "pluralName": "transparencia-leyeses",
     "displayName": "06. Transparencia / Leyes",
-    "description": "Auto-generado desde src/content/pages/transparencia/leyes.json"
+    "description": "Página única del dominio \"Transparencia\": Leyes. Publicada en: /leyes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

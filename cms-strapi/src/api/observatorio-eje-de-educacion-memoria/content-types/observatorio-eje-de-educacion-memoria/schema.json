@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-memoria",
     "pluralName": "observatorio-eje-de-educacion-memorias",
     "displayName": "07. Observatorio ITRC / Eje de Educación / Memorias",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/memorias"
+    "description": "Colección de entradas del dominio \"Observatorio ITRC\": Eje de Educación / Memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "titulo"
   },
   "options": {
     "draftAndPublish": true

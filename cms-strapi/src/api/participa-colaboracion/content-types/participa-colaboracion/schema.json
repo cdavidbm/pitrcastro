@@ -5,7 +5,8 @@
     "singularName": "participa-colaboracion",
     "pluralName": "participa-colaboracions",
     "displayName": "05. Participa / Colaboracion",
-    "description": "Auto-generado desde src/content/pages/participa/colaboracion.json"
+    "description": "Página única del dominio \"Participa\": Colaboracion. Publicada en: /participa/colaboracion-e-innovacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

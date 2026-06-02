@@ -5,7 +5,8 @@
     "singularName": "agencia-plan-institucional-de-archivos",
     "pluralName": "agencia-plan-institucional-de-archivoses",
     "displayName": "02. Agencia / Plan Institucional de Archivos",
-    "description": "Auto-generado desde src/content/pages/agencia/plan-institucional-de-archivos.json"
+    "description": "Página única del dominio \"Agencia\": Plan Institucional de Archivos. Publicada en: /agencia/plan-institucional-de-archivos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

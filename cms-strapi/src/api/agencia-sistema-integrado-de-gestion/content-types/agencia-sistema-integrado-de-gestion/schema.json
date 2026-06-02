@@ -5,7 +5,8 @@
     "singularName": "agencia-sistema-integrado-de-gestion",
     "pluralName": "agencia-sistema-integrado-de-gestions",
     "displayName": "02. Agencia / Sistema Integrado de Gestión",
-    "description": "Auto-generado desde src/content/pages/agencia/sistema-integrado-de-gestion.json"
+    "description": "Página única del dominio \"Agencia\": Sistema Integrado de Gestión. Publicada en: /agencia/sistema-integrado-de-gestion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

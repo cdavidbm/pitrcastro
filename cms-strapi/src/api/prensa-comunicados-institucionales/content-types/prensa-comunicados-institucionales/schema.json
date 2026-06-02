@@ -5,7 +5,8 @@
     "singularName": "prensa-comunicados-institucionales",
     "pluralName": "prensa-comunicados-institucionaleses",
     "displayName": "08. Prensa / Comunicados Institucionales",
-    "description": "Auto-generado desde src/content/pages/prensa/comunicados-institucionales.json"
+    "description": "Página única del dominio \"Prensa\": Comunicados Institucionales. Publicada en: /prensa/noticias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "normativa-unificacion-suin-juriscol",
     "pluralName": "normativa-unificacion-suin-juriscols",
     "displayName": "03. Normativa / Unificación SUIN Juriscol",
-    "description": "Auto-generado desde src/content/pages/normativa/unificacion-suin-juriscol.json"
+    "description": "Página única del dominio \"Normativa\": Unificación SUIN Juriscol. Publicada en: /transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

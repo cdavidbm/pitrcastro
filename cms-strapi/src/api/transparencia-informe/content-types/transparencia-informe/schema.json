@@ -5,7 +5,8 @@
     "singularName": "transparencia-informe",
     "pluralName": "transparencia-informes",
     "displayName": "06. Transparencia / Informes",
-    "description": "Auto-generado desde src/content/pages/transparencia/informes"
+    "description": "Colección de entradas del dominio \"Transparencia\": Informes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

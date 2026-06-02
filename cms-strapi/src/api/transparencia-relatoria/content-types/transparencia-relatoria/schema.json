@@ -5,7 +5,8 @@
     "singularName": "transparencia-relatoria",
     "pluralName": "transparencia-relatorias",
     "displayName": "06. Transparencia / Relatoria",
-    "description": "Auto-generado desde src/content/pages/transparencia/relatoria.json"
+    "description": "Página única del dominio \"Transparencia\": Relatoria. Publicada en: /relatoria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

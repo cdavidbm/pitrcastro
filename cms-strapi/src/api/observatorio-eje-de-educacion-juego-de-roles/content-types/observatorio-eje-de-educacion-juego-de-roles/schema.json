@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-juego-de-roles",
     "pluralName": "observatorio-eje-de-educacion-juego-de-roleses",
     "displayName": "07. Observatorio ITRC / Eje de Educación Juego de Roles",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/juego-de-roles.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Educación Juego de Roles. Publicada en: /observatorio/eje-de-educacion/juego-de-roles. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

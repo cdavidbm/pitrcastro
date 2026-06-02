@@ -5,7 +5,8 @@
     "singularName": "transparencia-formatos-contratos-pliegos-tipo",
     "pluralName": "transparencia-formatos-contratos-pliegos-tipos",
     "displayName": "06. Transparencia / Formatos Contratos Pliegos Tipo",
-    "description": "Auto-generado desde src/content/pages/transparencia/formatos-contratos-pliegos-tipo.json"
+    "description": "Página única del dominio \"Transparencia\": Formatos Contratos Pliegos Tipo. Publicada en: /formatos-o-modelos-de-contratos-o-pliego-tipo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

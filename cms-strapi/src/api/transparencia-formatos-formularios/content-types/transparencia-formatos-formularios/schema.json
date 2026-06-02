@@ -5,7 +5,8 @@
     "singularName": "transparencia-formatos-formularios",
     "pluralName": "transparencia-formatos-formularioses",
     "displayName": "06. Transparencia / Formatos Formularios",
-    "description": "Auto-generado desde src/content/pages/transparencia/formatos-formularios.json"
+    "description": "Página única del dominio \"Transparencia\": Formatos Formularios. Publicada en: /formatos-y-formularios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

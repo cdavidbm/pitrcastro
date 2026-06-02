@@ -4,8 +4,8 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "01. Inicio",
-    "description": "Auto-generado desde src/content/pages/home.json"
+    "displayName": "01. Inicio / Home",
+    "description": "Página única del dominio \"Inicio\": Home. Publicada en: /. Edite estos campos para actualizar el contenido que ven los visitantes del sitio."
   },
   "options": {
     "draftAndPublish": true

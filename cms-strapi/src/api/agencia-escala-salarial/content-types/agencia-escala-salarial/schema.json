@@ -5,7 +5,8 @@
     "singularName": "agencia-escala-salarial",
     "pluralName": "agencia-escala-salarials",
     "displayName": "02. Agencia / Escala Salarial",
-    "description": "Auto-generado desde src/content/pages/agencia/escala-salarial.json"
+    "description": "Página única del dominio \"Agencia\": Escala Salarial. Publicada en: /escala-salarial. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

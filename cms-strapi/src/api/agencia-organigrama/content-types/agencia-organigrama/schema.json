@@ -5,7 +5,8 @@
     "singularName": "agencia-organigrama",
     "pluralName": "agencia-organigramas",
     "displayName": "02. Agencia / Organigrama",
-    "description": "Auto-generado desde src/content/pages/agencia/organigrama.json"
+    "description": "Página única del dominio \"Agencia\": Organigrama. Publicada en: /agencia/organigrama. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,7 @@
     "singularName": "normograma",
     "pluralName": "normogramas",
     "displayName": "03. Normativa / Normograma",
-    "description": "Auto-generado desde src/content/pages/normograma.json"
+    "description": "Página única del dominio \"Normativa\": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio."
   },
   "options": {
     "draftAndPublish": true

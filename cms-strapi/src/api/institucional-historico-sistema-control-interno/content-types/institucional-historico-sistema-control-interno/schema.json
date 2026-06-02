@@ -5,7 +5,8 @@
     "singularName": "institucional-historico-sistema-control-interno",
     "pluralName": "institucional-historico-sistema-control-internos",
     "displayName": "09. Institucional / Histórico Sistema Control Interno",
-    "description": "Auto-generado desde src/content/pages/institucional/historico-sistema-control-interno.json"
+    "description": "Página única del dominio \"Institucional\": Histórico Sistema Control Interno. Publicada en: /historico-sistema-de-control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

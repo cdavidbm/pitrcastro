@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-educacion-video-ninos",
     "pluralName": "observatorio-eje-de-educacion-video-ninoses",
     "displayName": "07. Observatorio ITRC / Eje de Educación Video Niños",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-educacion/video-ninos.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Educación Video Niños. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/video-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

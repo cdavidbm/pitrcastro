@@ -5,7 +5,8 @@
     "singularName": "transparencia-reporte-austeridad-gasto",
     "pluralName": "transparencia-reporte-austeridad-gastos",
     "displayName": "06. Transparencia / Reporte Austeridad Gasto",
-    "description": "Auto-generado desde src/content/pages/transparencia/reporte-austeridad-gasto.json"
+    "description": "Página única del dominio \"Transparencia\": Reporte Austeridad Gasto. Publicada en: /reporte-austeridad-en-el-gasto. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "participa-atencion-respuesta-anonimos",
     "pluralName": "participa-atencion-respuesta-anonimoses",
     "displayName": "05. Participa / Atención Respuesta Anónimos",
-    "description": "Auto-generado desde src/content/pages/participa-atencion/respuesta-anonimos.json"
+    "description": "Página única del dominio \"Participa\": Atención Respuesta Anónimos. Publicada en: /respuesta-anonimos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-medicion",
     "pluralName": "observatorio-eje-de-medicions",
     "displayName": "07. Observatorio ITRC / Eje de Medición",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-medicion.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Medición. Publicada en: /observatorio/eje-de-medicion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

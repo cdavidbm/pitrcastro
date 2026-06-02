@@ -5,7 +5,8 @@
     "singularName": "transparencia-esquema-publicacion",
     "pluralName": "transparencia-esquema-publicacions",
     "displayName": "06. Transparencia / Esquema Publicación",
-    "description": "Auto-generado desde src/content/pages/transparencia/esquema-publicacion.json"
+    "description": "Página única del dominio \"Transparencia\": Esquema Publicación. Publicada en: /esquema-publicacion-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

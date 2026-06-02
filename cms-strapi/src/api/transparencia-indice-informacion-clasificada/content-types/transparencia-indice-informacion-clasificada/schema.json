@@ -5,7 +5,8 @@
     "singularName": "transparencia-indice-informacion-clasificada",
     "pluralName": "transparencia-indice-informacion-clasificadas",
     "displayName": "06. Transparencia / Índice Información Clasificada",
-    "description": "Auto-generado desde src/content/pages/transparencia/indice-informacion-clasificada.json"
+    "description": "Página única del dominio \"Transparencia\": Índice Información Clasificada. Publicada en: /indice-de-informacion-clasificada-y-reservada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

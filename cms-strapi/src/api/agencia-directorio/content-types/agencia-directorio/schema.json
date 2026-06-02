@@ -5,7 +5,8 @@
     "singularName": "agencia-directorio",
     "pluralName": "agencia-directorios",
     "displayName": "02. Agencia / Directorio",
-    "description": "Auto-generado desde src/content/pages/agencia/directorio.json"
+    "description": "Página única del dominio \"Agencia\": Directorio. Publicada en: /agencia/directorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

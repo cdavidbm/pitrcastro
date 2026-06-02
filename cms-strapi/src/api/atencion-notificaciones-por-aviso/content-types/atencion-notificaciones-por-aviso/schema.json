@@ -5,7 +5,8 @@
     "singularName": "atencion-notificaciones-por-aviso",
     "pluralName": "atencion-notificaciones-por-avisos",
     "displayName": "04. Atención y Servicios / Notificaciones Por Aviso",
-    "description": "Auto-generado desde src/content/pages/atencion/notificaciones-por-aviso.json"
+    "description": "Página única del dominio \"Atención y Servicios\": Notificaciones Por Aviso. Publicada en: /notificaciones-por-aviso. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

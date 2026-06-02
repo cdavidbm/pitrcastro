@@ -5,7 +5,8 @@
     "singularName": "participa-planeacion",
     "pluralName": "participa-planeacions",
     "displayName": "05. Participa / Planeacion",
-    "description": "Auto-generado desde src/content/pages/participa/planeacion.json"
+    "description": "Página única del dominio \"Participa\": Planeacion. Publicada en: /participa/planeacion-y-presupuesto-participativo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

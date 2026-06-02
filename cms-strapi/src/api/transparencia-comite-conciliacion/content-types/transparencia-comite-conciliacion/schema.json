@@ -5,7 +5,8 @@
     "singularName": "transparencia-comite-conciliacion",
     "pluralName": "transparencia-comite-conciliacions",
     "displayName": "06. Transparencia / Comité Conciliación",
-    "description": "Auto-generado desde src/content/pages/transparencia/comite-conciliacion.json"
+    "description": "Página única del dominio \"Transparencia\": Comité Conciliación. Publicada en: /informe-comite-conciliacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

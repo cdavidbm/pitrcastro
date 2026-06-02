@@ -5,7 +5,8 @@
     "singularName": "atencion-vinculacion-a-terceros",
     "pluralName": "atencion-vinculacion-a-terceroses",
     "displayName": "04. Atención y Servicios / Vinculación a Terceros",
-    "description": "Auto-generado desde src/content/pages/atencion/vinculacion-a-terceros.json"
+    "description": "Página única del dominio \"Atención y Servicios\": Vinculación a Terceros. Publicada en: /vinculacion-a-terceros-cancelacion-de-registro-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

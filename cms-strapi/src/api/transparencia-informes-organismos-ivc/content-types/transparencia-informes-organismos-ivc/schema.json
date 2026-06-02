@@ -5,7 +5,8 @@
     "singularName": "transparencia-informes-organismos-ivc",
     "pluralName": "transparencia-informes-organismos-ivcs",
     "displayName": "06. Transparencia / Informes Organismos IVC",
-    "description": "Auto-generado desde src/content/pages/transparencia/informes-organismos-ivc.json"
+    "description": "Página única del dominio \"Transparencia\": Informes Organismos IVC. Publicada en: /informes-a-organismos-de-inspeccion-vigilancia-y-control. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

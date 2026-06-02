@@ -5,7 +5,8 @@
     "singularName": "prensa-videos",
     "pluralName": "prensa-videoses",
     "displayName": "08. Prensa / Videos",
-    "description": "Auto-generado desde src/content/pages/prensa/videos.json"
+    "description": "Página única del dominio \"Prensa\": Videos. Publicada en: /videos-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true

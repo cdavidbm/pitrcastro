@@ -5,7 +5,8 @@
     "singularName": "observatorio-eje-de-participacion-cartillas",
     "pluralName": "observatorio-eje-de-participacion-cartillases",
     "displayName": "07. Observatorio ITRC / Eje de Participación Cartillas",
-    "description": "Auto-generado desde src/content/pages/observatorio/eje-de-participacion/cartillas.json"
+    "description": "Página única del dominio \"Observatorio ITRC\": Eje de Participación Cartillas. Publicada en: /observatorio/eje-de-participacion/cartillas-divulgativas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true
