@@ -5,6 +5,12 @@
  */
 import { strapiGet } from './strapi';
 
+// === Settings globales (administrables desde Strapi) ===
+export const getSite = () => strapiGet<any>("/api/site?populate[featuredVideo]=true");
+export const getContact = () => strapiGet<any>("/api/contact?populate[socialMedia]=true");
+export const getNavigation = () => strapiGet<any>("/api/navigation");
+export const getQuickAccess = () => strapiGet<any>("/api/quick-access?populate[items]=true&pagination[pageSize]=200");
+
 export const getAgenciaDireccionamientoEstrategico = () => strapiGet<any>("/api/agencia-direccionamiento-estrategico?populate[sections]=true&populate[marcoNormativo][populate][normas]=true&populate[enlacesRelacionados]=true");
 export const getAgenciaDireccionamientoInformes = () => strapiGet<any>("/api/agencia-direccionamiento-informes?populate[sections][populate][documents][populate][file]=true");
 export const getAgenciaDireccionamientoPlanes = () => strapiGet<any>("/api/agencia-direccionamiento-planes?populate[sections][populate][documents][populate][file]=true");

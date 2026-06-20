@@ -1,9 +1,14 @@
 ---
-import navigation from '../../content/settings/navigation.json';
+import navigationLocal from '../../content/settings/navigation.json';
+import { getNavigation } from '../../utils/strapi-fetchers';
 import SearchBox from '../SearchBox.astro';
 import { resolveUrl } from '../../utils/url';
 
-const menuItems = navigation.mainMenu || [];
+// Strapi primary, JSON local fallback.
+const remote: any = await getNavigation().catch(() => null);
+const menuItems = (remote?.mainMenu && Array.isArray(remote.mainMenu) && remote.mainMenu.length > 0)
+  ? remote.mainMenu
+  : (navigationLocal.mainMenu || []);
 ---
 
 <nav class="nav" role="navigation" aria-label="Navegación principal">

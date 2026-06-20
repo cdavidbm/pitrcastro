@@ -1,6 +1,13 @@
 ---
-import siteConfig from '../../content/settings/site.json';
-import contactConfig from '../../content/settings/contact.json';
+import siteLocal from '../../content/settings/site.json';
+import contactLocal from '../../content/settings/contact.json';
+import { getSite, getContact } from '../../utils/strapi-fetchers';
+
+// Strapi primary, JSON local fallback (resiliente ante Strapi degradado).
+const siteRemote: any = await getSite().catch(() => null);
+const contactRemote: any = await getContact().catch(() => null);
+const siteConfig: any = (siteRemote && siteRemote.name) ? siteRemote : siteLocal;
+const contactConfig: any = (contactRemote && contactRemote.address) ? contactRemote : contactLocal;
 
 const currentYear = new Date().getFullYear();
 const base = import.meta.env.BASE_URL;

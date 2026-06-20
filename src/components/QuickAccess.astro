@@ -1,13 +1,20 @@
 ---
-import quickAccessData from '../content/settings/quickAccess.json';
+import quickAccessLocal from '../content/settings/quickAccess.json';
+import { getQuickAccess } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
+
+// Strapi primary, JSON local de fallback (cobertura ante Strapi degradado).
+const remote: any = await getQuickAccess().catch(() => null);
+const items = (remote?.items && remote.items.length > 0)
+  ? remote.items
+  : quickAccessLocal.items;
 ---
 
 <section class="quick-access" aria-labelledby="quick-access-title">
   <h2 id="quick-access-title" class="sr-only">Accesos rápidos</h2>
 
   <div class="quick-access__grid">
-    {quickAccessData.items.map((item, index) => (
+    {items.map((item: any, index: number) => (
       <a
         href={resolveUrl(item.url, item.external)}
         class={`quick-access__item ${item.highlighted ? 'quick-access__item--highlighted' : ''}`}
