@@ -4,7 +4,16 @@ import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
 import { getTransparenciaRelatoria } from '../utils/strapi-fetchers';
 import { mediaUrl } from '../utils/strapi-media';
-const pageData: any = (await getTransparenciaRelatoria()) ?? {};
+// Fallback local: catalogo de 219 fichas recuperadas del WP/Joomla legacy.
+// Mientras Strapi no este sembrado con las fichas, el JSON es la fuente.
+// El JSON queda como respaldo aun cuando Strapi este disponible pero
+// devuelva un array de fichas vacio (caso degradado durante migracion).
+import localData from '../content/pages/transparencia/relatoria.json';
+
+const strapiData: any = (await getTransparenciaRelatoria()) ?? null;
+const pageData: any = strapiData && Object.keys(strapiData).length
+  ? strapiData
+  : (localData as any);
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -26,7 +35,11 @@ interface Ficha {
   origenUrl: string;
 }
 
-const fichas: Ficha[] = pageData.fichas ?? [];
+// Si Strapi devuelve estructura pero sin fichas, usamos las del JSON local.
+const strapiFichas: Ficha[] = Array.isArray(pageData.fichas) ? pageData.fichas : [];
+const fichas: Ficha[] = strapiFichas.length
+  ? strapiFichas
+  : ((localData as any).fichas as Ficha[]);
 
 // Años efectivos para el filtro (orden desc)
 const anios = Array.from(

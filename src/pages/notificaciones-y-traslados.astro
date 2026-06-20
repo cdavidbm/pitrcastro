@@ -4,6 +4,9 @@ import HeroPage from '../components/HeroPage.astro';
 import { getNotificacionList } from '../utils/strapi-fetchers';
 import { mediaUrl } from '../utils/strapi-media';
 import { resolveUrl } from '../utils/url';
+import edictosLocal from '../content/notificaciones/edictos.json';
+import estadosLocal from '../content/notificaciones/estados.json';
+import trasladosLocal from '../content/notificaciones/traslados.json';
 
 const base = import.meta.env.BASE_URL;
 
@@ -20,7 +23,20 @@ interface NotificacionEntry {
   vigencia?: number;
 }
 
-const all = ((await getNotificacionList()) as NotificacionEntry[]) || [];
+// Fuente de verdad: Strapi (donde se publican los nuevos edictos/traslados
+// desde el panel del editor). Si Strapi devuelve vacio o falla, caemos al
+// JSON local como respaldo (cubre el caso de Strapi caido durante un build).
+const buildFromLocal = (): NotificacionEntry[] => {
+  const fromKind = (cat: NotificacionEntry['categoria'], src: any): NotificacionEntry[] =>
+    (src.entries || []).map((e: any) => ({ ...e, categoria: cat }));
+  return [
+    ...fromKind('edicto', edictosLocal),
+    ...fromKind('estado', estadosLocal),
+    ...fromKind('traslado', trasladosLocal),
+  ];
+};
+const remote = ((await getNotificacionList()) as NotificacionEntry[]) || [];
+const all: NotificacionEntry[] = remote.length > 0 ? remote : buildFromLocal();
 
 const edictos = all.filter((e) => e.categoria === 'edicto');
 const estados = all.filter((e) => e.categoria === 'estado');
