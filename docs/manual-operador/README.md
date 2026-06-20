@@ -18,6 +18,7 @@ Manual de referencia para el editor o webmaster encargado de mantener el conteni
 | 08 | [Mantenimiento con Git](08-mantenimiento-git.md) | Flujo diario de trabajo, resolución de conflictos y respaldo |
 | 09 | [Despliegue en datacenter (Ubuntu + nginx + Strapi)](09-despliegue-datacenter.md) | Arquitectura del servidor, auto-deploy con runner self-hosted, manejo de binarios y backups |
 | 10 | [Autenticación y gestión de usuarios en Strapi](10-autenticacion-strapi.md) | Crear, retirar y gestionar cuentas de editores; roles, permisos y recuperación de contraseña |
+| 11 | [Capacitación de un nuevo operador](11-capacitacion-sucesor.md) | Sesiones guiadas de entrega, ejercicios prácticos, checklist de cierre |
 
 ---
 

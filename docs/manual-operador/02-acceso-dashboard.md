@@ -2,14 +2,23 @@
 
 ## Cómo acceder al panel de administración
 
-El panel del CMS Strapi se encuentra en `/admin/` del servidor. Las URLs según entorno son:
+El panel del CMS Strapi se encuentra en `/admin/` del dominio público:
 
 | Entorno | URL del CMS |
 |---------|-------------|
-| Producción (red institucional / VPN) | `http://192.168.82.13/admin/` |
-| Desarrollo local (con `cms-strapi` corriendo) | `http://localhost:1337/admin/` |
+| **Producción (público, cert válido)** | **`https://www.itrc.gov.co/admin`** |
+| Producción (acceso directo vía VPN HostDime) | `https://10.5.10.6/admin` *(cert warning por wildcard mismatch — aceptar y seguir)* |
+| Staging interno ITRC (entrenamiento, requiere VPN FortiClient) | `http://192.168.82.13/admin/` |
+| Desarrollo local (con `cms-strapi` corriendo nativo) | `http://localhost:1337/admin/` |
 
-El servidor está dentro de la red privada del datacenter ITRC. Si trabaja desde fuera, conecte primero la VPN institucional (FortiClient) antes de abrir el navegador.
+**El admin de producción es público** — accesible desde cualquier internet sin VPN. Está protegido por:
+
+- Strapi exige email + password válido del editor.
+- nginx aplica rate-limit (5 intentos de login por minuto por IP).
+- `fail2ban` banea IPs con 8 logins fallidos en 10 minutos (ban de 1 hora).
+- Middleware Strapi rechaza uploads de archivos ejecutables, scripts o SVG.
+
+Si la política institucional requiere acceso vía VPN, podés usar la URL `10.5.10.6/admin` con FortiClient configurado al perfil HostDime (rango `10.212.134.0/24` está allowlisteado).
 
 ## Login con email y contraseña
 
