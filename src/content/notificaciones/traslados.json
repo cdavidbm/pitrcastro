@@ -1,6 +1,149 @@
 {
   "entries": [
     {
+      "expediente": "1704-00-2024-197",
+      "tipoAuto": "Auto Cierre de la Investigación",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "29/05/2026",
+      "desde": "09/06/2026",
+      "hasta": "23/06/2026",
+      "pdfUrl": "/documentos/notificaciones/Traslado-032-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2024-126",
+      "tipoAuto": "Auto Cierre de la Investigación",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "29/05/2026",
+      "desde": "02/06/2026",
+      "hasta": "17/06/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-031_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2024-223",
+      "tipoAuto": "Auto Cierre de la Investigación",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "11/05/2026",
+      "desde": "21/05/2026",
+      "hasta": "03/06/2026",
+      "pdfUrl": "/documentos/notificaciones/Traslado-030-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2024-247",
+      "tipoAuto": "Auto Cierre de la Investigación",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "07/05/2026",
+      "desde": "15/05/2026",
+      "hasta": "29/05/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-029-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-060",
+      "tipoAuto": "Auto Cierre de la Investigación",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "29/04/2026",
+      "desde": "07/05/2026",
+      "hasta": "21/05/2026",
+      "pdfUrl": "/documentos/notificaciones/traslado-028_protected-1.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2022-105",
+      "tipoAuto": "Auto que corre traslado para alegar conclusión",
+      "tipoNotificacion": "Alegatos de Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "29/04/2026",
+      "desde": "15/05/2026",
+      "hasta": "29/05/2026",
+      "pdfUrl": "/documentos/notificaciones/Traslado-027-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-039",
+      "tipoAuto": "Auto Cierre de la Investigación",
+      "tipoNotificacion": "Alegatos Previos",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "17/02/2026",
+      "desde": "24/04/2026",
+      "hasta": "08/05/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-026-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2023-044",
+      "tipoAuto": "Auto que corre traslado para alegar conclusión",
+      "tipoNotificacion": "Alegatos Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "26/02/2026",
+      "desde": "05/02/2026",
+      "hasta": "18/02/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-005-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2020-052",
+      "tipoAuto": "Auto que corre traslado para alegar de conclusión",
+      "tipoNotificacion": "Alegatos de Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "06/02/2026",
+      "desde": "13/02/2026",
+      "hasta": "24/02/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-006-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2022-065",
+      "tipoAuto": "Auto que corre traslado para alegar conclusión",
+      "tipoNotificacion": "Alegatos de Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "14/04/2026",
+      "desde": "21/04/2026",
+      "hasta": "05/05/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-024-20262_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2022-084",
+      "tipoAuto": "Auto de Sustanciación",
+      "tipoNotificacion": "Informe Patrimonial",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "20/01/2026",
+      "desde": "23/01/2026",
+      "hasta": "27/01/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-003-2026.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2023-159",
+      "tipoAuto": "Auto que corre traslado para alegar conclusión",
+      "tipoNotificacion": "Alegatos de Conclusión",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "15/01/2026",
+      "desde": "22/01/2026",
+      "hasta": "04/02/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-002-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2021-249",
+      "tipoAuto": "Auto de Sustanciación",
+      "tipoNotificacion": "Informe Patrimonial",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "24/03/2026",
+      "desde": "30/03/2026",
+      "hasta": "01/04/2026",
+      "pdfUrl": "/documentos/notificaciones/TRASLADO-022-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
       "expediente": "1704-00-2022-065",
       "tipoAuto": "Auto que corre traslado para alegar conclusión - SDL",
       "tipoNotificacion": "Alegatos de Conclusión",

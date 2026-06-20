@@ -1,5 +1,5 @@
 ---
-title: "Boletín de Prensa No  011"
+title: "Boletín de Prensa No 011"
 date: 2020-02-03
 image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC confirmó destitución e inhabilidad por 10 años a funcionaria de la Unidad de Gestión Pensional y Parafiscal - UGPP por participación en..."

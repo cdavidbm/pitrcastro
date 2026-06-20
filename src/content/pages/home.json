@@ -35,7 +35,7 @@
         { "texto": "PQRS", "url": "tu-p-q-r-s-al-dia", "tipo": "internal" },
         { "texto": "Canales de atención al ciudadano", "url": "canales-de-atencion-al-ciudadano", "tipo": "internal" },
         { "texto": "Notificaciones judiciales", "url": "correo-electronico-para-notificaciones-judiciales", "tipo": "internal" },
-        { "texto": "Notificaciones y traslados", "url": "notificaciones-y-traslados", "tipo": "internal" },
+        { "texto": "Notificaciones y Traslados", "url": "notificaciones-y-traslados", "tipo": "internal" },
         { "texto": "Contratación pública", "url": "contratacion-suscrita", "tipo": "internal" }
       ]
     },

@@ -2,7 +2,7 @@
 title: "La agencia ITRC ofrece vehículos en enajenación a título gratuito entre entidades públicas"
 date: 2026-02-17
 image: "/images/noticia-placeholder.svg"
-excerpt: "Bogotá D.C., febrero 16 de 2026. la Agencia ITRC, en el marco de su compromiso con la eficiencia y el adecuado aprovechamiento de los recursos del Estado,..."
+excerpt: "Bogotá D.C., febrero 16 de 2026. La Agencia ITRC, en el marco de su compromiso con la eficiencia y el adecuado aprovechamiento de los recursos del Estado,..."
 tags: ["noticias"]
 categoria: noticia
 draft: false

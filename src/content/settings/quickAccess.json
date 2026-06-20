@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "label": "Observatorio Anticorrupcion",
+      "label": "Observatorio Anticorrupción",
       "url": "/observatorio",
       "icon": "fa-eye",
       "external": false,
       "highlighted": false
     },
     {
-      "label": "Notificaciones y traslados",
+      "label": "Notificaciones y Traslados",
       "url": "/notificaciones-y-traslados",
       "icon": "fa-bell",
       "external": false,

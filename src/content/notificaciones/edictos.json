@@ -1,6 +1,72 @@
 {
   "entries": [
     {
+      "expediente": "1704-00-2024-310",
+      "tipoAuto": "AUTO APERTURA INVESTIGACION DISCIPLINARIA",
+      "tipoNotificacion": "Edicto",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "05/05/2026",
+      "desde": "05/06/2026",
+      "hasta": "10/06/2026",
+      "pdfUrl": "/documentos/notificaciones/EDICTO-018-2026-frimado_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-079",
+      "tipoAuto": "AUTO APERTURA INVESTIGACION DISCIPLINARIA",
+      "tipoNotificacion": "Edicto",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "30/12/2025",
+      "desde": "05/06/2026",
+      "hasta": "10/06/2026",
+      "pdfUrl": "/documentos/notificaciones/EDICTO-017-2026-frimado_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-051",
+      "tipoAuto": "APERTURA DE INVESTIGACION DISCIPLINARIA",
+      "tipoNotificacion": "Edicto",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "07/05/2026",
+      "desde": "29/05/2026",
+      "hasta": "02/06/2026",
+      "pdfUrl": "/documentos/notificaciones/EDICTO-015_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2023-159",
+      "tipoAuto": "FALLO DE PRIMERA INSTANCIA",
+      "tipoNotificacion": "Edicto",
+      "dependencia": "Subdirección de Asuntos Legales",
+      "fechaAuto": "13/05/2026",
+      "desde": "26/05/2026",
+      "hasta": "28/05/2026",
+      "pdfUrl": "/documentos/notificaciones/Edicto-014-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2024-273",
+      "tipoAuto": "AUTO APERTURA DE INVESTIGACION DISCIPLINARIA",
+      "tipoNotificacion": "Edicto",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "15/04/2026",
+      "desde": "24/04/2026",
+      "hasta": "28/04/2026",
+      "pdfUrl": "/documentos/notificaciones/EDICTO-013-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
+      "expediente": "1704-00-2025-056",
+      "tipoAuto": "AUTO APERTURA DE INVESTIGACION DISCIPLINARIA",
+      "tipoNotificacion": "Edicto",
+      "dependencia": "Subdirección de Instrucción Disciplinaria",
+      "fechaAuto": "13/04/2026",
+      "desde": "23/04/2026",
+      "hasta": "27/04/2026",
+      "pdfUrl": "/documentos/notificaciones/EDICTO-012-2026_protected.pdf",
+      "vigencia": 2026
+    },
+    {
       "expediente": "1704-00-2024-252",
       "tipoAuto": "AUTO APERTURA INVESTIGACION DISCIPLINARIA",
       "tipoNotificacion": "Edicto",

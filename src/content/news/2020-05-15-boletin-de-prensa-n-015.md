@@ -1,5 +1,5 @@
 ---
-title: "Boletín  de prensa N° 015"
+title: "Boletín de prensa N° 015"
 date: 2020-05-15
 image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC profirió pliego de cargos contra Omar Ambuila exfuncionario de la DIAN, por presunto incremento patrimonial injustificado. Ante la noticia..."
