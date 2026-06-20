@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_social_media",
+  "info": {
+    "displayName": "Redes sociales",
+    "description": "URLs a perfiles oficiales en redes sociales"
+  },
+  "options": {},
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "tiktok": {
+      "type": "string"
+    }
+  }
+}

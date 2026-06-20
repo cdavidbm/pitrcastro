@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "sites",
+  "info": {
+    "singularName": "site",
+    "pluralName": "sites",
+    "displayName": "Sitio (configuracion global)",
+    "description": "Nombre, descripcion, palabras clave y video destacado del sitio. Edita esto si cambia el slogan, el video institucional o el SEO global."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "json",
+      "description": "Array de strings (palabras clave SEO)"
+    },
+    "featuredVideo": {
+      "type": "component",
+      "component": "shared.featured-video",
+      "repeatable": false
+    }
+  }
+}

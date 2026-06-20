@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contacto (datos institucionales)",
+    "description": "Direccion, telefonos, emails, horario y redes sociales. Edita si cambia algun dato de contacto institucional."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "tollFree": {
+      "type": "string",
+      "description": "Linea gratuita 01 8000"
+    },
+    "email": {
+      "type": "email"
+    },
+    "emailNotifications": {
+      "type": "email",
+      "description": "Email para notificaciones judiciales"
+    },
+    "schedule": {
+      "type": "text",
+      "description": "Horario de atencion (multilinea permitida)"
+    },
+    "socialMedia": {
+      "type": "component",
+      "component": "shared.social-media",
+      "repeatable": false
+    }
+  }
+}

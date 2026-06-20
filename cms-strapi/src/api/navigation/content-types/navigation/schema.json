@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigations",
+  "info": {
+    "singularName": "navigation",
+    "pluralName": "navigations",
+    "displayName": "Menu (navegacion principal)",
+    "description": "Estructura del menu principal (con sub-menus). Edicion via JSON: cada item tiene label, url y opcionalmente children: [...]."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mainMenu": {
+      "type": "json",
+      "required": true,
+      "description": "Array de items. Cada item: { label: string, url: string, children?: [...] }. Soporta 2 niveles de anidacion."
+    }
+  }
+}

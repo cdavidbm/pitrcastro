@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "quick_accesses",
+  "info": {
+    "singularName": "quick-access",
+    "pluralName": "quick-accesses",
+    "displayName": "Accesos rapidos (home)",
+    "description": "Bloque de botones de acceso rapido en el home (Observatorio, PQRSDF, Denuncie, etc.). Editar para agregar, quitar o reordenar."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "shared.quick-access-item",
+      "repeatable": true
+    }
+  }
+}

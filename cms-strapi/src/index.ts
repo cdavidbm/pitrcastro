@@ -13,9 +13,22 @@ function loadPublicReadPermissions(): string[] {
   // varía entre dev y build. process.cwd() siempre apunta al root del proyecto
   // (cms-strapi/) cuando el comando se invoca con npm run develop|start.
   const manifestPath = path.resolve(process.cwd(), 'scripts/.autogen-manifest.json');
+  // Settings globales hardcoded — fuera del autogen porque no salen de JSONs
+  // de pages. Se administran como single-types en Strapi.
+  const settings = [
+    'api::site.site.find',
+    'api::site.site.findOne',
+    'api::contact.contact.find',
+    'api::contact.contact.findOne',
+    'api::navigation.navigation.find',
+    'api::navigation.navigation.findOne',
+    'api::quick-access.quick-access.find',
+    'api::quick-access.quick-access.findOne',
+  ];
   const fallback = [
     'api::marco-legal.marco-legal.find',
     'api::marco-legal.marco-legal.findOne',
+    ...settings,
   ];
   if (!fs.existsSync(manifestPath)) return fallback;
   try {
@@ -29,7 +42,8 @@ function loadPublicReadPermissions(): string[] {
       perms.push(`api::${c.slug}.${c.slug}.find`);
       perms.push(`api::${c.slug}.${c.slug}.findOne`);
     }
-    return perms.length > 0 ? perms : fallback;
+    // Siempre incluimos las settings hardcoded, incluso si el manifest existe.
+    return perms.length > 0 ? [...perms, ...settings] : fallback;
   } catch {
     return fallback;
   }

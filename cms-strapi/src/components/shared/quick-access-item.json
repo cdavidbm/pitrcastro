@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_quick_access_items",
+  "info": {
+    "displayName": "Acceso rapido",
+    "description": "Item del bloque de accesos rapidos del home"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true,
+      "description": "Clase Font Awesome 6 sin el prefijo fa-solid (ej. fa-eye)"
+    },
+    "external": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si es true se abre en _blank con noopener"
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si es true recibe estilo destacado (color dorado)"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

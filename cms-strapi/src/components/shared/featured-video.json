@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_featured_videos",
+  "info": {
+    "displayName": "Video destacado",
+    "description": "Video institucional embedded del home (YouTube/Vimeo nocookie)"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
