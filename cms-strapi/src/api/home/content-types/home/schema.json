@@ -5,13 +5,18 @@
     "singularName": "home",
     "pluralName": "homes",
     "displayName": "01. Inicio / Home",
-    "description": "Página única del dominio \"Inicio\": Home. Publicada en: /. Edite estos campos para actualizar el contenido que ven los visitantes del sitio."
+    "description": "Página única del dominio \"Inicio\": Home. Publicada en: /. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Inicio"
+    },
     "entidadesVigiladas": {
       "type": "component",
       "component": "home.entidadesvigilada",

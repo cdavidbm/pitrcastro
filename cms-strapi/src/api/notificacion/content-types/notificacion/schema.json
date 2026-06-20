@@ -5,7 +5,8 @@
     "singularName": "notificacion",
     "pluralName": "notificaciones",
     "displayName": "04. Atención y Servicios / Notificaciones y Traslados",
-    "description": "Notificaciones por edicto, estados y traslados publicados por la Agencia ITRC."
+    "description": "Notificaciones por edicto, estados y traslados publicados por la Agencia ITRC.",
+    "mainField": "expediente"
   },
   "options": {
     "draftAndPublish": true

@@ -5,13 +5,18 @@
     "singularName": "normograma",
     "pluralName": "normogramas",
     "displayName": "03. Normativa / Normograma",
-    "description": "Página única del dominio \"Normativa\": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio."
+    "description": "Página única del dominio \"Normativa\": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
+    "mainField": "title"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Normograma"
+    },
     "normas": {
       "type": "component",
       "component": "normograma.norma",

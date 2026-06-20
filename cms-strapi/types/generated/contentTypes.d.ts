@@ -1631,6 +1631,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Inicio": Home. Publicada en: /. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '01. Inicio / Home';
+    mainField: 'title';
     pluralName: 'homes';
     singularName: 'home';
   };
@@ -1646,6 +1647,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Inicio'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
@@ -2184,6 +2186,7 @@ export interface ApiNormogramaNormograma extends Struct.SingleTypeSchema {
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
     displayName: '03. Normativa / Normograma';
+    mainField: 'title';
     pluralName: 'normogramas';
     singularName: 'normograma';
   };
@@ -2199,6 +2202,7 @@ export interface ApiNormogramaNormograma extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     normas: Schema.Attribute.Component<'normograma.norma', true>;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Normograma'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
@@ -2209,6 +2213,7 @@ export interface ApiNotificacionNotificacion extends Struct.CollectionTypeSchema
   info: {
     description: 'Notificaciones por edicto, estados y traslados publicados por la Agencia ITRC.';
     displayName: '04. Atenci\u00F3n y Servicios / Notificaciones y Traslados';
+    mainField: 'expediente';
     pluralName: 'notificaciones';
     singularName: 'notificacion';
   };

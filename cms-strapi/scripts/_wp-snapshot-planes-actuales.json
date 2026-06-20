@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "source": "https://www.itrc.gov.co/Itrc/direccionamiento-estrategico/planes/",
+    "fetchedAt": "2026-06-17",
+    "purpose": "Mapping de los planes 2023-2026 del WP para asociar PDFs a los 44 docs que el server ya tenía como solo texto."
+  },
+  "documentos": [
+    {"category":"PEI - Plan Estratégico Institucional","anio":"2023-2026","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/02/Plan-Estrategico-Institucional-2023-2026_V3.pdf"},
+    {"category":"PEI - Plan Estratégico Institucional","anio":"2019-2022","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/04/Plan-Estrategico-Institucional-2019-2022_V4.pdf"},
+
+    {"category":"PES - Plan Estratégico Sectorial","anio":"2023-2026","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/08/Plan-Estrategico-Sectorial-2023-2026.V3.xlsm"},
+    {"category":"PES - Plan Estratégico Sectorial","anio":"2019-2022","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2019/02/2.-PES-2019-2022_Agencia-ITRC-v_23_01_2019.xlsx"},
+
+    {"category":"PIGA - Plan Institucional de Gestión Ambiental","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/PIGA-2023-2026.pdf"},
+    {"category":"PIGA - Plan Institucional de Gestión Ambiental","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/10/PIGA-2023-2026.pdf"},
+    {"category":"PIGA - Plan Institucional de Gestión Ambiental","anio":"2022","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2022/01/PIGA-2022-2025-1.pdf"},
+
+    {"category":"PAA - Plan Anual de Adquisiciones","anio":"2026","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Plan-de-Accion-Anual-2026_V2.xlsx"},
+    {"category":"PAA - Plan Anual de Adquisiciones","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/PLAN-DE-ACCION-ANUAL-2025_V3.xlsx"},
+    {"category":"PAA - Plan Anual de Adquisiciones","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/PLAN-DE-ACCION-AGENCIA-ITRC-2024_V2.xlsx"},
+    {"category":"PAA - Plan Anual de Adquisiciones","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/PLAN-DE-ACCIÓN-ANUAL-AGENCIA-ITRC-2023_V5.xlsx"},
+
+    {"category":"PAI - Plan de Acción Institucional","anio":"2026","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2026/03/Plan-de-Accion-Anual-2026_V2.xlsx"},
+    {"category":"PAI - Plan de Acción Institucional","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/11/PLAN-DE-ACCION-ANUAL-2025_V3.xlsx"},
+    {"category":"PAI - Plan de Acción Institucional","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/12/PLAN-DE-ACCION-AGENCIA-ITRC-2024_V2.xlsx"},
+    {"category":"PAI - Plan de Acción Institucional","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/11/PLAN-DE-ACCIÓN-ANUAL-AGENCIA-ITRC-2023_V5.xlsx"},
+
+    {"category":"Plan Anual de Vacantes","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/02/Plan-Anual-de-Vacantes-2020.xlsx"},
+    {"category":"Plan Anual de Vacantes","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/02/Plan-Anual-de-Vacantes-2020.xlsx"},
+
+    {"category":"Plan de Previsión de Recursos Humanos","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Plan-Anual-de-Vacantes-y-Plan-de-Previsiòn-de-Recursos-Humanos-version-definitiva-PDF.pdf"},
+    {"category":"Plan de Previsión de Recursos Humanos","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2017/07/Plan-Anual-de-Vacantes-y-Plan-de-Previsiòn-de-Recursos-Humanos-version-definitiva-PDF.pdf"},
+
+    {"category":"PETH - Plan Estratégico de Talento Humano","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/GTH-FT-018-Plan-de-Bienestar-Estimulos-e-Incentivos-de-la-U.A.E.-Agencia-ITRC-para-la-vigencia-2025.pdf"},
+    {"category":"PETH - Plan Estratégico de Talento Humano","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Plan-de-Bienestar-Social-e-Incentivos-2024.pdf"},
+    {"category":"PETH - Plan Estratégico de Talento Humano","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Plan-de-Bienestar-e-Incentivos-2023-1.pdf"},
+
+    {"category":"PIC - Plan Institucional de Capacitación","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/GTH-FT-018_Plan-Institucional-de-Capacitacion-2025.pdf"},
+    {"category":"PIC - Plan Institucional de Capacitación","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Plan-Institucional-de-Capacitacion-2024.pdf"},
+    {"category":"PIC - Plan Institucional de Capacitación","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/02/Plan-Institucional-de-Capacitación-2023.pdf"},
+
+    {"category":"Plan de Bienestar e Incentivos","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/02/GTH-FT-018-Plan-de-Bienestar-Estimulos-e-Incentivos-de-la-U.A.E.-Agencia-ITRC-para-la-vigencia-2025.pdf"},
+    {"category":"Plan de Bienestar e Incentivos","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/02/Plan-de-Bienestar-Social-e-Incentivos-2024.pdf"},
+    {"category":"Plan de Bienestar e Incentivos","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/09/Plan-de-Bienestar-e-Incentivos-2023-V2.pdf"},
+
+    {"category":"Plan de Seguridad y Salud en el Trabajo","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Plan-de-Seguridad-y-Salud-en-el-Trabajo-2024.pdf"},
+    {"category":"Plan de Seguridad y Salud en el Trabajo","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/04/Plan-de-Seguridad-y-Salud-en-el-Trabajo-2024.pdf"},
+    {"category":"Plan de Seguridad y Salud en el Trabajo","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/06/Plan-de-Seguridad-y-Salud-en-el-Trabajo-2023.pdf"},
+
+    {"category":"PETI - Plan Estratégico de TI","anio":"2023-2026","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/PETI-ITRC-OATI-2023-2026-VF.pdf"},
+    {"category":"PETI - Plan Estratégico de TI","anio":"2019-2022","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/02/Plan-Estratégico-de-Tecnologías-de-la-Información-2020.xlsx"},
+
+    {"category":"Plan de Tratamiento de Riesgos","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/02/Plan-de-Tratamiento-de-Riesgos-de-Seguridad-y-Privacidad-de-la-Información-2020.xlsx"},
+    {"category":"Plan de Tratamiento de Riesgos","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2020/02/Plan-de-Tratamiento-de-Riesgos-de-Seguridad-y-Privacidad-de-la-Información-2020.xlsx"},
+
+    {"category":"PAAC - Plan Anticorrupción","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/PLAN-ANTICORRUPCION-Y-DE-ATENCION-AL-CIUDADANO-2024.xlsx"},
+    {"category":"PAAC - Plan Anticorrupción","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/PLAN-ANTICORRUPCION-Y-DE-ATENCION-AL-CIUDADANO-2024.xlsx"},
+    {"category":"PAAC - Plan Anticorrupción","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/03/PLAN-ANTICORRUPCION-Y-ATENCION-AL-CIUDADANO-2023.xlsx"},
+
+    {"category":"Mapa de Riesgos de Corrupción","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/05/Mapa_de_Riesgos_de_Corrupcion_V10_2025-5.xlsx"},
+    {"category":"Mapa de Riesgos de Corrupción","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/10/Mapa_de_Riesgos_de_Corrupcion_2024_V9.xlsx"},
+    {"category":"Mapa de Riesgos de Corrupción","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/Mapa_de_Riesgos_de_Corrupción_2023_V6_Oficial.xlsx"},
+
+    {"category":"Plan de Participación Ciudadana","anio":"2025","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2025/09/PLAN-DE-PARTICIPACION-CIUDADANA-2025.xlsx"},
+    {"category":"Plan de Participación Ciudadana","anio":"2024","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2024/01/PLAN-DE-PARTICIPACION-CIUDADANA-EN-LA-GESTION-2024.xlsx"},
+    {"category":"Plan de Participación Ciudadana","anio":"2023","url":"https://www.itrc.gov.co/Itrc/wp-content/uploads/2023/01/PLAN-DE-PARTICIPACIÓN-CIUDADANA-EN-LA-GESTIÓN-2023.xlsx"}
+  ]
+}
