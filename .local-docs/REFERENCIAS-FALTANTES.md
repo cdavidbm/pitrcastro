@@ -45,6 +45,59 @@
 
 ## Entradas
 
+### BIN-AUDIT-V2 — 111 binarios adicionales recuperados (2026-06-19, segundo pase)
+
+**Origen**: nuevo audit completo sobre todas las referencias `/documentos/*.{pdf,xlsx,docx,...}` en `src/content/`. Detectó 272 paths faltantes (en parte solapados con BIN-4 del 2026-05-08, en parte nuevos por contenido agregado entre mayo y junio). Cross-reference vs `/var/www/portal_principal/Itrc/wp-content/uploads/` indexando los 23,669 archivos por basename con normalización NFC.
+
+**Resultado**: 111 archivos encontrados (40% de los 272) y copiados a sus rutas locales. 161 confirmados 404 también en el WP origen (irrecuperables). Total: 56.4 MB en ~4 s vía `ssh+cat` con ControlMaster.
+
+**Distribución de recuperados (top categorías)**: notificaciones (edictos, estados, traslados 2021-2023), agencia (informes CI trimestrales 2022-2024, gestión misional, atención al ciudadano PQRSDF), normativa.
+
+**Ambigüedades**: 13 archivos tenían múltiples paths en uploads (mismo basename, distinta YYYY/MM). Se eligió el path con año más reciente.
+
+**Estado de completitud post-recovery**: 4318/4479 referencias (96%) resuelven a archivo existente. Los 161 restantes son los irrecuperables.
+
+**Trazabilidad**: `reports/bin-recovery-2026-06-19-v2.json` (gitignored).
+
+---
+
+### RELATORIAS-RECOVERY — 217 PDFs Joomla migrados (2026-06-19)
+
+**Origen**: SSH a `root@10.5.10.6` /var/www/portal_principal/relatorias/jdownloads/ + DB Joomla `itrcgovc_relatoria.jau7z_jdownloads_files`.
+
+**Resultado**: 218 PDFs copiados a `public/documentos/relatorias/<year>/`. JSON local `src/content/pages/transparencia/relatoria.json` actualizado: 152 de 152 fichas con `archivo` vacío ahora tienen su PDF resuelto. 65 fichas nuevas agregadas (archivos en el server que el JSON no listaba).
+
+**Pendiente**: Resolución 234/2022 NO está en este Joomla (la auditoría previa la marcó como única excepción) — buscar aparte.
+
+**Reporte detallado**: `info_bkp/03-relatorias-recovery-2026-06-19.md`.
+
+
+### BIN-4-RECOVERY — 70 binarios recuperados desde el server productivo (2026-06-19)
+
+**Origen**: SSH directo a `root@10.5.10.6` (server productivo HostDime que sirve `www.itrc.gov.co`). Acceso conseguido el 2026-06-19 con la VPN HostDime arriba.
+
+**Resultado**: de los 273 binarios reportados como faltantes en BIN-4 (lote del 2026-05-08), 70 fueron localizados en `/var/www/portal_principal/Itrc/wp-content/uploads/...` y copiados a `public/documentos/` siguiendo el mapeo `new_url` del JSON original. Total recuperado: 102.09 MB.
+
+**Distribución por extensión**: 68 PDF + 1 PPTX + 1 JPEG.
+
+**Distribución por área**:
+
+| área | archivos recuperados |
+|---|---:|
+| transparencia | 51 |
+| normograma | 11 |
+| agencia | 5 |
+| media/prensa | 2 |
+| atencion | 1 |
+
+**Restantes**: 203 binarios siguen sin localizar. Coinciden mayoritariamente con los 255 confirmados como 404 en el WP origen (auditoría BIN-5 cerrada 2026-05-08). Probablemente fueron borrados del WP antes de los crawls — no son recuperables.
+
+**Nota técnica**: el filesystem del server almacena nombres con tildes en forma Unicode NFD (decompuesta: `o`+combining-acute), mientras que el JSON local usa NFC. Hubo que normalizar a NFD para acceder a los archivos y se usó `ssh + cat` (no `scp`, que reportaba "No such file" por un bug de codificación de filenames en el cliente SFTP de OpenSSH frente a NFD).
+
+**Trazabilidad**: lista completa en `reports/bin4-recovered-2026-06-19.json` (gitignored).
+
+---
+
 ### #46 — Catálogo OCI 3LD (Lote O3)
 
 **URL origen WP**: https://www.itrc.gov.co/Itrc/informes-de-evaluacion-y-auditoria-de-la-agencia-3ld/
@@ -460,3 +513,41 @@ Cada entrada contiene `{ titulo, url }` extraídos del HTML WP.
 
 **Pendiente / responsable**: <área institucional que debe aportar el contenido>.
 ```
+
+---
+
+## Lote 2026-06-17 — Actualización editorial vigencia 2026
+
+### #92 — `/Itrc/contratacion-suscrita/` vacía en WP
+
+**URL origen WP**: https://www.itrc.gov.co/Itrc/contratacion-suscrita/
+**URL destino nuevo**: `/contratacion-suscrita`
+**Estado**: faltante-en-origen
+**Detectado**: 2026-06-17
+
+**Descripción**: la página WP "Contratación Suscrita" actúa solo como portal: anuncia dos secciones — "Convocatoria a Procesos Públicos de Selección" y "Contratación Suscrita" — sin listar contratos ni adjuntar documentos. El cuerpo es texto introductorio + enlaces de navegación al menú de transparencia. Los contratos suscritos reales viven en otra parte (SECOP II / subpágina específica que el portal WP no resuelve directamente).
+
+**Cómo se manejó en el portal nuevo**: el single-type `transparencia-contratacion-contratacion-suscrita` ya existe con sus repeatables `convocatorias` y `contratacionSuscrita`. Esta sincronización editorial 2026-06-17 NO modifica el single porque WP no aporta items concretos. Queda como estaba (presumiblemente sembrado en la migración inicial o vacío).
+
+**Pendiente / responsable**: Subdirección de Asuntos Legales / Contratación — confirmar si los contratos suscritos deben listarse acá o si la página debe redireccionar a SECOP II. Si lo primero, alimentar el repeatable `contratacionSuscrita` en el panel.
+
+---
+
+### #93 — 3 PDFs 404 al sincronizar estados-2026 desde WP
+
+**URL origen WP**: https://www.itrc.gov.co/Itrc/notificaciones-y-traslados/notificaciones-supletorias/estados-2026/
+**URL destino nuevo**: `/notificaciones-y-traslados` (tab Estados)
+**Estado**: enlace-roto
+**Detectado**: 2026-06-17
+
+**Descripción**: durante `update-notif-delta.mjs` (sync 2026-06-17) tres URLs de PDFs estaban referenciadas en la tabla WP pero devolvían 404 al descargarse:
+- `ESTADO-048-2026_protected.pdf` (exp 1704-00-2022-128, 20/04/2026)
+- `ESTADO-047-2026_protected.pdf` (exp 1704-00-2022-098, 20/04/2026)
+- `ESTADO-046-2026_protected.pdf` (exp 1704-00-2025-039, 17/02/2026)
+
+Las 3 URLs apuntan al subdirectorio `wp-content/uploads/2026/06/` cuando los autos son de abril/febrero — probable que el WP los haya movido a otro mes pero olvidó actualizar el enlace de la tabla.
+
+**Cómo se manejó en el portal nuevo**: las 3 entradas se crearon en Strapi con todos los metadatos (expediente, fecha, tipo, dependencia, vigencia) PERO sin PDF asociado (`pdfUrl: null`). El listado del tab "Estados" las mostrará como filas sin enlace al archivo. Si el archivo aparece en WP, se puede correr el script de delta de nuevo o cargar manualmente al Media Library desde el panel.
+
+**Pendiente / responsable**: Subdirección de Instrucción Disciplinaria — proveer los 3 PDFs, o quien administra `itrc.gov.co/Itrc/wp-content/uploads/` aclarar la ruta correcta.
+

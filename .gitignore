@@ -74,3 +74,6 @@ public/documentos/*
 !public/documentos/ninos/
 !public/documentos/ninos/**
 .env.cms
+
+# Windows NTFS Alternate Data Stream (WSL noise)
+*:Zone.Identifier

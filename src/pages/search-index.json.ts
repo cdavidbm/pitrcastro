@@ -158,8 +158,8 @@ function dynamicTitle(mod: DynamicItem): string | undefined {
 // "Tu P Q R S Al Dia"). Mapeo manual a un título más legible para los hits
 // de búsqueda que sólo tienen el URL como pista.
 const SLUG_TITLE_OVERRIDES: Record<string, string> = {
-  '/tu-p-q-r-s-al-dia': 'PQRSD — Peticiones, Quejas, Reclamos y Solicitudes',
-  '/p-q-r-s-servidores-agencia-itrc': 'PQRSD para servidores de la Agencia ITRC',
+  '/tu-p-q-r-s-al-dia': 'PQRSDF — Peticiones, Quejas, Reclamos y Solicitudes',
+  '/p-q-r-s-servidores-agencia-itrc': 'PQRSDF para servidores de la Agencia ITRC',
   '/audiositrc': 'Audios ITRC',
   '/ciprep': 'Congreso CIPREP',
 };
@@ -380,7 +380,7 @@ export const GET: APIRoute = () => {
     { t: 'Sueldos', u: '/escala-salarial', k: 's', p: 'Alias' },
     { t: 'Sanciones disciplinarias', u: '/relatoria', k: 's', p: 'Alias' },
     { t: 'Fallos disciplinarios', u: '/relatoria', k: 's', p: 'Alias' },
-    { t: 'PQRSD', u: '/tu-p-q-r-s-al-dia', k: 's', p: 'Alias' },
+    { t: 'PQRSDF', u: '/tu-p-q-r-s-al-dia', k: 's', p: 'Alias' },
     { t: 'Denuncias', u: 'https://www.itrc.gov.co/denuncias', k: 's', p: 'Alias (externo)' },
     { t: 'Hoja de vida funcionarios', u: '/agencia/directorio', k: 's', p: 'Alias' },
     { t: 'Contratos públicos', u: '/contratacion-suscrita', k: 's', p: 'Alias' },
