@@ -107,11 +107,10 @@ const formatDate = (dateStr: string) => {
                         <a
                           href={event.inscriptionLink}
                           class="btn btn--primary"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          {...(event.inscriptionLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                         >
-                          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
-                          Inscríbete aquí
+                          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                          Más información
                         </a>
                       )}
                       {event.virtualLink && (

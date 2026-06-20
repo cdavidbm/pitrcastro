@@ -25,10 +25,10 @@
       <div class="wcag-widget__option wcag-widget__option--theme">
         <span class="wcag-widget__label">Tema de color</span>
         <div class="wcag-widget__theme-selector">
-          <button class="wcag-widget__theme-btn wcag-widget__theme-btn--active" data-theme="claro" aria-label="Tema Claro" title="Claro">
+          <button class="wcag-widget__theme-btn" data-theme="claro" aria-label="Tema Claro" title="Claro">
             <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--claro"></span>
           </button>
-          <button class="wcag-widget__theme-btn" data-theme="institucional" aria-label="Tema Institucional" title="Institucional">
+          <button class="wcag-widget__theme-btn wcag-widget__theme-btn--active" data-theme="institucional" aria-label="Tema Institucional" title="Institucional">
             <span class="wcag-widget__theme-swatch wcag-widget__theme-swatch--institucional"></span>
           </button>
           <button class="wcag-widget__theme-btn" data-theme="oscuro" aria-label="Tema Oscuro" title="Oscuro">
@@ -499,7 +499,7 @@
     }
 
     // Restore theme button active state
-    const currentTheme = localStorage.getItem('itrc-theme') || 'claro';
+    const currentTheme = localStorage.getItem('itrc-theme') || 'institucional';
     widget.querySelectorAll('[data-theme]').forEach(btn => {
       btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === currentTheme);
     });
@@ -579,11 +579,12 @@
           fontSize = 100;
           html.style.fontSize = '100%';
           html.classList.remove('high-contrast', 'grayscale', 'underline-links', 'low-vision', 'cb-protanopia', 'cb-deuteranopia', 'cb-tritanopia', 'theme-institucional', 'theme-oscuro');
+          html.classList.add('theme-institucional');
           widget.querySelectorAll('[aria-pressed]').forEach(btn => {
             btn.setAttribute('aria-pressed', 'false');
           });
           widget.querySelectorAll('[data-theme]').forEach(btn => {
-            btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === 'claro');
+            btn.classList.toggle('wcag-widget__theme-btn--active', (btn as HTMLElement).dataset.theme === 'institucional');
           });
           const sel = widget.querySelector('[data-action="colorblind-select"]') as HTMLSelectElement | null;
           if (sel) sel.value = '';

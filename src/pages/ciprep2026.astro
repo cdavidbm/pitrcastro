@@ -22,7 +22,7 @@ const INSCRIPCION_URL =
   'https://forms.office.com/pages/responsepage.aspx?id=3NElp2Q-g0KVXt1OUTYI5lXhhwicK9BAtrKaNXbBEVlUOVBQQjc2QzlVNFZQSDVGNktFN01DQVkzRC4u&route=shorturl';
 
 const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Auditorio+Casas+de+Santa+B%C3%A1rbara+Ministerio+de+Hacienda+Bogot%C3%A1';
+  'https://www.google.com/maps/search/?api=1&query=Carrera+7+%23+6b-80+Bogot%C3%A1+Ministerio+de+Hacienda';
 
 const sections = [
   { id: 'acerca', label: 'Acerca del Congreso' },
@@ -32,67 +32,59 @@ const sections = [
   { id: 'inscripcion', label: 'Inscripción' },
 ];
 
-// Agenda provisional. Marcada visualmente como tentativa hasta que el
-// equipo organizador entregue la versión final.
-const agendaTentativa = [
+// Pre-agenda v3 entregada por el comité organizador (junio 2026).
+// Horarios y ponencias pueden tener ajustes hasta la versión oficial.
+const agenda = [
   {
     dia: 'Día 1 — lunes 3 de agosto de 2026',
     franjas: [
-      { hora: '7:30 – 8:30 a.m.', titulo: 'Registro y bienvenida', franja: 'APERTURA' },
-      { hora: '8:30 – 9:00 a.m.', titulo: 'Instalación oficial', franja: 'APERTURA' },
-      {
-        hora: '9:00 – 10:30 a.m.',
-        titulo: 'Panel inaugural: lecciones del Primer Congreso',
-        franja: 'APERTURA',
-      },
-      { hora: '10:30 – 11:00 a.m.', titulo: 'Receso', franja: 'APERTURA' },
-      {
-        hora: '11:00 a.m. – 12:30 p.m.',
-        titulo: 'Conversatorio: cooperación internacional contra el fraude fiscal',
-        franja: 'FRANJA 1: COOPERACIÓN',
-      },
-      { hora: '12:30 – 2:00 p.m.', titulo: 'Almuerzo libre', franja: 'FRANJA 1: COOPERACIÓN' },
-      {
-        hora: '2:00 – 4:00 p.m.',
-        titulo: 'Mesas técnicas: control aduanero y trazabilidad',
-        franja: 'FRANJA 2: CONTROL',
-      },
-      { hora: '4:00 – 4:30 p.m.', titulo: 'Cierre del día 1', franja: 'FRANJA 2: CONTROL' },
+      { hora: '8:00', tipo: 'apertura', titulo: 'Apertura institucional', detalle: 'Palabras de la Dra. Eva Carolina Madrid Torres, Directora General ITRC', franja: 'APERTURA' },
+      { hora: '8:15', ponente: 'Paula Andrea Ramírez Barbosa', entidad: 'CIDCE', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/paula-andrea-ramirez-barbosa.jpg', titulo: 'Aporte de la IA en la estrategia para la detección y prueba de la corrupción', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '8:45', ponente: 'Gabriel Andrés Álzate Acuña', entidad: 'DATOSCOL', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '9:15', ponente: 'Francia Inés Hernández', entidad: 'Asociación de Mujeres Aduaneras', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '9:45', ponente: 'Silvina Coronelo', entidad: 'Estudio Coronello & Asoc. / UBA', pais: 'Argentina', bandera: '🇦🇷', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '10:15', tipo: 'pausa', titulo: '☕ Coffee break', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '10:30', ponente: 'Ángela Cortés Hernández', entidad: 'MinTIC — COLCERT', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '11:00', ponente: 'María Anayme Barón Durán', entidad: 'Auditoría General de la Nación', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/maria-anayme-baron-duran.jpg', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '11:30', tipo: 'pausa', titulo: '🍽 Almuerzo', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
+      { hora: '13:00', ponente: 'Susan Rose-Ackerman', entidad: 'Universidad de Yale', pais: 'Estados Unidos', bandera: '🇺🇸', foto: '/images/ciprep2026/ponentes/susan-rose-ackerman.jpg', titulo: 'Riesgos de corrupción en administración tributaria y de seguridad social', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '13:45', ponente: 'Tte. Cnel. Gonzalo Andrés Córdoba Camacho', entidad: 'Interpol Colombia', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Cooperación internacional para combatir el crimen transnacional y capacidades de INTERPOL', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '14:15', ponente: 'Nicolás Soto Troncoso', entidad: 'Anticorruption Risk', pais: 'Chile', bandera: '🇨🇱', titulo: 'Ponencia por confirmar', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '15:00', tipo: 'cierre', titulo: 'Cierre Día 1', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
     ],
   },
   {
     dia: 'Día 2 — martes 4 de agosto de 2026',
     franjas: [
-      { hora: '8:00 – 8:30 a.m.', titulo: 'Apertura del segundo día', franja: 'FRANJA 3: INNOVACIÓN' },
-      {
-        hora: '8:30 – 10:00 a.m.',
-        titulo: 'Panel: tecnología y datos al servicio del control fiscal',
-        franja: 'FRANJA 3: INNOVACIÓN',
-      },
-      { hora: '10:00 – 10:30 a.m.', titulo: 'Receso', franja: 'FRANJA 3: INNOVACIÓN' },
-      {
-        hora: '10:30 a.m. – 12:00 p.m.',
-        titulo: 'Conversatorio: integridad pública y cultura ciudadana',
-        franja: 'FRANJA 4: INTEGRIDAD',
-      },
-      { hora: '12:00 – 1:30 p.m.', titulo: 'Almuerzo libre', franja: 'FRANJA 4: INTEGRIDAD' },
-      {
-        hora: '1:30 – 3:00 p.m.',
-        titulo: 'Sesión de clausura y compromisos',
-        franja: 'FRANJA 5: CIERRE',
-      },
-      {
-        hora: '3:00 – 3:30 p.m.',
-        titulo: 'Palabras de cierre y fotografías oficiales',
-        franja: 'FRANJA 5: CIERRE',
-      },
+      { hora: '8:00', ponente: 'Ruth Marisol Apraez Benabidez', entidad: 'Procuraduría General de la Nación', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '8:30', ponente: 'Julio Roberto Piza', entidad: 'Universidad Externado de Colombia', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '9:00', ponente: 'Ruth Owen', entidad: 'Defensora del Contribuyente (Australia y Reino Unido)', pais: 'Australia', bandera: '🇦🇺', foto: '/images/ciprep2026/ponentes/ruth-owen.jpg', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '9:45', ponente: 'José Andrés Romero Tarazona', entidad: 'Instituto Colombiano de Derecho Tributario (ICDT)', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '10:15', ponente: 'Ponente por confirmar', entidad: 'Kroll', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '10:45', tipo: 'pausa', titulo: '☕ Coffee break', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '11:00', ponente: 'Pascal Saint-Amans', entidad: 'SAGA', pais: 'Francia', bandera: '🇫🇷', foto: '/images/ciprep2026/ponentes/pascal-saint-amans.png', titulo: 'Public CBCR: ¿qué implicaciones para la región de LAC?', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
+      { hora: '11:45', ponente: 'Camilo Rey', entidad: 'Ministerio de Hacienda y Crédito Público', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
+      { hora: '12:15', ponente: 'Miguel Ángel Espinoza', entidad: 'FITAC', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/miguel-angel-espinosa.jpg', titulo: 'Ponencia por confirmar', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
+      { hora: '12:30', tipo: 'pausa', titulo: '🍽 Almuerzo', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
+      { hora: '13:30', tipo: 'cierre', titulo: 'Clausura y cierre del congreso', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
     ],
   },
 ];
 
 const aliados = [
-  { nombre: 'Ministerio de Hacienda y Crédito Público', tipo: 'Aliado estratégico' },
-  { nombre: 'FITAC — Federación Colombiana de Agentes Logísticos en Comercio Internacional', tipo: 'Aliado institucional' },
+  { nombre: 'Ministerio de Hacienda y Crédito Público', tipo: 'Aliado estratégico', logo: '/images/ciprep2026/aliados/minhacienda.png' },
+  { nombre: 'FITAC — Federación Colombiana de Agentes Logísticos en Comercio Internacional', tipo: 'Aliado estratégico', logo: '/images/ciprep2026/aliados/fitac.jpg' },
+];
+
+const entidadesExpositoras = [
+  { nombre: 'CIDCE', logo: '/images/ciprep2026/entidades/cidce.svg' },
+  { nombre: 'DATOSCOL', logo: '/images/ciprep2026/entidades/datoscol.png' },
+  { nombre: 'MinTIC', logo: '/images/ciprep2026/entidades/mintic.jpg' },
+  { nombre: 'Universidad de Buenos Aires', logo: '/images/ciprep2026/entidades/uba.jpg' },
+  { nombre: 'Universidad de Yale', logo: '/images/ciprep2026/entidades/yale.webp' },
+  { nombre: 'ICDT — Instituto Colombiano de Derecho Tributario', logo: '/images/ciprep2026/entidades/icdt.png' },
+  { nombre: 'IGTO — International Government Tax Office', logo: '/images/ciprep2026/entidades/igto.png' },
+  { nombre: 'SAGA', logo: '/images/ciprep2026/entidades/saga.png' },
 ];
 ---
 
@@ -118,7 +110,7 @@ const aliados = [
     </div>
     <picture class="banner-hero__img-wrap">
       <img
-        src={resolveUrl('/images/opc1_bannerweb1-IICongreso.jpg')}
+        src={resolveUrl('/images/sliders/slider-ciprep-2026.jpg')}
         alt="II Congreso Internacional para la Protección de los Recursos Públicos — 3 y 4 de agosto de 2026 en Bogotá. Un país más transparente se construye con conocimiento y acción."
         class="banner-hero__img"
         width="3801"
@@ -135,8 +127,39 @@ const aliados = [
         <i class="fa-solid fa-user-plus"></i> Inscríbete al Congreso
       </a>
       <a href="#agenda" class="btn btn--ghost-dark">
-        <i class="fa-solid fa-calendar-days"></i> Ver agenda tentativa
+        <i class="fa-solid fa-calendar-days"></i> Ver agenda
       </a>
+    </div>
+  </section>
+
+  <!-- ======================== Countdown ======================== -->
+  <section class="ciprep-countdown" aria-labelledby="ciprep-countdown-title">
+    <div class="container">
+      <h2 id="ciprep-countdown-title" class="ciprep-countdown__title">
+        Faltan para el inicio del Congreso
+      </h2>
+      <div class="ciprep-countdown__grid" role="timer" aria-live="off" data-ciprep-countdown data-target="2026-08-03T08:00:00-05:00">
+        <div class="ciprep-countdown__cell">
+          <span class="ciprep-countdown__num" data-unit="days">—</span>
+          <span class="ciprep-countdown__label">días</span>
+        </div>
+        <div class="ciprep-countdown__cell">
+          <span class="ciprep-countdown__num" data-unit="hours">—</span>
+          <span class="ciprep-countdown__label">horas</span>
+        </div>
+        <div class="ciprep-countdown__cell">
+          <span class="ciprep-countdown__num" data-unit="minutes">—</span>
+          <span class="ciprep-countdown__label">min</span>
+        </div>
+        <div class="ciprep-countdown__cell">
+          <span class="ciprep-countdown__num" data-unit="seconds">—</span>
+          <span class="ciprep-countdown__label">seg</span>
+        </div>
+      </div>
+      <p class="ciprep-countdown__date">
+        <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
+        Lunes 3 y martes 4 de agosto de 2026 · Bogotá
+      </p>
     </div>
   </section>
 
@@ -147,6 +170,45 @@ const aliados = [
       </ul>
     </div>
   </nav>
+
+  <script is:inline>
+    (function() {
+      var el = document.querySelector('[data-ciprep-countdown]');
+      if (!el) return;
+      var target = new Date(el.getAttribute('data-target')).getTime();
+      var nums = {
+        days: el.querySelector('[data-unit="days"]'),
+        hours: el.querySelector('[data-unit="hours"]'),
+        minutes: el.querySelector('[data-unit="minutes"]'),
+        seconds: el.querySelector('[data-unit="seconds"]'),
+      };
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) {
+          nums.days.textContent = '0';
+          nums.hours.textContent = '00';
+          nums.minutes.textContent = '00';
+          nums.seconds.textContent = '00';
+          el.setAttribute('data-finished', '');
+          var title = document.getElementById('ciprep-countdown-title');
+          if (title) title.textContent = '¡El Congreso CIPREP 2026 está en curso!';
+          return false;
+        }
+        var s = Math.floor(diff / 1000);
+        var d = Math.floor(s / 86400);
+        var h = Math.floor((s % 86400) / 3600);
+        var m = Math.floor((s % 3600) / 60);
+        var sec = s % 60;
+        nums.days.textContent = String(d);
+        nums.hours.textContent = pad(h);
+        nums.minutes.textContent = pad(m);
+        nums.seconds.textContent = pad(sec);
+        return true;
+      }
+      if (tick()) setInterval(function() { if (!tick()) clearInterval(this); }, 1000);
+    })();
+  </script>
 
   <!-- ======================== Acerca del Congreso ======================== -->
   <section id="acerca" class="ciprep-section">
@@ -173,21 +235,16 @@ const aliados = [
     </div>
   </section>
 
-  <!-- ======================== Agenda tentativa ======================== -->
+  <!-- ======================== Agenda ======================== -->
   <section id="agenda" class="ciprep-section ciprep-section--alt">
     <div class="container">
-      <SectionTitle title="Agenda tentativa" />
+      <SectionTitle title="Agenda" />
       <p class="ciprep-section__lead">
-        Dos jornadas en el Auditorio Casas de Santa Bárbara del Ministerio de Hacienda. La agenda definitiva, con ponentes confirmados, se publicará semanas antes del evento.
+        Dos jornadas en el Auditorio Casas de Santa Bárbara del Ministerio de Hacienda, organizadas en cuatro ejes temáticos sobre detección del fraude, riesgos de corrupción, recuperación de activos y cultura de integridad.
       </p>
 
-      <div class="ciprep-tentative-banner">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>Programación provisional. Sujeta a ajustes hasta la publicación oficial.</span>
-      </div>
-
       <div class="ciprep-agenda">
-        {agendaTentativa.map((day) => {
+        {agenda.map((day) => {
           let lastFranja = '';
           return (
             <article class="ciprep-day">
@@ -199,15 +256,32 @@ const aliados = [
                 {day.franjas.map((item) => {
                   const showFranja = item.franja && item.franja !== lastFranja;
                   if (showFranja) lastFranja = item.franja;
+                  const isPause = item.tipo === 'pausa' || item.tipo === 'cierre' || item.tipo === 'apertura';
                   return (
                     <>
                       {showFranja && (
                         <li class="ciprep-day__franja"><span>{item.franja}</span></li>
                       )}
-                      <li class="ciprep-item">
+                      <li class={`ciprep-item ${isPause ? 'ciprep-item--pausa' : ''}`}>
                         <div class="ciprep-item__time">{item.hora}</div>
                         <div class="ciprep-item__body">
+                          {item.ponente && (
+                            <div class="ciprep-item__ponente">
+                              {item.foto ? (
+                                <img src={resolveUrl(item.foto)} alt={item.ponente} class="ciprep-item__avatar" loading="lazy" />
+                              ) : (
+                                <div class="ciprep-item__avatar ciprep-item__avatar--placeholder">
+                                  <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </div>
+                              )}
+                              <div class="ciprep-item__ponente-info">
+                                <strong class="ciprep-item__ponente-name">{item.ponente}</strong>
+                                <span class="ciprep-item__ponente-entidad">{item.entidad} · {item.bandera} {item.pais}</span>
+                              </div>
+                            </div>
+                          )}
                           <h4 class="ciprep-item__title">{item.titulo}</h4>
+                          {item.detalle && <p class="ciprep-item__detalle">{item.detalle}</p>}
                         </div>
                       </li>
                     </>
@@ -224,14 +298,14 @@ const aliados = [
   <!-- ======================== Aliados ======================== -->
   <section id="aliados" class="ciprep-section">
     <div class="container">
-      <SectionTitle title="Aliados" />
+      <SectionTitle title="Aliados Estratégicos" />
       <p class="ciprep-section__lead">
-        La organización del Congreso es liderada por la Agencia ITRC con el respaldo de aliados institucionales. La lista continuará creciendo.
+        FITAC y el Ministerio de Hacienda y Crédito Público se suman como aliados estratégicos del Segundo Congreso Internacional para la Protección de los Recursos Públicos, aportando su experiencia y liderazgo en la promoción de la transparencia, la integridad y el fortalecimiento de la gestión pública. Su respaldo fortalece este escenario de cooperación y diálogo para enfrentar los desafíos asociados al fraude y la corrupción.
       </p>
       <div class="ciprep-aliados-grid">
         {aliados.map((a) => (
           <article class="ciprep-aliado-card">
-            <i class="fa-solid fa-handshake"></i>
+            <img src={resolveUrl(a.logo)} alt={`Logo ${a.nombre}`} class="ciprep-aliado-card__logo" loading="lazy" />
             <div>
               <h3>{a.nombre}</h3>
               <p>{a.tipo}</p>
@@ -239,9 +313,19 @@ const aliados = [
           </article>
         ))}
       </div>
-      <p class="ciprep-soon">
-        Más aliados se anunciarán en las próximas semanas.
+
+      <SectionTitle title="Entidades expositoras" />
+      <p class="ciprep-section__lead">
+        Universidades, organismos internacionales, centros de investigación y entidades públicas que aportan ponentes al Congreso.
       </p>
+      <div class="ciprep-entidades-grid">
+        {entidadesExpositoras.map((e) => (
+          <div class="ciprep-entidad-card" title={e.nombre}>
+            <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} loading="lazy" />
+            <span class="ciprep-entidad-card__name">{e.nombre}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -258,7 +342,7 @@ const aliados = [
         <div class="ciprep-info__card">
           <h3><i class="fa-solid fa-location-dot"></i> Lugar</h3>
           <p><strong>Auditorio Casas de Santa Bárbara</strong></p>
-          <p class="ciprep-info__addr">Ministerio de Hacienda y Crédito Público<br/>Carrera 7 # 6D-82, Bogotá</p>
+          <p class="ciprep-info__addr">Ministerio de Hacienda y Crédito Público<br/>Carrera 7 # 6b-80, Bogotá</p>
           <div class="ciprep-info__maps">
             <a href={MAPS_URL} target="_blank" rel="noopener">
               <i class="fa-brands fa-google"></i> Cómo llegar
@@ -464,6 +548,66 @@ const aliados = [
   }
   .btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--font-size-base); }
 
+  /* === Countdown === */
+  .ciprep-countdown {
+    background: linear-gradient(135deg, var(--itrc-navy) 0%, #1a3a6e 100%);
+    color: var(--white);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+  }
+  .ciprep-countdown__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: 0 0 var(--space-5);
+    color: var(--itrc-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .ciprep-countdown__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(70px, 1fr));
+    gap: var(--space-3);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .ciprep-countdown__cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-2);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(4px);
+  }
+  .ciprep-countdown__num {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+  }
+  .ciprep-countdown__label {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .ciprep-countdown__date {
+    margin: var(--space-5) 0 0;
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .ciprep-countdown__date i {
+    color: var(--itrc-gold);
+  }
+  .ciprep-countdown[data-finished] .ciprep-countdown__grid {
+    opacity: 0.45;
+  }
+
   /* === Tabs sticky === */
   .ciprep-tabs {
     position: sticky;
@@ -546,6 +690,19 @@ const aliados = [
     grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
   }
+  /* Fix: prevenir que grid-items 1fr colapsen y rompan textos largos
+     verticalmente (ver bug visible en CIPREP 2025). */
+  .ciprep-agenda > .ciprep-day,
+  .ciprep-day,
+  .ciprep-item,
+  .ciprep-item > *,
+  .ciprep-item__body,
+  .ciprep-item__ponente,
+  .ciprep-item__ponente-info { min-width: 0; }
+  .ciprep-item__title,
+  .ciprep-item__detalle,
+  .ciprep-item__ponente-name,
+  .ciprep-item__ponente-entidad { overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
   .ciprep-day {
     background: var(--theme-surface);
     border: 1px solid var(--theme-border);
@@ -649,11 +806,103 @@ const aliados = [
     color: var(--theme-text-secondary);
     font-size: var(--font-size-xs);
   }
+  .ciprep-aliado-card__logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background: var(--white);
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+  }
+  .ciprep-aliado-card {
+    grid-template-columns: 80px 1fr !important;
+  }
   .ciprep-soon {
     text-align: center;
     color: var(--theme-text-muted);
     font-style: italic;
     font-size: var(--font-size-sm);
+  }
+
+  /* === Entidades expositoras === */
+  .ciprep-entidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+  }
+  .ciprep-entidad-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  .ciprep-entidad-card img {
+    width: 100%;
+    height: 60px;
+    object-fit: contain;
+  }
+  .ciprep-entidad-card__name {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--theme-text-secondary);
+    line-height: 1.3;
+  }
+
+  /* === Ponente en agenda === */
+  .ciprep-item--pausa {
+    opacity: 0.7;
+  }
+  .ciprep-item--pausa .ciprep-item__title {
+    font-style: italic;
+    color: var(--theme-text-muted);
+  }
+  .ciprep-item__ponente {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    margin-bottom: var(--space-2);
+  }
+  .ciprep-item__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--itrc-gold);
+  }
+  .ciprep-item__avatar--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--itrc-gold-rgb), 0.12);
+    color: var(--itrc-gold);
+    font-size: 1.1rem;
+  }
+  .ciprep-item__ponente-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ciprep-item__ponente-name {
+    color: var(--theme-heading);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+  }
+  .ciprep-item__ponente-entidad {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-xs);
+  }
+  .ciprep-item__detalle {
+    margin: var(--space-1) 0 0;
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    line-height: 1.4;
   }
 
   /* === Info === */

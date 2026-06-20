@@ -7,8 +7,8 @@
 
   --govco-blue: #0943b5;
 
-  --itrc-navy: #002147;
-  --itrc-navy-rgb: 0, 33, 71;
+  --itrc-navy: #002147;          /* Alt probado y descartado: #1D3E85 (azul medio más vibrante) */
+  --itrc-navy-rgb: 0, 33, 71;    /* Alt: 29, 62, 133 */
 
   /* Charcoal para fondos oscuros */
   --itrc-charcoal: #1a1a2e;

@@ -157,8 +157,12 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
   .hero-slider {
     position: relative;
     width: 100%;
+    max-width: 1600px;
+    margin: var(--space-5) auto;
     overflow: hidden;
     background: var(--theme-hero-from);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
   }
 
   .hero-slider__track {
