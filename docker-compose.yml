@@ -40,6 +40,8 @@ services:
       context: ./cms-strapi
       dockerfile: Dockerfile
     container_name: itrc-cms-strapi
+    extra_hosts:
+      - host.docker.internal:host-gateway
     restart: unless-stopped
     depends_on:
       postgres:
@@ -68,7 +70,11 @@ services:
       GITHUB_DISPATCH_TOKEN: ${GITHUB_DISPATCH_TOKEN:-}
     volumes:
       # Persistir uploads (binarios subidos por editores via panel).
-      - cms-strapi-uploads:/opt/app/public/uploads
+      # En produccion (server santorini) se setea STRAPI_UPLOADS_PATH al
+      # bind mount /var/www/portal_nuevo/uploads para que nginx sirva los
+      # archivos directamente y el deploy preserve el ownership 1000:1000.
+      # En local/dev se usa el named volume cms-strapi-uploads por default.
+      - ${STRAPI_UPLOADS_PATH:-cms-strapi-uploads}:/opt/app/public/uploads
     ports:
       # Expuesto solo a localhost; nginx hace proxy desde /admin y /api.
       - "127.0.0.1:1337:1337"

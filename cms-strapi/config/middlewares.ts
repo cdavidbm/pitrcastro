@@ -8,6 +8,9 @@ const config: Core.Config.Middlewares = [
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
+  // Bloqueo de uploads ejecutables/scripts en /upload (webshells, malware).
+  // Solo permite documentos, imagenes y media institucional.
+  'global::upload-restriction',
   'strapi::session',
   'strapi::favicon',
   'strapi::public',

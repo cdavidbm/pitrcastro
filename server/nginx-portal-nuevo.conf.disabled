@@ -1,0 +1,269 @@
+# Vhost para el portal Astro nuevo (server santorini, HostDime).
+# Archivo destinado a /etc/nginx/conf.d/portal_nuevo.conf
+#
+# Mientras este archivo termine en ".disabled" nginx NO lo carga
+# (porque nginx.conf incluye /etc/nginx/conf.d/*.conf, no *.disabled).
+#
+# Para hacer el swap (los ingenieros):
+#   1. sudo mv /etc/nginx/conf.d/portal_principal.conf /etc/nginx/conf.d/portal_principal.conf.disabled
+#   2. sudo mv /etc/nginx/conf.d/portal_nuevo.conf.disabled /etc/nginx/conf.d/portal_nuevo.conf
+#   3. sudo nginx -t && sudo systemctl reload nginx
+#
+# Para rollback:
+#   1. sudo mv /etc/nginx/conf.d/portal_nuevo.conf /etc/nginx/conf.d/portal_nuevo.conf.disabled
+#   2. sudo mv /etc/nginx/conf.d/portal_principal.conf.disabled /etc/nginx/conf.d/portal_principal.conf
+#   3. sudo nginx -t && sudo systemctl reload nginx
+
+# Rate-limit para el login del admin Strapi: 5 intentos por minuto por IP, con
+# burst de 3 para tolerar tipeos rapidos del editor real. Bots brute-force
+# quedan limitados a ~5 intentos/min en lugar de cientos por segundo.
+limit_req_zone $binary_remote_addr zone=admin_login:10m rate=5r/m;
+limit_req_status 429;
+
+server {
+    listen      443 ssl;
+    server_name www.itrc.gov.co itrc.gov.co;
+
+    # Reusa el cert wildcard ya instalado en este server.
+    ssl_certificate     /etc/pki/tls/certs/STAR_itrc_gov_co2026.crt;
+    ssl_certificate_key /etc/pki/tls/private/wildcard_itrc_gov_co.key;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+
+    root  /var/www/portal_nuevo;
+    index index.html;
+
+    # Subidas grandes (forms con PDF si los hubiera)
+    client_max_body_size 100M;
+
+    # Headers de seguridad (HSTS se omite a proposito: el WAF lo gestiona)
+    add_header X-Frame-Options           "SAMEORIGIN"                       always;
+    add_header X-Content-Type-Options    "nosniff"                          always;
+    add_header Referrer-Policy           "strict-origin-when-cross-origin"  always;
+    add_header Permissions-Policy        "geolocation=(), microphone=()"    always;
+
+    # Healthcheck para que el WAF monitoree el origen
+    location = /healthz {
+        access_log off;
+        return 200 "ok\n";
+        add_header Content-Type text/plain;
+    }
+
+    # Gzip
+    gzip on;
+    gzip_types text/plain text/css application/javascript application/json
+               image/svg+xml application/xml font/woff font/woff2;
+    gzip_min_length 1024;
+    gzip_vary on;
+
+    # === BACKWARDS COMPAT: enlaces antiguos /Itrc/* del WP legacy ===
+    # Excepcion prioritaria: /Itrc/wp-content/* sigue sirviendo del WP path.
+    # Es asset path -- imagenes legacy hardcodeadas en denuncias/index.php y
+    # otros sub-sitios. Mantener mientras los HTML viejos sigan referenciando.
+    location /Itrc/wp-content/ {
+        root /var/www/portal_principal;
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800";
+        try_files $uri =404;
+    }
+    # Quita el prefijo /Itrc/ y devuelve 301 a la URL nueva sin prefijo.
+    # Cubre miles de URLs indexadas por Google / linkeadas por terceros.
+    location /Itrc/ {
+        rewrite ^/Itrc/(.*) /$1 permanent;
+    }
+    # Los siguientes sub-sitios WP/Joomla legacy fueron migrados al Astro.
+    # IMPORTANTE: matching EXACTO (=) -- nunca usar prefix porque el portal
+    # nuevo TIENE rutas reales bajo /observatorio/* y /ciprep2026/*. Un prefix
+    # capturaria /observatorio/eje-de-participacion y lo mandaria a /observatorio,
+    # dejando todos los enlaces del observatorio Astro rotos.
+    location = /ciprep/      { return 301 /ciprep2026; }
+    location = /observatorio/  { return 301 /observatorio; }
+    location = /relatorias/  { return 301 /relatoria; }
+
+    # === STRAPI CMS — admin + API ===
+    # Acceso restringido a localhost y VPN HostDime hasta que Deyby autorice
+    # exposicion publica. Cuando se autorice, agregar IPs externas validas o
+    # cambiar a `allow all;` segun politica.
+    # Login del admin: endpoint especifico con rate-limit estricto.
+    # Si se exceden 5 intentos/min, devuelve 429. Bots brute-force tienen un
+    # presupuesto de ~5 tries/min en lugar de cientos/seg.
+    location = /admin/login {
+        limit_req zone=admin_login burst=3 nodelay;
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;
+        allow 192.168.70.0/24;
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    location = /admin/renew-token {
+        limit_req zone=admin_login burst=3 nodelay;
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;
+        allow 192.168.70.0/24;
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    location /admin {
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;     # VPN HostDime (acceso directo via 10.5.10.6)
+        allow 192.168.70.0/24;     # WAF egress (acceso via www.itrc.gov.co)
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        client_max_body_size 100M;
+        proxy_read_timeout 300s;
+        proxy_send_timeout 300s;
+    }
+    location /api {
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;     # VPN HostDime (acceso directo via 10.5.10.6)
+        allow 192.168.70.0/24;     # WAF egress (acceso via www.itrc.gov.co)
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    # POST /upload — endpoint que usa Media Library al agregar archivos.
+    # /upload/settings, /upload/configuration, /upload/files?... son sub-paths
+    # que el UI del Media Library tambien consulta. Distinto de GET /uploads/*
+    # (que sirve los archivos estaticos).
+    location = /upload {
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;     # VPN HostDime (acceso directo via 10.5.10.6)
+        allow 192.168.70.0/24;     # WAF egress (acceso via www.itrc.gov.co)
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        client_max_body_size 100M;
+        proxy_request_buffering off;
+        proxy_read_timeout 300s;
+        proxy_send_timeout 300s;
+    }
+    location /upload/ {
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;     # VPN HostDime (acceso directo via 10.5.10.6)
+        allow 192.168.70.0/24;     # WAF egress (acceso via www.itrc.gov.co)
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        client_max_body_size 100M;
+        proxy_read_timeout 300s;
+    }
+    # Internals del panel Strapi (content-manager, content-type-builder, etc.)
+    location ~ ^/(content-manager|content-type-builder|users-permissions|i18n|email|content-releases|review-workflows|preview|admin)/ {
+        allow 127.0.0.1;
+        allow 10.212.134.0/24;     # VPN HostDime (acceso directo via 10.5.10.6)
+        allow 192.168.70.0/24;     # WAF egress (acceso via www.itrc.gov.co)
+        deny all;
+        proxy_pass http://127.0.0.1:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        client_max_body_size 100M;
+        proxy_read_timeout 300s;
+    }
+
+    # === DENUNCIAS: sub-sitio PHP custom QUE SE MANTIENE VIVO ===
+    # Esta seccion sigue sirviendo el formulario de denuncias desde su path
+    # actual /var/www/portal_principal/denuncias/ (PHP 8.2-FPM + denuncias_db).
+    # No tocar ni borrar /var/www/portal_principal/denuncias/ ni denuncias_db
+    # despues del cutover -- estas locations dependen de eso.
+
+    # /denuncias (sin slash final) -> redirige al canonical con slash.
+    location = /denuncias {
+        return 301 /denuncias/;
+    }
+    location /denuncias/ {
+        root /var/www/portal_principal;
+        index index.php index.html;
+        # try_files busca: archivo exacto, dir (resuelve via index.php), o
+        # cae al rewrite que agrega .php (URLs limpias tipo /denuncias/entidades
+        # → /denuncias/entidades.php). Este comportamiento replica el del WP
+        # legacy que el HTML PHP de denuncias asume hardcoded.
+        try_files $uri $uri/ @denuncias_php_rewrite;
+    }
+    location @denuncias_php_rewrite {
+        rewrite ^/denuncias/(.*)$ /denuncias/$1.php last;
+    }
+    location ~ ^/denuncias/.*\.php$ {
+        root /var/www/portal_principal;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 4 256k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    # === ASTRO: sitio estatico ===
+
+    # Uploads heredados con estructura WP /uploads/YYYY/MM/ (observatorio
+    # importado a Strapi conservo las URLs originales del WP). El portal nuevo
+    # NO mantiene esos uploads en su propio /uploads/ -- los servimos desde el
+    # path WP del observatorio mientras esos archivos sigan en disco.
+    # NOTA: ANTES de borrar /var/www/portal_principal/observatorio/ en FASE 3,
+    # mover sus uploads a /var/www/portal_nuevo/uploads/ o ajustar este root.
+    location ~ "^/uploads/[0-9]{4}/[0-9]{2}/" {
+        root /var/www/portal_principal/observatorio/wp-content;
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800";
+        try_files $uri @uploads_legacy_itrc;
+    }
+    # Fallback al WP principal Itrc si no estaba en observatorio.
+    location @uploads_legacy_itrc {
+        root /var/www/portal_principal/Itrc/wp-content;
+        try_files $uri =404;
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800";
+    }
+
+    location /assets/ {
+        expires max;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+    location /_astro/ {
+        expires max;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+    location /documentos/ {
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800";
+    }
+
+    # Fallback chain de Astro: /pagina/ -> /pagina/index.html
+    location / {
+        try_files $uri $uri/index.html $uri.html =404;
+    }
+
+    error_page 404 /404.html;
+
+    access_log /var/log/nginx/portal_nuevo_access.log;
+    error_log  /var/log/nginx/portal_nuevo_error.log;
+}
