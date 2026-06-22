@@ -11,8 +11,8 @@ const breadcrumb = [
   { label: 'Contratación Suscrita' }
 ];
 
-const totalProcesos = (pageData.convocatorias || []).reduce((acc, c) => acc + c.procesos.length, 0);
-const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => acc + s.contratos.length, 0);
+const totalProcesos = (pageData.convocatorias || []).reduce((acc: number, c: any) => acc + c.procesos.length, 0);
+const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc: number, s: any) => acc + s.contratos.length, 0);
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-contratacion-contratacion-suscrita">
@@ -22,121 +22,280 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => 
     <div class="container">
       <p class="cs-intro">{pageData.intro}</p>
 
-      <div class="cs-secop">
-        <a href={pageData.secopI} target="_blank" rel="noopener noreferrer" class="cs-secop__card">
-          <div class="cs-secop__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
-          <div class="cs-secop__body"><h3>SECOP I</h3><p>Sistema Electrónico de Contratación Pública (procesos legacy)</p></div>
-          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        </a>
-        <a href={pageData.secopII} target="_blank" rel="noopener noreferrer" class="cs-secop__card">
-          <div class="cs-secop__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
-          <div class="cs-secop__body"><h3>SECOP II</h3><p>Plataforma transaccional de procesos de contratación pública vigente</p></div>
-          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        </a>
+      <!--
+        Pestañas (tabs) — solicitadas por el área de contratación para que el
+        usuario navegue claramente entre lo MENSUAL (contratos suscritos) y
+        los PROCESOS (selección pública). Los accesos directos a SECOP I/II
+        a nivel pagina se eliminaron a proposito: llevaban al login y el
+        Decreto exige vista publica. Los enlaces a SECOP dentro de cada fila
+        de proceso siguen apuntando a la vista publica.
+      -->
+      <div class="cs-tabs" role="tablist" aria-label="Secciones de contratación">
+        <button
+          class="cs-tab cs-tab--active"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tab-panel-contratos"
+          id="tab-btn-contratos"
+          data-tab="contratos"
+        >
+          <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
+          <span>Contratación Suscrita</span>
+          <span class="cs-tab__count">{totalContratos}</span>
+        </button>
+        <button
+          class="cs-tab"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-panel-procesos"
+          id="tab-btn-procesos"
+          data-tab="procesos"
+          tabindex="-1"
+        >
+          <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+          <span>Procesos Públicos de Selección</span>
+          <span class="cs-tab__count">{totalProcesos}</span>
+        </button>
       </div>
 
-      <h2 class="cs-h2" id="convocatorias">
-        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
-        Convocatorias a Procesos Públicos de Selección
-        <span class="cs-h2__count">{totalProcesos} procesos</span>
-      </h2>
+      <!-- Tab 1: Contratación Suscrita (mensual) -->
+      <div
+        class="cs-panel cs-panel--active"
+        role="tabpanel"
+        id="tab-panel-contratos"
+        aria-labelledby="tab-btn-contratos"
+      >
+        <p class="cs-panel-intro">
+          Listado mensual de contratos suscritos por la Agencia ITRC. Cada
+          archivo contiene el detalle de los contratos del periodo, con sus
+          accesos de vista pública individuales.
+        </p>
 
-      {pageData.convocatorias && pageData.convocatorias.map((cat) => (
-        <details class="cs-cat" open>
-          <summary class="cs-cat__summary">
-            <span class="cs-cat__titulo">{cat.categoria}</span>
-            <span class="cs-cat__count">{cat.procesos.length}</span>
-            <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
-          </summary>
-          <div class="cs-tabla-wrap">
-            <table class="cs-tabla">
-              <thead><tr><th>Proceso</th><th>Año</th><th>Documentos</th><th>SECOP</th></tr></thead>
-              <tbody>
-                {cat.procesos.map((p) => (
+        {pageData.contratacionSuscrita && pageData.contratacionSuscrita.map((s: any, i: number) => (
+          <details class="cs-cat" open={i === 0}>
+            <summary class="cs-cat__summary">
+              <span class="cs-cat__titulo">{s.titulo}</span>
+              <span class="cs-cat__count">{s.contratos.length}</span>
+              <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
+            </summary>
+            <ul class="cs-list">
+              {s.contratos.map((c: any) => (
+                <li>
+                  <a href={c.url} target="_blank" rel="noopener noreferrer" class="cs-doc">
+                    <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+                    <span>{c.periodo}</span>
+                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))}
+      </div>
+
+      <!-- Tab 2: Procesos Públicos de Selección -->
+      <div
+        class="cs-panel"
+        role="tabpanel"
+        id="tab-panel-procesos"
+        aria-labelledby="tab-btn-procesos"
+        hidden
+      >
+        <p class="cs-panel-intro">
+          Procesos públicos de selección de la Agencia ITRC organizados por
+          categoría. Cada fila incluye los documentos del proceso y un enlace
+          de vista pública en SECOP.
+        </p>
+
+        {pageData.convocatorias && pageData.convocatorias.map((cat: any) => (
+          <details class="cs-cat" open>
+            <summary class="cs-cat__summary">
+              <span class="cs-cat__titulo">{cat.categoria}</span>
+              <span class="cs-cat__count">{cat.procesos.length}</span>
+              <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="cs-tabla-wrap">
+              <table class="cs-tabla">
+                <thead>
                   <tr>
-                    <td class="cs-c-proc">
-                      {p.pdfUrl ? (
-                        <a href={mediaUrl(p.pdfUrl)} target="_blank" rel="noopener noreferrer" class="cs-link">
-                          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-                          <strong>{p.label}</strong>
-                        </a>
-                      ) : (<strong>{p.label}</strong>)}
-                    </td>
-                    <td class="cs-c-anio">{p.anio || '—'}</td>
-                    <td class="cs-c-otros">
-                      {p.otros && p.otros.length > 0 ? (
-                        <ul>
-                          {p.otros.map((o) => (
-                            <li><a href={o.url} target="_blank" rel="noopener noreferrer" class="cs-link cs-link--small">
-                              <i class="fa-solid fa-file" aria-hidden="true"></i>
-                              {o.label}
-                            </a></li>
-                          ))}
-                        </ul>
-                      ) : '—'}
-                    </td>
-                    <td class="cs-c-secop">{p.secopRef && p.secopRef !== '#' ? (
-                      <a href={p.secopRef.startsWith('https://') ? p.secopRef : `https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=${p.secopRef}&isFromPublicArea=True&isModal=False`} target="_blank" rel="noopener noreferrer" class="cs-secop-link" title={`Ver en SECOP II: ${p.secopRef}`}>
-                        <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
-                        SECOP II
-                      </a>
-                    ) : '—'}</td>
+                    <th>Proceso</th>
+                    <th>Año</th>
+                    <th>Documentos</th>
+                    <th>SECOP</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </details>
-      ))}
+                </thead>
+                <tbody>
+                  {cat.procesos.map((p: any) => (
+                    <tr>
+                      <td class="cs-c-proc">
+                        {p.pdfUrl ? (
+                          <a href={mediaUrl(p.pdfUrl)} target="_blank" rel="noopener noreferrer" class="cs-link">
+                            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                            <strong>{p.label}</strong>
+                          </a>
+                        ) : (<strong>{p.label}</strong>)}
+                      </td>
+                      <td class="cs-c-anio">{p.anio || '—'}</td>
+                      <td class="cs-c-otros">
+                        {p.otros && p.otros.length > 0 ? (
+                          <ul>
+                            {p.otros.map((o: any) => (
+                              <li>
+                                <a href={o.url} target="_blank" rel="noopener noreferrer" class="cs-link cs-link--small">
+                                  <i class="fa-solid fa-file" aria-hidden="true"></i>
+                                  {o.label}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : '—'}
+                      </td>
+                      <td class="cs-c-secop">
+                        {p.secopRef && p.secopRef !== '#' ? (
+                          <a
+                            href={p.secopRef.startsWith('https://') ? p.secopRef : `https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=${p.secopRef}&isFromPublicArea=True&isModal=False`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="cs-secop-link"
+                            title={`Ver vista pública en SECOP: ${p.secopRef}`}
+                          >
+                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                            Vista pública
+                          </a>
+                        ) : '—'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        ))}
+      </div>
 
-      <h2 class="cs-h2" id="contratos-suscritos">
-        <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
-        Contratación Suscrita por Vigencia
-        <span class="cs-h2__count">{totalContratos} contratos</span>
-      </h2>
-
-      {pageData.contratacionSuscrita && pageData.contratacionSuscrita.map((s, i) => (
-        <details class="cs-cat" open={i === 0}>
-          <summary class="cs-cat__summary">
-            <span class="cs-cat__titulo">{s.titulo}</span>
-            <span class="cs-cat__count">{s.contratos.length}</span>
-            <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
-          </summary>
-          <ul class="cs-list">
-            {s.contratos.map((c) => (
-              <li><a href={c.url} target="_blank" rel="noopener noreferrer" class="cs-doc">
-                <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
-                <span>{c.periodo}</span>
-                <i class="fa-solid fa-download" aria-hidden="true"></i>
-              </a></li>
-            ))}
-          </ul>
-        </details>
-      ))}
-
-      <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+      <div class="back-link">
+        <a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a>
+      </div>
     </div>
   </section>
 </Base>
+
+<script>
+  // Tabs: alternar panel activo. Accesible (ARIA + flechas izquierda/derecha).
+  (function () {
+    const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.cs-tab'));
+    if (tabs.length === 0) return;
+
+    const panels: Record<string, HTMLElement | null> = {
+      contratos: document.getElementById('tab-panel-contratos'),
+      procesos: document.getElementById('tab-panel-procesos'),
+    };
+
+    const activate = (key: string) => {
+      tabs.forEach((t) => {
+        const isActive = t.dataset.tab === key;
+        t.classList.toggle('cs-tab--active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        t.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+      Object.entries(panels).forEach(([k, panel]) => {
+        if (!panel) return;
+        const isActive = k === key;
+        panel.classList.toggle('cs-panel--active', isActive);
+        if (isActive) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+      // Sincronizar el hash de la URL (sin saltar).
+      const newHash = key === 'procesos' ? '#procesos' : '#contratos';
+      if (location.hash !== newHash) history.replaceState(null, '', newHash);
+    };
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => activate(tab.dataset.tab!));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          const dir = e.key === 'ArrowRight' ? 1 : -1;
+          const next = tabs[(idx + dir + tabs.length) % tabs.length];
+          activate(next.dataset.tab!);
+          next.focus();
+        }
+      });
+    });
+
+    // Deep-link via hash: #procesos abre el segundo tab directamente.
+    if (location.hash === '#procesos') activate('procesos');
+  })();
+</script>
 
 <style>
   .cs-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
   .cs-section .container { max-width: 1100px; margin: 0 auto; }
   .cs-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text); margin-bottom: var(--space-8); text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-  .cs-secop { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-10); }
-  .cs-secop__card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface); border: 2px solid var(--itrc-navy); border-radius: var(--radius-xl); text-decoration: none; transition: all var(--transition-base); }
-  .cs-secop__card:hover { background: var(--itrc-navy); color: var(--white); transform: translateY(-2px); }
-  .cs-secop__icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-lg); font-size: var(--font-size-xl); }
-  .cs-secop__body h3 { font-size: var(--font-size-base); color: var(--itrc-navy); margin: 0; }
-  .cs-secop__card:hover .cs-secop__body h3 { color: var(--white); }
-  .cs-secop__body p { font-size: var(--font-size-xs); color: var(--theme-text-secondary); margin: 4px 0 0; }
-  .cs-secop__card:hover .cs-secop__body p { color: rgba(255,255,255,0.85); }
+  /* === Tabs === */
+  .cs-tabs {
+    display: flex;
+    gap: var(--space-2);
+    border-bottom: 2px solid var(--theme-border);
+    margin-bottom: var(--space-6);
+    overflow-x: auto;
+  }
+  .cs-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--theme-text-muted);
+    transition: all var(--transition-base);
+    white-space: nowrap;
+  }
+  .cs-tab:hover {
+    color: var(--theme-heading);
+    background: var(--theme-surface-alt);
+  }
+  .cs-tab--active {
+    color: var(--itrc-navy);
+    border-bottom-color: var(--itrc-gold);
+    background: transparent;
+  }
+  .cs-tab i { color: var(--itrc-gold); }
+  .cs-tab__count {
+    padding: 2px 10px;
+    background: var(--theme-surface-alt);
+    color: var(--theme-text-muted);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+  }
+  .cs-tab--active .cs-tab__count {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
 
-  .cs-h2 { display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); margin: var(--space-10) 0 var(--space-5); padding-bottom: var(--space-3); border-bottom: 2px solid var(--itrc-gold); }
-  .cs-h2 i { color: var(--itrc-gold); }
-  .cs-h2__count { margin-left: auto; font-size: var(--font-size-sm); padding: 4px 12px; background: var(--theme-surface-alt); color: var(--theme-text-muted); border-radius: var(--radius-full); font-weight: 700; }
+  .cs-panel { animation: fadeIn 0.25s ease-out; }
+  .cs-panel[hidden] { display: none; }
+  .cs-panel-intro {
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    margin: 0 0 var(--space-5);
+    line-height: 1.6;
+  }
 
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === Acordeones internos por categoría/vigencia (sin cambios) === */
   .cs-cat { margin-bottom: var(--space-3); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; }
   .cs-cat__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; background: var(--theme-surface-alt); }
   .cs-cat__summary::-webkit-details-marker { display: none; }
@@ -177,5 +336,7 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc, s) => 
   @media (max-width: 768px) {
     .cs-tabla { font-size: var(--font-size-xs); }
     .cs-tabla th, .cs-tabla td { padding: var(--space-2); }
+    .cs-tab { padding: var(--space-3) var(--space-4); font-size: var(--font-size-sm); }
+    .cs-tab span:not(.cs-tab__count) { display: none; }
   }
 </style>
