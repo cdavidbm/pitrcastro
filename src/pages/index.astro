@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL;
     class="welcome-modal"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="welcome-modal-title"
+    aria-label="II Congreso Internacional para la Protección de los Recursos Públicos - ITRC"
     aria-describedby="welcome-modal-desc"
     data-welcome-modal
     hidden
@@ -42,15 +42,22 @@ const base = import.meta.env.BASE_URL;
       >
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
-      <a href={`${base}ciprep2026`} class="welcome-modal__cta-link" aria-labelledby="welcome-modal-title">
+      <a
+        href={`${base}ciprep2026`}
+        class="welcome-modal__cta-link"
+        aria-label="II Congreso Internacional para la Protección de los Recursos Públicos - ITRC. 3 y 4 de agosto, Bogotá. Inscripción gratuita."
+      >
         <div class="welcome-modal__body">
-          <div class="welcome-modal__icon">
-            <i class="fa-solid fa-people-group" aria-hidden="true"></i>
-          </div>
+          <img
+            src={`${base}images/ciprep2026/logo-ii-congreso.png`}
+            alt="II Congreso Internacional para la Protección de los Recursos Públicos - ITRC"
+            class="welcome-modal__logo"
+            width="320"
+            height="200"
+            loading="eager"
+            decoding="async"
+          />
           <span class="welcome-modal__eyebrow">3 y 4 de agosto · Bogotá</span>
-          <h2 id="welcome-modal-title" class="welcome-modal__title">
-            II Congreso Internacional CIPREP 2026
-          </h2>
           <p id="welcome-modal-desc" class="welcome-modal__text">
             Inscripción gratuita. Conoce los ejes temáticos, ponentes confirmados y agenda completa.
           </p>
@@ -104,7 +111,7 @@ const base = import.meta.env.BASE_URL;
     .welcome-modal__close:hover { background: var(--itrc-gold, #b38b40); color: #fff; }
     .welcome-modal__cta-link { display: block; text-decoration: none; color: inherit; }
     .welcome-modal__body { padding: var(--space-8) var(--space-6) var(--space-6); text-align: center; }
-    .welcome-modal__icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--itrc-navy, #002147) 0%, var(--itrc-gold, #b38b40) 100%); color: #fff; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4); box-shadow: 0 6px 18px rgba(0, 33, 71, .25); }
+    .welcome-modal__logo { display: block; width: clamp(220px, 70%, 320px); height: auto; margin: 0 auto var(--space-4); }
     .welcome-modal__eyebrow { display: inline-block; font-size: var(--font-size-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--itrc-gold, #b38b40); margin-bottom: var(--space-2); }
     .welcome-modal__title { font-size: var(--font-size-xl); color: var(--itrc-navy, #002147); margin: 0 0 var(--space-3); line-height: 1.25; }
     .welcome-modal__text { font-size: var(--font-size-sm); color: var(--theme-text-secondary, #555); margin: 0 0 var(--space-4); }

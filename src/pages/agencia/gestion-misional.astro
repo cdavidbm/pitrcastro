@@ -6,9 +6,27 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import { getAgenciaGestionMisional } from '../../utils/strapi-fetchers';
 import { resolveUrl } from '../../utils/url';
+import gestionMisionalLocal from '../../content/pages/agencia/gestion-misional.json';
 
 
-const pageData: any = (await getAgenciaGestionMisional()) ?? {};
+const remote: any = await getAgenciaGestionMisional().catch(() => null);
+const pageData: any = remote ?? gestionMisionalLocal;
+
+if (remote?.subdirecciones && Array.isArray(remote.subdirecciones)) {
+  for (const remoteSub of remote.subdirecciones) {
+    const localSub = (gestionMisionalLocal.subdirecciones as any[]).find((s: any) => s.sigla === remoteSub.sigla);
+    if (!localSub) continue;
+    for (const remoteCat of remoteSub.categorias || []) {
+      const localCat = (localSub.categorias as any[])?.find((c: any) => c.titulo === remoteCat.titulo);
+      if (!localCat) continue;
+      const remoteNames = new Set((remoteCat.documentos || []).map((d: any) => d.name));
+      const missing = ((localCat.documentos as any[]) || []).filter((d: any) => !remoteNames.has(d.name));
+      if (missing.length > 0) {
+        remoteCat.documentos = [...missing, ...(remoteCat.documentos || [])];
+      }
+    }
+  }
+}
 const base = import.meta.env.BASE_URL;
 const subdirecciones = pageData.subdirecciones;
 

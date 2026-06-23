@@ -107,6 +107,21 @@
           "titulo": "Informes de Gestión SAGR",
           "documentos": [
             {
+              "name": "Informe de gestión II Semestre 2025",
+              "file": "/documentos/agencia/Informe-de-gestion-II-Semestre-2025.docx",
+              "anio": "2025"
+            },
+            {
+              "name": "Informe de gestión I Semestre 2025",
+              "file": "/documentos/agencia/Informe-de-gestion-I-Semestre-2025.docx",
+              "anio": "2025"
+            },
+            {
+              "name": "Informe de gestión II Semestre 2024",
+              "file": "/documentos/agencia/Informe-de-gestion-II-Semestre-2024.docx",
+              "anio": "2024"
+            },
+            {
               "name": "Informe de gestión I Semestre 2024",
               "file": "/documentos/agencia/Informe-de-gestion-I-Semestre-2024.pdf",
               "anio": "2024"
