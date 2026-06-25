@@ -47,7 +47,6 @@ const breadcrumb = [
   { label: pageData.title },
 ];
 
-const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length, 0);
 ---
 
 <Base title={pageData.title} class={`page-documentos page-documentos--${config.color}`}>
@@ -64,10 +63,6 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
         Volver a Direccionamiento Estratégico
       </a>
-      <div class="doc-count">
-        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-        {totalDocs} documentos
-      </div>
     </div>
   </section>
 
@@ -172,17 +167,6 @@ const totalDocs = pageData.sections.reduce((acc, s) => acc + s.documents.length,
   .back-link:hover {
     color: var(--itrc-gold);
     gap: var(--space-3);
-  }
-
-  .doc-count {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-sm);
-    color: var(--theme-text-muted);
-    background: var(--theme-surface-alt);
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-md);
   }
 
   .documents-section {
