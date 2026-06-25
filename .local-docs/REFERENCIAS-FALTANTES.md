@@ -551,3 +551,29 @@ Las 3 URLs apuntan al subdirectorio `wp-content/uploads/2026/06/` cuando los aut
 
 **Pendiente / responsable**: Subdirección de Instrucción Disciplinaria — proveer los 3 PDFs, o quien administra `itrc.gov.co/Itrc/wp-content/uploads/` aclarar la ruta correcta.
 
+
+---
+
+## Lote 2026-06-25 — Planes Direccionamiento Estratégico (5 huérfanos de 2023)
+
+**Origen**: detectado durante la publicación de Planes 2026 (Bienestar + Capacitación). Strapi tiene 110 entradas en `agencia-direccionamiento-planes` pero **5 documentos están registrados sin archivo asociado** (`file: null`). En el frontend aparecen en la lista pero al hacer click no descargan nada.
+
+**Característica común**: los 5 son del año **2023**, mismo patrón (nombre + categoría correctos, falta el binario).
+
+**Documentos sin archivo**:
+
+| Documento | Categoría | Año |
+|---|---|---|
+| Plan Anual de Adquisiciones 2023 | PAA - Plan Anual de Adquisiciones | 2023 |
+| Plan de Acción Institucional 2023 | PAI - Plan de Acción Institucional | 2023 |
+| Plan Institucional de Capacitación 2023 | PIC - Plan Institucional de Capacitación | 2023 |
+| Mapa de Riesgos de Corrupción 2023 | Mapa de Riesgos de Corrupción | 2023 |
+| Plan de Participación Ciudadana 2023 | Plan de Participación Ciudadana | 2023 |
+
+**Estado**: `enlace-roto` — entrada existe en CMS pero sin binario.
+
+**Hipótesis del origen**: probablemente migración WP → Strapi importó los metadatos pero no encontró/descargó el PDF correspondiente. Verificar en backup de WP `itrc.gov.co/Itrc/wp-content/uploads/2023/` o pedirle al área SAGR/Direccionamiento los PDFs originales.
+
+**Cómo se manejó en el portal nuevo**: se dejaron en Strapi tal cual (con `file: null`). En el frontend los acordeones los muestran como texto sin enlace activo.
+
+**Pendiente / responsable**: Subdirección de Planeación (o quien tenga los PDFs originales de 2023) — proveer los 5 archivos para subir vía Media Library de Strapi y linkear a las entradas existentes (sin crear duplicados).

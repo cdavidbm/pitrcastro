@@ -47,6 +47,22 @@ const breadcrumb = [
   { label: pageData.title },
 ];
 
+// Ordenar documentos por año descendente dentro de cada sección
+// (rangos "2023-2026" cuentan por el año superior; sin año → al final)
+function yearKey(anio?: string | null): number {
+  if (!anio) return -1;
+  const m = String(anio).match(/(\d{4})(?:[^\d]+(\d{4}))?/);
+  if (!m) return -1;
+  return m[2] ? parseInt(m[2], 10) : parseInt(m[1], 10);
+}
+
+if (pageData?.sections) {
+  for (const section of pageData.sections) {
+    if (Array.isArray(section.documents)) {
+      section.documents = [...section.documents].sort((a: any, b: any) => yearKey(b.anio) - yearKey(a.anio));
+    }
+  }
+}
 ---
 
 <Base title={pageData.title} class={`page-documentos page-documentos--${config.color}`}>
@@ -79,6 +95,7 @@ const breadcrumb = [
                 documents: section.documents,
               }]}
               defaultOpen={0}
+              showCount={false}
             />
           )}
 

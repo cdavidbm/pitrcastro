@@ -18,6 +18,7 @@ interface Props {
   showNumbers?: boolean;
   // Para variante document
   sections?: DocumentSection[];
+  showCount?: boolean;
   // Opciones comunes
   allowMultiple?: boolean;
   defaultOpen?: number;
@@ -29,6 +30,7 @@ const {
   variant = 'content',
   items = [],
   sections = [],
+  showCount = true,
   allowMultiple = false,
   defaultOpen,
   showNumbers = false,
@@ -78,7 +80,9 @@ const renderItems = isDocument ? sections : items;
                 {section.sectionTitle}
               </span>
               <span class="accordion__meta">
-                <span class="accordion__count">{section.documents.length} docs</span>
+                {showCount && (
+                  <span class="accordion__count">{section.documents.length} docs</span>
+                )}
                 <i class="fa-solid fa-chevron-down accordion__chevron" aria-hidden="true"></i>
               </span>
             </button>
