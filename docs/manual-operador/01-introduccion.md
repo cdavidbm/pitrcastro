@@ -16,7 +16,7 @@ El portal se compone de tres piezas que conviven en el servidor del datacenter I
 
 Astro y Strapi son servicios independientes:
 
-- El sitio público (`/`) lo sirve nginx desde `/var/www/itrc-web/` (HTML estático).
+- El sitio público (`/`) lo sirve nginx desde `/var/www/portal_nuevo/` (HTML estático).
 - El CMS (`/admin/`) y la API (`/api/`) los sirve un contenedor Docker `itrc-cms-strapi` por proxy de nginx hacia `127.0.0.1:1337`.
 - Postgres corre en otro contenedor (`itrc-cms-postgres`) y solo es accesible desde el contenedor Strapi.
 
@@ -31,20 +31,18 @@ Editor en /admin/ (Strapi)
         ▼
 Strapi guarda el cambio en Postgres
         │
-        │ 2. Strapi notifica a GitHub vía repository_dispatch
+        │ 2. Strapi llama al servicio de deploy (webhook local :9001)
         ▼
-GitHub Actions dispara el workflow de deploy
-        │
-        │ 3. El runner self-hosted compila el sitio (pnpm build)
+El servicio compila el sitio (pnpm build)
         │    Astro lee la API de Strapi y genera el HTML estático
         ▼
-El runner copia el sitio a /var/www/itrc-web/ y recarga nginx
+El sitio compilado se copia a /var/www/portal_nuevo/ y nginx lo sirve
         │
         ▼
 Cambio visible en el portal público
 ```
 
-El tiempo habitual desde la publicación en el CMS hasta que el cambio aparece en el sitio es de **2 a 4 minutos**.
+El tiempo habitual desde la publicación en el CMS hasta que el cambio aparece en el sitio es de **~90 segundos** (build + rsync).
 
 ## Quién hace qué
 

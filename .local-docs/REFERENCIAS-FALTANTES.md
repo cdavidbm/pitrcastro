@@ -577,3 +577,76 @@ Las 3 URLs apuntan al subdirectorio `wp-content/uploads/2026/06/` cuando los aut
 **Cómo se manejó en el portal nuevo**: se dejaron en Strapi tal cual (con `file: null`). En el frontend los acordeones los muestran como texto sin enlace activo.
 
 **Pendiente / responsable**: Subdirección de Planeación (o quien tenga los PDFs originales de 2023) — proveer los 5 archivos para subir vía Media Library de Strapi y linkear a las entradas existentes (sin crear duplicados).
+
+---
+
+## Lote 2026-07-01 — Informes + Políticas de Direccionamiento Estratégico
+
+**Origen**: auditoría de estado de la página `/agencia/direccionamiento-estrategico/informes` y `/politicas`. En Strapi hay 33 informes + 11 políticas registrados, pero la mayoría son huérfanos (aparecen listados pero no descargan nada).
+
+**Estado tras la Fase B (2026-07-01)**: se restauraron 9 documentos con archivos encontrados en el WordPress legacy (`/var/www/portal_principal/Itrc/wp-content/uploads/`). Quedan 30 documentos huérfanos que NO están en WP legacy — deben proveerse por el área correspondiente.
+
+### Informes restaurados desde WP legacy (2026-07-01)
+
+Ya funcionan en producción con enlace real al PDF:
+
+| # | Documento | Origen recuperado |
+|---|---|---|
+| 1 | Informe de Gestión 2025 | `2026/01/Informe-de-Gestion-Agencia-ITRC-2025-.pdf` |
+| 2 | Informe de Gestión 2024 | `2025/01/Informe-de-Gestion-Agencia-ITRC-Vigencia-2024.pdf` |
+| 3 | Informe de Gestión 2023 | `2024/01/Informe-de-Gestion-Agencia-ITRC-Vigencia-2023.pdf` |
+| 4 | Informe de Gestión 2022 | `2023/01/INFORME-DE-GESTION-AGENCIA-ITRC-VIGENCIA-2022.pdf` |
+| 5 | Informe de Gestión 2021 | `2022/02/INFORME-DE-GESTION-2021-AGENCIA-ITRC.pdf` |
+| 6 | Informe de Gestión 2020 | `2021/01/Informe-de-Gestion-Agencia-ITRC-Vigencia-2020.pdf` |
+| 7 | Informe de Rendición de Cuentas 2023 | `2023/11/INFORME-RENDICION-DE-CUENTAS-2023_AGENCIA-ITRC.pdf` |
+| 8 | Informe de Rendición de Cuentas 2022 | `2023/01/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2022_vf.pdf` |
+| 9 | Informe de Rendición de Cuentas 2021 | `2021/12/INFORME-EJERCICIO-RENDICION-DE-CUENTAS-2021-FINAL.pdf` |
+
+### Faltantes reales (30) — pedir a las áreas
+
+**No están en WP legacy Itrc**. Es probable que nunca se hayan publicado o vivan en archivos internos del área.
+
+#### Control Interno — 11 documentos
+- Informe FURAG 2020, 2021, 2022, 2023, 2024 (5 documentos)
+- Informe Pormenorizado de Control Interno Marzo 2024
+- Informe Pormenorizado de Control Interno Julio 2024
+- Informe Pormenorizado de Control Interno Diciembre 2024
+- Informe Pormenorizado de Control Interno Marzo 2025
+- Informe Pormenorizado de Control Interno Julio 2025
+- Informe Pormenorizado de Control Interno Diciembre 2025
+
+**Responsable**: Oficina de Control Interno — pedir los PDFs originales de FURAG anuales y los tres reportes cuatrimestrales pormenorizados de 2024 y 2025.
+
+#### Planeación — 8 documentos
+- Informe de Seguimiento PAI Primer Trimestre 2024
+- Informe de Seguimiento PAI Segundo Trimestre 2024
+- Informe de Seguimiento PAI Tercer Trimestre 2024
+- Informe de Seguimiento PAI Cuarto Trimestre 2024
+- Informe de Seguimiento PAI Primer Trimestre 2025
+- Informe de Seguimiento PAI Segundo Trimestre 2025
+- Informe de Seguimiento PAI Tercer Trimestre 2025
+- Informe de Seguimiento PAI Cuarto Trimestre 2025
+
+**Responsable**: Subdirección Administrativa y Financiera / Planeación — pedir los 8 PDFs trimestrales del seguimiento al Plan de Acción Institucional.
+
+#### Informes dudosos (2) — verificar con área
+- Informe de Gestión 2019 (WP legacy tiene solo un consolidado del primer trimestre 2019, no un informe anual)
+- Informe de Rendición de Cuentas 2020 (WP legacy tiene solo XLSX del ejercicio CGR, no un PDF del ejercicio institucional)
+- Informe de Rendición de Cuentas 2024 (hay 5 candidatos, ninguno claramente "el oficial 2024")
+
+**Responsable**: Direccionamiento Estratégico — confirmar cuál es la versión oficial de cada uno o si no existe.
+
+#### Políticas — 11 documentos (todas)
+- Política de Administración de Riesgos
+- Política de Comunicaciones
+- Política de Gestión del Conocimiento e Innovación
+- Política de Seguridad Digital
+- Política de Seguridad y Salud en el Trabajo
+- Política de Tratamiento de Datos Personales
+- Política Institucional de Gestión Ambiental
+- Política de Gobierno Digital
+- Política de Prevención del Daño Antijurídico
+- Política de Racionalización de Trámites
+- Política del Sistema Integrado de Gestión
+
+**Responsable**: Direccionamiento Estratégico + áreas de origen de cada política. Ninguna política tiene PDF en WP legacy. Es probable que se hayan aprobado como resoluciones sueltas y nunca se consolidaron como documento de política.

@@ -1,164 +1,184 @@
 # Backup
 
-Política y procedimiento de backup del servidor ITRC. Para detalles del servidor (nginx, runner, systemd, ufw), ver [`manual-operador/09-despliegue-datacenter.md`](manual-operador/09-despliegue-datacenter.md).
+Política de backup del servidor productivo `santorini` (`10.5.10.6`, HostDime) que sirve `www.itrc.gov.co`. Cubre todo el trabajo del equipo web: base de datos del CMS, media library, binarios históricos, working tree del build y configuraciones de servidor.
+
+## Alcance
+
+El backup del equipo web protege lo que el equipo web administra. Los siguientes puntos quedan por fuera y son responsabilidad de otros:
+
+- **Snapshots de VM y replicación off-site** — los cubre HostDime.
+- **DR de infraestructura y networking** — los cubre el equipo de Infra de ITRC.
+- **Cuentas del sistema, VPN y firmas TLS globales** — los cubren HostDime + Infra.
+
+El sandbox `192.168.82.13` no se respalda: es un entorno de pruebas del equipo, no destino institucional.
 
 ## Qué se backupea
 
-| Categoría | Path en el servidor | Tamaño aprox |
+Cada corrida diaria genera un directorio con estos artefactos:
+
+| Artefacto | Origen | Cómo se genera |
 |---|---|---|
-| Webroot completo (sitio Astro + binarios institucionales) | `/var/www/itrc-web/` | ~3.7 GB |
-| Configs nginx | `/etc/nginx/sites-{available,enabled}/` | <1 MB |
-| Sudoers de runner | `/etc/sudoers.d/` | <1 KB |
-| Servicio systemd del runner | `/etc/systemd/system/actions.runner.*.service` | <1 KB |
-| Reglas ufw | `/etc/ufw/user{,6}.rules` | <10 KB |
-| Certbot (cuando exista TLS) | `/etc/letsencrypt/` | varía |
-| Lista de paquetes instalados | snapshot diario via `dpkg --get-selections` | ~20 KB |
-| Versión OS + kernel + uptime | snapshot diario | <1 KB |
+| `strapi.pgcustom` | Postgres del contenedor `itrc-cms-postgres` | `pg_dump` formato custom (comprimido, restaurable con `pg_restore`) |
+| `uploads.tgz` | Media library de Strapi (`/var/www/portal_nuevo/uploads/`) | tarball comprimido |
+| `documentos.tgz` | Binarios históricos por área (`/home/admweb/itrc-cms/public/documentos/`) | tarball comprimido |
+| `working-tree.tgz` | Working tree del build (`src/`, `cms-strapi/`, `public/images/`) | tarball comprimido; incluye los nueve parches `as any` que producción necesita |
+| `etc/` | Configuración de servidor | `nginx/`, `default/strapi-deploy`, unit files (`strapi-deploy.service`), copia del script de backup |
+| `METADATA` | Estado del working tree en el momento del backup | `git HEAD`, rama, listado de archivos con cambios locales |
+| `SHA256SUMS` | Checksums de todos los artefactos | verificación de integridad |
 
 ## Política de retención
 
-Snapshots con estrategia "Time Machine" usando `rsync --link-dest` (hardlinks): cada snapshot se ve como copia completa pero solo gasta espacio por archivos nuevos/modificados respecto al snapshot anterior.
+Rotación grandfather-father-son con cuatro slots. La corrida diaria escribe el snapshot fresco y hace rotación de los slots antiguos:
 
-| Tipo | Cuántos | Frecuencia |
+| Slot | Antigüedad garantizada | Cuándo rota |
 |---|---|---|
-| Daily | 7 | Cada noche a las 2:00 UTC (rotación FIFO) |
-| Weekly | 4 | Cada domingo (clonado de daily.0 con hardlinks) |
-| Monthly | 6 | Día 1 de cada mes (clonado de daily.0 con hardlinks) |
-| Configs tarball + packages + system metadata | 30 | Uno por día, rotación FIFO |
+| `daily-1/` | Backup más reciente (hoy) | En cada corrida |
+| `daily-2/` | Backup del día anterior | En cada corrida |
+| `weekly/` | Domingo más reciente | Los domingos |
+| `monthly/` | Día 1 del mes más reciente | El día 1 |
 
-Espacio físico estimado para volumen actual: ~6-8 GB para todos los snapshots combinados.
+Cada slot es un snapshot completo pero comparte inodos con el anterior vía hardlinks. Tamaño físico en régimen: unos 20 GB para los cuatro slots juntos (cada snapshot lógico ronda los 5 GB entre DB, media y binarios).
 
 ## Estructura en disco
 
 ```
-/var/backups/itrc-web/
-├── daily/
-│   ├── daily.0/      ← snapshot de hoy
-│   ├── daily.1/      ← snapshot de ayer (hardlinks contra daily.0)
-│   └── ... daily.6
+/root/backups/itrc/
+├── daily-1/
+│   ├── strapi.pgcustom
+│   ├── uploads.tgz
+│   ├── documentos.tgz
+│   ├── working-tree.tgz
+│   ├── etc/
+│   ├── METADATA
+│   └── SHA256SUMS
+├── daily-2/
 ├── weekly/
-│   ├── weekly.0/     ← último domingo
-│   └── ... weekly.3
-├── monthly/
-│   ├── monthly.0/    ← último día 1
-│   └── ... monthly.5
-└── configs/
-    ├── configs-2026-05-08.tar.gz       (nginx, sudoers, systemd, ufw)
-    ├── packages-2026-05-08.txt         (dpkg --get-selections)
-    ├── system-2026-05-08.txt           (kernel, OS, uptime)
-    └── ... (hasta 30 archivos por prefijo)
+└── monthly/
 ```
 
-## Cómo restaurar
+## Cómo se dispara
 
-### Restaurar el webroot completo desde un snapshot
+- Script: `/usr/local/bin/backup-itrc-daily.sh`
+- Cron: `/etc/cron.d/itrc-backup` con la línea `0 3 * * * root /usr/local/bin/backup-itrc-daily.sh`
+- Log: `/var/log/itrc-backup.log`
+
+El script se ejecuta como root, corre `pg_dump` contra el contenedor Postgres, arma los tarballs, escribe `METADATA` con el estado del working tree, calcula `SHA256SUMS` y rota los slots. Si el disco pasa el 85% de uso, deja un `WARN` en el log.
+
+## Restauración
+
+Todos los ejemplos asumen sesión root en santorini.
+
+### Restaurar solo la base de datos de Strapi
 
 ```bash
-# Ver snapshots disponibles
-sudo ls -la /var/backups/itrc-web/daily/
-sudo ls -la /var/backups/itrc-web/weekly/
-sudo ls -la /var/backups/itrc-web/monthly/
+# Localizar el slot deseado (por ejemplo daily-2)
+ls /root/backups/itrc/daily-2/
 
-# Restaurar (ejemplo: snapshot de hace 3 días)
-sudo rsync -a --delete /var/backups/itrc-web/daily/daily.3/ /var/www/itrc-web/
-
-# Reload nginx (opcional, no imprescindible si solo se restauraron archivos)
-sudo systemctl reload nginx
+# Restaurar sobre la DB corriente
+docker exec -i itrc-cms-postgres pg_restore \
+  -U strapi -d strapi -c --if-exists \
+  < /root/backups/itrc/daily-2/strapi.pgcustom
 ```
 
-### Restaurar configs del servidor
+`-c --if-exists` limpia las tablas antes de repoblar. Después de restaurar suele convenir reiniciar Strapi (`docker compose --env-file /home/admweb/itrc-cms/.env.cms restart strapi`).
+
+### Restaurar la media library de Strapi
 
 ```bash
-# Listar tarballs disponibles
-sudo ls /var/backups/itrc-web/configs/
-
-# Inspeccionar contenido (sin extraer)
-sudo tar tzf /var/backups/itrc-web/configs/configs-2026-05-08.tar.gz | head
-
-# Extraer un archivo específico (e.g., el server block de nginx)
-sudo tar xzf /var/backups/itrc-web/configs/configs-2026-05-08.tar.gz \
-  etc/nginx/sites-available/itrc-web -C /tmp/
-
-# Comparar con el actual
-sudo diff /tmp/etc/nginx/sites-available/itrc-web /etc/nginx/sites-available/itrc-web
-
-# Restaurar si conviene
-sudo cp /tmp/etc/nginx/sites-available/itrc-web /etc/nginx/sites-available/itrc-web
-sudo nginx -t && sudo systemctl reload nginx
+tar xzf /root/backups/itrc/daily-1/uploads.tgz \
+  -C /var/www/portal_nuevo/
+chown -R www-data:www-data /var/www/portal_nuevo/uploads
 ```
 
-### Restaurar lista de paquetes (re-instalar todo desde cero)
-
-Útil si hay que reprovisionar un servidor nuevo:
+### Restaurar los binarios históricos
 
 ```bash
-# En el servidor nuevo, después de Ubuntu base
-sudo cp /var/backups/itrc-web/configs/packages-2026-05-08.txt /tmp/
-
-# Reinstalar todo lo que estaba antes
-sudo apt update
-sudo dpkg --set-selections < /tmp/packages-2026-05-08.txt
-sudo apt-get -y dselect-upgrade
+tar xzf /root/backups/itrc/daily-1/documentos.tgz \
+  -C /home/admweb/itrc-cms/public/
+chown -R admweb:admweb /home/admweb/itrc-cms/public/documentos
 ```
 
-## Verificación periódica
+### Restaurar el working tree completo
 
-### Comprobar que el cron disparó el backup
+Útil si alguien corrompió los archivos parcheados o si hay que reproducir un build antiguo:
 
 ```bash
-# Ver últimas líneas del log
-sudo tail -20 /var/log/itrc-backup.log
-
-# Buscar la última ejecución exitosa
-sudo grep "FIN BACKUP" /var/log/itrc-backup.log | tail -3
-
-# Ver tamaño actual de los backups
-sudo du -sh /var/backups/itrc-web/{daily,weekly,monthly,configs}
+tar xzf /root/backups/itrc/monthly/working-tree.tgz \
+  -C /home/admweb/itrc-cms/
+chown -R admweb:admweb /home/admweb/itrc-cms
 ```
 
-### Test mensual recomendado: restaurar a directorio temporal
+Después revisar `METADATA` del mismo slot para saber exactamente qué commit y qué archivos con cambios locales quedaron restaurados.
+
+### Restaurar configuración de servidor
 
 ```bash
-# Crear dir temporal para validación
-sudo mkdir /tmp/restore-test
-sudo rsync -a /var/backups/itrc-web/daily/daily.0/ /tmp/restore-test/
-sudo curl -I http://localhost/  # validar que la versión actual sigue
-sudo diff -q /var/www/itrc-web/index.html /tmp/restore-test/index.html  # debería ser igual
-sudo rm -rf /tmp/restore-test
+# Ver qué hay en el snapshot
+ls /root/backups/itrc/daily-1/etc/
+
+# Restaurar un vhost puntual
+cp /root/backups/itrc/daily-1/etc/nginx/conf.d/portal_nuevo.conf \
+   /etc/nginx/conf.d/portal_nuevo.conf
+nginx -t && systemctl reload nginx
+
+# Restaurar la unit del servicio de deploy
+cp /root/backups/itrc/daily-1/etc/systemd/system/strapi-deploy.service \
+   /etc/systemd/system/
+systemctl daemon-reload && systemctl restart strapi-deploy
 ```
 
-### Alertas de disco lleno
+## Verificación
 
-El script imprime `WARN: disco al X% — considerar reducir retención o expandir LVM` cuando supera el 85%. Estos warnings van al `/var/log/itrc-backup.log` y, cuando esté configurado postfix, también por email.
+### Confirmar la última corrida
 
-## Limitaciones conocidas
+```bash
+tail -40 /var/log/itrc-backup.log
+grep 'FIN BACKUP' /var/log/itrc-backup.log | tail -3
+du -sh /root/backups/itrc/{daily-1,daily-2,weekly,monthly}
+```
 
-1. **Single-host**: el backup vive en el mismo servidor. Si el servidor entero falla, los backups locales se pierden con él. Para mitigar conviene configurar push periódico a otra máquina institucional o a un repo privado para los configs.
+### Verificar integridad de un slot
 
-2. **No protege contra ataque al cron**: si un atacante con root corrompe el cron, los backups dejan de generarse silenciosamente. Mitigación: monitorear `/var/log/itrc-backup.log`.
+```bash
+cd /root/backups/itrc/daily-1
+sha256sum -c SHA256SUMS
+```
 
-3. **Email de fallo requiere `postfix`**: el cron tiene `MAILTO=daniel@digitalia.gov.co` pero necesita un MTA configurado en el servidor. Sin él, revisar manualmente el log.
+Cualquier `FAILED` en la salida indica que un artefacto se corrompió.
 
-4. **No incluye la base de datos de Strapi**: el script backupea webroot y configs. El Postgres del contenedor `itrc-cms-postgres` (donde vive todo el contenido editable) no se respalda con este script. Para incluirlo hay que extender el cron con `pg_dump` contra el contenedor.
+### Test recomendado de restauración parcial
 
-5. **El cron file no se backupea**: el script `/usr/local/bin/itrc-backup.sh` vive en `ops/server-backup.sh` del repo. El cron file `/etc/cron.d/itrc-backup` se re-crea manualmente si se reprovisiona el servidor.
+Una vez por mes conviene restaurar la DB en un contenedor Postgres desechable para confirmar que el dump es utilizable:
+
+```bash
+docker run --rm -d --name pg-restore-test \
+  -e POSTGRES_PASSWORD=test postgres:16-alpine
+docker exec -i pg-restore-test createdb -U postgres strapi
+docker exec -i pg-restore-test pg_restore -U postgres -d strapi \
+  < /root/backups/itrc/daily-1/strapi.pgcustom
+docker stop pg-restore-test
+```
+
+Si `pg_restore` termina en 0, el dump es restaurable.
 
 ## Modificar la política
 
-Si necesitas cambiar la retención (e.g., guardar 14 días en vez de 7), edita en `/usr/local/bin/itrc-backup.sh`:
+Los parámetros de retención y los paths están definidos en `/usr/local/bin/backup-itrc-daily.sh`. Editar allí y luego:
 
 ```bash
-DAILY_KEEP=14    # antes 7
-WEEKLY_KEEP=8    # antes 4
-MONTHLY_KEEP=12  # antes 6
+systemctl restart cron   # innecesario si solo se cambian variables
+grep -A2 backup-itrc-daily /etc/cron.d/itrc-backup
 ```
 
-Después: `sudo cp ops/server-backup.sh /usr/local/bin/itrc-backup.sh` (asumiendo que actualizaste el archivo en el repo).
-
-Si necesitas cambiar la frecuencia, edita `/etc/cron.d/itrc-backup`:
+Para cambiar la frecuencia editar `/etc/cron.d/itrc-backup`. Por ejemplo, ejecutar cada seis horas:
 
 ```
-0 2 * * * root /usr/local/bin/itrc-backup.sh ...   # actual: diario 2 AM UTC
-0 */6 * * * root ...                                # cada 6 horas
-0 1 * * 0 root ...                                  # solo domingos 1 AM
+0 */6 * * * root /usr/local/bin/backup-itrc-daily.sh
 ```
+
+## Limitaciones conocidas
+
+1. **Copia local únicamente**. Los cuatro slots viven en `/root/backups/itrc/` dentro de santorini. Una falla de disco de la VM se lleva los backups con ella. El off-site lo cubren HostDime + Infra; el equipo web no lo administra.
+2. **Ventana de restauración limitada**. Solo hay cuatro snapshots (dos diarios, un semanal, un mensual). Problemas detectados con más de 30 días de retraso ya no son recuperables desde este backup.
+3. **El script y la unidad de cron no se auto-restauran**. Si se reprovisiona la VM hay que copiar de nuevo `backup-itrc-daily.sh` y `/etc/cron.d/itrc-backup` desde el repo (`server/backup-prod-itrc.sh` y el snippet cron documentado aquí) antes de que corra la primera corrida.
+4. **No incluye sub-sitios legacy remanentes**. `denuncias/` (PHP custom + `denuncias_db`) queda por fuera de este backup diario. Si sigue vivo cuando se actualice esta política, hay que sumarlo o migrarlo al patrón estándar.

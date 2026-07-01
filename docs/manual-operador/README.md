@@ -42,9 +42,9 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 | Sincronizar cambios de código con el repositorio | [08 — Mantenimiento Git](08-mantenimiento-git.md) |
 | Resolver un conflicto de git cuando dos personas editaron lo mismo | [08 — Mantenimiento Git](08-mantenimiento-git.md) |
 | Verificar el estado del despliegue del portal | [09 — Despliegue en datacenter](09-despliegue-datacenter.md) |
-| Configurar nginx | [09 — Despliegue en datacenter, sección C](09-despliegue-datacenter.md#c-configuración-nginx) |
-| Actualizar la imagen Docker del CMS Strapi | [09 — Despliegue en datacenter, sección D](09-despliegue-datacenter.md#d-cms-en-docker-strapi--postgres) |
-| Revertir un despliegue defectuoso | [09 — Despliegue en datacenter, sección G](09-despliegue-datacenter.md#g-operación) |
+| Entender qué corre en el servidor productivo | [09 — Despliegue en datacenter, sección A](09-despliegue-datacenter.md#a-piezas-del-servidor-productivo) |
+| Qué NO debe tocar el operador | [09 — Despliegue en datacenter, sección D](09-despliegue-datacenter.md#d-qué-no-debe-hacer-el-operador) |
+| Cuándo escalar un problema al desarrollador | [09 — Despliegue en datacenter, sección H](09-despliegue-datacenter.md#h-cuándo-escalar-a-un-desarrollador) |
 | Crear una cuenta nueva de editor en el CMS | [10 — Autenticación, sección C](10-autenticacion-strapi.md#c-crear-un-usuario-nuevo) |
 | Retirar acceso a un editor que se va | [10 — Autenticación, sección E](10-autenticacion-strapi.md#e-dar-de-baja-a-un-usuario) |
 | Recuperar contraseña olvidada | [10 — Autenticación, sección F](10-autenticacion-strapi.md#f-recuperar-contraseña) |
