@@ -8,55 +8,150 @@
       "label": "Agencia",
       "url": "/agencia",
       "children": [
-        { "label": "Misión, Visión y Propósito Estratégico", "url": "/agencia/mision-vision" },
-        { "label": "Nuestra Estructura", "url": "/agencia/organigrama" },
-        { "label": "Equipo Directivo", "url": "/agencia/equipo-directivo" },
-        { "label": "Direccionamiento Estratégico", "url": "/agencia/direccionamiento-estrategico" },
-        { "label": "Sistema Integrado de Gestión", "url": "/agencia/sistema-integrado-de-gestion" },
-        { "label": "Gestión Misional", "url": "/agencia/gestion-misional" },
-        { "label": "Sistema de Control Interno", "url": "/agencia/control-interno" },
-        { "label": "Información Financiera", "url": "/agencia/informacion-financiera" }
+        {
+          "label": "Misión, Visión y Propósito Estratégico",
+          "url": "/agencia/mision-vision"
+        },
+        {
+          "label": "Nuestra Estructura",
+          "url": "/agencia/organigrama"
+        },
+        {
+          "label": "Equipo Directivo",
+          "url": "/agencia/equipo-directivo"
+        },
+        {
+          "label": "Direccionamiento Estratégico",
+          "url": "/agencia/direccionamiento-estrategico"
+        },
+        {
+          "label": "Sistema Integrado de Gestión",
+          "url": "/agencia/sistema-integrado-de-gestion"
+        },
+        {
+          "label": "Gestión Misional",
+          "url": "/agencia/gestion-misional"
+        },
+        {
+          "label": "Sistema de Control Interno",
+          "url": "/agencia/control-interno"
+        },
+        {
+          "label": "Información Financiera",
+          "url": "/agencia/informacion-financiera"
+        }
       ]
     },
     {
       "label": "Normativa",
       "url": "/normativa",
       "children": [
-        { "label": "Normativa Aplicable", "url": "/normativa-aplicada" },
-        { "label": "Unificación Normativa SUIN Juriscol", "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol" },
-        { "label": "Decretos", "url": "/decretos" },
-        { "label": "Resoluciones, circulares y otros actos", "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos" },
-        { "label": "Marco Legal", "url": "/marco-legal" }
+        {
+          "label": "Normativa Aplicable",
+          "url": "/normativa-aplicada"
+        },
+        {
+          "label": "Unificación Normativa SUIN Juriscol",
+          "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol"
+        },
+        {
+          "label": "Decretos",
+          "url": "/decretos"
+        },
+        {
+          "label": "Resoluciones, circulares y otros actos",
+          "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos"
+        },
+        {
+          "label": "Marco Legal",
+          "url": "/marco-legal"
+        }
       ]
     },
     {
       "label": "Atención y Servicios",
       "url": "/atencion-y-servicios",
       "children": [
-        { "label": "Consulte el estado de su PQRSDF", "url": "https://www.itrc.gov.co/denuncias/consulta", "external": true },
-        { "label": "Notificaciones y Traslados", "url": "/notificaciones-y-traslados" },
-        { "label": "Notificaciones por aviso", "url": "/notificaciones-por-aviso" },
-        { "label": "Vinculación a Terceros", "url": "/vinculacion-a-terceros-cancelacion-de-registro-publico" },
-        { "label": "Correo notificaciones judiciales", "url": "/correo-electronico-para-notificaciones-judiciales" },
-        { "label": "Cartilla al ciudadano", "url": "/cartilla-al-ciudadano" },
-        { "label": "Canales de atención", "url": "/canales-de-atencion-al-ciudadano" },
-        { "label": "P.Q.R.S.D.F.", "url": "/tu-p-q-r-s-al-dia" },
-        { "label": "Datos Abiertos", "url": "https://www.datos.gov.co/browse?q=itrc", "external": true },
-        { "label": "Preguntas Frecuentes", "url": "/preguntas-frecuentes" },
-        { "label": "Glosario", "url": "/glosario" },
-        { "label": "Carta trato digno al ciudadano", "url": "/carta-trato-digno" }
+        {
+          "label": "Consulte el estado de su PQRSDF",
+          "url": "https://www.itrc.gov.co/denuncias/consulta",
+          "external": true
+        },
+        {
+          "label": "Notificaciones y Traslados",
+          "url": "/notificaciones-y-traslados"
+        },
+        {
+          "label": "Notificaciones por aviso",
+          "url": "/notificaciones-por-aviso"
+        },
+        {
+          "label": "Vinculación a Terceros",
+          "url": "/vinculacion-a-terceros-cancelacion-de-registro-publico"
+        },
+        {
+          "label": "Correo notificaciones judiciales",
+          "url": "/correo-electronico-para-notificaciones-judiciales"
+        },
+        {
+          "label": "Cartilla al ciudadano",
+          "url": "/cartilla-al-ciudadano"
+        },
+        {
+          "label": "Canales de atención",
+          "url": "/canales-de-atencion-al-ciudadano"
+        },
+        {
+          "label": "PQRSDF",
+          "url": "/tu-p-q-r-s-al-dia"
+        },
+        {
+          "label": "Datos Abiertos",
+          "url": "https://www.datos.gov.co/browse?q=itrc",
+          "external": true
+        },
+        {
+          "label": "Preguntas Frecuentes",
+          "url": "/preguntas-frecuentes"
+        },
+        {
+          "label": "Glosario",
+          "url": "/glosario"
+        },
+        {
+          "label": "Carta trato digno al ciudadano",
+          "url": "/carta-trato-digno"
+        }
       ]
     },
     {
       "label": "Participa",
       "url": "/participa",
       "children": [
-        { "label": "Diagnóstico e Identificación de Problemas", "url": "/participa/diagnostico-e-identificacion-de-problemas" },
-        { "label": "Planeación y Presupuesto Participativo", "url": "/participa/planeacion-y-presupuesto-participativo" },
-        { "label": "Consulta Ciudadana", "url": "/participa/consulta-ciudadana" },
-        { "label": "Colaboración e Innovación", "url": "/participa/colaboracion-e-innovacion" },
-        { "label": "Rendición de Cuentas", "url": "/participa/rendicion-de-cuentas" },
-        { "label": "Control Social", "url": "/participa/control-social" }
+        {
+          "label": "Diagnóstico e Identificación de Problemas",
+          "url": "/participa/diagnostico-e-identificacion-de-problemas"
+        },
+        {
+          "label": "Planeación y Presupuesto Participativo",
+          "url": "/participa/planeacion-y-presupuesto-participativo"
+        },
+        {
+          "label": "Consulta Ciudadana",
+          "url": "/participa/consulta-ciudadana"
+        },
+        {
+          "label": "Colaboración e Innovación",
+          "url": "/participa/colaboracion-e-innovacion"
+        },
+        {
+          "label": "Rendición de Cuentas",
+          "url": "/participa/rendicion-de-cuentas"
+        },
+        {
+          "label": "Control Social",
+          "url": "/participa/control-social"
+        }
       ]
     },
     {
@@ -67,10 +162,22 @@
       "label": "Observatorio ITRC",
       "url": "/observatorio",
       "children": [
-        { "label": "Del Observatorio", "url": "/observatorio/del-observatorio" },
-        { "label": "Eje de Medición", "url": "/observatorio/eje-de-medicion" },
-        { "label": "Eje de Educación", "url": "/observatorio/eje-de-educacion" },
-        { "label": "Eje de Participación", "url": "/observatorio/eje-de-participacion" }
+        {
+          "label": "Del Observatorio",
+          "url": "/observatorio/del-observatorio"
+        },
+        {
+          "label": "Eje de Medición",
+          "url": "/observatorio/eje-de-medicion"
+        },
+        {
+          "label": "Eje de Educación",
+          "url": "/observatorio/eje-de-educacion"
+        },
+        {
+          "label": "Eje de Participación",
+          "url": "/observatorio/eje-de-participacion"
+        }
       ]
     },
     {
@@ -81,19 +188,40 @@
       "label": "Prensa",
       "url": "/prensa",
       "children": [
-        { "label": "Noticias", "url": "/prensa/noticias" },
-        { "label": "Eventos", "url": "/prensa/eventos" },
-        { "label": "Videos", "url": "/videos-itrc" },
-        { "label": "Galería", "url": "/galeria" },
-        { "label": "Cápsulas informativas", "url": "/capsulas-informativas" }
+        {
+          "label": "Noticias",
+          "url": "/prensa/noticias"
+        },
+        {
+          "label": "Eventos",
+          "url": "/prensa/eventos"
+        },
+        {
+          "label": "Videos",
+          "url": "/videos-itrc"
+        },
+        {
+          "label": "Galería",
+          "url": "/galeria"
+        },
+        {
+          "label": "Cápsulas informativas",
+          "url": "/capsulas-informativas"
+        }
       ]
     },
     {
       "label": "Congresos",
       "url": "/ciprep2026",
       "children": [
-        { "label": "CIPREP 2026", "url": "/ciprep2026" },
-        { "label": "CIPREP 2025", "url": "/ciprep2025" }
+        {
+          "label": "CIPREP 2026",
+          "url": "/ciprep2026"
+        },
+        {
+          "label": "CIPREP 2025",
+          "url": "/ciprep2025"
+        }
       ]
     },
     {
