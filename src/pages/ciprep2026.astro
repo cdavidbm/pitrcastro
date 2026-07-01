@@ -228,7 +228,7 @@ const entidadesExpositoras = [
       <div class="ciprep-recall">
         <p>
           ¿Te perdiste la primera edición? Consulta las
-          <a href={resolveUrl('/ciprep2025')}>memorias del Congreso CIPREP 2025</a>:
+          <a href={resolveUrl('/ciprep2025')}>memorias del Congreso Internacional para la Protección de los Recursos Públicos 2025</a>:
           agenda completa, ponentes y grabaciones disponibles.
         </p>
       </div>
@@ -377,9 +377,13 @@ const entidadesExpositoras = [
   <section id="inscripcion" class="ciprep-section">
     <div class="container">
       <div class="ciprep-cta">
-        <h3>Inscripción al Congreso CIPREP 2026</h3>
+        <h3>Inscripción al Congreso Internacional para la Protección de los Recursos Públicos 2026</h3>
         <p>
           La inscripción es <strong>gratuita</strong> y se realiza a través del formulario oficial del Ministerio de Hacienda. El formulario solicita autorización de tratamiento de datos personales conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013.
+        </p>
+        <p class="ciprep-cta__deadline">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <strong>Fecha límite de inscripción: 15 de julio de 2026</strong>
         </p>
         <a href={INSCRIPCION_URL} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
           <i class="fa-solid fa-user-plus"></i> Diligenciar formulario de inscripción
@@ -972,6 +976,21 @@ const entidadesExpositoras = [
     font-size: var(--font-size-xs);
     color: rgba(255, 255, 255, 0.7);
     font-style: italic;
+  }
+  .ciprep-cta__deadline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: var(--space-4) 0 var(--space-5);
+    padding: var(--space-3) var(--space-5);
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius-full, 999px);
+    color: #fff;
+    font-size: var(--font-size-sm);
+  }
+  .ciprep-cta__deadline i {
+    color: var(--itrc-gold, #b38b40);
   }
 
   @media (max-width: 768px) {
