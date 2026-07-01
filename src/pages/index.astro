@@ -71,9 +71,9 @@ const base = import.meta.env.BASE_URL;
 
   <script is:inline>
     (function() {
-      var KEY = 'itrc-welcome-ciprep2026-dismissed';
-      // No mostrar si ya lo cerró antes
-      if (localStorage.getItem(KEY) === '1') return;
+      // Se muestra en CADA carga del home mientras dure la promoción del Congreso.
+      // Limpia cualquier flag de la versión anterior que persistía el "ya cerrado".
+      try { localStorage.removeItem('itrc-welcome-ciprep2026-dismissed'); } catch (e) {}
       var modal = document.querySelector('[data-welcome-modal]');
       if (!modal) return;
       function show() {
@@ -85,16 +85,12 @@ const base = import.meta.env.BASE_URL;
       function hide() {
         modal.hidden = true;
         document.body.style.overflow = '';
-        localStorage.setItem(KEY, '1');
       }
       // Pequeño delay para que no salte instantáneamente al cargar
       setTimeout(show, 600);
       modal.querySelectorAll('[data-welcome-close]').forEach(function(el) {
         el.addEventListener('click', hide);
       });
-      // Si hace click en el CTA (link), también marcamos como visto
-      var ctaLink = modal.querySelector('.welcome-modal__cta-link');
-      if (ctaLink) ctaLink.addEventListener('click', function() { localStorage.setItem(KEY, '1'); });
       // Tecla Esc cierra
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && !modal.hidden) hide();
