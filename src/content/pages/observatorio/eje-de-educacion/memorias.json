@@ -354,5 +354,11 @@
         }
       ]
     }
-  ]
+  ],
+  "dashboard": {
+    "titulo": "Tablero de indicadores – Eje de Educación",
+    "descripcion": "Consulte los indicadores del Eje de Educación en el tablero interactivo de Power BI",
+    "url": "https://app.powerbi.com/view?r=eyJrIjoiNGY3NDk2M2YtYzg4YS00NDhiLWExZmUtY2ZjYWYzYjk0MjE3IiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9",
+    "icon": "fa-chart-bar"
+  }
 }

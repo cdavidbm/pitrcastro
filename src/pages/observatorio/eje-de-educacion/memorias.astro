@@ -3,7 +3,13 @@ import Base from '../../../layouts/Base.astro';
 import HeroPage from '../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../utils/url';
 import { getObservatorioEjeDeEducacionMemoriasInfo } from '../../../utils/strapi-fetchers';
-const pageData: any = (await getObservatorioEjeDeEducacionMemoriasInfo()) ?? {};
+import memoriasLocal from '../../../content/pages/observatorio/eje-de-educacion/memorias.json';
+const remote: any = await getObservatorioEjeDeEducacionMemoriasInfo().catch(() => null);
+const pageData: any = remote ?? memoriasLocal;
+// Complementar con campos del JSON local que Strapi aún no expone (ej. dashboard)
+if (remote && !remote.dashboard && (memoriasLocal as any).dashboard) {
+  pageData.dashboard = (memoriasLocal as any).dashboard;
+}
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -20,6 +26,21 @@ const totalMemorias = pageData.anios.reduce((s, a) => s + a.entradas.length, 0);
   <section class="mem-section">
     <div class="container">
       <div class="mem-count"><i class="fa-solid fa-photo-film" aria-hidden="true"></i> {totalMemorias} memorias</div>
+
+      {pageData.dashboard && (
+        <a href={pageData.dashboard.url} target="_blank" rel="noopener" class="mem-dashboard">
+          <div class="mem-dashboard__icon">
+            <i class={`fa-solid ${pageData.dashboard.icon || 'fa-chart-bar'}`} aria-hidden="true"></i>
+          </div>
+          <div class="mem-dashboard__body">
+            <h3>{pageData.dashboard.titulo}</h3>
+            <p>{pageData.dashboard.descripcion}</p>
+          </div>
+          <span class="mem-dashboard__cta">
+            Abrir en Power BI <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </span>
+        </a>
+      )}
 
       <div class="mem-tabs" role="tablist">
         {pageData.anios.map((g, i) => (
@@ -63,6 +84,17 @@ const totalMemorias = pageData.anios.reduce((s, a) => s + a.entradas.length, 0);
   .mem-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
   .mem-section .container { max-width: 1100px; margin: 0 auto; }
   .mem-count { display: flex; align-items: center; justify-content: center; gap: var(--space-2); font-size: var(--font-size-sm); font-weight: 700; color: var(--itrc-gold); margin-bottom: var(--space-6); }
+  .mem-dashboard { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-4); align-items: center; padding: var(--space-5) var(--space-6); margin-bottom: var(--space-6); background: linear-gradient(135deg, var(--itrc-navy, #002147), #0943b5); color: #fff; border-radius: var(--radius-lg); text-decoration: none; box-shadow: 0 10px 24px rgba(0, 33, 71, 0.2); transition: transform var(--transition-base), box-shadow var(--transition-base); }
+  .mem-dashboard:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0, 33, 71, 0.3); }
+  .mem-dashboard__icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.15); border-radius: 50%; font-size: 1.6rem; color: var(--itrc-gold); }
+  .mem-dashboard__body h3 { margin: 0 0 var(--space-1); font-size: var(--font-size-lg); color: #fff; }
+  .mem-dashboard__body p { margin: 0; font-size: var(--font-size-sm); color: rgba(255, 255, 255, 0.85); }
+  .mem-dashboard__cta { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full, 999px); font-weight: 700; font-size: var(--font-size-sm); white-space: nowrap; }
+  @media (max-width: 640px) {
+    .mem-dashboard { grid-template-columns: 1fr; text-align: center; }
+    .mem-dashboard__icon { margin: 0 auto; }
+    .mem-dashboard__cta { justify-self: center; }
+  }
 
   .mem-tabs { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-bottom: var(--space-6); border-bottom: 2px solid var(--theme-border); padding-bottom: var(--space-2); }
   .mem-tab { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border: 1px solid transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: transparent; color: var(--theme-text-secondary); font-size: var(--font-size-sm); font-weight: 600; font-family: var(--font-family); cursor: pointer; transition: all var(--transition-fast); }
