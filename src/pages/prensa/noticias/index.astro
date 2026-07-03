@@ -26,6 +26,7 @@ const counts = {
   noticia: news.filter(n => (n.data.categoria || 'noticia') === 'noticia').length,
   comunicado: news.filter(n => n.data.categoria === 'comunicado').length,
   boletin: news.filter(n => n.data.categoria === 'boletin').length,
+  periodico: news.filter(n => n.data.categoria === 'periodico').length,
 };
 
 const base = import.meta.env.BASE_URL;
@@ -61,6 +62,10 @@ const breadcrumb = [
           <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="boletin">
             <span class="prensa-chip__dot" style="background:#0943b5"></span>
             Boletines <span class="prensa-chip__count">{counts.boletin}</span>
+          </button>
+          <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="periodico">
+            <span class="prensa-chip__dot" style="background:#b38b40"></span>
+            Periódico <span class="prensa-chip__count">{counts.periodico}</span>
           </button>
         </div>
 

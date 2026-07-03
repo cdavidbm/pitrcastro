@@ -24,6 +24,7 @@ const catLabels: Record<string, string> = {
   noticia: 'Noticia',
   boletin: 'Boletín',
   comunicado: 'Comunicado',
+  periodico: 'Periódico',
 };
 const catLabel = categoria ? (catLabels[categoria] || categoria) : '';
 ---
@@ -73,6 +74,7 @@ const catLabel = categoria ? (catLabels[categoria] || categoria) : '';
   .news-card__badge--boletin { background: #0943b5; }
   .news-card__badge--comunicado { background: var(--itrc-gold); color: var(--itrc-navy); }
   .news-card__badge--noticia { background: #198754; }
+  .news-card__badge--periodico { background: var(--itrc-navy); color: #fff; border: 2px solid var(--itrc-gold); }
   .news-card__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); flex-wrap: wrap; }
   .news-card__meta .news-card__date { margin-bottom: 0; }
 </style>
