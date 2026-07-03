@@ -38,9 +38,25 @@ const buildFromLocal = (): NotificacionEntry[] => {
 const remote = ((await getNotificacionList()) as NotificacionEntry[]) || [];
 const all: NotificacionEntry[] = remote.length > 0 ? remote : buildFromLocal();
 
-const edictos = all.filter((e) => e.categoria === 'edicto');
-const estados = all.filter((e) => e.categoria === 'estado');
-const traslados = all.filter((e) => e.categoria === 'traslado');
+// Los registros más recientes (con PDF adjunto) deben aparecer arriba.
+// Orden: vigencia desc, luego fecha del auto desc (dd/mm/yyyy).
+const parseFechaAuto = (f?: string): number => {
+  if (!f) return 0;
+  const p = f.split('/');
+  if (p.length !== 3) return 0;
+  return parseInt(p[2], 10) * 10000 + parseInt(p[1], 10) * 100 + parseInt(p[0], 10);
+};
+const sortRecientesArriba = (arr: NotificacionEntry[]) =>
+  [...arr].sort((a, b) => {
+    const va = a.vigencia ?? 0;
+    const vb = b.vigencia ?? 0;
+    if (va !== vb) return vb - va;
+    return parseFechaAuto(b.fechaAuto) - parseFechaAuto(a.fechaAuto);
+  });
+
+const edictos = sortRecientesArriba(all.filter((e) => e.categoria === 'edicto'));
+const estados = sortRecientesArriba(all.filter((e) => e.categoria === 'estado'));
+const traslados = sortRecientesArriba(all.filter((e) => e.categoria === 'traslado'));
 
 const tabs = [
   { id: 'edictos', label: 'Edictos', icon: 'fa-scroll', entries: edictos, count: edictos.length },

@@ -650,3 +650,43 @@ Ya funcionan en producción con enlace real al PDF:
 - Política del Sistema Integrado de Gestión
 
 **Responsable**: Direccionamiento Estratégico + áreas de origen de cada política. Ninguna política tiene PDF en WP legacy. Es probable que se hayan aprobado como resoluciones sueltas y nunca se consolidaron como documento de política.
+
+---
+
+## Actualización 2026-07-01 tarde — Fase B2 informes (8 Seguimiento PAI restaurados)
+
+**Contexto**: Ampliación del rastreo del WP legacy tras solicitud de estados financieros. En la búsqueda amplia se descubrió que los 8 informes de "Seguimiento PAI" trimestrales existían en el WP legacy con el nombre "Informe Avance Plan de Acción" (equivalente semántico, distinto nombre).
+
+**Restaurados (8)**:
+
+| Documento Strapi | Origen recuperado |
+|---|---|
+| Seguimiento PAI Primer Trimestre 2024 | `2024/05/Informe-Avance-Plan-de-Accion-2024-TRIMESTRE-I.pdf` |
+| Seguimiento PAI Segundo Trimestre 2024 | `2024/08/Informe-Avance-Plan-de-Accion-2024-Trimestre-II.pdf` |
+| Seguimiento PAI Tercer Trimestre 2024 | `2024/11/INFORME-AVANCE-PLAN-DE-ACCION-2024-TRIMESTRE-III.pdf` |
+| Seguimiento PAI Cuarto Trimestre 2024 | `2025/01/Informe-Avance-Plan-de-Accion-2024-Trimestre-IV.pdf` |
+| Seguimiento PAI Primer Trimestre 2025 | `2025/06/Informe-Avance-Plan-de-Accion-2025-Trimestre-I.pdf` |
+| Seguimiento PAI Segundo Trimestre 2025 | `2025/08/Informe-Avance-Plan-de-Accion-2025-Trimestre-II.pdf` |
+| Seguimiento PAI Tercer Trimestre 2025 | `2026/01/Informe-Avance-Plan-de-Accion-2025-Trimestre-III.pdf` |
+| Seguimiento PAI Cuarto Trimestre 2025 | `2026/01/Informe-Avance-Plan-de-Accion-2025-Trimestre-IV.pdf` |
+
+**También** publicado: Estados Financieros a Marzo 2026 en `/agencia/informacion-financiera` (nuevo tab EF 2026), origen: `2026/06/Estados-Financieros-marzo-2026.pdf`.
+
+**Estado actualizado de la página `/informes`**: 18 documentos con archivo, 14 huérfanos restantes.
+
+### Faltantes ratificados tras búsqueda exhaustiva (14)
+
+**Búsqueda cubrió**: 6041 PDFs distribuidos en Itrc (5452), observatorio (257), relatorias Joomla (217), denuncias (111), ciprep (4); tarballs de backup 2025-12-22 (2.6 GB combinados); `/root/backups/`; `portal_nuevo/documentos/institucional/`. Filtros aplicados: nombre exacto, variantes, sinónimos, MIPG, distintos formatos.
+
+**No existen en ningún directorio del server**:
+
+- **Informes FURAG 2020-2024** (5). El FURAG es reportado por el área de Control Interno al DAFP en la plataforma Función Pública. Los PDFs de resultado se descargan desde ahí — no se publicaban en el WP.
+- **Pormenorizado Control Interno 2024-2025** (6): Marzo/Julio/Diciembre. En el WP solo hay hasta noviembre 2019.
+- **Rendición de Cuentas 2020, 2024** (2). Solo hay banners e imágenes, no informes PDF.
+- **Informe de Gestión 2019 anual** (1). No aparece en el WP.
+
+**Áreas responsables para solicitar**:
+- Control Interno: 11 documentos (5 FURAG + 6 Pormenorizado)
+- Direccionamiento Estratégico: 3 documentos (Rendición 2020, Rendición 2024, Gestión 2019)
+
+Las 11 Políticas siguen sin verificar en detalle — pendiente búsqueda dedicada.

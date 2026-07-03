@@ -438,12 +438,14 @@ const sections = [
   /* === Agenda === */
   .ciprep-agenda {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--space-6);
+    max-width: 900px;
+    margin: 0 auto;
   }
-  /* Fix: prevenir que grid-items 1fr colapsen y rompan textos largos
-     verticalmente. Sin min-width:0, las celdas con texto largo (entidad,
-     cargo, área) se ven como una columna estrecha con una palabra por fila. */
+  @media (min-width: 1400px) {
+    .ciprep-agenda { grid-template-columns: 1fr 1fr; max-width: none; }
+  }
   .ciprep-agenda > .ciprep-day,
   .ciprep-day,
   .ciprep-item,
@@ -453,7 +455,7 @@ const sections = [
   .ciprep-item__title,
   .ciprep-item__moderator,
   .ciprep-item__speakers strong,
-  .ciprep-item__speakers span { overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
+  .ciprep-item__speakers span { overflow-wrap: break-word; word-break: normal; hyphens: manual; }
   .ciprep-day {
     background: var(--theme-surface);
     border: 1px solid var(--theme-border);
