@@ -1,6 +1,24 @@
 ---
+interface Slide {
+  image: any;
+  imageMobile?: any;
+  imageAlt?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  link?: string;
+  linkText?: string;
+  external?: boolean;
+  overlay?: boolean;
+  active?: boolean;
+  order?: number;
+}
+
 interface Props {
   slider?: string;
+  slides?: Slide[];
+  autoplay?: boolean;
+  interval?: number;
   class?: string;
 }
 
@@ -8,17 +26,19 @@ import { resolveUrl } from '../utils/url';
 import { mediaUrl } from '../utils/strapi-media';
 import { getSlider } from '../utils/strapi-fetchers';
 
-const { slider = 'home', class: className = '' } = Astro.props;
+const { slider = 'home', slides: providedSlides, autoplay: providedAutoplay, interval: providedInterval, class: className = '' } = Astro.props;
 
-// El portal usa hoy un único slider (single type Strapi). El prop `slider`
-// queda como anclaje de identidad por si en el futuro se expone como
-// collection con un slug por slider.
-const sliderData = (await getSlider().catch(() => null)) as any;
+// Si el consumidor pasa slides por prop (uso inline sin CMS), se usan esos.
+// Si no, fetchea el single-type Strapi. El prop `slider` queda como
+// anclaje de identidad por si el slider se expone como collection en el futuro.
+const sliderData = providedSlides
+  ? { slides: providedSlides, name: slider }
+  : ((await getSlider().catch(() => null)) as any);
 
 const slides = (sliderData?.slides || []) as any[];
 const config = {
-  autoplay: sliderData?.autoplay ?? true,
-  interval: sliderData?.interval ?? 5000,
+  autoplay: providedAutoplay ?? sliderData?.autoplay ?? true,
+  interval: providedInterval ?? sliderData?.interval ?? 5000,
 };
 
 const activeSlides = slides
@@ -340,6 +360,22 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
   @media (max-width: 768px) {
     .hero-slide {
       aspect-ratio: 1900 / 600;
+    }
+
+    /* Si el slider tiene AL MENOS un slide con versión móvil cuadrada,
+       todo el slider adopta proporción 1:1 en pantallas chicas. */
+    .hero-slider:has(picture source) .hero-slide {
+      aspect-ratio: 1 / 1;
+    }
+
+    /* Los slides SIN versión móvil (solo panorámica 1900×600) muestran el arte
+       completo con letterbox (`contain`) para no perder los lados. La banda
+       arriba y abajo hereda el fondo institucional del slider. Los slides con
+       imageMobile mantienen `cover` para que su versión cuadrada llene el
+       cuadro completo. */
+    .hero-slider:has(picture source) .hero-slide:not(:has(picture)) .hero-slide__image {
+      object-fit: contain;
+      background: var(--theme-hero-from);
     }
 
     .hero-slider__control {
