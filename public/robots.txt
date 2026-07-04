@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Documentos confidenciales del WordPress legacy — bloqueados individualmente.
+# Ver `.local-docs` y memoria del proyecto para auditoría completa pendiente.
+Disallow: /Itrc/wp-content/uploads/2025/12/HOJA-DE-VIDA-FUNCION-PUBLICA-Martha-Perea-1.pdf
+
+Sitemap: https://www.itrc.gov.co/sitemap-index.xml
