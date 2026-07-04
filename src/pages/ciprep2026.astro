@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
+import HeroSlider from '../components/HeroSlider.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import { resolveUrl } from '../utils/url';
 
@@ -23,6 +24,33 @@ const INSCRIPCION_URL =
 
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Carrera+7+%23+6b-80+Bogot%C3%A1+Ministerio+de+Hacienda';
+
+const heroSlides = [
+  {
+    image: '/images/sliders/slider-ciprep-2026.jpg',
+    imageMobile: '/images/ciprep2026-hero-mobile.webp',
+    imageAlt: 'II Congreso Internacional para la Protección de los Recursos Públicos — 3 y 4 de agosto de 2026 en Bogotá. Un país más transparente se construye con conocimiento y acción.',
+    overlay: false,
+    active: true,
+    order: 0,
+  },
+  {
+    image: '/images/ciprep2026-panelistas-nacionales-desktop.webp',
+    imageMobile: '/images/ciprep2026-panelistas-nacionales-mobile.webp',
+    imageAlt: 'Panelistas nacionales del II Congreso CIPREP 2026 — expertos en control fiscal y protección de recursos públicos que dialogarán en el congreso.',
+    overlay: false,
+    active: true,
+    order: 1,
+  },
+  {
+    image: '/images/ciprep2026-panelistas-internacionales-desktop.webp',
+    imageMobile: '/images/ciprep2026-panelistas-internacionales-mobile.webp',
+    imageAlt: 'Panelistas internacionales del II Congreso CIPREP 2026 — Pascal Saint-Amans, Ruth Owen y Susan Rose-Ackerman, entre otros expertos globales en transparencia y protección de recursos públicos.',
+    overlay: false,
+    active: true,
+    order: 2,
+  },
+];
 
 const sections = [
   { id: 'acerca', label: 'Acerca del Congreso' },
@@ -108,17 +136,9 @@ const entidadesExpositoras = [
         </ol>
       </nav>
     </div>
-    <picture class="banner-hero__img-wrap">
-      <img
-        src={resolveUrl('/images/sliders/slider-ciprep-2026.jpg')}
-        alt="II Congreso Internacional para la Protección de los Recursos Públicos — 3 y 4 de agosto de 2026 en Bogotá. Un país más transparente se construye con conocimiento y acción."
-        class="banner-hero__img"
-        width="3801"
-        height="1201"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </picture>
+    <div class="banner-hero__slider-wrap">
+      <HeroSlider slider="ciprep2026" slides={heroSlides} interval={7000} />
+    </div>
     <h1 id="ciprep-2026-title" class="visually-hidden">
       II Congreso Internacional para la Protección de los Recursos Públicos — CIPREP 2026
     </h1>
