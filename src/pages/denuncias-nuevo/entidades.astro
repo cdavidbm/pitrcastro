@@ -1,0 +1,377 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import { resolveUrl } from '../../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
+  { label: 'Elija la entidad' },
+];
+
+const entidades = [
+  {
+    slug: 'dian',
+    nombre: 'DIAN',
+    logo: '/images/entidades/dian.png',
+    contexto: 'Autoridad tributaria, aduanera y cambiaria de Colombia.',
+    tipico: 'Recaudo, fiscalización tributaria, control aduanero, gestión de cobranzas.',
+  },
+  {
+    slug: 'coljuegos',
+    nombre: 'Coljuegos',
+    logo: '/images/entidades/coljuegos.png',
+    contexto: 'Regulador y explotador del monopolio rentístico de los juegos de suerte y azar en Colombia.',
+    tipico: 'Autorización de operadores, inspección de establecimientos, control de recaudo del monopolio.',
+  },
+  {
+    slug: 'ugpp',
+    nombre: 'UGPP',
+    logo: '/images/entidades/ugpp.png',
+    contexto: 'Entidad adscrita al Ministerio de Hacienda y Crédito Público.',
+    tipico: 'Reconocimiento y pago de pensiones del régimen público, fiscalización de aportes parafiscales.',
+  },
+];
+---
+
+<Base
+  title="Elija la entidad — Presente su denuncia — Agencia ITRC"
+  description="Seleccione la entidad a la que pertenece el servidor público al que va a denunciar: DIAN, Coljuegos o UGPP. La Agencia ITRC ejerce el control disciplinario externo sobre las tres."
+>
+  <HeroPage
+    title="Elija la entidad"
+    subtitle="Seleccione la entidad a la que pertenece el servidor público al que va a denunciar. La Agencia ITRC ejerce el control disciplinario externo sobre estas tres entidades."
+    icon="fa-solid fa-building-columns"
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="paso-indicador" aria-label="Progreso del proceso">
+    <div class="container">
+      <ol class="paso-indicador__list">
+        <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
+          <span class="paso-indicador__num">1</span>
+          <span class="paso-indicador__label">Entidad</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">2</span>
+          <span class="paso-indicador__label">Identifíquese</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">3</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">4</span>
+          <span class="paso-indicador__label">Radicado</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="entidades-picker" aria-labelledby="entidades-picker-title">
+    <div class="container">
+      <h2 id="entidades-picker-title" class="visually-hidden">Entidades disponibles</h2>
+
+      <ul class="entidades-picker__grid">
+        {entidades.map(e => (
+          <li class="ent-card">
+            <a href={resolveUrl(`/denuncias-nuevo/denunciante?entidad=${e.slug}`)} class="ent-card__link">
+              <div class="ent-card__logo-wrap">
+                <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} class="ent-card__logo" loading="eager" />
+              </div>
+              <div class="ent-card__detalle">
+                <p class="ent-card__contexto">{e.contexto}</p>
+                <div class="ent-card__tipico">
+                  <span class="ent-card__tipico-label">Ámbito típico</span>
+                  <p>{e.tipico}</p>
+                </div>
+              </div>
+              <span class="ent-card__cta">
+                Continuar
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="entidades-picker__ayuda">
+        <div class="ayuda-card">
+          <div class="ayuda-card__icon" aria-hidden="true">
+            <i class="fa-solid fa-circle-question"></i>
+          </div>
+          <div class="ayuda-card__body">
+            <h3 class="ayuda-card__titulo">¿No sabe a cuál pertenece el servidor?</h3>
+            <p class="ayuda-card__texto">
+              Si el hecho ocurrió en trámites tributarios o de aduanas, corresponde a la <strong>DIAN</strong>. Si involucra pensiones o aportes parafiscales, a la <strong>UGPP</strong>. Si tiene que ver con juegos de suerte y azar, a <strong>Coljuegos</strong>.
+            </p>
+            <p class="ayuda-card__texto">
+              Si sigue sin poder identificarla, puede iniciar el trámite con la entidad que le parezca más cercana — la Agencia ITRC redirige internamente el expediente cuando corresponde.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="entidades-picker__volver">
+        <a href={resolveUrl('/denuncias-nuevo')} class="link-volver">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          Volver a la presentación
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ============ Indicador de pasos ============ */
+  .paso-indicador {
+    background: var(--theme-surface-alt);
+    padding: var(--space-4) var(--space-4);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+  .paso-indicador .container { max-width: 1000px; margin: 0 auto; }
+  .paso-indicador__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .paso-indicador__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    position: relative;
+  }
+  .paso-indicador__item::after {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--theme-border);
+    margin-left: var(--space-2);
+  }
+  .paso-indicador__item:last-child::after { display: none; }
+  .paso-indicador__num {
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border);
+    font-size: 0.85rem;
+    color: var(--theme-text-muted);
+    font-weight: 700;
+  }
+  .paso-indicador__item--activo {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+  .paso-indicador__item--activo .paso-indicador__num {
+    background: var(--itrc-navy);
+    color: var(--itrc-gold);
+    border-color: var(--itrc-navy);
+  }
+  .paso-indicador__label { white-space: nowrap; }
+
+  /* ============ Grid de entidades ============ */
+  .entidades-picker { padding: var(--space-10) var(--space-4) var(--space-8); background: var(--theme-surface); }
+  .entidades-picker .container { max-width: 1200px; margin: 0 auto; }
+  .entidades-picker__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-5);
+  }
+
+  .ent-card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  }
+  .ent-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 33, 71, 0.15);
+    border-color: var(--itrc-gold);
+  }
+  .ent-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: var(--space-6);
+    text-decoration: none;
+    color: inherit;
+  }
+  .ent-card__link:focus-visible {
+    outline: 3px solid var(--itrc-gold);
+    outline-offset: -3px;
+  }
+
+  .ent-card__logo-wrap {
+    display: grid;
+    place-items: center;
+    height: 80px;
+    padding: var(--space-3) 0;
+    margin-bottom: var(--space-2);
+  }
+  .ent-card__logo {
+    max-width: 220px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ent-card__detalle {
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--theme-border-light);
+    flex-grow: 1;
+  }
+  .ent-card__contexto {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    margin: 0 0 var(--space-3);
+  }
+  .ent-card__tipico {
+    background: var(--theme-surface-alt);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--itrc-gold);
+  }
+  .ent-card__tipico-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--theme-text-muted);
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+  }
+  .ent-card__tipico p {
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .ent-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+    padding: var(--space-3) 0 0;
+    color: var(--itrc-gold-dark);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    border-top: 1px solid var(--theme-border-light);
+    transition: gap var(--transition-fast), color var(--transition-fast);
+  }
+  .ent-card:hover .ent-card__cta {
+    gap: var(--space-3);
+    color: var(--itrc-gold);
+  }
+  .ent-card__cta i { transition: transform var(--transition-fast); }
+  .ent-card:hover .ent-card__cta i { transform: translateX(3px); }
+
+  /* ============ Card de ayuda ============ */
+  .entidades-picker__ayuda { margin-top: var(--space-8); }
+  .ayuda-card {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--itrc-gold);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .ayuda-card__icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    display: grid; place-items: center;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: 50%;
+    font-size: 1.1rem;
+  }
+  .ayuda-card__body { flex: 1; min-width: 0; }
+  .ayuda-card__titulo {
+    color: var(--theme-heading);
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--space-3);
+    line-height: 1.3;
+  }
+  .ayuda-card__texto {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 0 0 var(--space-2);
+  }
+  .ayuda-card__texto:last-child { margin-bottom: 0; }
+  .ayuda-card__texto strong { color: var(--theme-heading); font-weight: 700; }
+
+  /* ============ Link volver ============ */
+  .entidades-picker__volver {
+    margin-top: var(--space-8);
+    text-align: center;
+  }
+  .link-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    color: var(--theme-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+  .link-volver:hover {
+    color: var(--itrc-gold-dark);
+    background: var(--theme-surface-alt);
+  }
+  .link-volver:focus-visible {
+    outline: 2px solid var(--itrc-gold);
+    outline-offset: 2px;
+  }
+
+  /* ============ Utilidad ============ */
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border: 0;
+  }
+
+  /* ============ Motion ============ */
+  @media (prefers-reduced-motion: reduce) {
+    .ent-card, .ent-card__cta, .ent-card__cta i { transition: none; }
+    .ent-card:hover { transform: none; }
+  }
+
+  /* ============ Móvil ============ */
+  @media (max-width: 640px) {
+    .paso-indicador__label { display: none; }
+    .paso-indicador__item { padding: var(--space-1) var(--space-2); }
+    .paso-indicador__item::after { width: 12px; margin-left: var(--space-1); }
+    .ayuda-card { flex-direction: column; }
+    .ent-card__logo-wrap { height: 64px; }
+    .ent-card__logo { max-height: 64px; max-width: 180px; }
+  }
+</style>

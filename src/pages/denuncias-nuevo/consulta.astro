@@ -1,0 +1,489 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import { resolveUrl } from '../../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
+  { label: 'Consultar radicado' },
+];
+
+// Estados posibles del proceso disciplinario, para el timeline visual
+const estadosProceso = [
+  { id: 'radicado',       label: 'Radicado',            icon: 'fa-solid fa-file-circle-check' },
+  { id: 'analisis',       label: 'Análisis inicial',    icon: 'fa-solid fa-clipboard-check' },
+  { id: 'investigacion',  label: 'Investigación',       icon: 'fa-solid fa-magnifying-glass' },
+  { id: 'audiencia',      label: 'Audiencia',           icon: 'fa-solid fa-gavel' },
+  { id: 'decision',       label: 'Decisión final',      icon: 'fa-solid fa-scale-balanced' },
+];
+---
+
+<Base
+  title="Consultar mi denuncia — Agencia ITRC"
+  description="Consulte el estado actual de una denuncia disciplinaria previamente radicada en la Agencia ITRC. Necesita su número de radicado y la contraseña que eligió al radicar."
+>
+  <HeroPage
+    title="Consultar mi denuncia"
+    subtitle="Ingrese su número de radicado y la contraseña que eligió al radicar. Los datos que consulta aquí son los avances públicos del proceso — nunca revelan la identidad del denunciado ni el contenido de las pruebas reservadas."
+    icon="fa-solid fa-magnifying-glass"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- ============ Formulario de consulta ============ -->
+  <section class="consulta" aria-labelledby="consulta-title">
+    <div class="container">
+      <div class="consulta__wrap" data-consulta-wrap>
+        <h2 id="consulta-title" class="consulta__title">Ingrese sus datos de consulta</h2>
+        <p class="consulta__lede">
+          Solo puede consultar quien radicó la denuncia. Si no recuerda su contraseña, deberá presentar una nueva denuncia — no podemos recuperarla.
+        </p>
+
+        <form class="form-consulta" data-form-consulta method="post" action="#" novalidate>
+          <div class="campo">
+            <label class="campo__label" for="q-radicado">Número de radicado <span class="campo__req">*</span></label>
+            <input
+              class="campo__input"
+              id="q-radicado"
+              name="NUMERO_RADICADO"
+              type="text"
+              placeholder="Ej. 2026-0042-874523"
+              autocomplete="off"
+              required
+              inputmode="numeric"
+            />
+            <small class="campo__hint">Formato: <code>AAAA-NNNN-NNNNNN</code>. Lo encontrará en la confirmación que recibió al radicar.</small>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-doc">Documento del denunciante <span class="campo__req">*</span></label>
+            <input
+              class="campo__input"
+              id="q-doc"
+              name="TERCERO"
+              type="text"
+              placeholder="Cédula, NIT o identificador anónimo"
+              autocomplete="off"
+              required
+              inputmode="numeric"
+            />
+            <small class="campo__hint">Si radicó anónimamente, use el mismo identificador que le dimos al radicar.</small>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-pass">Contraseña de consulta <span class="campo__req">*</span></label>
+            <div class="campo__con-toggle">
+              <input
+                class="campo__input"
+                id="q-pass"
+                name="CONTRASENIA"
+                type="password"
+                placeholder="La contraseña que usted eligió"
+                autocomplete="off"
+                required
+              />
+              <button type="button" class="campo__toggle" data-toggle-pass aria-label="Mostrar contraseña">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <a href={resolveUrl('/denuncias-nuevo')} class="btn-secundario">
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+              Volver
+            </a>
+            <button type="submit" class="btn-primario">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              Consultar estado
+            </button>
+          </div>
+        </form>
+
+        <div class="consulta__ayuda">
+          <div class="ayuda-card">
+            <div class="ayuda-card__icon" aria-hidden="true">
+              <i class="fa-regular fa-circle-question"></i>
+            </div>
+            <div class="ayuda-card__body">
+              <h3 class="ayuda-card__titulo">¿No encuentra su radicado o su contraseña?</h3>
+              <p class="ayuda-card__texto">
+                Si perdió el correo de confirmación con el número de radicado, escríbanos a <a href="mailto:denuncias@itrc.gov.co">denuncias@itrc.gov.co</a> con los datos con los que radicó — verificamos si podemos localizar el expediente. La contraseña <strong>no es recuperable</strong>: si la olvidó, debe presentar la denuncia de nuevo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ Resultado (se muestra al enviar) ============ -->
+      <div class="resultado" data-resultado hidden>
+        <div class="resultado__card">
+          <header class="resultado__header">
+            <div class="resultado__estado-pill" data-estado-pill>
+              <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+              <span data-estado-label>Análisis inicial</span>
+            </div>
+            <div class="resultado__radicado">
+              <span class="resultado__radicado-label">Radicado</span>
+              <strong data-resultado-radicado>—</strong>
+            </div>
+          </header>
+
+          <div class="resultado__resumen">
+            <p>
+              Su denuncia está siendo revisada por el equipo jurídico de la Agencia.
+              El análisis inicial verifica los requisitos formales y realiza la calificación jurídica de la conducta.
+              Le avisaremos por el medio que indicó cuando avance a la siguiente etapa.
+            </p>
+          </div>
+
+          <div class="resultado__timeline">
+            <h3 class="resultado__timeline-title">Etapas del proceso</h3>
+            <ol class="etapas">
+              {estadosProceso.map((e, idx) => (
+                <li class={`etapa ${idx === 0 ? 'etapa--completa' : idx === 1 ? 'etapa--activa' : ''}`} data-etapa={e.id}>
+                  <span class="etapa__marker" aria-hidden="true">
+                    <i class={e.icon}></i>
+                  </span>
+                  <div class="etapa__body">
+                    <span class="etapa__label">{e.label}</span>
+                    <span class="etapa__fecha" data-etapa-fecha>
+                      {idx === 0 ? 'Completada' : idx === 1 ? 'En curso' : 'Pendiente'}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="resultado__acciones">
+            <button type="button" class="btn-secundario" data-nueva-consulta>
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+              Consultar otro radicado
+            </button>
+            <button type="button" class="btn-primario" data-imprimir>
+              <i class="fa-solid fa-print" aria-hidden="true"></i>
+              Imprimir estado
+            </button>
+          </div>
+        </div>
+
+        <p class="resultado__reserva">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+          El contenido detallado del expediente y los documentos aportados están bajo reserva legal (Ley 1712 de 2014). Aquí solo se muestran los avances públicos del proceso.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .consulta { padding: var(--space-8) var(--space-4) var(--space-12); background: var(--theme-surface); }
+  .consulta .container { max-width: 780px; margin: 0 auto; }
+
+  .consulta__wrap[hidden] { display: none !important; }
+  .consulta__title {
+    font-family: Georgia, serif;
+    font-size: var(--font-size-2xl);
+    color: var(--theme-heading);
+    margin: 0 0 var(--space-2);
+    text-wrap: balance;
+  }
+  .consulta__lede {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin: 0 0 var(--space-6);
+    max-width: 60ch;
+  }
+
+  .form-consulta {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
+    gap: var(--space-4);
+  }
+  .campo { display: flex; flex-direction: column; gap: 6px; }
+  .campo__label { font-size: 0.85rem; color: var(--theme-heading); font-weight: 700; }
+  .campo__req { color: var(--itrc-gold-dark); font-weight: 700; }
+  .campo__input {
+    padding: 10px 14px;
+    font-family: inherit; font-size: var(--font-size-base);
+    color: var(--theme-heading); background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border); border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .campo__input:focus-visible {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(179, 139, 64, 0.18);
+  }
+  .campo__hint { color: var(--theme-text-muted); font-size: 0.78rem; line-height: 1.4; }
+  .campo__hint code {
+    background: var(--theme-surface-alt);
+    padding: 1px 6px; border-radius: 4px;
+    font-family: ui-monospace, "SF Mono", monospace;
+    font-size: 0.82em; color: var(--itrc-gold-dark);
+  }
+  .campo__con-toggle { position: relative; }
+  .campo__con-toggle .campo__input { padding-right: 44px; width: 100%; }
+  .campo__toggle {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    background: transparent; border: none;
+    color: var(--theme-text-muted); cursor: pointer;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+  }
+  .campo__toggle:hover { color: var(--itrc-gold-dark); background: var(--theme-surface-alt); }
+  .campo__toggle:focus-visible { outline: 2px solid var(--itrc-gold); outline-offset: 2px; }
+
+  .form-actions {
+    display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--theme-border-light);
+    margin-top: var(--space-2);
+  }
+
+  .btn-primario, .btn-secundario {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    font-family: inherit; font-size: var(--font-size-sm); font-weight: 700;
+    border-radius: var(--radius-full);
+    text-decoration: none; cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  }
+  .btn-primario { background: var(--itrc-gold); color: var(--itrc-navy); box-shadow: var(--shadow-md); }
+  .btn-primario:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-primario:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 3px; }
+  .btn-secundario { background: transparent; color: var(--theme-heading); border-color: var(--theme-border); }
+  .btn-secundario:hover { background: var(--theme-surface-alt); border-color: var(--itrc-gold); }
+  .btn-secundario:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 3px; }
+
+  /* ============ Ayuda ============ */
+  .consulta__ayuda { margin-top: var(--space-6); }
+  .ayuda-card {
+    display: flex; gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--itrc-gold);
+  }
+  .ayuda-card__icon {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: 50%;
+    font-size: 1rem;
+  }
+  .ayuda-card__body { flex: 1; min-width: 0; }
+  .ayuda-card__titulo { color: var(--theme-heading); font-size: var(--font-size-base); margin: 0 0 var(--space-2); }
+  .ayuda-card__texto { color: var(--theme-text-secondary); font-size: var(--font-size-sm); line-height: 1.6; margin: 0; }
+  .ayuda-card__texto a { color: var(--itrc-gold-dark); font-weight: 700; }
+  .ayuda-card__texto strong { color: var(--theme-heading); font-weight: 700; }
+
+  /* ============ Resultado ============ */
+  .resultado[hidden] { display: none !important; }
+  .resultado__card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-top: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 12px 32px rgba(0, 33, 71, 0.10);
+    overflow: hidden;
+  }
+  .resultado__header {
+    padding: var(--space-5) var(--space-6);
+    background: var(--theme-surface-alt);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-3); flex-wrap: wrap;
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+  .resultado__estado-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .resultado__radicado { display: flex; flex-direction: column; align-items: flex-end; }
+  .resultado__radicado-label {
+    font-size: 0.7rem; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--theme-text-muted); font-weight: 600;
+  }
+  .resultado__radicado strong {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+    font-variant-numeric: tabular-nums;
+  }
+  .resultado__resumen {
+    padding: var(--space-5) var(--space-6);
+    color: var(--theme-text-secondary);
+    line-height: 1.6;
+    font-size: var(--font-size-sm);
+  }
+  .resultado__resumen p { margin: 0; }
+
+  .resultado__timeline {
+    padding: 0 var(--space-6) var(--space-5);
+  }
+  .resultado__timeline-title {
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+    margin: 0 0 var(--space-4);
+  }
+
+  .etapas { list-style: none; padding: 0; margin: 0; position: relative; }
+  .etapas::before {
+    content: '';
+    position: absolute;
+    left: 19px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--theme-border-light);
+  }
+  .etapa {
+    position: relative;
+    display: flex; gap: var(--space-3);
+    padding: var(--space-2) 0;
+  }
+  .etapa__marker {
+    position: relative; z-index: 1;
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    background: var(--theme-surface);
+    color: var(--theme-text-muted);
+    border: 2px solid var(--theme-border);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .etapa__body { flex: 1; min-width: 0; padding-top: 8px; }
+  .etapa__label {
+    display: block;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+  }
+  .etapa__fecha {
+    display: block;
+    color: var(--theme-text-muted);
+    font-size: 0.78rem;
+    margin-top: 2px;
+  }
+  .etapa--completa .etapa__marker {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-color: var(--itrc-gold);
+  }
+  .etapa--completa .etapa__label { color: var(--theme-heading); }
+  .etapa--completa .etapa__fecha { color: var(--itrc-gold-dark); font-weight: 700; }
+  .etapa--activa .etapa__marker {
+    background: var(--theme-surface);
+    color: var(--itrc-gold);
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 4px rgba(179, 139, 64, 0.15);
+    animation: pulse-marker 2.4s ease-in-out infinite;
+  }
+  .etapa--activa .etapa__label { color: var(--theme-heading); }
+  .etapa--activa .etapa__fecha { color: var(--itrc-gold-dark); font-weight: 700; }
+  @keyframes pulse-marker {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(179, 139, 64, 0.15); }
+    50%      { box-shadow: 0 0 0 8px rgba(179, 139, 64, 0.05); }
+  }
+
+  .resultado__acciones {
+    display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap;
+    padding: var(--space-5) var(--space-6);
+    border-top: 1px solid var(--theme-border-light);
+  }
+
+  .resultado__reserva {
+    display: flex; gap: 8px; align-items: flex-start;
+    margin: var(--space-5) 0 0;
+    color: var(--theme-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  .resultado__reserva i { color: var(--itrc-gold); flex-shrink: 0; margin-top: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primario, .btn-secundario, .campo__input { transition: none; }
+    .btn-primario:hover { transform: none; }
+    .etapa--activa .etapa__marker { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    .form-actions, .resultado__acciones { flex-direction: column-reverse; }
+    .form-actions .btn-primario, .form-actions .btn-secundario,
+    .resultado__acciones .btn-primario, .resultado__acciones .btn-secundario { width: 100%; justify-content: center; }
+    .resultado__header { flex-direction: column; align-items: flex-start; }
+    .resultado__radicado { align-items: flex-start; }
+    .ayuda-card { flex-direction: column; }
+  }
+
+  @media print {
+    .form-consulta, .consulta__ayuda, .resultado__acciones, .breadcrumb { display: none; }
+    body { background: white; color: black; }
+    .resultado__card { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+
+<script>
+  // ============ Toggle contraseña ============
+  const toggle = document.querySelector<HTMLButtonElement>('[data-toggle-pass]');
+  const passInput = document.querySelector<HTMLInputElement>('#q-pass');
+  toggle?.addEventListener('click', () => {
+    if (!passInput) return;
+    const revealed = passInput.type === 'text';
+    passInput.type = revealed ? 'password' : 'text';
+    const icon = toggle.querySelector('i');
+    if (icon) icon.className = revealed ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+    toggle.setAttribute('aria-label', revealed ? 'Mostrar contraseña' : 'Ocultar contraseña');
+  });
+
+  // ============ Simulación de resultado ============
+  // El backend real haría el POST XML a ForestLauncher (ver consulta.php legacy);
+  // aquí simulamos la respuesta para que se vea el estilo del timeline.
+  const form = document.querySelector<HTMLFormElement>('[data-form-consulta]');
+  const wrap = document.querySelector<HTMLElement>('[data-consulta-wrap]');
+  const resultado = document.querySelector<HTMLElement>('[data-resultado]');
+  const resultadoRad = document.querySelector<HTMLElement>('[data-resultado-radicado]');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const radicado = (form.elements.namedItem('NUMERO_RADICADO') as HTMLInputElement)?.value.trim();
+    if (!radicado) return;
+
+    if (resultadoRad) resultadoRad.textContent = radicado;
+
+    if (wrap) wrap.hidden = true;
+    if (resultado) {
+      resultado.hidden = false;
+      resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  // Botón "consultar otro"
+  document.querySelector<HTMLButtonElement>('[data-nueva-consulta]')?.addEventListener('click', () => {
+    if (resultado) resultado.hidden = true;
+    if (wrap) {
+      wrap.hidden = false;
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    form?.reset();
+  });
+
+  document.querySelector<HTMLButtonElement>('[data-imprimir]')?.addEventListener('click', () => window.print());
+</script>

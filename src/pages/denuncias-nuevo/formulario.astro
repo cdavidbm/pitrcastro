@@ -1,0 +1,1020 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import { resolveUrl } from '../../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
+  { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
+  { label: 'Identifíquese', href: resolveUrl('/denuncias-nuevo/denunciante') },
+  { label: 'Elija la conducta', href: resolveUrl('/denuncias-nuevo/conducta') },
+  { label: 'Describa los hechos' },
+];
+
+const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
+  dian:      { nombre: 'DIAN',      logo: '/images/entidades/dian.png' },
+  coljuegos: { nombre: 'Coljuegos', logo: '/images/entidades/coljuegos.png' },
+  ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
+};
+
+// Wizard = 5 secciones. Colapsa las 27 preguntas del legacy en grupos temáticos.
+// Los `name=` de cada input preservan el contrato del backend legacy (PREG*_ID_VALUE,
+// RESP*_ID_VALUE, DESCR*, archivo) — los 27 caben repartidos entre las 5 secciones.
+const secciones = [
+  {
+    id: 'hechos',
+    num: 1,
+    titulo: 'Los hechos',
+    subtitulo: 'Cuándo, dónde y qué pasó — cuente el hecho con sus palabras.',
+    icon: 'fa-solid fa-calendar-day',
+  },
+  {
+    id: 'involucrados',
+    num: 2,
+    titulo: 'Los involucrados',
+    subtitulo: 'Datos del servidor público al que va a denunciar.',
+    icon: 'fa-solid fa-user-large',
+  },
+  {
+    id: 'circunstancias',
+    num: 3,
+    titulo: 'Circunstancias',
+    subtitulo: 'Beneficios, terceros, contexto adicional.',
+    icon: 'fa-solid fa-diagram-project',
+  },
+  {
+    id: 'evidencia',
+    num: 4,
+    titulo: 'Evidencia',
+    subtitulo: 'Documentos, testigos y adjuntos que respalden la denuncia.',
+    icon: 'fa-solid fa-paperclip',
+  },
+  {
+    id: 'revision',
+    num: 5,
+    titulo: 'Revisar y enviar',
+    subtitulo: 'Confirme lo diligenciado antes de radicar.',
+    icon: 'fa-solid fa-check-double',
+  },
+];
+
+const totalSecciones = secciones.length;
+---
+
+<Base
+  title="Describa los hechos — Presente su denuncia — Agencia ITRC"
+  description="Formulario guiado para describir la conducta disciplinaria que va a denunciar. Cinco secciones cortas con guardado automático de su avance."
+>
+  <HeroPage
+    title="Describa los hechos"
+    subtitle="Un formulario en cinco pasos cortos. Su avance se guarda automáticamente — puede cerrar la página y volver a continuar más tarde."
+    icon="fa-solid fa-file-lines"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Progreso maestro del flujo -->
+  <section class="paso-indicador" aria-label="Progreso del proceso">
+    <div class="container">
+      <ol class="paso-indicador__list">
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+          <span class="paso-indicador__label">Entidad</span>
+        </li>
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+          <span class="paso-indicador__label">Identifíquese</span>
+        </li>
+        <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
+          <span class="paso-indicador__num">3</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">4</span>
+          <span class="paso-indicador__label">Radicado</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Chip contexto: entidad + conducta -->
+  <section class="contexto-band" aria-label="Contexto de la denuncia">
+    <div class="container">
+      <div class="contexto-chips">
+        <div class="entidad-chip" data-entidad-chip hidden>
+          <span class="entidad-chip__label">Contra servidor de</span>
+          <div class="entidad-chip__logo-wrap">
+            {Object.entries(entidadesInfo).map(([slug, info]) => (
+              <img
+                class="entidad-chip__logo"
+                data-entidad-logo={slug}
+                src={resolveUrl(info.logo)}
+                alt={`Logo ${info.nombre}`}
+                hidden
+              />
+            ))}
+          </div>
+        </div>
+        <div class="conducta-chip" data-conducta-chip hidden>
+          <i class="fa-solid fa-tag" aria-hidden="true"></i>
+          <span class="conducta-chip__label">Conducta —</span>
+          <strong data-conducta-nombre></strong>
+          <a href={resolveUrl('/denuncias-nuevo/conducta')} class="conducta-chip__cambiar">Cambiar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wizard progreso interno -->
+  <section class="wizard-progreso" aria-label="Progreso del formulario">
+    <div class="container">
+      <div class="wizard-progreso__cabecera">
+        <span class="wizard-progreso__label">
+          <span data-seccion-actual>1</span> de {totalSecciones} secciones
+        </span>
+        <span class="wizard-progreso__nombre" data-seccion-nombre>{secciones[0].titulo}</span>
+      </div>
+      <div class="wizard-progreso__barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" data-progreso-barra aria-valuenow="20">
+        <div class="wizard-progreso__fill" style={`width: ${100 / totalSecciones}%`}></div>
+      </div>
+      <ol class="wizard-progreso__pastilla-list">
+        {secciones.map((s, idx) => (
+          <li class={`wizard-pastilla ${idx === 0 ? 'wizard-pastilla--activa' : ''}`} data-pastilla={s.id}>
+            <span class="wizard-pastilla__num">{s.num}</span>
+            <span class="wizard-pastilla__label">{s.titulo}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Wizard body -->
+  <section class="wizard" aria-labelledby="wizard-title">
+    <div class="container">
+      <h2 id="wizard-title" class="visually-hidden">Formulario de denuncia</h2>
+
+      <form
+        class="wizard-form"
+        method="post"
+        action={resolveUrl('/denuncias-nuevo/confirmacion')}
+        data-wizard-form
+        novalidate
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="MM_insert" value="form" />
+        <input type="hidden" name="FORM_ID" data-form-id value="" />
+        <input type="hidden" name="ID_DENUNCIA" data-id-denuncia value="" />
+
+        <!-- ================ Sección 1 — Los hechos ================ -->
+        <section class="seccion" data-seccion="hechos">
+          <header class="seccion__header">
+            <div class="seccion__icon" aria-hidden="true">
+              <i class="fa-solid fa-calendar-day"></i>
+            </div>
+            <div>
+              <h3 class="seccion__titulo">Los hechos</h3>
+              <p class="seccion__sub">Cuente lo que pasó con sus propias palabras. No hace falta usar lenguaje jurídico.</p>
+            </div>
+          </header>
+
+          <div class="campo">
+            <label class="campo__label" for="q-cuando">¿Cuándo ocurrió el hecho? <span class="campo__req">*</span></label>
+            <input class="campo__input" id="q-cuando" name="DESCR2" type="date" required data-persist />
+            <small class="campo__hint">Si no recuerda la fecha exacta, use una fecha aproximada.</small>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-donde">¿Dónde ocurrió? <span class="campo__req">*</span></label>
+            <input class="campo__input" id="q-donde" name="DESCR3" type="text" placeholder="Ciudad, dependencia o lugar" required data-persist />
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-hecho">Descripción del hecho <span class="campo__req">*</span></label>
+            <textarea
+              class="campo__input campo__input--textarea"
+              id="q-hecho"
+              name="DESCR4"
+              rows="6"
+              placeholder="Cuente qué pasó, en el orden en que ocurrió. Máximo 2000 caracteres."
+              maxlength="2000"
+              required
+              data-persist
+              data-contador
+            ></textarea>
+            <div class="campo__meta">
+              <small class="campo__hint">Sea claro y concreto — evite juicios de valor si puede.</small>
+              <small class="campo__contador"><span data-contador-value>0</span> / 2000</small>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-continua">¿El hecho continúa ocurriendo?</label>
+            <div class="radio-inline">
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP1_ID_VALUE" value="si" data-persist />
+                <span>Sí, sigue ocurriendo</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP1_ID_VALUE" value="no" data-persist />
+                <span>No, ya terminó</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP1_ID_VALUE" value="ns" data-persist />
+                <span>No sabe</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================ Sección 2 — Los involucrados ================ -->
+        <section class="seccion" data-seccion="involucrados" hidden>
+          <header class="seccion__header">
+            <div class="seccion__icon" aria-hidden="true">
+              <i class="fa-solid fa-user-large"></i>
+            </div>
+            <div>
+              <h3 class="seccion__titulo">Los involucrados</h3>
+              <p class="seccion__sub">Datos del servidor público. Si no conoce alguno, deje el campo vacío.</p>
+            </div>
+          </header>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="q-nombre-serv">Nombre del servidor público</label>
+              <input class="campo__input" id="q-nombre-serv" name="DESCR5" type="text" placeholder="Nombre y apellidos" data-persist />
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="q-doc-serv">Documento de identidad (si lo conoce)</label>
+              <input class="campo__input" id="q-doc-serv" name="DESCR6" type="text" data-persist />
+            </div>
+          </div>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="q-cargo">Cargo que ocupa</label>
+              <input class="campo__input" id="q-cargo" name="DESCR7" type="text" placeholder="Ej. Gestor, Auditor, Coordinador" data-persist />
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="q-dependencia">Dependencia o área</label>
+              <input class="campo__input" id="q-dependencia" name="DESCR8" type="text" placeholder="Ej. División de Cobranzas, Seccional Bogotá" data-persist />
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-otros">¿Hubo otros servidores involucrados?</label>
+            <textarea
+              class="campo__input campo__input--textarea"
+              id="q-otros"
+              name="DESCR9"
+              rows="3"
+              placeholder="Nombres, cargos o roles de otros implicados si los conoce."
+              data-persist
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- ================ Sección 3 — Circunstancias ================ -->
+        <section class="seccion" data-seccion="circunstancias" hidden>
+          <header class="seccion__header">
+            <div class="seccion__icon" aria-hidden="true">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div>
+              <h3 class="seccion__titulo">Circunstancias</h3>
+              <p class="seccion__sub">Elementos que ayudan a entender el contexto y el alcance del hecho.</p>
+            </div>
+          </header>
+
+          <div class="campo">
+            <label class="campo__label">¿Hubo un beneficio económico para el servidor?</label>
+            <div class="radio-inline">
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP2_ID_VALUE" value="si" data-persist />
+                <span>Sí</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP2_ID_VALUE" value="no" data-persist />
+                <span>No</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP2_ID_VALUE" value="ns" data-persist />
+                <span>No sabe</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label">¿Hubo beneficio para terceros?</label>
+            <div class="radio-inline">
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP3_ID_VALUE" value="si" data-persist />
+                <span>Sí</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP3_ID_VALUE" value="no" data-persist />
+                <span>No</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP3_ID_VALUE" value="ns" data-persist />
+                <span>No sabe</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-monto">Monto o valor aproximado del beneficio</label>
+            <input class="campo__input" id="q-monto" name="DESCR10" type="text" placeholder="Ej. $ 5.000.000 COP. Deje vacío si no aplica." data-persist />
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-contexto">Contexto adicional</label>
+            <textarea
+              class="campo__input campo__input--textarea"
+              id="q-contexto"
+              name="DESCR11"
+              rows="4"
+              placeholder="Cualquier detalle que ayude a entender por qué ocurrió — presiones, prácticas previas, favores anteriores."
+              data-persist
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- ================ Sección 4 — Evidencia ================ -->
+        <section class="seccion" data-seccion="evidencia" hidden>
+          <header class="seccion__header">
+            <div class="seccion__icon" aria-hidden="true">
+              <i class="fa-solid fa-paperclip"></i>
+            </div>
+            <div>
+              <h3 class="seccion__titulo">Evidencia</h3>
+              <p class="seccion__sub">Adjunte documentos y describa qué otras pruebas existen. No es obligatorio pero acelera el proceso.</p>
+            </div>
+          </header>
+
+          <div class="campo">
+            <label class="campo__label">¿Cuenta con documentos o registros que respalden la denuncia?</label>
+            <div class="radio-inline">
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP4_ID_VALUE" value="si" data-persist />
+                <span>Sí, los tengo</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP4_ID_VALUE" value="parciales" data-persist />
+                <span>Solo parcialmente</span>
+              </label>
+              <label class="radio-inline__opt">
+                <input type="radio" name="RESP4_ID_VALUE" value="no" data-persist />
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-docs-desc">Describa los documentos o pruebas que tiene</label>
+            <textarea
+              class="campo__input campo__input--textarea"
+              id="q-docs-desc"
+              name="DESCR12"
+              rows="4"
+              placeholder="Ej. correos electrónicos, contratos, actas, grabaciones, comunicaciones."
+              data-persist
+            ></textarea>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-testigos">Testigos del hecho (si los hay)</label>
+            <textarea
+              class="campo__input campo__input--textarea"
+              id="q-testigos"
+              name="DESCR13"
+              rows="3"
+              placeholder="Nombres o roles de quienes presenciaron el hecho. Sus datos quedan bajo reserva."
+              data-persist
+            ></textarea>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="q-archivo">Adjunte archivos</label>
+            <div class="dropzone" data-dropzone>
+              <input class="dropzone__input" id="q-archivo" name="archivo" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp3,.mp4" data-file-input />
+              <div class="dropzone__body">
+                <i class="fa-solid fa-cloud-arrow-up dropzone__icon" aria-hidden="true"></i>
+                <p class="dropzone__prompt">Arrastre archivos aquí o <strong>haga clic para seleccionar</strong></p>
+                <p class="dropzone__hint">PDF, imágenes, Word, audio, video. Máximo 25 MB por archivo.</p>
+              </div>
+            </div>
+            <ul class="dropzone__list" data-file-list></ul>
+          </div>
+        </section>
+
+        <!-- ================ Sección 5 — Revisar y enviar ================ -->
+        <section class="seccion" data-seccion="revision" hidden>
+          <header class="seccion__header">
+            <div class="seccion__icon" aria-hidden="true">
+              <i class="fa-solid fa-check-double"></i>
+            </div>
+            <div>
+              <h3 class="seccion__titulo">Revisar y enviar</h3>
+              <p class="seccion__sub">Ya casi terminamos. Revise lo diligenciado — puede volver a cualquier sección para ajustar.</p>
+            </div>
+          </header>
+
+          <div class="revision-panel" data-revision-panel>
+            <!-- Se llena por JS a partir del formulario -->
+          </div>
+
+          <div class="asunto">
+            <label class="campo__label" for="q-asunto">Título breve de la denuncia (opcional)</label>
+            <input class="campo__input" id="q-asunto" name="ASUNTO" type="text" placeholder="Ej. Presunto cohecho en trámite aduanero" maxlength="200" data-persist />
+            <small class="campo__hint">Ayuda al equipo de la Agencia a identificar rápidamente el caso.</small>
+          </div>
+
+          <label class="check-inline">
+            <input type="checkbox" name="declara" required />
+            <span>
+              Declaro bajo la gravedad del juramento que la información suministrada es cierta según mi conocimiento, y que conozco que la presentación de denuncias con temeridad o mala fe puede generar responsabilidad legal.
+            </span>
+          </label>
+        </section>
+
+        <!-- ================ Botonera del wizard ================ -->
+        <div class="wizard-nav">
+          <button type="button" class="btn-secundario" data-btn-prev hidden>
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Anterior
+          </button>
+          <div class="wizard-nav__spacer" aria-hidden="true"></div>
+          <span class="wizard-nav__guardado" data-guardado>Su avance se guarda automáticamente</span>
+          <button type="button" class="btn-primario" data-btn-next>
+            Siguiente
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+          <button type="submit" class="btn-primario btn-primario--send" data-btn-submit hidden>
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            Enviar denuncia
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Reutilizado — barra de progreso maestro (mismo estilo que otros wizards) */
+  .paso-indicador { background: var(--theme-surface-alt); padding: var(--space-4); border-bottom: 1px solid var(--theme-border-light); }
+  .paso-indicador .container { max-width: 1000px; margin: 0 auto; }
+  .paso-indicador__list { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; justify-content: center; gap: var(--space-2); flex-wrap: wrap; }
+  .paso-indicador__item { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); color: var(--theme-text-muted); font-size: var(--font-size-sm); font-weight: 600; position: relative; }
+  .paso-indicador__item::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--theme-border); margin-left: var(--space-2); }
+  .paso-indicador__item:last-child::after { display: none; }
+  .paso-indicador__num { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: var(--theme-surface); border: 1.5px solid var(--theme-border); font-size: 0.85rem; color: var(--theme-text-muted); font-weight: 700; }
+  .paso-indicador__item--activo { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .paso-indicador__item--activo .paso-indicador__num { background: var(--itrc-navy); color: var(--itrc-gold); border-color: var(--itrc-navy); }
+  .paso-indicador__item--completado .paso-indicador__num { background: var(--itrc-gold); color: var(--itrc-navy); border-color: var(--itrc-gold); }
+  .paso-indicador__item--completado { color: var(--theme-heading); }
+
+  /* Contexto (entidad + conducta) */
+  .contexto-band { padding: var(--space-6) var(--space-4) 0; background: var(--theme-surface); }
+  .contexto-band .container { max-width: 900px; margin: 0 auto; }
+  .contexto-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+  .entidad-chip, .conducta-chip {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: 6px var(--space-3);
+    background: var(--theme-surface-alt);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .entidad-chip__label, .conducta-chip__label { color: var(--theme-text-muted); font-weight: 600; }
+  .entidad-chip__logo-wrap { height: 22px; display: grid; place-items: center; }
+  .entidad-chip__logo { max-height: 22px; max-width: 80px; width: auto; height: auto; object-fit: contain; }
+  .conducta-chip i { color: var(--itrc-gold); font-size: 0.75rem; }
+  .conducta-chip strong { color: var(--theme-heading); font-weight: 700; }
+  .conducta-chip__cambiar { color: var(--itrc-gold-dark); text-decoration: none; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-full); }
+  .conducta-chip__cambiar:hover { background: var(--theme-surface); text-decoration: underline; }
+
+  /* ================ Wizard progreso interno ================ */
+  .wizard-progreso { padding: var(--space-6) var(--space-4) var(--space-2); background: var(--theme-surface); }
+  .wizard-progreso .container { max-width: 900px; margin: 0 auto; }
+  .wizard-progreso__cabecera {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: var(--space-2);
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .wizard-progreso__label {
+    font-size: 0.85rem;
+    color: var(--theme-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .wizard-progreso__label span {
+    color: var(--itrc-gold-dark);
+    font-size: var(--font-size-lg);
+    letter-spacing: 0;
+  }
+  .wizard-progreso__nombre {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: var(--font-size-xl);
+    color: var(--theme-heading);
+    font-weight: 800;
+  }
+  .wizard-progreso__barra {
+    width: 100%;
+    height: 6px;
+    background: var(--theme-border-light);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+  }
+  .wizard-progreso__fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--itrc-gold-dark), var(--itrc-gold));
+    border-radius: var(--radius-full);
+    transition: width 0.35s ease;
+  }
+  .wizard-progreso__pastilla-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: var(--space-2);
+  }
+  .wizard-pastilla {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px 4px 4px;
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    color: var(--theme-text-muted);
+    font-weight: 600;
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  }
+  .wizard-pastilla__num {
+    width: 22px; height: 22px;
+    display: grid; place-items: center;
+    background: var(--theme-surface-alt);
+    color: var(--theme-text-muted);
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+  .wizard-pastilla--completada { border-color: var(--itrc-gold); color: var(--theme-heading); }
+  .wizard-pastilla--completada .wizard-pastilla__num { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .wizard-pastilla--activa { background: var(--itrc-gold); border-color: var(--itrc-gold); color: var(--itrc-navy); }
+  .wizard-pastilla--activa .wizard-pastilla__num { background: var(--itrc-navy); color: var(--itrc-gold); }
+
+  /* ================ Wizard body ================ */
+  .wizard { padding: var(--space-6) var(--space-4) var(--space-12); background: var(--theme-surface); }
+  .wizard .container { max-width: 900px; margin: 0 auto; }
+
+  .seccion {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+  .seccion[hidden] { display: none !important; }
+  .seccion__header {
+    display: flex; align-items: flex-start; gap: var(--space-4);
+    padding-bottom: var(--space-5);
+    margin-bottom: var(--space-5);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+  .seccion__icon {
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .seccion__titulo {
+    font-size: var(--font-size-xl);
+    color: var(--theme-heading);
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .seccion__sub {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Campos */
+  .campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--space-4); }
+  .campo:last-child { margin-bottom: 0; }
+  .campo-grid { display: grid; gap: var(--space-4); margin-bottom: var(--space-4); }
+  .campo-grid--2 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .campo-grid .campo { margin-bottom: 0; }
+  .campo__label { font-size: 0.85rem; color: var(--theme-heading); font-weight: 700; }
+  .campo__req { color: var(--itrc-gold-dark); font-weight: 700; }
+  .campo__input {
+    padding: 10px 14px;
+    font-family: inherit; font-size: var(--font-size-base);
+    color: var(--theme-heading); background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border); border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .campo__input:hover { border-color: var(--theme-text-muted); }
+  .campo__input:focus-visible {
+    outline: none; border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(179, 139, 64, 0.18);
+  }
+  .campo__input--textarea { font-family: inherit; resize: vertical; min-height: 100px; line-height: 1.55; }
+  .campo__hint { color: var(--theme-text-muted); font-size: 0.78rem; line-height: 1.4; }
+  .campo__meta { display: flex; justify-content: space-between; gap: var(--space-2); }
+  .campo__contador { color: var(--theme-text-muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+
+  /* Radio inline */
+  .radio-inline { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .radio-inline__opt {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    background: var(--theme-surface-alt);
+    border: 1.5px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    color: var(--theme-text-secondary);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+  }
+  .radio-inline__opt:hover { border-color: var(--itrc-gold); }
+  .radio-inline__opt input[type="radio"] { accent-color: var(--itrc-gold); cursor: pointer; }
+  .radio-inline__opt:has(input:checked) {
+    background: var(--itrc-gold);
+    border-color: var(--itrc-gold);
+    color: var(--itrc-navy);
+    font-weight: 700;
+  }
+
+  /* Dropzone */
+  .dropzone {
+    position: relative;
+    padding: var(--space-6);
+    background: var(--theme-surface-alt);
+    border: 2px dashed var(--theme-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+  }
+  .dropzone--drag { border-color: var(--itrc-gold); background: rgba(179, 139, 64, 0.05); }
+  .dropzone__input {
+    position: absolute; inset: 0;
+    opacity: 0; cursor: pointer;
+  }
+  .dropzone__icon { font-size: 2rem; color: var(--itrc-gold); margin-bottom: var(--space-3); }
+  .dropzone__prompt { color: var(--theme-heading); font-size: var(--font-size-base); margin: 0 0 var(--space-2); }
+  .dropzone__prompt strong { color: var(--itrc-gold-dark); }
+  .dropzone__hint { color: var(--theme-text-muted); font-size: 0.82rem; margin: 0; }
+  .dropzone__list { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: flex; flex-direction: column; gap: 6px; }
+  .dropzone__file {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: 8px 12px;
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+  }
+  .dropzone__file i { color: var(--itrc-gold); }
+  .dropzone__file-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--theme-heading); font-weight: 600; }
+  .dropzone__file-size { color: var(--theme-text-muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+
+  /* Panel revisión */
+  .revision-panel {
+    background: var(--theme-surface-alt);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--itrc-gold);
+    margin-bottom: var(--space-5);
+  }
+  .revision-item {
+    display: grid; grid-template-columns: minmax(140px, 200px) 1fr;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--theme-border-light);
+    font-size: var(--font-size-sm);
+  }
+  .revision-item:last-child { border-bottom: none; }
+  .revision-item__label { color: var(--theme-text-muted); font-weight: 600; }
+  .revision-item__value { color: var(--theme-heading); word-break: break-word; }
+  .revision-empty { color: var(--theme-text-muted); font-style: italic; }
+  .asunto { margin-bottom: var(--space-5); }
+
+  /* Check inline */
+  .check-inline {
+    display: flex; gap: var(--space-3); align-items: flex-start;
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm); line-height: 1.55;
+    cursor: pointer;
+  }
+  .check-inline input[type="checkbox"] {
+    flex-shrink: 0; width: 20px; height: 20px;
+    accent-color: var(--itrc-gold);
+    margin-top: 2px; cursor: pointer;
+  }
+
+  /* Botonera */
+  .wizard-nav {
+    display: flex; align-items: center; gap: var(--space-3);
+    flex-wrap: wrap;
+    padding-top: var(--space-6);
+    margin-top: var(--space-6);
+    border-top: 1px solid var(--theme-border-light);
+  }
+  .wizard-nav__spacer { flex: 1; }
+  .wizard-nav__guardado {
+    color: var(--theme-text-muted);
+    font-size: 0.78rem;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .wizard-nav__guardado::before {
+    content: ''; display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--good, #5a7c4e);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .btn-primario, .btn-secundario {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-family: inherit; font-size: var(--font-size-base); font-weight: 700;
+    border-radius: var(--radius-full);
+    text-decoration: none; cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  }
+  .btn-primario { background: var(--itrc-gold); color: var(--itrc-navy); box-shadow: var(--shadow-md); }
+  .btn-primario:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-primario:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 3px; }
+  .btn-primario--send { background: var(--itrc-navy); color: var(--itrc-gold); }
+  .btn-secundario { background: transparent; color: var(--theme-heading); border-color: var(--theme-border); }
+  .btn-secundario:hover { background: var(--theme-surface-alt); border-color: var(--itrc-gold); }
+  .btn-secundario:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 3px; }
+
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primario, .btn-secundario, .wizard-progreso__fill, .campo__input, .radio-inline__opt, .dropzone { transition: none; }
+    .btn-primario:hover { transform: none; }
+    .wizard-nav__guardado::before { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    .paso-indicador__label { display: none; }
+    .paso-indicador__item { padding: var(--space-1) var(--space-2); }
+    .paso-indicador__item::after { width: 12px; margin-left: var(--space-1); }
+    .wizard-pastilla__label { display: none; }
+    .revision-item { grid-template-columns: 1fr; gap: 4px; }
+    .revision-item__label { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.06em; }
+    .seccion { padding: var(--space-5) var(--space-4); }
+    .wizard-nav { flex-direction: column-reverse; }
+    .wizard-nav .btn-primario, .wizard-nav .btn-secundario { width: 100%; justify-content: center; }
+    .wizard-nav__spacer, .wizard-nav__guardado { display: none; }
+  }
+</style>
+
+<script>
+  // ============ Datos del querystring ============
+  const params = new URLSearchParams(window.location.search);
+  const entidadSlug = params.get('entidad') || '';
+  const conductaSlug = params.get('conducta') || '';
+  const formId = params.get('form') || '';
+
+  // Chip de entidad
+  const chipEnt = document.querySelector<HTMLElement>('[data-entidad-chip]');
+  const logoActivo = document.querySelector<HTMLImageElement>(`[data-entidad-logo="${entidadSlug}"]`);
+  if (chipEnt && logoActivo) { logoActivo.hidden = false; chipEnt.hidden = false; }
+
+  // Chip de conducta
+  const conductaNombres: Record<string, string> = {
+    'peculado-apropiacion': 'Peculado por apropiación',
+    'peculado-uso': 'Peculado por uso',
+    'peculado-aplicacion': 'Peculado por aplicación oficial diferente',
+    'concusion': 'Concusión',
+    'cohecho': 'Cohecho',
+    'prevaricato': 'Prevaricato',
+    'falsedad-material': 'Falsedad material en documento público',
+    'falsedad-ideologica': 'Falsedad ideológica en documento público',
+    'abuso-funcion': 'Abuso de función pública',
+    'trafico-influencias': 'Tráfico de influencias',
+    'incremento-patrimonial': 'Incremento patrimonial no justificado',
+    'indebida-celebracion': 'Indebida celebración de contratos',
+    'general': 'Otra conducta disciplinaria',
+  };
+  const chipCond = document.querySelector<HTMLElement>('[data-conducta-chip]');
+  const chipCondNombre = document.querySelector<HTMLElement>('[data-conducta-nombre]');
+  if (chipCond && chipCondNombre && conductaNombres[conductaSlug]) {
+    chipCondNombre.textContent = conductaNombres[conductaSlug];
+    chipCond.hidden = false;
+  }
+
+  // FORM_ID hidden
+  const formIdInput = document.querySelector<HTMLInputElement>('[data-form-id]');
+  if (formIdInput) formIdInput.value = formId;
+
+  // ID_DENUNCIA sesión (client-side placeholder — el backend lo reemplaza)
+  const idDenunciaInput = document.querySelector<HTMLInputElement>('[data-id-denuncia]');
+  if (idDenunciaInput) {
+    const stored = sessionStorage.getItem('itrc-denuncia-session');
+    if (stored) { idDenunciaInput.value = stored; }
+    else {
+      const nuevo = 'wf-' + Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem('itrc-denuncia-session', nuevo);
+      idDenunciaInput.value = nuevo;
+    }
+  }
+
+  // ============ Estado del wizard ============
+  const seccionIds = ['hechos', 'involucrados', 'circunstancias', 'evidencia', 'revision'];
+  const seccionTitulos: Record<string, string> = {
+    'hechos': 'Los hechos',
+    'involucrados': 'Los involucrados',
+    'circunstancias': 'Circunstancias',
+    'evidencia': 'Evidencia',
+    'revision': 'Revisar y enviar',
+  };
+  let indice = 0;
+
+  const secciones = document.querySelectorAll<HTMLElement>('[data-seccion]');
+  const pastillas = document.querySelectorAll<HTMLElement>('[data-pastilla]');
+  const btnPrev = document.querySelector<HTMLButtonElement>('[data-btn-prev]');
+  const btnNext = document.querySelector<HTMLButtonElement>('[data-btn-next]');
+  const btnSubmit = document.querySelector<HTMLButtonElement>('[data-btn-submit]');
+  const barraFill = document.querySelector<HTMLElement>('.wizard-progreso__fill');
+  const barra = document.querySelector<HTMLElement>('[data-progreso-barra]');
+  const seccionActualLabel = document.querySelector<HTMLElement>('[data-seccion-actual]');
+  const seccionNombreLabel = document.querySelector<HTMLElement>('[data-seccion-nombre]');
+
+  function mostrarSeccion(i: number) {
+    secciones.forEach((s, idx) => { s.hidden = idx !== i; });
+    pastillas.forEach((p, idx) => {
+      p.classList.toggle('wizard-pastilla--activa', idx === i);
+      p.classList.toggle('wizard-pastilla--completada', idx < i);
+    });
+    const pct = ((i + 1) / seccionIds.length) * 100;
+    if (barraFill) barraFill.style.width = pct + '%';
+    if (barra) barra.setAttribute('aria-valuenow', String(Math.round(pct)));
+    if (seccionActualLabel) seccionActualLabel.textContent = String(i + 1);
+    if (seccionNombreLabel) seccionNombreLabel.textContent = seccionTitulos[seccionIds[i]] || '';
+
+    if (btnPrev) btnPrev.hidden = i === 0;
+    if (btnNext) btnNext.hidden = i === seccionIds.length - 1;
+    if (btnSubmit) btnSubmit.hidden = i !== seccionIds.length - 1;
+
+    if (i === seccionIds.length - 1) renderRevision();
+
+    // scroll suave al inicio del wizard
+    document.querySelector('.wizard')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  btnNext?.addEventListener('click', () => {
+    if (indice < seccionIds.length - 1) { indice++; mostrarSeccion(indice); }
+  });
+  btnPrev?.addEventListener('click', () => {
+    if (indice > 0) { indice--; mostrarSeccion(indice); }
+  });
+
+  // Click en pastilla = ir a esa sección (solo si ya se pasó o es la próxima)
+  pastillas.forEach((p, idx) => {
+    p.style.cursor = 'pointer';
+    p.addEventListener('click', () => {
+      if (idx <= indice + 1) { indice = idx; mostrarSeccion(idx); }
+    });
+  });
+
+  // ============ Persistencia (localStorage) ============
+  const STORAGE_KEY = 'itrc-denuncia-borrador-' + (formId || 'default');
+
+  function guardar() {
+    const data: Record<string, string> = {};
+    document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[data-persist]').forEach(el => {
+      if (el.type === 'radio' || el.type === 'checkbox') {
+        if ((el as HTMLInputElement).checked) data[el.name || el.id] = el.value;
+      } else {
+        data[el.name || el.id] = el.value;
+      }
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (_) {}
+  }
+
+  function restaurar() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw) as Record<string, string>;
+      document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[data-persist]').forEach(el => {
+        const key = el.name || el.id;
+        const val = data[key];
+        if (val === undefined) return;
+        if (el.type === 'radio') {
+          if ((el as HTMLInputElement).value === val) (el as HTMLInputElement).checked = true;
+        } else if (el.type === 'checkbox') {
+          (el as HTMLInputElement).checked = val === (el as HTMLInputElement).value;
+        } else {
+          el.value = val;
+        }
+      });
+      // Trigger contadores
+      document.querySelectorAll<HTMLTextAreaElement>('[data-contador]').forEach(t => t.dispatchEvent(new Event('input')));
+    } catch (_) {}
+  }
+
+  restaurar();
+
+  document.querySelectorAll('[data-persist]').forEach(el => {
+    el.addEventListener('input', guardar);
+    el.addEventListener('change', guardar);
+  });
+
+  // ============ Contador de caracteres ============
+  document.querySelectorAll<HTMLTextAreaElement>('[data-contador]').forEach(area => {
+    const val = area.parentElement?.querySelector<HTMLElement>('[data-contador-value]');
+    const upd = () => { if (val) val.textContent = String(area.value.length); };
+    area.addEventListener('input', upd);
+    upd();
+  });
+
+  // ============ Dropzone ============
+  const dropzone = document.querySelector<HTMLElement>('[data-dropzone]');
+  const fileInput = document.querySelector<HTMLInputElement>('[data-file-input]');
+  const fileList = document.querySelector<HTMLElement>('[data-file-list]');
+
+  const humanSize = (bytes: number) => {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  };
+
+  const iconForFile = (name: string) => {
+    const ext = name.split('.').pop()?.toLowerCase() || '';
+    if (['pdf'].includes(ext)) return 'fa-file-pdf';
+    if (['doc', 'docx'].includes(ext)) return 'fa-file-word';
+    if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(ext)) return 'fa-file-image';
+    if (['mp3', 'wav', 'ogg', 'm4a'].includes(ext)) return 'fa-file-audio';
+    if (['mp4', 'mov', 'avi', 'webm'].includes(ext)) return 'fa-file-video';
+    return 'fa-file';
+  };
+
+  const renderFileList = () => {
+    if (!fileInput || !fileList) return;
+    fileList.innerHTML = '';
+    Array.from(fileInput.files || []).forEach(f => {
+      const li = document.createElement('li');
+      li.className = 'dropzone__file';
+      li.innerHTML = `<i class="fa-solid ${iconForFile(f.name)}"></i>
+        <span class="dropzone__file-name">${f.name}</span>
+        <span class="dropzone__file-size">${humanSize(f.size)}</span>`;
+      fileList.appendChild(li);
+    });
+  };
+  fileInput?.addEventListener('change', renderFileList);
+  ['dragenter', 'dragover'].forEach(ev => dropzone?.addEventListener(ev, e => {
+    e.preventDefault();
+    dropzone.classList.add('dropzone--drag');
+  }));
+  ['dragleave', 'drop'].forEach(ev => dropzone?.addEventListener(ev, e => {
+    e.preventDefault();
+    dropzone.classList.remove('dropzone--drag');
+  }));
+
+  // ============ Panel de revisión ============
+  function renderRevision() {
+    const panel = document.querySelector<HTMLElement>('[data-revision-panel]');
+    if (!panel) return;
+
+    const items: Array<{ label: string; value: string }> = [
+      { label: 'Entidad', value: entidadSlug ? entidadSlug.toUpperCase() : '—' },
+      { label: 'Conducta', value: conductaNombres[conductaSlug] || '—' },
+      { label: 'Fecha del hecho', value: (document.querySelector<HTMLInputElement>('[name="DESCR2"]')?.value) || '—' },
+      { label: 'Lugar', value: (document.querySelector<HTMLInputElement>('[name="DESCR3"]')?.value) || '—' },
+      { label: 'Descripción del hecho', value: (document.querySelector<HTMLTextAreaElement>('[name="DESCR4"]')?.value) || '—' },
+      { label: 'Servidor denunciado', value: (document.querySelector<HTMLInputElement>('[name="DESCR5"]')?.value) || '—' },
+      { label: 'Cargo', value: (document.querySelector<HTMLInputElement>('[name="DESCR7"]')?.value) || '—' },
+      { label: 'Archivos adjuntos', value: fileInput && fileInput.files && fileInput.files.length > 0 ? `${fileInput.files.length} archivo(s)` : 'Ninguno' },
+    ];
+
+    panel.innerHTML = items.map(i => `
+      <div class="revision-item">
+        <span class="revision-item__label">${i.label}</span>
+        <span class="revision-item__value ${i.value === '—' || i.value === 'Ninguno' ? 'revision-empty' : ''}">${i.value}</span>
+      </div>
+    `).join('');
+  }
+
+  // Al enviar, limpiar borrador local
+  document.querySelector<HTMLFormElement>('[data-wizard-form]')?.addEventListener('submit', () => {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
+    try { sessionStorage.removeItem('itrc-denuncia-session'); } catch (_) {}
+  });
+</script>

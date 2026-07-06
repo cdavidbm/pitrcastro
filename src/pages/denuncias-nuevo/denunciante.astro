@@ -1,0 +1,731 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import { resolveUrl } from '../../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
+  { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
+  { label: 'Identifíquese' },
+];
+
+// Diccionario de entidades para el chip contextual (leído desde ?entidad=)
+const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
+  dian:      { nombre: 'DIAN',      logo: '/images/entidades/dian.png' },
+  coljuegos: { nombre: 'Coljuegos', logo: '/images/entidades/coljuegos.png' },
+  ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
+};
+
+const tiposDocumento = [
+  { value: 'CC', label: 'Cédula de ciudadanía' },
+  { value: 'CE', label: 'Cédula de extranjería' },
+  { value: 'PA', label: 'Pasaporte' },
+  { value: 'TI', label: 'Tarjeta de identidad' },
+  { value: 'NUIP', label: 'NUIP' },
+];
+
+const mediosRespuesta = [
+  { value: 'correo', label: 'Correo electrónico' },
+  { value: 'telefono', label: 'Llamada telefónica' },
+  { value: 'ninguno', label: 'Prefiero no recibir avisos (solo consultaré por el radicado)' },
+];
+---
+
+<Base
+  title="Identifíquese — Presente su denuncia — Agencia ITRC"
+  description="Segundo paso del proceso de denuncia disciplinaria. Elija cómo desea identificarse: anónima, persona natural o persona jurídica. La reserva de su identidad está garantizada por ley."
+>
+  <HeroPage
+    title="Identifíquese"
+    subtitle="Elija cómo prefiere identificarse ante el trámite disciplinario. Puede hacerlo de manera anónima. La ley protege la reserva de su identidad en todos los casos."
+    icon="fa-solid fa-id-card"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Barra de progreso -->
+  <section class="paso-indicador" aria-label="Progreso del proceso">
+    <div class="container">
+      <ol class="paso-indicador__list">
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true">
+            <i class="fa-solid fa-check"></i>
+          </span>
+          <span class="paso-indicador__label">Entidad</span>
+        </li>
+        <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
+          <span class="paso-indicador__num">2</span>
+          <span class="paso-indicador__label">Identifíquese</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">3</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">4</span>
+          <span class="paso-indicador__label">Radicado</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Chip entidad seleccionada -->
+  <section class="entidad-chip-band" aria-label="Entidad seleccionada">
+    <div class="container">
+      <div class="entidad-chip" data-entidad-chip hidden>
+        <span class="entidad-chip__label">Denuncia contra servidor de</span>
+        <div class="entidad-chip__logo-wrap">
+          {Object.entries(entidadesInfo).map(([slug, info]) => (
+            <img
+              class="entidad-chip__logo"
+              data-entidad-logo={slug}
+              src={resolveUrl(info.logo)}
+              alt={`Logo ${info.nombre}`}
+              hidden
+            />
+          ))}
+        </div>
+        <a href={resolveUrl('/denuncias-nuevo/entidades')} class="entidad-chip__cambiar">
+          Cambiar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario -->
+  <section class="denunciante" aria-labelledby="denunciante-title">
+    <div class="container">
+      <form
+        class="form-denunciante"
+        method="post"
+        action={resolveUrl('/denuncias-nuevo/conducta')}
+        data-form-denunciante
+        novalidate
+      >
+        <!-- Campos técnicos que el backend legacy espera -->
+        <input type="hidden" name="MM_insert" value="form" />
+        <input type="hidden" name="FORM_ID" value="" data-form-id />
+
+        <!-- ============ Cómo desea identificarse ============ -->
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">1</span>
+            <span>¿Cómo desea identificarse?</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            Elija la opción que mejor refleje su situación. Puede cambiar de opción en cualquier momento antes de enviar.
+          </p>
+
+          <div class="tipo-persona__grid" role="radiogroup" aria-label="Tipo de persona">
+            <label class="tipo-persona-card">
+              <input type="radio" name="TIPO_PERSONA" value="anonimo" data-tipo-persona />
+              <div class="tipo-persona-card__body">
+                <div class="tipo-persona-card__icon" aria-hidden="true">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+                <span class="tipo-persona-card__titulo">Anónima</span>
+                <span class="tipo-persona-card__texto">No revela su identidad. Puede seguir el proceso con una contraseña propia.</span>
+              </div>
+            </label>
+
+            <label class="tipo-persona-card">
+              <input type="radio" name="TIPO_PERSONA" value="natural" data-tipo-persona />
+              <div class="tipo-persona-card__body">
+                <div class="tipo-persona-card__icon" aria-hidden="true">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <span class="tipo-persona-card__titulo">Persona natural</span>
+                <span class="tipo-persona-card__texto">Denuncia como ciudadano o ciudadana. Sus datos quedan bajo reserva legal.</span>
+              </div>
+            </label>
+
+            <label class="tipo-persona-card">
+              <input type="radio" name="TIPO_PERSONA" value="juridica" data-tipo-persona />
+              <div class="tipo-persona-card__body">
+                <div class="tipo-persona-card__icon" aria-hidden="true">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <span class="tipo-persona-card__titulo">Persona jurídica</span>
+                <span class="tipo-persona-card__texto">Denuncia en representación de una empresa, gremio, ONG u otra entidad.</span>
+              </div>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- ============ Datos personales — natural ============ -->
+        <fieldset class="fieldset" data-group="natural" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">2</span>
+            <span>Sus datos personales</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            La ley protege la reserva de esta información. Sus datos no aparecen en el expediente que consulta la persona denunciada.
+          </p>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="nombre-natural">Nombre completo <span class="campo__req" aria-label="obligatorio">*</span></label>
+              <input class="campo__input" id="nombre-natural" name="NOMBRE" type="text" autocomplete="name" required />
+            </div>
+          </div>
+
+          <div class="campo-grid campo-grid--3">
+            <div class="campo">
+              <label class="campo__label" for="tipo-doc-natural">Tipo de documento <span class="campo__req">*</span></label>
+              <select class="campo__input" id="tipo-doc-natural" name="TIPO_DOCUMENTO" required>
+                <option value="">Elija una opción</option>
+                {tiposDocumento.map(t => <option value={t.value}>{t.label}</option>)}
+              </select>
+            </div>
+            <div class="campo campo--span-2">
+              <label class="campo__label" for="num-doc-natural">Número de documento <span class="campo__req">*</span></label>
+              <input class="campo__input" id="num-doc-natural" name="TERCERO" type="text" inputmode="numeric" autocomplete="off" required />
+              <small class="campo__hint">Sin puntos ni espacios</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ============ Datos jurídica ============ -->
+        <fieldset class="fieldset" data-group="juridica" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">2</span>
+            <span>Datos de la persona jurídica</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            Ingrese los datos de la organización que representa y su rol dentro de ella.
+          </p>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="razon-social">Razón social <span class="campo__req">*</span></label>
+              <input class="campo__input" id="razon-social" name="NOMBRE" type="text" autocomplete="organization" required />
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="nit">NIT <span class="campo__req">*</span></label>
+              <input class="campo__input" id="nit" name="TERCERO" type="text" inputmode="numeric" required />
+              <small class="campo__hint">Sin dígito de verificación</small>
+            </div>
+          </div>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="rep-legal">Representante legal <span class="campo__req">*</span></label>
+              <input class="campo__input" id="rep-legal" type="text" autocomplete="name" required />
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="tipo-doc-juridica">Tipo de documento del representante <span class="campo__req">*</span></label>
+              <select class="campo__input" id="tipo-doc-juridica" name="TIPO_DOCUMENTO" required>
+                <option value="">Elija una opción</option>
+                {tiposDocumento.map(t => <option value={t.value}>{t.label}</option>)}
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ============ Contacto — común natural / jurídica ============ -->
+        <fieldset class="fieldset" data-group="contacto" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">3</span>
+            <span>Cómo contactarle</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            Se usan únicamente para notificarle avances del proceso. No aparecen en el expediente que consulta la persona denunciada.
+          </p>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="correo">Correo electrónico <span class="campo__req">*</span></label>
+              <input class="campo__input" id="correo" name="CORREO" type="email" autocomplete="email" required />
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="telefono">Teléfono</label>
+              <input class="campo__input" id="telefono" name="TELEFONO" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="medio-respuesta">¿Cómo prefiere que le notifiquen? <span class="campo__req">*</span></label>
+            <select class="campo__input" id="medio-respuesta" name="MEDIO_RESPUESTA" required>
+              <option value="">Elija una opción</option>
+              {mediosRespuesta.map(m => <option value={m.value}>{m.label}</option>)}
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- ============ Ubicación — natural / jurídica ============ -->
+        <fieldset class="fieldset" data-group="ubicacion" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">4</span>
+            <span>Ubicación</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            Ayuda a asignar el trámite a la seccional correspondiente. No es su dirección personal exacta si prefiere reservarla.
+          </p>
+
+          <div class="campo-grid campo-grid--3">
+            <div class="campo">
+              <label class="campo__label" for="pais">País <span class="campo__req">*</span></label>
+              <select class="campo__input" id="pais" name="PAIS" required>
+                <option value="CO" selected>Colombia</option>
+                <option value="OT">Otro</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="depto">Departamento <span class="campo__req">*</span></label>
+              <select class="campo__input" id="depto" name="DEPTID" required>
+                <option value="">Elija una opción</option>
+                <option value="11">Bogotá D.C.</option>
+                <option value="05">Antioquia</option>
+                <option value="76">Valle del Cauca</option>
+                <option value="08">Atlántico</option>
+                <option value="ot">Otro</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="ciudad">Ciudad / Municipio <span class="campo__req">*</span></label>
+              <input class="campo__input" id="ciudad" name="CITY" type="text" required />
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__label" for="direccion">Dirección de contacto</label>
+            <input class="campo__input" id="direccion" name="DIRECCION" type="text" autocomplete="street-address" />
+            <small class="campo__hint">Opcional. Si no la ingresa, la Agencia usa el correo o el teléfono.</small>
+          </div>
+        </fieldset>
+
+        <!-- ============ Contraseña de consulta — todos ============ -->
+        <fieldset class="fieldset" data-group="consulta" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true" data-consulta-num>5</span>
+            <span>Su contraseña para consultar el estado</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            <strong>Importante:</strong> con esta contraseña y el número de radicado podrá consultar el avance de su denuncia. Anótela en un lugar seguro — no podemos recuperarla si la olvida.
+          </p>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="contrasenia">Contraseña <span class="campo__req">*</span></label>
+              <input class="campo__input" id="contrasenia" name="CONTRASENIA" type="text" minlength="6" required />
+              <small class="campo__hint">Mínimo 6 caracteres. No use datos personales.</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ============ Contacto anónimo — solo anónimo ============ -->
+        <fieldset class="fieldset" data-group="anonimo-contacto" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">3</span>
+            <span>Cómo recibir avisos (opcional)</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            Como denuncia anónima, no está obligado a ingresar datos de contacto. Si desea recibir avisos del avance, puede indicar un correo o teléfono que <em>no revele su identidad</em> (por ejemplo, un correo creado para esto).
+          </p>
+
+          <div class="campo-grid campo-grid--2">
+            <div class="campo">
+              <label class="campo__label" for="correo-anon">Correo electrónico</label>
+              <input class="campo__input" id="correo-anon" name="CORREO" type="email" />
+            </div>
+            <div class="campo">
+              <label class="campo__label" for="telefono-anon">Teléfono</label>
+              <input class="campo__input" id="telefono-anon" name="TELEFONO" type="tel" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ============ Términos ============ -->
+        <fieldset class="fieldset fieldset--terms" data-group="terms" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true" data-terms-num>6</span>
+            <span>Confirmación</span>
+          </legend>
+
+          <label class="check-inline">
+            <input type="checkbox" name="terms" required />
+            <span>
+              Declaro que la información suministrada es cierta y que conozco que presentar una denuncia con temeridad o mala fe puede generar responsabilidad legal. He leído la <a href={resolveUrl('/denuncias-nuevo')} target="_blank" rel="noopener">política de tratamiento de datos</a> de la Agencia ITRC.
+            </span>
+          </label>
+        </fieldset>
+
+        <!-- ============ Confirmación anónima ============ -->
+        <fieldset class="fieldset fieldset--terms" data-group="terms-anonimo" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">4</span>
+            <span>Confirmación</span>
+          </legend>
+
+          <label class="check-inline">
+            <input type="checkbox" name="terms" required />
+            <span>
+              Declaro que la información que voy a suministrar es cierta y comprendo que la denuncia anónima limita las opciones de aportar pruebas testimoniales adicionales. He leído la <a href={resolveUrl('/denuncias-nuevo')} target="_blank" rel="noopener">política de tratamiento de datos</a>.
+            </span>
+          </label>
+        </fieldset>
+
+        <!-- ============ Botones ============ -->
+        <div class="form-actions" data-actions hidden>
+          <a href={resolveUrl('/denuncias-nuevo/entidades')} class="btn-secundario">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Volver
+          </a>
+          <button type="submit" name="enviar" class="btn-primario">
+            Continuar a describir los hechos
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ============ Barra de pasos (misma que /entidades) ============ */
+  .paso-indicador {
+    background: var(--theme-surface-alt);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+  .paso-indicador .container { max-width: 1000px; margin: 0 auto; }
+  .paso-indicador__list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; align-items: center; justify-content: center;
+    gap: var(--space-2); flex-wrap: wrap;
+  }
+  .paso-indicador__item {
+    display: flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm); font-weight: 600;
+    position: relative;
+  }
+  .paso-indicador__item::after {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--theme-border);
+    margin-left: var(--space-2);
+  }
+  .paso-indicador__item:last-child::after { display: none; }
+  .paso-indicador__num {
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border);
+    font-size: 0.85rem;
+    color: var(--theme-text-muted);
+    font-weight: 700;
+  }
+  .paso-indicador__item--activo { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .paso-indicador__item--activo .paso-indicador__num {
+    background: var(--itrc-navy); color: var(--itrc-gold); border-color: var(--itrc-navy);
+  }
+  .paso-indicador__item--completado .paso-indicador__num {
+    background: var(--itrc-gold); color: var(--itrc-navy); border-color: var(--itrc-gold);
+  }
+  .paso-indicador__item--completado { color: var(--theme-heading); }
+
+  /* ============ Chip de entidad ============ */
+  .entidad-chip-band { padding: var(--space-6) var(--space-4) 0; background: var(--theme-surface); }
+  .entidad-chip-band .container { max-width: 820px; margin: 0 auto; }
+  .entidad-chip {
+    display: inline-flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: var(--theme-surface-alt);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-sm);
+  }
+  .entidad-chip__label { color: var(--theme-text-muted); font-weight: 600; }
+  .entidad-chip__logo-wrap {
+    height: 28px; display: grid; place-items: center;
+  }
+  .entidad-chip__logo {
+    max-height: 28px; max-width: 100px;
+    width: auto; height: auto; object-fit: contain;
+  }
+  .entidad-chip__cambiar {
+    color: var(--itrc-gold-dark); text-decoration: none;
+    font-size: 0.8rem; font-weight: 700;
+    padding: 4px 10px; border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+  }
+  .entidad-chip__cambiar:hover { background: var(--theme-surface); text-decoration: underline; }
+  .entidad-chip[hidden] { display: none !important; }
+
+  /* ============ Formulario ============ */
+  .denunciante { padding: var(--space-6) var(--space-4) var(--space-12); background: var(--theme-surface); }
+  .denunciante .container { max-width: 820px; margin: 0 auto; }
+  .form-denunciante {
+    display: flex; flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .fieldset {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin: 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .fieldset[hidden] { display: none !important; }
+  .fieldset__legend {
+    display: flex; align-items: center; gap: var(--space-3);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: var(--font-size-lg);
+    color: var(--theme-heading);
+    font-weight: 700;
+    padding: 0; margin: 0 0 var(--space-2);
+  }
+  .fieldset__num {
+    width: 32px; height: 32px;
+    display: grid; place-items: center;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: 50%;
+    font-size: 0.9rem; font-weight: 800;
+    flex-shrink: 0;
+  }
+  .fieldset__ayuda {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    margin: 0 0 var(--space-5) calc(32px + var(--space-3));
+  }
+  .fieldset__ayuda strong { color: var(--theme-heading); font-weight: 700; }
+
+  /* ============ Cards de tipo de persona ============ */
+  .tipo-persona__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-3);
+    margin-left: calc(32px + var(--space-3));
+  }
+  .tipo-persona-card {
+    position: relative;
+    cursor: pointer;
+    display: block;
+  }
+  .tipo-persona-card input[type="radio"] {
+    position: absolute; opacity: 0; pointer-events: none;
+  }
+  .tipo-persona-card__body {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--theme-surface-alt);
+    border: 2px solid var(--theme-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    height: 100%;
+  }
+  .tipo-persona-card:hover .tipo-persona-card__body {
+    border-color: var(--itrc-gold);
+    transform: translateY(-2px);
+  }
+  .tipo-persona-card input:checked + .tipo-persona-card__body {
+    border-color: var(--itrc-gold);
+    background: var(--theme-surface);
+    box-shadow: 0 0 0 4px rgba(179, 139, 64, 0.15), var(--shadow-md);
+  }
+  .tipo-persona-card input:focus-visible + .tipo-persona-card__body {
+    outline: 3px solid var(--itrc-gold);
+    outline-offset: 3px;
+  }
+  .tipo-persona-card__icon {
+    width: 44px; height: 44px;
+    display: grid; place-items: center;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: 50%;
+    font-size: 1.1rem;
+  }
+  .tipo-persona-card__titulo {
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+    font-weight: 700;
+  }
+  .tipo-persona-card__texto {
+    font-size: 0.82rem;
+    color: var(--theme-text-secondary);
+    line-height: 1.4;
+  }
+
+  /* ============ Campos ============ */
+  .campo-grid {
+    display: grid; gap: var(--space-4);
+    margin-left: calc(32px + var(--space-3));
+  }
+  .campo-grid--2 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .campo-grid--3 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; margin-left: calc(32px + var(--space-3)); }
+  .campo-grid .campo { margin-left: 0; }
+  .campo--span-2 { grid-column: span 2; }
+
+  .campo__label {
+    font-size: 0.85rem;
+    color: var(--theme-heading);
+    font-weight: 700;
+  }
+  .campo__req {
+    color: var(--itrc-gold-dark);
+    font-weight: 700;
+  }
+  .campo__input {
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+    background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .campo__input:hover { border-color: var(--theme-text-muted); }
+  .campo__input:focus-visible {
+    outline: none;
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(179, 139, 64, 0.18);
+  }
+  .campo__hint {
+    color: var(--theme-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  /* ============ Términos ============ */
+  .fieldset--terms { background: var(--theme-surface-alt); }
+  .check-inline {
+    display: flex; gap: var(--space-3);
+    align-items: flex-start;
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    margin-left: calc(32px + var(--space-3));
+    cursor: pointer;
+  }
+  .check-inline input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    accent-color: var(--itrc-gold);
+    margin-top: 2px;
+    cursor: pointer;
+  }
+  .check-inline a { color: var(--itrc-gold-dark); font-weight: 700; }
+
+  /* ============ Botones ============ */
+  .form-actions {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+    flex-wrap: wrap;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--theme-border-light);
+  }
+  .form-actions[hidden] { display: none !important; }
+  .btn-primario, .btn-secundario {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  }
+  .btn-primario {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primario:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-primario:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 3px; }
+  .btn-secundario {
+    background: transparent;
+    color: var(--theme-heading);
+    border-color: var(--theme-border);
+  }
+  .btn-secundario:hover { background: var(--theme-surface-alt); border-color: var(--itrc-gold); }
+  .btn-secundario:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: 3px; }
+
+  /* ============ Motion ============ */
+  @media (prefers-reduced-motion: reduce) {
+    .tipo-persona-card__body, .btn-primario, .btn-secundario,
+    .campo__input, .entidad-chip__cambiar { transition: none; }
+    .tipo-persona-card:hover .tipo-persona-card__body,
+    .btn-primario:hover { transform: none; }
+  }
+
+  /* ============ Móvil ============ */
+  @media (max-width: 640px) {
+    .paso-indicador__label { display: none; }
+    .paso-indicador__item { padding: var(--space-1) var(--space-2); }
+    .paso-indicador__item::after { width: 12px; margin-left: var(--space-1); }
+    .fieldset { padding: var(--space-5) var(--space-4); }
+    .fieldset__ayuda { margin-left: 0; }
+    .tipo-persona__grid, .campo-grid, .campo, .check-inline { margin-left: 0; }
+    .form-actions { flex-direction: column-reverse; }
+    .form-actions .btn-primario, .form-actions .btn-secundario { width: 100%; justify-content: center; }
+  }
+</style>
+
+<script>
+  // === Entidad chip: leer ?entidad=X del querystring ===
+  // Los 3 logos ya están en el DOM ocultos; el JS solo destapa el que corresponde
+  // (así Astro resuelve la URL correcta con basePath en build; no dependemos de baseURI en runtime).
+  const chip = document.querySelector<HTMLElement>('[data-entidad-chip]');
+  const formIdInput = document.querySelector<HTMLInputElement>('[data-form-id]');
+
+  const params = new URLSearchParams(window.location.search);
+  const entidadSlug = params.get('entidad') || '';
+  const logoActivo = document.querySelector<HTMLImageElement>(`[data-entidad-logo="${entidadSlug}"]`);
+
+  if (chip && logoActivo) {
+    logoActivo.hidden = false;
+    chip.hidden = false;
+    if (formIdInput) formIdInput.value = entidadSlug;
+  }
+
+  // === Show/hide de grupos según tipo de persona ===
+  const groups = {
+    natural:           ['natural', 'contacto', 'ubicacion', 'consulta', 'terms'],
+    juridica:          ['juridica', 'contacto', 'ubicacion', 'consulta', 'terms'],
+    anonimo:           ['consulta', 'anonimo-contacto', 'terms-anonimo'],
+  };
+
+  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'consulta', 'anonimo-contacto', 'terms', 'terms-anonimo'];
+  const actions = document.querySelector<HTMLElement>('[data-actions]');
+  const consultaNum = document.querySelector<HTMLElement>('[data-consulta-num]');
+  const termsNum = document.querySelector<HTMLElement>('[data-terms-num]');
+
+  const setNum = (el: HTMLElement | null, n: number) => { if (el) el.textContent = String(n); };
+
+  document.querySelectorAll<HTMLInputElement>('[data-tipo-persona]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const tipo = radio.value as keyof typeof groups;
+      const visibleGroups = groups[tipo] || [];
+
+      allGroups.forEach(g => {
+        const el = document.querySelector<HTMLElement>(`[data-group="${g}"]`);
+        if (el) el.hidden = !visibleGroups.includes(g);
+      });
+
+      // Renumerar el orden del pasillo de fieldsets
+      if (tipo === 'anonimo') {
+        setNum(consultaNum, 2);
+      } else {
+        setNum(consultaNum, 5);
+        setNum(termsNum, 6);
+      }
+
+      if (actions) actions.hidden = false;
+    });
+  });
+</script>

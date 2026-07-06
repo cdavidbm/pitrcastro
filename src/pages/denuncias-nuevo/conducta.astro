@@ -1,0 +1,668 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroPage from '../../components/HeroPage.astro';
+import { resolveUrl } from '../../utils/url';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
+  { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
+  { label: 'Identifíquese', href: resolveUrl('/denuncias-nuevo/denunciante') },
+  { label: 'Describa la conducta' },
+];
+
+// Diccionario de entidades para el chip (leído en runtime del ?entidad=)
+const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
+  dian:      { nombre: 'DIAN',      logo: '/images/entidades/dian.png' },
+  coljuegos: { nombre: 'Coljuegos', logo: '/images/entidades/coljuegos.png' },
+  ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
+};
+
+// Conductas del legacy — misma FORM_ID que espera el backend.
+// Agrupadas para navegar mejor las 13 opciones sin saturar visualmente.
+const grupos = [
+  {
+    id: 'admin',
+    titulo: 'Contra la administración pública',
+    conductas: [
+      {
+        id: 'peculado-apropiacion',
+        formId: '9',
+        nombre: 'Peculado por apropiación',
+        icon: 'fa-solid fa-money-bill-transfer',
+        descripcion: 'Un servidor público se apropia, para sí o para otro, de bienes del Estado que le fueron confiados por su cargo.',
+        norma: 'Art. 397 Código Penal · Ley 734/2002',
+      },
+      {
+        id: 'peculado-uso',
+        formId: '10',
+        nombre: 'Peculado por uso',
+        icon: 'fa-solid fa-car',
+        descripcion: 'El servidor usa bienes del Estado (vehículos, equipos, inmuebles) para fines personales o distintos a los oficiales.',
+        norma: 'Art. 398 Código Penal',
+      },
+      {
+        id: 'peculado-aplicacion',
+        formId: '11',
+        nombre: 'Peculado por aplicación oficial diferente',
+        icon: 'fa-solid fa-arrow-right-arrow-left',
+        descripcion: 'Se da a los recursos públicos un destino distinto al que la ley les asignó, aunque siga siendo un uso oficial.',
+        norma: 'Art. 399 Código Penal',
+      },
+      {
+        id: 'concusion',
+        formId: '3',
+        nombre: 'Concusión',
+        icon: 'fa-solid fa-hand-back-fist',
+        descripcion: 'El servidor abusa de su cargo para exigir o inducir a otra persona a entregarle dinero o beneficios que no le corresponden.',
+        norma: 'Art. 404 Código Penal',
+      },
+      {
+        id: 'cohecho',
+        formId: '7',
+        nombre: 'Cohecho',
+        icon: 'fa-solid fa-hand-holding-dollar',
+        descripcion: 'El servidor recibe dinero o beneficios para realizar, retardar u omitir un acto propio de su cargo.',
+        norma: 'Arts. 405-407 Código Penal',
+      },
+      {
+        id: 'prevaricato',
+        formId: '12',
+        nombre: 'Prevaricato',
+        icon: 'fa-solid fa-gavel',
+        descripcion: 'Dictar una resolución, dictamen o concepto manifiestamente contrario a la ley, sabiendo que lo es.',
+        norma: 'Art. 413 Código Penal',
+      },
+    ],
+  },
+  {
+    id: 'fe-publica',
+    titulo: 'Contra la fe pública',
+    conductas: [
+      {
+        id: 'falsedad-material',
+        formId: '4',
+        nombre: 'Falsedad material en documento público',
+        icon: 'fa-solid fa-pen-nib',
+        descripcion: 'Alterar o crear un documento público falso, cambiando su contenido o su apariencia física.',
+        norma: 'Art. 287 Código Penal',
+      },
+      {
+        id: 'falsedad-ideologica',
+        formId: '5',
+        nombre: 'Falsedad ideológica en documento público',
+        icon: 'fa-solid fa-file-pen',
+        descripcion: 'El servidor consigna en un documento hechos que sabe que son falsos, o calla la verdad total o parcialmente.',
+        norma: 'Art. 286 Código Penal',
+      },
+    ],
+  },
+  {
+    id: 'otras',
+    titulo: 'Otras faltas disciplinarias',
+    conductas: [
+      {
+        id: 'abuso-funcion',
+        formId: '6',
+        nombre: 'Abuso de función pública',
+        icon: 'fa-solid fa-user-shield',
+        descripcion: 'El servidor ejerce funciones distintas a las asignadas a su cargo o excede los límites de sus atribuciones.',
+        norma: 'Art. 428 Código Penal',
+      },
+      {
+        id: 'trafico-influencias',
+        formId: '8',
+        nombre: 'Tráfico de influencias',
+        icon: 'fa-solid fa-handshake-simple',
+        descripcion: 'El servidor invoca influencias reales o simuladas de su cargo para obtener beneficios propios o de terceros.',
+        norma: 'Art. 411 Código Penal',
+      },
+      {
+        id: 'incremento-patrimonial',
+        formId: '2',
+        nombre: 'Incremento patrimonial no justificado',
+        icon: 'fa-solid fa-money-bill-trend-up',
+        descripcion: 'El servidor obtiene un aumento de su patrimonio que no corresponde con sus ingresos declarados o legítimos.',
+        norma: 'Art. 412 Código Penal',
+      },
+      {
+        id: 'indebida-celebracion',
+        formId: '0',
+        nombre: 'Indebida celebración de contratos',
+        icon: 'fa-solid fa-file-contract',
+        descripcion: 'Contratar sin cumplir los requisitos legales, tramitar contratos con interés propio o suscribirlos por fuera de los procedimientos.',
+        norma: 'Arts. 408-410 Código Penal',
+      },
+      {
+        id: 'general',
+        formId: '1',
+        nombre: 'Otra conducta disciplinaria',
+        icon: 'fa-solid fa-circle-question',
+        descripcion: 'Si el hecho no encaja claramente con las conductas anteriores, seleccione esta opción. Podrá describirlo con sus propias palabras en el siguiente paso.',
+        norma: 'Ley 734/2002 · Ley 2094/2021',
+      },
+    ],
+  },
+];
+
+const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
+---
+
+<Base
+  title="Elija la conducta a denunciar — Presente su denuncia — Agencia ITRC"
+  description="Seleccione la falta disciplinaria que corresponda al hecho que va a denunciar. Cada opción incluye una descripción en lenguaje sencillo y su referencia normativa."
+>
+  <HeroPage
+    title="¿Qué conducta quiere denunciar?"
+    subtitle="Elija la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve; si no está seguro, la última opción le permite describir el hecho con sus propias palabras."
+    icon="fa-solid fa-list-check"
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- Barra de progreso -->
+  <section class="paso-indicador" aria-label="Progreso del proceso">
+    <div class="container">
+      <ol class="paso-indicador__list">
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+          <span class="paso-indicador__label">Entidad</span>
+        </li>
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+          <span class="paso-indicador__label">Identifíquese</span>
+        </li>
+        <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
+          <span class="paso-indicador__num">3</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
+        </li>
+        <li class="paso-indicador__item">
+          <span class="paso-indicador__num">4</span>
+          <span class="paso-indicador__label">Radicado</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Chip entidad -->
+  <section class="entidad-chip-band" aria-label="Entidad seleccionada">
+    <div class="container">
+      <div class="entidad-chip" data-entidad-chip hidden>
+        <span class="entidad-chip__label">Denuncia contra servidor de</span>
+        <div class="entidad-chip__logo-wrap">
+          {Object.entries(entidadesInfo).map(([slug, info]) => (
+            <img
+              class="entidad-chip__logo"
+              data-entidad-logo={slug}
+              src={resolveUrl(info.logo)}
+              alt={`Logo ${info.nombre}`}
+              hidden
+            />
+          ))}
+        </div>
+        <a href={resolveUrl('/denuncias-nuevo/entidades')} class="entidad-chip__cambiar">
+          Cambiar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buscador + conteo -->
+  <section class="conducta" aria-labelledby="conducta-title">
+    <div class="container">
+      <h2 id="conducta-title" class="visually-hidden">Conductas disciplinarias</h2>
+
+      <div class="conducta__search-band">
+        <div class="conducta__search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input
+            type="search"
+            id="conducta-search"
+            data-search
+            placeholder={`Buscar entre ${totalConductas} conductas — ej. "cohecho"`}
+            aria-label="Buscar conducta"
+            autocomplete="off"
+          />
+        </div>
+        <p class="conducta__contador" data-contador aria-live="polite">
+          {totalConductas} conductas disponibles
+        </p>
+      </div>
+
+      <!-- Grid de conductas agrupadas -->
+      {grupos.map(g => (
+        <section class="grupo" data-grupo>
+          <h3 class="grupo__titulo">{g.titulo}</h3>
+          <ul class="grupo__grid">
+            {g.conductas.map(c => (
+              <li
+                class="conducta-card"
+                data-conducta
+                data-nombre={c.nombre.toLowerCase()}
+                data-desc={c.descripcion.toLowerCase()}
+              >
+                <a href={resolveUrl(`/denuncias-nuevo/formulario?conducta=${c.id}&form=${c.formId}`)} class="conducta-card__link">
+                  <div class="conducta-card__header">
+                    <div class="conducta-card__icon" aria-hidden="true">
+                      <i class={c.icon}></i>
+                    </div>
+                    <h4 class="conducta-card__nombre">{c.nombre}</h4>
+                  </div>
+                  <p class="conducta-card__desc">{c.descripcion}</p>
+                  <div class="conducta-card__footer">
+                    <span class="conducta-card__norma">
+                      <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+                      {c.norma}
+                    </span>
+                    <span class="conducta-card__arrow" aria-hidden="true">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      <!-- Mensaje sin resultados -->
+      <div class="conducta__sin-resultados" data-sin-resultados hidden>
+        <i class="fa-regular fa-face-thinking" aria-hidden="true"></i>
+        <p>No encontramos ninguna conducta que coincida con su búsqueda.</p>
+        <p class="conducta__sin-resultados-hint">
+          Puede seleccionar <strong>"Otra conducta disciplinaria"</strong> y describir el hecho con sus propias palabras en el siguiente paso.
+        </p>
+      </div>
+
+      <!-- Card de ayuda -->
+      <aside class="ayuda-card">
+        <div class="ayuda-card__icon" aria-hidden="true">
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+        <div class="ayuda-card__body">
+          <h3 class="ayuda-card__titulo">¿No sabe cómo tipificar el hecho?</h3>
+          <p class="ayuda-card__texto">
+            No hace falta que sea preciso jurídicamente. Elija la conducta que más se acerque a lo ocurrido — si ninguna encaja, use <strong>"Otra conducta disciplinaria"</strong> y descríbalo con sus palabras. El equipo de la Agencia ITRC hará la calificación jurídica definitiva al analizar su denuncia.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Volver -->
+      <div class="conducta__volver">
+        <a href={resolveUrl('/denuncias-nuevo/denunciante')} class="link-volver">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          Volver a identificación
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ============ Paso indicador ============ */
+  .paso-indicador {
+    background: var(--theme-surface-alt);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--theme-border-light);
+  }
+  .paso-indicador .container { max-width: 1000px; margin: 0 auto; }
+  .paso-indicador__list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; align-items: center; justify-content: center;
+    gap: var(--space-2); flex-wrap: wrap;
+  }
+  .paso-indicador__item {
+    display: flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm); font-weight: 600;
+    position: relative;
+  }
+  .paso-indicador__item::after {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--theme-border);
+    margin-left: var(--space-2);
+  }
+  .paso-indicador__item:last-child::after { display: none; }
+  .paso-indicador__num {
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border);
+    font-size: 0.85rem;
+    color: var(--theme-text-muted);
+    font-weight: 700;
+  }
+  .paso-indicador__item--activo { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .paso-indicador__item--activo .paso-indicador__num {
+    background: var(--itrc-navy); color: var(--itrc-gold); border-color: var(--itrc-navy);
+  }
+  .paso-indicador__item--completado .paso-indicador__num {
+    background: var(--itrc-gold); color: var(--itrc-navy); border-color: var(--itrc-gold);
+  }
+  .paso-indicador__item--completado { color: var(--theme-heading); }
+
+  /* ============ Chip entidad ============ */
+  .entidad-chip-band { padding: var(--space-6) var(--space-4) 0; background: var(--theme-surface); }
+  .entidad-chip-band .container { max-width: 1100px; margin: 0 auto; }
+  .entidad-chip {
+    display: inline-flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: var(--theme-surface-alt);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-sm);
+  }
+  .entidad-chip__label { color: var(--theme-text-muted); font-weight: 600; }
+  .entidad-chip__logo-wrap { height: 28px; display: grid; place-items: center; }
+  .entidad-chip__logo {
+    max-height: 28px; max-width: 100px;
+    width: auto; height: auto; object-fit: contain;
+  }
+  .entidad-chip__cambiar {
+    color: var(--itrc-gold-dark); text-decoration: none;
+    font-size: 0.8rem; font-weight: 700;
+    padding: 4px 10px; border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+  }
+  .entidad-chip__cambiar:hover { background: var(--theme-surface); text-decoration: underline; }
+
+  /* ============ Conducta section ============ */
+  .conducta { padding: var(--space-6) var(--space-4) var(--space-12); background: var(--theme-surface); }
+  .conducta .container { max-width: 1100px; margin: 0 auto; }
+
+  /* Buscador */
+  .conducta__search-band {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-4); flex-wrap: wrap;
+    margin: var(--space-6) 0 var(--space-8);
+  }
+  .conducta__search {
+    display: flex; align-items: center;
+    gap: var(--space-3);
+    flex: 1; min-width: 240px;
+    padding: 0 var(--space-4);
+    background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .conducta__search:focus-within {
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(179, 139, 64, 0.18);
+  }
+  .conducta__search i { color: var(--theme-text-muted); flex-shrink: 0; }
+  .conducta__search input {
+    flex: 1;
+    padding: var(--space-3) 0;
+    border: none; background: transparent;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+  }
+  .conducta__search input:focus { outline: none; }
+  .conducta__contador {
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* Grupos */
+  .grupo { margin-bottom: var(--space-10); }
+  .grupo[hidden] { display: none !important; }
+  .grupo__titulo {
+    font-size: var(--font-size-lg);
+    color: var(--theme-heading);
+    margin: 0 0 var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--itrc-gold);
+    display: inline-block;
+  }
+  .grupo__grid {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+
+  /* Cards de conducta */
+  .conducta-card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  }
+  .conducta-card[hidden] { display: none !important; }
+  .conducta-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 33, 71, 0.12);
+    border-color: var(--itrc-gold);
+  }
+  .conducta-card__link {
+    display: flex; flex-direction: column;
+    height: 100%;
+    padding: var(--space-5);
+    text-decoration: none;
+    color: inherit;
+    gap: var(--space-3);
+  }
+  .conducta-card__link:focus-visible {
+    outline: 3px solid var(--itrc-gold);
+    outline-offset: -3px;
+  }
+  .conducta-card__header {
+    display: flex; align-items: flex-start; gap: var(--space-3);
+  }
+  .conducta-card__icon {
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    background: var(--theme-surface-alt);
+    color: var(--itrc-gold-dark);
+    border-radius: 50%;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+  .conducta-card:hover .conducta-card__icon {
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+  }
+  .conducta-card__nombre {
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+    line-height: 1.3;
+    margin: 6px 0 0;
+    font-weight: 700;
+  }
+  .conducta-card__desc {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    margin: 0;
+    flex-grow: 1;
+  }
+  .conducta-card__footer {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--theme-border-light);
+  }
+  .conducta-card__norma {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.75rem;
+    color: var(--theme-text-muted);
+    font-weight: 600;
+  }
+  .conducta-card__norma i { color: var(--itrc-gold); font-size: 0.8rem; }
+  .conducta-card__arrow {
+    color: var(--itrc-gold-dark);
+    font-size: 0.85rem;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+  }
+  .conducta-card:hover .conducta-card__arrow {
+    transform: translateX(3px);
+    color: var(--itrc-gold);
+  }
+
+  /* Sin resultados */
+  .conducta__sin-resultados {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+    color: var(--theme-text-secondary);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-lg);
+    margin: var(--space-6) 0;
+  }
+  .conducta__sin-resultados i {
+    font-size: 2rem; color: var(--itrc-gold); margin-bottom: var(--space-3);
+  }
+  .conducta__sin-resultados p { margin: var(--space-2) 0; }
+  .conducta__sin-resultados-hint {
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+  }
+  .conducta__sin-resultados-hint strong { color: var(--theme-heading); font-weight: 700; }
+
+  /* Ayuda */
+  .ayuda-card {
+    display: flex; gap: var(--space-4);
+    padding: var(--space-6);
+    background: linear-gradient(135deg, var(--theme-surface-alt) 0%, var(--theme-surface) 100%);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--itrc-gold);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-10) 0 var(--space-6);
+  }
+  .ayuda-card__icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    border-radius: 50%;
+    font-size: 1.25rem;
+  }
+  .ayuda-card__body { flex: 1; min-width: 0; }
+  .ayuda-card__titulo {
+    color: var(--theme-heading);
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+  .ayuda-card__texto {
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .ayuda-card__texto strong { color: var(--theme-heading); font-weight: 700; }
+
+  /* Volver */
+  .conducta__volver { margin-top: var(--space-6); text-align: center; }
+  .link-volver {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    color: var(--theme-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+  .link-volver:hover { color: var(--itrc-gold-dark); background: var(--theme-surface-alt); }
+  .link-volver:focus-visible { outline: 2px solid var(--itrc-gold); outline-offset: 2px; }
+
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .conducta-card, .conducta-card__icon, .conducta-card__arrow,
+    .conducta__search, .link-volver { transition: none; }
+    .conducta-card:hover { transform: none; }
+    .conducta-card:hover .conducta-card__arrow { transform: none; }
+  }
+
+  @media (max-width: 640px) {
+    .paso-indicador__label { display: none; }
+    .paso-indicador__item { padding: var(--space-1) var(--space-2); }
+    .paso-indicador__item::after { width: 12px; margin-left: var(--space-1); }
+    .ayuda-card { flex-direction: column; }
+    .conducta__search-band { flex-direction: column; align-items: stretch; }
+    .conducta__contador { text-align: center; }
+  }
+</style>
+
+<script>
+  // === Entidad chip: mismo patrón que /denunciante ===
+  const chip = document.querySelector<HTMLElement>('[data-entidad-chip]');
+  const params = new URLSearchParams(window.location.search);
+  const entidadSlug = params.get('entidad') || '';
+  const logoActivo = document.querySelector<HTMLImageElement>(`[data-entidad-logo="${entidadSlug}"]`);
+
+  if (chip && logoActivo) {
+    logoActivo.hidden = false;
+    chip.hidden = false;
+  }
+
+  // === Reenviar entidad al link de cada card ===
+  // Cada conducta debe preservar la entidad seleccionada al ir al siguiente paso.
+  if (entidadSlug) {
+    document.querySelectorAll<HTMLAnchorElement>('.conducta-card__link').forEach(link => {
+      const sep = link.href.includes('?') ? '&' : '?';
+      link.href = link.href + sep + 'entidad=' + encodeURIComponent(entidadSlug);
+    });
+  }
+
+  // === Buscador client-side (filter por nombre y descripción) ===
+  const searchInput = document.querySelector<HTMLInputElement>('[data-search]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-conducta]');
+  const grupos = document.querySelectorAll<HTMLElement>('[data-grupo]');
+  const contador = document.querySelector<HTMLElement>('[data-contador]');
+  const sinResultados = document.querySelector<HTMLElement>('[data-sin-resultados]');
+  const totalConductas = cards.length;
+
+  const normalize = (s: string) =>
+    s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  searchInput?.addEventListener('input', () => {
+    const q = normalize(searchInput.value.trim());
+    let visibles = 0;
+
+    cards.forEach(card => {
+      const nombre = normalize(card.dataset.nombre || '');
+      const desc = normalize(card.dataset.desc || '');
+      const match = !q || nombre.includes(q) || desc.includes(q);
+      card.hidden = !match;
+      if (match) visibles++;
+    });
+
+    // Ocultar grupos vacíos
+    grupos.forEach(g => {
+      const anyVisible = g.querySelectorAll<HTMLElement>('[data-conducta]:not([hidden])').length > 0;
+      g.hidden = !anyVisible;
+    });
+
+    // Contador y mensaje sin resultados
+    if (contador) {
+      if (q) {
+        contador.textContent = visibles === 0
+          ? 'Sin coincidencias'
+          : `${visibles} de ${totalConductas} coinciden`;
+      } else {
+        contador.textContent = `${totalConductas} conductas disponibles`;
+      }
+    }
+    if (sinResultados) sinResultados.hidden = visibles > 0;
+  });
+</script>
