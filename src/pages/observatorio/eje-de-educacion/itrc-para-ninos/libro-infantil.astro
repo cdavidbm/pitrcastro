@@ -13,6 +13,9 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 const pdfHref = mediaUrl(pageData.pdfUrl);
+// URL del flip-book heyzine — cuando Strapi agregue el campo `embedUrl` al
+// schema del libro infantil, cambiar por `pageData.embedUrl` y quitar este literal.
+const embedUrl = 'https://heyzine.com/flip-book/b0ccec0feb.html';
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="observatorio-eje-de-educacion-libro-infantil">
@@ -33,12 +36,18 @@ const pdfHref = mediaUrl(pageData.pdfUrl);
       </div>
 
       <div class="libro-embed">
-        <iframe src={`${pdfHref}#view=FitH`} title={pageData.title} loading="lazy"></iframe>
+        <iframe
+          src={embedUrl}
+          title={pageData.title}
+          allowfullscreen
+          allow="clipboard-write"
+          loading="lazy"
+        ></iframe>
       </div>
 
       <p class="libro-help">
         <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-        Si el visor no carga en tu dispositivo, usa el botón <strong>Descargar PDF</strong> para verlo sin conexión.
+        Pasa las páginas tocando o arrastrando en el visor. Si prefieres verlo sin conexión, usa el botón <strong>Descargar PDF</strong>.
       </p>
 
       <div class="back-link">
@@ -75,7 +84,7 @@ const pdfHref = mediaUrl(pageData.pdfUrl);
   .libro-btn--secondary:hover { background: var(--theme-surface-alt); border-color: var(--itrc-gold); color: var(--itrc-navy); }
 
   .libro-embed {
-    position: relative; width: 100%; padding-bottom: 130%;
+    position: relative; width: 100%; padding-bottom: 66%;
     background: var(--theme-surface-alt); border-radius: var(--radius-xl);
     overflow: hidden; box-shadow: var(--shadow-xl);
   }
@@ -92,7 +101,7 @@ const pdfHref = mediaUrl(pageData.pdfUrl);
   .back-link a:hover { color: var(--itrc-gold); }
 
   @media (max-width: 768px) {
-    .libro-embed { padding-bottom: 140%; }
+    .libro-embed { padding-bottom: 130%; }
     .libro-btn { width: 100%; justify-content: center; }
   }
 </style>
