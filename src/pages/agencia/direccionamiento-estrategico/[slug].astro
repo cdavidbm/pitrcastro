@@ -63,6 +63,98 @@ if (pageData?.sections) {
     }
   }
 }
+
+// === Reorganizar /planes por category en el orden del legacy WordPress ===
+// Los usuarios extrañan la organización por tipo (PEI, PES, PAI, ...) que tenía
+// el sitio anterior. Reagrupamos los documentos de la única section "Planes de
+// la Agencia ITRC" en varias sub-sections una por category.
+if (slug === 'planes' && pageData?.sections?.length) {
+  // Orden institucional (mismo que el legacy):
+  // https://www.itrc.gov.co/version-anterior/Itrc/direccionamiento-estrategico/planes/index.html
+  const ORDEN_CATEGORIAS = [
+    'PEI - Plan Estratégico Institucional',
+    'PES - Plan Estratégico Sectorial',
+    'PAI - Plan de Acción Institucional',
+    'PIGA - Plan Institucional de Gestión Ambiental',
+    'PAA - Plan Anual de Adquisiciones',
+    'Plan de Participación Ciudadana',
+    'Mapa de Riesgos de Corrupción',
+    'PAAC - Plan Anticorrupción',
+    'PIC - Plan Institucional de Capacitación',
+    'Plan Anual de Vacantes',
+    'Plan de Previsión de Recursos Humanos',
+    'PETH - Plan Estratégico de Talento Humano',
+    'Plan de Bienestar e Incentivos',
+    'Plan de Seguridad y Salud en el Trabajo',
+    'PETI - Plan Estratégico de TI',
+    'Plan de Tratamiento de Riesgos',
+    'Plan Institucional de Archivos',
+    'Plan de Austeridad',
+    'Programa de Transparencia y Ética Pública',
+  ];
+
+  // Icono representativo por category (Font Awesome)
+  const ICONO_POR_CATEGORIA: Record<string, string> = {
+    'PEI - Plan Estratégico Institucional':          'fa-flag',
+    'PES - Plan Estratégico Sectorial':              'fa-diagram-project',
+    'PAI - Plan de Acción Institucional':            'fa-list-check',
+    'PIGA - Plan Institucional de Gestión Ambiental':'fa-leaf',
+    'PAA - Plan Anual de Adquisiciones':             'fa-cart-shopping',
+    'Plan de Participación Ciudadana':               'fa-people-group',
+    'Mapa de Riesgos de Corrupción':                 'fa-map',
+    'PAAC - Plan Anticorrupción':                    'fa-shield-halved',
+    'PIC - Plan Institucional de Capacitación':      'fa-graduation-cap',
+    'Plan Anual de Vacantes':                        'fa-user-plus',
+    'Plan de Previsión de Recursos Humanos':         'fa-users-gear',
+    'PETH - Plan Estratégico de Talento Humano':     'fa-user-tie',
+    'Plan de Bienestar e Incentivos':                'fa-heart',
+    'Plan de Seguridad y Salud en el Trabajo':       'fa-hard-hat',
+    'PETI - Plan Estratégico de TI':                 'fa-microchip',
+    'Plan de Tratamiento de Riesgos':                'fa-triangle-exclamation',
+    'Plan Institucional de Archivos':                'fa-box-archive',
+    'Plan de Austeridad':                            'fa-scale-balanced',
+    'Programa de Transparencia y Ética Pública':     'fa-eye',
+  };
+
+  // Aplanar todos los documentos de las sections actuales
+  const todosDocs: any[] = [];
+  for (const s of pageData.sections) {
+    if (Array.isArray(s.documents)) todosDocs.push(...s.documents);
+  }
+
+  // Agrupar por category
+  const porCategoria: Record<string, any[]> = {};
+  for (const doc of todosDocs) {
+    const cat = (doc as any).category || 'Otros';
+    (porCategoria[cat] ||= []).push(doc);
+  }
+
+  // Armar nuevas sections en el orden institucional; las categories no listadas van al final
+  const nuevasSections: any[] = [];
+  const listadas = new Set(ORDEN_CATEGORIAS);
+  for (const cat of ORDEN_CATEGORIAS) {
+    if (porCategoria[cat]?.length) {
+      nuevasSections.push({
+        sectionTitle: cat,
+        sectionIcon: ICONO_POR_CATEGORIA[cat] || 'fa-folder',
+        displayMode: 'accordion',
+        documents: [...porCategoria[cat]].sort((a, b) => yearKey(b.anio) - yearKey(a.anio)),
+      });
+    }
+  }
+  for (const [cat, docs] of Object.entries(porCategoria)) {
+    if (!listadas.has(cat) && docs.length) {
+      nuevasSections.push({
+        sectionTitle: cat,
+        sectionIcon: 'fa-folder',
+        displayMode: 'accordion',
+        documents: [...docs].sort((a, b) => yearKey(b.anio) - yearKey(a.anio)),
+      });
+    }
+  }
+
+  (pageData as any).sections = nuevasSections;
+}
 ---
 
 <Base title={pageData.title} class={`page-documentos page-documentos--${config.color}`}>
