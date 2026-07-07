@@ -130,6 +130,8 @@ const filtroId = id || 'filtro-' + Math.random().toString(36).slice(2, 8);
     align-items: center;
     gap: var(--space-2);
   }
+  /* `display: flex` sobrescribe el atributo HTML `hidden`; restituirlo. */
+  .filtro-lista__empty[hidden] { display: none; }
   .filtro-lista__empty i {
     font-size: 1.75rem;
     color: var(--itrc-gold);
