@@ -63,6 +63,10 @@
           "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos"
         },
         {
+          "label": "Relatorías",
+          "url": "/relatoria"
+        },
+        {
           "label": "Marco Legal",
           "url": "/marco-legal"
         }
