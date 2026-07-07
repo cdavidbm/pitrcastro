@@ -232,10 +232,10 @@ const breadcrumb = [
   .ninos-card__desc { font-size: var(--font-size-sm); line-height: 1.55; color: var(--theme-text-secondary); margin: 0; }
   .ninos-card:hover .ninos-card__desc { color: rgba(255,255,255,0.92); }
 
-  /* === Icono del hero: cursor pointer + wobble sutil al hover — invita a
-        clickearlo para descubrir el huevo de pascua === */
-  :global(.ninos-section) ~ :global(.hero-page) .hero-page__icon-wrap,
-  :global(.hero-page__icon-wrap) { cursor: pointer; }
+  /* === Icono del hero: cursor pointer — invita a clickearlo para descubrir
+        el huevo de pascua === */
+  :global(.hero-page__icon) { cursor: pointer; user-select: none; }
+  :global(.hero-page__icon):hover { transform: scale(1.08); transition: transform 0.2s ease; }
 
   /* === Confeti (huevo de pascua) === */
   :global(.ninos-confetti) {
@@ -418,7 +418,7 @@ const breadcrumb = [
     }
 
     // ---------- Click contador en icon del hero ----------
-    const heroIcon = document.querySelector<HTMLElement>('.hero-page__icon-wrap');
+    const heroIcon = document.querySelector<HTMLElement>('.hero-page__icon');
     if (heroIcon) {
       let count = 0;
       heroIcon.setAttribute('title', 'Click aquí varias veces...');
