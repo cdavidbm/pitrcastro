@@ -1,0 +1,256 @@
+---
+/**
+ * FiltroLista — filtro de búsqueda inline para listas y acordeones.
+ *
+ * Reemplaza el patrón que se repetía inline en varias páginas del sitio
+ * (/prensa/noticias, /notificaciones-y-traslados, /glosario-ninos,
+ * /denuncias-nuevo/conducta, /documentos-de-interes/resoluciones…).
+ *
+ * Filtra elementos que matcheen `targetSelector` por texto contenido en cada uno,
+ * con normalización de mayúsculas y tildes. Cuando `autoExpand` está activo, abre
+ * los `<button>` con `aria-controls` cuyo panel contenga matches y colapsa los
+ * `containerSelector` sin matches (útil para acordeones).
+ *
+ * Uso mínimo:
+ *   <FiltroLista placeholder="Buscar plan..." targetSelector=".doc-item" />
+ *
+ * Uso con acordeones:
+ *   <FiltroLista placeholder="…" targetSelector=".doc-item"
+ *                containerSelector=".accordion__item" autoExpand />
+ */
+interface Props {
+  placeholder?: string;
+  ariaLabel?: string;
+  targetSelector: string;
+  containerSelector?: string;
+  autoExpand?: boolean;
+  totalLabel?: string;
+  emptyMessage?: string;
+  id?: string;
+  class?: string;
+}
+
+const {
+  placeholder = 'Buscar…',
+  ariaLabel = 'Buscar en la página',
+  targetSelector,
+  containerSelector = '',
+  autoExpand = false,
+  totalLabel = 'elemento(s)',
+  emptyMessage = 'No encontramos coincidencias.',
+  id,
+  class: extraClass = '',
+} = Astro.props;
+
+const filtroId = id || 'filtro-' + Math.random().toString(36).slice(2, 8);
+---
+
+<div
+  class={`filtro-lista ${extraClass}`}
+  data-filtro-lista
+  data-target={targetSelector}
+  data-container={containerSelector}
+  data-auto-expand={autoExpand ? '1' : ''}
+  data-total-label={totalLabel}
+>
+  <label for={filtroId} class="visually-hidden">{ariaLabel}</label>
+  <div class="filtro-lista__wrap">
+    <i class="fa-solid fa-magnifying-glass filtro-lista__icon" aria-hidden="true"></i>
+    <input
+      type="search"
+      id={filtroId}
+      class="filtro-lista__input"
+      placeholder={placeholder}
+      aria-label={ariaLabel}
+      autocomplete="off"
+    />
+    <span class="filtro-lista__contador" data-filtro-contador aria-live="polite"></span>
+  </div>
+  <p class="filtro-lista__empty" data-filtro-empty hidden>
+    <i class="fa-regular fa-face-thinking" aria-hidden="true"></i>
+    <span>{emptyMessage}</span>
+  </p>
+</div>
+
+<style>
+  .filtro-lista {
+    max-width: 720px;
+    margin: 0 auto var(--space-6);
+  }
+  .filtro-lista__wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-4);
+    background: var(--theme-surface);
+    border: 1.5px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .filtro-lista__wrap:focus-within {
+    border-color: var(--itrc-gold);
+    box-shadow: 0 0 0 3px rgba(179, 139, 64, 0.18);
+  }
+  .filtro-lista__icon {
+    color: var(--theme-text-muted);
+    flex-shrink: 0;
+  }
+  .filtro-lista__input {
+    flex: 1;
+    min-width: 0;
+    padding: var(--space-3) 0;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    color: var(--theme-heading);
+  }
+  .filtro-lista__input:focus { outline: none; }
+  .filtro-lista__input::-webkit-search-cancel-button { cursor: pointer; }
+  .filtro-lista__contador {
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .filtro-lista__empty {
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+    margin: var(--space-4) auto 0;
+    color: var(--theme-text-secondary);
+    background: var(--theme-surface-alt);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .filtro-lista__empty i {
+    font-size: 1.75rem;
+    color: var(--itrc-gold);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 640px) {
+    .filtro-lista__wrap { flex-wrap: wrap; padding: 0 var(--space-3); }
+    .filtro-lista__contador { width: 100%; text-align: right; padding-bottom: var(--space-2); }
+  }
+</style>
+
+<script>
+  // Init: para cada instancia en la página
+  function normalizar(s: string): string {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  function initFiltrosLista() {
+    document.querySelectorAll<HTMLElement>('[data-filtro-lista]').forEach(root => {
+      if (root.dataset.initialized === '1') return;
+      root.dataset.initialized = '1';
+
+      const input = root.querySelector<HTMLInputElement>('.filtro-lista__input');
+      const contador = root.querySelector<HTMLElement>('[data-filtro-contador]');
+      const empty = root.querySelector<HTMLElement>('[data-filtro-empty]');
+      const targetSelector = root.dataset.target;
+      const containerSelector = root.dataset.container || '';
+      const autoExpand = root.dataset.autoExpand === '1';
+      const totalLabel = root.dataset.totalLabel || 'elemento(s)';
+
+      if (!input || !targetSelector) return;
+
+      const items = Array.from(document.querySelectorAll<HTMLElement>(targetSelector));
+      const containers = containerSelector
+        ? Array.from(document.querySelectorAll<HTMLElement>(containerSelector))
+        : [];
+      const total = items.length;
+
+      // Guardar state original de los accordions para restaurarlo al limpiar
+      const buttonState = new WeakMap<HTMLButtonElement, boolean>();
+      if (autoExpand) {
+        containers.forEach(c => {
+          const btn = c.querySelector<HTMLButtonElement>('[aria-expanded]');
+          if (btn) buttonState.set(btn, btn.getAttribute('aria-expanded') === 'true');
+        });
+      }
+
+      const setContador = (visibles: number, filtrando: boolean) => {
+        if (!contador) return;
+        contador.textContent = filtrando
+          ? (visibles === 0 ? 'Sin coincidencias' : `${visibles} de ${total} coinciden`)
+          : `${total} ${totalLabel}`;
+      };
+
+      const abrirAccordion = (container: HTMLElement) => {
+        const btn = container.querySelector<HTMLButtonElement>('[aria-expanded]');
+        const panelId = btn?.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        if (panel) panel.hidden = false;
+      };
+
+      const cerrarAccordion = (container: HTMLElement) => {
+        const btn = container.querySelector<HTMLButtonElement>('[aria-expanded]');
+        const panelId = btn?.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (panel) panel.hidden = true;
+      };
+
+      const restaurarAccordions = () => {
+        containers.forEach(c => {
+          const btn = c.querySelector<HTMLButtonElement>('[aria-expanded]');
+          if (!btn) return;
+          const original = buttonState.get(btn) ?? false;
+          if (original) abrirAccordion(c);
+          else cerrarAccordion(c);
+          c.hidden = false;
+        });
+      };
+
+      setContador(total, false);
+
+      input.addEventListener('input', () => {
+        const q = normalizar(input.value.trim());
+        const filtrando = q.length > 0;
+        let visibles = 0;
+
+        items.forEach(item => {
+          const text = normalizar(item.textContent || '');
+          const match = !filtrando || text.includes(q);
+          item.hidden = !match;
+          if (match) visibles++;
+        });
+
+        if (autoExpand && containers.length) {
+          if (!filtrando) {
+            restaurarAccordions();
+          } else {
+            containers.forEach(c => {
+              const hasMatch = Array.from(c.querySelectorAll<HTMLElement>(targetSelector))
+                .some(el => !el.hidden);
+              if (hasMatch) {
+                c.hidden = false;
+                abrirAccordion(c);
+              } else {
+                c.hidden = true;
+              }
+            });
+          }
+        }
+
+        setContador(visibles, filtrando);
+        if (empty) empty.hidden = !filtrando || visibles > 0;
+      });
+    });
+  }
+
+  initFiltrosLista();
+  document.addEventListener('astro:after-swap', initFiltrosLista);
+</script>

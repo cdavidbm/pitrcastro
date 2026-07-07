@@ -4,6 +4,7 @@ import HeroPage from '../../../components/HeroPage.astro';
 import Accordion from '../../../components/Accordion.astro';
 import Tabs from '../../../components/Tabs.astro';
 import DocumentItem from '../../../components/DocumentItem.astro';
+import FiltroLista from '../../../components/FiltroLista.astro';
 import type { DocumentPage } from '../../../types/content';
 import {
   getAgenciaDireccionamientoInformes,
@@ -176,6 +177,17 @@ if (slug === 'planes' && pageData?.sections?.length) {
 
   <section class="documents-section">
     <div class="container">
+      {slug === 'planes' && (
+        <FiltroLista
+          placeholder="Buscar por nombre del plan, año o categoría…"
+          ariaLabel="Buscar plan"
+          targetSelector=".accordion__list li"
+          containerSelector=".accordion__item"
+          autoExpand={true}
+          totalLabel="planes"
+          emptyMessage="No encontramos un plan con ese texto. Prueba con otra palabra o revisa el año."
+        />
+      )}
       {pageData.sections.map((section, idx) => (
         <div class="doc-section">
           {section.displayMode === 'accordion' && (
