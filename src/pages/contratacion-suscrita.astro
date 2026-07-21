@@ -13,6 +13,33 @@ const breadcrumb = [
 
 const totalProcesos = (pageData.convocatorias || []).reduce((acc: number, c: any) => acc + c.procesos.length, 0);
 const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc: number, s: any) => acc + s.contratos.length, 0);
+
+// Pre-computar sub-agrupamiento de procesos por año dentro de cada categoría.
+// Cada convocatoria queda con `anios: [{anio, procesos: [...]}]` ordenado desc.
+const convocatoriasAgrupadas = (pageData.convocatorias || []).map((cat: any) => {
+  const grupos = new Map<string, any[]>();
+  for (const p of (cat.procesos || [])) {
+    // Si el campo anio viene vacío, se intenta deducir del label (p. ej. "LP-001-2023").
+    let key = p.anio;
+    if (!key && typeof p.label === 'string') {
+      const m = p.label.match(/-(\d{4})(?:\D|$)/);
+      if (m) key = m[1];
+    }
+    if (!key) key = 'Sin año';
+    if (!grupos.has(key)) grupos.set(key, []);
+    grupos.get(key)!.push(p);
+  }
+  const anios = Array.from(grupos.entries())
+    .map(([anio, procesos]) => ({ anio, procesos }))
+    .sort((a, b) => {
+      const na = parseInt(a.anio, 10); const nb = parseInt(b.anio, 10);
+      if (isNaN(na) && isNaN(nb)) return 0;
+      if (isNaN(na)) return 1;
+      if (isNaN(nb)) return -1;
+      return nb - na;
+    });
+  return { ...cat, anios };
+});
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-contratacion-contratacion-suscrita">
@@ -71,8 +98,8 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc: number
           accesos de vista pública individuales.
         </p>
 
-        {pageData.contratacionSuscrita && pageData.contratacionSuscrita.map((s: any, i: number) => (
-          <details class="cs-cat" open={i === 0}>
+        {pageData.contratacionSuscrita && pageData.contratacionSuscrita.map((s: any) => (
+          <details class="cs-cat">
             <summary class="cs-cat__summary">
               <span class="cs-cat__titulo">{s.titulo}</span>
               <span class="cs-cat__count">{s.contratos.length}</span>
@@ -107,67 +134,76 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc: number
           de vista pública en SECOP.
         </p>
 
-        {pageData.convocatorias && pageData.convocatorias.map((cat: any) => (
-          <details class="cs-cat" open>
+        {convocatoriasAgrupadas.map((cat: any) => (
+          <details class="cs-cat">
             <summary class="cs-cat__summary">
               <span class="cs-cat__titulo">{cat.categoria}</span>
               <span class="cs-cat__count">{cat.procesos.length}</span>
               <i class="fa-solid fa-chevron-down cs-chevron" aria-hidden="true"></i>
             </summary>
-            <div class="cs-tabla-wrap">
-              <table class="cs-tabla">
-                <thead>
-                  <tr>
-                    <th>Proceso</th>
-                    <th>Año</th>
-                    <th>Documentos</th>
-                    <th>SECOP</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cat.procesos.map((p: any) => (
-                    <tr>
-                      <td class="cs-c-proc">
-                        {p.pdfUrl ? (
-                          <a href={mediaUrl(p.pdfUrl)} target="_blank" rel="noopener noreferrer" class="cs-link">
-                            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-                            <strong>{p.label}</strong>
-                          </a>
-                        ) : (<strong>{p.label}</strong>)}
-                      </td>
-                      <td class="cs-c-anio">{p.anio || '—'}</td>
-                      <td class="cs-c-otros">
-                        {p.otros && p.otros.length > 0 ? (
-                          <ul>
-                            {p.otros.map((o: any) => (
-                              <li>
-                                <a href={o.url} target="_blank" rel="noopener noreferrer" class="cs-link cs-link--small">
-                                  <i class="fa-solid fa-file" aria-hidden="true"></i>
-                                  {o.label}
+            <div class="cs-anios">
+              {cat.anios.map((grupo: any) => (
+                <details class="cs-anio">
+                  <summary class="cs-anio__summary">
+                    <span class="cs-anio__titulo">Vigencia {grupo.anio}</span>
+                    <span class="cs-anio__count">{grupo.procesos.length}</span>
+                    <i class="fa-solid fa-chevron-down cs-chevron cs-chevron--small" aria-hidden="true"></i>
+                  </summary>
+                  <div class="cs-tabla-wrap">
+                    <table class="cs-tabla">
+                      <thead>
+                        <tr>
+                          <th>Proceso</th>
+                          <th>Documentos</th>
+                          <th>SECOP</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {grupo.procesos.map((p: any) => (
+                          <tr>
+                            <td class="cs-c-proc">
+                              {p.pdfUrl ? (
+                                <a href={mediaUrl(p.pdfUrl)} target="_blank" rel="noopener noreferrer" class="cs-link">
+                                  <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                                  <strong>{p.label}</strong>
                                 </a>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : '—'}
-                      </td>
-                      <td class="cs-c-secop">
-                        {p.secopRef && p.secopRef !== '#' ? (
-                          <a
-                            href={p.secopRef.startsWith('https://') ? p.secopRef : `https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=${p.secopRef}&isFromPublicArea=True&isModal=False`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="cs-secop-link"
-                            title={`Ver vista pública en SECOP: ${p.secopRef}`}
-                          >
-                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
-                            Vista pública
-                          </a>
-                        ) : '—'}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                              ) : (<strong>{p.label}</strong>)}
+                            </td>
+                            <td class="cs-c-otros">
+                              {p.otros && p.otros.length > 0 ? (
+                                <ul>
+                                  {p.otros.map((o: any) => (
+                                    <li>
+                                      <a href={o.url} target="_blank" rel="noopener noreferrer" class="cs-link cs-link--small">
+                                        <i class="fa-solid fa-file" aria-hidden="true"></i>
+                                        {o.label}
+                                      </a>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : '—'}
+                            </td>
+                            <td class="cs-c-secop">
+                              {p.secopRef && p.secopRef !== '#' ? (
+                                <a
+                                  href={p.secopRef.startsWith('https://') ? p.secopRef : `https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=${p.secopRef}&isFromPublicArea=True&isModal=False`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  class="cs-secop-link"
+                                  title={`Ver vista pública en SECOP: ${p.secopRef}`}
+                                >
+                                  <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                  Vista pública
+                                </a>
+                              ) : '—'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+              ))}
             </div>
           </details>
         ))}
@@ -304,6 +340,17 @@ const totalContratos = (pageData.contratacionSuscrita || []).reduce((acc: number
   .cs-cat__count { padding: 2px 12px; background: var(--itrc-gold); color: var(--itrc-navy); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800; }
   .cs-chevron { color: var(--itrc-gold); transition: transform var(--transition-base); }
   .cs-cat[open] .cs-chevron { transform: rotate(180deg); }
+
+  /* === Sub-agrupamiento por año dentro de cada categoría === */
+  .cs-anios { padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); }
+  .cs-anio { border: 1px solid var(--theme-border-light); border-radius: var(--radius-md); overflow: hidden; background: var(--theme-surface); }
+  .cs-anio__summary { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); cursor: pointer; list-style: none; background: transparent; }
+  .cs-anio__summary::-webkit-details-marker { display: none; }
+  .cs-anio__summary:hover { background: var(--theme-surface-alt); }
+  .cs-anio__titulo { flex: 1; font-weight: 700; font-size: var(--font-size-sm); color: var(--theme-heading); letter-spacing: 0.02em; }
+  .cs-anio__count { padding: 1px 10px; background: var(--itrc-navy); color: var(--white); border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800; }
+  .cs-chevron--small { font-size: var(--font-size-xs); }
+  .cs-anio[open] .cs-chevron--small { transform: rotate(180deg); }
 
   .cs-tabla-wrap { overflow-x: auto; padding: var(--space-3); }
   .cs-tabla { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
