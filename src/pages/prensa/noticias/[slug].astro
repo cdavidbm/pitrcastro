@@ -24,6 +24,9 @@ export async function getStaticPaths() {
 const { title, date, image, excerpt, tags, Content } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
+// Placeholder institucional cuando la noticia no trae imagen específica.
+const displayImage = image || '/images/noticia-placeholder.svg';
+
 const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   weekday: 'long',
   year: 'numeric',
@@ -59,11 +62,9 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
         )}
       </header>
 
-      {image && (
-        <figure class="article__image">
-          <img src={image} alt={title} />
-        </figure>
-      )}
+      <figure class="article__image">
+        <img src={displayImage} alt={title} />
+      </figure>
 
       <div class="article__content">
         <Content />

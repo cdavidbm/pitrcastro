@@ -14,6 +14,10 @@ interface Props {
 const { title, date, image, excerpt, slug, categoria } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
+// Placeholder institucional para noticias que se publican sin imagen específica.
+// Estandarizado: si el frontmatter no trae `image`, usamos este SVG.
+const displayImage = image || '/images/noticia-placeholder.svg';
+
 const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   year: 'numeric',
   month: 'long',
@@ -31,19 +35,16 @@ const catLabel = categoria ? (catLabels[categoria] || categoria) : '';
 
 <article class="news-card" data-categoria={categoria || ''}>
   <a href={`${base}prensa/noticias/${slug}`} class="news-card__link">
-    {image && (
-      <div class="news-card__image">
-        <img src={image} alt="" loading="lazy" />
-        {catLabel && <span class={`news-card__badge news-card__badge--${categoria}`}>{catLabel}</span>}
-      </div>
-    )}
+    <div class="news-card__image">
+      <img src={displayImage} alt="" loading="lazy" />
+      {catLabel && <span class={`news-card__badge news-card__badge--${categoria}`}>{catLabel}</span>}
+    </div>
     <div class="news-card__content">
       <div class="news-card__meta">
         <time datetime={date} class="news-card__date">
           <i class="fa-regular fa-calendar" aria-hidden="true"></i>
           {formattedDate}
         </time>
-        {catLabel && !image && <span class={`news-card__badge news-card__badge--${categoria} news-card__badge--inline`}>{catLabel}</span>}
       </div>
       <h3 class="news-card__title">{title}</h3>
       {excerpt && <p class="news-card__excerpt">{excerpt}</p>}
