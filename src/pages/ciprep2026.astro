@@ -4,6 +4,31 @@ import HeroPage from '../components/HeroPage.astro';
 import HeroSlider from '../components/HeroSlider.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import { resolveUrl } from '../utils/url';
+import biosData from '../content/ciprep2026/bios.json';
+
+// Helper para normalizar nombre → clave de bio.
+function slugPonente(name: string): string {
+  return name
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+const bios: Record<string, { nombre: string; parrafos: string[]; foto_grande: string | null }> = biosData as any;
+
+// Código de color por eje (fondos institucionales de tarjeta + tinta oscura legible).
+// Los colores se eligen accesibles sobre fondo claro (contraste >= 4.5) y armonizan
+// con la paleta ITRC sin robar protagonismo al dorado y navy.
+const ejesColores: Record<string, { color: string; bg: string }> = {
+  'APERTURA':                                                                             { color: '#b38b40', bg: 'rgba(179,139,64,0.10)' },  // dorado ITRC
+  'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS':                           { color: '#5b21b6', bg: 'rgba(91,33,182,0.10)' },   // morado tech
+  'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL':          { color: '#b91c1c', bg: 'rgba(185,28,28,0.10)' },   // rojo alerta
+  'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO': { color: '#047857', bg: 'rgba(4,120,87,0.10)' },    // verde esmeralda
+  'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD':                        { color: '#0369a1', bg: 'rgba(3,105,161,0.10)' },   // azul cielo
+};
+function colorEje(franja: string | undefined) {
+  return franja && ejesColores[franja] ? ejesColores[franja] : { color: 'var(--theme-text-muted)', bg: 'transparent' };
+}
 
 // Página informativa de CIPREP 2026 con datos confirmados al momento.
 // La inscripción se delega a un formulario de Microsoft Forms gestionado
@@ -66,7 +91,7 @@ const agenda = [
   {
     dia: 'Día 1 — lunes 3 de agosto de 2026',
     franjas: [
-      { hora: '8:00', tipo: 'apertura', titulo: 'Apertura institucional', detalle: 'Palabras de la Dra. Eva Carolina Madrid Torres, Directora General ITRC', franja: 'APERTURA' },
+      { hora: '8:00', tipo: 'apertura', ponente: 'Eva Carolina Madrid Torres', entidad: 'Directora General ITRC', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/eva-carolina-madrid-torres-grande.png', titulo: 'Apertura institucional', franja: 'APERTURA' },
       { hora: '8:15', ponente: 'Paula Andrea Ramírez Barbosa', entidad: 'CIDCE', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/paula-andrea-ramirez-barbosa.jpg', titulo: 'Aporte de la IA en la estrategia para la detección y prueba de la corrupción', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
       { hora: '8:45', ponente: 'Gabriel Andrés Álzate Acuña', entidad: 'DATOSCOL', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
       { hora: '9:15', ponente: 'Francia Inés Hernández', entidad: 'Asociación de Mujeres Aduaneras', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
@@ -276,19 +301,26 @@ const entidadesExpositoras = [
                 {day.franjas.map((item) => {
                   const showFranja = item.franja && item.franja !== lastFranja;
                   if (showFranja) lastFranja = item.franja;
-                  const isPause = item.tipo === 'pausa' || item.tipo === 'cierre' || item.tipo === 'apertura';
+                  const isPause = item.tipo === 'pausa' || item.tipo === 'cierre';
+                  const c = colorEje(item.franja);
+                  const bioKey = item.ponente ? slugPonente(item.ponente) : null;
+                  const bio = bioKey && bios[bioKey] ? bios[bioKey] : null;
+                  // Miniatura: usa la foto de la agenda; si no hay, cae sobre la foto grande de la bio.
+                  const fotoMiniatura = item.foto || bio?.foto_grande || null;
                   return (
                     <>
                       {showFranja && (
-                        <li class="ciprep-day__franja"><span>{item.franja}</span></li>
+                        <li class="ciprep-day__franja" style={`--eje-color:${c.color};--eje-bg:${c.bg}`}>
+                          <span>{item.franja}</span>
+                        </li>
                       )}
-                      <li class={`ciprep-item ${isPause ? 'ciprep-item--pausa' : ''}`}>
+                      <li class={`ciprep-item ${isPause ? 'ciprep-item--pausa' : ''}`} style={`--eje-color:${c.color};--eje-bg:${c.bg}`}>
                         <div class="ciprep-item__time">{item.hora}</div>
                         <div class="ciprep-item__body">
                           {item.ponente && (
                             <div class="ciprep-item__ponente">
-                              {item.foto ? (
-                                <img src={resolveUrl(item.foto)} alt={item.ponente} class="ciprep-item__avatar" loading="lazy" />
+                              {fotoMiniatura ? (
+                                <img src={resolveUrl(fotoMiniatura)} alt={item.ponente} class="ciprep-item__avatar" loading="lazy" />
                               ) : (
                                 <div class="ciprep-item__avatar ciprep-item__avatar--placeholder">
                                   <i class="fa-solid fa-user" aria-hidden="true"></i>
@@ -297,6 +329,12 @@ const entidadesExpositoras = [
                               <div class="ciprep-item__ponente-info">
                                 <strong class="ciprep-item__ponente-name">{item.ponente}</strong>
                                 <span class="ciprep-item__ponente-entidad">{item.entidad} · {item.bandera} {item.pais}</span>
+                                {bio && (
+                                  <button type="button" class="ciprep-item__vermas" data-bio-key={bioKey} aria-haspopup="dialog">
+                                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                                    <span>Ver más</span>
+                                  </button>
+                                )}
                               </div>
                             </div>
                           )}
@@ -403,7 +441,7 @@ const entidadesExpositoras = [
         </p>
         <p class="ciprep-cta__deadline">
           <i class="fa-solid fa-clock" aria-hidden="true"></i>
-          <strong>Fecha límite de inscripción: 15 de julio de 2026</strong>
+          <strong>Fecha límite de inscripción: 24 de julio de 2026</strong>
         </p>
         <a href={INSCRIPCION_URL} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
           <i class="fa-solid fa-user-plus"></i> Diligenciar formulario de inscripción
@@ -414,7 +452,88 @@ const entidadesExpositoras = [
       </div>
     </div>
   </section>
+
+  <!-- ==================== Modal biografía ==================== -->
+  <div class="bio-modal" id="bio-modal" role="dialog" aria-modal="true" aria-labelledby="bio-modal-title" aria-hidden="true">
+    <div class="bio-modal__backdrop" data-close></div>
+    <div class="bio-modal__panel" role="document">
+      <button type="button" class="bio-modal__close" data-close aria-label="Cerrar biografía">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="bio-modal__foto-wrap">
+        <img class="bio-modal__foto" alt="" id="bio-modal-foto" />
+      </div>
+      <div class="bio-modal__contenido">
+        <h2 class="bio-modal__title" id="bio-modal-title"></h2>
+        <div class="bio-modal__bio" id="bio-modal-bio"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="bios-data" set:html={JSON.stringify(bios)}></script>
 </Base>
+
+<script>
+  (function () {
+    const dataEl = document.getElementById('bios-data');
+    if (!dataEl) return;
+    let bios: Record<string, {nombre: string; parrafos: string[]; foto_grande: string | null}> = {};
+    try { bios = JSON.parse(dataEl.textContent || '{}'); } catch { return; }
+
+    const modal = document.getElementById('bio-modal') as HTMLElement | null;
+    if (!modal) return;
+    const foto = document.getElementById('bio-modal-foto') as HTMLImageElement;
+    const title = document.getElementById('bio-modal-title') as HTMLElement;
+    const bioEl = document.getElementById('bio-modal-bio') as HTMLElement;
+    const closeBtn = modal.querySelector('.bio-modal__close') as HTMLButtonElement;
+    let lastTrigger: HTMLElement | null = null;
+
+    function open(key: string, trigger: HTMLElement) {
+      const b = bios[key];
+      if (!b) return;
+      lastTrigger = trigger;
+      title.textContent = b.nombre;
+      bioEl.innerHTML = '';
+      for (const p of b.parrafos) {
+        const el = document.createElement('p');
+        el.textContent = p;
+        bioEl.appendChild(el);
+      }
+      if (b.foto_grande) {
+        foto.src = b.foto_grande;
+        foto.alt = b.nombre;
+        foto.style.display = '';
+      } else {
+        foto.removeAttribute('src');
+        foto.style.display = 'none';
+      }
+      modal.classList.add('bio-modal--open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function close() {
+      modal.classList.remove('bio-modal--open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-bio-key]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.bioKey;
+        if (key) open(key, btn);
+      });
+    });
+    modal.querySelectorAll<HTMLElement>('[data-close]').forEach((el) => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('bio-modal--open')) close();
+    });
+  })();
+</script>
 
 <style>
   /* === Hero banner (imagen institucional del II Congreso) ===
@@ -761,21 +880,25 @@ const entidadesExpositoras = [
     margin-top: var(--space-4);
     margin-bottom: var(--space-3);
     padding: var(--space-2) var(--space-3);
-    background: rgba(var(--itrc-gold-rgb), 0.12);
-    color: var(--itrc-gold);
+    background: var(--eje-bg, rgba(var(--itrc-gold-rgb), 0.12));
+    color: var(--eje-color, var(--itrc-gold));
     font-weight: 800;
     font-size: var(--font-size-xs);
     letter-spacing: 0.5px;
     border-radius: var(--radius-md);
+    border-left: 4px solid var(--eje-color, var(--itrc-gold));
   }
   .ciprep-day__franja:first-child { margin-top: 0; }
   .ciprep-item {
     display: grid;
     grid-template-columns: 130px 1fr;
     gap: var(--space-3);
-    padding: var(--space-3) 0;
+    padding: var(--space-3) 0 var(--space-3) var(--space-3);
     border-bottom: 1px dashed var(--theme-border-light);
+    border-left: 3px solid var(--eje-color, transparent);
+    transition: background var(--transition-fast);
   }
+  .ciprep-item:hover { background: var(--eje-bg, transparent); }
   .ciprep-item:last-child { border-bottom: none; }
   .ciprep-item__time {
     font-size: var(--font-size-xs);
@@ -1019,5 +1142,130 @@ const entidadesExpositoras = [
     .ciprep-item { grid-template-columns: 1fr; gap: var(--space-2); }
     .ciprep-item__time { font-size: var(--font-size-xs); }
     .ciprep-tabs ul { flex-wrap: nowrap; }
+  }
+
+  /* ============ Botón "Ver más" — sutil, dentro de la info del ponente ============ */
+  .ciprep-item__vermas {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    padding: 2px 8px;
+    background: transparent;
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-full);
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--eje-color, var(--theme-text-muted));
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .ciprep-item__vermas:hover {
+    background: var(--eje-color, var(--itrc-gold));
+    border-color: var(--eje-color, var(--itrc-gold));
+    color: #fff;
+  }
+  .ciprep-item__vermas:focus-visible {
+    outline: 2px solid var(--eje-color, var(--itrc-gold));
+    outline-offset: 2px;
+  }
+  .ciprep-item__vermas i { font-size: 0.85em; }
+
+  /* ============ Modal biografía ============ */
+  .bio-modal {
+    position: fixed; inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+  }
+  .bio-modal.bio-modal--open { display: flex; animation: bioFade 0.2s ease-out; }
+  @keyframes bioFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .bio-modal__backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0, 33, 71, 0.75);
+    backdrop-filter: blur(2px);
+  }
+  .bio-modal__panel {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) 1fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    width: 100%;
+    max-width: 880px;
+    max-height: 90vh;
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    overflow: hidden;
+  }
+  .bio-modal__close {
+    position: absolute; top: 8px; right: 8px;
+    z-index: 2;
+    width: 36px; height: 36px;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,0.92);
+    border: none;
+    border-radius: 50%;
+    color: var(--itrc-navy);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .bio-modal__close:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .bio-modal__close:focus-visible { outline: 2px solid var(--itrc-gold); outline-offset: 2px; }
+  .bio-modal__foto-wrap {
+    background: var(--itrc-navy);
+    overflow: hidden;
+    min-height: 0;   /* permite que el hijo con object-fit respete la altura del grid track */
+  }
+  .bio-modal__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;   /* prioriza el rostro (parte superior de retratos) */
+    display: block;
+  }
+  .bio-modal__contenido {
+    padding: var(--space-6);
+    overflow-y: auto;
+    min-height: 0;   /* clave para que overflow funcione dentro del grid */
+  }
+  .bio-modal__title {
+    margin: 0 0 var(--space-4);
+    font-size: var(--font-size-xl);
+    color: var(--theme-heading);
+    line-height: 1.25;
+  }
+  .bio-modal__bio p {
+    margin: 0 0 var(--space-3);
+    color: var(--theme-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .bio-modal__bio p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 720px) {
+    .bio-modal__panel {
+      grid-template-columns: 1fr;
+      /* Layout vertical: foto (altura fija) + contenido (toma resto con scroll interno) */
+      grid-template-rows: 40vh 1fr;
+      max-height: 92vh;
+    }
+    .bio-modal__foto-wrap { height: 100%; }
+    .bio-modal__contenido { padding: var(--space-4); }
+  }
+
+  @media (max-height: 520px) and (max-width: 720px) {
+    /* Móviles en landscape: reducir espacio de la foto */
+    .bio-modal__panel { grid-template-rows: 32vh 1fr; }
   }
 </style>
