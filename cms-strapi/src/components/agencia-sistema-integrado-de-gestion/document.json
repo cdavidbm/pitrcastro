@@ -20,6 +20,9 @@
     },
     "externo": {
       "type": "boolean"
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

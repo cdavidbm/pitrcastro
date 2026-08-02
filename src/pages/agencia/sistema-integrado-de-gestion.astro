@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import Accordion from '../../components/Accordion.astro';
-import RelatedLinks from '../../components/RelatedLinks.astro';
 
 import type { DocumentSection } from '../../types/content';
 import { getAgenciaSistemaIntegradoDeGestion } from '../../utils/strapi-fetchers';
@@ -22,13 +21,13 @@ const accordionSections = (pageData.sections as DocumentSection[]).map((section)
   sectionTitle: section.sectionTitle,
   sectionIcon: section.sectionIcon || 'fa-folder',
   sectionDescription: section.sectionDescription || '',
-  documents: section.documents.map((doc) => ({
+  documents: section.documents.map((doc: any) => ({
     name: doc.name,
     file: doc.file,
-    externo: doc.externo || false
+    externo: doc.externo || false,
+    url: doc.url
   }))
 }));
-const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 ---
 
 <Base title={pageData.title} class="page-sig" strapiSlug="agencia-sistema-integrado-de-gestion">
@@ -66,7 +65,6 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
     </div>
   </section>
 
-  <RelatedLinks links={enlacesRelacionados} title="Recursos Relacionados" />
 </Base>
 
 <style>

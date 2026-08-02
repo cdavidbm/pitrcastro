@@ -14,6 +14,13 @@
     },
     "icon": {
       "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "destacado": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
