@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+const base = import.meta.env.BASE_URL;
+
+const title = 'Auditorías de la Contraloría General de la República';
+const description = 'Auditorías liberadas por la Contraloría General de la República sobre la Agencia ITRC.';
+const breadcrumb = [
+  { label: 'Inicio', href: base },
+  { label: 'Transparencia', href: `${base}transparencia` },
+  { label: 'Auditorías de la Contraloría' }
+];
+
+const auditorias = [
+  { titulo: 'Auditoría Contraloría — Vigencia 2014', url: 'https://www.contraloria.gov.co/es/resultados/proceso-auditor/auditorias-liberadas/-/document_library/wsvr/view_file/309890' },
+  { titulo: 'Auditoría Contraloría — Vigencia 2019', url: 'https://www.contraloria.gov.co/es/resultados/proceso-auditor/auditorias-liberadas/-/document_library/wsvr/view_file/312555' },
+  { titulo: 'Auditoría Contraloría — Vigencia 2021', url: 'https://www.contraloria.gov.co/es/resultados/proceso-auditor/auditorias-liberadas/-/document_library/wsvr/view_file/4209823' },
+];
+---
+<Base title={title} description={description}>
+  <HeroPage title={title} subtitle={description} icon="fa-landmark" breadcrumb={breadcrumb} />
+  <section class="ac-section"><div class="container">
+    <p class="ac-intro">Consulta las auditorías liberadas por la Contraloría General de la República sobre la Agencia ITRC. Los enlaces conducen al portal oficial de la Contraloría.</p>
+    <div class="ac-list">{auditorias.map((a) => (
+      <a href={a.url} target="_blank" rel="noopener noreferrer" class="ac-item">
+        <div class="ac-item__icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
+        <div class="ac-item__content"><h3>{a.titulo}</h3></div>
+        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+      </a>
+    ))}</div>
+    <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
+  </div></section>
+</Base>
+
+<style>
+  .ac-section{padding:var(--space-8) var(--space-6) var(--space-16);background:var(--theme-surface)}
+  .ac-section .container{max-width:850px;margin:0 auto}
+  .ac-intro{font-size:var(--font-size-base);color:var(--theme-text-secondary);margin-bottom:var(--space-8);line-height:1.6}
+  .ac-list{display:flex;flex-direction:column;gap:var(--space-4)}
+  .ac-item{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);border:1px solid var(--theme-border);border-radius:var(--radius-xl);text-decoration:none;transition:all var(--transition-base)}
+  .ac-item:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--itrc-gold)}
+  .ac-item__icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-lg);font-size:var(--font-size-xl);background:rgba(var(--itrc-gold-rgb),0.1);color:var(--itrc-gold);transition:all var(--transition-base)}
+  .ac-item:hover .ac-item__icon{background:var(--itrc-gold);color:var(--white)}
+  .ac-item__content{flex:1}.ac-item__content h3{font-size:var(--font-size-base);font-weight:700;color:var(--theme-heading);margin:0}
+  .ac-item:hover h3{color:var(--itrc-gold)}
+  .ac-item>i:last-child{color:var(--theme-text-muted);opacity:0.4}.ac-item:hover>i:last-child{opacity:1;color:var(--itrc-gold)}
+  .back-link{margin-top:var(--space-10);text-align:center}.back-link a{display:inline-flex;align-items:center;gap:var(--space-2);color:var(--theme-text-muted);text-decoration:none;font-size:var(--font-size-sm);font-weight:600}.back-link a:hover{color:var(--itrc-gold)}
+  @media(max-width:768px){.ac-section{padding:var(--space-6) var(--space-4) var(--space-12)}.ac-item{padding:var(--space-4)}}
+</style>

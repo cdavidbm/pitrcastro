@@ -5,27 +5,82 @@ import { getTransparenciaPlanesMejoramiento } from '../utils/strapi-fetchers';
 const pageData: any = (await getTransparenciaPlanesMejoramiento()) ?? {};
 const base = import.meta.env.BASE_URL;
 const breadcrumb = [{ label: 'Inicio', href: base }, { label: 'Transparencia', href: `${base}transparencia` }, { label: pageData.title }];
+
+// Agrupar por `desc` cuando funciona como nombre de pestaña.
+// Regla: si dos o más items comparten el mismo desc y ese desc empieza por "Fecha", se agrupa como pestaña.
+const secciones = pageData.secciones || [];
+const pestanasMap = new Map<string, any[]>();
+const sinPestana: any[] = [];
+for (const s of secciones) {
+  if (s.desc && String(s.desc).trim().length > 0) {
+    const key = String(s.desc).trim();
+    if (!pestanasMap.has(key)) pestanasMap.set(key, []);
+    pestanasMap.get(key)!.push(s);
+  } else {
+    sinPestana.push(s);
+  }
+}
+const pestanas = Array.from(pestanasMap.entries()).map(([nombre, items]) => ({ nombre, items }));
+// Ordenar pestañas por fecha descendente (extrayendo el año-mes del texto)
+pestanas.sort((a, b) => {
+  const scoreA = (a.nombre.match(/(\d{4})/) || ['','0'])[1] + (a.nombre.toLowerCase().includes('diciembre') ? '12' : a.nombre.toLowerCase().includes('junio') ? '06' : '00');
+  const scoreB = (b.nombre.match(/(\d{4})/) || ['','0'])[1] + (b.nombre.toLowerCase().includes('diciembre') ? '12' : b.nombre.toLowerCase().includes('junio') ? '06' : '00');
+  return scoreB.localeCompare(scoreA);
+});
 ---
 <Base title={pageData.title} description={pageData.description} strapiSlug="transparencia-planes-mejoramiento">
   <HeroPage title={pageData.title} subtitle={pageData.description} icon={pageData.icon} breadcrumb={breadcrumb} />
   <section class="pm-section"><div class="container">
-    <div class="pm-list">{pageData.secciones.map((s) => (
-      <a href={s.url} target="_blank" rel="noopener" class="pm-item">
-        <div class={`pm-item__icon ${s.tipo === 'xlsx' ? 'pm--excel' : 'pm--ext'}`}><i class={`fa-solid ${s.icon}`} aria-hidden="true"></i></div>
-        <div class="pm-item__content"><h3>{s.titulo}</h3><p>{s.desc}</p></div>
-        <i class={`fa-solid ${s.tipo === 'xlsx' ? 'fa-download' : 'fa-arrow-up-right-from-square'}`} aria-hidden="true"></i>
-      </a>
-    ))}</div>
+
+    {pestanas.map((p, i) => (
+      <details class="pm-accordion" open={i === 0}>
+        <summary class="pm-accordion__summary">
+          <span class="pm-accordion__titulo">{p.nombre}</span>
+          <span class="pm-accordion__count">{p.items.length}</span>
+          <i class="fa-solid fa-chevron-down pm-accordion__chevron" aria-hidden="true"></i>
+        </summary>
+        <div class="pm-list">{p.items.map((s: any) => (
+          <a href={s.url} target="_blank" rel="noopener" class="pm-item">
+            <div class={`pm-item__icon ${s.tipo === 'xlsx' ? 'pm--excel' : s.tipo === 'pdf' ? 'pm--pdf' : 'pm--ext'}`}><i class={`fa-solid ${s.icon}`} aria-hidden="true"></i></div>
+            <div class="pm-item__content"><h3>{s.titulo}</h3></div>
+            <i class={`fa-solid ${s.tipo === 'ext' ? 'fa-arrow-up-right-from-square' : 'fa-download'}`} aria-hidden="true"></i>
+          </a>
+        ))}</div>
+      </details>
+    ))}
+
+    {sinPestana.length > 0 && (
+      <div class="pm-list pm-list--fuera">{sinPestana.map((s) => (
+        <a href={s.url} target="_blank" rel="noopener" class="pm-item">
+          <div class={`pm-item__icon ${s.tipo === 'xlsx' ? 'pm--excel' : s.tipo === 'pdf' ? 'pm--pdf' : 'pm--ext'}`}><i class={`fa-solid ${s.icon}`} aria-hidden="true"></i></div>
+          <div class="pm-item__content"><h3>{s.titulo}</h3>{s.desc && <p>{s.desc}</p>}</div>
+          <i class={`fa-solid ${s.tipo === 'ext' ? 'fa-arrow-up-right-from-square' : 'fa-download'}`} aria-hidden="true"></i>
+        </a>
+      ))}</div>
+    )}
+
     <div class="back-link"><a href={`${base}transparencia`}><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Transparencia</a></div>
   </div></section>
 </Base>
+
 <style>
   .pm-section{padding:var(--space-8) var(--space-6) var(--space-16);background:var(--theme-surface)}.pm-section .container{max-width:850px;margin:0 auto}
+  .pm-accordion{margin-bottom:var(--space-3);border:1px solid var(--theme-border);border-radius:var(--radius-lg);overflow:hidden}
+  .pm-accordion__summary{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-4) var(--space-5);cursor:pointer;list-style:none;background:var(--theme-surface-alt);transition:background var(--transition-fast)}
+  .pm-accordion__summary::-webkit-details-marker{display:none}
+  .pm-accordion__summary:hover{background:var(--theme-border-light)}
+  .pm-accordion__titulo{flex:1;font-weight:800;color:var(--theme-heading);font-size:var(--font-size-base)}
+  .pm-accordion__count{padding:2px 12px;background:var(--itrc-gold);color:var(--itrc-navy);border-radius:var(--radius-full);font-size:var(--font-size-xs);font-weight:800}
+  .pm-accordion__chevron{color:var(--itrc-gold);transition:transform var(--transition-base)}
+  .pm-accordion[open] .pm-accordion__chevron{transform:rotate(180deg)}
+  .pm-accordion .pm-list{padding:var(--space-4)}
+  .pm-list--fuera{margin-top:var(--space-6)}
   .pm-list{display:flex;flex-direction:column;gap:var(--space-4)}
   .pm-item{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);border:1px solid var(--theme-border);border-radius:var(--radius-xl);text-decoration:none;transition:all var(--transition-base)}
   .pm-item:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--itrc-gold)}
   .pm-item__icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-lg);font-size:var(--font-size-xl);transition:all var(--transition-base)}
   .pm--excel{background:rgba(25,135,84,0.08);color:var(--file-excel)}.pm-item:hover .pm--excel{background:var(--file-excel);color:var(--white)}
+  .pm--pdf{background:rgba(220,53,69,0.08);color:var(--file-pdf)}.pm-item:hover .pm--pdf{background:var(--file-pdf);color:var(--white)}
   .pm--ext{background:rgba(var(--itrc-gold-rgb),0.1);color:var(--itrc-gold)}.pm-item:hover .pm--ext{background:var(--itrc-gold);color:var(--white)}
   .pm-item__content{flex:1}.pm-item__content h3{font-size:var(--font-size-sm);font-weight:700;color:var(--theme-heading);margin:0 0 var(--space-1)}.pm-item:hover h3{color:var(--itrc-gold)}
   .pm-item__content p{font-size:var(--font-size-xs);color:var(--theme-text-secondary);margin:0}
