@@ -5,6 +5,7 @@ import Accordion from '../../components/Accordion.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import { getAgenciaMisionVision } from '../../utils/strapi-fetchers';
 import localData from '../../content/pages/agencia/mision-vision.json';
+import { mediaUrl } from '../../utils/strapi-media';
 import { resolveUrl } from '../../utils/url';
 
 const remote = await getAgenciaMisionVision();
@@ -164,7 +165,7 @@ const breadcrumb = [
         </div>
         <div class="mapa-actions">
           <a
-            href={mapaEstrategico.pdf}
+            href={mediaUrl(mapaEstrategico.pdf)}
             class="btn btn--primary"
             target="_blank"
             rel="noopener noreferrer"

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import { getAgenciaOrganigrama } from '../../utils/strapi-fetchers';
+import { mediaUrl } from '../../utils/strapi-media';
 import { resolveUrl } from '../../utils/url';
 
 const pageData: any = (await getAgenciaOrganigrama()) ?? {};
@@ -40,7 +41,7 @@ const breadcrumb = [
 
       <div class="organigrama-actions">
         <a
-          href={organigrama.pdf}
+          href={mediaUrl(organigrama.pdf)}
           class="btn btn--primary btn--lg"
           target="_blank"
           rel="noopener noreferrer"
