@@ -24,14 +24,6 @@
     ],
     "foto_grande": "/images/ciprep2026/ponentes/francia-ines-hernandez-grande.jpg"
   },
-  "silvina-coronelo": {
-    "nombre": "Silvina Coronelo",
-    "parrafos": [
-      "SILVINA CORONELLO Estudio Coronello & Asociados / Universidad de Buenos Aires (UBA) Argentina",
-      "Información Abogada (UBA), especialista en Derecho Tributario (UBA) y doctora en Derecho Fiscal (UBA). Ejerce en el Estudio Coronello. Es docente de grado y posgrado en maestrías y especializaciones de distintas universidades, y expositora, coordinadora y moderadora en diversas jornadas, seminarios y congresos de la materia. Autora de publicaciones, trabajos, artículos, notas y libros de la especialidad, e integrante de comisiones de estudio del derecho tributario en las principales instituciones del área."
-    ],
-    "foto_grande": "/images/ciprep2026/ponentes/silvina-coronelo-grande.jpg"
-  },
   "maria-anayme-baron-duran": {
     "nombre": "María Anayme Barón Durán",
     "parrafos": [
@@ -158,5 +150,13 @@
       "También se ha destacado como lideresa social en proyectos de mujeres, medio ambiente, víctimas y habitantes de calle. Su trayectoria también incluye una participación activa en la política, siendo precandidata al Senado por Colombia Humana, lo cual refleja su compromiso con la agenda política y social del país."
     ],
     "foto_grande": "/images/ciprep2026/ponentes/eva-carolina-madrid-torres-grande.png"
+  },
+  "silvina-coronello": {
+    "nombre": "Silvina Coronello",
+    "parrafos": [
+      "SILVINA CORONELLO Estudio Coronello & Asociados / Universidad de Buenos Aires (UBA) Argentina",
+      "Información Abogada (UBA), especialista en Derecho Tributario (UBA) y doctora en Derecho Fiscal (UBA). Ejerce en el Estudio Coronello. Es docente de grado y posgrado en maestrías y especializaciones de distintas universidades, y expositora, coordinadora y moderadora en diversas jornadas, seminarios y congresos de la materia. Autora de publicaciones, trabajos, artículos, notas y libros de la especialidad, e integrante de comisiones de estudio del derecho tributario en las principales instituciones del área."
+    ],
+    "foto_grande": "/images/ciprep2026/ponentes/silvina-coronelo-grande.jpg"
   }
 }

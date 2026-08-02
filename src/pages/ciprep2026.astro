@@ -21,10 +21,10 @@ const bios: Record<string, { nombre: string; parrafos: string[]; foto_grande: st
 // con la paleta ITRC sin robar protagonismo al dorado y navy.
 const ejesColores: Record<string, { color: string; bg: string }> = {
   'APERTURA':                                                                             { color: '#b38b40', bg: 'rgba(179,139,64,0.10)' },  // dorado ITRC
-  'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS':                           { color: '#5b21b6', bg: 'rgba(91,33,182,0.10)' },   // morado tech
+  'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE':                           { color: '#5b21b6', bg: 'rgba(91,33,182,0.10)' },   // morado tech
   'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL':          { color: '#b91c1c', bg: 'rgba(185,28,28,0.10)' },   // rojo alerta
   'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO': { color: '#047857', bg: 'rgba(4,120,87,0.10)' },    // verde esmeralda
-  'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD':                        { color: '#0369a1', bg: 'rgba(3,105,161,0.10)' },   // azul cielo
+  'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL':                        { color: '#0369a1', bg: 'rgba(3,105,161,0.10)' },   // azul cielo
 };
 function colorEje(franja: string | undefined) {
   return franja && ejesColores[franja] ? ejesColores[franja] : { color: 'var(--theme-text-muted)', bg: 'transparent' };
@@ -43,9 +43,6 @@ const breadcrumb = [
   { label: 'Congresos', href: resolveUrl('/ciprep2026') },
   { label: 'CIPREP 2026' },
 ];
-
-const INSCRIPCION_URL =
-  'https://forms.office.com/pages/responsepage.aspx?id=3NElp2Q-g0KVXt1OUTYI5lXhhwicK9BAtrKaNXbBEVlUOVBQQjc2QzlVNFZQSDVGNktFN01DQVkzRC4u&route=shorturl';
 
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Carrera+7+%23+6b-80+Bogot%C3%A1+Ministerio+de+Hacienda';
@@ -78,66 +75,95 @@ const heroSlides = [
 ];
 
 const sections = [
+  { id: 'transmision', label: 'Transmisión en vivo' },
   { id: 'acerca', label: 'Acerca del Congreso' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'aliados', label: 'Aliados' },
   { id: 'info', label: 'Información' },
-  { id: 'inscripcion', label: 'Inscripción' },
 ];
 
-// Pre-agenda v3 entregada por el comité organizador (junio 2026).
-// Horarios y ponencias pueden tener ajustes hasta la versión oficial.
+// Transmisión en directo por el canal oficial de YouTube de la Agencia ITRC.
+const YOUTUBE_LIVE_ID = 'cHa293VRckk';
+const YOUTUBE_LIVE_URL = `https://www.youtube.com/live/${YOUTUBE_LIVE_ID}`;
+
+// Agenda final y definitiva entregada por el comité organizador.
+// Fuente: "Agenda_CIPREP2026V13.docx". Horario sujeto a cambios de agenda.
 const agenda = [
   {
     dia: 'Día 1 — lunes 3 de agosto de 2026',
     franjas: [
-      { hora: '8:00', tipo: 'apertura', ponente: 'Eva Carolina Madrid Torres', entidad: 'Directora General ITRC', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/eva-carolina-madrid-torres-grande.png', titulo: 'Apertura institucional', franja: 'APERTURA' },
-      { hora: '8:15', ponente: 'Paula Andrea Ramírez Barbosa', entidad: 'CIDCE', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/paula-andrea-ramirez-barbosa.jpg', titulo: 'Aporte de la IA en la estrategia para la detección y prueba de la corrupción', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '8:45', ponente: 'Gabriel Andrés Álzate Acuña', entidad: 'DATOSCOL', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '9:15', ponente: 'Francia Inés Hernández', entidad: 'Asociación de Mujeres Aduaneras', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '9:45', ponente: 'Silvina Coronelo', entidad: 'Estudio Coronello & Asoc. / UBA', pais: 'Argentina', bandera: '🇦🇷', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '10:15', tipo: 'pausa', titulo: '☕ Coffee break', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '10:30', ponente: 'Ángela Cortés Hernández', entidad: 'MinTIC — COLCERT', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '11:00', ponente: 'María Anayme Barón Durán', entidad: 'Auditoría General de la Nación', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/maria-anayme-baron-duran.jpg', titulo: 'Ponencia por confirmar', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '11:30', tipo: 'pausa', titulo: '🍽 Almuerzo', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS' },
-      { hora: '13:00', ponente: 'Susan Rose-Ackerman', entidad: 'Universidad de Yale', pais: 'Estados Unidos', bandera: '🇺🇸', foto: '/images/ciprep2026/ponentes/susan-rose-ackerman.jpg', titulo: 'Riesgos de corrupción en administración tributaria y de seguridad social', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
-      { hora: '13:45', ponente: 'Tte. Cnel. Gonzalo Andrés Córdoba Camacho', entidad: 'Interpol Colombia', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Cooperación internacional para combatir el crimen transnacional y capacidades de INTERPOL', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
-      { hora: '14:15', ponente: 'Nicolás Soto Troncoso', entidad: 'Anticorruption Risk', pais: 'Chile', bandera: '🇨🇱', titulo: 'Ponencia por confirmar', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
-      { hora: '15:00', tipo: 'cierre', titulo: 'Cierre Día 1', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '7:30', tipo: 'pausa', titulo: '📋 Registro de asistentes', detalle: '7:30 a.m. – 8:30 a.m.', franja: 'APERTURA' },
+      { hora: '8:30', tipo: 'apertura', ponente: 'Eva Carolina Madrid Torres', entidad: 'Agencia ITRC — Directora General', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/eva-carolina-madrid-torres-grande.png', titulo: 'Apertura institucional', detalle: '8:30 a.m. – 8:50 a.m. · Con la participación de Leonardo Arturo Pazos, Viceministro Técnico del Ministerio de Hacienda.', franja: 'APERTURA' },
+      { hora: '8:50', ponente: 'Paula Andrea Ramírez Barbosa', entidad: 'CIDCE', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/paula-andrea-ramirez-barbosa.jpg', titulo: 'Aporte de la IA en la estrategia para la detección y prueba de la corrupción', detalle: '8:50 a.m. – 9:20 a.m.', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE' },
+      { hora: '9:20', ponente: 'Francia Inés Hernández', entidad: 'Asociación de Mujeres Aduaneras', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/francia-ines-hernandez.jpg', titulo: 'Aduanas de última generación: impacto y mutación de los procesos aduaneros en un mundo digitalizado — ¿estamos listos?', detalle: '9:20 a.m. – 9:50 a.m. · Participación virtual', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE' },
+      { hora: '9:50', tipo: 'pausa', titulo: '☕ Coffee break', detalle: '9:50 a.m. – 10:20 a.m.', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE' },
+      { hora: '10:20', ponente: 'Silvina Coronello', entidad: 'Estudio Coronello & Asoc. / UBA', pais: 'Argentina', bandera: '🇦🇷', foto: '/images/ciprep2026/ponentes/silvina-coronelo.jpg', titulo: 'La implementación de la IA por la administración y los derechos de los contribuyentes', detalle: '10:20 a.m. – 11:00 a.m. · Participación virtual', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE' },
+      { hora: '11:20', ponente: 'Mauricio Cuadrado', entidad: 'DIMAR — Moderador', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Panel: Inteligencia Artificial y Analítica de Datos para la Transparencia y la Lucha contra la Corrupción', detalle: '11:20 a.m. – 12:20 p.m. · Panelistas: Miguel Ángel Espinoza (FITAC, Colombia), Gabriel Andrés Álzate Acuña (DATOSCOL, Colombia), Ángela Cortés Hernández (MinTIC – COLCERT, Colombia), Cristian Sanabria (Fiscalía General de la Nación, Colombia).', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE' },
+      { hora: '12:20', tipo: 'pausa', titulo: '🍽 Almuerzo', detalle: '12:20 p.m. – 1:30 p.m.', franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE' },
+      { hora: '13:30', ponente: 'Susan Rose-Ackerman', entidad: 'Universidad de Yale', pais: 'Estados Unidos', bandera: '🇺🇸', foto: '/images/ciprep2026/ponentes/susan-rose-ackerman.jpg', titulo: 'Riesgos de corrupción en administración tributaria y de seguridad social', detalle: '1:30 p.m. – 2:30 p.m.', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '14:30', ponente: 'Tte. Cnel. Gonzalo Andrés Córdoba Camacho', entidad: 'INTERPOL Colombia', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/tte-cnel-gonzalo-andres-cordoba-camacho.jpg', titulo: 'Cooperación internacional para combatir el crimen transnacional y capacidades de INTERPOL', detalle: '2:30 p.m. – 2:50 p.m.', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '14:50', ponente: 'Contralmirante Jaime Leonardo Montañez Torres', entidad: 'Armada Nacional', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia', detalle: '2:50 p.m. – 3:20 p.m.', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '15:20', tipo: 'pausa', titulo: '☕ Coffee break', detalle: '3:20 p.m. – 3:40 p.m.', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '15:40', ponente: 'David Jerezano', entidad: 'CIAT Panamá', pais: 'Panamá', bandera: '🇵🇦', titulo: 'Ética, transparencia e integridad en el ADN de las administraciones tributarias', detalle: '3:40 p.m. – 4:00 p.m. · Participación virtual', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '16:00', ponente: 'Jaqueline Campos', entidad: 'Unidad de Restitución de Tierras', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Gestión del riesgo de corrupción en la implementación de la política de restitución de tierras: desafíos para la protección de los recursos públicos y el fortalecimiento institucional', detalle: '4:00 p.m. – 4:30 p.m.', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
+      { hora: '16:30', tipo: 'cierre', titulo: 'Cierre Día 1', franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL' },
     ],
   },
   {
     dia: 'Día 2 — martes 4 de agosto de 2026',
     franjas: [
-      { hora: '8:00', ponente: 'Ruth Marisol Apraez Benabidez', entidad: 'Procuraduría General de la Nación', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
-      { hora: '8:30', ponente: 'Julio Roberto Piza', entidad: 'Universidad Externado de Colombia', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
-      { hora: '9:00', ponente: 'Ruth Owen', entidad: 'Defensora del Contribuyente (Australia y Reino Unido)', pais: 'Australia', bandera: '🇦🇺', foto: '/images/ciprep2026/ponentes/ruth-owen.jpg', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
-      { hora: '9:45', ponente: 'José Andrés Romero Tarazona', entidad: 'Instituto Colombiano de Derecho Tributario (ICDT)', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
-      { hora: '10:15', ponente: 'Ponente por confirmar', entidad: 'Kroll', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
-      { hora: '10:45', tipo: 'pausa', titulo: '☕ Coffee break', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
-      { hora: '11:00', ponente: 'Pascal Saint-Amans', entidad: 'SAGA', pais: 'Francia', bandera: '🇫🇷', foto: '/images/ciprep2026/ponentes/pascal-saint-amans.png', titulo: 'Public CBCR: ¿qué implicaciones para la región de LAC?', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
-      { hora: '11:45', ponente: 'Camilo Rey', entidad: 'Ministerio de Hacienda y Crédito Público', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Ponencia por confirmar', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
-      { hora: '12:15', ponente: 'Miguel Ángel Espinoza', entidad: 'FITAC', pais: 'Colombia', bandera: '🇨🇴', foto: '/images/ciprep2026/ponentes/miguel-angel-espinosa.jpg', titulo: 'Ponencia por confirmar', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
-      { hora: '12:30', tipo: 'pausa', titulo: '🍽 Almuerzo', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
-      { hora: '13:30', tipo: 'cierre', titulo: 'Clausura y cierre del congreso', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD' },
+      { hora: '7:30', tipo: 'pausa', titulo: '📋 Registro de asistentes', detalle: '7:30 a.m. – 8:30 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '8:30', ponente: 'Cristian Salazar', entidad: 'ESAP', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Inteligencia artificial para detectar fraude estatal, rastrear activos y recuperar valor público', detalle: '8:30 a.m. – 8:55 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '8:55', ponente: 'Ruth Owen', entidad: 'Defensora del Contribuyente — Australia / Reino Unido', pais: 'Australia', bandera: '🇦🇺', foto: '/images/ciprep2026/ponentes/ruth-owen.jpg', titulo: 'El papel del Inspector General de Impuestos | Defensor del Pueblo Fiscal, Australia', detalle: '8:55 a.m. – 9:25 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '9:25', ponente: 'Jhonny Marlon Cárdenas Arévalo', entidad: 'Auditoría General de la Nación', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Herramientas tecnológicas, IA y analítica de datos para fortalecer el control fiscal territorial', detalle: '9:25 a.m. – 9:50 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '9:50', ponente: 'Daniel Contreras Ortíz', entidad: 'SAE', pais: 'Colombia', bandera: '🇨🇴', titulo: 'De la economía ilegal al valor público: la administración estratégica de activos para eliminar distorsiones de mercado y atacar el crimen organizado', detalle: '9:50 a.m. – 10:20 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '10:20', tipo: 'pausa', titulo: '☕ Coffee break', detalle: '10:20 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '10:35', ponente: 'Óscar Villegas', entidad: 'ITRC', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Homenaje al profesor Óscar Villegas', detalle: '10:35 a.m. – 11:25 a.m.', franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO' },
+      { hora: '11:30', ponente: 'Andrea Rivas', entidad: 'Kroll', pais: 'Colombia', bandera: '🇨🇴', titulo: '¿Cómo lograr una real cultura de integridad en las organizaciones? Lecciones aprendidas desde la investigación y manejo de crisis', detalle: '11:30 a.m. – 11:50 a.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '11:50', ponente: 'Katerine Villegas', entidad: 'Leintech', pais: 'Colombia', bandera: '🇨🇴', titulo: 'Transparencia pública: el camino hacia la confianza ciudadana', detalle: '11:50 a.m. – 12:10 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '12:10', tipo: 'pausa', titulo: '🍽 Hora de almuerzo', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '13:20', ponente: 'Pascal Saint-Amans', entidad: 'SAGA', pais: 'Francia', bandera: '🇫🇷', foto: '/images/ciprep2026/ponentes/pascal-saint-amans.png', titulo: 'Public CBCR: ¿qué implicaciones para la región de LAC?', detalle: '1:20 p.m. – 1:40 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '13:40', ponente: 'Nicolás Soto Troncoso', entidad: 'ERCAS', pais: 'Chile / Europa', bandera: '🇨🇱', foto: '/images/ciprep2026/ponentes/nicolas-soto-troncoso.jpg', titulo: 'Transparencia pública en Colombia: evaluación de la brecha entre los compromisos legales y la práctica', detalle: '1:40 p.m. – 2:10 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '14:10', ponente: 'Alejandro Juárez', entidad: 'CIAT México', pais: 'México', bandera: '🇲🇽', foto: '/images/ciprep/speakers/alejandro-juarez-espindola.jpg', titulo: 'Construyendo responsabilidad pública y ciudadanía: la rendición de cuentas y sus desafíos', detalle: '2:10 p.m. – 2:50 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '14:50', tipo: 'pausa', titulo: '☕ Coffee break', detalle: '2:50 p.m. – 3:05 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '15:05', ponente: 'Zoila Llempén', entidad: 'BID', pais: 'Perú', bandera: '🇵🇪', foto: '/images/ciprep/speakers/zoila-llempen.jpg', titulo: 'Transparencia, ética pública y cultura de integridad en el sector fiscal: una agenda estratégica para fortalecer la confianza ciudadana y la sostenibilidad fiscal', detalle: '3:05 p.m. – 3:35 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
+      { hora: '15:35', tipo: 'cierre', titulo: 'Clausura y cierre del congreso', detalle: '3:35 p.m. – 4:00 p.m.', franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL' },
     ],
   },
 ];
 
 const aliados = [
-  { nombre: 'Ministerio de Hacienda y Crédito Público', tipo: 'Aliado estratégico', logo: '/images/ciprep2026/aliados/minhacienda.png' },
-  { nombre: 'FITAC — Federación Colombiana de Agentes Logísticos en Comercio Internacional', tipo: 'Aliado estratégico', logo: '/images/ciprep2026/aliados/fitac.jpg' },
+  { nombre: 'SENA — Servicio Nacional de Aprendizaje', logo: '/images/ciprep2026/aliados/aliado-sena.png' },
+  { nombre: 'Departamento para la Prosperidad Social', logo: '/images/ciprep2026/aliados/aliado-prosperidad-social.png' },
 ];
 
-const entidadesExpositoras = [
-  { nombre: 'CIDCE', logo: '/images/ciprep2026/entidades/cidce.svg' },
-  { nombre: 'DATOSCOL', logo: '/images/ciprep2026/entidades/datoscol.png' },
-  { nombre: 'MinTIC', logo: '/images/ciprep2026/entidades/mintic.jpg' },
-  { nombre: 'Universidad de Buenos Aires', logo: '/images/ciprep2026/entidades/uba.jpg' },
-  { nombre: 'Universidad de Yale', logo: '/images/ciprep2026/entidades/yale.webp' },
-  { nombre: 'ICDT — Instituto Colombiano de Derecho Tributario', logo: '/images/ciprep2026/entidades/icdt.png' },
-  { nombre: 'IGTO — International Government Tax Office', logo: '/images/ciprep2026/entidades/igto.png' },
-  { nombre: 'SAGA', logo: '/images/ciprep2026/entidades/saga.png' },
+const entidadesNacionales = [
+  { nombre: 'Ministerio de Hacienda y Crédito Público', logo: '/images/ciprep2026/aliados/nac-minhacienda.png' },
+  { nombre: 'Ministerio de Tecnologías de la Información y las Comunicaciones — MinTIC', logo: '/images/ciprep2026/aliados/nac-mintic.jpg' },
+  { nombre: 'Fiscalía General de la Nación', logo: '/images/ciprep2026/aliados/nac-fiscalia.jpg' },
+  { nombre: 'Auditoría General de la República', logo: '/images/ciprep2026/aliados/nac-auditoria.png' },
+  { nombre: 'ESAP — Escuela Superior de Administración Pública', logo: '/images/ciprep2026/aliados/nac-esap.png' },
+  { nombre: 'SAE — Sociedad de Activos Especiales', logo: '/images/ciprep2026/aliados/nac-sae.png' },
+  { nombre: 'Unidad de Restitución de Tierras', logo: '/images/ciprep2026/aliados/nac-unidad-restitucion-tierras.jpg' },
+  { nombre: 'Armada Nacional de Colombia', logo: '/images/ciprep2026/aliados/nac-armada.png' },
+  { nombre: 'INTERPOL', logo: '/images/ciprep2026/aliados/nac-interpol.png' },
+  { nombre: 'FITAC — Federación Colombiana de Agentes Logísticos en Comercio Internacional', logo: '/images/ciprep2026/aliados/nac-fitac.jpg' },
+  { nombre: 'CIDCE — Centro Interdisciplinario de Estudios sobre Desarrollo', logo: '/images/ciprep2026/aliados/nac-cidce.svg' },
+  { nombre: 'DATOSCOL', logo: '/images/ciprep2026/aliados/nac-datoscol.png' },
+  { nombre: 'Kroll', logo: '/images/ciprep2026/aliados/nac-kroll.png' },
+  { nombre: 'Asociación de Mujeres Aduaneras', logo: '/images/ciprep2026/aliados/nac-mujeres-aduaneras.jpeg' },
+  { nombre: 'Universidad Externado de Colombia', logo: '/images/ciprep2026/aliados/nac-externado.jpg' },
+  { nombre: 'Iván Darío Gómez Lee', logo: '/images/ciprep2026/aliados/nac-ivan-dario-gomez-lee.png' },
+];
+
+const entidadesInternacionales = [
+  { nombre: 'BID — Banco Interamericano de Desarrollo', logo: '/images/ciprep2026/aliados/int-bid.png' },
+  { nombre: 'CIAT — Centro Interamericano de Administraciones Tributarias', logo: '/images/ciprep2026/aliados/int-ciat.jpg' },
+  { nombre: 'IGTO — International Government Tax Office (Ruth Owen)', logo: '/images/ciprep2026/aliados/int-igto.png' },
+  { nombre: 'ERCAS — European Research Centre for Anti-Corruption and State-Building', logo: '/images/ciprep2026/aliados/int-ercas.png' },
+  { nombre: 'Universidad de Buenos Aires', logo: '/images/ciprep2026/aliados/int-uba.jpg' },
+  { nombre: 'Universidad de Yale (Susan Rose-Ackerman)', logo: '/images/ciprep2026/aliados/int-yale.webp' },
+  { nombre: 'SAGA', logo: '/images/ciprep2026/aliados/int-saga.png' },
 ];
 ---
 
@@ -168,12 +194,51 @@ const entidadesExpositoras = [
       II Congreso Internacional para la Protección de los Recursos Públicos — CIPREP 2026
     </h1>
     <div class="container banner-hero__actions">
-      <a href={INSCRIPCION_URL} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
-        <i class="fa-solid fa-user-plus"></i> Inscríbete al Congreso
+      <a href="#transmision" class="btn btn--primary btn--lg">
+        <i class="fa-solid fa-tower-broadcast"></i> Ver transmisión en vivo
       </a>
       <a href="#agenda" class="btn btn--ghost-dark">
         <i class="fa-solid fa-calendar-days"></i> Ver agenda
       </a>
+    </div>
+  </section>
+
+  <!-- ======================== Transmisión en vivo ======================== -->
+  <section id="transmision" class="ciprep-live" aria-labelledby="ciprep-live-title">
+    <div class="container">
+      <div class="ciprep-live__head">
+        <span class="ciprep-live__badge">
+          <span class="ciprep-live__dot" aria-hidden="true"></span>
+          En vivo
+        </span>
+        <h2 id="ciprep-live-title" class="ciprep-live__title">Transmisión en directo</h2>
+        <p class="ciprep-live__lead">
+          Siga el II Congreso Internacional para la Protección de los Recursos Públicos desde cualquier lugar.
+          La transmisión se realiza por el canal oficial de la Agencia ITRC en YouTube durante las dos jornadas.
+        </p>
+      </div>
+
+      <div class="ciprep-live__frame">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_LIVE_ID}?rel=0`}
+          title="Transmisión en vivo del II Congreso Internacional para la Protección de los Recursos Públicos — CIPREP 2026"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="ciprep-live__actions">
+        <a href={YOUTUBE_LIVE_URL} class="ciprep-live__cta" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          Ver en YouTube
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <p class="ciprep-live__note">
+          Si el reproductor no carga, abra la transmisión directamente en YouTube.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -358,26 +423,36 @@ const entidadesExpositoras = [
     <div class="container">
       <SectionTitle title="Aliados Estratégicos" />
       <p class="ciprep-section__lead">
-        FITAC y el Ministerio de Hacienda y Crédito Público se suman como aliados estratégicos del Segundo Congreso Internacional para la Protección de los Recursos Públicos, aportando su experiencia y liderazgo en la promoción de la transparencia, la integridad y el fortalecimiento de la gestión pública. Su respaldo fortalece este escenario de cooperación y diálogo para enfrentar los desafíos asociados al fraude y la corrupción.
+        Entidades que se suman como aliadas del Segundo Congreso Internacional para la Protección de los Recursos Públicos, aportando su experiencia y liderazgo en la promoción de la transparencia, la integridad y el fortalecimiento de la gestión pública.
       </p>
-      <div class="ciprep-aliados-grid">
-        {aliados.map((a) => (
-          <article class="ciprep-aliado-card">
-            <img src={resolveUrl(a.logo)} alt={`Logo ${a.nombre}`} class="ciprep-aliado-card__logo" loading="lazy" />
-            <div>
-              <h3>{a.nombre}</h3>
-              <p>{a.tipo}</p>
-            </div>
-          </article>
+      <div class="ciprep-entidades-grid">
+        {aliados.map((e) => (
+          <div class="ciprep-entidad-card" title={e.nombre}>
+            <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} loading="lazy" />
+            <span class="ciprep-entidad-card__name">{e.nombre}</span>
+          </div>
         ))}
       </div>
 
-      <SectionTitle title="Entidades expositoras" />
+      <SectionTitle title="Entidades Nacionales" />
       <p class="ciprep-section__lead">
-        Universidades, organismos internacionales, centros de investigación y entidades públicas que aportan ponentes al Congreso.
+        Entidades públicas, gremios, universidades y organizaciones de Colombia que participan en la agenda del Congreso.
       </p>
       <div class="ciprep-entidades-grid">
-        {entidadesExpositoras.map((e) => (
+        {entidadesNacionales.map((e) => (
+          <div class="ciprep-entidad-card" title={e.nombre}>
+            <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} loading="lazy" />
+            <span class="ciprep-entidad-card__name">{e.nombre}</span>
+          </div>
+        ))}
+      </div>
+
+      <SectionTitle title="Entidades Internacionales" />
+      <p class="ciprep-section__lead">
+        Organismos multilaterales, universidades y centros de investigación del exterior que aportan ponentes y experiencia comparada al Congreso.
+      </p>
+      <div class="ciprep-entidades-grid">
+        {entidadesInternacionales.map((e) => (
           <div class="ciprep-entidad-card" title={e.nombre}>
             <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} loading="lazy" />
             <span class="ciprep-entidad-card__name">{e.nombre}</span>
@@ -427,28 +502,6 @@ const entidadesExpositoras = [
           <p><strong>Agencia ITRC</strong></p>
           <p class="ciprep-info__hint">Inspector General de Tributos, Rentas y Contribuciones Parafiscales.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== Inscripción / CTA ======================== -->
-  <section id="inscripcion" class="ciprep-section">
-    <div class="container">
-      <div class="ciprep-cta">
-        <h3>Inscripción al Congreso Internacional para la Protección de los Recursos Públicos 2026</h3>
-        <p>
-          La inscripción es <strong>gratuita</strong> y se realiza a través del formulario oficial del Ministerio de Hacienda. El formulario solicita autorización de tratamiento de datos personales conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013.
-        </p>
-        <p class="ciprep-cta__deadline">
-          <i class="fa-solid fa-clock" aria-hidden="true"></i>
-          <strong>Fecha límite de inscripción: 24 de julio de 2026</strong>
-        </p>
-        <a href={INSCRIPCION_URL} class="btn btn--primary btn--lg" target="_blank" rel="noopener">
-          <i class="fa-solid fa-user-plus"></i> Diligenciar formulario de inscripción
-        </a>
-        <p class="ciprep-cta__note">
-          El formulario se abre en una pestaña nueva. Al finalizar recibirás el acuse oficial de Microsoft Forms.
-        </p>
       </div>
     </div>
   </section>
@@ -692,6 +745,102 @@ const entidadesExpositoras = [
   .btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--font-size-base); }
 
   /* === Countdown === */
+  /* ======================== Transmisión en vivo ======================== */
+  .ciprep-live {
+    position: relative;
+    padding: var(--space-12) var(--space-6);
+    background:
+      radial-gradient(120% 120% at 50% 0%, rgba(var(--itrc-gold-rgb), 0.16) 0%, transparent 60%),
+      var(--theme-dark-section-bg);
+    overflow: hidden;
+  }
+  .ciprep-live .container { max-width: 980px; margin: 0 auto; }
+
+  .ciprep-live__head { text-align: center; margin-bottom: var(--space-8); }
+
+  .ciprep-live__badge {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: 6px var(--space-4);
+    background: rgba(220, 53, 69, 0.15);
+    border: 1px solid rgba(220, 53, 69, 0.45);
+    border-radius: var(--radius-full);
+    color: #ff6b7a;
+    font-size: var(--font-size-xs); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .ciprep-live__dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #dc3545; box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+    animation: ciprep-live-pulse 2s infinite;
+  }
+  @keyframes ciprep-live-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+    70%  { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+  }
+
+  .ciprep-live__title {
+    margin: var(--space-4) 0 var(--space-3);
+    color: var(--white);
+    font-size: var(--font-size-3xl);
+  }
+  .ciprep-live__lead {
+    max-width: 640px; margin: 0 auto;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: var(--font-size-base); line-height: 1.7;
+  }
+
+  .ciprep-live__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(var(--itrc-gold-rgb), 0.35);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    background: #000;
+  }
+  .ciprep-live__frame iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: 0; display: block;
+  }
+
+  .ciprep-live__actions {
+    margin-top: var(--space-6);
+    display: flex; flex-direction: column; align-items: center; gap: var(--space-3);
+  }
+  .ciprep-live__cta {
+    display: inline-flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-3) var(--space-6);
+    background: var(--itrc-gold); color: var(--itrc-navy);
+    border-radius: var(--radius-full);
+    font-weight: 800; font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .ciprep-live__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(var(--itrc-gold-rgb), 0.35);
+  }
+  .ciprep-live__cta .fa-youtube { font-size: var(--font-size-lg); }
+  .ciprep-live__cta .fa-arrow-up-right-from-square { font-size: var(--font-size-xs); opacity: 0.7; }
+
+  .ciprep-live__note {
+    margin: 0; color: rgba(255, 255, 255, 0.55);
+    font-size: var(--font-size-xs); text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .ciprep-live { padding: var(--space-8) var(--space-4); }
+    .ciprep-live__title { font-size: var(--font-size-2xl); }
+    .ciprep-live__lead { font-size: var(--font-size-sm); }
+    .ciprep-live__frame { border-radius: var(--radius-lg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ciprep-live__dot { animation: none; }
+    .ciprep-live__cta:hover { transform: none; }
+  }
+
   .ciprep-countdown {
     background: linear-gradient(135deg, var(--itrc-navy) 0%, #1a3a6e 100%);
     color: var(--white);
@@ -1000,6 +1149,13 @@ const entidadesExpositoras = [
     color: var(--theme-text-secondary);
     line-height: 1.3;
   }
+  .ciprep-entidad-card--dark {
+    background: var(--itrc-navy);
+    border-color: var(--itrc-navy);
+  }
+  .ciprep-entidad-card--dark .ciprep-entidad-card__name {
+    color: rgba(255, 255, 255, 0.9);
+  }
 
   /* === Ponente en agenda === */
   .ciprep-item--pausa {
@@ -1095,56 +1251,67 @@ const entidadesExpositoras = [
   }
   .ciprep-info__maps a:hover { text-decoration: underline; }
 
-  /* === CTA Inscripción === */
-  .ciprep-cta {
-    padding: var(--space-10);
-    text-align: center;
-    background: linear-gradient(135deg, var(--theme-cta-from, var(--itrc-navy)), var(--theme-cta-to, #003a7a));
-    color: var(--white);
-    border-radius: var(--radius-xl);
-  }
-  .ciprep-cta h3 {
-    margin: 0 0 var(--space-3);
-    color: var(--white);
-    font-size: var(--font-size-xl);
-  }
-  .ciprep-cta p {
-    margin: 0 auto var(--space-5);
-    max-width: 720px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
-  }
-  .ciprep-cta__note {
-    margin-top: var(--space-4);
-    font-size: var(--font-size-xs);
-    color: rgba(255, 255, 255, 0.7);
-    font-style: italic;
-  }
-  .ciprep-cta__deadline {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    margin: var(--space-4) 0 var(--space-5);
-    padding: var(--space-3) var(--space-5);
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: var(--radius-full, 999px);
-    color: #fff;
-    font-size: var(--font-size-sm);
-  }
-  .ciprep-cta__deadline i {
-    color: var(--itrc-gold, #b38b40);
-  }
-
+  /* ============ Ajustes móviles de la agenda ============ */
   @media (max-width: 768px) {
     .ciprep-section { padding: var(--space-8) var(--space-4); }
-    .ciprep-agenda { grid-template-columns: 1fr; }
-    .ciprep-item { grid-template-columns: 1fr; gap: var(--space-2); }
-    .ciprep-item__time { font-size: var(--font-size-xs); }
-    .ciprep-tabs ul { flex-wrap: nowrap; }
+    .ciprep-section__lead { font-size: var(--font-size-sm); }
+
+    /* Los dos días pasan a una sola columna */
+    .ciprep-agenda { grid-template-columns: 1fr; gap: var(--space-5); }
+    .ciprep-day { padding: var(--space-4); }
+    .ciprep-day__header { flex-wrap: wrap; gap: var(--space-2); }
+    .ciprep-day__header h3 { font-size: var(--font-size-base); }
+
+    /* La hora deja de ser columna y pasa a ser una etiqueta encima */
+    .ciprep-item {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+      padding: var(--space-3) 0 var(--space-3) var(--space-3);
+    }
+    .ciprep-item__time {
+      font-size: var(--font-size-xs);
+      white-space: normal;
+    }
+
+    /* Títulos y detalles largos de la agenda: que quiebren sin desbordar */
+    .ciprep-item__title { font-size: var(--font-size-sm); line-height: 1.45; }
+    .ciprep-item__detalle { font-size: var(--font-size-xs); line-height: 1.55; }
+
+    /* Encabezados de eje: son textos muy largos en pantalla angosta */
+    .ciprep-day__franja {
+      font-size: 0.65rem;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+      padding: var(--space-2);
+      overflow-wrap: anywhere;
+      hyphens: auto;
+    }
+
+    /* Ficha del ponente: evita que la foto comprima el texto */
+    .ciprep-item__ponente { gap: var(--space-2); align-items: flex-start; }
+    .ciprep-item__avatar { width: 38px; height: 38px; flex-shrink: 0; }
+    .ciprep-item__ponente-name { font-size: var(--font-size-xs); }
+    .ciprep-item__ponente-entidad { font-size: 0.68rem; line-height: 1.4; }
+
+    /* Menú de secciones: scroll horizontal en vez de romper la fila */
+    .ciprep-tabs ul {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .ciprep-tabs ul::-webkit-scrollbar { display: none; }
+    .ciprep-tabs li { flex: 0 0 auto; }
   }
 
-  /* ============ Botón "Ver más" — sutil, dentro de la info del ponente ============ */
+  /* Pantallas muy angostas (≤ 380 px) */
+  @media (max-width: 380px) {
+    .ciprep-day { padding: var(--space-3); }
+    .ciprep-item { padding-left: var(--space-2); }
+    .ciprep-day__franja { font-size: 0.6rem; }
+  }
+
+  /* ============ Botón "Ver más" del ponente ============ */
   .ciprep-item__vermas {
     align-self: flex-start;
     display: inline-flex;
