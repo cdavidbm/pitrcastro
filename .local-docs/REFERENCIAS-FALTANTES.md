@@ -690,3 +690,19 @@ Ya funcionan en producción con enlace real al PDF:
 - Direccionamiento Estratégico: 3 documentos (Rendición 2020, Rendición 2024, Gestión 2019)
 
 Las 11 Políticas siguen sin verificar en detalle — pendiente búsqueda dedicada.
+
+## Informes — archivos legacy no recuperables (2026-07-23)
+
+Al migrar las secciones históricas del legacy `/direccionamiento-estrategico/informes/` a la nueva `/agencia/direccionamiento-estrategico/informes`, **54 de 84 archivos se descargaron correctamente y se publicaron**; los **30 restantes** dan 404 en el propio legacy (nombres cortos pre-2016 mayormente):
+
+**Plan Estratégico Institucional / PAA histórico (13)**: `paact.pdf`, `paatt.pdf`, `paa22016.pdf`, `avancepei2015.pdf`, `infomipg3er2015.pdf`, `infopaaps2015.pdf`, `ispaapt2015.pdf`, `infopei2014.pdf`, `iapeiyPAAen-sep-2014.pdf`, `iapeiypaaenero-junio2014.pdf`, `ipeipaaenero-mayo2014.pdf`, `ipa2013.pdf`, `3. Informe Avance PAA enero-septiembre 2018.PDF`
+
+**PES (2)**: `Informe-de-Avance-PES-enero-septiembre-2018.pdf`, `Informe-de-Avance-PES-enero-junio-2018.pdf`
+
+**MIPG (9)**: `iapes2016.pdf`, `iapes3tri2016.pdf`, `icpamipg2015.pdf`, `informe-avance-plan-accion-MIPG-ene-sep-2015.pdf`, `iapaMIPGpsem-2015.pdf`, `infomipg2014.pdf`, `iapaMIPGen-sep-2014.pdf`, `ipeipaaenero-junio-2014.pdf`, `iapamipgenero-marzo2014.pdf`
+
+**PAA sueltos (3)**: `informe-avance-PAA-primer-cuatrimestre-2016-mayo27-2016.pdf`, `ipaa4tri-2015.pdf`, `iapaaitrc1t2014.pdf`
+
+**Gestión histórico (3)**: `ig2015.pdf`, `ig2014.pdf`, `ig2013.pdf`
+
+Pendiente si aparecen en backups tarball más antiguos o si el área los conserva localmente.
