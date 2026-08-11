@@ -1,5 +1,9 @@
 ---
 import Base from '../../../layouts/Base.astro';
+// Estilos propios de algunos comunicados. Antes venían dentro del markdown de
+// cada noticia; se movieron a una hoja aparte porque la política de seguridad
+// de contenido de producción no admite estilos incrustados.
+import '../../../styles/noticias.css';
 import type { MarkdownModule } from '../../../types/content';
 
 export async function getStaticPaths() {

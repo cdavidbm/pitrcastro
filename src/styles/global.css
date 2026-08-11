@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap');
+/* Nunito Sans servida desde el propio dominio. Se dejó de usar Google Fonts
+   para no depender de terceros y cumplir la política de seguridad de contenido
+   que el proveedor aplica en producción. Archivos en public/vendor/nunito/. */
+@import url('/vendor/nunito/nunito-sans.css');
 :root {
   --itrc-gold: #b38b40;
   --itrc-gold-light: #c9a35a;

@@ -25,7 +25,8 @@ export default defineConfig({
     '/ciprep': '/ciprep2025',
   },
   build: {
-    assets: 'assets'
+    assets: 'assets',
+    inlineStylesheets: 'never'
   },
   integrations: [
     sitemap({

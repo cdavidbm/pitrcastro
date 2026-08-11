@@ -75,16 +75,45 @@ const heroSlides = [
 ];
 
 const sections = [
-  { id: 'transmision', label: 'Transmisión en vivo' },
+  { id: 'memorias', label: 'Memorias' },
   { id: 'acerca', label: 'Acerca del Congreso' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'aliados', label: 'Aliados' },
   { id: 'info', label: 'Información' },
 ];
 
-// Transmisión en directo por el canal oficial de YouTube de la Agencia ITRC.
-const YOUTUBE_LIVE_ID = 'cHa293VRckk';
-const YOUTUBE_LIVE_URL = `https://www.youtube.com/live/${YOUTUBE_LIVE_ID}`;
+// Grabaciones del Congreso, una por eje temático. El color de cada tarjeta
+// se toma del mismo mapa de ejes que usa la agenda.
+const memorias = [
+  {
+    dia: 'Día 1 — lunes 3 de agosto',
+    eje: 'Eje I',
+    tema: 'IA, analítica de datos y herramientas tecnológicas para detectar el fraude',
+    videoId: 'cHa293VRckk',
+    franja: 'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE',
+  },
+  {
+    dia: 'Día 1 — lunes 3 de agosto',
+    eje: 'Eje II',
+    tema: 'Riesgos de corrupción en la administración tributaria y parafiscal',
+    videoId: 'q7bKnHYtSgY',
+    franja: 'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL',
+  },
+  {
+    dia: 'Día 2 — martes 4 de agosto',
+    eje: 'Eje III',
+    tema: 'Recuperación de activos y estrategias jurídicas contra el fraude al Estado',
+    videoId: '8sCO0uXokCU',
+    franja: 'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO',
+  },
+  {
+    dia: 'Día 2 — martes 4 de agosto',
+    eje: 'Eje IV',
+    tema: 'Transparencia, ética pública y cultura de integridad en el sector fiscal',
+    videoId: 'kYkH1NMuNRo',
+    franja: 'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL',
+  },
+];
 
 // Agenda final y definitiva entregada por el comité organizador.
 // Fuente: "Agenda_CIPREP2026V13.docx". Horario sujeto a cambios de agenda.
@@ -194,82 +223,12 @@ const entidadesInternacionales = [
       II Congreso Internacional para la Protección de los Recursos Públicos — CIPREP 2026
     </h1>
     <div class="container banner-hero__actions">
-      <a href="#transmision" class="btn btn--primary btn--lg">
-        <i class="fa-solid fa-tower-broadcast"></i> Ver transmisión en vivo
+      <a href="#memorias" class="btn btn--primary btn--lg">
+        <i class="fa-solid fa-photo-film"></i> Ver memorias del Congreso
       </a>
       <a href="#agenda" class="btn btn--ghost-dark">
         <i class="fa-solid fa-calendar-days"></i> Ver agenda
       </a>
-    </div>
-  </section>
-
-  <!-- ======================== Transmisión en vivo ======================== -->
-  <section id="transmision" class="ciprep-live" aria-labelledby="ciprep-live-title">
-    <div class="container">
-      <div class="ciprep-live__head">
-        <span class="ciprep-live__badge">
-          <span class="ciprep-live__dot" aria-hidden="true"></span>
-          En vivo
-        </span>
-        <h2 id="ciprep-live-title" class="ciprep-live__title">Transmisión en directo</h2>
-        <p class="ciprep-live__lead">
-          Siga el II Congreso Internacional para la Protección de los Recursos Públicos desde cualquier lugar.
-          La transmisión se realiza por el canal oficial de la Agencia ITRC en YouTube durante las dos jornadas.
-        </p>
-      </div>
-
-      <div class="ciprep-live__frame">
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_LIVE_ID}?rel=0`}
-          title="Transmisión en vivo del II Congreso Internacional para la Protección de los Recursos Públicos — CIPREP 2026"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-
-      <div class="ciprep-live__actions">
-        <a href={YOUTUBE_LIVE_URL} class="ciprep-live__cta" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-          Ver en YouTube
-          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        </a>
-        <p class="ciprep-live__note">
-          Si el reproductor no carga, abra la transmisión directamente en YouTube.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== Countdown ======================== -->
-  <section class="ciprep-countdown" aria-labelledby="ciprep-countdown-title">
-    <div class="container">
-      <h2 id="ciprep-countdown-title" class="ciprep-countdown__title">
-        Faltan para el inicio del Congreso
-      </h2>
-      <div class="ciprep-countdown__grid" role="timer" aria-live="off" data-ciprep-countdown data-target="2026-08-03T08:00:00-05:00">
-        <div class="ciprep-countdown__cell">
-          <span class="ciprep-countdown__num" data-unit="days">—</span>
-          <span class="ciprep-countdown__label">días</span>
-        </div>
-        <div class="ciprep-countdown__cell">
-          <span class="ciprep-countdown__num" data-unit="hours">—</span>
-          <span class="ciprep-countdown__label">horas</span>
-        </div>
-        <div class="ciprep-countdown__cell">
-          <span class="ciprep-countdown__num" data-unit="minutes">—</span>
-          <span class="ciprep-countdown__label">min</span>
-        </div>
-        <div class="ciprep-countdown__cell">
-          <span class="ciprep-countdown__num" data-unit="seconds">—</span>
-          <span class="ciprep-countdown__label">seg</span>
-        </div>
-      </div>
-      <p class="ciprep-countdown__date">
-        <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
-        Lunes 3 y martes 4 de agosto de 2026 · Bogotá
-      </p>
     </div>
   </section>
 
@@ -281,44 +240,64 @@ const entidadesInternacionales = [
     </div>
   </nav>
 
-  <script is:inline>
-    (function() {
-      var el = document.querySelector('[data-ciprep-countdown]');
-      if (!el) return;
-      var target = new Date(el.getAttribute('data-target')).getTime();
-      var nums = {
-        days: el.querySelector('[data-unit="days"]'),
-        hours: el.querySelector('[data-unit="hours"]'),
-        minutes: el.querySelector('[data-unit="minutes"]'),
-        seconds: el.querySelector('[data-unit="seconds"]'),
-      };
-      function pad(n) { return String(n).padStart(2, '0'); }
-      function tick() {
-        var diff = target - Date.now();
-        if (diff <= 0) {
-          nums.days.textContent = '0';
-          nums.hours.textContent = '00';
-          nums.minutes.textContent = '00';
-          nums.seconds.textContent = '00';
-          el.setAttribute('data-finished', '');
-          var title = document.getElementById('ciprep-countdown-title');
-          if (title) title.textContent = '¡El Congreso CIPREP 2026 está en curso!';
-          return false;
-        }
-        var s = Math.floor(diff / 1000);
-        var d = Math.floor(s / 86400);
-        var h = Math.floor((s % 86400) / 3600);
-        var m = Math.floor((s % 3600) / 60);
-        var sec = s % 60;
-        nums.days.textContent = String(d);
-        nums.hours.textContent = pad(h);
-        nums.minutes.textContent = pad(m);
-        nums.seconds.textContent = pad(sec);
-        return true;
-      }
-      if (tick()) setInterval(function() { if (!tick()) clearInterval(this); }, 1000);
-    })();
-  </script>
+  <!-- ======================== Memorias del Congreso ======================== -->
+  <section id="memorias" class="ciprep-memorias" aria-labelledby="ciprep-memorias-title">
+    <div class="container">
+      <div class="ciprep-memorias__head">
+        <span class="ciprep-memorias__eyebrow">
+          <i class="fa-solid fa-photo-film" aria-hidden="true"></i>
+          Memorias
+        </span>
+        <h2 id="ciprep-memorias-title" class="ciprep-memorias__title">Grabaciones del Congreso</h2>
+        <p class="ciprep-memorias__lead">
+          Revive las cuatro sesiones del II Congreso Internacional para la Protección de los
+          Recursos Públicos. Las grabaciones completas están disponibles en el canal oficial
+          de la Agencia ITRC en YouTube.
+        </p>
+      </div>
+
+      <div class="ciprep-memorias__grid">
+        {memorias.map((m) => (
+          <article class="memoria-card" style={`--eje-color:${colorEje(m.franja).color}`}>
+            <button
+              type="button"
+              class="memoria-card__player"
+              data-video={m.videoId}
+              aria-label={`Reproducir ${m.eje} — ${m.dia}`}
+            >
+              <img
+                src={`https://i.ytimg.com/vi/${m.videoId}/hqdefault.jpg`}
+                alt=""
+                class="memoria-card__thumb"
+                loading="lazy"
+                width="480"
+                height="360"
+              />
+              <span class="memoria-card__play" aria-hidden="true">
+                <i class="fa-solid fa-play"></i>
+              </span>
+            </button>
+            <div class="memoria-card__body">
+              <span class="memoria-card__dia">{m.dia}</span>
+              <h3 class="memoria-card__eje">{m.eje}</h3>
+              <p class="memoria-card__tema">{m.tema}</p>
+              <a
+                href={`https://www.youtube.com/watch?v=${m.videoId}`}
+                class="memoria-card__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                Ver en YouTube
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script src={`${base}js/ciprep-memorias.js`}></script>
 
   <!-- ======================== Acerca del Congreso ======================== -->
   <section id="acerca" class="ciprep-section">
@@ -744,160 +723,118 @@ const entidadesInternacionales = [
   }
   .btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--font-size-base); }
 
-  /* === Countdown === */
-  /* ======================== Transmisión en vivo ======================== */
-  .ciprep-live {
-    position: relative;
+  /* === Memorias del Congreso === */
+  .ciprep-memorias {
     padding: var(--space-12) var(--space-6);
     background:
-      radial-gradient(120% 120% at 50% 0%, rgba(var(--itrc-gold-rgb), 0.16) 0%, transparent 60%),
+      radial-gradient(120% 120% at 50% 0%, rgba(var(--itrc-gold-rgb), 0.14) 0%, transparent 60%),
       var(--theme-dark-section-bg);
-    overflow: hidden;
   }
-  .ciprep-live .container { max-width: 980px; margin: 0 auto; }
+  .ciprep-memorias .container { max-width: 1100px; margin: 0 auto; }
 
-  .ciprep-live__head { text-align: center; margin-bottom: var(--space-8); }
-
-  .ciprep-live__badge {
+  .ciprep-memorias__head { text-align: center; margin-bottom: var(--space-8); }
+  .ciprep-memorias__eyebrow {
     display: inline-flex; align-items: center; gap: var(--space-2);
     padding: 6px var(--space-4);
-    background: rgba(220, 53, 69, 0.15);
-    border: 1px solid rgba(220, 53, 69, 0.45);
+    background: rgba(var(--itrc-gold-rgb), 0.16);
+    border: 1px solid rgba(var(--itrc-gold-rgb), 0.4);
     border-radius: var(--radius-full);
-    color: #ff6b7a;
+    color: var(--itrc-gold);
     font-size: var(--font-size-xs); font-weight: 800;
     text-transform: uppercase; letter-spacing: 0.08em;
   }
-  .ciprep-live__dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #dc3545; box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
-    animation: ciprep-live-pulse 2s infinite;
-  }
-  @keyframes ciprep-live-pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
-    70%  { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
-  }
-
-  .ciprep-live__title {
+  .ciprep-memorias__title {
     margin: var(--space-4) 0 var(--space-3);
-    color: var(--white);
-    font-size: var(--font-size-3xl);
+    color: var(--white); font-size: var(--font-size-3xl);
   }
-  .ciprep-live__lead {
-    max-width: 640px; margin: 0 auto;
+  .ciprep-memorias__lead {
+    max-width: 680px; margin: 0 auto;
     color: rgba(255, 255, 255, 0.78);
     font-size: var(--font-size-base); line-height: 1.7;
   }
 
-  .ciprep-live__frame {
-    position: relative;
-    aspect-ratio: 16 / 9;
+  .ciprep-memorias__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .memoria-card {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: 4px solid var(--eje-color, var(--itrc-gold));
     border-radius: var(--radius-xl);
     overflow: hidden;
-    border: 1px solid rgba(var(--itrc-gold-rgb), 0.35);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-    background: #000;
-  }
-  .ciprep-live__frame iframe {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; border: 0; display: block;
-  }
-
-  .ciprep-live__actions {
-    margin-top: var(--space-6);
-    display: flex; flex-direction: column; align-items: center; gap: var(--space-3);
-  }
-  .ciprep-live__cta {
-    display: inline-flex; align-items: center; gap: var(--space-3);
-    padding: var(--space-3) var(--space-6);
-    background: var(--itrc-gold); color: var(--itrc-navy);
-    border-radius: var(--radius-full);
-    font-weight: 800; font-size: var(--font-size-sm);
-    text-decoration: none;
+    display: flex; flex-direction: column;
     transition: all var(--transition-base);
   }
-  .ciprep-live__cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(var(--itrc-gold-rgb), 0.35);
-  }
-  .ciprep-live__cta .fa-youtube { font-size: var(--font-size-lg); }
-  .ciprep-live__cta .fa-arrow-up-right-from-square { font-size: var(--font-size-xs); opacity: 0.7; }
+  .memoria-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
 
-  .ciprep-live__note {
-    margin: 0; color: rgba(255, 255, 255, 0.55);
-    font-size: var(--font-size-xs); text-align: center;
+  /* Miniatura con botón de reproducción: el iframe se inserta al pulsar */
+  .memoria-card__player {
+    position: relative; display: block;
+    width: 100%; aspect-ratio: 16 / 9;
+    padding: 0; border: 0; background: #000;
+    cursor: pointer; overflow: hidden;
   }
+  .memoria-card__thumb {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+  .memoria-card__player:hover .memoria-card__thumb { transform: scale(1.04); opacity: 0.75; }
+  .memoria-card__play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 62px; height: 62px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(220, 53, 69, 0.92); color: #fff; font-size: 1.3rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: all var(--transition-base);
+  }
+  .memoria-card__play i { margin-left: 3px; }
+  .memoria-card__player:hover .memoria-card__play { transform: translate(-50%, -50%) scale(1.1); background: #dc3545; }
+  .memoria-card__player:focus-visible { outline: 3px solid var(--itrc-gold); outline-offset: -3px; }
+
+  .memoria-card__iframe {
+    width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; background: #000;
+  }
+
+  .memoria-card__body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
+  .memoria-card__dia {
+    font-size: var(--font-size-xs); font-weight: 700;
+    color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .memoria-card__eje {
+    margin: 0; font-size: var(--font-size-lg);
+    color: var(--eje-color, var(--theme-heading));
+  }
+  .memoria-card__tema {
+    margin: 0; flex: 1;
+    font-size: var(--font-size-sm); line-height: 1.55;
+    color: var(--theme-text-secondary);
+  }
+  .memoria-card__link {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    margin-top: var(--space-2);
+    color: var(--theme-text-muted); font-size: var(--font-size-xs); font-weight: 700;
+    text-decoration: none;
+  }
+  .memoria-card__link:hover { color: #dc3545; }
 
   @media (max-width: 768px) {
-    .ciprep-live { padding: var(--space-8) var(--space-4); }
-    .ciprep-live__title { font-size: var(--font-size-2xl); }
-    .ciprep-live__lead { font-size: var(--font-size-sm); }
-    .ciprep-live__frame { border-radius: var(--radius-lg); }
+    .ciprep-memorias { padding: var(--space-8) var(--space-4); }
+    .ciprep-memorias__title { font-size: var(--font-size-2xl); }
+    .ciprep-memorias__lead { font-size: var(--font-size-sm); }
+    .ciprep-memorias__grid { grid-template-columns: 1fr; gap: var(--space-5); }
+    .memoria-card__body { padding: var(--space-4); }
+    .memoria-card__eje { font-size: var(--font-size-base); }
+    .memoria-card__play { width: 52px; height: 52px; font-size: 1.1rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .ciprep-live__dot { animation: none; }
-    .ciprep-live__cta:hover { transform: none; }
-  }
-
-  .ciprep-countdown {
-    background: linear-gradient(135deg, var(--itrc-navy) 0%, #1a3a6e 100%);
-    color: var(--white);
-    padding: var(--space-8) var(--space-6);
-    text-align: center;
-  }
-  .ciprep-countdown__title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    margin: 0 0 var(--space-5);
-    color: var(--itrc-gold);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .ciprep-countdown__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(70px, 1fr));
-    gap: var(--space-3);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .ciprep-countdown__cell {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    padding: var(--space-4) var(--space-2);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(4px);
-  }
-  .ciprep-countdown__num {
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    font-weight: 800;
-    line-height: 1;
-    color: var(--white);
-    font-variant-numeric: tabular-nums;
-  }
-  .ciprep-countdown__label {
-    font-size: var(--font-size-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .ciprep-countdown__date {
-    margin: var(--space-5) 0 0;
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.9);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-  .ciprep-countdown__date i {
-    color: var(--itrc-gold);
-  }
-  .ciprep-countdown[data-finished] .ciprep-countdown__grid {
-    opacity: 0.45;
+    .memoria-card:hover { transform: none; }
+    .memoria-card__player:hover .memoria-card__thumb { transform: none; }
+    .memoria-card__player:hover .memoria-card__play { transform: translate(-50%, -50%); }
   }
 
   /* === Tabs sticky === */

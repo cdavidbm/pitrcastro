@@ -43,13 +43,3 @@ La Agencia ITRC reafirma su compromiso con la prevención del fraude y la corrup
   <strong>Dirección General</strong><br>
   Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC
 </p>
-
-<style>
-  .comunicado-firma {
-    text-align: center; margin-top: var(--space-6, 1.5rem);
-    color: var(--theme-text-secondary, #555); font-size: var(--font-size-sm, 0.875rem);
-    padding-top: var(--space-4, 1rem);
-    border-top: 1px solid var(--theme-border-light, #e5e5e5);
-  }
-  .comunicado-firma strong { color: var(--theme-heading, #002147); }
-</style>

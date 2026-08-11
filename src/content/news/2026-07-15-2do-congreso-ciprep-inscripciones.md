@@ -43,38 +43,3 @@ La Agencia ITRC extiende una cordial invitación a todos los interesados para ha
   <strong>Dirección General</strong><br>
   Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales — ITRC
 </p>
-
-<style>
-  .comunicado-actions {
-    display: flex; justify-content: center; flex-wrap: wrap;
-    gap: var(--space-3, 0.75rem);
-    margin: var(--space-8, 2rem) 0 var(--space-6, 1.5rem);
-  }
-  .comunicado-btn {
-    display: inline-flex; align-items: center; gap: var(--space-2, 0.5rem);
-    padding: var(--space-3, 0.75rem) var(--space-5, 1.5rem);
-    border-radius: var(--radius-full, 999px);
-    text-decoration: none; font-weight: 700; font-size: var(--font-size-sm, 0.875rem);
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .comunicado-btn--primary {
-    background: var(--itrc-gold, #b38b40); color: var(--itrc-navy, #002147);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  }
-  .comunicado-btn--secondary {
-    background: var(--itrc-navy, #002147); color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  }
-  .comunicado-btn--outline {
-    background: transparent; color: var(--itrc-navy, #002147);
-    border: 2px solid var(--itrc-navy, #002147);
-  }
-  .comunicado-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
-  .comunicado-firma {
-    text-align: center; margin-top: var(--space-6, 1.5rem);
-    color: var(--theme-text-secondary, #555); font-size: var(--font-size-sm, 0.875rem);
-    padding-top: var(--space-4, 1rem);
-    border-top: 1px solid var(--theme-border-light, #e5e5e5);
-  }
-  .comunicado-firma strong { color: var(--theme-heading, #002147); }
-</style>
