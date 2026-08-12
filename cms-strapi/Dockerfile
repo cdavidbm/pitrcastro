@@ -37,6 +37,12 @@ WORKDIR /opt/app
 # Instalar dependencias primero para aprovechar capa de cache si solo
 # cambia el código fuente. .npmrc también para que la config de pnpm aplique.
 COPY package.json pnpm-lock.yaml .npmrc ./
+
+# sharp trae su propia libvips compilada. Si detecta la del sistema
+# (vips-dev, instalada arriba) intenta compilarse contra ella y falla dentro
+# de Alpine. Con esto usa su binario, que es lo que queremos.
+ENV SHARP_IGNORE_GLOBAL_LIBVIPS=1
+
 RUN corepack prepare pnpm@10.34.1 --activate && \
     pnpm install --frozen-lockfile
 

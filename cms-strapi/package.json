@@ -41,7 +41,22 @@
       "@swc/core",
       "esbuild",
       "sharp"
-    ]
+    ],
+    "supportedArchitectures": {
+      "os": [
+        "current",
+        "linux"
+      ],
+      "cpu": [
+        "current",
+        "x64"
+      ],
+      "libc": [
+        "current",
+        "musl",
+        "glibc"
+      ]
+    }
   },
   "strapi": {
     "uuid": "8f176066-cb93-4cca-889f-2fd5bc4fc7ea",
