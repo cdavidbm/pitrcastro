@@ -2,23 +2,39 @@
 
 ## Cómo acceder al panel de administración
 
-El panel del CMS Strapi se encuentra en `/admin/` del dominio público:
+El panel del CMS Strapi se abre **con la VPN del proveedor conectada**, en esta dirección:
 
-| Entorno | URL del CMS |
-|---------|-------------|
-| **Producción (público, cert válido)** | **`https://www.itrc.gov.co/admin`** |
-| Producción (acceso directo vía VPN HostDime) | `https://10.5.10.6/admin` *(cert warning por wildcard mismatch — aceptar y seguir)* |
-| Staging interno ITRC (entrenamiento, requiere VPN FortiClient) | `http://192.168.82.13/admin/` |
+> ### `https://10.5.10.6/admin`
+
+El navegador mostrará una advertencia de certificado la primera vez. Es esperada:
+el certificado está emitido para el nombre público y aquí se entra por dirección
+numérica. Elija **Avanzado → Continuar** y siga.
+
+Requiere FortiClient conectado al perfil de HostDime.
+
+### Por qué no se usa la dirección pública
+
+`https://www.itrc.gov.co/admin` **queda en pantalla en blanco**. El equipo de
+seguridad del proveedor aplica sobre el dominio una restricción que impide al
+panel dibujar su propia interfaz. No es una falla del CMS ni de las credenciales:
+el sitio público funciona con normalidad, solo el panel se ve afectado.
+
+Hay una solicitud abierta con el proveedor para ajustarlo. Mientras tanto, la
+dirección de arriba es la vía de trabajo.
+
+### Otras vías (equipo técnico)
+
+| Entorno | URL |
+|---------|-----|
+| Túnel SSH desde el equipo de un desarrollador (`pnpm strapi:tunnel`) | `http://localhost:11337/admin` |
 | Desarrollo local (con `cms-strapi` corriendo nativo) | `http://localhost:1337/admin/` |
 
-**El admin de producción es público** — accesible desde cualquier internet sin VPN. Está protegido por:
+### Protecciones del acceso
 
 - Strapi exige email + password válido del editor.
 - nginx aplica rate-limit (5 intentos de login por minuto por IP).
 - `fail2ban` banea IPs con 8 logins fallidos en 10 minutos (ban de 1 hora).
 - Middleware Strapi rechaza uploads de archivos ejecutables, scripts o SVG.
-
-Si la política institucional requiere acceso vía VPN, podés usar la URL `10.5.10.6/admin` con FortiClient configurado al perfil HostDime (rango `10.212.134.0/24` está allowlisteado).
 
 ## Login con email y contraseña
 

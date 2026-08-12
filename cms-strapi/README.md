@@ -31,9 +31,15 @@ pnpm start
 pnpm build
 ```
 
-## Trabajar en el panel admin sin levantar Strapi local
+## Cómo entrar al panel admin
 
-Para tareas que solo requieren **usar el panel admin** (publicar contenido, ajustar campos, revisar entradas, configurar el sidebar, etc.) no hace falta arrancar `pnpm develop` en local — que puede tardar 5–8 min la primera vez. En su lugar abre un túnel SSH al Strapi del servidor de pruebas:
+El panel se usa a través de un **túnel SSH**, no por la dirección pública. El
+intermediario de seguridad del proveedor reemplaza la política de contenido que
+envía Strapi por una más estricta, y con ella el panel queda en pantalla en
+blanco. El túnel entra directo al Strapi del servidor y no pasa por ahí.
+
+Además evita arrancar `pnpm develop` en local, que puede tardar 5–8 minutos la
+primera vez.
 
 ```bash
 # Desde la raíz del repo
@@ -69,7 +75,9 @@ pnpm strapi:tunnel:status   # verificar si está activo
 pnpm strapi:tunnel:close    # cerrar
 ```
 
-Requisitos: VPN del datacenter activa + llave SSH instalada en el servidor (`admweb@192.168.82.13`). Los detalles operativos viven en `.env.deploy` (gitignored).
+Requisitos: acceso SSH al servidor con llave, bajo el alias `itrc-prod` de
+`~/.ssh/config`. Si la ruta directa no está disponible, levantar antes la VPN con
+`~/itrc-vpn-up.sh bg`. Para apuntar a otro destino: `STRAPI_TUNNEL_SSH_TARGET=<alias>`.
 
 ## Scripts del proyecto (`cms-strapi/scripts/`)
 
@@ -113,12 +121,12 @@ pnpm develop                                  # validar que Strapi cargue
 node scripts/migrate-all.mjs --only=<slug>    # migrar datos (local)
 ```
 
-Para migrar al **server de pruebas** (192.168.82.13), el endpoint `/upload` solo está expuesto en el bind interno de Strapi (no por nginx). Abrir túnel SSH primero:
+Para migrar contra el **servidor**, el endpoint `/upload` solo está expuesto en el bind interno de Strapi (no por nginx). Abrir el túnel primero:
 
 ```bash
-ssh -N -L 11337:127.0.0.1:1337 admweb@192.168.82.13 &
+pnpm strapi:tunnel
 STRAPI_URL=http://localhost:11337 node scripts/migrate-all.mjs [--only=...]
-pkill -f "ssh -N -L 11337"                    # cerrar túnel al terminar
+pnpm strapi:tunnel:close                      # cerrar túnel al terminar
 ```
 
 ## Estructura

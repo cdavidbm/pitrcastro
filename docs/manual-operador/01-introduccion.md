@@ -42,15 +42,16 @@ El sitio compilado se copia a /var/www/portal_nuevo/ y nginx lo sirve
 Cambio visible en el portal público
 ```
 
-El tiempo habitual desde la publicación en el CMS hasta que el cambio aparece en el sitio es de **~90 segundos** (build + rsync).
+Desde que se pulsa Publicar hasta que el cambio se ve en el sitio pasan **dos o tres minutos**: el portal se reconstruye entero y se copia al servidor web.
 
 ## Quién hace qué
 
 | Tarea | Dónde se hace |
 |-------|---------------|
-| Crear o editar una noticia | `/admin/` → Content Manager → Noticia |
+| Crear o editar una noticia | `/admin/` → Contenido del sitio → Prensa → Noticias |
+| Publicar un edicto, estado o traslado | `/admin/` → Contenido del sitio → Atención y Servicios → Notificaciones y traslados |
 | Subir un PDF a una página | `/admin/` → la página correspondiente, campo de documentos |
-| Cambiar el slider de la portada | `/admin/` → Slider Principal |
+| Cambiar un banner de la portada | `/admin/` → Contenido del sitio → Inicio → Slider Principal |
 | Modificar contacto, menú, accesos rápidos | `/admin/` → Configuración → bloque correspondiente |
 | Crear un tipo de contenido nuevo (estructura) | Edición directa en VS Code (`cms-strapi/src/api/`) por el equipo técnico |
 | Cambiar diseño visual o agregar una página estática | Edición directa en VS Code (`src/pages/`, `src/styles/`) |
@@ -69,7 +70,7 @@ El sidebar del Content Manager agrupa todos los tipos de contenido del portal. L
 | **Normativa** | Normograma, decretos, resoluciones, marco legal |
 | **Atención y Servicios** | Canales de atención, PQRS, glosario, notificaciones |
 | **Participa** | Mecanismos de participación ciudadana |
-| **Prensa** | Noticias, eventos, boletines, videos, galería, cápsulas |
+| **Prensa** | Noticias, eventos, videos, galería, cápsulas |
 | **Observatorio** | Observatorio de Fraude y Corrupción |
 | **Configuración** | Datos de contacto, menú de navegación, información del sitio |
 

@@ -41,9 +41,12 @@ const config = {
   interval: providedInterval ?? sliderData?.interval ?? 5000,
 };
 
-const activeSlides = slides
-  .filter((s: any) => s.active !== false)
-  .sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+// El orden es el de la lista en el CMS: quien edita los arrastra y ya. Antes
+// dependía de un campo numérico que había que llevar a mano.
+const activeSlides = slides.filter((s: any) => s.active !== false);
+
+/** Un enlace es externo si sale del dominio; no hace falta marcarlo a mano. */
+const esExterno = (url: unknown) => typeof url === 'string' && /^https?:\/\//i.test(url);
 
 const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)}`;
 ---
@@ -61,7 +64,7 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
       {activeSlides.map((slide: any, index: number) => {
         const hasContent = slide.title || slide.subtitle || slide.description;
         const isImageOnly = slide.link && !hasContent;
-        const slideUrl = slide.external ? slide.link : resolveUrl(slide.link);
+        const slideUrl = esExterno(slide.link) ? slide.link : resolveUrl(slide.link);
         const imgUrl = mediaUrl(slide.image);
         const imgMobileUrl = mediaUrl(slide.imageMobile);
 
@@ -102,11 +105,11 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
                   <a
                     href={slideUrl}
                     class="btn btn--primary hero-slide__cta"
-                    target={slide.external ? '_blank' : undefined}
-                    rel={slide.external ? 'noopener noreferrer' : undefined}
+                    target={esExterno(slide.link) ? '_blank' : undefined}
+                    rel={esExterno(slide.link) ? 'noopener noreferrer' : undefined}
                   >
                     {slide.linkText || 'Ver más'}
-                    {slide.external
+                    {esExterno(slide.link)
                       ? <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                       : <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     }
@@ -118,8 +121,8 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
               <a
                 href={slideUrl}
                 class="hero-slide__full-link"
-                target={slide.external ? '_blank' : undefined}
-                rel={slide.external ? 'noopener noreferrer' : undefined}
+                target={esExterno(slide.link) ? '_blank' : undefined}
+                rel={esExterno(slide.link) ? 'noopener noreferrer' : undefined}
                 aria-label={slide.imageAlt}
               />
             )}

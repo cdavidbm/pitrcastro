@@ -1,116 +1,104 @@
-# Capítulo 5 — Banners y slider principal
+# Capítulo 5 — Banners del inicio
 
-## Qué es el slider
+Los banners son las imágenes grandes que rotan en la parte superior de la
+portada. Cada una es una imagen apaisada que lleva a una página del portal o de
+otra entidad.
 
-El slider (o carrusel) es la sección de banners rotativos que aparece en la parte superior de la página de inicio del portal. Muestra una serie de diapositivas que pueden incluir imagen de fondo, título, subtítulo, descripción y un botón de llamado a la acción.
+## Dónde están
 
-El slider principal del portal se llama **"Slider Principal"** y se administra desde la sección **SLIDERS** del CMS.
+En el panel, **Contenido del sitio** → sección **Inicio** → **Slider Principal**.
 
-## Cómo acceder al slider
+Se abre una sola pantalla con la lista de banners. Cada uno se despliega al
+hacer clic sobre su nombre.
 
-1. En el CMS, haga clic en **SLIDERS** en la barra lateral.
-2. Verá la lista de sliders disponibles. Haga clic en **"Slider Principal"** (o en el slider que corresponda según el área del portal que desea modificar).
-3. Se abrirá el formulario de edición del slider.
+## Los campos de cada banner
 
-## Campos del slider
+| Campo | ¿Obligatorio? | Qué va ahí |
+|---|---|---|
+| **Imagen del banner** | Sí | La imagen apaisada. Idealmente 1900 × 600 píxeles |
+| **Descripción de la imagen** | Sí | Qué se ve en la imagen, en pocas palabras |
+| **A dónde lleva** | Sí | La dirección que se abre al hacer clic |
+| **¿Se muestra?** | Sí | Interruptor para sacarlo de la portada sin borrarlo |
+| **Imagen para celular** | No | Solo si la principal se ve mal en pantallas pequeñas |
 
-El formulario del slider tiene campos globales y campos por cada diapositiva:
+### La descripción de la imagen
 
-**Campos globales del slider:**
+No es opcional aunque el sistema la deje pasar. La leen las personas que usan
+lector de pantalla, y en un portal público es obligatoria por accesibilidad.
 
-| Campo | Descripción |
-|-------|-------------|
-| `Nombre del slider` | Nombre interno descriptivo (no aparece en el sitio) |
-| `Descripcion` | Descripción interna (no aparece en el sitio) |
-| `Reproduccion automatica` | Si está activado, las diapositivas cambian solas |
-| `Intervalo (milisegundos)` | Tiempo entre cambios automáticos (5000 = 5 segundos, 6000 = 6 segundos) |
+Descríbala como se la contaría a alguien por teléfono: *"II Congreso CIPREP
+2026 — Agencia ITRC"*, no *"banner1"* ni *"imagen"*.
 
-**Campos de cada diapositiva:**
+### A dónde lleva
 
-| Campo | Obligatorio | Descripción |
-|-------|-------------|-------------|
-| `Imagen` | Sí | Imagen de fondo de la diapositiva (recomendado: 1920×600 px) |
-| `Texto alternativo (accesibilidad)` | Sí | Descripción de la imagen para lectores de pantalla |
-| `Titulo` | No | Título grande que aparece sobre la imagen |
-| `Subtitulo` | No | Texto secundario debajo del título |
-| `Descripcion` | No | Párrafo descriptivo debajo del subtítulo |
-| `Enlace` | No | URL a donde lleva el botón de acción (puede ser interna o externa) |
-| `Texto del boton` | No | Texto del botón de llamado a la acción (por defecto: "Ver más") |
-| `Enlace externo` | No | Activar si el enlace lleva fuera del portal |
-| `Filtro oscuro sobre imagen` | No | Oscurece la imagen para mejorar la legibilidad del texto. Desactivar si la imagen es gráfica o efeméride sin texto |
-| `Activo` | No | Si está desactivado, la diapositiva no se muestra en el portal |
-| `Orden` | No | Número que determina la posición (1 = primera, 2 = segunda, etc.) |
+Dos formas, según el destino:
 
-## Modificar una diapositiva existente
+- **Una página del portal**: se escribe empezando por barra, sin el dominio.
+  `/ciprep2026`, `/tu-p-q-r-s-al-dia`, `/participa`
+- **Otra entidad**: la dirección completa.
+  `https://www.funcionpublica.gov.co/...`
 
-1. Abra el **Slider Principal** como se describe arriba.
-2. Localice la diapositiva que desea modificar en la lista de **"Diapositivas"**.
-3. Haga clic sobre ella para expandir sus campos.
-4. Realice los cambios necesarios (por ejemplo, actualizar el texto del título o la imagen).
-5. Haga clic en **"Save"** o **"Publish"** para guardar.
+El sitio reconoce solo cuál es cuál: las de otras entidades se abren en una
+pestaña nueva, las del portal no.
 
-**Ejemplo — Actualizar el slide de Transparencia:**
+### El interruptor
 
-Suponga que el texto de la diapositiva de Transparencia cambió. Para actualizarlo:
+Un banner con **¿Se muestra?** en *No* desaparece de la portada pero sigue
+guardado, con su imagen y su enlace. Sirve para banners de temporada: se apaga
+cuando termina el evento y se vuelve a encender el año siguiente.
 
-1. Abra el Slider Principal.
-2. Encuentre la diapositiva con `Titulo` = "Programa de Transparencia y Ética Pública".
-3. Actualice el campo `Descripcion` con el nuevo texto.
-4. Guarde los cambios.
+Es siempre preferible a borrarlo.
 
-## Agregar una nueva diapositiva
+## Ejemplo completo
 
-1. Abra el **Slider Principal**.
-2. Desplácese hasta la sección **"Diapositivas"**.
-3. Haga clic en el botón **"Add Diapositiva"** al final de la lista.
-4. Complete los campos de la nueva diapositiva:
-   - **Imagen**: suba o seleccione la imagen de fondo.
-   - **Texto alternativo**: describa la imagen brevemente.
-   - **Titulo**: título principal (opcional si la imagen es autosuficiente).
-   - **Descripcion**: texto descriptivo.
-   - **Enlace** y **Texto del boton**: si debe llevar a una página.
-   - **Orden**: asigne un número para definir su posición.
-   - **Activo**: asegúrese de que esté activado.
-5. Guarde los cambios.
+Llega la instrucción de poner un banner del congreso, con la pieza gráfica
+adjunta:
 
-> **Tip:** Para diapositivas de efemérides (Día del Agua, Día de la Mujer, etc.) que solo muestran una imagen institucional sin texto, desactive el campo **"Filtro oscuro sobre imagen"** para que la imagen se muestre con sus colores originales.
+1. En la lista de banners, pulse **Add an entry** al final.
+2. Arrastre la imagen al recuadro **Imagen del banner**.
+3. En **Descripción de la imagen**:
+   ```
+   II Congreso CIPREP 2026 — Agencia ITRC
+   ```
+4. En **A dónde lleva**:
+   ```
+   /ciprep2026
+   ```
+5. Deje **¿Se muestra?** en *Sí*.
+6. **Imagen para celular**: vacío.
+7. Arrastre el banner a la posición donde debe aparecer.
+8. **Publish**.
 
-## Reordenar diapositivas
+En dos o tres minutos está en la portada.
 
-Existen dos maneras de reordenar las diapositivas:
+## Cambiar el orden
 
-**Opción 1 — Por el campo Orden:**
-Cambie el valor del campo `Orden` en cada diapositiva. El slider mostrará las diapositivas de menor a mayor número de orden.
+El orden de la portada es el de esta lista. Cada banner tiene a la derecha un
+asa (los seis puntos) para arrastrarlo arriba o abajo.
 
-**Opción 2 — Arrastrando en el CMS:**
-En el formulario del Slider Principal, las diapositivas se listan dentro del campo repetible **Diapositivas**. Cada fila tiene un ícono de arrastre (seis puntos) a la izquierda; mantenga el clic sobre él y arrastre la fila a la posición deseada. Strapi guarda el nuevo orden al pulsar **Save**.
+El primero de la lista es el que se ve al entrar al portal.
 
-## Agregar un slide temporal para un evento
+## Reemplazar la imagen de un banner
 
-Cuando hay un evento institucional (rendición de cuentas, audiencia pública, congreso, etc.) se puede agregar temporalmente un slide que lo promocione.
+Despliegue el banner, pulse el lápiz sobre la imagen actual y elija la nueva.
+Recuerde ajustar también la **descripción de la imagen**: si cambia la pieza y
+no el texto, quien use lector de pantalla escuchará algo que ya no corresponde.
 
-**Procedimiento:**
+## Cuántos banners conviene tener
 
-1. Abra el **Slider Principal**.
-2. Agregue una nueva diapositiva con la información del evento (imagen, título, descripción, enlace al formulario o página del evento).
-3. Asígnele un `Orden` al principio de la lista (por ejemplo, `0` o `1`).
-4. Asegúrese de que el campo **"Activo"** esté activado.
-5. Guarde los cambios.
+Entre cuatro y seis. Con más, los últimos casi nadie los ve: el visitante se va
+de la portada antes de que el carrusel llegue a ellos.
 
-**Para removerlo después del evento:**
+Si hay que meter uno nuevo y ya hay seis, lo sano es apagar el menos vigente en
+vez de acumular.
 
-1. Abra el **Slider Principal**.
-2. Encuentre la diapositiva del evento.
-3. Desactive el campo **"Activo"** en esa diapositiva (no la elimine, a menos que esté seguro de que no la necesitará de nuevo).
-4. Guarde los cambios.
+## Ritmo del carrusel
 
-> **Nota:** Desactivar una diapositiva (`Activo = false`) es preferible a eliminarla, porque permite reutilizarla en el futuro sin volver a cargar la imagen y el texto.
+Arriba del todo, antes de la lista, hay dos ajustes que valen para todo el
+carrusel:
 
-## Recomendaciones para imágenes del slider
+- **Reproducción automática**: si las diapositivas cambian solas.
+- **Intervalo**: cuánto dura cada una, en milisegundos. `6000` son seis
+  segundos.
 
-- **Dimensiones**: 1920 × 600 píxeles o proporción 16:5.
-- **Formato**: JPG para fotografías, PNG para imágenes con texto o fondo transparente.
-- **Peso máximo**: 300 KB por imagen. Imágenes más pesadas ralentizan la carga del portal.
-- **Contenido**: si la imagen ya lleva texto superpuesto (como una infografía o pieza gráfica de comunicaciones), desactive el filtro oscuro y no agregue título ni descripción en los campos del CMS, para evitar duplicar el texto.
-
-> **Tip:** El área de comunicaciones de la Agencia suele entregar imágenes en las dimensiones correctas. Si recibe una imagen cuadrada o de formato diferente, solicite la versión horizontal antes de publicarla.
+Rara vez hay que tocarlos.

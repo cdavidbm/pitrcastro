@@ -10,15 +10,32 @@ Manual de referencia para el editor o webmaster encargado de mantener el conteni
 |-----|----------|-------------|
 | 01 | [Introducción al portal](01-introduccion.md) | Qué es el portal, qué stack lo compone (Astro + Strapi) y cómo se publica el contenido |
 | 02 | [Acceso y dashboard del CMS](02-acceso-dashboard.md) | Login a Strapi, orientación del panel y guardar/publicar |
-| 03 | [Publicar una noticia](03-publicar-noticia.md) | Crear, editar y eliminar noticias |
+| 03 | [Publicar una noticia](03-publicar-noticia.md) | Crear, corregir y retirar noticias y ediciones del periódico |
 | 04 | [Gestionar documentos](04-gestionar-documentos.md) | Subir PDFs y archivos al Media Library, asociarlos a páginas |
-| 05 | [Banners y slider principal](05-banners-slider.md) | Modificar, reordenar y agregar diapositivas al carrusel de inicio |
+| 05 | [Banners del inicio](05-banners-slider.md) | Cambiar, reordenar y agregar banners del carrusel de la portada |
 | 06 | [Modificar páginas institucionales](06-modificar-paginas.md) | Editar textos, contacto, menú y accesos rápidos |
 | 07 | [Edición directa en VS Code](07-edicion-directa-vscode.md) | Cuándo y cómo editar archivos fuente sin pasar por el CMS |
 | 08 | [Mantenimiento con Git](08-mantenimiento-git.md) | Flujo diario de trabajo, resolución de conflictos y respaldo |
 | 09 | [Despliegue en datacenter (Ubuntu + nginx + Strapi)](09-despliegue-datacenter.md) | Arquitectura del servidor, auto-deploy con runner self-hosted, manejo de binarios y backups |
 | 10 | [Autenticación y gestión de usuarios en Strapi](10-autenticacion-strapi.md) | Crear, retirar y gestionar cuentas de editores; roles, permisos y recuperación de contraseña |
 | 11 | [Capacitación de un nuevo operador](11-capacitacion-sucesor.md) | Sesiones guiadas de entrega, ejercicios prácticos, checklist de cierre |
+| 12 | [Notificaciones y traslados](12-notificaciones-y-traslados.md) | Publicar edictos, estados y traslados a partir del correo que los envía |
+
+---
+
+## Las tres tareas del día a día
+
+Casi todo el trabajo de mantenimiento del portal son estas tres, y las tres se
+hacen enteras desde el panel:
+
+| Tarea | Capítulo | Con qué frecuencia |
+|---|---|---|
+| Publicar un edicto, estado o traslado | [12 — Notificaciones y traslados](12-notificaciones-y-traslados.md) | Varias veces por semana |
+| Publicar una noticia o comunicado | [03 — Publicar una noticia](03-publicar-noticia.md) | Semanal |
+| Cambiar un banner de la portada | [05 — Banners del inicio](05-banners-slider.md) | Ocasional |
+
+Cada uno de esos capítulos trae un ejemplo completo, con datos reales, de
+principio a fin.
 
 ---
 
@@ -28,11 +45,15 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 
 | Tarea solicitada | Capítulo |
 |------------------|----------|
+| Publicar un edicto, estado o traslado | [12 — Notificaciones y traslados](12-notificaciones-y-traslados.md) |
+| Corregir una notificación ya publicada | [12 — Notificaciones y traslados](12-notificaciones-y-traslados.md) |
 | Publicar una noticia nueva | [03 — Publicar noticia](03-publicar-noticia.md) |
+| Publicar una edición del periódico institucional | [03 — Publicar noticia](03-publicar-noticia.md) |
 | Editar el texto de una noticia existente | [03 — Publicar noticia](03-publicar-noticia.md) |
 | Agregar un PDF a una página de transparencia o informes | [04 — Gestionar documentos](04-gestionar-documentos.md) |
 | Actualizar la tabla de contratación | [04 — Gestionar documentos](04-gestionar-documentos.md) |
-| Cambiar el banner de inicio (slider) | [05 — Banners y slider](05-banners-slider.md) |
+| Cambiar el banner de inicio (slider) | [05 — Banners del inicio](05-banners-slider.md) |
+| Quitar un banner sin borrarlo | [05 — Banners del inicio](05-banners-slider.md) |
 | Agregar un slide temporal para un evento | [05 — Banners y slider](05-banners-slider.md) |
 | Actualizar el teléfono o correo de contacto | [06 — Modificar páginas](06-modificar-paginas.md) |
 | Cambiar un enlace del menú de navegación | [06 — Modificar páginas](06-modificar-paginas.md) |
@@ -60,4 +81,4 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 - **Editor**: persona con cuenta en Strapi que crea/modifica contenido del portal.
 - **Desarrollador**: persona con cuenta de GitHub que toca código (templates, schemas, infraestructura).
 
-> **Nota:** este manual asume conexión a la red institucional o VPN ITRC para acceder al CMS (`http://192.168.82.13/admin/`).
+> **Nota:** el panel se abre con la VPN del proveedor conectada, en `https://10.5.10.6/admin`. Ver [Capítulo 2](02-acceso-dashboard.md).

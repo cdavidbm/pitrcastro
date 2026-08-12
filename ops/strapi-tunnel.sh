@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
-# ops/strapi-tunnel.sh — Abre/cierra un túnel SSH al Strapi del servidor de pruebas.
+# ops/strapi-tunnel.sh — Abre/cierra un túnel SSH al Strapi de producción.
 #
-# Permite trabajar en el panel admin del Strapi de prod (192.168.82.13)
-# sin tener que levantar `pnpm develop` localmente (que tarda 5-8 min en
-# arrancar y debe reiniciarse cada vez que cambian schemas).
+# Permite trabajar en el panel admin del servidor sin levantar `pnpm develop`
+# localmente (que tarda 5-8 min en arrancar y debe reiniciarse cada vez que
+# cambian los schemas).
 #
 # Una vez abierto, el panel admin del servidor está accesible en:
 #   http://localhost:11337/admin
+#
+# El túnel entra directamente al Strapi del servidor, sin pasar por el
+# intermediario del proveedor. Es la única forma de usar el panel mientras esté
+# vigente la política de seguridad que lo deja en blanco (ver .local-docs).
 #
 # Subcomandos:
 #   open    — abre el túnel en background y guarda el PID
@@ -19,36 +23,24 @@
 #   pnpm strapi:tunnel:status
 #
 # Requisitos:
-#   - VPN del datacenter ITRC activa (FortiClient)
-#   - SSH configurado a admweb@192.168.82.13 con llave pública
-#   - .env.deploy presente en la raíz del repo
+#   - Acceso SSH al servidor (alias `itrc-prod` en ~/.ssh/config, con llave)
+#   - Si la ruta directa no está disponible: VPN arriba (~/itrc-vpn-up.sh bg)
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-ENV_FILE="${ROOT_DIR}/.env.deploy"
 PID_FILE="/tmp/itrc-strapi-tunnel.pid"
 
 LOCAL_PORT="${STRAPI_TUNNEL_LOCAL_PORT:-11337}"
 REMOTE_PORT="${STRAPI_TUNNEL_REMOTE_PORT:-1337}"
 
-# Cargar variables del .env.deploy
-if [ -f "${ENV_FILE}" ]; then
-  set -a
-  # shellcheck disable=SC1090
-  source "${ENV_FILE}"
-  set +a
-fi
-
-DEPLOY_HOST="${DEPLOY_HOST:-192.168.82.13}"
-DEPLOY_USER="${DEPLOY_USER:-admweb}"
+# Destino SSH. Por defecto el alias de producción definido en ~/.ssh/config.
+SSH_TARGET="${STRAPI_TUNNEL_SSH_TARGET:-itrc-prod}"
 
 cmd_status() {
   if [ -f "${PID_FILE}" ] && kill -0 "$(cat "${PID_FILE}")" 2>/dev/null; then
     PID="$(cat "${PID_FILE}")"
     echo "✓ Túnel ACTIVO (PID ${PID})"
-    echo "  localhost:${LOCAL_PORT} → ${DEPLOY_USER}@${DEPLOY_HOST}:${REMOTE_PORT}"
+    echo "  localhost:${LOCAL_PORT} → ${SSH_TARGET}:${REMOTE_PORT}"
     echo "  Panel admin:   http://localhost:${LOCAL_PORT}/admin"
     echo "  API:           http://localhost:${LOCAL_PORT}/api"
     return 0
@@ -68,14 +60,15 @@ cmd_open() {
   # Limpiar PID file huérfano si quedó
   rm -f "${PID_FILE}"
 
-  # Verificar VPN antes de intentar
-  echo "==> Verificando conectividad al server (VPN)..."
-  if ! curl -s --max-time 3 -o /dev/null "http://${DEPLOY_HOST}/" 2>/dev/null; then
-    echo "ERROR: no se puede alcanzar ${DEPLOY_HOST}." >&2
-    echo "       ¿Tienes la VPN del datacenter ITRC activa (FortiClient)?" >&2
+  # Verificar que el servidor responde por SSH antes de intentar
+  echo "==> Verificando acceso SSH a ${SSH_TARGET}..."
+  if ! ssh -o ConnectTimeout=10 -o BatchMode=yes "${SSH_TARGET}" true 2>/dev/null; then
+    echo "ERROR: no se puede conectar por SSH a ${SSH_TARGET}." >&2
+    echo "       Si la ruta directa no está disponible, levanta la VPN:" >&2
+    echo "         ~/itrc-vpn-up.sh bg" >&2
     exit 1
   fi
-  echo "  VPN OK"
+  echo "  SSH OK"
 
   # Verificar puerto local libre
   if timeout 2 bash -c "cat < /dev/null > /dev/tcp/127.0.0.1/${LOCAL_PORT}" 2>/dev/null; then
@@ -84,18 +77,21 @@ cmd_open() {
     exit 1
   fi
 
-  echo "==> Abriendo túnel localhost:${LOCAL_PORT} → ${DEPLOY_USER}@${DEPLOY_HOST}:${REMOTE_PORT}..."
+  echo "==> Abriendo túnel localhost:${LOCAL_PORT} → ${SSH_TARGET}:${REMOTE_PORT}..."
   # -N: no ejecutar comando remoto
   # -f: NO usar -f acá porque pierde el PID; lanzamos en background con setsid
   # ServerAliveInterval: mantener vivo el túnel si la red corporativa corta idle
   # ExitOnForwardFailure: si el forward no se establece, salir en vez de quedar zombie
+  # ControlPath=none: el túnel abre su propia conexión en vez de reutilizar la
+  # compartida, para que cerrarlo sea predecible y no arrastre otras sesiones.
   setsid ssh -N \
     -o ServerAliveInterval=30 \
     -o ServerAliveCountMax=3 \
     -o ExitOnForwardFailure=yes \
     -o StrictHostKeyChecking=accept-new \
+    -o ControlPath=none \
     -L "${LOCAL_PORT}:127.0.0.1:${REMOTE_PORT}" \
-    "${DEPLOY_USER}@${DEPLOY_HOST}" \
+    "${SSH_TARGET}" \
     >/tmp/itrc-strapi-tunnel.log 2>&1 &
   TUNNEL_PID=$!
   echo "${TUNNEL_PID}" > "${PID_FILE}"

@@ -1,137 +1,164 @@
 # Capítulo 3 — Publicar una noticia
 
-Este capítulo describe el flujo de publicación de noticias desde el CMS Strapi. Las noticias antiguas que viven como archivos Markdown en `src/content/news/` se editan directamente en VS Code (ver [Capítulo 7](07-edicion-directa-vscode.md)).
+Las noticias del portal se publican desde el panel. No hace falta tocar código
+ni pedirle nada al equipo técnico.
 
-## Estructura de las noticias
+## Dónde están
 
-Las noticias del portal se gestionan desde el content type **Noticia** del CMS Strapi (Content Manager → Noticia). Cada noticia tiene los siguientes campos:
+En el panel, entre a **Contenido del sitio** → sección **Prensa** → grupo
+**Noticias**. Ahí aparece el listado completo, de la más reciente a la más
+antigua.
 
-| Campo | Obligatorio | Descripción |
-|-------|-------------|-------------|
-| `Título` | Sí | Título completo de la noticia |
-| `Fecha de publicacion` | Sí | Fecha en formato AAAA-MM-DD |
-| `Imagen destacada` | No | Imagen principal que aparece en el listado y en el encabezado de la noticia |
-| `Extracto` | No | Resumen corto (máximo 160 caracteres) que aparece en los listados |
-| `Contenido` | Sí | Cuerpo completo de la noticia en formato Markdown |
-| `Etiquetas` | No | Palabras clave para clasificar la noticia |
-| `Borrador` | No | Si está activado, la noticia no se publica aunque se guarde |
+Para crear una, pulse **Create new entry** arriba a la derecha.
 
-## Crear una nueva noticia
+## Los campos
 
-1. En el CMS, abra **Content Manager** desde el sidebar izquierdo.
-2. En la lista de content types, haga clic en **Noticia**.
-3. Pulse el botón **Create new entry** en la esquina superior derecha del listado.
-4. Se abrirá el formulario de edición con los campos vacíos.
+| Campo | ¿Obligatorio? | Qué va ahí |
+|---|---|---|
+| **Título** | Sí | El titular completo, tal como debe leerse en el sitio |
+| **Slug** | Sí | La dirección web. Se rellena solo a partir del título |
+| **Fecha** | Sí | La fecha de la noticia, no la del día en que la carga |
+| **Resumen** | No | Dos o tres líneas; es lo que se lee en la tarjeta del listado |
+| **Imagen** | No | La foto de portada. Si la deja vacía se usa la imagen institucional |
+| **Contenido** | Sí | El cuerpo de la noticia |
+| **Categoría** | Sí | *Noticia* casi siempre. *Periódico* solo para las ediciones del periódico institucional |
 
-### Completar los campos
+### Sobre el slug
+
+Es la parte final de la dirección: una noticia con slug
+`sancion-exfuncionaria-dian` queda publicada en
+`www.itrc.gov.co/prensa/noticias/sancion-exfuncionaria-dian`.
+
+Strapi lo genera solo a partir del título. **Una vez publicada la noticia, no lo
+cambie**: quien haya guardado o compartido el enlace anterior encontrará una
+página inexistente.
+
+### Sobre la imagen
+
+Formato JPG o WebP, de al menos 800 píxeles de ancho, y por debajo de 500 KB
+para que la página cargue rápido.
+
+Si la noticia no tiene foto propia, **deje el campo vacío**. El sitio pone
+automáticamente la imagen institucional. No hace falta buscar una imagen de
+relleno.
+
+## Ejemplo completo
+
+Supongamos que llega este comunicado para publicar:
+
+> La Agencia ITRC sancionó disciplinariamente a una exfuncionaria de la DIAN
+> por hechos relacionados con un presunto fraude en falsos remates. Se adjunta
+> una fotografía del edificio de la Agencia.
+
+Así se llena el formulario:
 
 **Título**
-
-Ingrese el título completo tal como debe aparecer en el sitio. Ejemplo:
 ```
-Agencia ITRC detecta alteración fraudulenta de software en la DIAN
-```
-
-**Fecha de publicacion**
-
-Seleccione la fecha con el selector de calendario o ingrésela manualmente en formato `AAAA-MM-DD`. Use la fecha real de la noticia, no la fecha en que la está cargando.
-
-**Imagen destacada**
-
-Haga clic en el campo de imagen. Strapi abre el Media Library:
-- En la pestaña **Browse** puede seleccionar una imagen ya subida al CMS.
-- En la pestaña **Add new assets** puede cargar una imagen nueva desde su computador.
-
-Las imágenes se guardan en el Media Library de Strapi y quedan disponibles para reutilizar en cualquier otra entrada.
-
-> **Tip:** Use imágenes en formato JPG o WebP con un ancho mínimo de 800 píxeles. Evite imágenes demasiado pesadas (más de 500 KB) para no afectar la velocidad del sitio.
-
-**Extracto**
-
-Escriba un resumen de no más de 160 caracteres. Este texto aparece en las tarjetas de noticias del portal. Ejemplo:
-```
-La Agencia ITRC descubrió una vulneración en sistemas de la DIAN que permitía
-manipular registros de contribuyentes.
+Agencia ITRC sanciona disciplinariamente a exfuncionaria de la DIAN por hechos
+relacionados con un presunto fraude en falsos remates
 ```
 
-**Contenido**
-
-El cuerpo de la noticia se escribe en Markdown. El editor del CMS incluye una barra de herramientas con los botones más comunes: negritas, cursivas, encabezados, listas, enlaces e imágenes.
-
-Ejemplo de estructura típica de una noticia:
-
-```markdown
-**Bogotá, D.C., 10 de abril de 2026.** La Agencia del Inspector General de
-Tributos, Rentas y Contribuciones Parafiscales – ITRC...
-
-## Contexto
-
-El hallazgo se produjo durante una auditoría de sistemas realizada en...
-
-## Acciones adoptadas
-
-1. Se notificó a las directivas de la DIAN.
-2. Se solicitó bloqueo inmediato del módulo afectado.
-3. Se abrió investigación disciplinaria.
+**Slug** — se rellena solo:
+```
+agencia-itrc-sanciona-disciplinariamente-a-exfuncionaria-de-la-dian
 ```
 
-**Etiquetas**
+**Fecha**: `04/07/2026` — la del comunicado.
 
-Ingrese etiquetas separadas por coma o usando el botón "Add". Las etiquetas ayudan a clasificar las noticias internamente, aunque no siempre son visibles en el portal.
+**Resumen**
+```
+La Agencia ITRC profirió dos fallos sancionatorios contra una exservidora
+pública de la DIAN: destitución e inhabilidad general por diez años.
+```
 
-**Borrador**
+**Imagen**: se arrastra la fotografía al recuadro.
 
-Deje este campo **desactivado** si la noticia está lista para publicarse. Actívelo solo si desea guardar un avance sin que sea visible en el sitio.
+**Contenido** — el cuerpo, con la ciudad y fecha en negrita al inicio:
+```
+**Bogotá D.C., julio de 2026**
 
-### Guardar y publicar
+La Agencia del Inspector General de Tributos, Rentas y Contribuciones
+Parafiscales —ITRC, en ejercicio de su función disciplinaria, profirió dos
+fallos sancionatorios contra una exservidora pública de la DIAN.
 
-Una vez completados todos los campos obligatorios:
+## Las sanciones
 
-1. Haga clic en el botón **"Save"** o **"Publish"** en la parte superior del formulario.
-2. El CMS creará un commit en el repositorio GitHub con el archivo de la noticia.
-3. En 2 a 5 minutos, la noticia aparecerá en el portal bajo la sección de Prensa.
+En el primer proceso se impuso destitución e inhabilidad general para ejercer
+cargos públicos por diez (10) años.
 
-> **Nota:** El nombre del archivo de la noticia se genera automáticamente con el formato `AAAA-MM-DD-titulo-de-la-noticia.md`. No es necesario ni posible definirlo manualmente desde el CMS.
+## Qué sigue
 
-## Insertar imágenes en el cuerpo de la noticia
+Los fallos quedan en firme una vez agotados los recursos de ley.
+```
 
-Para insertar una imagen dentro del texto de la noticia:
+**Categoría**: `noticia`.
 
-1. Posicione el cursor en el lugar del texto donde desea insertar la imagen.
-2. En la barra de herramientas del editor, haga clic en el ícono de imagen (marco con montaña).
-3. Se abrirá el selector de medios. Puede cargar una imagen nueva o seleccionar una existente.
-4. El CMS insertará automáticamente la sintaxis Markdown correspondiente:
-   ```markdown
-   ![Texto alternativo de la imagen](/uploads/nombre-del-archivo.jpg)
-   ```
+Después, **Publish**.
 
-> **Nota:** El texto entre corchetes (`[]`) es el texto alternativo de la imagen, necesario para accesibilidad. Descríbalo brevemente: por ejemplo, `![Funcionarios en reunión de trabajo]`.
+## Cómo se escribe el contenido
 
-## Editar una noticia existente
+El cuerpo admite formato sencillo:
 
-1. En el CMS, vaya a **PRENSA > "> Noticias"**.
-2. En la lista de noticias, haga clic sobre el título de la noticia que desea modificar.
-3. Realice los cambios necesarios en los campos del formulario.
-4. Haga clic en **"Save"** o **"Publish"** para guardar.
+| Para conseguir | Se escribe |
+|---|---|
+| **negrita** | `**texto**` |
+| *cursiva* | `*texto*` |
+| Un subtítulo | `## Subtítulo` |
+| Una lista | Una línea por punto, empezando con `- ` |
+| Un enlace | `[texto visible](/direccion)` |
 
-> **Tip:** Puede ordenar la lista de noticias por fecha o por título usando las opciones de ordenamiento sobre el listado. Esto facilita encontrar noticias antiguas.
+La barra de herramientas del editor tiene botones para todo esto; no es
+necesario memorizar los símbolos.
 
-## Eliminar una noticia
+Para insertar una imagen dentro del texto, use el botón de imagen de la barra.
+El editor escribe solo la referencia:
 
-> **Nota:** Eliminar una noticia es una acción permanente. El archivo se borrará del repositorio, aunque puede recuperarse desde el historial de Git. Consulte con el equipo técnico antes de eliminar contenido publicado.
+```
+![Funcionarios en reunión de trabajo](/uploads/nombre-del-archivo.jpg)
+```
 
-Para eliminar:
+El texto entre corchetes describe la imagen para quien usa lector de pantalla.
+Descríbala en pocas palabras; no lo deje vacío.
 
-1. Abra la noticia que desea eliminar.
-2. Haga clic en el menú de opciones (tres puntos `...` o botón de configuración) en la parte superior del editor.
-3. Seleccione **"Delete"**.
-4. Confirme la acción.
+## Qué pasa al publicar
 
-## Diferencia entre noticia y boletín
+Al pulsar **Publish**, el sitio se reconstruye solo. La noticia aparece
+publicada en **dos o tres minutos**, en tres lugares a la vez:
 
-El portal maneja dos tipos de publicaciones similares pero distintas:
+- El listado de `/prensa/noticias`
+- Su propia página, en `/prensa/noticias/<slug>`
+- Las "Últimas noticias" de la portada, si es de las tres más recientes
 
-- **Noticias** (`PRENSA > Noticias`): artículos de texto completo con imagen, cuerpo en Markdown y fecha. Aparecen en la sección de noticias del portal.
-- **Boletines** (`PRENSA > Boletines`): entradas más cortas con enlace a un PDF adjunto. Se usan para publicar comunicados de prensa en formato de descarga.
+No hay que avisarle a nadie ni ejecutar ningún otro paso.
 
-Para publicar un comunicado de prensa con descarga en PDF, use la sección de Boletines, no Noticias.
+## Guardar sin publicar
+
+**Save** guarda el trabajo sin que salga al sitio. Sirve para dejar una noticia
+a medias y retomarla después. Mientras esté solo guardada, la entrada aparece
+marcada como borrador en el listado.
+
+Cuando esté lista, se abre y se pulsa **Publish**.
+
+## Corregir una noticia publicada
+
+Ábrala desde el listado, corrija y pulse **Publish** otra vez. El sitio se
+actualiza en los mismos dos o tres minutos.
+
+## Retirar una noticia del sitio
+
+Para que deje de verse sin perderla, use **Unpublish** en el menú de la entrada.
+La noticia sale del portal y queda guardada en el panel; se puede volver a
+publicar cuando se quiera.
+
+**Borrar** (*Delete*) es distinto: elimina la entrada de forma permanente.
+Consulte antes con el equipo técnico: una noticia publicada puede estar
+enlazada desde otros sitios.
+
+## El periódico institucional
+
+Las ediciones del Periódico ITRC se publican igual, con dos diferencias:
+
+- La **categoría** es `periodico`, para que aparezcan bajo su propio filtro.
+- El **contenido** incluye los botones de descarga y el visor del PDF, que el
+  equipo técnico deja preparados en la edición anterior. Lo práctico es abrir
+  la edición previa, copiar ese bloque y cambiar el número y el enlace.

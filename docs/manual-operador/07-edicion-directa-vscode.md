@@ -44,9 +44,9 @@ git pull origin main
 ```
 itrc-portal/
 ├── src/
-│   ├── content/           ← JSONs respaldo y noticias en Markdown
+│   ├── content/           ← JSONs de respaldo del contenido
 │   │   ├── pages/         ← JSONs fuente del autogen de schemas Strapi
-│   │   ├── news/          ← Noticias en formato Markdown (.md)
+│   │   ├── news/          ← Originales de las noticias (ya no se usan)
 │   │   ├── events/        ← Eventos en formato JSON
 │   │   └── sliders/       ← Sliders en formato JSON
 │   ├── pages/             ← Plantillas Astro (.astro) — UI del sitio
@@ -65,7 +65,7 @@ itrc-portal/
 ```
 
 Las carpetas que el operador puede editar con seguridad son:
-- `src/content/news/` — noticias en Markdown que aún no están en Strapi.
+- `src/content/news/` — archivos originales de las noticias. El sitio ya no los usa: las noticias se editan en el panel.
 - `src/content/sliders/` — sliders en JSON.
 - `cms-strapi/src/api/<slug>/content-types/<slug>/schema.json` — solo si necesita ajustar campos de un content type existente. Tras editar, regenerar fetchers con `node cms-strapi/scripts/gen-strapi-fetchers.mjs`.
 
@@ -113,25 +113,15 @@ Colóquelo al principio del array (antes del primer elemento existente) y asegú
 
 > **Tip:** VS Code resalta automáticamente los errores de formato JSON. Si ve una línea subrayada en rojo, revise esa sección antes de guardar.
 
-## Editar una noticia en Markdown
+## Las noticias no se editan aquí
 
-Los archivos de noticias están en `src/content/news/` con el formato de nombre `AAAA-MM-DD-titulo-de-la-noticia.md`.
+Las noticias viven en el CMS y se publican desde el panel. Ver
+[Capítulo 3](03-publicar-noticia.md).
 
-Cada archivo tiene dos partes: el frontmatter (metadatos entre `---`) y el cuerpo del artículo.
+La carpeta `src/content/news/` conserva los archivos originales de los que
+salieron, pero **el sitio ya no los lee**: editarlos no cambia nada en el
+portal.
 
-```markdown
----
-title: "Título de la noticia"
-date: 2026-04-10
-image: ""
-excerpt: "Resumen corto para los listados."
-tags: []
-draft: false
----
-
-Aquí va el cuerpo de la noticia en formato Markdown.
-
-**Texto en negrita** y *texto en cursiva*.
 
 ## Subtítulo de sección
 
