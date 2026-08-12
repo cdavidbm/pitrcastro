@@ -4,7 +4,7 @@
   "info": {
     "singularName": "normativa-decretos",
     "pluralName": "normativa-decretoses",
-    "displayName": "03. Normativa / Decretos",
+    "displayName": "Decretos",
     "description": "Página única del dominio \"Normativa\": Decretos. Publicada en: /decretos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

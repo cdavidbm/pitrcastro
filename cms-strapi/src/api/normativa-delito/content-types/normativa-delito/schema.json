@@ -4,7 +4,7 @@
   "info": {
     "singularName": "normativa-delito",
     "pluralName": "normativa-delitos",
-    "displayName": "03. Normativa / Delitos",
+    "displayName": "Delitos",
     "description": "Colección de entradas del dominio \"Normativa\": Delitos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

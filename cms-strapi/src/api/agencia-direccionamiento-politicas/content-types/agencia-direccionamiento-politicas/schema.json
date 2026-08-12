@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-direccionamiento-politicas",
     "pluralName": "agencia-direccionamiento-politicases",
-    "displayName": "02. Agencia / Direccionamiento Políticas",
+    "displayName": "Direccionamiento Políticas",
     "description": "Página única del dominio \"Agencia\": Direccionamiento Políticas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

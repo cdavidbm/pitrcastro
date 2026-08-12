@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-informes-legales",
     "pluralName": "transparencia-informes-legaleses",
-    "displayName": "06. Transparencia / Informes Legales",
+    "displayName": "Informes Legales",
     "description": "Página única del dominio \"Transparencia\": Informes Legales. Publicada en: /informes-legales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

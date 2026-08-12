@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-sistema-de-control-interno",
     "pluralName": "agencia-sistema-de-control-internos",
-    "displayName": "02. Agencia / Sistema de Control Interno",
+    "displayName": "Sistema de Control Interno",
     "description": "Página única del dominio \"Agencia\": Sistema de Control Interno. Publicada en: /agencia/control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

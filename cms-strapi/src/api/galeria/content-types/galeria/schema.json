@@ -4,7 +4,7 @@
   "info": {
     "singularName": "galeria",
     "pluralName": "galerias",
-    "displayName": "08. Prensa / Galería",
+    "displayName": "Álbumes de la galería",
     "description": "Colección de entradas del dominio \"Prensa\": Galería. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "titulo"
   },

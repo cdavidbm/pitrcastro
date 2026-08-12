@@ -4,7 +4,7 @@
   "info": {
     "singularName": "ciprep",
     "pluralName": "cipreps",
-    "displayName": "08. Prensa / Congreso CIPREP",
+    "displayName": "Congreso CIPREP",
     "description": "Página única del dominio \"Prensa\": Congreso CIPREP. Publicada en: /ciprep2025. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

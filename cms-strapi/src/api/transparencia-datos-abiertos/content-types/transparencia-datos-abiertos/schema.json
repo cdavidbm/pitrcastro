@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-datos-abiertos",
     "pluralName": "transparencia-datos-abiertoses",
-    "displayName": "06. Transparencia / Datos Abiertos",
+    "displayName": "Datos Abiertos",
     "description": "Página única del dominio \"Transparencia\": Datos Abiertos. Publicada en: /publicacion-datos-abiertos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

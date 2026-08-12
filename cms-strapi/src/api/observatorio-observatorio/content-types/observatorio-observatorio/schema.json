@@ -4,7 +4,7 @@
   "info": {
     "singularName": "observatorio-observatorio",
     "pluralName": "observatorio-observatorios",
-    "displayName": "07. Observatorio ITRC / Observatorio",
+    "displayName": "Observatorio",
     "description": "Página única del dominio \"Observatorio ITRC\": Observatorio. Publicada en: /observatorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

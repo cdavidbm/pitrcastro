@@ -4,7 +4,7 @@
   "info": {
     "singularName": "atencion-glosario",
     "pluralName": "atencion-glosarios",
-    "displayName": "04. Atención y Servicios / Glosario",
+    "displayName": "Glosario",
     "description": "Página única del dominio \"Atención y Servicios\": Glosario. Publicada en: /glosario. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

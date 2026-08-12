@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-organigrama",
     "pluralName": "agencia-organigramas",
-    "displayName": "02. Agencia / Organigrama",
+    "displayName": "Organigrama",
     "description": "Página única del dominio \"Agencia\": Organigrama. Publicada en: /agencia/organigrama. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

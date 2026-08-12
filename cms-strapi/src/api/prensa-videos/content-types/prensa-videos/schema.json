@@ -4,7 +4,7 @@
   "info": {
     "singularName": "prensa-videos",
     "pluralName": "prensa-videoses",
-    "displayName": "08. Prensa / Videos",
+    "displayName": "Videos",
     "description": "Página única del dominio \"Prensa\": Videos. Publicada en: /videos-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

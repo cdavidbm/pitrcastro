@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-direccionamiento-planes",
     "pluralName": "agencia-direccionamiento-planeses",
-    "displayName": "02. Agencia / Direccionamiento Planes",
+    "displayName": "Direccionamiento Planes",
     "description": "Página única del dominio \"Agencia\": Direccionamiento Planes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

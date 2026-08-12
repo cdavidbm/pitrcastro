@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-directorio-entidades",
     "pluralName": "transparencia-directorio-entidadeses",
-    "displayName": "06. Transparencia / Directorio Entidades",
+    "displayName": "Directorio Entidades",
     "description": "Página única del dominio \"Transparencia\": Directorio Entidades. Publicada en: /directorio-de-entidades. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

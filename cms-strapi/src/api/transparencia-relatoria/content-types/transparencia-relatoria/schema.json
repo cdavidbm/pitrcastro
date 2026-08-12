@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-relatoria",
     "pluralName": "transparencia-relatorias",
-    "displayName": "06. Transparencia / Relatoria",
+    "displayName": "Relatoria",
     "description": "Página única del dominio \"Transparencia\": Relatoria. Publicada en: /relatoria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

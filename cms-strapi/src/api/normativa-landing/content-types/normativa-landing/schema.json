@@ -4,7 +4,7 @@
   "info": {
     "singularName": "normativa-landing",
     "pluralName": "normativa-landings",
-    "displayName": "03. Normativa / Landing",
+    "displayName": "Normativa (portada)",
     "description": "Página única del dominio \"Normativa\": Landing. Publicada en: /normativa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

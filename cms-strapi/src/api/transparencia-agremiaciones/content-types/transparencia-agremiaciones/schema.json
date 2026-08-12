@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-agremiaciones",
     "pluralName": "transparencia-agremiacioneses",
-    "displayName": "06. Transparencia / Agremiaciones",
+    "displayName": "Agremiaciones",
     "description": "Página única del dominio \"Transparencia\": Agremiaciones. Publicada en: /directorio-de-agremiaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

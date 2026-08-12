@@ -4,7 +4,7 @@
   "info": {
     "singularName": "ciprep-speaker",
     "pluralName": "ciprep-speakers",
-    "displayName": "08. Prensa / Congreso CIPREP / Speakers",
+    "displayName": "Speakers",
     "description": "Colección de entradas del dominio \"Prensa\": Congreso CIPREP / Speakers. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "name"
   },

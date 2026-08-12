@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-tramites",
     "pluralName": "transparencia-tramiteses",
-    "displayName": "06. Transparencia / Trámites",
+    "displayName": "Trámites",
     "description": "Página única del dominio \"Transparencia\": Trámites. Publicada en: /tramites. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

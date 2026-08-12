@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-normas-servicio",
     "pluralName": "transparencia-normas-servicios",
-    "displayName": "06. Transparencia / Normas Servicio",
+    "displayName": "Normas Servicio",
     "description": "Página única del dominio \"Transparencia\": Normas Servicio. Publicada en: /normas-servicio-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

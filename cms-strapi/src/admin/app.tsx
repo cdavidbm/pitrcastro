@@ -1,6 +1,24 @@
+import * as React from 'react';
 import type { StrapiApp } from '@strapi/strapi/admin';
 
 import PreviewButton from './PreviewButton';
+
+/**
+ * Icono del enlace "Contenido del sitio" en el menú lateral: una lista con
+ * viñetas. Va dibujado aquí y no importado de @strapi/icons porque ese paquete
+ * no es una dependencia declarada del CMS y el empaquetador no lo resuelve.
+ */
+const SiteContentIcon = () =>
+  React.createElement(
+    'svg',
+    { width: '1.6rem', height: '1.6rem', viewBox: '0 0 24 24', fill: 'currentColor', 'aria-hidden': true },
+    React.createElement('circle', { cx: 4, cy: 6, r: 2 }),
+    React.createElement('circle', { cx: 4, cy: 12, r: 2 }),
+    React.createElement('circle', { cx: 4, cy: 18, r: 2 }),
+    React.createElement('rect', { x: 9, y: 5, width: 12, height: 2, rx: 1 }),
+    React.createElement('rect', { x: 9, y: 11, width: 12, height: 2, rx: 1 }),
+    React.createElement('rect', { x: 9, y: 17, width: 12, height: 2, rx: 1 })
+  );
 
 /**
  * Personalización del Content Manager: agrupa los content types por rama
@@ -19,6 +37,28 @@ import PreviewButton from './PreviewButton';
 export default {
   config: {
     locales: [],
+  },
+  register(app: StrapiApp) {
+    // "Contenido del sitio": entrada propia en el menú lateral que organiza
+    // los 150+ tipos de contenido como el menú del portal, con dos selectores
+    // en cascada. El Content Manager nativo los lista en plano y es
+    // impracticable a esta escala.
+    //
+    // Se hace con una página propia (API oficial) y no alterando el panel del
+    // Content Manager: ese panel es interfaz interna de Strapi y modificarlo
+    // exige manipular el DOM por fuera de React, que fue lo que rompió el
+    // admin en el intento anterior.
+    app.addMenuLink({
+      to: '/contenido-del-sitio',
+      icon: SiteContentIcon,
+      intlLabel: {
+        id: 'itrc.contenido-del-sitio.menu',
+        defaultMessage: 'Contenido del sitio',
+      },
+      position: 1,
+      permissions: [],
+      Component: () => import('./pages/ContenidoDelSitio'),
+    });
   },
   bootstrap(app: StrapiApp) {
     // F2 — Preview button "Ver en el sitio" en la barra derecha del

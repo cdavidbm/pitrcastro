@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-directorio",
     "pluralName": "agencia-directorios",
-    "displayName": "02. Agencia / Directorio",
+    "displayName": "Directorio",
     "description": "Página única del dominio \"Agencia\": Directorio. Publicada en: /agencia/directorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

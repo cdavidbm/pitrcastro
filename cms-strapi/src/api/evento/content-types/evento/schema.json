@@ -4,7 +4,7 @@
   "info": {
     "singularName": "evento",
     "pluralName": "eventos",
-    "displayName": "08. Prensa / Eventos",
+    "displayName": "Eventos",
     "description": "Calendario de eventos institucionales de la Agencia ITRC.",
     "mainField": "title"
   },

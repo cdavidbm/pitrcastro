@@ -4,7 +4,7 @@
   "info": {
     "singularName": "mapa-del-sitio",
     "pluralName": "mapa-del-sitios",
-    "displayName": "99. Sistema / Mapa del sitio",
+    "displayName": "Mapa del sitio",
     "description": "Página única del dominio \"Sistema\": Mapa del sitio. Publicada en: /mapa-del-sitio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

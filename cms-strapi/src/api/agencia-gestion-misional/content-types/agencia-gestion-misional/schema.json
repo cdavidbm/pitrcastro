@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-gestion-misional",
     "pluralName": "agencia-gestion-misionals",
-    "displayName": "02. Agencia / Gestión Misional",
+    "displayName": "Gestión Misional",
     "description": "Página única del dominio \"Agencia\": Gestión Misional. Publicada en: /agencia/gestion-misional. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

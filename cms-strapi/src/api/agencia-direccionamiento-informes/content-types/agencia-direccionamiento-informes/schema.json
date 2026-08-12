@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-direccionamiento-informes",
     "pluralName": "agencia-direccionamiento-informeses",
-    "displayName": "02. Agencia / Direccionamiento Informes",
+    "displayName": "Direccionamiento Informes",
     "description": "Página única del dominio \"Agencia\": Direccionamiento Informes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "participa-planeacion",
     "pluralName": "participa-planeacions",
-    "displayName": "05. Participa / Planeacion",
+    "displayName": "Planeacion",
     "description": "Página única del dominio \"Participa\": Planeacion. Publicada en: /participa/planeacion-y-presupuesto-participativo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

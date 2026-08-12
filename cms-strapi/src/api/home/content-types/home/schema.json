@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "01. Inicio / Home",
+    "displayName": "Home",
     "description": "Página única del dominio \"Inicio\": Home. Publicada en: /. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

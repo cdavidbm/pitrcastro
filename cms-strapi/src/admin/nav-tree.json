@@ -1,0 +1,1419 @@
+{
+  "ramas": [
+    {
+      "label": "Inicio",
+      "url": "/",
+      "grupos": [
+        {
+          "label": "Portada",
+          "items": [
+            {
+              "uid": "api::home.home",
+              "slug": "home",
+              "kind": "single",
+              "label": "Home",
+              "url": "/"
+            },
+            {
+              "uid": "api::slider.slider",
+              "slug": "slider",
+              "kind": "single",
+              "label": "Slider Principal",
+              "url": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Agencia",
+      "url": "/agencia",
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::agencia-landing.agencia-landing",
+              "slug": "agencia-landing",
+              "kind": "single",
+              "label": "Agencia (portada)",
+              "url": "/agencia"
+            }
+          ]
+        },
+        {
+          "label": "Direccionamiento estratégico",
+          "items": [
+            {
+              "uid": "api::agencia-direccionamiento-estrategico.agencia-direccionamiento-estrategico",
+              "slug": "agencia-direccionamiento-estrategico",
+              "kind": "single",
+              "label": "Direccionamiento Estratégico",
+              "url": "/agencia/direccionamiento-estrategico"
+            },
+            {
+              "uid": "api::agencia-direccionamiento-informes.agencia-direccionamiento-informes",
+              "slug": "agencia-direccionamiento-informes",
+              "kind": "single",
+              "label": "Direccionamiento Informes",
+              "url": "/agencia/direccionamiento-estrategico/informes"
+            },
+            {
+              "uid": "api::agencia-direccionamiento-planes.agencia-direccionamiento-planes",
+              "slug": "agencia-direccionamiento-planes",
+              "kind": "single",
+              "label": "Direccionamiento Planes",
+              "url": "/agencia/direccionamiento-estrategico/planes"
+            },
+            {
+              "uid": "api::agencia-direccionamiento-politicas.agencia-direccionamiento-politicas",
+              "slug": "agencia-direccionamiento-politicas",
+              "kind": "single",
+              "label": "Direccionamiento Políticas",
+              "url": "/agencia/direccionamiento-estrategico/politicas"
+            },
+            {
+              "uid": "api::agencia-plan-institucional-de-archivos.agencia-plan-institucional-de-archivos",
+              "slug": "agencia-plan-institucional-de-archivos",
+              "kind": "single",
+              "label": "Plan Institucional de Archivos",
+              "url": "/agencia/plan-institucional-de-archivos"
+            }
+          ]
+        },
+        {
+          "label": "Empleo y talento humano",
+          "items": [
+            {
+              "uid": "api::agencia-empleo-rrhh-manual-especifico-funciones.agencia-empleo-rrhh-manual-especifico-funciones",
+              "slug": "agencia-empleo-rrhh-manual-especifico-funciones",
+              "kind": "single",
+              "label": "Empleo RRHH Manual Específico Funciones",
+              "url": "/manual-especifico-de-funciones-y-de-competencias-laborales"
+            },
+            {
+              "uid": "api::agencia-empleo-rrhh-manual-identidad-visual.agencia-empleo-rrhh-manual-identidad-visual",
+              "slug": "agencia-empleo-rrhh-manual-identidad-visual",
+              "kind": "single",
+              "label": "Empleo RRHH Manual Identidad Visual",
+              "url": "/manual-de-identidad-visual-itrc"
+            },
+            {
+              "uid": "api::agencia-empleo-rrhh-manuales-internos.agencia-empleo-rrhh-manuales-internos",
+              "slug": "agencia-empleo-rrhh-manuales-internos",
+              "kind": "single",
+              "label": "Empleo RRHH Manuales Internos",
+              "url": "/manuales-internos"
+            },
+            {
+              "uid": "api::agencia-empleo-rrhh-nombramientos.agencia-empleo-rrhh-nombramientos",
+              "slug": "agencia-empleo-rrhh-nombramientos",
+              "kind": "single",
+              "label": "Empleo RRHH Nombramientos",
+              "url": "/nombramientos"
+            },
+            {
+              "uid": "api::agencia-empleo-rrhh-ofertas-empleo.agencia-empleo-rrhh-ofertas-empleo",
+              "slug": "agencia-empleo-rrhh-ofertas-empleo",
+              "kind": "single",
+              "label": "Empleo RRHH Ofertas Empleo",
+              "url": "/ofertas-de-empleo"
+            },
+            {
+              "uid": "api::agencia-escala-salarial.agencia-escala-salarial",
+              "slug": "agencia-escala-salarial",
+              "kind": "single",
+              "label": "Escala Salarial",
+              "url": "/escala-salarial"
+            }
+          ]
+        },
+        {
+          "label": "Gestión y control",
+          "items": [
+            {
+              "uid": "api::agencia-gestion-misional.agencia-gestion-misional",
+              "slug": "agencia-gestion-misional",
+              "kind": "single",
+              "label": "Gestión Misional",
+              "url": "/agencia/gestion-misional"
+            },
+            {
+              "uid": "api::agencia-informacion-financiera.agencia-informacion-financiera",
+              "slug": "agencia-informacion-financiera",
+              "kind": "single",
+              "label": "Información Financiera",
+              "url": "/agencia/informacion-financiera"
+            },
+            {
+              "uid": "api::agencia-sistema-de-control-interno.agencia-sistema-de-control-interno",
+              "slug": "agencia-sistema-de-control-interno",
+              "kind": "single",
+              "label": "Sistema de Control Interno",
+              "url": "/agencia/control-interno"
+            },
+            {
+              "uid": "api::agencia-sistema-integrado-de-gestion.agencia-sistema-integrado-de-gestion",
+              "slug": "agencia-sistema-integrado-de-gestion",
+              "kind": "single",
+              "label": "Sistema Integrado de Gestión",
+              "url": "/agencia/sistema-integrado-de-gestion"
+            }
+          ]
+        },
+        {
+          "label": "Identidad y estructura",
+          "items": [
+            {
+              "uid": "api::agencia-directorio.agencia-directorio",
+              "slug": "agencia-directorio",
+              "kind": "single",
+              "label": "Directorio",
+              "url": "/agencia/directorio"
+            },
+            {
+              "uid": "api::agencia-equipo-directivo.agencia-equipo-directivo",
+              "slug": "agencia-equipo-directivo",
+              "kind": "single",
+              "label": "Equipo Directivo",
+              "url": "/agencia/equipo-directivo"
+            },
+            {
+              "uid": "api::agencia-mision-vision.agencia-mision-vision",
+              "slug": "agencia-mision-vision",
+              "kind": "single",
+              "label": "Mision Vision",
+              "url": "/agencia/mision-vision"
+            },
+            {
+              "uid": "api::agencia-organigrama.agencia-organigrama",
+              "slug": "agencia-organigrama",
+              "kind": "single",
+              "label": "Organigrama",
+              "url": "/agencia/organigrama"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Normativa",
+      "url": "/normativa",
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::normativa-landing.normativa-landing",
+              "slug": "normativa-landing",
+              "kind": "single",
+              "label": "Normativa (portada)",
+              "url": "/normativa"
+            }
+          ]
+        },
+        {
+          "label": "Decretos",
+          "items": [
+            {
+              "uid": "api::normativa-decretos.normativa-decretos",
+              "slug": "normativa-decretos",
+              "kind": "single",
+              "label": "Decretos",
+              "url": "/decretos"
+            }
+          ]
+        },
+        {
+          "label": "Listados",
+          "items": [
+            {
+              "uid": "api::normativa-delito.normativa-delito",
+              "slug": "normativa-delito",
+              "kind": "collection",
+              "label": "Delitos",
+              "url": null
+            },
+            {
+              "uid": "api::normativa-vigencia.normativa-vigencia",
+              "slug": "normativa-vigencia",
+              "kind": "collection",
+              "label": "Vigencias",
+              "url": null
+            }
+          ]
+        },
+        {
+          "label": "Marco Legal",
+          "items": [
+            {
+              "uid": "api::normativa-marco-legal.normativa-marco-legal",
+              "slug": "normativa-marco-legal",
+              "kind": "single",
+              "label": "Marco Legal",
+              "url": "/marco-legal"
+            }
+          ]
+        },
+        {
+          "label": "Normativa Aplicable",
+          "items": [
+            {
+              "uid": "api::normograma.normograma",
+              "slug": "normograma",
+              "kind": "single",
+              "label": "Normograma",
+              "url": "/normativa-aplicada"
+            }
+          ]
+        },
+        {
+          "label": "Resoluciones, circulares y otros actos",
+          "items": [
+            {
+              "uid": "api::normativa-resoluciones.normativa-resoluciones",
+              "slug": "normativa-resoluciones",
+              "kind": "single",
+              "label": "Resoluciones",
+              "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos"
+            }
+          ]
+        },
+        {
+          "label": "Unificación Normativa SUIN Juriscol",
+          "items": [
+            {
+              "uid": "api::normativa-unificacion-suin-juriscol.normativa-unificacion-suin-juriscol",
+              "slug": "normativa-unificacion-suin-juriscol",
+              "kind": "single",
+              "label": "Unificación SUIN Juriscol",
+              "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Atención y Servicios",
+      "url": "/atencion-y-servicios",
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::atencion-landing.atencion-landing",
+              "slug": "atencion-landing",
+              "kind": "single",
+              "label": "Atención y Servicios (portada)",
+              "url": "/atencion-y-servicios"
+            }
+          ]
+        },
+        {
+          "label": "Canales de atención",
+          "items": [
+            {
+              "uid": "api::atencion-canales-de-atencion.atencion-canales-de-atencion",
+              "slug": "atencion-canales-de-atencion",
+              "kind": "single",
+              "label": "Canales de Atención",
+              "url": "/canales-de-atencion-al-ciudadano"
+            }
+          ]
+        },
+        {
+          "label": "Carta trato digno al ciudadano",
+          "items": [
+            {
+              "uid": "api::atencion-carta-trato-digno.atencion-carta-trato-digno",
+              "slug": "atencion-carta-trato-digno",
+              "kind": "single",
+              "label": "Carta Trato Digno",
+              "url": "/carta-trato-digno"
+            }
+          ]
+        },
+        {
+          "label": "Cartilla al ciudadano",
+          "items": [
+            {
+              "uid": "api::atencion-cartilla-al-ciudadano.atencion-cartilla-al-ciudadano",
+              "slug": "atencion-cartilla-al-ciudadano",
+              "kind": "single",
+              "label": "Cartilla Al Ciudadano",
+              "url": "/cartilla-al-ciudadano"
+            }
+          ]
+        },
+        {
+          "label": "Correo notificaciones judiciales",
+          "items": [
+            {
+              "uid": "api::atencion-correo-notificaciones-judiciales.atencion-correo-notificaciones-judiciales",
+              "slug": "atencion-correo-notificaciones-judiciales",
+              "kind": "single",
+              "label": "Correo Notificaciones Judiciales",
+              "url": "/correo-electronico-para-notificaciones-judiciales"
+            }
+          ]
+        },
+        {
+          "label": "Glosario",
+          "items": [
+            {
+              "uid": "api::atencion-glosario.atencion-glosario",
+              "slug": "atencion-glosario",
+              "kind": "single",
+              "label": "Glosario",
+              "url": "/glosario"
+            }
+          ]
+        },
+        {
+          "label": "Notificaciones y traslados",
+          "items": [
+            {
+              "uid": "api::atencion-notificaciones-por-aviso.atencion-notificaciones-por-aviso",
+              "slug": "atencion-notificaciones-por-aviso",
+              "kind": "single",
+              "label": "Notificaciones Por Aviso",
+              "url": "/notificaciones-por-aviso"
+            },
+            {
+              "uid": "api::notificacion.notificacion",
+              "slug": "notificacion",
+              "kind": "collection",
+              "label": "Notificaciones y Traslados",
+              "url": null
+            }
+          ]
+        },
+        {
+          "label": "PQRSDF",
+          "items": [
+            {
+              "uid": "api::atencion-pqrs.atencion-pqrs",
+              "slug": "atencion-pqrs",
+              "kind": "single",
+              "label": "PQRS",
+              "url": "/tu-p-q-r-s-al-dia"
+            },
+            {
+              "uid": "api::atencion-pqrs-servidores.atencion-pqrs-servidores",
+              "slug": "atencion-pqrs-servidores",
+              "kind": "single",
+              "label": "PQRS Servidores",
+              "url": "/p-q-r-s-servidores-agencia-itrc"
+            }
+          ]
+        },
+        {
+          "label": "Preguntas Frecuentes",
+          "items": [
+            {
+              "uid": "api::atencion-preguntas-frecuentes.atencion-preguntas-frecuentes",
+              "slug": "atencion-preguntas-frecuentes",
+              "kind": "single",
+              "label": "Preguntas Frecuentes",
+              "url": "/preguntas-frecuentes"
+            }
+          ]
+        },
+        {
+          "label": "Vinculación a Terceros",
+          "items": [
+            {
+              "uid": "api::atencion-vinculacion-a-terceros.atencion-vinculacion-a-terceros",
+              "slug": "atencion-vinculacion-a-terceros",
+              "kind": "single",
+              "label": "Vinculación a Terceros",
+              "url": "/vinculacion-a-terceros-cancelacion-de-registro-publico"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Participa",
+      "url": "/participa",
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::participa.participa",
+              "slug": "participa",
+              "kind": "single",
+              "label": "Participa (portada)",
+              "url": "/participa"
+            }
+          ]
+        },
+        {
+          "label": "Colaboración e Innovación",
+          "items": [
+            {
+              "uid": "api::participa-colaboracion.participa-colaboracion",
+              "slug": "participa-colaboracion",
+              "kind": "single",
+              "label": "Colaboracion",
+              "url": "/participa/colaboracion-e-innovacion"
+            }
+          ]
+        },
+        {
+          "label": "Consulta Ciudadana",
+          "items": [
+            {
+              "uid": "api::participa-consulta-ciudadana.participa-consulta-ciudadana",
+              "slug": "participa-consulta-ciudadana",
+              "kind": "single",
+              "label": "Consulta Ciudadana",
+              "url": "/participa/consulta-ciudadana"
+            }
+          ]
+        },
+        {
+          "label": "Control Social",
+          "items": [
+            {
+              "uid": "api::participa-control-social.participa-control-social",
+              "slug": "participa-control-social",
+              "kind": "single",
+              "label": "Control Social",
+              "url": "/participa/control-social"
+            }
+          ]
+        },
+        {
+          "label": "Diagnóstico e Identificación de Problemas",
+          "items": [
+            {
+              "uid": "api::participa-diagnostico.participa-diagnostico",
+              "slug": "participa-diagnostico",
+              "kind": "single",
+              "label": "Diagnostico",
+              "url": "/participa/diagnostico-e-identificacion-de-problemas"
+            }
+          ]
+        },
+        {
+          "label": "Informes y respuestas",
+          "items": [
+            {
+              "uid": "api::participa-atencion-informe-comite-conciliacion.participa-atencion-informe-comite-conciliacion",
+              "slug": "participa-atencion-informe-comite-conciliacion",
+              "kind": "single",
+              "label": "Atención Informe Comité Conciliación",
+              "url": "/informe-de-gestion-del-comite-de-conciliacion"
+            },
+            {
+              "uid": "api::participa-atencion-otros-grupos-interes.participa-atencion-otros-grupos-interes",
+              "slug": "participa-atencion-otros-grupos-interes",
+              "kind": "single",
+              "label": "Atención Otros Grupos Interés",
+              "url": "/otros-de-grupos-de-interes"
+            },
+            {
+              "uid": "api::participa-atencion-respuesta-anonimos.participa-atencion-respuesta-anonimos",
+              "slug": "participa-atencion-respuesta-anonimos",
+              "kind": "single",
+              "label": "Atención Respuesta Anónimos",
+              "url": "/respuesta-anonimos"
+            }
+          ]
+        },
+        {
+          "label": "Planeación y Presupuesto Participativo",
+          "items": [
+            {
+              "uid": "api::participa-planeacion.participa-planeacion",
+              "slug": "participa-planeacion",
+              "kind": "single",
+              "label": "Planeacion",
+              "url": "/participa/planeacion-y-presupuesto-participativo"
+            }
+          ]
+        },
+        {
+          "label": "Rendición de Cuentas",
+          "items": [
+            {
+              "uid": "api::participa-rendicion-de-cuentas.participa-rendicion-de-cuentas",
+              "slug": "participa-rendicion-de-cuentas",
+              "kind": "single",
+              "label": "Rendición de Cuentas",
+              "url": "/participa/rendicion-de-cuentas"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Transparencia",
+      "url": "/transparencia",
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::transparencia.transparencia",
+              "slug": "transparencia",
+              "kind": "single",
+              "label": "Transparencia (portada)",
+              "url": "/transparencia"
+            }
+          ]
+        },
+        {
+          "label": "Atención y trámites",
+          "items": [
+            {
+              "uid": "api::transparencia-accesibilidad.transparencia-accesibilidad",
+              "slug": "transparencia-accesibilidad",
+              "kind": "single",
+              "label": "Accesibilidad",
+              "url": "/accesibilidad"
+            },
+            {
+              "uid": "api::transparencia-formatos-formularios.transparencia-formatos-formularios",
+              "slug": "transparencia-formatos-formularios",
+              "kind": "single",
+              "label": "Formatos Formularios",
+              "url": "/formatos-y-formularios"
+            },
+            {
+              "uid": "api::transparencia-procedimientos.transparencia-procedimientos",
+              "slug": "transparencia-procedimientos",
+              "kind": "single",
+              "label": "Procedimientos",
+              "url": "/procedimientos-decisiones"
+            },
+            {
+              "uid": "api::transparencia-procedimientos-decisiones.transparencia-procedimientos-decisiones",
+              "slug": "transparencia-procedimientos-decisiones",
+              "kind": "single",
+              "label": "Procedimientos Decisiones",
+              "url": "/procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas"
+            },
+            {
+              "uid": "api::transparencia-protocolo-atencion.transparencia-protocolo-atencion",
+              "slug": "transparencia-protocolo-atencion",
+              "kind": "single",
+              "label": "Protocolo Atención",
+              "url": "/protocolo-de-atencion-al-ciudadano"
+            },
+            {
+              "uid": "api::transparencia-sede-horarios.transparencia-sede-horarios",
+              "slug": "transparencia-sede-horarios",
+              "kind": "single",
+              "label": "Sede Horarios",
+              "url": "/sede-y-horarios"
+            },
+            {
+              "uid": "api::transparencia-tramites.transparencia-tramites",
+              "slug": "transparencia-tramites",
+              "kind": "single",
+              "label": "Trámites",
+              "url": "/tramites"
+            }
+          ]
+        },
+        {
+          "label": "Contratación",
+          "items": [
+            {
+              "uid": "api::transparencia-contratacion-contratacion-suscrita.transparencia-contratacion-contratacion-suscrita",
+              "slug": "transparencia-contratacion-contratacion-suscrita",
+              "kind": "single",
+              "label": "Contratación Contratación Suscrita",
+              "url": "/contratacion-suscrita"
+            },
+            {
+              "uid": "api::transparencia-contratacion-ejecucion.transparencia-contratacion-ejecucion",
+              "slug": "transparencia-contratacion-ejecucion",
+              "kind": "single",
+              "label": "Contratación Ejecución",
+              "url": "/publicacion-ejecucion-contratos"
+            },
+            {
+              "uid": "api::transparencia-contratacion-ejecucion-contratos.transparencia-contratacion-ejecucion-contratos",
+              "slug": "transparencia-contratacion-ejecucion-contratos",
+              "kind": "single",
+              "label": "Contratación Ejecución Contratos",
+              "url": "/publicacion-de-la-ejecucion-de-contratos"
+            },
+            {
+              "uid": "api::transparencia-contratacion-formatos.transparencia-contratacion-formatos",
+              "slug": "transparencia-contratacion-formatos",
+              "kind": "single",
+              "label": "Contratación Formatos",
+              "url": "/formatos-contratos-pliego-tipo"
+            },
+            {
+              "uid": "api::transparencia-contratacion-manual.transparencia-contratacion-manual",
+              "slug": "transparencia-contratacion-manual",
+              "kind": "single",
+              "label": "Contratación Manual",
+              "url": "/manual-contratacion"
+            },
+            {
+              "uid": "api::transparencia-contratacion-plan-adquisiciones.transparencia-contratacion-plan-adquisiciones",
+              "slug": "transparencia-contratacion-plan-adquisiciones",
+              "kind": "single",
+              "label": "Contratación Plan Adquisiciones",
+              "url": "/plan-de-adquisiciones"
+            },
+            {
+              "uid": "api::transparencia-contratacion-procedimientos-adquisicion.transparencia-contratacion-procedimientos-adquisicion",
+              "slug": "transparencia-contratacion-procedimientos-adquisicion",
+              "kind": "single",
+              "label": "Contratación Procedimientos Adquisición",
+              "url": "/publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras"
+            },
+            {
+              "uid": "api::transparencia-formatos-contratos-pliegos-tipo.transparencia-formatos-contratos-pliegos-tipo",
+              "slug": "transparencia-formatos-contratos-pliegos-tipo",
+              "kind": "single",
+              "label": "Formatos Contratos Pliegos Tipo",
+              "url": "/formatos-o-modelos-de-contratos-o-pliego-tipo"
+            }
+          ]
+        },
+        {
+          "label": "Gestión de la información",
+          "items": [
+            {
+              "uid": "api::transparencia-datos-abiertos.transparencia-datos-abiertos",
+              "slug": "transparencia-datos-abiertos",
+              "kind": "single",
+              "label": "Datos Abiertos",
+              "url": "/publicacion-datos-abiertos"
+            },
+            {
+              "uid": "api::transparencia-documentacion-esquema-publicacion.transparencia-documentacion-esquema-publicacion",
+              "slug": "transparencia-documentacion-esquema-publicacion",
+              "kind": "single",
+              "label": "Documentación Esquema Publicación",
+              "url": "/esquema-de-publicacion-de-la-informacion"
+            },
+            {
+              "uid": "api::transparencia-documentacion-proteccion-datos.transparencia-documentacion-proteccion-datos",
+              "slug": "transparencia-documentacion-proteccion-datos",
+              "kind": "single",
+              "label": "Documentación Protección Datos",
+              "url": "/proteccion-de-datos-personales"
+            },
+            {
+              "uid": "api::transparencia-documentacion-registro-publicaciones.transparencia-documentacion-registro-publicaciones",
+              "slug": "transparencia-documentacion-registro-publicaciones",
+              "kind": "single",
+              "label": "Documentación Registro Publicaciones",
+              "url": "/registro-de-publicaciones"
+            },
+            {
+              "uid": "api::transparencia-esquema-publicacion.transparencia-esquema-publicacion",
+              "slug": "transparencia-esquema-publicacion",
+              "kind": "single",
+              "label": "Esquema Publicación",
+              "url": "/esquema-publicacion-informacion"
+            },
+            {
+              "uid": "api::transparencia-indice-informacion-clasificada.transparencia-indice-informacion-clasificada",
+              "slug": "transparencia-indice-informacion-clasificada",
+              "kind": "single",
+              "label": "Índice Información Clasificada",
+              "url": "/indice-de-informacion-clasificada-y-reservada"
+            },
+            {
+              "uid": "api::transparencia-programa-gestion-documental.transparencia-programa-gestion-documental",
+              "slug": "transparencia-programa-gestion-documental",
+              "kind": "single",
+              "label": "Programa Gestión Documental",
+              "url": "/programa-gestion-documental"
+            },
+            {
+              "uid": "api::transparencia-registro-activos.transparencia-registro-activos",
+              "slug": "transparencia-registro-activos",
+              "kind": "single",
+              "label": "Registro Activos",
+              "url": "/registro-activos-informacion"
+            },
+            {
+              "uid": "api::transparencia-tablas-retencion.transparencia-tablas-retencion",
+              "slug": "transparencia-tablas-retencion",
+              "kind": "single",
+              "label": "Tablas Retencion",
+              "url": "/tablas-retencion-documental"
+            }
+          ]
+        },
+        {
+          "label": "Grupos de interés",
+          "items": [
+            {
+              "uid": "api::transparencia-agremiaciones.transparencia-agremiaciones",
+              "slug": "transparencia-agremiaciones",
+              "kind": "single",
+              "label": "Agremiaciones",
+              "url": "/directorio-de-agremiaciones"
+            },
+            {
+              "uid": "api::transparencia-directorio-entidades.transparencia-directorio-entidades",
+              "slug": "transparencia-directorio-entidades",
+              "kind": "single",
+              "label": "Directorio Entidades",
+              "url": "/directorio-de-entidades"
+            },
+            {
+              "uid": "api::transparencia-documentacion-formato-grupos-etnicos.transparencia-documentacion-formato-grupos-etnicos",
+              "slug": "transparencia-documentacion-formato-grupos-etnicos",
+              "kind": "single",
+              "label": "Documentación Formato Grupos Étnicos",
+              "url": "/formato-alternativo-para-grupos-etnicos-y-culturales"
+            },
+            {
+              "uid": "api::transparencia-informacion-mujeres.transparencia-informacion-mujeres",
+              "slug": "transparencia-informacion-mujeres",
+              "kind": "single",
+              "label": "Información Mujeres",
+              "url": "/informacion-para-mujeres"
+            },
+            {
+              "uid": "api::transparencia-otros-grupos.transparencia-otros-grupos",
+              "slug": "transparencia-otros-grupos",
+              "kind": "single",
+              "label": "Otros Grupos",
+              "url": "/otros-grupos-de-interes"
+            }
+          ]
+        },
+        {
+          "label": "Informes y control",
+          "items": [
+            {
+              "uid": "api::transparencia-comite-conciliacion.transparencia-comite-conciliacion",
+              "slug": "transparencia-comite-conciliacion",
+              "kind": "single",
+              "label": "Comité Conciliación",
+              "url": "/informe-comite-conciliacion"
+            },
+            {
+              "uid": "api::transparencia-defensa-publica.transparencia-defensa-publica",
+              "slug": "transparencia-defensa-publica",
+              "kind": "single",
+              "label": "Defensa Pública",
+              "url": "/informe-defensa-publica"
+            },
+            {
+              "uid": "api::transparencia-evaluacion-independiente.transparencia-evaluacion-independiente",
+              "slug": "transparencia-evaluacion-independiente",
+              "kind": "single",
+              "label": "Evaluación Independiente",
+              "url": "/evaluacion-independiente-control-interno"
+            },
+            {
+              "uid": "api::transparencia-informe.transparencia-informe",
+              "slug": "transparencia-informe",
+              "kind": "collection",
+              "label": "Informes",
+              "url": null
+            },
+            {
+              "uid": "api::transparencia-informes-legales.transparencia-informes-legales",
+              "slug": "transparencia-informes-legales",
+              "kind": "single",
+              "label": "Informes Legales",
+              "url": "/informes-legales"
+            },
+            {
+              "uid": "api::transparencia-informes-organismos.transparencia-informes-organismos",
+              "slug": "transparencia-informes-organismos",
+              "kind": "single",
+              "label": "Informes Organismos",
+              "url": "/informes-organismos-inspeccion"
+            },
+            {
+              "uid": "api::transparencia-informes-organismos-ivc.transparencia-informes-organismos-ivc",
+              "slug": "transparencia-informes-organismos-ivc",
+              "kind": "single",
+              "label": "Informes Organismos IVC",
+              "url": "/informes-a-organismos-de-inspeccion-vigilancia-y-control"
+            },
+            {
+              "uid": "api::transparencia-supervision-vigilancia.transparencia-supervision-vigilancia",
+              "slug": "transparencia-supervision-vigilancia",
+              "kind": "single",
+              "label": "Supervisión Vigilancia",
+              "url": "/supervision-y-vigilancia"
+            }
+          ]
+        },
+        {
+          "label": "Normativa y actos administrativos",
+          "items": [
+            {
+              "uid": "api::transparencia-decreto-unico.transparencia-decreto-unico",
+              "slug": "transparencia-decreto-unico",
+              "kind": "single",
+              "label": "Decreto Unico",
+              "url": "/decreto-unico-reglamentario"
+            },
+            {
+              "uid": "api::transparencia-decretos-estructura.transparencia-decretos-estructura",
+              "slug": "transparencia-decretos-estructura",
+              "kind": "single",
+              "label": "Decretos Estructura",
+              "url": "/decretos-de-estructura-salarios-leyes-marco-y-otros"
+            },
+            {
+              "uid": "api::transparencia-leyes.transparencia-leyes",
+              "slug": "transparencia-leyes",
+              "kind": "single",
+              "label": "Leyes",
+              "url": "/leyes"
+            },
+            {
+              "uid": "api::transparencia-normas-servicio.transparencia-normas-servicio",
+              "slug": "transparencia-normas-servicio",
+              "kind": "single",
+              "label": "Normas Servicio",
+              "url": "/normas-servicio-publico"
+            },
+            {
+              "uid": "api::transparencia-normatividad-especial.transparencia-normatividad-especial",
+              "slug": "transparencia-normatividad-especial",
+              "kind": "single",
+              "label": "Normatividad Especial",
+              "url": "/normatividad-especial"
+            },
+            {
+              "uid": "api::transparencia-politicas-manuales.transparencia-politicas-manuales",
+              "slug": "transparencia-politicas-manuales",
+              "kind": "single",
+              "label": "Políticas Manuales",
+              "url": "/politicas-lineamientos-y-manuales"
+            },
+            {
+              "uid": "api::transparencia-proyectos-normas-comentarios.transparencia-proyectos-normas-comentarios",
+              "slug": "transparencia-proyectos-normas-comentarios",
+              "kind": "single",
+              "label": "Proyectos Normas Comentarios",
+              "url": "/proyectos-de-normas-para-comentarios"
+            },
+            {
+              "uid": "api::transparencia-relatoria.transparencia-relatoria",
+              "slug": "transparencia-relatoria",
+              "kind": "single",
+              "label": "Relatoria",
+              "url": "/relatoria"
+            }
+          ]
+        },
+        {
+          "label": "Planeación y presupuesto",
+          "items": [
+            {
+              "uid": "api::transparencia-informes-empalme.transparencia-informes-empalme",
+              "slug": "transparencia-informes-empalme",
+              "kind": "single",
+              "label": "Informes Empalme",
+              "url": "/informes-de-empalme"
+            },
+            {
+              "uid": "api::transparencia-planes-mejoramiento.transparencia-planes-mejoramiento",
+              "slug": "transparencia-planes-mejoramiento",
+              "kind": "single",
+              "label": "Planes Mejoramiento",
+              "url": "/planes-de-mejoramiento"
+            },
+            {
+              "uid": "api::transparencia-proyectos-inversion.transparencia-proyectos-inversion",
+              "slug": "transparencia-proyectos-inversion",
+              "kind": "single",
+              "label": "Proyectos Inversion",
+              "url": "/programas-y-proyectos-en-ejecucion"
+            },
+            {
+              "uid": "api::transparencia-rendicion-cuenta-contraloria.transparencia-rendicion-cuenta-contraloria",
+              "slug": "transparencia-rendicion-cuenta-contraloria",
+              "kind": "single",
+              "label": "Rendición Cuenta Contraloría",
+              "url": "/informe-rendicion-cuenta-contraloria"
+            },
+            {
+              "uid": "api::transparencia-reporte-austeridad-gasto.transparencia-reporte-austeridad-gasto",
+              "slug": "transparencia-reporte-austeridad-gasto",
+              "kind": "single",
+              "label": "Reporte Austeridad Gasto",
+              "url": "/reporte-austeridad-en-el-gasto"
+            }
+          ]
+        },
+        {
+          "label": "Talento humano",
+          "items": [
+            {
+              "uid": "api::transparencia-hojas-de-vida.transparencia-hojas-de-vida",
+              "slug": "transparencia-hojas-de-vida",
+              "kind": "single",
+              "label": "Hojas de Vida",
+              "url": "/publicacion-hojas-de-vida"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Observatorio ITRC",
+      "url": "/observatorio",
+      "grupos": [
+        {
+          "label": "Eje de Educación",
+          "items": [
+            {
+              "uid": "api::observatorio-eje-de-educacion.observatorio-eje-de-educacion",
+              "slug": "observatorio-eje-de-educacion",
+              "kind": "single",
+              "label": "Eje de Educación",
+              "url": "/observatorio/eje-de-educacion"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-articulos.observatorio-eje-de-educacion-articulos",
+              "slug": "observatorio-eje-de-educacion-articulos",
+              "kind": "single",
+              "label": "Eje de Educación Artículos",
+              "url": "/observatorio/eje-de-educacion/articulos-y-publicaciones"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-cartilla-infantil.observatorio-eje-de-educacion-cartilla-infantil",
+              "slug": "observatorio-eje-de-educacion-cartilla-infantil",
+              "kind": "single",
+              "label": "Eje de Educación Cartilla Infantil",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cartilla-infantil"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-conociendo.observatorio-eje-de-educacion-conociendo",
+              "slug": "observatorio-eje-de-educacion-conociendo",
+              "kind": "single",
+              "label": "Eje de Educación Conociendo",
+              "url": "/observatorio/eje-de-educacion/conociendo-mas-del-itrc"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-cuento.observatorio-eje-de-educacion-cuento",
+              "slug": "observatorio-eje-de-educacion-cuento",
+              "kind": "single",
+              "label": "Eje de Educación Cuento",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cuento"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-glosario-ninos.observatorio-eje-de-educacion-glosario-ninos",
+              "slug": "observatorio-eje-de-educacion-glosario-ninos",
+              "kind": "single",
+              "label": "Eje de Educación Glosario Niños",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/glosario-ninos"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-itrc-para-ninos.observatorio-eje-de-educacion-itrc-para-ninos",
+              "slug": "observatorio-eje-de-educacion-itrc-para-ninos",
+              "kind": "single",
+              "label": "Eje de Educación ITRC Para Niños",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-juego-de-roles.observatorio-eje-de-educacion-juego-de-roles",
+              "slug": "observatorio-eje-de-educacion-juego-de-roles",
+              "kind": "single",
+              "label": "Eje de Educación Juego de Roles",
+              "url": "/observatorio/eje-de-educacion/juego-de-roles"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-libro-infantil.observatorio-eje-de-educacion-libro-infantil",
+              "slug": "observatorio-eje-de-educacion-libro-infantil",
+              "kind": "single",
+              "label": "Eje de Educación Libro Infantil",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/libro-infantil"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-memorias-info.observatorio-eje-de-educacion-memorias-info",
+              "slug": "observatorio-eje-de-educacion-memorias-info",
+              "kind": "single",
+              "label": "Eje de Educación Memorias Info",
+              "url": "/observatorio/eje-de-educacion/memorias"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-quiz.observatorio-eje-de-educacion-quiz",
+              "slug": "observatorio-eje-de-educacion-quiz",
+              "kind": "single",
+              "label": "Eje de Educación Quiz",
+              "url": "/observatorio/eje-de-educacion/juego-de-roles/quiz"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-repositorio-juridico.observatorio-eje-de-educacion-repositorio-juridico",
+              "slug": "observatorio-eje-de-educacion-repositorio-juridico",
+              "kind": "single",
+              "label": "Eje de Educación Repositorio Jurídico",
+              "url": "/observatorio/eje-de-educacion/repositorio-juridico"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-sopa-de-letras.observatorio-eje-de-educacion-sopa-de-letras",
+              "slug": "observatorio-eje-de-educacion-sopa-de-letras",
+              "kind": "single",
+              "label": "Eje de Educación Sopa de Letras",
+              "url": "/observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-video-ninos.observatorio-eje-de-educacion-video-ninos",
+              "slug": "observatorio-eje-de-educacion-video-ninos",
+              "kind": "single",
+              "label": "Eje de Educación Video Niños",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/video-ninos"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-memoria.observatorio-eje-de-educacion-memoria",
+              "slug": "observatorio-eje-de-educacion-memoria",
+              "kind": "collection",
+              "label": "Memorias de Educación",
+              "url": null
+            }
+          ]
+        },
+        {
+          "label": "Eje de Medición",
+          "items": [
+            {
+              "uid": "api::observatorio-eje-de-medicion.observatorio-eje-de-medicion",
+              "slug": "observatorio-eje-de-medicion",
+              "kind": "single",
+              "label": "Eje de Medición",
+              "url": "/observatorio/eje-de-medicion"
+            }
+          ]
+        },
+        {
+          "label": "Eje de Participación",
+          "items": [
+            {
+              "uid": "api::observatorio-eje-de-participacion.observatorio-eje-de-participacion",
+              "slug": "observatorio-eje-de-participacion",
+              "kind": "single",
+              "label": "Eje de Participación",
+              "url": "/observatorio/eje-de-participacion"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-cartillas.observatorio-eje-de-participacion-cartillas",
+              "slug": "observatorio-eje-de-participacion-cartillas",
+              "kind": "single",
+              "label": "Eje de Participación Cartillas",
+              "url": "/observatorio/eje-de-participacion/cartillas-divulgativas"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-encuesta.observatorio-eje-de-participacion-encuesta",
+              "slug": "observatorio-eje-de-participacion-encuesta",
+              "kind": "single",
+              "label": "Eje de Participación Encuesta",
+              "url": "/observatorio/eje-de-participacion/encuesta-ciudadana"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-memorias-info.observatorio-eje-de-participacion-memorias-info",
+              "slug": "observatorio-eje-de-participacion-memorias-info",
+              "kind": "single",
+              "label": "Eje de Participación Memorias Info",
+              "url": "/observatorio/eje-de-participacion/memorias"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-noticias.observatorio-eje-de-participacion-noticias",
+              "slug": "observatorio-eje-de-participacion-noticias",
+              "kind": "single",
+              "label": "Eje de Participación Noticias",
+              "url": "/observatorio/eje-de-participacion/noticias"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-videos-tutoriales.observatorio-eje-de-participacion-videos-tutoriales",
+              "slug": "observatorio-eje-de-participacion-videos-tutoriales",
+              "kind": "single",
+              "label": "Eje de Participación Videos Tutoriales",
+              "url": "/observatorio/eje-de-participacion/videos-tutoriales"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-memoria.observatorio-eje-de-participacion-memoria",
+              "slug": "observatorio-eje-de-participacion-memoria",
+              "kind": "collection",
+              "label": "Memorias de Participación",
+              "url": null
+            }
+          ]
+        },
+        {
+          "label": "General",
+          "items": [
+            {
+              "uid": "api::observatorio-del-observatorio.observatorio-del-observatorio",
+              "slug": "observatorio-del-observatorio",
+              "kind": "single",
+              "label": "Del Observatorio",
+              "url": "/observatorio/del-observatorio"
+            },
+            {
+              "uid": "api::observatorio-observatorio.observatorio-observatorio",
+              "slug": "observatorio-observatorio",
+              "kind": "single",
+              "label": "Observatorio",
+              "url": "/observatorio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Prensa",
+      "url": "/prensa",
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::prensa-landing.prensa-landing",
+              "slug": "prensa-landing",
+              "kind": "single",
+              "label": "Prensa (portada)",
+              "url": "/prensa"
+            }
+          ]
+        },
+        {
+          "label": "Eventos",
+          "items": [
+            {
+              "uid": "api::evento.evento",
+              "slug": "evento",
+              "kind": "collection",
+              "label": "Eventos",
+              "url": null
+            }
+          ]
+        },
+        {
+          "label": "Multimedia",
+          "items": [
+            {
+              "uid": "api::galeria.galeria",
+              "slug": "galeria",
+              "kind": "collection",
+              "label": "Álbumes de la galería",
+              "url": null
+            },
+            {
+              "uid": "api::prensa-galeria.prensa-galeria",
+              "slug": "prensa-galeria",
+              "kind": "single",
+              "label": "Galería",
+              "url": "/galeria"
+            },
+            {
+              "uid": "api::prensa-videos.prensa-videos",
+              "slug": "prensa-videos",
+              "kind": "single",
+              "label": "Videos",
+              "url": "/videos-itrc"
+            }
+          ]
+        },
+        {
+          "label": "Noticias",
+          "items": [
+            {
+              "uid": "api::noticia.noticia",
+              "slug": "noticia",
+              "kind": "collection",
+              "label": "Noticias",
+              "url": "/prensa/noticias"
+            }
+          ]
+        },
+        {
+          "label": "Publicaciones",
+          "items": [
+            {
+              "uid": "api::prensa-capsulas.prensa-capsulas",
+              "slug": "prensa-capsulas",
+              "kind": "single",
+              "label": "Capsulas",
+              "url": "/capsulas-informativas"
+            },
+            {
+              "uid": "api::prensa-comunicados-institucionales.prensa-comunicados-institucionales",
+              "slug": "prensa-comunicados-institucionales",
+              "kind": "single",
+              "label": "Comunicados Institucionales",
+              "url": "/prensa/noticias"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Congresos",
+      "url": "/ciprep2026",
+      "grupos": [
+        {
+          "label": "CIPREP 2026",
+          "items": [
+            {
+              "uid": "api::ciprep.ciprep",
+              "slug": "ciprep",
+              "kind": "single",
+              "label": "Congreso CIPREP",
+              "url": "/ciprep2025"
+            },
+            {
+              "uid": "api::ciprep-speaker.ciprep-speaker",
+              "slug": "ciprep-speaker",
+              "kind": "collection",
+              "label": "Speakers",
+              "url": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Mapa del sitio",
+      "url": null,
+      "grupos": [
+        {
+          "label": "Página principal",
+          "items": [
+            {
+              "uid": "api::mapa-del-sitio.mapa-del-sitio",
+              "slug": "mapa-del-sitio",
+              "kind": "single",
+              "label": "Mapa del sitio",
+              "url": "/mapa-del-sitio"
+            }
+          ]
+        },
+        {
+          "label": "Eventos y multimedia",
+          "items": [
+            {
+              "uid": "api::institucional-audios-itrc.institucional-audios-itrc",
+              "slug": "institucional-audios-itrc",
+              "kind": "single",
+              "label": "Audios ITRC",
+              "url": "/audiositrc"
+            },
+            {
+              "uid": "api::institucional-calendario-eventos.institucional-calendario-eventos",
+              "slug": "institucional-calendario-eventos",
+              "kind": "single",
+              "label": "Calendario Eventos",
+              "url": "/calendario-de-eventos"
+            }
+          ]
+        },
+        {
+          "label": "Históricos",
+          "items": [
+            {
+              "uid": "api::institucional-historico-investigaciones-disciplinarias.institucional-historico-investigaciones-disciplinarias",
+              "slug": "institucional-historico-investigaciones-disciplinarias",
+              "kind": "single",
+              "label": "Histórico Investigaciones Disciplinarias",
+              "url": "/historico-subdireccion-investigaciones-disciplinarias"
+            },
+            {
+              "uid": "api::institucional-historico-sistema-control-interno.institucional-historico-sistema-control-interno",
+              "slug": "institucional-historico-sistema-control-interno",
+              "kind": "single",
+              "label": "Histórico Sistema Control Interno",
+              "url": "/historico-sistema-de-control-interno"
+            }
+          ]
+        },
+        {
+          "label": "Informes",
+          "items": [
+            {
+              "uid": "api::institucional-defensa-judicial.institucional-defensa-judicial",
+              "slug": "institucional-defensa-judicial",
+              "kind": "single",
+              "label": "Defensa Judicial",
+              "url": "/defensa-judicial"
+            },
+            {
+              "uid": "api::institucional-estados.institucional-estados",
+              "slug": "institucional-estados",
+              "kind": "single",
+              "label": "Estados",
+              "url": "/estados"
+            }
+          ]
+        },
+        {
+          "label": "Publicaciones",
+          "items": [
+            {
+              "uid": "api::institucional-estudios-investigaciones.institucional-estudios-investigaciones",
+              "slug": "institucional-estudios-investigaciones",
+              "kind": "single",
+              "label": "Estudios Investigaciones",
+              "url": "/estudios-investigaciones-y-otras-publicaciones"
+            },
+            {
+              "uid": "api::institucional-publicacion-datos-abiertos.institucional-publicacion-datos-abiertos",
+              "slug": "institucional-publicacion-datos-abiertos",
+              "kind": "single",
+              "label": "Publicación Datos Abiertos",
+              "url": "/publicacion-de-datos-abiertos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Configuración del sitio",
+      "url": null,
+      "grupos": [
+        {
+          "label": "Ajustes generales",
+          "items": [
+            {
+              "uid": "api::contact.contact",
+              "slug": "contact",
+              "kind": "single",
+              "label": "Contacto (datos institucionales)",
+              "url": null
+            },
+            {
+              "uid": "api::site.site",
+              "slug": "site",
+              "kind": "single",
+              "label": "Sitio (configuracion global)",
+              "url": null
+            }
+          ]
+        },
+        {
+          "label": "Menú y accesos",
+          "items": [
+            {
+              "uid": "api::quick-access.quick-access",
+              "slug": "quick-access",
+              "kind": "single",
+              "label": "Accesos rapidos (home)",
+              "url": null
+            },
+            {
+              "uid": "api::navigation.navigation",
+              "slug": "navigation",
+              "kind": "single",
+              "label": "Menu (navegacion principal)",
+              "url": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

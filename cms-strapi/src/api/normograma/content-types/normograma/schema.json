@@ -4,7 +4,7 @@
   "info": {
     "singularName": "normograma",
     "pluralName": "normogramas",
-    "displayName": "03. Normativa / Normograma",
+    "displayName": "Normograma",
     "description": "Página única del dominio \"Normativa\": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "participa-consulta-ciudadana",
     "pluralName": "participa-consulta-ciudadanas",
-    "displayName": "05. Participa / Consulta Ciudadana",
+    "displayName": "Consulta Ciudadana",
     "description": "Página única del dominio \"Participa\": Consulta Ciudadana. Publicada en: /participa/consulta-ciudadana. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "participa-control-social",
     "pluralName": "participa-control-socials",
-    "displayName": "05. Participa / Control Social",
+    "displayName": "Control Social",
     "description": "Página única del dominio \"Participa\": Control Social. Publicada en: /participa/control-social. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

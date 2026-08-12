@@ -4,7 +4,7 @@
   "info": {
     "singularName": "normativa-vigencia",
     "pluralName": "normativa-vigencias",
-    "displayName": "03. Normativa / Vigencias",
+    "displayName": "Vigencias",
     "description": "Colección de entradas del dominio \"Normativa\": Vigencias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

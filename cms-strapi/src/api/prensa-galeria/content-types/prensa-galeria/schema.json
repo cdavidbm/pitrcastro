@@ -4,7 +4,7 @@
   "info": {
     "singularName": "prensa-galeria",
     "pluralName": "prensa-galerias",
-    "displayName": "08. Prensa / Galería",
+    "displayName": "Galería",
     "description": "Página única del dominio \"Prensa\": Galería. Publicada en: /galeria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

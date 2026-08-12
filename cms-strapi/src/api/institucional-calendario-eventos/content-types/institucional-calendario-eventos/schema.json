@@ -4,7 +4,7 @@
   "info": {
     "singularName": "institucional-calendario-eventos",
     "pluralName": "institucional-calendario-eventoses",
-    "displayName": "09. Institucional / Calendario Eventos",
+    "displayName": "Calendario Eventos",
     "description": "Página única del dominio \"Institucional\": Calendario Eventos. Publicada en: /calendario-de-eventos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

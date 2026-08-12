@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-esquema-publicacion",
     "pluralName": "transparencia-esquema-publicacions",
-    "displayName": "06. Transparencia / Esquema Publicación",
+    "displayName": "Esquema Publicación",
     "description": "Página única del dominio \"Transparencia\": Esquema Publicación. Publicada en: /esquema-publicacion-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

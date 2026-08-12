@@ -712,6 +712,7 @@ export interface AgenciaSistemaIntegradoDeGestionDocument extends Struct.Compone
     externo: Schema.Attribute.Boolean;
     file: Schema.Attribute.Media<'files' | 'images'>;
     name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -751,8 +752,10 @@ export interface AtencionCanalesDeAtencionItem extends Struct.ComponentSchema {
     icon: 'cube';
   };
   attributes: {
+    destacado: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     icon: Schema.Attribute.String;
     label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
     valor: Schema.Attribute.String;
   };
 }
@@ -1948,6 +1951,34 @@ export interface PrensaVideosVideo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFeaturedVideo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_featured_videos';
+  info: {
+    description: 'Video institucional embedded del home (YouTube/Vimeo nocookie)';
+    displayName: 'Video destacado';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedQuickAccessItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_quick_access_items';
+  info: {
+    description: 'Item del bloque de accesos rapidos del home';
+    displayName: 'Acceso rapido';
+  };
+  attributes: {
+    external: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    highlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedRelatedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_related_links';
   info: {
@@ -1960,6 +1991,22 @@ export interface SharedRelatedLink extends Struct.ComponentSchema {
     icon: Schema.Attribute.String & Schema.Attribute.DefaultTo<'fa-link'>;
     titulo: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedSocialMedia extends Struct.ComponentSchema {
+  collectionName: 'components_shared_social_media';
+  info: {
+    description: 'URLs a perfiles oficiales en redes sociales';
+    displayName: 'Redes sociales';
+  };
+  attributes: {
+    facebook: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
+    tiktok: Schema.Attribute.String;
+    twitter: Schema.Attribute.String;
+    youtube: Schema.Attribute.String;
   };
 }
 
@@ -3115,7 +3162,10 @@ declare module '@strapi/strapi' {
       'prensa-landing.seccion': PrensaLandingSeccion;
       'prensa-videos.enlaz': PrensaVideosEnlaz;
       'prensa-videos.video': PrensaVideosVideo;
+      'shared.featured-video': SharedFeaturedVideo;
+      'shared.quick-access-item': SharedQuickAccessItem;
       'shared.related-link': SharedRelatedLink;
+      'shared.social-media': SharedSocialMedia;
       'slider.slide': SliderSlide;
       'transparencia-accesibilidad.documento': TransparenciaAccesibilidadDocumento;
       'transparencia-comite-conciliacion.anio': TransparenciaComiteConciliacionAnio;
