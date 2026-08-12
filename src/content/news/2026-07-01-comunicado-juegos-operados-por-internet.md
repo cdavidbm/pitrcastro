@@ -4,7 +4,7 @@ date: 2026-07-01T12:00:00-05:00
 image: "/documentos/media/2026/2026-07-01-juegos-operados-por-internet.jpg"
 excerpt: "La Agencia ITRC reafirma que las solicitudes de información dirigidas a Coljuegos, en el marco del análisis de riesgos sobre los Juegos Operados por Internet -JOI, constituyen el ejercicio legítimo de las funciones de inspección, vigilancia y control asignadas por el Decreto-Ley 4173 de 2011 para la protección de las rentas de la Nación."
 tags: ["noticias", "comunicados"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

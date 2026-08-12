@@ -4,7 +4,7 @@ date: 2020-11-30
 image: "/images/noticia-placeholder.svg"
 excerpt: "Policía Nacional y Agencia ITRC firman convenio de cooperación para fortalecer la transparencia y combatir la corrupción La Policía Nacional y la Agencia..."
 tags: ["noticias", "boletines"]
-categoria: boletin
+categoria: noticia
 draft: false
 ---
 

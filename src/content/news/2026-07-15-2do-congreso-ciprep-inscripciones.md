@@ -3,7 +3,7 @@ title: "La Agencia ITRC abre inscripciones para el 2.º Congreso Internacional p
 date: 2026-07-15T12:00:00-05:00
 excerpt: "La Agencia ITRC invita a servidores públicos, contratistas, academia, organismos de control, entidades públicas, ciudadanía y medios de comunicación a participar en la segunda edición del Congreso Internacional CIPREP. Inscripciones gratuitas hasta el 24 de julio de 2026."
 tags: ["noticias", "comunicado", "CIPREP", "congreso", "inscripciones"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

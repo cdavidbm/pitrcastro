@@ -4,7 +4,7 @@ date: 2020-05-27
 image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC vigila la correcta aplicación de medidas cautelares y de títulos judiciales dentro de las facilidades de pago otorgadas por la DIAN, durante..."
 tags: ["noticias", "boletines"]
-categoria: boletin
+categoria: noticia
 draft: false
 ---
 

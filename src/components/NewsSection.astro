@@ -1,6 +1,6 @@
 ---
 import NewsCard from './NewsCard.astro';
-import type { MarkdownModule } from '../types/content';
+import { getNoticias } from '../utils/noticias';
 
 interface Props {
   limit?: number;
@@ -9,20 +9,8 @@ interface Props {
 const { limit = 3 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
-const newsFiles = import.meta.glob<MarkdownModule>('../content/news/*.md', { eager: true });
-
-const news = Object.entries(newsFiles)
-  .map(([path, file]) => {
-    const slug = path.split('/').pop()?.replace('.md', '') || '';
-    return {
-      slug,
-      data: file.frontmatter,
-      Content: file.Content
-    };
-  })
-  .filter(item => !item.data.draft && !item.data.archived)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, limit);
+// Las noticias vienen del CMS, ya ordenadas de la más reciente a la más antigua.
+const news = (await getNoticias()).slice(0, limit);
 ---
 
 <section class="news-section" aria-labelledby="news-title">
@@ -33,10 +21,10 @@ const news = Object.entries(newsFiles)
       <div class="news-section__grid stagger-children">
         {news.map((item) => (
           <NewsCard
-            title={item.data.title}
-            date={item.data.date}
-            image={item.data.image}
-            excerpt={item.data.excerpt}
+            title={item.titulo}
+            date={item.fecha}
+            image={item.imagen}
+            excerpt={item.resumen}
             slug={item.slug}
           />
         ))}

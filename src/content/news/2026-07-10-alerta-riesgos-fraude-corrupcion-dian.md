@@ -3,7 +3,7 @@ title: "La Agencia ITRC mantiene alerta sobre riesgos de fraude y corrupción en
 date: 2026-07-10T12:00:00-05:00
 excerpt: "Tras analizar la respuesta de la DIAN al informe de alerta sobre riesgos identificados entre 2013 y 2022, la Agencia ITRC concluyó que persisten las condiciones que dieron origen a la alerta. El informe fue trasladado a la Subdirección de Instrucción Disciplinaria para evaluación de posibles omisiones en el cumplimiento de deberes funcionales."
 tags: ["noticias", "comunicado", "DIAN", "modernización", "fraude", "corrupción"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

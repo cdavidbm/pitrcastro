@@ -4,7 +4,7 @@ date: 2025-04-09
 image: "/documentos/media/2025/MENSAJE-1.jpg"
 excerpt: "Desde el área de Comunicaciones, hacemos un llamado al compromiso colectivo en el uso adecuado de la imagen institucional de la Agencia ITRC. La identidad..."
 tags: ["noticias", "comunicados"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

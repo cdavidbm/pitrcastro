@@ -8,7 +8,7 @@ interface Props {
   image?: string;
   excerpt?: string;
   slug: string;
-  categoria?: 'noticia' | 'boletin' | 'comunicado' | string;
+  categoria?: 'noticia' | 'periodico' | string;
 }
 
 const { title, date, image, excerpt, slug, categoria } = Astro.props;
@@ -24,10 +24,9 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   day: 'numeric'
 });
 
+// Comunicados y boletines se unificaron bajo "Noticia".
 const catLabels: Record<string, string> = {
   noticia: 'Noticia',
-  boletin: 'Boletín',
-  comunicado: 'Comunicado',
   periodico: 'Periódico',
 };
 const catLabel = categoria ? (catLabels[categoria] || categoria) : '';
@@ -72,8 +71,6 @@ const catLabel = categoria ? (catLabels[categoria] || categoria) : '';
     position: static;
     box-shadow: none;
   }
-  .news-card__badge--boletin { background: #0943b5; }
-  .news-card__badge--comunicado { background: var(--itrc-gold); color: var(--itrc-navy); }
   .news-card__badge--noticia { background: #198754; }
   .news-card__badge--periodico { background: var(--itrc-navy); color: #fff; border: 2px solid var(--itrc-gold); }
   .news-card__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); flex-wrap: wrap; }

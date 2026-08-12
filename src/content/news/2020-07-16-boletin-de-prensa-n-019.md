@@ -4,7 +4,7 @@ date: 2020-07-16
 image: "/images/noticia-placeholder.svg"
 excerpt: "Agencia ITRC confirmó destitución e inhabilidad por 11 años a funcionario de la DIAN por hechos de corrupción en proceso de cobro de impuestos La Agencia..."
 tags: ["noticias", "boletines"]
-categoria: boletin
+categoria: noticia
 draft: false
 ---
 

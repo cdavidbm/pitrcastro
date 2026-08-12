@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { getNoticias } from '../utils/noticias';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import navigation from '../content/settings/navigation.json';
@@ -118,10 +119,6 @@ for (const [path, json] of Object.entries(pageJsons)) {
 // ---------------------------------------------------------------------------
 // 3. News + colecciones dinámicas (mapeo URL ↔ JSON conocido)
 // ---------------------------------------------------------------------------
-
-const newsFiles = import.meta.glob<{
-  frontmatter: { title: string; date?: string; draft?: boolean };
-}>('../content/news/*.md', { eager: true });
 
 interface DynamicItem {
   title?: string;
@@ -247,7 +244,7 @@ function addSectionEntries(
 // 5. Endpoint
 // ---------------------------------------------------------------------------
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
   const entries: SearchEntry[] = [];
 
   // 5.1 Items del menú principal y footer
@@ -296,14 +293,11 @@ export const GET: APIRoute = () => {
     }
   }
 
-  // 5.3 News
-  for (const [path, mod] of Object.entries(newsFiles)) {
-    const fm = mod.frontmatter;
-    if (fm.draft) continue;
-    const slug = path.replace('../content/news/', '').replace('.md', '');
+  // 5.3 Noticias — vienen del CMS
+  for (const noticia of await getNoticias()) {
     entries.push({
-      t: fm.title,
-      u: `/prensa/noticias/${slug}`,
+      t: noticia.titulo,
+      u: `/prensa/noticias/${noticia.slug}`,
       k: 'n',
       p: 'Noticias',
     });

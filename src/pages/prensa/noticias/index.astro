@@ -3,30 +3,18 @@ import Base from '../../../layouts/Base.astro';
 import HeroPage from '../../../components/HeroPage.astro';
 import NewsCard from '../../../components/NewsCard.astro';
 import { resolveUrl } from '../../../utils/url';
-import type { MarkdownModule } from '../../../types/content';
 import { getPrensaComunicadosInstitucionales } from '../../../utils/strapi-fetchers';
+import { getNoticias } from '../../../utils/noticias';
+
 const comunicadosData = await getPrensaComunicadosInstitucionales();
-const newsFiles = import.meta.glob<MarkdownModule>('../../../content/news/*.md', { eager: true });
+// Las noticias viven en el CMS: la redacción las publica desde el panel.
+const news = await getNoticias();
 
-type News = {
-  slug: string;
-  data: any;
-};
-
-const news: News[] = Object.entries(newsFiles)
-  .map(([path, file]) => {
-    const slug = path.split('/').pop()?.replace('.md', '') || '';
-    return { slug, data: file.frontmatter };
-  })
-  .filter(item => !item.data.draft && !item.data.archived)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-
+// Comunicados y boletines dejaron de distinguirse: todo eso es "Noticias".
 const counts = {
   todas: news.length,
-  noticia: news.filter(n => (n.data.categoria || 'noticia') === 'noticia').length,
-  comunicado: news.filter(n => n.data.categoria === 'comunicado').length,
-  boletin: news.filter(n => n.data.categoria === 'boletin').length,
-  periodico: news.filter(n => n.data.categoria === 'periodico').length,
+  noticia: news.filter(n => n.categoria !== 'periodico').length,
+  periodico: news.filter(n => n.categoria === 'periodico').length,
 };
 
 const base = import.meta.env.BASE_URL;
@@ -52,19 +40,11 @@ const breadcrumb = [
             Todas <span class="prensa-chip__count">{counts.todas}</span>
           </button>
           <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="noticia">
-            <span class="prensa-chip__dot" style="background:#198754"></span>
+            <span class="prensa-chip__dot"></span>
             Noticias <span class="prensa-chip__count">{counts.noticia}</span>
           </button>
-          <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="comunicado">
-            <span class="prensa-chip__dot" style="background:var(--itrc-gold)"></span>
-            Comunicados <span class="prensa-chip__count">{counts.comunicado}</span>
-          </button>
-          <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="boletin">
-            <span class="prensa-chip__dot" style="background:#0943b5"></span>
-            Boletines <span class="prensa-chip__count">{counts.boletin}</span>
-          </button>
           <button type="button" class="prensa-chip" role="tab" aria-selected="false" data-filter="periodico">
-            <span class="prensa-chip__dot" style="background:#b38b40"></span>
+            <span class="prensa-chip__dot"></span>
             Periódico <span class="prensa-chip__count">{counts.periodico}</span>
           </button>
         </div>
@@ -78,14 +58,14 @@ const breadcrumb = [
       {news.length > 0 ? (
         <div class="news-grid stagger-children" id="prensaGrid">
           {news.map((item) => (
-            <div class="news-grid__item" data-categoria={item.data.categoria || 'noticia'} data-title={(item.data.title || '').toLowerCase()}>
+            <div class="news-grid__item" data-categoria={item.categoria} data-title={item.titulo.toLowerCase()}>
               <NewsCard
-                title={item.data.title}
-                date={item.data.date}
-                image={item.data.image}
-                excerpt={item.data.excerpt}
+                title={item.titulo}
+                date={item.fecha}
+                image={item.imagen}
+                excerpt={item.resumen}
                 slug={item.slug}
-                categoria={item.data.categoria || 'noticia'}
+                categoria={item.categoria}
               />
             </div>
           ))}
@@ -174,6 +154,10 @@ const breadcrumb = [
     font-weight: 700;
   }
   .prensa-chip.is-active .prensa-chip__count { background: rgba(255,255,255,0.18); }
+  /* El color de cada punto va por su filtro y no escrito en el HTML: la
+     política de seguridad del proveedor bloquea los estilos incrustados. */
+  .prensa-chip[data-filter='noticia'] .prensa-chip__dot { background: #198754; }
+  .prensa-chip[data-filter='periodico'] .prensa-chip__dot { background: #b38b40; }
   .prensa-chip__dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 
   .prensa-search {

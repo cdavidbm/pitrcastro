@@ -24,6 +24,10 @@ function loadPublicReadPermissions(): string[] {
     'api::navigation.navigation.findOne',
     'api::quick-access.quick-access.find',
     'api::quick-access.quick-access.findOne',
+    // Noticias: creada a mano para que la redacción publique desde el panel,
+    // así que no aparece en el manifest del autogen.
+    'api::noticia.noticia.find',
+    'api::noticia.noticia.findOne',
   ];
   const fallback = [
     'api::marco-legal.marco-legal.find',

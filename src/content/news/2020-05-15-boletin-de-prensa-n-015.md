@@ -4,7 +4,7 @@ date: 2020-05-15
 image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC profirió pliego de cargos contra Omar Ambuila exfuncionario de la DIAN, por presunto incremento patrimonial injustificado. Ante la noticia..."
 tags: ["noticias", "boletines"]
-categoria: boletin
+categoria: noticia
 draft: false
 ---
 

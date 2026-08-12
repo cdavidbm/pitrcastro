@@ -4,7 +4,7 @@ date: 2020-08-12
 image: "/images/noticia-placeholder.svg"
 excerpt: "Agencia ITRC realizará evento virtual para dar a conocer su rol en la lucha contra la corrupción La Agencia del Inspector General de Tributos, Rentas y..."
 tags: ["noticias", "boletines"]
-categoria: boletin
+categoria: noticia
 draft: false
 ---
 

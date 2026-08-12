@@ -1,5 +1,6 @@
 ---
 import { readFileSync, readdirSync } from 'node:fs';
+import { getNoticias } from '../utils/noticias';
 import { join } from 'node:path';
 
 import Base from '../layouts/Base.astro';
@@ -110,13 +111,12 @@ allRoutes.sort((a, b) => a.title.localeCompare(b.title, 'es'));
 // Counts de colecciones dinámicas (no se enumeran items aquí — links a indexes)
 // ---------------------------------------------------------------------------
 
-const newsFiles = import.meta.glob('../content/news/*.md');
 const memEduFiles = import.meta.glob('../content/pages/observatorio/eje-de-educacion/memorias/*.json');
 const memPartFiles = import.meta.glob('../content/pages/observatorio/eje-de-participacion/memorias/*.json');
 const galeriaFiles = import.meta.glob('../content/pages/galeria/*.json');
 
 const counts = {
-  noticias: Object.keys(newsFiles).length,
+  noticias: (await getNoticias()).length,
   memEdu: Object.keys(memEduFiles).length,
   memPart: Object.keys(memPartFiles).length,
   galeria: Object.keys(galeriaFiles).length,

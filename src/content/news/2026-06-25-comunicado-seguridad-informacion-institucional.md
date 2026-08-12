@@ -4,7 +4,7 @@ date: 2026-06-25
 image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC informa a la ciudadanía y a sus grupos de interés que la Directora General, Dra. Eva Carolina Madrid Torres, realizó una denuncia pública relacionada con presuntas intromisiones a sus equipos tecnológicos y de comunicaciones. Los hechos ya fueron puestos en conocimiento de las autoridades competentes."
 tags: ["noticias", "comunicados"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

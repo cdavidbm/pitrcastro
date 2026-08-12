@@ -4,7 +4,7 @@ date: 2026-07-04T12:00:00-05:00
 image: "/images/comunicado-2026-07-04-sancion-dian-falsos-remates.jpg"
 excerpt: "La Agencia ITRC profirió dos fallos disciplinarios contra una exservidora de la DIAN, con sanciones de destitución e inhabilidad general por 10 y 15 años. Los hechos investigados están asociados al delito de estafa mediante supuestos remates de vehículos y viviendas."
 tags: ["noticias", "comunicado", "disciplinario", "DIAN"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

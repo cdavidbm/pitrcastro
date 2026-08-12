@@ -4,7 +4,7 @@ date: 2026-06-03
 image: "/images/noticia-placeholder.svg"
 excerpt: "La Agencia ITRC emite comunicado oficial sobre acciones institucionales en Barranquilla."
 tags: []
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

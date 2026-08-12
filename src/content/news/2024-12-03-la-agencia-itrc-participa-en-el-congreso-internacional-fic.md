@@ -4,7 +4,7 @@ date: 2024-12-03
 image: "/documentos/media/2024/Congreso-Internacional-FIC-2024-Not.jpg"
 excerpt: "Bogotá D.C., 3 de diciembre de 2024 La directora general de la Agencia ITRC, Carolina Madrid Torres, participa en el Congreso Internacional-FIC 2024,..."
 tags: ["noticias", "comunicados"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

@@ -4,7 +4,7 @@ date: 2024-12-03
 image: "/images/noticia-placeholder.svg"
 excerpt: "Bogotá, 21 de junio de 2024 La Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales – ITRC, cuenta con nueva identidad visual en..."
 tags: ["noticias", "comunicados"]
-categoria: comunicado
+categoria: noticia
 draft: false
 ---
 

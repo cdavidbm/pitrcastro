@@ -4,7 +4,7 @@ date: 2021-08-12
 image: "/images/noticia-placeholder.svg"
 excerpt: "Boletín de Prensa 003 - 12 de agosto de 2021 Agencia ITRC avanza en su gestión de investigación disciplinaria Más de 250 procesos disciplinarias adelanta la..."
 tags: ["noticias", "boletines"]
-categoria: boletin
+categoria: noticia
 draft: false
 ---
 

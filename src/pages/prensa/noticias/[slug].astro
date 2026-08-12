@@ -4,32 +4,31 @@ import Base from '../../../layouts/Base.astro';
 // cada noticia; se movieron a una hoja aparte porque la política de seguridad
 // de contenido de producción no admite estilos incrustados.
 import '../../../styles/noticias.css';
-import type { MarkdownModule } from '../../../types/content';
+import { getNoticias, contenidoAHtml } from '../../../utils/noticias';
 
 export async function getStaticPaths() {
-  const newsFiles = import.meta.glob<MarkdownModule>('../../../content/news/*.md', { eager: true });
+  // Las noticias vienen del CMS. El cuerpo se convierte a HTML aquí, durante
+  // la compilación, con el mismo motor que se usaba para los archivos de texto.
+  const noticias = await getNoticias();
 
-  return Object.entries(newsFiles).map(([path, file]) => {
-    const slug = path.split('/').pop()?.replace('.md', '') || '';
-    return {
-      params: { slug },
+  return Promise.all(
+    noticias.map(async (n) => ({
+      params: { slug: n.slug },
       props: {
-        title: file.frontmatter.title,
-        date: file.frontmatter.date,
-        image: file.frontmatter.image,
-        excerpt: file.frontmatter.excerpt,
-        tags: file.frontmatter.tags || [],
-        Content: file.Content,
+        title: n.titulo,
+        date: n.fecha,
+        image: n.imagen,
+        excerpt: n.resumen,
+        contenido: await contenidoAHtml(n.contenido),
       },
-    };
-  });
+    }))
+  );
 }
 
-const { title, date, image, excerpt, tags, Content } = Astro.props;
+const { title, date, image, excerpt, contenido } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
-// Placeholder institucional cuando la noticia no trae imagen específica.
-const displayImage = image || '/images/noticia-placeholder.svg';
+const displayImage = image;
 
 const formattedDate = new Date(date).toLocaleDateString('es-CO', {
   weekday: 'long',
@@ -57,22 +56,13 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
           </time>
         </div>
 
-        {tags.length > 0 && (
-          <div class="article__tags">
-            {tags.map((tag: string) => (
-              <span class="article__tag">{tag}</span>
-            ))}
-          </div>
-        )}
       </header>
 
       <figure class="article__image">
         <img src={displayImage} alt={title} />
       </figure>
 
-      <div class="article__content">
-        <Content />
-      </div>
+      <div class="article__content" set:html={contenido}></div>
 
       <footer class="article__footer">
         <div class="article__share">

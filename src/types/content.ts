@@ -65,7 +65,7 @@ export interface MarkdownModule {
     excerpt?: string;
     draft?: boolean;
     archived?: boolean;
-    categoria?: 'noticia' | 'boletin' | 'comunicado';
+    categoria?: 'noticia' | 'periodico';
     tags?: string[];
   };
   Content: (_props: Record<string, never>) => unknown;
