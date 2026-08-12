@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { acento } from '../utils/acento';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
@@ -43,7 +44,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
         {pageData.canales.map((canal) => {
           const accentColor = colorMap[canal.color] || 'var(--itrc-gold)';
           return (
-            <div class="canal-card" style={`--canal-accent: ${accentColor}`}>
+            <div class="canal-card" data-acento={acento(accentColor)}>
               <div class="canal-card__header">
                 <div class="canal-card__icon">
                   <i class={`fa-solid ${canal.icon}`} aria-hidden="true"></i>

@@ -16,13 +16,13 @@ La decisión fue adoptada tras el análisis técnico correspondiente y la aproba
 
 Los activos ofrecidos corresponden a cuatro (4) vehículos del parque automotor institucional:
 
-                •             Motocicleta Honda CBF 125, modelo 2013, placa AYW 32D.
+- Motocicleta Honda CBF 125, modelo 2013, placa AYW 32D.
 
-                •             Automóvil Sedan Nissan Versa, modelo 2013, placa OCK 722.
+- Automóvil Sedan Nissan Versa, modelo 2013, placa OCK 722.
 
-                •             Automóvil Sedan Nissan Versa, modelo 2013, placa OCK 724.
+- Automóvil Sedan Nissan Versa, modelo 2013, placa OCK 724.
 
-                •             Automóvil Sedan Nissan Versa, modelo 2013, placa OCK 723.
+- Automóvil Sedan Nissan Versa, modelo 2013, placa OCK 723.
 
 **Invitación a las entidades públicas**
 

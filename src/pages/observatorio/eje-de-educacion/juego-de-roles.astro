@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import { acento } from '../../../utils/acento';
 import HeroPage from '../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../utils/url';
 import { getObservatorioEjeDeEducacionJuegoDeRoles } from '../../../utils/strapi-fetchers';
@@ -22,7 +23,7 @@ const breadcrumb = [
 
       <div class="games-grid">
         {pageData.juegos.map((j) => (
-          <a href={resolveUrl(j.url)} class="game-card" style={`--card-accent: ${j.color}`}>
+          <a href={resolveUrl(j.url)} class="game-card" data-acento={acento(j.color)}>
             <div class="game-card__icon">
               <i class={`fa-solid ${j.icon}`} aria-hidden="true"></i>
             </div>

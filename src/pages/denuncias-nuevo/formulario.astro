@@ -137,7 +137,7 @@ const totalSecciones = secciones.length;
         <span class="wizard-progreso__nombre" data-seccion-nombre>{secciones[0].titulo}</span>
       </div>
       <div class="wizard-progreso__barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" data-progreso-barra aria-valuenow="20">
-        <div class="wizard-progreso__fill" style={`width: ${100 / totalSecciones}%`}></div>
+        <div class="wizard-progreso__fill"></div>
       </div>
       <ol class="wizard-progreso__pastilla-list">
         {secciones.map((s, idx) => (
@@ -533,6 +533,7 @@ const totalSecciones = secciones.length;
   }
   .wizard-progreso__fill {
     height: 100%;
+    width: 0;   /* el guion lo ajusta abajo */
     background: linear-gradient(90deg, var(--itrc-gold-dark), var(--itrc-gold));
     border-radius: var(--radius-full);
     transition: width 0.35s ease;
@@ -877,6 +878,11 @@ const totalSecciones = secciones.length;
     // scroll suave al inicio del wizard
     document.querySelector('.wizard')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  // Punto de partida de la barra. Lo fijaba un estilo escrito en el HTML, que
+  // la política de seguridad del proveedor bloquea. No se usa mostrarSeccion()
+  // porque esa desplaza la página hasta el formulario.
+  if (barraFill) barraFill.style.width = 100 / seccionIds.length + '%';
 
   btnNext?.addEventListener('click', () => {
     if (indice < seccionIds.length - 1) { indice++; mostrarSeccion(indice); }

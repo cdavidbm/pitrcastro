@@ -14,7 +14,7 @@ const fileRef = typeof document.file === 'string'
   ? document.file
   : (document.file as any)?.name || (document.file as any)?.url || '';
 const fileType = externo
-  ? { icon: 'fa-arrow-up-right-from-square', label: 'ENLACE', color: 'var(--itrc-gold)' }
+  ? { icon: 'fa-arrow-up-right-from-square', label: 'ENLACE', color: 'var(--itrc-gold)', acento: 'gold' as const }
   : getFileInfo(fileRef);
 ---
 
@@ -26,7 +26,7 @@ const fileType = externo
   aria-label={externo ? `Abrir ${document.name}` : `Descargar ${document.name} (${fileType.label})`}
   {...(externo ? {} : { download: true })}
 >
-  <span class="doc-item__icon" style={`--icon-color: ${fileType.color}`}>
+  <span class="doc-item__icon" data-acento={fileType.acento}>
     <i class={`fa-solid ${fileType.icon}`} aria-hidden="true"></i>
   </span>
 

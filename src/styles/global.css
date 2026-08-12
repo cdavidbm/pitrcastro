@@ -173,6 +173,37 @@
   --theme-border-light: #f0f0f0;
 }
 
+/* ====== Acentos de color del contenido ======
+   El CMS decide el color de acento de tarjetas, iconos y enlaces. Ese color no
+   puede escribirse dentro del HTML con `style="..."`: la política de seguridad
+   que el proveedor aplica sobre el dominio bloquea los estilos incrustados, y
+   el acento se perdía (los iconos quedaban blancos sobre fondo blanco).
+
+   En su lugar la plantilla pinta `data-acento="..."` y el color sale de aquí.
+   El valor del CMS se traduce a uno de estos tokens con `acento()`, en
+   src/utils/acento.ts — para admitir un color nuevo hay que tocar los dos.
+
+   `--acento` es el color; los demás nombres son los alias que ya usaban los
+   componentes, y se conservan para no reescribir 98 reglas. */
+[data-acento] {
+  --card-accent: var(--acento);
+  --link-color: var(--acento);
+  --icon-color: var(--acento);
+  --canal-accent: var(--acento);
+  --eje-color: var(--acento);
+}
+
+[data-acento='gold'] { --acento: var(--itrc-gold); }
+[data-acento='navy'] { --acento: var(--itrc-navy); }
+[data-acento='blue'] { --acento: var(--govco-blue); }
+[data-acento='green'] { --acento: var(--file-excel); }
+[data-acento='red'] { --acento: var(--file-pdf); }
+[data-acento='purple'] { --acento: var(--file-zip); }
+[data-acento='orange'] { --acento: var(--file-powerpoint); }
+[data-acento='teal'] { --acento: #2a9d8f; }
+[data-acento='cyan'] { --acento: #0dcaf0; }
+[data-acento='gray'] { --acento: var(--gray-600); }
+
 /* ====== Tema Institucional ====== */
 html.theme-institucional {
   --theme-bg: var(--off-white);

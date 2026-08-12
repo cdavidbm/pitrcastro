@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { acento } from '../utils/acento';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
 import { getPrensaLanding } from '../utils/strapi-fetchers';
@@ -19,7 +20,7 @@ const breadcrumb = [
     <div class="container">
       <div class="hub-grid">
         {pageData.secciones.map((sec) => (
-          <a href={resolveUrl(sec.url)} class="hub-card" style={`--card-accent: ${sec.color}`}>
+          <a href={resolveUrl(sec.url)} class="hub-card" data-acento={acento(sec.color)}>
             <div class="hub-card__icon">
               <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
             </div>

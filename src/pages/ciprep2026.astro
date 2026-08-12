@@ -19,16 +19,15 @@ const bios: Record<string, { nombre: string; parrafos: string[]; foto_grande: st
 // Código de color por eje (fondos institucionales de tarjeta + tinta oscura legible).
 // Los colores se eligen accesibles sobre fondo claro (contraste >= 4.5) y armonizan
 // con la paleta ITRC sin robar protagonismo al dorado y navy.
-const ejesColores: Record<string, { color: string; bg: string }> = {
-  'APERTURA':                                                                             { color: '#b38b40', bg: 'rgba(179,139,64,0.10)' },  // dorado ITRC
-  'EJE I — IA, ANALÍTICA DE DATOS Y HERRAMIENTAS TECNOLÓGICAS PARA DETECTAR EL FRAUDE':                           { color: '#5b21b6', bg: 'rgba(91,33,182,0.10)' },   // morado tech
-  'EJE II — RIESGOS DE CORRUPCIÓN EN LA ADMINISTRACIÓN TRIBUTARIA Y PARAFISCAL':          { color: '#b91c1c', bg: 'rgba(185,28,28,0.10)' },   // rojo alerta
-  'EJE III — RECUPERACIÓN DE ACTIVOS Y ESTRATEGIAS JURÍDICAS CONTRA EL FRAUDE AL ESTADO': { color: '#047857', bg: 'rgba(4,120,87,0.10)' },    // verde esmeralda
-  'EJE IV — TRANSPARENCIA, ÉTICA PÚBLICA Y CULTURA DE INTEGRIDAD EN EL SECTOR FISCAL':                        { color: '#0369a1', bg: 'rgba(3,105,161,0.10)' },   // azul cielo
-};
-function colorEje(franja: string | undefined) {
-  return franja && ejesColores[franja] ? ejesColores[franja] : { color: 'var(--theme-text-muted)', bg: 'transparent' };
+/** Token del eje para el atributo `data-eje`. El color no puede ir escrito en
+ *  el HTML: la política de seguridad del proveedor bloquea esos estilos. */
+function ejeToken(franja: string | undefined): string {
+  if (!franja) return 'ninguno';
+  if (franja.startsWith('APERTURA')) return 'apertura';
+  const m = franja.match(/^EJE (I{1,3}V?|IV)\b/);
+  return m ? m[1].toLowerCase() : 'ninguno';
 }
+
 
 // Página informativa de CIPREP 2026 con datos confirmados al momento.
 // La inscripción se delega a un formulario de Microsoft Forms gestionado
@@ -258,7 +257,7 @@ const entidadesInternacionales = [
 
       <div class="ciprep-memorias__grid">
         {memorias.map((m) => (
-          <article class="memoria-card" style={`--eje-color:${colorEje(m.franja).color}`}>
+          <article class="memoria-card" data-eje={ejeToken(m.franja)}>
             <button
               type="button"
               class="memoria-card__player"
@@ -346,7 +345,6 @@ const entidadesInternacionales = [
                   const showFranja = item.franja && item.franja !== lastFranja;
                   if (showFranja) lastFranja = item.franja;
                   const isPause = item.tipo === 'pausa' || item.tipo === 'cierre';
-                  const c = colorEje(item.franja);
                   const bioKey = item.ponente ? slugPonente(item.ponente) : null;
                   const bio = bioKey && bios[bioKey] ? bios[bioKey] : null;
                   // Miniatura: usa la foto de la agenda; si no hay, cae sobre la foto grande de la bio.
@@ -354,11 +352,11 @@ const entidadesInternacionales = [
                   return (
                     <>
                       {showFranja && (
-                        <li class="ciprep-day__franja" style={`--eje-color:${c.color};--eje-bg:${c.bg}`}>
+                        <li class="ciprep-day__franja" data-eje={ejeToken(item.franja)}>
                           <span>{item.franja}</span>
                         </li>
                       )}
-                      <li class={`ciprep-item ${isPause ? 'ciprep-item--pausa' : ''}`} style={`--eje-color:${c.color};--eje-bg:${c.bg}`}>
+                      <li class={`ciprep-item ${isPause ? 'ciprep-item--pausa' : ''}`} data-eje={ejeToken(item.franja)}>
                         <div class="ciprep-item__time">{item.hora}</div>
                         <div class="ciprep-item__body">
                           {item.ponente && (
@@ -1372,4 +1370,12 @@ const entidadesInternacionales = [
     /* Móviles en landscape: reducir espacio de la foto */
     .bio-modal__panel { grid-template-rows: 32vh 1fr; }
   }
+  /* Color de cada eje. Va por atributo y no escrito en el HTML, que la
+     política de seguridad del proveedor bloquea. */
+  [data-eje='apertura'] { --eje-color: #b38b40; --eje-bg: rgba(179, 139, 64, 0.1); }
+  [data-eje='i'] { --eje-color: #5b21b6; --eje-bg: rgba(91, 33, 182, 0.1); }
+  [data-eje='ii'] { --eje-color: #b91c1c; --eje-bg: rgba(185, 28, 28, 0.1); }
+  [data-eje='iii'] { --eje-color: #047857; --eje-bg: rgba(4, 120, 87, 0.1); }
+  [data-eje='iv'] { --eje-color: #0369a1; --eje-bg: rgba(3, 105, 161, 0.1); }
+  [data-eje='ninguno'] { --eje-color: var(--theme-text-muted); --eje-bg: transparent; }
 </style>

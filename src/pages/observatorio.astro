@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
+import { acento } from '../utils/acento';
 
 import { getObservatorioObservatorio } from '../utils/strapi-fetchers';
 
@@ -13,12 +14,6 @@ const breadcrumb = [
   { label: pageData.title }
 ];
 
-const colorMap: Record<string, string> = {
-  navy: 'var(--itrc-navy)',
-  gold: 'var(--itrc-gold)',
-  green: '#198754',
-  purple: '#6f42c1',
-};
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="observatorio-observatorio">
@@ -34,10 +29,9 @@ const colorMap: Record<string, string> = {
       <p class="obs-intro">{pageData.intro}</p>
 
       <div class="obs-grid">
-        {pageData.secciones.map((sec, i) => {
-          const accent = colorMap[sec.color] || 'var(--itrc-gold)';
+        {pageData.secciones.map((sec) => {
           return (
-            <a href={resolveUrl(sec.url)} class="obs-card" style={`--card-accent: ${accent}; --card-delay: ${i * 80}ms`}>
+            <a href={resolveUrl(sec.url)} class="obs-card" data-acento={acento(sec.color)}>
               <div class="obs-card__icon" aria-hidden="true">
                 <i class={`fa-solid ${sec.icon}`}></i>
                 <span class="obs-card__pulse"></span>
@@ -81,8 +75,17 @@ const colorMap: Record<string, string> = {
     opacity: 0;
     transform: translateY(20px);
     animation: obsCardIn 0.5s ease-out forwards;
-    animation-delay: var(--card-delay, 0ms);
   }
+  /* Entrada escalonada. Va por posición y no con un retardo escrito en el
+     HTML, porque la política de seguridad del proveedor bloquea esos estilos. */
+  .obs-card:nth-child(1) { animation-delay: 0ms; }
+  .obs-card:nth-child(2) { animation-delay: 80ms; }
+  .obs-card:nth-child(3) { animation-delay: 160ms; }
+  .obs-card:nth-child(4) { animation-delay: 240ms; }
+  .obs-card:nth-child(5) { animation-delay: 320ms; }
+  .obs-card:nth-child(6) { animation-delay: 400ms; }
+  .obs-card:nth-child(7) { animation-delay: 480ms; }
+  .obs-card:nth-child(n + 8) { animation-delay: 560ms; }
   .obs-card::before {
     content: '';
     position: absolute;

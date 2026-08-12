@@ -1,5 +1,6 @@
 ---
 import Base from '../../../../layouts/Base.astro';
+import { acento } from '../../../../utils/acento';
 import HeroPage from '../../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../../utils/url';
 import { getObservatorioEjeDeEducacionGlosarioNinos } from '../../../../utils/strapi-fetchers';
@@ -49,7 +50,7 @@ const conImagen = pageData.terminos.filter((t: any) => t.imagen).length;
           return (
             <article
               class={`gn-card gn-card--${tipo}`}
-              style={`--card-accent: ${accent}`}
+              data-acento={acento(accent)}
               data-term={t.termino.toLowerCase()}
               tabindex="0"
             >

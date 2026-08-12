@@ -76,7 +76,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
     <div class="container">
       <div class="normas-list">
         {normas.map((norma, index) => (
-          <article class="norma-card" style={`--delay: ${index * 40}ms`}>
+          <article class="norma-card">
             <div class="norma-card__header">
               <div class="norma-card__title-row">
                 <span class={`tipo-badge tipo--${tipoClass(norma.tipo)}`}>{norma.tipo}</span>

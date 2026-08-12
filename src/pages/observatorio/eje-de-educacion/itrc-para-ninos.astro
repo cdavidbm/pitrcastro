@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import { acento } from '../../../utils/acento';
 import HeroPage from '../../../components/HeroPage.astro';
 import { resolveUrl } from '../../../utils/url';
 import { getObservatorioEjeDeEducacionItrcParaNinos } from '../../../utils/strapi-fetchers';
@@ -27,18 +28,12 @@ const breadcrumb = [
         <div class="ninos-paint-panel" id="ninosPaintPanel" hidden>
           <p class="ninos-paint-panel__title">Elige tu tema favorito:</p>
           <div class="ninos-paint-themes" role="radiogroup" aria-label="Tema de colores">
-            <button type="button" class="paint-theme" data-theme="default" aria-label="Tema institucional" aria-checked="true"
-              style="--p1:#002147;--p2:#b38b40;--p3:#0943b5"></button>
-            <button type="button" class="paint-theme" data-theme="rainbow" aria-label="Arcoíris" aria-checked="false"
-              style="--p1:#e63946;--p2:#f6c453;--p3:#2a9d8f"></button>
-            <button type="button" class="paint-theme" data-theme="ocean" aria-label="Océano" aria-checked="false"
-              style="--p1:#1d3557;--p2:#48cae4;--p3:#caf0f8"></button>
-            <button type="button" class="paint-theme" data-theme="jungle" aria-label="Selva" aria-checked="false"
-              style="--p1:#386641;--p2:#a7c957;--p3:#f2e8cf"></button>
-            <button type="button" class="paint-theme" data-theme="space" aria-label="Espacio" aria-checked="false"
-              style="--p1:#22223b;--p2:#9d4edd;--p3:#f72585"></button>
-            <button type="button" class="paint-theme" data-theme="candy" aria-label="Caramelo" aria-checked="false"
-              style="--p1:#ff70a6;--p2:#ff9770;--p3:#ffd670"></button>
+            <button type="button" class="paint-theme" data-theme="default" aria-label="Tema institucional" aria-checked="true"></button>
+            <button type="button" class="paint-theme" data-theme="rainbow" aria-label="Arcoíris" aria-checked="false"></button>
+            <button type="button" class="paint-theme" data-theme="ocean" aria-label="Océano" aria-checked="false"></button>
+            <button type="button" class="paint-theme" data-theme="jungle" aria-label="Selva" aria-checked="false"></button>
+            <button type="button" class="paint-theme" data-theme="space" aria-label="Espacio" aria-checked="false"></button>
+            <button type="button" class="paint-theme" data-theme="candy" aria-label="Caramelo" aria-checked="false"></button>
           </div>
           <button type="button" class="paint-reset" id="ninosPaintReset">
             <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Volver al original
@@ -55,7 +50,7 @@ const breadcrumb = [
             target={sec.externo ? '_blank' : undefined}
             rel={sec.externo ? 'noopener' : undefined}
             class="ninos-card"
-            style={`--card-accent: ${sec.color}`}
+            data-acento={acento(sec.color)}
             data-card-original={sec.color}
           >
             <div class="ninos-card__icon"><i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i></div>
@@ -105,6 +100,14 @@ const breadcrumb = [
     box-shadow: 0 0 0 1px var(--theme-border);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   }
+  /* Paletas de cada tema. Van aquí y no en el HTML porque la política de
+     seguridad del proveedor bloquea los estilos escritos dentro de la página. */
+  .paint-theme[data-theme='default'] { --p1: #002147; --p2: #b38b40; --p3: #0943b5; }
+  .paint-theme[data-theme='rainbow'] { --p1: #e63946; --p2: #f6c453; --p3: #2a9d8f; }
+  .paint-theme[data-theme='ocean'] { --p1: #1d3557; --p2: #48cae4; --p3: #caf0f8; }
+  .paint-theme[data-theme='jungle'] { --p1: #386641; --p2: #a7c957; --p3: #f2e8cf; }
+  .paint-theme[data-theme='space'] { --p1: #22223b; --p2: #9d4edd; --p3: #f72585; }
+  .paint-theme[data-theme='candy'] { --p1: #ff70a6; --p2: #ff9770; --p3: #ffd670; }
   .paint-theme:hover { transform: scale(1.1); }
   .paint-theme[aria-checked="true"] { box-shadow: 0 0 0 3px var(--itrc-gold); }
 

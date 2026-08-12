@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { acento } from '../utils/acento';
 import HeroPage from '../components/HeroPage.astro';
 import { resolveUrl } from '../utils/url';
 
@@ -44,7 +45,7 @@ const colorMap: Record<string, string> = {
         {pageData.secciones.map((sec) => {
           const accent = colorMap[sec.color] || 'var(--itrc-gold)';
           return (
-            <a href={resolveUrl(sec.url)} class="participa-card" style={`--card-accent: ${accent}`}>
+            <a href={resolveUrl(sec.url)} class="participa-card" data-acento={acento(accent)}>
               <div class="participa-card__icon">
                 <i class={`fa-solid ${sec.icon}`} aria-hidden="true"></i>
               </div>

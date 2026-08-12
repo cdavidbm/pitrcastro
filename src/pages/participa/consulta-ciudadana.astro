@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { acento } from '../../utils/acento';
 import HeroPage from '../../components/HeroPage.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import { resolveUrl } from '../../utils/url';
@@ -47,7 +48,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
 
       <div class="subpage-links">
         {pageData.enlaces.map((enlace) => (
-          <a href={enlace.tipo === 'internal' ? resolveUrl(enlace.url) : enlace.url} target={enlace.tipo !== 'internal' ? '_blank' : undefined} rel={enlace.tipo !== 'internal' ? 'noopener' : undefined} class="subpage-link" style={`--link-color: ${linkColor(enlace.tipo)}`}>
+          <a href={enlace.tipo === 'internal' ? resolveUrl(enlace.url) : enlace.url} target={enlace.tipo !== 'internal' ? '_blank' : undefined} rel={enlace.tipo !== 'internal' ? 'noopener' : undefined} class="subpage-link" data-acento={acento(linkColor(enlace.tipo))}>
             <div class="subpage-link__icon">
               <i class={`fa-solid ${enlace.icon}`} aria-hidden="true"></i>
             </div>

@@ -445,6 +445,9 @@ const conArchivo = fichas.filter((f) => f.archivo).length;
     .rel-table-section { padding: var(--space-4); }
     .rel-table { min-width: 700px; }
   }
+  /* Separador del paginador. Con clase y no con estilo incrustado, que la
+     política de seguridad del proveedor bloquea. */
+  .rel-pag__hueco { padding: 8px; color: var(--theme-text-muted); }
 </style>
 
 <script>
@@ -480,7 +483,7 @@ const conArchivo = fichas.filter((f) => f.archivo).length;
       const pages = Math.ceil(total / size);
       let html = `<button ${page === 1 ? 'disabled' : ''} data-page="${page - 1}">&laquo;</button>`;
       for (const p of genPages(page, pages)) {
-        if (p === '...') html += '<span style="padding:8px;color:var(--theme-text-muted)">…</span>';
+        if (p === '...') html += '<span class="rel-pag__hueco">…</span>';
         else html += `<button class="${Number(p) === page ? 'active' : ''}" data-page="${p}">${p}</button>`;
       }
       html += `<button ${page === pages ? 'disabled' : ''} data-page="${page + 1}">&raquo;</button>`;

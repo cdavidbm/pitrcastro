@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { acento } from '../utils/acento';
 import HeroPage from '../components/HeroPage.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
@@ -61,7 +62,7 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
         {pageData.definiciones.map((def) => {
           const accent = colorMap[def.color] || 'var(--itrc-gold)';
           return (
-            <div class="pqrs-card" style={`--card-accent: ${accent}`}>
+            <div class="pqrs-card" data-acento={acento(accent)}>
               <div class="pqrs-card__letter">{def.letra}</div>
               <h3 class="pqrs-card__title">{def.titulo}</h3>
               <p class="pqrs-card__desc">{def.descripcion}</p>
