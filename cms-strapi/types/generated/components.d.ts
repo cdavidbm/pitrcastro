@@ -3017,7 +3017,7 @@ export interface TransparenciaSeccion extends Struct.ComponentSchema {
 }
 
 declare module '@strapi/strapi' {
-  export module Public {
+  export namespace Public {
     export interface ComponentSchemas {
       'agencia-direccionamiento-estrategico.marconormativo': AgenciaDireccionamientoEstrategicoMarconormativo;
       'agencia-direccionamiento-estrategico.norma': AgenciaDireccionamientoEstrategicoNorma;
