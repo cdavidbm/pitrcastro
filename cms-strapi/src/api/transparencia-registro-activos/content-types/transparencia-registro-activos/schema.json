@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-registro-activos",
     "pluralName": "transparencia-registro-activoses",
-    "displayName": "Registro Activos",
+    "displayName": "Registro de Activos de Información",
     "description": "Página única del dominio \"Transparencia\": Registro Activos. Publicada en: /registro-activos-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

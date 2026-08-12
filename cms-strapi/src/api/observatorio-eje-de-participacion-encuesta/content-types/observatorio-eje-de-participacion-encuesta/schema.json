@@ -4,7 +4,7 @@
   "info": {
     "singularName": "observatorio-eje-de-participacion-encuesta",
     "pluralName": "observatorio-eje-de-participacion-encuestas",
-    "displayName": "Eje de Participación Encuesta",
+    "displayName": "Encuesta Ciudadana",
     "description": "Página única del dominio \"Observatorio ITRC\": Eje de Participación Encuesta. Publicada en: /observatorio/eje-de-participacion/encuesta-ciudadana. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

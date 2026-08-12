@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-documentacion-registro-publicaciones",
     "pluralName": "transparencia-documentacion-registro-publicacioneses",
-    "displayName": "Documentación Registro Publicaciones",
+    "displayName": "Registro de Publicaciones",
     "description": "Página única del dominio \"Transparencia\": Documentación Registro Publicaciones. Publicada en: /registro-de-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

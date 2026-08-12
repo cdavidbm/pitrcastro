@@ -4,7 +4,7 @@
   "info": {
     "singularName": "atencion-pqrs",
     "pluralName": "atencion-pqrses",
-    "displayName": "PQRS",
+    "displayName": "PQRSDF",
     "description": "Página única del dominio \"Atención y Servicios\": PQRS. Publicada en: /tu-p-q-r-s-al-dia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

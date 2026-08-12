@@ -4,7 +4,7 @@
   "info": {
     "singularName": "atencion-landing",
     "pluralName": "atencion-landings",
-    "displayName": "Atención y Servicios (portada)",
+    "displayName": "Atención y Servicios",
     "description": "Página única del dominio \"Atención y Servicios\": Landing. Publicada en: /atencion-y-servicios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

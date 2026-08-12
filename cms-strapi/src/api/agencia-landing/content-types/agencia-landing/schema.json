@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agencia-landing",
     "pluralName": "agencia-landings",
-    "displayName": "Agencia (portada)",
+    "displayName": "La Agencia",
     "description": "Página única del dominio \"Agencia\": Landing. Publicada en: /agencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

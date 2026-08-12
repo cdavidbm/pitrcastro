@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-tablas-retencion",
     "pluralName": "transparencia-tablas-retencions",
-    "displayName": "Tablas Retencion",
+    "displayName": "Tablas de Retención Documental",
     "description": "Página única del dominio \"Transparencia\": Tablas Retencion. Publicada en: /tablas-retencion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

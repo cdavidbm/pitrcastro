@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-sede-horarios",
     "pluralName": "transparencia-sede-horarioses",
-    "displayName": "Sede Horarios",
+    "displayName": "Sede y Horarios",
     "description": "Página única del dominio \"Transparencia\": Sede Horarios. Publicada en: /sede-y-horarios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

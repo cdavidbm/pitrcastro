@@ -4,7 +4,7 @@
   "info": {
     "singularName": "prensa-capsulas",
     "pluralName": "prensa-capsulases",
-    "displayName": "Capsulas",
+    "displayName": "Cápsulas Informativas",
     "description": "Página única del dominio \"Prensa\": Capsulas. Publicada en: /capsulas-informativas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -36,7 +36,7 @@
               "uid": "api::agencia-landing.agencia-landing",
               "slug": "agencia-landing",
               "kind": "single",
-              "label": "Agencia (portada)",
+              "label": "La Agencia",
               "url": "/agencia"
             }
           ]
@@ -85,46 +85,46 @@
           "label": "Empleo y talento humano",
           "items": [
             {
-              "uid": "api::agencia-empleo-rrhh-manual-especifico-funciones.agencia-empleo-rrhh-manual-especifico-funciones",
-              "slug": "agencia-empleo-rrhh-manual-especifico-funciones",
+              "uid": "api::agencia-escala-salarial.agencia-escala-salarial",
+              "slug": "agencia-escala-salarial",
               "kind": "single",
-              "label": "Empleo RRHH Manual Específico Funciones",
-              "url": "/manual-especifico-de-funciones-y-de-competencias-laborales"
+              "label": "Escala Salarial",
+              "url": "/escala-salarial"
             },
             {
               "uid": "api::agencia-empleo-rrhh-manual-identidad-visual.agencia-empleo-rrhh-manual-identidad-visual",
               "slug": "agencia-empleo-rrhh-manual-identidad-visual",
               "kind": "single",
-              "label": "Empleo RRHH Manual Identidad Visual",
+              "label": "Manual de Identidad Visual ITRC",
               "url": "/manual-de-identidad-visual-itrc"
+            },
+            {
+              "uid": "api::agencia-empleo-rrhh-manual-especifico-funciones.agencia-empleo-rrhh-manual-especifico-funciones",
+              "slug": "agencia-empleo-rrhh-manual-especifico-funciones",
+              "kind": "single",
+              "label": "Manual Específico de Funciones y de Competencias Laborales",
+              "url": "/manual-especifico-de-funciones-y-de-competencias-laborales"
             },
             {
               "uid": "api::agencia-empleo-rrhh-manuales-internos.agencia-empleo-rrhh-manuales-internos",
               "slug": "agencia-empleo-rrhh-manuales-internos",
               "kind": "single",
-              "label": "Empleo RRHH Manuales Internos",
+              "label": "Manuales internos",
               "url": "/manuales-internos"
             },
             {
               "uid": "api::agencia-empleo-rrhh-nombramientos.agencia-empleo-rrhh-nombramientos",
               "slug": "agencia-empleo-rrhh-nombramientos",
               "kind": "single",
-              "label": "Empleo RRHH Nombramientos",
+              "label": "Nombramientos",
               "url": "/nombramientos"
             },
             {
               "uid": "api::agencia-empleo-rrhh-ofertas-empleo.agencia-empleo-rrhh-ofertas-empleo",
               "slug": "agencia-empleo-rrhh-ofertas-empleo",
               "kind": "single",
-              "label": "Empleo RRHH Ofertas Empleo",
+              "label": "Ofertas de empleo",
               "url": "/ofertas-de-empleo"
-            },
-            {
-              "uid": "api::agencia-escala-salarial.agencia-escala-salarial",
-              "slug": "agencia-escala-salarial",
-              "kind": "single",
-              "label": "Escala Salarial",
-              "url": "/escala-salarial"
             }
           ]
         },
@@ -182,7 +182,7 @@
               "uid": "api::agencia-mision-vision.agencia-mision-vision",
               "slug": "agencia-mision-vision",
               "kind": "single",
-              "label": "Mision Vision",
+              "label": "Misión, Visión y Propósito Estratégico",
               "url": "/agencia/mision-vision"
             },
             {
@@ -207,7 +207,7 @@
               "uid": "api::normativa-landing.normativa-landing",
               "slug": "normativa-landing",
               "kind": "single",
-              "label": "Normativa (portada)",
+              "label": "Normativa",
               "url": "/normativa"
             }
           ]
@@ -262,7 +262,7 @@
               "uid": "api::normograma.normograma",
               "slug": "normograma",
               "kind": "single",
-              "label": "Normograma",
+              "label": "Normativa Aplicable",
               "url": "/normativa-aplicada"
             }
           ]
@@ -274,7 +274,7 @@
               "uid": "api::normativa-resoluciones.normativa-resoluciones",
               "slug": "normativa-resoluciones",
               "kind": "single",
-              "label": "Resoluciones",
+              "label": "Resoluciones, Circulares y Otros Actos Administrativos",
               "url": "/documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos"
             }
           ]
@@ -286,7 +286,7 @@
               "uid": "api::normativa-unificacion-suin-juriscol.normativa-unificacion-suin-juriscol",
               "slug": "normativa-unificacion-suin-juriscol",
               "kind": "single",
-              "label": "Unificación SUIN Juriscol",
+              "label": "Unificación Normativa SUIN Juriscol",
               "url": "/transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol"
             }
           ]
@@ -304,7 +304,7 @@
               "uid": "api::atencion-landing.atencion-landing",
               "slug": "atencion-landing",
               "kind": "single",
-              "label": "Atención y Servicios (portada)",
+              "label": "Atención y Servicios",
               "url": "/atencion-y-servicios"
             }
           ]
@@ -328,7 +328,7 @@
               "uid": "api::atencion-carta-trato-digno.atencion-carta-trato-digno",
               "slug": "atencion-carta-trato-digno",
               "kind": "single",
-              "label": "Carta Trato Digno",
+              "label": "Carta de Trato Digno al Ciudadano",
               "url": "/carta-trato-digno"
             }
           ]
@@ -352,7 +352,7 @@
               "uid": "api::atencion-correo-notificaciones-judiciales.atencion-correo-notificaciones-judiciales",
               "slug": "atencion-correo-notificaciones-judiciales",
               "kind": "single",
-              "label": "Correo Notificaciones Judiciales",
+              "label": "Correo Electrónico para Notificaciones Judiciales",
               "url": "/correo-electronico-para-notificaciones-judiciales"
             }
           ]
@@ -392,18 +392,18 @@
           "label": "PQRSDF",
           "items": [
             {
-              "uid": "api::atencion-pqrs.atencion-pqrs",
-              "slug": "atencion-pqrs",
-              "kind": "single",
-              "label": "PQRS",
-              "url": "/tu-p-q-r-s-al-dia"
-            },
-            {
               "uid": "api::atencion-pqrs-servidores.atencion-pqrs-servidores",
               "slug": "atencion-pqrs-servidores",
               "kind": "single",
-              "label": "PQRS Servidores",
+              "label": "Informes PQRS — Servidores Agencia ITRC",
               "url": "/p-q-r-s-servidores-agencia-itrc"
+            },
+            {
+              "uid": "api::atencion-pqrs.atencion-pqrs",
+              "slug": "atencion-pqrs",
+              "kind": "single",
+              "label": "PQRSDF",
+              "url": "/tu-p-q-r-s-al-dia"
             }
           ]
         },
@@ -426,7 +426,7 @@
               "uid": "api::atencion-vinculacion-a-terceros.atencion-vinculacion-a-terceros",
               "slug": "atencion-vinculacion-a-terceros",
               "kind": "single",
-              "label": "Vinculación a Terceros",
+              "label": "Vinculación a Terceros – Cancelación de Registro Público",
               "url": "/vinculacion-a-terceros-cancelacion-de-registro-publico"
             }
           ]
@@ -444,7 +444,7 @@
               "uid": "api::participa.participa",
               "slug": "participa",
               "kind": "single",
-              "label": "Participa (portada)",
+              "label": "Participa",
               "url": "/participa"
             }
           ]
@@ -456,7 +456,7 @@
               "uid": "api::participa-colaboracion.participa-colaboracion",
               "slug": "participa-colaboracion",
               "kind": "single",
-              "label": "Colaboracion",
+              "label": "Colaboración e Innovación",
               "url": "/participa/colaboracion-e-innovacion"
             }
           ]
@@ -492,7 +492,7 @@
               "uid": "api::participa-diagnostico.participa-diagnostico",
               "slug": "participa-diagnostico",
               "kind": "single",
-              "label": "Diagnostico",
+              "label": "Diagnóstico e Identificación de Problemas",
               "url": "/participa/diagnostico-e-identificacion-de-problemas"
             }
           ]
@@ -504,22 +504,22 @@
               "uid": "api::participa-atencion-informe-comite-conciliacion.participa-atencion-informe-comite-conciliacion",
               "slug": "participa-atencion-informe-comite-conciliacion",
               "kind": "single",
-              "label": "Atención Informe Comité Conciliación",
+              "label": "Informe de Gestión del Comité de Conciliación",
               "url": "/informe-de-gestion-del-comite-de-conciliacion"
-            },
-            {
-              "uid": "api::participa-atencion-otros-grupos-interes.participa-atencion-otros-grupos-interes",
-              "slug": "participa-atencion-otros-grupos-interes",
-              "kind": "single",
-              "label": "Atención Otros Grupos Interés",
-              "url": "/otros-de-grupos-de-interes"
             },
             {
               "uid": "api::participa-atencion-respuesta-anonimos.participa-atencion-respuesta-anonimos",
               "slug": "participa-atencion-respuesta-anonimos",
               "kind": "single",
-              "label": "Atención Respuesta Anónimos",
+              "label": "Notificación por Aviso",
               "url": "/respuesta-anonimos"
+            },
+            {
+              "uid": "api::participa-atencion-otros-grupos-interes.participa-atencion-otros-grupos-interes",
+              "slug": "participa-atencion-otros-grupos-interes",
+              "kind": "single",
+              "label": "Otros grupos de interés",
+              "url": "/otros-de-grupos-de-interes"
             }
           ]
         },
@@ -530,7 +530,7 @@
               "uid": "api::participa-planeacion.participa-planeacion",
               "slug": "participa-planeacion",
               "kind": "single",
-              "label": "Planeacion",
+              "label": "Planeación y Presupuesto Participativo",
               "url": "/participa/planeacion-y-presupuesto-participativo"
             }
           ]
@@ -560,7 +560,7 @@
               "uid": "api::transparencia.transparencia",
               "slug": "transparencia",
               "kind": "single",
-              "label": "Transparencia (portada)",
+              "label": "Transparencia y Acceso a la Información",
               "url": "/transparencia"
             }
           ]
@@ -572,42 +572,42 @@
               "uid": "api::transparencia-accesibilidad.transparencia-accesibilidad",
               "slug": "transparencia-accesibilidad",
               "kind": "single",
-              "label": "Accesibilidad",
+              "label": "Accesibilidad Web",
               "url": "/accesibilidad"
             },
             {
               "uid": "api::transparencia-formatos-formularios.transparencia-formatos-formularios",
               "slug": "transparencia-formatos-formularios",
               "kind": "single",
-              "label": "Formatos Formularios",
+              "label": "Formatos y Formularios",
               "url": "/formatos-y-formularios"
-            },
-            {
-              "uid": "api::transparencia-procedimientos.transparencia-procedimientos",
-              "slug": "transparencia-procedimientos",
-              "kind": "single",
-              "label": "Procedimientos",
-              "url": "/procedimientos-decisiones"
             },
             {
               "uid": "api::transparencia-procedimientos-decisiones.transparencia-procedimientos-decisiones",
               "slug": "transparencia-procedimientos-decisiones",
               "kind": "single",
-              "label": "Procedimientos Decisiones",
+              "label": "Procedimientos en las diferentes áreas",
               "url": "/procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas"
+            },
+            {
+              "uid": "api::transparencia-procedimientos.transparencia-procedimientos",
+              "slug": "transparencia-procedimientos",
+              "kind": "single",
+              "label": "Procedimientos para tomar decisiones",
+              "url": "/procedimientos-decisiones"
             },
             {
               "uid": "api::transparencia-protocolo-atencion.transparencia-protocolo-atencion",
               "slug": "transparencia-protocolo-atencion",
               "kind": "single",
-              "label": "Protocolo Atención",
+              "label": "Protocolo de Atención al Ciudadano",
               "url": "/protocolo-de-atencion-al-ciudadano"
             },
             {
               "uid": "api::transparencia-sede-horarios.transparencia-sede-horarios",
               "slug": "transparencia-sede-horarios",
               "kind": "single",
-              "label": "Sede Horarios",
+              "label": "Sede y Horarios",
               "url": "/sede-y-horarios"
             },
             {
@@ -623,60 +623,60 @@
           "label": "Contratación",
           "items": [
             {
-              "uid": "api::transparencia-contratacion-contratacion-suscrita.transparencia-contratacion-contratacion-suscrita",
-              "slug": "transparencia-contratacion-contratacion-suscrita",
-              "kind": "single",
-              "label": "Contratación Contratación Suscrita",
-              "url": "/contratacion-suscrita"
-            },
-            {
               "uid": "api::transparencia-contratacion-ejecucion.transparencia-contratacion-ejecucion",
               "slug": "transparencia-contratacion-ejecucion",
               "kind": "single",
-              "label": "Contratación Ejecución",
+              "label": "Ejecución de Contratos",
               "url": "/publicacion-ejecucion-contratos"
-            },
-            {
-              "uid": "api::transparencia-contratacion-ejecucion-contratos.transparencia-contratacion-ejecucion-contratos",
-              "slug": "transparencia-contratacion-ejecucion-contratos",
-              "kind": "single",
-              "label": "Contratación Ejecución Contratos",
-              "url": "/publicacion-de-la-ejecucion-de-contratos"
             },
             {
               "uid": "api::transparencia-contratacion-formatos.transparencia-contratacion-formatos",
               "slug": "transparencia-contratacion-formatos",
               "kind": "single",
-              "label": "Contratación Formatos",
+              "label": "Formatos de Contratos y Pliego Tipo",
               "url": "/formatos-contratos-pliego-tipo"
+            },
+            {
+              "uid": "api::transparencia-formatos-contratos-pliegos-tipo.transparencia-formatos-contratos-pliegos-tipo",
+              "slug": "transparencia-formatos-contratos-pliegos-tipo",
+              "kind": "single",
+              "label": "Formatos o modelos de contratos o pliego tipo",
+              "url": "/formatos-o-modelos-de-contratos-o-pliego-tipo"
+            },
+            {
+              "uid": "api::transparencia-contratacion-contratacion-suscrita.transparencia-contratacion-contratacion-suscrita",
+              "slug": "transparencia-contratacion-contratacion-suscrita",
+              "kind": "single",
+              "label": "Información Contractual",
+              "url": "/contratacion-suscrita"
             },
             {
               "uid": "api::transparencia-contratacion-manual.transparencia-contratacion-manual",
               "slug": "transparencia-contratacion-manual",
               "kind": "single",
-              "label": "Contratación Manual",
+              "label": "Manual de Contratación",
               "url": "/manual-contratacion"
             },
             {
               "uid": "api::transparencia-contratacion-plan-adquisiciones.transparencia-contratacion-plan-adquisiciones",
               "slug": "transparencia-contratacion-plan-adquisiciones",
               "kind": "single",
-              "label": "Contratación Plan Adquisiciones",
+              "label": "Plan Anual de Adquisiciones",
               "url": "/plan-de-adquisiciones"
             },
             {
               "uid": "api::transparencia-contratacion-procedimientos-adquisicion.transparencia-contratacion-procedimientos-adquisicion",
               "slug": "transparencia-contratacion-procedimientos-adquisicion",
               "kind": "single",
-              "label": "Contratación Procedimientos Adquisición",
+              "label": "Procedimientos de adquisición",
               "url": "/publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras"
             },
             {
-              "uid": "api::transparencia-formatos-contratos-pliegos-tipo.transparencia-formatos-contratos-pliegos-tipo",
-              "slug": "transparencia-formatos-contratos-pliegos-tipo",
+              "uid": "api::transparencia-contratacion-ejecucion-contratos.transparencia-contratacion-ejecucion-contratos",
+              "slug": "transparencia-contratacion-ejecucion-contratos",
               "kind": "single",
-              "label": "Formatos Contratos Pliegos Tipo",
-              "url": "/formatos-o-modelos-de-contratos-o-pliego-tipo"
+              "label": "Publicación de la ejecución de contratos",
+              "url": "/publicacion-de-la-ejecucion-de-contratos"
             }
           ]
         },
@@ -698,20 +698,6 @@
               "url": "/esquema-de-publicacion-de-la-informacion"
             },
             {
-              "uid": "api::transparencia-documentacion-proteccion-datos.transparencia-documentacion-proteccion-datos",
-              "slug": "transparencia-documentacion-proteccion-datos",
-              "kind": "single",
-              "label": "Documentación Protección Datos",
-              "url": "/proteccion-de-datos-personales"
-            },
-            {
-              "uid": "api::transparencia-documentacion-registro-publicaciones.transparencia-documentacion-registro-publicaciones",
-              "slug": "transparencia-documentacion-registro-publicaciones",
-              "kind": "single",
-              "label": "Documentación Registro Publicaciones",
-              "url": "/registro-de-publicaciones"
-            },
-            {
               "uid": "api::transparencia-esquema-publicacion.transparencia-esquema-publicacion",
               "slug": "transparencia-esquema-publicacion",
               "kind": "single",
@@ -722,28 +708,42 @@
               "uid": "api::transparencia-indice-informacion-clasificada.transparencia-indice-informacion-clasificada",
               "slug": "transparencia-indice-informacion-clasificada",
               "kind": "single",
-              "label": "Índice Información Clasificada",
+              "label": "Índice de Información Clasificada y Reservada",
               "url": "/indice-de-informacion-clasificada-y-reservada"
             },
             {
               "uid": "api::transparencia-programa-gestion-documental.transparencia-programa-gestion-documental",
               "slug": "transparencia-programa-gestion-documental",
               "kind": "single",
-              "label": "Programa Gestión Documental",
+              "label": "Programa de Gestión Documental",
               "url": "/programa-gestion-documental"
+            },
+            {
+              "uid": "api::transparencia-documentacion-proteccion-datos.transparencia-documentacion-proteccion-datos",
+              "slug": "transparencia-documentacion-proteccion-datos",
+              "kind": "single",
+              "label": "Protección de Datos Personales",
+              "url": "/proteccion-de-datos-personales"
             },
             {
               "uid": "api::transparencia-registro-activos.transparencia-registro-activos",
               "slug": "transparencia-registro-activos",
               "kind": "single",
-              "label": "Registro Activos",
+              "label": "Registro de Activos de Información",
               "url": "/registro-activos-informacion"
+            },
+            {
+              "uid": "api::transparencia-documentacion-registro-publicaciones.transparencia-documentacion-registro-publicaciones",
+              "slug": "transparencia-documentacion-registro-publicaciones",
+              "kind": "single",
+              "label": "Registro de Publicaciones",
+              "url": "/registro-de-publicaciones"
             },
             {
               "uid": "api::transparencia-tablas-retencion.transparencia-tablas-retencion",
               "slug": "transparencia-tablas-retencion",
               "kind": "single",
-              "label": "Tablas Retencion",
+              "label": "Tablas de Retención Documental",
               "url": "/tablas-retencion-documental"
             }
           ]
@@ -755,35 +755,35 @@
               "uid": "api::transparencia-agremiaciones.transparencia-agremiaciones",
               "slug": "transparencia-agremiaciones",
               "kind": "single",
-              "label": "Agremiaciones",
+              "label": "Directorio de Agremiaciones",
               "url": "/directorio-de-agremiaciones"
             },
             {
               "uid": "api::transparencia-directorio-entidades.transparencia-directorio-entidades",
               "slug": "transparencia-directorio-entidades",
               "kind": "single",
-              "label": "Directorio Entidades",
+              "label": "Directorio de Entidades",
               "url": "/directorio-de-entidades"
             },
             {
               "uid": "api::transparencia-documentacion-formato-grupos-etnicos.transparencia-documentacion-formato-grupos-etnicos",
               "slug": "transparencia-documentacion-formato-grupos-etnicos",
               "kind": "single",
-              "label": "Documentación Formato Grupos Étnicos",
+              "label": "Formato alternativo para grupos étnicos y culturales",
               "url": "/formato-alternativo-para-grupos-etnicos-y-culturales"
             },
             {
               "uid": "api::transparencia-informacion-mujeres.transparencia-informacion-mujeres",
               "slug": "transparencia-informacion-mujeres",
               "kind": "single",
-              "label": "Información Mujeres",
+              "label": "Información para Mujeres",
               "url": "/informacion-para-mujeres"
             },
             {
               "uid": "api::transparencia-otros-grupos.transparencia-otros-grupos",
               "slug": "transparencia-otros-grupos",
               "kind": "single",
-              "label": "Otros Grupos",
+              "label": "Otros Grupos de Interés",
               "url": "/otros-grupos-de-interes"
             }
           ]
@@ -795,7 +795,7 @@
               "uid": "api::transparencia-comite-conciliacion.transparencia-comite-conciliacion",
               "slug": "transparencia-comite-conciliacion",
               "kind": "single",
-              "label": "Comité Conciliación",
+              "label": "Comité de Conciliación",
               "url": "/informe-comite-conciliacion"
             },
             {
@@ -809,7 +809,7 @@
               "uid": "api::transparencia-evaluacion-independiente.transparencia-evaluacion-independiente",
               "slug": "transparencia-evaluacion-independiente",
               "kind": "single",
-              "label": "Evaluación Independiente",
+              "label": "Evaluación Independiente — SCI",
               "url": "/evaluacion-independiente-control-interno"
             },
             {
@@ -820,6 +820,20 @@
               "url": null
             },
             {
+              "uid": "api::transparencia-informes-organismos.transparencia-informes-organismos",
+              "slug": "transparencia-informes-organismos",
+              "kind": "single",
+              "label": "Informes a Organismos de Control",
+              "url": "/informes-organismos-inspeccion"
+            },
+            {
+              "uid": "api::transparencia-informes-organismos-ivc.transparencia-informes-organismos-ivc",
+              "slug": "transparencia-informes-organismos-ivc",
+              "kind": "single",
+              "label": "Informes a Organismos de Inspección, Vigilancia y Control",
+              "url": "/informes-a-organismos-de-inspeccion-vigilancia-y-control"
+            },
+            {
               "uid": "api::transparencia-informes-legales.transparencia-informes-legales",
               "slug": "transparencia-informes-legales",
               "kind": "single",
@@ -827,24 +841,10 @@
               "url": "/informes-legales"
             },
             {
-              "uid": "api::transparencia-informes-organismos.transparencia-informes-organismos",
-              "slug": "transparencia-informes-organismos",
-              "kind": "single",
-              "label": "Informes Organismos",
-              "url": "/informes-organismos-inspeccion"
-            },
-            {
-              "uid": "api::transparencia-informes-organismos-ivc.transparencia-informes-organismos-ivc",
-              "slug": "transparencia-informes-organismos-ivc",
-              "kind": "single",
-              "label": "Informes Organismos IVC",
-              "url": "/informes-a-organismos-de-inspeccion-vigilancia-y-control"
-            },
-            {
               "uid": "api::transparencia-supervision-vigilancia.transparencia-supervision-vigilancia",
               "slug": "transparencia-supervision-vigilancia",
               "kind": "single",
-              "label": "Supervisión Vigilancia",
+              "label": "Supervisión y Vigilancia",
               "url": "/supervision-y-vigilancia"
             }
           ]
@@ -856,14 +856,14 @@
               "uid": "api::transparencia-decreto-unico.transparencia-decreto-unico",
               "slug": "transparencia-decreto-unico",
               "kind": "single",
-              "label": "Decreto Unico",
+              "label": "Decreto Único Reglamentario",
               "url": "/decreto-unico-reglamentario"
             },
             {
               "uid": "api::transparencia-decretos-estructura.transparencia-decretos-estructura",
               "slug": "transparencia-decretos-estructura",
               "kind": "single",
-              "label": "Decretos Estructura",
+              "label": "Decretos de estructura, salarios, leyes marco y otros",
               "url": "/decretos-de-estructura-salarios-leyes-marco-y-otros"
             },
             {
@@ -877,7 +877,7 @@
               "uid": "api::transparencia-normas-servicio.transparencia-normas-servicio",
               "slug": "transparencia-normas-servicio",
               "kind": "single",
-              "label": "Normas Servicio",
+              "label": "Normas que los sustentan",
               "url": "/normas-servicio-publico"
             },
             {
@@ -891,14 +891,14 @@
               "uid": "api::transparencia-politicas-manuales.transparencia-politicas-manuales",
               "slug": "transparencia-politicas-manuales",
               "kind": "single",
-              "label": "Políticas Manuales",
+              "label": "Políticas, Lineamientos y Manuales",
               "url": "/politicas-lineamientos-y-manuales"
             },
             {
               "uid": "api::transparencia-proyectos-normas-comentarios.transparencia-proyectos-normas-comentarios",
               "slug": "transparencia-proyectos-normas-comentarios",
               "kind": "single",
-              "label": "Proyectos Normas Comentarios",
+              "label": "Proyectos de normas para comentarios",
               "url": "/proyectos-de-normas-para-comentarios"
             },
             {
@@ -917,35 +917,35 @@
               "uid": "api::transparencia-informes-empalme.transparencia-informes-empalme",
               "slug": "transparencia-informes-empalme",
               "kind": "single",
-              "label": "Informes Empalme",
+              "label": "Informes de Empalme",
               "url": "/informes-de-empalme"
             },
             {
               "uid": "api::transparencia-planes-mejoramiento.transparencia-planes-mejoramiento",
               "slug": "transparencia-planes-mejoramiento",
               "kind": "single",
-              "label": "Planes Mejoramiento",
+              "label": "Planes de Mejoramiento",
               "url": "/planes-de-mejoramiento"
             },
             {
               "uid": "api::transparencia-proyectos-inversion.transparencia-proyectos-inversion",
               "slug": "transparencia-proyectos-inversion",
               "kind": "single",
-              "label": "Proyectos Inversion",
+              "label": "Proyectos de Inversión",
               "url": "/programas-y-proyectos-en-ejecucion"
             },
             {
               "uid": "api::transparencia-rendicion-cuenta-contraloria.transparencia-rendicion-cuenta-contraloria",
               "slug": "transparencia-rendicion-cuenta-contraloria",
               "kind": "single",
-              "label": "Rendición Cuenta Contraloría",
+              "label": "Rendición Cuenta Fiscal — CGR",
               "url": "/informe-rendicion-cuenta-contraloria"
             },
             {
               "uid": "api::transparencia-reporte-austeridad-gasto.transparencia-reporte-austeridad-gasto",
               "slug": "transparencia-reporte-austeridad-gasto",
               "kind": "single",
-              "label": "Reporte Austeridad Gasto",
+              "label": "Reporte de Austeridad en el Gasto Público",
               "url": "/reporte-austeridad-en-el-gasto"
             }
           ]
@@ -957,7 +957,7 @@
               "uid": "api::transparencia-hojas-de-vida.transparencia-hojas-de-vida",
               "slug": "transparencia-hojas-de-vida",
               "kind": "single",
-              "label": "Hojas de Vida",
+              "label": "Publicación Hojas de Vida",
               "url": "/publicacion-hojas-de-vida"
             }
           ]
@@ -972,6 +972,41 @@
           "label": "Eje de Educación",
           "items": [
             {
+              "uid": "api::observatorio-eje-de-educacion-video-ninos.observatorio-eje-de-educacion-video-ninos",
+              "slug": "observatorio-eje-de-educacion-video-ninos",
+              "kind": "single",
+              "label": "¿Qué es la ITRC?",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/video-ninos"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-articulos.observatorio-eje-de-educacion-articulos",
+              "slug": "observatorio-eje-de-educacion-articulos",
+              "kind": "single",
+              "label": "Artículos y Publicaciones",
+              "url": "/observatorio/eje-de-educacion/articulos-y-publicaciones"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-cartilla-infantil.observatorio-eje-de-educacion-cartilla-infantil",
+              "slug": "observatorio-eje-de-educacion-cartilla-infantil",
+              "kind": "single",
+              "label": "Cartilla Infantil",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cartilla-infantil"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-conociendo.observatorio-eje-de-educacion-conociendo",
+              "slug": "observatorio-eje-de-educacion-conociendo",
+              "kind": "single",
+              "label": "Conociendo más de ITRC",
+              "url": "/observatorio/eje-de-educacion/conociendo-mas-del-itrc"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-cuento.observatorio-eje-de-educacion-cuento",
+              "slug": "observatorio-eje-de-educacion-cuento",
+              "kind": "single",
+              "label": "Cuento ITRC para Niños",
+              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cuento"
+            },
+            {
               "uid": "api::observatorio-eje-de-educacion.observatorio-eje-de-educacion",
               "slug": "observatorio-eje-de-educacion",
               "kind": "single",
@@ -979,95 +1014,32 @@
               "url": "/observatorio/eje-de-educacion"
             },
             {
-              "uid": "api::observatorio-eje-de-educacion-articulos.observatorio-eje-de-educacion-articulos",
-              "slug": "observatorio-eje-de-educacion-articulos",
-              "kind": "single",
-              "label": "Eje de Educación Artículos",
-              "url": "/observatorio/eje-de-educacion/articulos-y-publicaciones"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-cartilla-infantil.observatorio-eje-de-educacion-cartilla-infantil",
-              "slug": "observatorio-eje-de-educacion-cartilla-infantil",
-              "kind": "single",
-              "label": "Eje de Educación Cartilla Infantil",
-              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cartilla-infantil"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-conociendo.observatorio-eje-de-educacion-conociendo",
-              "slug": "observatorio-eje-de-educacion-conociendo",
-              "kind": "single",
-              "label": "Eje de Educación Conociendo",
-              "url": "/observatorio/eje-de-educacion/conociendo-mas-del-itrc"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-cuento.observatorio-eje-de-educacion-cuento",
-              "slug": "observatorio-eje-de-educacion-cuento",
-              "kind": "single",
-              "label": "Eje de Educación Cuento",
-              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/cuento"
-            },
-            {
               "uid": "api::observatorio-eje-de-educacion-glosario-ninos.observatorio-eje-de-educacion-glosario-ninos",
               "slug": "observatorio-eje-de-educacion-glosario-ninos",
               "kind": "single",
-              "label": "Eje de Educación Glosario Niños",
+              "label": "Glosario para Niños",
               "url": "/observatorio/eje-de-educacion/itrc-para-ninos/glosario-ninos"
             },
             {
               "uid": "api::observatorio-eje-de-educacion-itrc-para-ninos.observatorio-eje-de-educacion-itrc-para-ninos",
               "slug": "observatorio-eje-de-educacion-itrc-para-ninos",
               "kind": "single",
-              "label": "Eje de Educación ITRC Para Niños",
+              "label": "ITRC Para Niños, Niñas y Adolescentes",
               "url": "/observatorio/eje-de-educacion/itrc-para-ninos"
             },
             {
               "uid": "api::observatorio-eje-de-educacion-juego-de-roles.observatorio-eje-de-educacion-juego-de-roles",
               "slug": "observatorio-eje-de-educacion-juego-de-roles",
               "kind": "single",
-              "label": "Eje de Educación Juego de Roles",
+              "label": "Juegos Interactivos",
               "url": "/observatorio/eje-de-educacion/juego-de-roles"
             },
             {
               "uid": "api::observatorio-eje-de-educacion-libro-infantil.observatorio-eje-de-educacion-libro-infantil",
               "slug": "observatorio-eje-de-educacion-libro-infantil",
               "kind": "single",
-              "label": "Eje de Educación Libro Infantil",
+              "label": "Libro Infantil",
               "url": "/observatorio/eje-de-educacion/itrc-para-ninos/libro-infantil"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-memorias-info.observatorio-eje-de-educacion-memorias-info",
-              "slug": "observatorio-eje-de-educacion-memorias-info",
-              "kind": "single",
-              "label": "Eje de Educación Memorias Info",
-              "url": "/observatorio/eje-de-educacion/memorias"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-quiz.observatorio-eje-de-educacion-quiz",
-              "slug": "observatorio-eje-de-educacion-quiz",
-              "kind": "single",
-              "label": "Eje de Educación Quiz",
-              "url": "/observatorio/eje-de-educacion/juego-de-roles/quiz"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-repositorio-juridico.observatorio-eje-de-educacion-repositorio-juridico",
-              "slug": "observatorio-eje-de-educacion-repositorio-juridico",
-              "kind": "single",
-              "label": "Eje de Educación Repositorio Jurídico",
-              "url": "/observatorio/eje-de-educacion/repositorio-juridico"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-sopa-de-letras.observatorio-eje-de-educacion-sopa-de-letras",
-              "slug": "observatorio-eje-de-educacion-sopa-de-letras",
-              "kind": "single",
-              "label": "Eje de Educación Sopa de Letras",
-              "url": "/observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras"
-            },
-            {
-              "uid": "api::observatorio-eje-de-educacion-video-ninos.observatorio-eje-de-educacion-video-ninos",
-              "slug": "observatorio-eje-de-educacion-video-ninos",
-              "kind": "single",
-              "label": "Eje de Educación Video Niños",
-              "url": "/observatorio/eje-de-educacion/itrc-para-ninos/video-ninos"
             },
             {
               "uid": "api::observatorio-eje-de-educacion-memoria.observatorio-eje-de-educacion-memoria",
@@ -1075,6 +1047,34 @@
               "kind": "collection",
               "label": "Memorias de Educación",
               "url": null
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-memorias-info.observatorio-eje-de-educacion-memorias-info",
+              "slug": "observatorio-eje-de-educacion-memorias-info",
+              "kind": "single",
+              "label": "Memorias Eje de Educación",
+              "url": "/observatorio/eje-de-educacion/memorias"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-quiz.observatorio-eje-de-educacion-quiz",
+              "slug": "observatorio-eje-de-educacion-quiz",
+              "kind": "single",
+              "label": "Quiz Anticorrupción",
+              "url": "/observatorio/eje-de-educacion/juego-de-roles/quiz"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-repositorio-juridico.observatorio-eje-de-educacion-repositorio-juridico",
+              "slug": "observatorio-eje-de-educacion-repositorio-juridico",
+              "kind": "single",
+              "label": "Repositorio Jurídico",
+              "url": "/observatorio/eje-de-educacion/repositorio-juridico"
+            },
+            {
+              "uid": "api::observatorio-eje-de-educacion-sopa-de-letras.observatorio-eje-de-educacion-sopa-de-letras",
+              "slug": "observatorio-eje-de-educacion-sopa-de-letras",
+              "kind": "single",
+              "label": "Sopa de Letras Anticorrupción",
+              "url": "/observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras"
             }
           ]
         },
@@ -1101,39 +1101,18 @@
               "url": "/observatorio/eje-de-participacion"
             },
             {
-              "uid": "api::observatorio-eje-de-participacion-cartillas.observatorio-eje-de-participacion-cartillas",
-              "slug": "observatorio-eje-de-participacion-cartillas",
-              "kind": "single",
-              "label": "Eje de Participación Cartillas",
-              "url": "/observatorio/eje-de-participacion/cartillas-divulgativas"
-            },
-            {
               "uid": "api::observatorio-eje-de-participacion-encuesta.observatorio-eje-de-participacion-encuesta",
               "slug": "observatorio-eje-de-participacion-encuesta",
               "kind": "single",
-              "label": "Eje de Participación Encuesta",
+              "label": "Encuesta Ciudadana",
               "url": "/observatorio/eje-de-participacion/encuesta-ciudadana"
             },
             {
-              "uid": "api::observatorio-eje-de-participacion-memorias-info.observatorio-eje-de-participacion-memorias-info",
-              "slug": "observatorio-eje-de-participacion-memorias-info",
+              "uid": "api::observatorio-eje-de-participacion-cartillas.observatorio-eje-de-participacion-cartillas",
+              "slug": "observatorio-eje-de-participacion-cartillas",
               "kind": "single",
-              "label": "Eje de Participación Memorias Info",
-              "url": "/observatorio/eje-de-participacion/memorias"
-            },
-            {
-              "uid": "api::observatorio-eje-de-participacion-noticias.observatorio-eje-de-participacion-noticias",
-              "slug": "observatorio-eje-de-participacion-noticias",
-              "kind": "single",
-              "label": "Eje de Participación Noticias",
-              "url": "/observatorio/eje-de-participacion/noticias"
-            },
-            {
-              "uid": "api::observatorio-eje-de-participacion-videos-tutoriales.observatorio-eje-de-participacion-videos-tutoriales",
-              "slug": "observatorio-eje-de-participacion-videos-tutoriales",
-              "kind": "single",
-              "label": "Eje de Participación Videos Tutoriales",
-              "url": "/observatorio/eje-de-participacion/videos-tutoriales"
+              "label": "Material Educativo y Pedagógico",
+              "url": "/observatorio/eje-de-participacion/cartillas-divulgativas"
             },
             {
               "uid": "api::observatorio-eje-de-participacion-memoria.observatorio-eje-de-participacion-memoria",
@@ -1141,6 +1120,27 @@
               "kind": "collection",
               "label": "Memorias de Participación",
               "url": null
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-memorias-info.observatorio-eje-de-participacion-memorias-info",
+              "slug": "observatorio-eje-de-participacion-memorias-info",
+              "kind": "single",
+              "label": "Memorias Eje de Participación",
+              "url": "/observatorio/eje-de-participacion/memorias"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-noticias.observatorio-eje-de-participacion-noticias",
+              "slug": "observatorio-eje-de-participacion-noticias",
+              "kind": "single",
+              "label": "Noticias del Observatorio",
+              "url": "/observatorio/eje-de-participacion/noticias"
+            },
+            {
+              "uid": "api::observatorio-eje-de-participacion-videos-tutoriales.observatorio-eje-de-participacion-videos-tutoriales",
+              "slug": "observatorio-eje-de-participacion-videos-tutoriales",
+              "kind": "single",
+              "label": "Videos Tutoriales",
+              "url": "/observatorio/eje-de-participacion/videos-tutoriales"
             }
           ]
         },
@@ -1158,7 +1158,7 @@
               "uid": "api::observatorio-observatorio.observatorio-observatorio",
               "slug": "observatorio-observatorio",
               "kind": "single",
-              "label": "Observatorio",
+              "label": "Observatorio de Fraude y Corrupción",
               "url": "/observatorio"
             }
           ]
@@ -1176,7 +1176,7 @@
               "uid": "api::prensa-landing.prensa-landing",
               "slug": "prensa-landing",
               "kind": "single",
-              "label": "Prensa (portada)",
+              "label": "Prensa",
               "url": "/prensa"
             }
           ]
@@ -1214,7 +1214,7 @@
               "uid": "api::prensa-videos.prensa-videos",
               "slug": "prensa-videos",
               "kind": "single",
-              "label": "Videos",
+              "label": "Videos ITRC",
               "url": "/videos-itrc"
             }
           ]
@@ -1238,7 +1238,7 @@
               "uid": "api::prensa-capsulas.prensa-capsulas",
               "slug": "prensa-capsulas",
               "kind": "single",
-              "label": "Capsulas",
+              "label": "Cápsulas Informativas",
               "url": "/capsulas-informativas"
             },
             {
@@ -1300,14 +1300,14 @@
               "uid": "api::institucional-audios-itrc.institucional-audios-itrc",
               "slug": "institucional-audios-itrc",
               "kind": "single",
-              "label": "Audios ITRC",
+              "label": "Audios institucionales ITRC",
               "url": "/audiositrc"
             },
             {
               "uid": "api::institucional-calendario-eventos.institucional-calendario-eventos",
               "slug": "institucional-calendario-eventos",
               "kind": "single",
-              "label": "Calendario Eventos",
+              "label": "Calendario de Eventos",
               "url": "/calendario-de-eventos"
             }
           ]
@@ -1316,18 +1316,18 @@
           "label": "Históricos",
           "items": [
             {
-              "uid": "api::institucional-historico-investigaciones-disciplinarias.institucional-historico-investigaciones-disciplinarias",
-              "slug": "institucional-historico-investigaciones-disciplinarias",
-              "kind": "single",
-              "label": "Histórico Investigaciones Disciplinarias",
-              "url": "/historico-subdireccion-investigaciones-disciplinarias"
-            },
-            {
               "uid": "api::institucional-historico-sistema-control-interno.institucional-historico-sistema-control-interno",
               "slug": "institucional-historico-sistema-control-interno",
               "kind": "single",
-              "label": "Histórico Sistema Control Interno",
+              "label": "Histórico — Sistema de Control Interno",
               "url": "/historico-sistema-de-control-interno"
+            },
+            {
+              "uid": "api::institucional-historico-investigaciones-disciplinarias.institucional-historico-investigaciones-disciplinarias",
+              "slug": "institucional-historico-investigaciones-disciplinarias",
+              "kind": "single",
+              "label": "Histórico — Subdirección de Investigaciones Disciplinarias",
+              "url": "/historico-subdireccion-investigaciones-disciplinarias"
             }
           ]
         },
@@ -1345,7 +1345,7 @@
               "uid": "api::institucional-estados.institucional-estados",
               "slug": "institucional-estados",
               "kind": "single",
-              "label": "Estados",
+              "label": "Estados — Notificaciones procesales",
               "url": "/estados"
             }
           ]
@@ -1357,14 +1357,14 @@
               "uid": "api::institucional-estudios-investigaciones.institucional-estudios-investigaciones",
               "slug": "institucional-estudios-investigaciones",
               "kind": "single",
-              "label": "Estudios Investigaciones",
+              "label": "Estudios, investigaciones y otras publicaciones",
               "url": "/estudios-investigaciones-y-otras-publicaciones"
             },
             {
               "uid": "api::institucional-publicacion-datos-abiertos.institucional-publicacion-datos-abiertos",
               "slug": "institucional-publicacion-datos-abiertos",
               "kind": "single",
-              "label": "Publicación Datos Abiertos",
+              "label": "Publicación de Datos Abiertos",
               "url": "/publicacion-de-datos-abiertos"
             }
           ]

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "participa",
     "pluralName": "participas",
-    "displayName": "Participa (portada)",
+    "displayName": "Participa",
     "description": "Página única del dominio \"Participa\": Inicio. Publicada en: /participa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

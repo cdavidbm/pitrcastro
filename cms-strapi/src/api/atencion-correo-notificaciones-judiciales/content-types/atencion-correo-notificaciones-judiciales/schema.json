@@ -4,7 +4,7 @@
   "info": {
     "singularName": "atencion-correo-notificaciones-judiciales",
     "pluralName": "atencion-correo-notificaciones-judicialeses",
-    "displayName": "Correo Notificaciones Judiciales",
+    "displayName": "Correo Electrónico para Notificaciones Judiciales",
     "description": "Página única del dominio \"Atención y Servicios\": Correo Notificaciones Judiciales. Publicada en: /correo-electronico-para-notificaciones-judiciales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

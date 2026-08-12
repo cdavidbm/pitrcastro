@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-informes-organismos-ivc",
     "pluralName": "transparencia-informes-organismos-ivcs",
-    "displayName": "Informes Organismos IVC",
+    "displayName": "Informes a Organismos de Inspección, Vigilancia y Control",
     "description": "Página única del dominio \"Transparencia\": Informes Organismos IVC. Publicada en: /informes-a-organismos-de-inspeccion-vigilancia-y-control. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

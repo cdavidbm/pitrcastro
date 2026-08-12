@@ -574,7 +574,7 @@ export interface ApiAgenciaEmpleoRrhhManualEspecificoFuncionesAgenciaEmpleoRrhhM
   collectionName: 'agencia_empleo_rrhh_manual_especifico_funciones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Manual Espec\u00EDfico Funciones. Publicada en: /manual-especifico-de-funciones-y-de-competencias-laborales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Empleo RRHH Manual Espec\u00EDfico Funciones';
+    displayName: 'Manual Espec\u00EDfico de Funciones y de Competencias Laborales';
     mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-manual-especifico-funcioneses';
     singularName: 'agencia-empleo-rrhh-manual-especifico-funciones';
@@ -610,7 +610,7 @@ export interface ApiAgenciaEmpleoRrhhManualIdentidadVisualAgenciaEmpleoRrhhManua
   collectionName: 'agencia_empleo_rrhh_manual_identidad_visual';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Manual Identidad Visual. Publicada en: /manual-de-identidad-visual-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Empleo RRHH Manual Identidad Visual';
+    displayName: 'Manual de Identidad Visual ITRC';
     mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-manual-identidad-visuals';
     singularName: 'agencia-empleo-rrhh-manual-identidad-visual';
@@ -646,7 +646,7 @@ export interface ApiAgenciaEmpleoRrhhManualesInternosAgenciaEmpleoRrhhManualesIn
   collectionName: 'agencia_empleo_rrhh_manuales_internos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Manuales Internos. Publicada en: /manuales-internos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Empleo RRHH Manuales Internos';
+    displayName: 'Manuales internos';
     mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-manuales-internoses';
     singularName: 'agencia-empleo-rrhh-manuales-internos';
@@ -679,7 +679,7 @@ export interface ApiAgenciaEmpleoRrhhNombramientosAgenciaEmpleoRrhhNombramientos
   collectionName: 'agencia_empleo_rrhh_nombramientos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Nombramientos. Publicada en: /nombramientos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Empleo RRHH Nombramientos';
+    displayName: 'Nombramientos';
     mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-nombramientoses';
     singularName: 'agencia-empleo-rrhh-nombramientos';
@@ -713,7 +713,7 @@ export interface ApiAgenciaEmpleoRrhhOfertasEmpleoAgenciaEmpleoRrhhOfertasEmpleo
   collectionName: 'agencia_empleo_rrhh_ofertas_empleo';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Empleo RRHH Ofertas Empleo. Publicada en: /ofertas-de-empleo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Empleo RRHH Ofertas Empleo';
+    displayName: 'Ofertas de empleo';
     mainField: 'title';
     pluralName: 'agencia-empleo-rrhh-ofertas-empleos';
     singularName: 'agencia-empleo-rrhh-ofertas-empleo';
@@ -877,7 +877,7 @@ export interface ApiAgenciaLandingAgenciaLanding extends Struct.SingleTypeSchema
   collectionName: 'agencia_landing';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Landing. Publicada en: /agencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Agencia (portada)';
+    displayName: 'La Agencia';
     mainField: 'title';
     pluralName: 'agencia-landings';
     singularName: 'agencia-landing';
@@ -905,7 +905,7 @@ export interface ApiAgenciaMisionVisionAgenciaMisionVision extends Struct.Single
   collectionName: 'agencia_mision_vision';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Agencia": Mision Vision. Publicada en: /agencia/mision-vision. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Mision Vision';
+    displayName: 'Misi\u00F3n, Visi\u00F3n y Prop\u00F3sito Estrat\u00E9gico';
     mainField: 'title';
     pluralName: 'agencia-mision-visions';
     singularName: 'agencia-mision-vision';
@@ -1148,7 +1148,7 @@ export interface ApiAtencionCartaTratoDignoAtencionCartaTratoDigno extends Struc
   collectionName: 'atencion_carta_trato_digno';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Carta Trato Digno. Publicada en: /carta-trato-digno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Carta Trato Digno';
+    displayName: 'Carta de Trato Digno al Ciudadano';
     mainField: 'title';
     pluralName: 'atencion-carta-trato-dignos';
     singularName: 'atencion-carta-trato-digno';
@@ -1214,7 +1214,7 @@ export interface ApiAtencionCorreoNotificacionesJudicialesAtencionCorreoNotifica
   collectionName: 'atencion_correo_notificaciones_judiciales';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Correo Notificaciones Judiciales. Publicada en: /correo-electronico-para-notificaciones-judiciales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Correo Notificaciones Judiciales';
+    displayName: 'Correo Electr\u00F3nico para Notificaciones Judiciales';
     mainField: 'title';
     pluralName: 'atencion-correo-notificaciones-judicialeses';
     singularName: 'atencion-correo-notificaciones-judiciales';
@@ -1283,7 +1283,7 @@ export interface ApiAtencionLandingAtencionLanding extends Struct.SingleTypeSche
   collectionName: 'atencion_landing';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Landing. Publicada en: /atencion-y-servicios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Atenci\u00F3n y Servicios (portada)';
+    displayName: 'Atenci\u00F3n y Servicios';
     mainField: 'title';
     pluralName: 'atencion-landings';
     singularName: 'atencion-landing';
@@ -1351,7 +1351,7 @@ export interface ApiAtencionPqrsServidoresAtencionPqrsServidores extends Struct.
   collectionName: 'atencion_pqrs_servidores';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": PQRS Servidores. Publicada en: /p-q-r-s-servidores-agencia-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'PQRS Servidores';
+    displayName: 'Informes PQRS \u2014 Servidores Agencia ITRC';
     mainField: 'title';
     pluralName: 'atencion-pqrs-servidoreses';
     singularName: 'atencion-pqrs-servidores';
@@ -1383,7 +1383,7 @@ export interface ApiAtencionPqrsAtencionPqrs extends Struct.SingleTypeSchema {
   collectionName: 'atencion_pqrs';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": PQRS. Publicada en: /tu-p-q-r-s-al-dia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'PQRS';
+    displayName: 'PQRSDF';
     mainField: 'title';
     pluralName: 'atencion-pqrses';
     singularName: 'atencion-pqrs';
@@ -1454,7 +1454,7 @@ export interface ApiAtencionVinculacionATercerosAtencionVinculacionATerceros
   collectionName: 'atencion_vinculacion_a_terceros';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Atenci\u00F3n y Servicios": Vinculaci\u00F3n a Terceros. Publicada en: /vinculacion-a-terceros-cancelacion-de-registro-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Vinculaci\u00F3n a Terceros';
+    displayName: 'Vinculaci\u00F3n a Terceros \u2013 Cancelaci\u00F3n de Registro P\u00FAblico';
     mainField: 'title';
     pluralName: 'atencion-vinculacion-a-terceroses';
     singularName: 'atencion-vinculacion-a-terceros';
@@ -1689,7 +1689,7 @@ export interface ApiInstitucionalAudiosItrcInstitucionalAudiosItrc extends Struc
   collectionName: 'institucional_audios_itrc';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Audios ITRC. Publicada en: /audiositrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Audios ITRC';
+    displayName: 'Audios institucionales ITRC';
     mainField: 'title';
     pluralName: 'institucional-audios-itrcs';
     singularName: 'institucional-audios-itrc';
@@ -1722,7 +1722,7 @@ export interface ApiInstitucionalCalendarioEventosInstitucionalCalendarioEventos
   collectionName: 'institucional_calendario_eventos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Calendario Eventos. Publicada en: /calendario-de-eventos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Calendario Eventos';
+    displayName: 'Calendario de Eventos';
     mainField: 'title';
     pluralName: 'institucional-calendario-eventoses';
     singularName: 'institucional-calendario-eventos';
@@ -1787,7 +1787,7 @@ export interface ApiInstitucionalEstadosInstitucionalEstados extends Struct.Sing
   collectionName: 'institucional_estados';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Estados. Publicada en: /estados. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Estados';
+    displayName: 'Estados \u2014 Notificaciones procesales';
     mainField: 'title';
     pluralName: 'institucional-estadoses';
     singularName: 'institucional-estados';
@@ -1821,7 +1821,7 @@ export interface ApiInstitucionalEstudiosInvestigacionesInstitucionalEstudiosInv
   collectionName: 'institucional_estudios_investigaciones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Estudios Investigaciones. Publicada en: /estudios-investigaciones-y-otras-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Estudios Investigaciones';
+    displayName: 'Estudios, investigaciones y otras publicaciones';
     mainField: 'title';
     pluralName: 'institucional-estudios-investigacioneses';
     singularName: 'institucional-estudios-investigaciones';
@@ -1854,7 +1854,7 @@ export interface ApiInstitucionalHistoricoInvestigacionesDisciplinariasInstituci
   collectionName: 'institucional_historico_investigaciones_disciplinarias';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Hist\u00F3rico Investigaciones Disciplinarias. Publicada en: /historico-subdireccion-investigaciones-disciplinarias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Hist\u00F3rico Investigaciones Disciplinarias';
+    displayName: 'Hist\u00F3rico \u2014 Subdirecci\u00F3n de Investigaciones Disciplinarias';
     mainField: 'title';
     pluralName: 'institucional-historico-investigaciones-disciplinariases';
     singularName: 'institucional-historico-investigaciones-disciplinarias';
@@ -1890,7 +1890,7 @@ export interface ApiInstitucionalHistoricoSistemaControlInternoInstitucionalHist
   collectionName: 'institucional_historico_sistema_control_interno';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Hist\u00F3rico Sistema Control Interno. Publicada en: /historico-sistema-de-control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Hist\u00F3rico Sistema Control Interno';
+    displayName: 'Hist\u00F3rico \u2014 Sistema de Control Interno';
     mainField: 'title';
     pluralName: 'institucional-historico-sistema-control-internos';
     singularName: 'institucional-historico-sistema-control-interno';
@@ -1927,7 +1927,7 @@ export interface ApiInstitucionalPublicacionDatosAbiertosInstitucionalPublicacio
   collectionName: 'institucional_publicacion_datos_abiertos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Institucional": Publicaci\u00F3n Datos Abiertos. Publicada en: /publicacion-de-datos-abiertos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Publicaci\u00F3n Datos Abiertos';
+    displayName: 'Publicaci\u00F3n de Datos Abiertos';
     mainField: 'title';
     pluralName: 'institucional-publicacion-datos-abiertoses';
     singularName: 'institucional-publicacion-datos-abiertos';
@@ -2080,7 +2080,7 @@ export interface ApiNormativaLandingNormativaLanding extends Struct.SingleTypeSc
   collectionName: 'normativa_landing';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Landing. Publicada en: /normativa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Normativa (portada)';
+    displayName: 'Normativa';
     mainField: 'title';
     pluralName: 'normativa-landings';
     singularName: 'normativa-landing';
@@ -2143,7 +2143,7 @@ export interface ApiNormativaResolucionesNormativaResoluciones extends Struct.Si
   collectionName: 'normativa_resoluciones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Resoluciones. Publicada en: /documentos-de-interes/resoluciones-circulares-y-otros-actos-administrativos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Resoluciones';
+    displayName: 'Resoluciones, Circulares y Otros Actos Administrativos';
     mainField: 'title';
     pluralName: 'normativa-resolucioneses';
     singularName: 'normativa-resoluciones';
@@ -2176,7 +2176,7 @@ export interface ApiNormativaUnificacionSuinJuriscolNormativaUnificacionSuinJuri
   collectionName: 'normativa_unificacion_suin_juriscol';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Unificaci\u00F3n SUIN Juriscol. Publicada en: /transparencia-y-acceso-a-la-informacion-publica/unificacion-normativa-suin-juriscol. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Unificaci\u00F3n SUIN Juriscol';
+    displayName: 'Unificaci\u00F3n Normativa SUIN Juriscol';
     mainField: 'title';
     pluralName: 'normativa-unificacion-suin-juriscols';
     singularName: 'normativa-unificacion-suin-juriscol';
@@ -2241,7 +2241,7 @@ export interface ApiNormogramaNormograma extends Struct.SingleTypeSchema {
   collectionName: 'normograma';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Normativa": Normograma. Publicada en: /normativa-aplicada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Normograma';
+    displayName: 'Normativa Aplicable';
     mainField: 'title';
     pluralName: 'normogramas';
     singularName: 'normograma';
@@ -2377,7 +2377,7 @@ export interface ApiObservatorioEjeDeEducacionArticulosObservatorioEjeDeEducacio
   collectionName: 'observatorio_eje_de_educacion_articulos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Art\u00EDculos. Publicada en: /observatorio/eje-de-educacion/articulos-y-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Art\u00EDculos';
+    displayName: 'Art\u00EDculos y Publicaciones';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-articuloses';
     singularName: 'observatorio-eje-de-educacion-articulos';
@@ -2409,7 +2409,7 @@ export interface ApiObservatorioEjeDeEducacionCartillaInfantilObservatorioEjeDeE
   collectionName: 'observatorio_eje_de_educacion_cartilla_infantil';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Cartilla Infantil. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/cartilla-infantil. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Cartilla Infantil';
+    displayName: 'Cartilla Infantil';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-cartilla-infantils';
     singularName: 'observatorio-eje-de-educacion-cartilla-infantil';
@@ -2441,7 +2441,7 @@ export interface ApiObservatorioEjeDeEducacionConociendoObservatorioEjeDeEducaci
   collectionName: 'observatorio_eje_de_educacion_conociendo';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Conociendo. Publicada en: /observatorio/eje-de-educacion/conociendo-mas-del-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Conociendo';
+    displayName: 'Conociendo m\u00E1s de ITRC';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-conociendos';
     singularName: 'observatorio-eje-de-educacion-conociendo';
@@ -2476,7 +2476,7 @@ export interface ApiObservatorioEjeDeEducacionCuentoObservatorioEjeDeEducacionCu
   collectionName: 'observatorio_eje_de_educacion_cuento';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Cuento. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/cuento. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Cuento';
+    displayName: 'Cuento ITRC para Ni\u00F1os';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-cuentos';
     singularName: 'observatorio-eje-de-educacion-cuento';
@@ -2511,7 +2511,7 @@ export interface ApiObservatorioEjeDeEducacionGlosarioNinosObservatorioEjeDeEduc
   collectionName: 'observatorio_eje_de_educacion_glosario_ninos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Glosario Ni\u00F1os. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/glosario-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Glosario Ni\u00F1os';
+    displayName: 'Glosario para Ni\u00F1os';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-glosario-ninoses';
     singularName: 'observatorio-eje-de-educacion-glosario-ninos';
@@ -2547,7 +2547,7 @@ export interface ApiObservatorioEjeDeEducacionItrcParaNinosObservatorioEjeDeEduc
   collectionName: 'observatorio_eje_de_educacion_itrc_para_ninos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n ITRC Para Ni\u00F1os. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n ITRC Para Ni\u00F1os';
+    displayName: 'ITRC Para Ni\u00F1os, Ni\u00F1as y Adolescentes';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-itrc-para-ninoses';
     singularName: 'observatorio-eje-de-educacion-itrc-para-ninos';
@@ -2583,7 +2583,7 @@ export interface ApiObservatorioEjeDeEducacionJuegoDeRolesObservatorioEjeDeEduca
   collectionName: 'observatorio_eje_de_educacion_juego_de_roles';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Juego de Roles. Publicada en: /observatorio/eje-de-educacion/juego-de-roles. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Juego de Roles';
+    displayName: 'Juegos Interactivos';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-juego-de-roleses';
     singularName: 'observatorio-eje-de-educacion-juego-de-roles';
@@ -2616,7 +2616,7 @@ export interface ApiObservatorioEjeDeEducacionLibroInfantilObservatorioEjeDeEduc
   collectionName: 'observatorio_eje_de_educacion_libro_infantil';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Libro Infantil. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/libro-infantil. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Libro Infantil';
+    displayName: 'Libro Infantil';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-libro-infantils';
     singularName: 'observatorio-eje-de-educacion-libro-infantil';
@@ -2686,7 +2686,7 @@ export interface ApiObservatorioEjeDeEducacionMemoriasInfoObservatorioEjeDeEduca
   collectionName: 'observatorio_eje_de_educacion_memorias_info';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Memorias Info. Publicada en: /observatorio/eje-de-educacion/memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Memorias Info';
+    displayName: 'Memorias Eje de Educaci\u00F3n';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-memorias-infos';
     singularName: 'observatorio-eje-de-educacion-memorias-info';
@@ -2719,7 +2719,7 @@ export interface ApiObservatorioEjeDeEducacionQuizObservatorioEjeDeEducacionQuiz
   collectionName: 'observatorio_eje_de_educacion_quiz';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Quiz. Publicada en: /observatorio/eje-de-educacion/juego-de-roles/quiz. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Quiz';
+    displayName: 'Quiz Anticorrupci\u00F3n';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-quices';
     singularName: 'observatorio-eje-de-educacion-quiz';
@@ -2752,7 +2752,7 @@ export interface ApiObservatorioEjeDeEducacionRepositorioJuridicoObservatorioEje
   collectionName: 'observatorio_eje_de_educacion_repositorio_juridico';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Repositorio Jur\u00EDdico. Publicada en: /observatorio/eje-de-educacion/repositorio-juridico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Repositorio Jur\u00EDdico';
+    displayName: 'Repositorio Jur\u00EDdico';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-repositorio-juridicos';
     singularName: 'observatorio-eje-de-educacion-repositorio-juridico';
@@ -2788,7 +2788,7 @@ export interface ApiObservatorioEjeDeEducacionSopaDeLetrasObservatorioEjeDeEduca
   collectionName: 'observatorio_eje_de_educacion_sopa_de_letras';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Sopa de Letras. Publicada en: /observatorio/eje-de-educacion/juego-de-roles/sopa-de-letras. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Sopa de Letras';
+    displayName: 'Sopa de Letras Anticorrupci\u00F3n';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-sopa-de-letrases';
     singularName: 'observatorio-eje-de-educacion-sopa-de-letras';
@@ -2821,7 +2821,7 @@ export interface ApiObservatorioEjeDeEducacionVideoNinosObservatorioEjeDeEducaci
   collectionName: 'observatorio_eje_de_educacion_video_ninos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Educaci\u00F3n Video Ni\u00F1os. Publicada en: /observatorio/eje-de-educacion/itrc-para-ninos/video-ninos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Educaci\u00F3n Video Ni\u00F1os';
+    displayName: '\u00BFQu\u00E9 es la ITRC?';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-educacion-video-ninoses';
     singularName: 'observatorio-eje-de-educacion-video-ninos';
@@ -2922,7 +2922,7 @@ export interface ApiObservatorioEjeDeParticipacionCartillasObservatorioEjeDePart
   collectionName: 'observatorio_eje_de_participacion_cartillas';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Cartillas. Publicada en: /observatorio/eje-de-participacion/cartillas-divulgativas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Participaci\u00F3n Cartillas';
+    displayName: 'Material Educativo y Pedag\u00F3gico';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-cartillases';
     singularName: 'observatorio-eje-de-participacion-cartillas';
@@ -2957,7 +2957,7 @@ export interface ApiObservatorioEjeDeParticipacionEncuestaObservatorioEjeDeParti
   collectionName: 'observatorio_eje_de_participacion_encuesta';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Encuesta. Publicada en: /observatorio/eje-de-participacion/encuesta-ciudadana. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Participaci\u00F3n Encuesta';
+    displayName: 'Encuesta Ciudadana';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-encuestas';
     singularName: 'observatorio-eje-de-participacion-encuesta';
@@ -3033,7 +3033,7 @@ export interface ApiObservatorioEjeDeParticipacionMemoriasInfoObservatorioEjeDeP
   collectionName: 'observatorio_eje_de_participacion_memorias_info';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Memorias Info. Publicada en: /observatorio/eje-de-participacion/memorias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Participaci\u00F3n Memorias Info';
+    displayName: 'Memorias Eje de Participaci\u00F3n';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-memorias-infos';
     singularName: 'observatorio-eje-de-participacion-memorias-info';
@@ -3066,7 +3066,7 @@ export interface ApiObservatorioEjeDeParticipacionNoticiasObservatorioEjeDeParti
   collectionName: 'observatorio_eje_de_participacion_noticias';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Noticias. Publicada en: /observatorio/eje-de-participacion/noticias. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Participaci\u00F3n Noticias';
+    displayName: 'Noticias del Observatorio';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-noticiases';
     singularName: 'observatorio-eje-de-participacion-noticias';
@@ -3102,7 +3102,7 @@ export interface ApiObservatorioEjeDeParticipacionVideosTutorialesObservatorioEj
   collectionName: 'observatorio_eje_de_participacion_videos_tutoriales';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Eje de Participaci\u00F3n Videos Tutoriales. Publicada en: /observatorio/eje-de-participacion/videos-tutoriales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Eje de Participaci\u00F3n Videos Tutoriales';
+    displayName: 'Videos Tutoriales';
     mainField: 'title';
     pluralName: 'observatorio-eje-de-participacion-videos-tutorialeses';
     singularName: 'observatorio-eje-de-participacion-videos-tutoriales';
@@ -3170,7 +3170,7 @@ export interface ApiObservatorioObservatorioObservatorioObservatorio
   collectionName: 'observatorio_observatorio';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Observatorio ITRC": Observatorio. Publicada en: /observatorio. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Observatorio';
+    displayName: 'Observatorio de Fraude y Corrupci\u00F3n';
     mainField: 'title';
     pluralName: 'observatorio-observatorios';
     singularName: 'observatorio-observatorio';
@@ -3205,7 +3205,7 @@ export interface ApiParticipaAtencionInformeComiteConciliacionParticipaAtencionI
   collectionName: 'participa_atencion_informe_comite_conciliacion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Atenci\u00F3n Informe Comit\u00E9 Conciliaci\u00F3n. Publicada en: /informe-de-gestion-del-comite-de-conciliacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Atenci\u00F3n Informe Comit\u00E9 Conciliaci\u00F3n';
+    displayName: 'Informe de Gesti\u00F3n del Comit\u00E9 de Conciliaci\u00F3n';
     mainField: 'title';
     pluralName: 'participa-atencion-informe-comite-conciliacions';
     singularName: 'participa-atencion-informe-comite-conciliacion';
@@ -3241,7 +3241,7 @@ export interface ApiParticipaAtencionOtrosGruposInteresParticipaAtencionOtrosGru
   collectionName: 'participa_atencion_otros_grupos_interes';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Atenci\u00F3n Otros Grupos Inter\u00E9s. Publicada en: /otros-de-grupos-de-interes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Atenci\u00F3n Otros Grupos Inter\u00E9s';
+    displayName: 'Otros grupos de inter\u00E9s';
     mainField: 'title';
     pluralName: 'participa-atencion-otros-grupos-intereses';
     singularName: 'participa-atencion-otros-grupos-interes';
@@ -3274,7 +3274,7 @@ export interface ApiParticipaAtencionRespuestaAnonimosParticipaAtencionRespuesta
   collectionName: 'participa_atencion_respuesta_anonimos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Atenci\u00F3n Respuesta An\u00F3nimos. Publicada en: /respuesta-anonimos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Atenci\u00F3n Respuesta An\u00F3nimos';
+    displayName: 'Respuesta a An\u00F3nimos / Notificaci\u00F3n por Aviso';
     mainField: 'title';
     pluralName: 'participa-atencion-respuesta-anonimoses';
     singularName: 'participa-atencion-respuesta-anonimos';
@@ -3309,7 +3309,7 @@ export interface ApiParticipaColaboracionParticipaColaboracion extends Struct.Si
   collectionName: 'participa_colaboracion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Colaboracion. Publicada en: /participa/colaboracion-e-innovacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Colaboracion';
+    displayName: 'Colaboraci\u00F3n e Innovaci\u00F3n';
     mainField: 'title';
     pluralName: 'participa-colaboracions';
     singularName: 'participa-colaboracion';
@@ -3414,7 +3414,7 @@ export interface ApiParticipaDiagnosticoParticipaDiagnostico extends Struct.Sing
   collectionName: 'participa_diagnostico';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Diagnostico. Publicada en: /participa/diagnostico-e-identificacion-de-problemas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Diagnostico';
+    displayName: 'Diagn\u00F3stico e Identificaci\u00F3n de Problemas';
     mainField: 'title';
     pluralName: 'participa-diagnosticos';
     singularName: 'participa-diagnostico';
@@ -3449,7 +3449,7 @@ export interface ApiParticipaPlaneacionParticipaPlaneacion extends Struct.Single
   collectionName: 'participa_planeacion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Planeacion. Publicada en: /participa/planeacion-y-presupuesto-participativo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Planeacion';
+    displayName: 'Planeaci\u00F3n y Presupuesto Participativo';
     mainField: 'title';
     pluralName: 'participa-planeacions';
     singularName: 'participa-planeacion';
@@ -3520,7 +3520,7 @@ export interface ApiParticipaParticipa extends Struct.SingleTypeSchema {
   collectionName: 'participa';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Participa": Inicio. Publicada en: /participa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Participa (portada)';
+    displayName: 'Participa';
     mainField: 'title';
     pluralName: 'participas';
     singularName: 'participa';
@@ -3551,7 +3551,7 @@ export interface ApiPrensaCapsulasPrensaCapsulas extends Struct.SingleTypeSchema
   collectionName: 'prensa_capsulas';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Capsulas. Publicada en: /capsulas-informativas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Capsulas';
+    displayName: 'C\u00E1psulas Informativas';
     mainField: 'title';
     pluralName: 'prensa-capsulases';
     singularName: 'prensa-capsulas';
@@ -3644,7 +3644,7 @@ export interface ApiPrensaLandingPrensaLanding extends Struct.SingleTypeSchema {
   collectionName: 'prensa_landing';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Landing. Publicada en: /prensa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Prensa (portada)';
+    displayName: 'Prensa';
     mainField: 'title';
     pluralName: 'prensa-landings';
     singularName: 'prensa-landing';
@@ -3672,7 +3672,7 @@ export interface ApiPrensaVideosPrensaVideos extends Struct.SingleTypeSchema {
   collectionName: 'prensa_videos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Prensa": Videos. Publicada en: /videos-itrc. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Videos';
+    displayName: 'Videos ITRC';
     mainField: 'title';
     pluralName: 'prensa-videoses';
     singularName: 'prensa-videos';
@@ -3785,7 +3785,7 @@ export interface ApiTransparenciaAccesibilidadTransparenciaAccesibilidad
   collectionName: 'transparencia_accesibilidad';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Accesibilidad. Publicada en: /accesibilidad. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Accesibilidad';
+    displayName: 'Accesibilidad Web';
     mainField: 'title';
     pluralName: 'transparencia-accesibilidads';
     singularName: 'transparencia-accesibilidad';
@@ -3818,7 +3818,7 @@ export interface ApiTransparenciaAgremiacionesTransparenciaAgremiaciones
   collectionName: 'transparencia_agremiaciones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Agremiaciones. Publicada en: /directorio-de-agremiaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Agremiaciones';
+    displayName: 'Directorio de Agremiaciones';
     mainField: 'title';
     pluralName: 'transparencia-agremiacioneses';
     singularName: 'transparencia-agremiaciones';
@@ -3851,7 +3851,7 @@ export interface ApiTransparenciaComiteConciliacionTransparenciaComiteConciliaci
   collectionName: 'transparencia_comite_conciliacion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Comit\u00E9 Conciliaci\u00F3n. Publicada en: /informe-comite-conciliacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Comit\u00E9 Conciliaci\u00F3n';
+    displayName: 'Comit\u00E9 de Conciliaci\u00F3n';
     mainField: 'title';
     pluralName: 'transparencia-comite-conciliacions';
     singularName: 'transparencia-comite-conciliacion';
@@ -3884,7 +3884,7 @@ export interface ApiTransparenciaContratacionContratacionSuscritaTransparenciaCo
   collectionName: 'transparencia_contratacion_contratacion_suscrita';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Contrataci\u00F3n Suscrita. Publicada en: /contratacion-suscrita. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Contrataci\u00F3n Suscrita';
+    displayName: 'Informaci\u00F3n Contractual';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-contratacion-suscritas';
     singularName: 'transparencia-contratacion-contratacion-suscrita';
@@ -3926,7 +3926,7 @@ export interface ApiTransparenciaContratacionEjecucionContratosTransparenciaCont
   collectionName: 'transparencia_contratacion_ejecucion_contratos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Ejecuci\u00F3n Contratos. Publicada en: /publicacion-de-la-ejecucion-de-contratos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Ejecuci\u00F3n Contratos';
+    displayName: 'Publicaci\u00F3n de la ejecuci\u00F3n de contratos';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-ejecucion-contratoses';
     singularName: 'transparencia-contratacion-ejecucion-contratos';
@@ -3966,7 +3966,7 @@ export interface ApiTransparenciaContratacionEjecucionTransparenciaContratacionE
   collectionName: 'transparencia_contratacion_ejecucion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Ejecuci\u00F3n. Publicada en: /publicacion-ejecucion-contratos. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Ejecuci\u00F3n';
+    displayName: 'Ejecuci\u00F3n de Contratos';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-ejecucions';
     singularName: 'transparencia-contratacion-ejecucion';
@@ -4000,7 +4000,7 @@ export interface ApiTransparenciaContratacionFormatosTransparenciaContratacionFo
   collectionName: 'transparencia_contratacion_formatos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Formatos. Publicada en: /formatos-contratos-pliego-tipo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Formatos';
+    displayName: 'Formatos de Contratos y Pliego Tipo';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-formatoses';
     singularName: 'transparencia-contratacion-formatos';
@@ -4032,7 +4032,7 @@ export interface ApiTransparenciaContratacionManualTransparenciaContratacionManu
   collectionName: 'transparencia_contratacion_manual';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Manual. Publicada en: /manual-contratacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Manual';
+    displayName: 'Manual de Contrataci\u00F3n';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-manuals';
     singularName: 'transparencia-contratacion-manual';
@@ -4064,7 +4064,7 @@ export interface ApiTransparenciaContratacionPlanAdquisicionesTransparenciaContr
   collectionName: 'transparencia_contratacion_plan_adquisiciones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Plan Adquisiciones. Publicada en: /plan-de-adquisiciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Plan Adquisiciones';
+    displayName: 'Plan Anual de Adquisiciones';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-plan-adquisicioneses';
     singularName: 'transparencia-contratacion-plan-adquisiciones';
@@ -4097,7 +4097,7 @@ export interface ApiTransparenciaContratacionProcedimientosAdquisicionTransparen
   collectionName: 'transparencia_contratacion_procedimientos_adquisicion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Contrataci\u00F3n Procedimientos Adquisici\u00F3n. Publicada en: /publicacion-de-procedimientos-lineamientos-y-politicas-en-materia-de-adquisicion-y-compras. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Contrataci\u00F3n Procedimientos Adquisici\u00F3n';
+    displayName: 'Procedimientos de adquisici\u00F3n';
     mainField: 'title';
     pluralName: 'transparencia-contratacion-procedimientos-adquisicions';
     singularName: 'transparencia-contratacion-procedimientos-adquisicion';
@@ -4166,7 +4166,7 @@ export interface ApiTransparenciaDecretoUnicoTransparenciaDecretoUnico
   collectionName: 'transparencia_decreto_unico';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Decreto Unico. Publicada en: /decreto-unico-reglamentario. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Decreto Unico';
+    displayName: 'Decreto \u00DAnico Reglamentario';
     mainField: 'title';
     pluralName: 'transparencia-decreto-unicos';
     singularName: 'transparencia-decreto-unico';
@@ -4198,7 +4198,7 @@ export interface ApiTransparenciaDecretosEstructuraTransparenciaDecretosEstructu
   collectionName: 'transparencia_decretos_estructura';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Decretos Estructura. Publicada en: /decretos-de-estructura-salarios-leyes-marco-y-otros. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Decretos Estructura';
+    displayName: 'Decretos de estructura, salarios, leyes marco y otros';
     mainField: 'title';
     pluralName: 'transparencia-decretos-estructuras';
     singularName: 'transparencia-decretos-estructura';
@@ -4263,7 +4263,7 @@ export interface ApiTransparenciaDirectorioEntidadesTransparenciaDirectorioEntid
   collectionName: 'transparencia_directorio_entidades';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Directorio Entidades. Publicada en: /directorio-de-entidades. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Directorio Entidades';
+    displayName: 'Directorio de Entidades';
     mainField: 'title';
     pluralName: 'transparencia-directorio-entidadeses';
     singularName: 'transparencia-directorio-entidades';
@@ -4331,7 +4331,7 @@ export interface ApiTransparenciaDocumentacionFormatoGruposEtnicosTransparenciaD
   collectionName: 'transparencia_documentacion_formato_grupos_etnicos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Formato Grupos \u00C9tnicos. Publicada en: /formato-alternativo-para-grupos-etnicos-y-culturales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Documentaci\u00F3n Formato Grupos \u00C9tnicos';
+    displayName: 'Formato alternativo para grupos \u00E9tnicos y culturales';
     mainField: 'title';
     pluralName: 'transparencia-documentacion-formato-grupos-etnicoses';
     singularName: 'transparencia-documentacion-formato-grupos-etnicos';
@@ -4367,7 +4367,7 @@ export interface ApiTransparenciaDocumentacionProteccionDatosTransparenciaDocume
   collectionName: 'transparencia_documentacion_proteccion_datos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Protecci\u00F3n Datos. Publicada en: /proteccion-de-datos-personales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Documentaci\u00F3n Protecci\u00F3n Datos';
+    displayName: 'Protecci\u00F3n de Datos Personales';
     mainField: 'title';
     pluralName: 'transparencia-documentacion-proteccion-datoses';
     singularName: 'transparencia-documentacion-proteccion-datos';
@@ -4407,7 +4407,7 @@ export interface ApiTransparenciaDocumentacionRegistroPublicacionesTransparencia
   collectionName: 'transparencia_documentacion_registro_publicaciones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Documentaci\u00F3n Registro Publicaciones. Publicada en: /registro-de-publicaciones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Documentaci\u00F3n Registro Publicaciones';
+    displayName: 'Registro de Publicaciones';
     mainField: 'title';
     pluralName: 'transparencia-documentacion-registro-publicacioneses';
     singularName: 'transparencia-documentacion-registro-publicaciones';
@@ -4476,7 +4476,7 @@ export interface ApiTransparenciaEvaluacionIndependienteTransparenciaEvaluacionI
   collectionName: 'transparencia_evaluacion_independiente';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Evaluaci\u00F3n Independiente. Publicada en: /evaluacion-independiente-control-interno. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Evaluaci\u00F3n Independiente';
+    displayName: 'Evaluaci\u00F3n Independiente \u2014 SCI';
     mainField: 'title';
     pluralName: 'transparencia-evaluacion-independientes';
     singularName: 'transparencia-evaluacion-independiente';
@@ -4515,7 +4515,7 @@ export interface ApiTransparenciaFormatosContratosPliegosTipoTransparenciaFormat
   collectionName: 'transparencia_formatos_contratos_pliegos_tipo';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Formatos Contratos Pliegos Tipo. Publicada en: /formatos-o-modelos-de-contratos-o-pliego-tipo. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Formatos Contratos Pliegos Tipo';
+    displayName: 'Formatos o modelos de contratos o pliego tipo';
     mainField: 'title';
     pluralName: 'transparencia-formatos-contratos-pliegos-tipos';
     singularName: 'transparencia-formatos-contratos-pliegos-tipo';
@@ -4551,7 +4551,7 @@ export interface ApiTransparenciaFormatosFormulariosTransparenciaFormatosFormula
   collectionName: 'transparencia_formatos_formularios';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Formatos Formularios. Publicada en: /formatos-y-formularios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Formatos Formularios';
+    displayName: 'Formatos y Formularios';
     mainField: 'title';
     pluralName: 'transparencia-formatos-formularioses';
     singularName: 'transparencia-formatos-formularios';
@@ -4583,7 +4583,7 @@ export interface ApiTransparenciaHojasDeVidaTransparenciaHojasDeVida
   collectionName: 'transparencia_hojas_de_vida';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Hojas de Vida. Publicada en: /publicacion-hojas-de-vida. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Hojas de Vida';
+    displayName: 'Publicaci\u00F3n Hojas de Vida';
     mainField: 'title';
     pluralName: 'transparencia-hojas-de-vidas';
     singularName: 'transparencia-hojas-de-vida';
@@ -4616,7 +4616,7 @@ export interface ApiTransparenciaIndiceInformacionClasificadaTransparenciaIndice
   collectionName: 'transparencia_indice_informacion_clasificada';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": \u00CDndice Informaci\u00F3n Clasificada. Publicada en: /indice-de-informacion-clasificada-y-reservada. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: '\u00CDndice Informaci\u00F3n Clasificada';
+    displayName: '\u00CDndice de Informaci\u00F3n Clasificada y Reservada';
     mainField: 'title';
     pluralName: 'transparencia-indice-informacion-clasificadas';
     singularName: 'transparencia-indice-informacion-clasificada';
@@ -4652,7 +4652,7 @@ export interface ApiTransparenciaInformacionMujeresTransparenciaInformacionMujer
   collectionName: 'transparencia_informacion_mujeres';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informaci\u00F3n Mujeres. Publicada en: /informacion-para-mujeres. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Informaci\u00F3n Mujeres';
+    displayName: 'Informaci\u00F3n para Mujeres';
     mainField: 'title';
     pluralName: 'transparencia-informacion-mujereses';
     singularName: 'transparencia-informacion-mujeres';
@@ -4718,7 +4718,7 @@ export interface ApiTransparenciaInformesEmpalmeTransparenciaInformesEmpalme
   collectionName: 'transparencia_informes_empalme';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Empalme. Publicada en: /informes-de-empalme. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Informes Empalme';
+    displayName: 'Informes de Empalme';
     mainField: 'title';
     pluralName: 'transparencia-informes-empalmes';
     singularName: 'transparencia-informes-empalme';
@@ -4782,7 +4782,7 @@ export interface ApiTransparenciaInformesOrganismosIvcTransparenciaInformesOrgan
   collectionName: 'transparencia_informes_organismos_ivc';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Organismos IVC. Publicada en: /informes-a-organismos-de-inspeccion-vigilancia-y-control. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Informes Organismos IVC';
+    displayName: 'Informes a Organismos de Inspecci\u00F3n, Vigilancia y Control';
     mainField: 'title';
     pluralName: 'transparencia-informes-organismos-ivcs';
     singularName: 'transparencia-informes-organismos-ivc';
@@ -4815,7 +4815,7 @@ export interface ApiTransparenciaInformesOrganismosTransparenciaInformesOrganism
   collectionName: 'transparencia_informes_organismos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Informes Organismos. Publicada en: /informes-organismos-inspeccion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Informes Organismos';
+    displayName: 'Informes a Organismos de Control';
     mainField: 'title';
     pluralName: 'transparencia-informes-organismoses';
     singularName: 'transparencia-informes-organismos';
@@ -4878,7 +4878,7 @@ export interface ApiTransparenciaNormasServicioTransparenciaNormasServicio
   collectionName: 'transparencia_normas_servicio';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Normas Servicio. Publicada en: /normas-servicio-publico. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Normas Servicio';
+    displayName: 'Normas que los sustentan';
     mainField: 'title';
     pluralName: 'transparencia-normas-servicios';
     singularName: 'transparencia-normas-servicio';
@@ -4943,7 +4943,7 @@ export interface ApiTransparenciaOtrosGruposTransparenciaOtrosGrupos
   collectionName: 'transparencia_otros_grupos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Otros Grupos. Publicada en: /otros-grupos-de-interes. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Otros Grupos';
+    displayName: 'Otros Grupos de Inter\u00E9s';
     mainField: 'title';
     pluralName: 'transparencia-otros-gruposes';
     singularName: 'transparencia-otros-grupos';
@@ -4975,7 +4975,7 @@ export interface ApiTransparenciaPlanesMejoramientoTransparenciaPlanesMejoramien
   collectionName: 'transparencia_planes_mejoramiento';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Planes Mejoramiento. Publicada en: /planes-de-mejoramiento. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Planes Mejoramiento';
+    displayName: 'Planes de Mejoramiento';
     mainField: 'title';
     pluralName: 'transparencia-planes-mejoramientos';
     singularName: 'transparencia-planes-mejoramiento';
@@ -5007,7 +5007,7 @@ export interface ApiTransparenciaPoliticasManualesTransparenciaPoliticasManuales
   collectionName: 'transparencia_politicas_manuales';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Pol\u00EDticas Manuales. Publicada en: /politicas-lineamientos-y-manuales. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Pol\u00EDticas Manuales';
+    displayName: 'Pol\u00EDticas, Lineamientos y Manuales';
     mainField: 'title';
     pluralName: 'transparencia-politicas-manualeses';
     singularName: 'transparencia-politicas-manuales';
@@ -5043,7 +5043,7 @@ export interface ApiTransparenciaProcedimientosDecisionesTransparenciaProcedimie
   collectionName: 'transparencia_procedimientos_decisiones';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Procedimientos Decisiones. Publicada en: /procedimientos-que-se-siguen-para-tomar-decisiones-en-las-diferentes-areas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Procedimientos Decisiones';
+    displayName: 'Procedimientos en las diferentes \u00E1reas';
     mainField: 'title';
     pluralName: 'transparencia-procedimientos-decisioneses';
     singularName: 'transparencia-procedimientos-decisiones';
@@ -5076,7 +5076,7 @@ export interface ApiTransparenciaProcedimientosTransparenciaProcedimientos
   collectionName: 'transparencia_procedimientos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Procedimientos. Publicada en: /procedimientos-decisiones. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Procedimientos';
+    displayName: 'Procedimientos para tomar decisiones';
     mainField: 'title';
     pluralName: 'transparencia-procedimientoses';
     singularName: 'transparencia-procedimientos';
@@ -5109,7 +5109,7 @@ export interface ApiTransparenciaProgramaGestionDocumentalTransparenciaProgramaG
   collectionName: 'transparencia_programa_gestion_documental';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Programa Gesti\u00F3n Documental. Publicada en: /programa-gestion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Programa Gesti\u00F3n Documental';
+    displayName: 'Programa de Gesti\u00F3n Documental';
     mainField: 'title';
     pluralName: 'transparencia-programa-gestion-documentals';
     singularName: 'transparencia-programa-gestion-documental';
@@ -5142,7 +5142,7 @@ export interface ApiTransparenciaProtocoloAtencionTransparenciaProtocoloAtencion
   collectionName: 'transparencia_protocolo_atencion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Protocolo Atenci\u00F3n. Publicada en: /protocolo-de-atencion-al-ciudadano. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Protocolo Atenci\u00F3n';
+    displayName: 'Protocolo de Atenci\u00F3n al Ciudadano';
     mainField: 'title';
     pluralName: 'transparencia-protocolo-atencions';
     singularName: 'transparencia-protocolo-atencion';
@@ -5175,7 +5175,7 @@ export interface ApiTransparenciaProyectosInversionTransparenciaProyectosInversi
   collectionName: 'transparencia_proyectos_inversion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Proyectos Inversion. Publicada en: /programas-y-proyectos-en-ejecucion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Proyectos Inversion';
+    displayName: 'Proyectos de Inversi\u00F3n';
     mainField: 'title';
     pluralName: 'transparencia-proyectos-inversions';
     singularName: 'transparencia-proyectos-inversion';
@@ -5221,7 +5221,7 @@ export interface ApiTransparenciaProyectosNormasComentariosTransparenciaProyecto
   collectionName: 'transparencia_proyectos_normas_comentarios';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Proyectos Normas Comentarios. Publicada en: /proyectos-de-normas-para-comentarios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Proyectos Normas Comentarios';
+    displayName: 'Proyectos de normas para comentarios';
     mainField: 'title';
     pluralName: 'transparencia-proyectos-normas-comentarioses';
     singularName: 'transparencia-proyectos-normas-comentarios';
@@ -5258,7 +5258,7 @@ export interface ApiTransparenciaRegistroActivosTransparenciaRegistroActivos
   collectionName: 'transparencia_registro_activos';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Registro Activos. Publicada en: /registro-activos-informacion. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Registro Activos';
+    displayName: 'Registro de Activos de Informaci\u00F3n';
     mainField: 'title';
     pluralName: 'transparencia-registro-activoses';
     singularName: 'transparencia-registro-activos';
@@ -5326,7 +5326,7 @@ export interface ApiTransparenciaRendicionCuentaContraloriaTransparenciaRendicio
   collectionName: 'transparencia_rendicion_cuenta_contraloria';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Rendici\u00F3n Cuenta Contralor\u00EDa. Publicada en: /informe-rendicion-cuenta-contraloria. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Rendici\u00F3n Cuenta Contralor\u00EDa';
+    displayName: 'Rendici\u00F3n Cuenta Fiscal \u2014 CGR';
     mainField: 'title';
     pluralName: 'transparencia-rendicion-cuenta-contralorias';
     singularName: 'transparencia-rendicion-cuenta-contraloria';
@@ -5361,7 +5361,7 @@ export interface ApiTransparenciaReporteAusteridadGastoTransparenciaReporteAuste
   collectionName: 'transparencia_reporte_austeridad_gasto';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Reporte Austeridad Gasto. Publicada en: /reporte-austeridad-en-el-gasto. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Reporte Austeridad Gasto';
+    displayName: 'Reporte de Austeridad en el Gasto P\u00FAblico';
     mainField: 'title';
     pluralName: 'transparencia-reporte-austeridad-gastos';
     singularName: 'transparencia-reporte-austeridad-gasto';
@@ -5394,7 +5394,7 @@ export interface ApiTransparenciaSedeHorariosTransparenciaSedeHorarios
   collectionName: 'transparencia_sede_horarios';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Sede Horarios. Publicada en: /sede-y-horarios. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Sede Horarios';
+    displayName: 'Sede y Horarios';
     mainField: 'title';
     pluralName: 'transparencia-sede-horarioses';
     singularName: 'transparencia-sede-horarios';
@@ -5429,7 +5429,7 @@ export interface ApiTransparenciaSupervisionVigilanciaTransparenciaSupervisionVi
   collectionName: 'transparencia_supervision_vigilancia';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Supervisi\u00F3n Vigilancia. Publicada en: /supervision-y-vigilancia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Supervisi\u00F3n Vigilancia';
+    displayName: 'Supervisi\u00F3n y Vigilancia';
     mainField: 'title';
     pluralName: 'transparencia-supervision-vigilancias';
     singularName: 'transparencia-supervision-vigilancia';
@@ -5462,7 +5462,7 @@ export interface ApiTransparenciaTablasRetencionTransparenciaTablasRetencion
   collectionName: 'transparencia_tablas_retencion';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Tablas Retencion. Publicada en: /tablas-retencion-documental. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Tablas Retencion';
+    displayName: 'Tablas de Retenci\u00F3n Documental';
     mainField: 'title';
     pluralName: 'transparencia-tablas-retencions';
     singularName: 'transparencia-tablas-retencion';
@@ -5525,7 +5525,7 @@ export interface ApiTransparenciaTransparencia extends Struct.SingleTypeSchema {
   collectionName: 'transparencia';
   info: {
     description: 'P\u00E1gina \u00FAnica del dominio "Transparencia": Inicio. Publicada en: /transparencia. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.';
-    displayName: 'Transparencia (portada)';
+    displayName: 'Transparencia y Acceso a la Informaci\u00F3n';
     mainField: 'title';
     pluralName: 'transparencias';
     singularName: 'transparencia';

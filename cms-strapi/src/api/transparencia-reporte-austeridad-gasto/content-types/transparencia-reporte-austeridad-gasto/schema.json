@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-reporte-austeridad-gasto",
     "pluralName": "transparencia-reporte-austeridad-gastos",
-    "displayName": "Reporte Austeridad Gasto",
+    "displayName": "Reporte de Austeridad en el Gasto Público",
     "description": "Página única del dominio \"Transparencia\": Reporte Austeridad Gasto. Publicada en: /reporte-austeridad-en-el-gasto. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -15,6 +15,10 @@
  * `singularName`, `pluralName` ni `collectionName`, de los que dependen la API,
  * las tablas de la base de datos y los enlaces del panel.
  *
+ * Los nombres definitivos viven en `nombres-tipos-contenido.json`, que se toma
+ * del título real de cada página en el sitio. Editando ese archivo se cambia
+ * cualquier nombre sin tocar código.
+ *
  * Uso:
  *   node cms-strapi/scripts/renombrar-tipos-contenido.mjs --revisar
  *   node cms-strapi/scripts/renombrar-tipos-contenido.mjs
@@ -30,6 +34,12 @@ import { fileURLToPath } from 'node:url';
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const DIR_API = path.join(AQUI, '../src/api');
 const SOLO_REVISAR = process.argv.includes('--revisar');
+
+/** Nombres tomados del título real de cada página, si el archivo existe. */
+const ARCHIVO_NOMBRES = path.join(AQUI, 'nombres-tipos-contenido.json');
+const DEL_SITIO = fs.existsSync(ARCHIVO_NOMBRES)
+  ? JSON.parse(fs.readFileSync(ARCHIVO_NOMBRES, 'utf8'))
+  : {};
 
 /**
  * Diez tipos quedarían con el mismo nombre que otro al quitar el prefijo.
@@ -67,7 +77,7 @@ for (const dir of fs.readdirSync(DIR_API)) {
     const esquema = JSON.parse(fs.readFileSync(archivo, 'utf8'));
     const slug = esquema.info?.singularName || sub;
     const antes = esquema.info?.displayName || '';
-    const despues = NOMBRES_PROPIOS[slug] || nombreNatural(antes);
+    const despues = DEL_SITIO[slug] || NOMBRES_PROPIOS[slug] || nombreNatural(antes);
 
     if (antes === despues) continue;
     cambios.push({ archivo, slug, antes, despues, esquema });
@@ -77,11 +87,11 @@ for (const dir of fs.readdirSync(DIR_API)) {
 if (SOLO_REVISAR) {
   console.log(`Se renombrarían ${cambios.length} tipos de contenido:\n`);
   for (const c of cambios) {
-    const marca = NOMBRES_PROPIOS[c.slug] ? ' *' : '';
+    const marca = DEL_SITIO[c.slug] ? '' : ' *';
     console.log(`  ${c.antes}`);
     console.log(`      → ${c.despues}${marca}`);
   }
-  console.log('\n  * nombre propio, para no repetirse con otro');
+  console.log('\n  * nombre propio (el resto sale del título real de la página)');
   process.exit(0);
 }
 

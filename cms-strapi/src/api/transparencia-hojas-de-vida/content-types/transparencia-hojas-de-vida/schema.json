@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-hojas-de-vida",
     "pluralName": "transparencia-hojas-de-vidas",
-    "displayName": "Hojas de Vida",
+    "displayName": "Publicación Hojas de Vida",
     "description": "Página única del dominio \"Transparencia\": Hojas de Vida. Publicada en: /publicacion-hojas-de-vida. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

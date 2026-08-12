@@ -4,7 +4,7 @@
   "info": {
     "singularName": "institucional-estados",
     "pluralName": "institucional-estadoses",
-    "displayName": "Estados",
+    "displayName": "Estados — Notificaciones procesales",
     "description": "Página única del dominio \"Institucional\": Estados. Publicada en: /estados. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

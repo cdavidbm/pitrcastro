@@ -4,7 +4,7 @@
   "info": {
     "singularName": "transparencia-informes-empalme",
     "pluralName": "transparencia-informes-empalmes",
-    "displayName": "Informes Empalme",
+    "displayName": "Informes de Empalme",
     "description": "Página única del dominio \"Transparencia\": Informes Empalme. Publicada en: /informes-de-empalme. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "prensa-landing",
     "pluralName": "prensa-landings",
-    "displayName": "Prensa (portada)",
+    "displayName": "Prensa",
     "description": "Página única del dominio \"Prensa\": Landing. Publicada en: /prensa. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "participa-diagnostico",
     "pluralName": "participa-diagnosticos",
-    "displayName": "Diagnostico",
+    "displayName": "Diagnóstico e Identificación de Problemas",
     "description": "Página única del dominio \"Participa\": Diagnostico. Publicada en: /participa/diagnostico-e-identificacion-de-problemas. Edite estos campos para actualizar el contenido que ven los visitantes del sitio.",
     "mainField": "title"
   },
