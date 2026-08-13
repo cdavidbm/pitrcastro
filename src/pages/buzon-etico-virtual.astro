@@ -458,7 +458,7 @@ const conductasMap = Object.fromEntries(valoresIntegridad.map((v) => [v.valor, v
     </div>
   </section>
 
-  <script src={`${import.meta.env.BASE_URL}js/buzon-etico.js`} data-conductas={JSON.stringify(conductasMap)}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}js/buzon-etico.js`} data-conductas={JSON.stringify(conductasMap)}></script>
 </Base>
 
 <style>

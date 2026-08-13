@@ -100,7 +100,7 @@ if (album.fecha) {
     </button>
   </dialog>
 
-  <script src={`${import.meta.env.BASE_URL}js/galeria.js`} data-imagenes={JSON.stringify(album.imagenes)}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}js/galeria.js`} data-imagenes={JSON.stringify(album.imagenes)}></script>
 </Base>
 
 <style>

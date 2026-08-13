@@ -95,7 +95,7 @@ const schemaOrgData = {
 
   <!-- Preferencias de accesibilidad guardadas por la persona (tema, tamaño de
        letra, contraste). Se aplican cuanto antes para evitar un parpadeo. -->
-  <script src={`${base}js/preferencias.js`}></script>
+  <script is:inline src={`${base}js/preferencias.js`}></script>
 
   <!-- Iconos del sitio, generados a partir del escudo del logo institucional -->
   <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`}>
@@ -125,6 +125,6 @@ const schemaOrgData = {
   <Footer />
   <SocialBar />
   <WcagWidget />
-  <script src={`${base}js/encabezado.js`}></script>
+  <script is:inline src={`${base}js/encabezado.js`}></script>
 </body>
 </html>

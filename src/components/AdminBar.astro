@@ -54,7 +54,7 @@ const { slug, kind = 'singleType' } = Astro.props;
   </div>
 </div>
 
-<script
+<script is:inline
   src={`${import.meta.env.BASE_URL}js/admin-bar.js`}
   data-strapi-slug={slug || ''}
   data-strapi-kind={kind}
