@@ -2,7 +2,7 @@
 
 Sitio institucional de la Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales (UAE ITRC).
 
-Front estático en **Astro 4** consumiendo un CMS headless **Strapi v5** + **Postgres**. El contenido se renderiza en build-time; el sitio servido por nginx es HTML estático.
+Front estático en **Astro 7** consumiendo un CMS headless **Strapi v5** + **Postgres**. El contenido se renderiza en build-time; el sitio servido por nginx es HTML estático.
 
 ## Documentación
 
@@ -55,7 +55,7 @@ pnpm deploy:binarios          # subir documentos al servidor
 
 | Capa | Tecnología |
 |---|---|
-| Frontend | Astro 4, TypeScript, CSS variables (sin framework CSS) |
+| Frontend | Astro 7, TypeScript, CSS variables (sin framework CSS) |
 | CMS | Strapi v5 CE |
 | Base de datos | Postgres en Docker |
 | Servidor | nginx en Ubuntu, VPN FortiClient |
