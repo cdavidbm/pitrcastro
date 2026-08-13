@@ -56,9 +56,9 @@ lo que reduce la superficie de ataque y el consumo del servidor.
 | Componente | Versión | Función |
 |---|---|---|
 | **nginx** | 1.24.0 | Servidor web; sirve el sitio y hace de intermediario hacia el CMS |
-| **Astro** | 4.16 | Generador del sitio estático; compila el portal a HTML |
-| **Strapi** | 5.45.0 (Community Edition) | Gestor de contenidos; panel de edición y API |
-| **Node.js** | 20.20.2 | Entorno de ejecución de Astro y del CMS |
+| **Astro** | 7.2.1 | Generador del sitio estático; compila el portal a HTML |
+| **Strapi** | 5.52.0 (Community Edition) | Gestor de contenidos; panel de edición y API |
+| **Node.js** | 22.23.2 | Entorno de ejecución de Astro y del CMS |
 | **Docker** | 29.6.0 | Contenedores del CMS y de su base de datos |
 | **PHP-FPM** | 8.2.29 | Solo para la aplicación de denuncias (ver [8](#8-dependencias)) |
 | **fail2ban** | — | Bloqueo de direcciones con intentos de acceso fallidos |
