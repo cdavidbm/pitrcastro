@@ -24,11 +24,6 @@ export default defineConfig({
     // anterior /ciprep apunta ahora a la edición 2025 (histórica).
     '/ciprep': '/ciprep2025',
   },
-  // Astro 7 comprime los espacios entre etiquetas con reglas de JSX, lo que
-  // altera el espaciado de algunos bloques. Se conserva el comportamiento
-  // anterior para que el portal se vea exactamente igual.
-  compressHTML: true,
-
   build: {
     assets: 'assets',
     inlineStylesheets: 'never'
