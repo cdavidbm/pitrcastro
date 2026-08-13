@@ -10,7 +10,7 @@
 # Uso desde la raíz del repo (ver docker-compose.yml):
 #   docker compose --profile server up -d --build
 
-FROM node:20-alpine
+FROM node:22-alpine
 
 # Build deps para sharp/vips (procesamiento de imágenes que Strapi usa
 # para previsualizaciones del media library, aunque no usemos uploads
@@ -28,7 +28,7 @@ RUN apk add --no-cache \
     git
 
 # Activar corepack y preparar pnpm de la versión pineada en package.json.
-# corepack viene con node:20. `enable` instala los shims; `prepare` baja la
+# corepack viene con node:22. `enable` instala los shims; `prepare` baja la
 # versión exacta indicada en `packageManager`.
 RUN corepack enable
 
