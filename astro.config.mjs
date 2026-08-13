@@ -41,6 +41,12 @@ export default defineConfig({
   vite: {
     css: {
       devSourcemap: true
+    },
+    build: {
+      // La política de seguridad del proveedor prohíbe cualquier código dentro
+      // de la página. Sin esto, el empaquetador incrusta los guiones pequeños
+      // y el navegador los rechaza: los controles dejan de responder.
+      assetsInlineLimit: () => false
     }
   }
 });
