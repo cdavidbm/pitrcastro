@@ -1,74 +1,60 @@
 # Seguridad del CMS
 
-## Estado del 2FA TOTP
+## Verificación en dos pasos
 
-**Strapi v5 Community Edition (5.45.0) no incluye 2FA TOTP nativo para
-el panel admin.** La feature está en la edición Enterprise (paga).
+**Strapi Community Edition no incluye verificación en dos pasos para el panel
+de administración.** Es una función de la edición Enterprise, que es de pago.
 
-Confirmado al revisar el código del admin distribuido y el endpoint
-`/admin/users/me`: no hay campos `isMfaEnabled`, `tfaSecret` ni rutas
-relacionadas.
+Comprobado en el código del panel distribuido y en el endpoint
+`/admin/users/me`: no existen los campos ni las rutas correspondientes.
 
-## Mitigaciones aceptadas para producción
+## Qué protege el panel en su lugar
 
-En lugar de 2FA, la combinación que protege el panel admin para el
-caso de ITRC es:
+| Medida | Estado | Dónde |
+|---|---|---|
+| Solo accesible por VPN | **Activa** | El servidor no es alcanzable desde internet |
+| Lista blanca de direcciones sobre `/admin` | **Activa** | `location /admin` del vhost: `allow` a la red interna, `deny all` al resto |
+| Límite de intentos de inicio de sesión | **Activa** | 5 por minuto y dirección, con ráfaga de 3 (`limit_req zone=admin_login`) |
+| Bloqueo por intentos fallidos | **Activa** | `fail2ban` |
+| Rechazo de subidas ejecutables | **Activa** | Middleware propio del CMS |
+| Contraseña mínima de 8 caracteres con mayúsculas, minúsculas y números | **Activa** | Impuesta por Strapi |
+| Caducidad de sesión corta | **No aplicada** | Ver abajo |
 
-1. **VPN-only**: el servidor de pruebas y producción solo es accesible
-   vía la VPN institucional FortiClient. Sin VPN, ni siquiera se puede
-   resolver el host. Equivale a un primer factor de red.
+Las cuatro primeras equivalen, en conjunto, a un factor de red: sin estar dentro
+de la red del proveedor no se llega siquiera a la pantalla de inicio de sesión.
 
-2. **Allowlist nginx**: cuando Strapi se mueva al servidor de pruebas,
-   añadir en `/etc/nginx/sites-available/itrc-web`:
+## Lo que falta
 
-   ```nginx
-   location /admin {
-       allow 192.168.0.0/16;   # rangos VPN institucional
-       deny all;
-       proxy_pass http://127.0.0.1:1337;
-       # ... resto del proxy_pass habitual
-   }
-   ```
-
-3. **Política de contraseñas fuertes**: Strapi v5 ya impone min 8
-   caracteres con mayús/minús/números. Documentar en el manual del
-   operador que la contraseña debe ser de gestor (Bitwarden / 1Password)
-   y rotarse cada 90 días.
-
-4. **Session timeout corto**: `cms-strapi/config/admin.ts` permite
-   ajustar `auth.sessions.maxRefreshTokenLifespan` y
-   `auth.sessions.maxSessionLifespan`. Por default es 30 días — bajarlo
-   a 8h es razonable para uso institucional.
-
-5. **Rate limiting en login**: el plugin
-   `@strapi/plugin-users-permissions` ya tiene rate limiting; aplicarlo
-   también a `/admin/login` mediante middleware custom.
-
-## Plan futuro (cuando entre Enterprise o aparezca plugin estable)
-
-Si más adelante el área legal exige 2FA estricto:
-
-- Evaluar `strapi-plugin-passwordless` u otros plugins community
-  (vetting necesario).
-- O migrar a Strapi Enterprise (licencia $$).
-
-Hasta entonces, las 5 mitigaciones de arriba son suficientes para el
-contexto de un panel interno con un puñado de webmasters
-identificables.
-
-## Configuración recomendada de session timeout
-
-Editar `cms-strapi/config/admin.ts`:
+**La sesión del panel dura 30 días**, que es el valor por defecto de Strapi.
+`cms-strapi/config/admin.ts` no define `auth.sessions`, así que no se ha
+acortado. Para uso institucional, ocho horas es más razonable:
 
 ```ts
-export default ({ env }) => ({
-  auth: {
-    secret: env('ADMIN_JWT_SECRET'),
-    sessions: {
-      maxRefreshTokenLifespan: 60 * 60 * 8,     // 8h
-      maxSessionLifespan: 60 * 60 * 8,
-    },
+auth: {
+  secret: env('ADMIN_JWT_SECRET'),
+  sessions: {
+    maxRefreshTokenLifespan: 60 * 60 * 8,
+    maxSessionLifespan: 60 * 60 * 8,
   },
-  // ...resto
-});
+},
 ```
+
+Requiere reconstruir el contenedor del CMS y obliga a los editores a volver a
+entrar cada jornada.
+
+## Si se exigiera verificación en dos pasos
+
+Dos caminos, ninguno gratuito:
+
+- Evaluar un complemento de la comunidad, con la revisión de seguridad que eso
+  exige.
+- Pasar a la edición Enterprise, que es de pago.
+
+Mientras tanto, las medidas activas de arriba son proporcionadas para un panel
+interno con un puñado de personas identificables.
+
+## Recomendaciones de gestión
+
+- Guardar las contraseñas en un gestor institucional, no en archivos ni correos.
+- Una cuenta por persona. Nunca compartir una cuenta entre varias.
+- Dar de baja la cuenta el mismo día en que alguien deja de necesitarla.

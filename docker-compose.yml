@@ -5,12 +5,12 @@
 #   1) Local dev (default profile):
 #        docker compose up -d
 #      Levanta SOLO Postgres. Strapi se corre nativo desde ./cms-strapi
-#      con `npm run develop` para iterar rápido en local.
+#      con `pnpm develop` para iterar rápido en local.
 #
-#   2) Servidor de pruebas / producción (profile "server"):
+#   2) Servidor (profile "server"):
 #        docker compose --profile server up -d --build
 #      Levanta Postgres + Strapi (build desde ./cms-strapi/Dockerfile).
-#      Strapi corre en modo production (`npm run start`).
+#      Strapi corre en modo producción (`pnpm start`).
 #
 # El archivo .env.cms (gitignored) provee credenciales y secretos.
 

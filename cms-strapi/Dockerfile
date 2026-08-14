@@ -1,4 +1,4 @@
-# Imagen de Strapi v5 para correr en producción / servidor de pruebas.
+# Imagen de Strapi v5 para correr en el servidor.
 #
 # Diseño:
 #   - Una sola etapa de construcción
