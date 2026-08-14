@@ -9,6 +9,7 @@ Esta carpeta es el conjunto público de guías para operar el sitio.
 | [`instalacion.md`](instalacion.md) | Levantar el proyecto en una máquina nueva, incluido cómo traer el contenido. |
 | [`despliegue.md`](despliegue.md) | Publicar cambios en el portal. |
 | [`backup.md`](backup.md) | Política de snapshots y procedimiento de restauración del servidor. |
+| [`emergencias.md`](emergencias.md) | **Si algo se rompió**: diagnóstico y primera respuesta. |
 
 ## Para usar el CMS (webmaster / editor)
 

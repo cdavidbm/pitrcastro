@@ -192,6 +192,8 @@ Con eso, `ssh`, `rsync` y `curl` de Linux funcionan sin cambios. Para aplicarlo:
 | La página nueva no aparece | Caché | Ctrl+F5; comprobar el archivo en el servidor antes de darlo por roto |
 | Un control dejó de responder | La política del proveedor bloqueó código incrustado | Revisar las comprobaciones de arriba |
 
+Si algo ya se rompió, ver [`emergencias.md`](emergencias.md).
+
 Para la arquitectura del servidor ver
 [`manual-operador/09-despliegue-datacenter.md`](manual-operador/09-despliegue-datacenter.md).
 Para las copias de seguridad, [`backup.md`](backup.md).
