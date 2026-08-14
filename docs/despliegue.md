@@ -95,6 +95,54 @@ grep -rl '<style\|style="' dist --include='*.html' | wc -l    # debe dar 0
 grep -rl '<script type="module">' dist --include='*.html' | wc -l   # debe dar 0
 ```
 
+## Qué impide publicar el portal en blanco
+
+Trabajar en local con un CMS vacío **no puede vaciar el portal**: la compilación
+que se publica corre en el servidor y lee el CMS del servidor. Lo que se sube
+desde una máquina de trabajo es código, nunca contenido.
+
+Aun así, si el CMS del servidor estuviera caído o sin datos, la compilación
+podría salir vacía. Para eso el servicio de publicación **compara la compilación
+nueva con el sitio que ya está publicado** antes de copiar nada:
+
+| Comprobación | Qué exige |
+|---|---|
+| Mínimo absoluto | 100 páginas |
+| Frente a lo publicado | Al menos el 80 % de las páginas |
+| Frente a lo publicado | Al menos el 80 % del peso del contenido |
+
+Si alguna falla, **no se copia nada** y el sitio se queda exactamente como
+estaba. El registro dice por qué. La causa habitual es que el CMS no respondió.
+
+Cuando el recorte es intencionado y grande —retirar una sección entera, por
+ejemplo— hay que decirlo explícitamente:
+
+```bash
+-d '{"event":"manual","model":"manual","force":true}'
+```
+
+Las publicaciones que dispara el CMS al pulsar **Publish** nunca llevan `force`,
+así que un editor no puede saltarse la comprobación sin querer.
+
+## Lo que sí puede destruir contenido
+
+Tres cosas que ninguna comprobación evita, porque no pasan por la publicación:
+
+**1 · `docker compose down -v` en el servidor.** La opción `-v` borra el volumen
+`itrc-cms-postgres-data`, que es donde vive **todo** el contenido del portal.
+Para parar el CMS, `docker compose stop` o `docker compose down` **sin `-v`**.
+
+**2 · Copiar un `dist/` local directamente al directorio publicado.** Se salta
+el servicio y su comprobación. Los archivos se llevan al árbol del servidor y se
+dispara la publicación; nunca al directorio que sirve nginx.
+
+**3 · Ejecutar los guiones de `cms-strapi/scripts/` contra el servidor.**
+Escriben en el CMS. Todos apuntan por defecto al CMS local; solo alcanzan el
+servidor si alguien pone `STRAPI_URL` a mano.
+
+La red de seguridad frente a los tres es la copia diaria de las 03:00, que
+conserva cuatro puntos de restauración. Ver [`backup.md`](backup.md).
+
 ## Cómo volver atrás
 
 Antes de una publicación arriesgada conviene dejar preparada una copia del sitio

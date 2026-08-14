@@ -145,6 +145,16 @@ rsync -az itrc-prod:/var/www/portal_nuevo/uploads/ ./public/uploads/
 Es una copia de trabajo. Los cambios que se hagan en el CMS local **no llegan
 al portal**: publicar es otro camino, descrito en [`despliegue.md`](despliegue.md).
 
+> **Trabajar en local no puede dañar el portal.** La compilación que se publica
+> corre en el servidor y lee el CMS del servidor; desde una máquina de trabajo
+> solo viaja código. Y antes de publicar, el servicio compara el resultado con
+> el sitio en línea y se niega a copiarlo si ha encogido.
+>
+> Lo que sí destruye contenido está en
+> [`despliegue.md`](despliegue.md#lo-que-sí-puede-destruir-contenido). Lo más
+> fácil de hacer sin querer: `docker compose down -v`, que borra la base de
+> datos entera.
+
 ## Verificación rápida
 
 1. `curl http://localhost:1337/api/agencia-mision-vision` debe responder JSON

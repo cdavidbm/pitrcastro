@@ -79,6 +79,9 @@ services:
       # Expuesto solo a localhost; nginx hace proxy desde /admin y /api.
       - "127.0.0.1:1337:1337"
 
+# AVISO: el volumen de abajo guarda TODO el contenido del portal.
+# `docker compose down -v` lo borra. Para parar el CMS sin perder datos:
+#   docker compose stop        (o `down`, SIN la opcion -v)
 volumes:
   cms-postgres-data:
     name: itrc-cms-postgres-data
