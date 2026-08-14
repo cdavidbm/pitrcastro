@@ -80,4 +80,4 @@ Cada grupo se compone de uno o varios *content types* (single-types para página
 
 1. **Navegador**: Chrome, Edge o Firefox en versión reciente.
 2. **Cuenta de editor en Strapi**: usuario y contraseña asignados por el administrador del portal. La gestión de cuentas se describe en el [Capítulo 10](10-autenticacion-strapi.md).
-3. **Conexión a la red institucional o VPN ITRC**: el CMS está en `http://192.168.82.13/admin/`, dentro de la red privada del datacenter.
+3. **Conexión por la VPN del proveedor**: el panel está en `https://10.5.10.6/admin`, dentro de la red privada del servidor.

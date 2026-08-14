@@ -15,8 +15,8 @@
  * con páginas degradadas y un log visible del problema, y que cada consumer
  * .astro maneje null defensivamente.
  *
- * Los warnings quedan en el log de GitHub Actions y son la señal para
- * investigar deuda de schema/permisos sin bloquear deploys.
+ * Los avisos quedan en el registro de la compilación y son la señal para
+ * investigar problemas de esquema o permisos sin bloquear la publicación.
  *
  * Variables de entorno (definidas en .env durante dev, en repo variables
  * del workflow durante build CI):

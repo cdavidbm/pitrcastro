@@ -16,7 +16,7 @@ Manual de referencia para el editor o webmaster encargado de mantener el conteni
 | 06 | [Modificar páginas institucionales](06-modificar-paginas.md) | Editar textos, contacto, menú y accesos rápidos |
 | 07 | [Edición directa en VS Code](07-edicion-directa-vscode.md) | Cuándo y cómo editar archivos fuente sin pasar por el CMS |
 | 08 | [Mantenimiento con Git](08-mantenimiento-git.md) | Flujo diario de trabajo, resolución de conflictos y respaldo |
-| 09 | [Despliegue en datacenter (Ubuntu + nginx + Strapi)](09-despliegue-datacenter.md) | Arquitectura del servidor, auto-deploy con runner self-hosted, manejo de binarios y backups |
+| 09 | [Despliegue en datacenter (Ubuntu + nginx + Strapi)](09-despliegue-datacenter.md) | Arquitectura del servidor, publicación, manejo de binarios y copias de seguridad |
 | 10 | [Autenticación y gestión de usuarios en Strapi](10-autenticacion-strapi.md) | Crear, retirar y gestionar cuentas de editores; roles, permisos y recuperación de contraseña |
 | 11 | [Capacitación de un nuevo operador](11-capacitacion-sucesor.md) | Sesiones guiadas de entrega, ejercicios prácticos, checklist de cierre |
 | 12 | [Notificaciones y traslados](12-notificaciones-y-traslados.md) | Publicar edictos, estados y traslados a partir del correo que los envía |

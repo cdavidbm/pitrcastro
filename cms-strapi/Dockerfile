@@ -1,7 +1,7 @@
 # Imagen de Strapi v5 para correr en producción / servidor de pruebas.
 #
 # Diseño:
-#   - Single-stage (suficiente para POC; multi-stage luego cuando importe el tamaño)
+#   - Una sola etapa de construcción
 #   - Build del admin con NODE_ENV=production (`pnpm build`)
 #   - Runtime con `pnpm start` (no watcher, no recompilación en runtime)
 #   - Usuario no-root (`node`) para runtime

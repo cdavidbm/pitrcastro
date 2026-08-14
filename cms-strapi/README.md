@@ -110,7 +110,7 @@ Requisitos: acceso SSH al servidor con llave, bajo el alias `itrc-prod` de
 
 | Script | Para qué |
 |---|---|
-| `deploy-strapi-to-server.sh` | Empaqueta la imagen Docker de Strapi y la transfiere al servidor (workaround VPN: `docker save` → rsync → `docker load`). |
+| `deploy-strapi-to-server.sh` | Empaqueta la imagen Docker de Strapi y la transfiere al servidor: `docker save` → rsync → `docker load`. |
 
 ### Ciclo típico de cambio de schema
 

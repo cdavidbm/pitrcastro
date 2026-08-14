@@ -138,15 +138,7 @@ El backup lo administra el equipo web. La replicación off-site y las snapshots 
 
 ---
 
-## G. Sandbox de pruebas
-
-Existe un segundo servidor interno (`192.168.82.13`, alias `ubu_24_bolivia`) que el equipo técnico usa para probar cambios de plantilla antes de moverlos a producción. **No es un destino publicable**: no lo ven los ciudadanos y no hay ruta desde producción hacia allí.
-
-Si un desarrollador le pide al operador probar algo en `http://192.168.82.13/`, esa dirección solo funciona con VPN institucional FortiClient conectada.
-
----
-
-## H. Cuándo escalar a un desarrollador
+## G. Cuándo escalar a un desarrollador
 
 Este es el criterio práctico. El operador escala cuando:
 

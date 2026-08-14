@@ -110,7 +110,7 @@ aplicación de denuncias.
 
 | Concepto | Valor |
 |---|---|
-| Ubicación | GitHub — `github.com/cdavidbm/pitrcastro` |
+| Ubicación | GitHub — `github.com/comunicaciones-itrc/web` |
 | Rama principal | `main` |
 | Acceso | Por llave SSH; los permisos los concede el propietario del repositorio |
 

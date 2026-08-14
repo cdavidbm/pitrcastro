@@ -7,10 +7,10 @@
  * Uso desde la raíz del repo:
  *   node cms-strapi/scripts/migrate-marco-legal.mjs
  *
- * Variables (con defaults para POC local):
+ * Variables (con valores por defecto para uso local):
  *   STRAPI_URL       (default http://127.0.0.1:1337)
  *   STRAPI_EMAIL     (default admin@itrc.local)
- *   STRAPI_PASSWORD  (default AdminITRC2026!)
+ *   STRAPI_PASSWORD  (obligatoria)
  *   SOURCE           (default ../src/content/pages/normativa/marco-legal.json
  *                     resuelto relativo a este script)
  */
@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 const STRAPI_URL = process.env.STRAPI_URL || 'http://127.0.0.1:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 const UID = 'api::marco-legal.marco-legal';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

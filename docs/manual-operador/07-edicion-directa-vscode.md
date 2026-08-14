@@ -26,7 +26,7 @@ El CMS cubre la mayoría de las tareas cotidianas de mantenimiento del portal. S
 Si es la primera vez que trabaja con el proyecto localmente:
 
 ```bash
-git clone https://github.com/cdavidbm/pitrcastro.git
+git clone https://github.com/comunicaciones-itrc/web.git
 cd pitrcastro
 pnpm install
 ```

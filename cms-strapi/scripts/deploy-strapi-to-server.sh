@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# Despliegue del stack CMS al servidor de pruebas (192.168.82.13).
+# Despliegue de la imagen del CMS al servidor de producción.
 #
-# 1. Compila la imagen Strapi en local (FortiGate corta downloads
-#    de Docker Hub en el server).
+# 1. Compila la imagen de Strapi en local: el servidor no alcanza Docker Hub.
 # 2. Exporta a tar comprimido y rsync al server.
 # 3. SSH ejecuta: load, retag, compose down strapi, compose up.
 #
@@ -10,13 +9,13 @@
 #   bash cms-strapi/scripts/deploy-strapi-to-server.sh
 #
 # Variables opcionales:
-#   SERVER       (default admweb@192.168.82.13)
+#   SERVER       (por defecto itrc-prod)
 #   REMOTE_PATH  (default /home/admweb/itrc-cms)
 #   IMAGE_NAME   (default itrc-cms-strapi:latest)
 
 set -euo pipefail
 
-SERVER="${SERVER:-admweb@192.168.82.13}"
+SERVER="${SERVER:-itrc-prod}"
 REMOTE_PATH="${REMOTE_PATH:-/home/admweb/itrc-cms}"
 IMAGE_NAME="${IMAGE_NAME:-itrc-cms-strapi:latest}"
 LOCAL_TAG="implementacionp-strapi:latest"  # Tag que produce docker compose por nombre del proyecto.
@@ -79,5 +78,5 @@ echo "[deploy] Próximos pasos:"
 echo "  1. Migrar datos: STRAPI_URL=http://127.0.0.1:1337 ssh $SERVER \\"
 echo "       'cd $REMOTE_PATH/cms-strapi && node scripts/migrate-all.mjs'"
 echo "     o desde local apuntando al server:"
-echo "       STRAPI_URL=http://192.168.82.13 node cms-strapi/scripts/migrate-all.mjs"
+echo "       STRAPI_URL=http://localhost:1337 node cms-strapi/scripts/migrate-all.mjs"
 echo "  2. Disparar el workflow de deploy de Astro (push a main o repo dispatch)."

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Asocia PDFs locales a entries del server que se crearon sin pdfUrl
- * (porque el endpoint /upload del nginx no funcionaba en el momento).
+ * Asocia PDFs locales a registros del servidor que quedaron sin `pdfUrl`.
  *
  * Para cada item del snapshot WP 2026-06-17:
  *  1. GET server por (categoria + expediente + fechaAuto)
@@ -10,16 +9,16 @@
  *  3. Si pdfUrl ya está, skip.
  *
  * Uso:
- *   STRAPI_URL=http://192.168.82.13 \
+ *   STRAPI_URL=http://localhost:1337 \
  *     node cms-strapi/scripts/attach-pdfs-to-server-notif.mjs [--dry-run]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const STRAPI_URL = process.env.STRAPI_URL || 'http://192.168.82.13';
+const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 const DRY = process.argv.includes('--dry-run');
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

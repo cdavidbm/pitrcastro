@@ -123,7 +123,7 @@ Strapi v5 distingue entre **Draft** (borrador, no visible en el sitio público) 
 | Botón | Efecto |
 |-------|--------|
 | **Save** | Guarda el draft sin publicar. El cambio queda en el CMS pero NO se despliega al sitio. |
-| **Publish** | Publica el draft. Strapi notifica a GitHub Actions y dispara el deploy del sitio. |
+| **Publish** | Publica el borrador. El portal se actualiza solo, en dos o tres minutos. |
 | **Unpublish** | Quita la entrada del sitio público sin borrarla del CMS. Vuelve a estado Draft. |
 | **Delete** | Borra la entrada del CMS. Si estaba publicada, también dispara un rebuild del sitio. |
 

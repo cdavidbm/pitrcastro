@@ -131,7 +131,7 @@ CONFIG_PATHS=(
   /etc/nginx/sites-available
   /etc/nginx/sites-enabled
   /etc/sudoers.d
-  /etc/systemd/system/actions.runner.cdavidbm-pitrcastro.itrc-server.service
+  /etc/systemd/system/strapi-deploy.service
   /etc/ufw/user.rules
   /etc/ufw/user6.rules
   /etc/letsencrypt

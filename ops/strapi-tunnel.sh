@@ -9,8 +9,8 @@
 #   http://localhost:11337/admin
 #
 # El túnel entra directamente al Strapi del servidor, sin pasar por el
-# intermediario del proveedor. Es la única forma de usar el panel mientras esté
-# vigente la política de seguridad que lo deja en blanco (ver .local-docs).
+# intermediario del proveedor, cuya política de seguridad impide que el panel
+# cargue por la dirección pública.
 #
 # Subcomandos:
 #   open    — abre el túnel en background y guarda el PID

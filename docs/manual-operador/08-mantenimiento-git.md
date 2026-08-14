@@ -4,10 +4,12 @@
 
 Git es el sistema de control de versiones que registra cada cambio realizado en el portal. Funciona como un historial detallado que almacena quién hizo qué cambio, cuándo y con qué propósito. Para el portal ITRC, Git cumple dos roles fundamentales:
 
-1. **Mecanismo de publicación**: cuando se envía un cambio al repositorio GitHub, el sistema de despliegue automático (GitHub Actions) construye y publica el sitio.
-2. **Sistema de respaldo**: toda la historia del contenido del portal está almacenada en Git. Si se comete un error, es posible recuperar cualquier versión anterior de cualquier archivo.
+1. **Historial del código**: guarda cada cambio de las plantillas y la configuración, con su autor, su fecha y su motivo. Si algo sale mal, se puede volver a cualquier versión anterior.
+2. **Respaldo del código**: el repositorio conserva íntegro el código del portal.
 
-> **Nota:** El repositorio Git en GitHub es el respaldo completo del portal. No es necesario hacer copias de seguridad manuales de los archivos mientras el repositorio esté actualizado.
+> **Importante**: subir cambios a GitHub **no publica nada en el portal**. Publicar es un paso aparte, que se describe en el paso 7.
+>
+> El repositorio tampoco es el respaldo del portal completo: el contenido editorial vive en la base de datos del CMS y los documentos e imágenes viven en el servidor. Ambos tienen su propia copia de seguridad diaria.
 
 ## Conceptos básicos de Git
 
@@ -73,17 +75,19 @@ El mensaje debe ser descriptivo. Buenas prácticas:
 - Use el tiempo presente: "agrega", "actualiza", "corrige".
 - Sea específico: mencione qué sección o archivo cambió.
 
-### Paso 7 — Publicar los cambios
+### Paso 7 — Guardar los cambios en el repositorio
 
 ```bash
 git push origin main
 ```
 
-Una vez ejecutado este comando, GitHub Actions iniciará automáticamente el proceso de construcción y despliegue del sitio. El portal estará actualizado en 2 a 5 minutos.
+Esto **respalda** el cambio. El portal todavía no lo muestra.
 
-### Paso 8 — Verificar el despliegue
+### Paso 8 — Publicar en el portal
 
-Abra el repositorio en GitHub en su navegador y haga clic en la pestaña **"Actions"**. Verá una lista de ejecuciones recientes. La más nueva debe mostrar una marca verde de verificación cuando el despliegue termine correctamente. Si aparece una X roja, significa que hubo un error; haga clic sobre la ejecución fallida para ver el detalle del error y consulte al equipo técnico.
+Publicar exige llevar el archivo al servidor y pedirle que compile. Es una tarea del equipo técnico: el procedimiento está en [`../despliegue.md`](../despliegue.md).
+
+Si el cambio era de contenido, no hace falta nada de esto: basta con pulsar **Publish** en el panel.
 
 ## Resolver conflictos básicos
 
@@ -161,7 +165,7 @@ git push origin main
 
 Comuníquese con el equipo técnico en los siguientes casos:
 
-- El despliegue en GitHub Actions falla con un error que no comprende.
+- Necesita publicar en el portal un cambio de código.
 - Hay un conflicto de Git que involucra archivos de código (`.astro`, `.js`, `.ts`, `.css`) en lugar de archivos de contenido.
 - Necesita agregar una página completamente nueva al portal (requiere crear tanto el archivo JSON como el archivo `.astro`).
 - Necesita modificar la estructura del CMS (agregar un campo nuevo, cambiar un tipo de widget).
@@ -182,6 +186,6 @@ Editar archivos       →  VS Code (JSON o Markdown)
 Verificar en local    →  pnpm dev → http://localhost:4321
 Preparar commit       →  git add [archivos]
 Registrar cambio      →  git commit -m "descripción clara"
-Publicar              →  git push origin main
-Verificar deploy      →  GitHub → pestaña Actions → marca verde
+Respaldar             →  git push origin main
+Publicar              →  lo ejecuta el equipo técnico (ver despliegue.md)
 ```

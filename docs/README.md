@@ -24,7 +24,7 @@ El [`manual-operador/`](manual-operador/) cubre todo el flujo editorial:
 | [06](manual-operador/06-modificar-paginas.md) | Modificar páginas existentes |
 | [07](manual-operador/07-edicion-directa-vscode.md) | Edición directa de contenido en VS Code |
 | [08](manual-operador/08-mantenimiento-git.md) | Mantenimiento Git para el operador |
-| [09](manual-operador/09-despliegue-datacenter.md) | Servidor: nginx, runner, systemd, ufw |
+| [09](manual-operador/09-despliegue-datacenter.md) | Servidor: nginx, systemd, ufw |
 | [10](manual-operador/10-autenticacion-strapi.md) | Cuentas y roles del CMS |
 
 ## Para entender la arquitectura

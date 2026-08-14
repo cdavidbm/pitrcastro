@@ -5,7 +5,7 @@
  * de cargar.
  *
  * Uso:
- *   STRAPI_URL=http://192.168.82.13 node cms-strapi/scripts/migrate-eventos.mjs
+ *   STRAPI_URL=http://localhost:1337 node cms-strapi/scripts/migrate-eventos.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 const STRAPI_URL = process.env.STRAPI_URL || 'http://127.0.0.1:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');

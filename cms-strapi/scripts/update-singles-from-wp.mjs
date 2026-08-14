@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 
 const STRAPI_URL = process.env.STRAPI_URL || 'http://127.0.0.1:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 const DRY = process.argv.includes('--dry-run');
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

@@ -14,7 +14,7 @@
  * Variables:
  *   STRAPI_URL       (default http://127.0.0.1:1337)
  *   STRAPI_EMAIL     (default admin@itrc.local)
- *   STRAPI_PASSWORD  (default AdminITRC2026!)
+ *   STRAPI_PASSWORD  (obligatoria)
  *
  * Mapeo de atributos reservados aplicado al payload (debe espejar
  * RESERVED_ATTR_RENAMES de autogen-schemas.mjs).
@@ -25,7 +25,7 @@ import { fileURLToPath } from 'node:url';
 
 const STRAPI_URL = process.env.STRAPI_URL || 'http://127.0.0.1:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '../..');

@@ -9,16 +9,16 @@
  * Mantiene los docs que ya tienen file. No borra nada.
  *
  * Uso:
- *   STRAPI_URL=http://192.168.82.13 \
+ *   STRAPI_URL=http://localhost:1337 \
  *     node cms-strapi/scripts/attach-pdfs-to-planes-actuales.mjs [--dry-run]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const STRAPI_URL = process.env.STRAPI_URL || 'http://192.168.82.13';
+const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 const DRY = process.argv.includes('--dry-run');
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

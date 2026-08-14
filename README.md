@@ -28,10 +28,8 @@ docker compose up -d
 pnpm install
 pnpm develop      # http://localhost:1337/admin
 
-# Deploy
-git push origin main          # auto-deploy via runner self-hosted
-pnpm deploy                   # fallback manual
-pnpm deploy:binarios          # subir documentos al servidor
+# Publicar
+# El sitio se compila y publica en el servidor. Ver docs/despliegue.md
 ```
 
 ## Estructura
@@ -58,7 +56,7 @@ pnpm deploy:binarios          # subir documentos al servidor
 | Frontend | Astro 7, TypeScript, CSS variables (sin framework CSS) |
 | CMS | Strapi v5 CE |
 | Base de datos | Postgres en Docker |
-| Servidor | nginx en Ubuntu, VPN FortiClient |
-| CI/CD | GitHub Actions con runner self-hosted |
+| Servidor | nginx en Ubuntu, acceso por VPN |
+| Publicación | Servicio propio en el servidor (`strapi-deploy`) |
 | Iconos | Font Awesome 6 |
 | Tipografía | Nunito Sans |

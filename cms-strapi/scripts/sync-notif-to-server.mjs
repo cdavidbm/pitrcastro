@@ -8,16 +8,16 @@
  * Solo agrega + publica los faltantes.
  *
  * Uso:
- *   STRAPI_URL=http://192.168.82.13 \
+ *   STRAPI_URL=http://localhost:1337 \
  *     node cms-strapi/scripts/sync-notif-to-server.mjs [--dry-run]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const STRAPI_URL = process.env.STRAPI_URL || 'http://192.168.82.13';
+const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
 const EMAIL = process.env.STRAPI_EMAIL || 'admin@itrc.local';
-const PASSWORD = process.env.STRAPI_PASSWORD || 'AdminITRC2026!';
+const PASSWORD = process.env.STRAPI_PASSWORD || '';
 const DRY = process.argv.includes('--dry-run');
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -55,7 +55,7 @@ function loadServerKeysFromDump(dumpPath) {
   // En lugar de paginar el admin API (que en este server tiene bug y devuelve solo
   // las primeras 10 entries en cada página), usamos el dump SQL directo.
   if (!fs.existsSync(dumpPath)) {
-    throw new Error(`dump file not found: ${dumpPath}. Generar con: ssh admweb@192.168.82.13 "docker exec itrc-cms-postgres psql -U strapi -d strapi -t -A -F'|' -c \\"SELECT categoria,expediente,fecha_auto FROM notificaciones WHERE published_at IS NOT NULL;\\"" > ${dumpPath}`);
+    throw new Error(`dump file not found: ${dumpPath}. Generar con: ssh itrc-prod "docker exec itrc-cms-postgres psql -U strapi -d strapi -t -A -F'|' -c \\"SELECT categoria,expediente,fecha_auto FROM notificaciones WHERE published_at IS NOT NULL;\\"" > ${dumpPath}`);
   }
   const seen = new Set();
   const raw = fs.readFileSync(dumpPath, 'utf8');

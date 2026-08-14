@@ -45,7 +45,7 @@ Así el muscle-memory de teclear `npm install` invoca `pnpm install`. Para casos
 ## Clonar el repositorio
 
 ```bash
-git clone https://github.com/cdavidbm/pitrcastro.git
+git clone https://github.com/comunicaciones-itrc/web.git
 cd pitrcastro
 ```
 

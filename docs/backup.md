@@ -10,8 +10,6 @@ El backup del equipo web protege lo que el equipo web administra. Los siguientes
 - **DR de infraestructura y networking** — los cubre el equipo de Infra de ITRC.
 - **Cuentas del sistema, VPN y firmas TLS globales** — los cubren HostDime + Infra.
 
-El sandbox `192.168.82.13` no se respalda: es un entorno de pruebas del equipo, no destino institucional.
-
 ## Qué se backupea
 
 Cada corrida diaria genera un directorio con estos artefactos:

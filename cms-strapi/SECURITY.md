@@ -1,4 +1,4 @@
-# Seguridad del CMS — POC y handoff
+# Seguridad del CMS
 
 ## Estado del 2FA TOTP
 
