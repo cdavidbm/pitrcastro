@@ -77,7 +77,7 @@ Use esta tabla para encontrar rápidamente el capítulo que necesita según la t
 - **CMS / Strapi**: panel administrativo accesible en `/admin/`. Es donde el editor pasa el 95% del tiempo.
 - **Content type**: estructura de un tipo de contenido en Strapi (single-type para páginas únicas, collection-type para listados).
 - **Repositorio / repo**: carpeta del proyecto en GitHub donde vive el código fuente (templates Astro, schemas Strapi, configuración).
-- **Deploy / despliegue**: proceso automático que publica los cambios en el sitio público tras una publicación en el CMS o un push al repo.
+- **Publicación**: proceso que reconstruye el sitio público. Se dispara solo al publicar en el CMS. Subir código al repositorio **no publica nada**.
 - **Editor**: persona con cuenta en Strapi que crea/modifica contenido del portal.
 - **Desarrollador**: persona con cuenta de GitHub que toca código (templates, schemas, infraestructura).
 

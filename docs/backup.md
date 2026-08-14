@@ -19,7 +19,7 @@ Cada corrida diaria genera un directorio con estos artefactos:
 | `strapi.pgcustom` | Postgres del contenedor `itrc-cms-postgres` | `pg_dump` formato custom (comprimido, restaurable con `pg_restore`) |
 | `uploads.tgz` | Media library de Strapi (`/var/www/portal_nuevo/uploads/`) | tarball comprimido |
 | `documentos.tgz` | Binarios históricos por área (`/home/admweb/itrc-cms/public/documentos/`) | tarball comprimido |
-| `working-tree.tgz` | Working tree del build (`src/`, `cms-strapi/`, `public/images/`) | tarball comprimido; incluye los nueve parches `as any` que producción necesita |
+| `working-tree.tgz` | Árbol que se compila (`src/`, `cms-strapi/`, `public/images/`) | tarball comprimido |
 | `etc/` | Configuración de servidor | `nginx/`, `default/strapi-deploy`, unit files (`strapi-deploy.service`), copia del script de backup |
 | `METADATA` | Estado del working tree en el momento del backup | `git HEAD`, rama, listado de archivos con cambios locales |
 | `SHA256SUMS` | Checksums de todos los artefactos | verificación de integridad |

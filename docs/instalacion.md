@@ -6,7 +6,7 @@ Pasos para clonar y correr el portal ITRC en una máquina nueva.
 
 | Herramienta | Versión | Para qué |
 |---|---|---|
-| Node.js | 20 LTS | Astro y Strapi |
+| Node.js | **22 LTS** | Astro y Strapi. El CMS no instala con Node 20 |
 | pnpm | 10 | Gestor de paquetes — **único permitido en este repo** ([por qué](#por-qué-pnpm)) |
 | Docker + Docker Compose | reciente | Postgres del CMS |
 | Git | 2.30+ | Clonar el repo |
@@ -46,7 +46,7 @@ Así el muscle-memory de teclear `npm install` invoca `pnpm install`. Para casos
 
 ```bash
 git clone https://github.com/comunicaciones-itrc/web.git
-cd pitrcastro
+cd web
 ```
 
 ## Frontend Astro
@@ -102,7 +102,6 @@ Admin panel: `http://localhost:1337/admin`. En el primer arranque pide crear el 
 | `APP_KEYS`, `API_TOKEN_SALT`, `ADMIN_JWT_SECRET`, `JWT_SECRET`, `TRANSFER_TOKEN_SALT`, `ENCRYPTION_KEY` | Secretos. Generar con `openssl rand -base64 16`. Strapi no arranca si están vacíos. |
 | `DATABASE_CLIENT` | `postgres` |
 | `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME`, `DATABASE_PASSWORD` | Conexión a Postgres (default `127.0.0.1:5432`, db `strapi`) |
-| `GITHUB_REPO`, `GITHUB_DISPATCH_TOKEN` | Opcionales. Disparan rebuild del frontend al publicar contenido (vía `repository_dispatch`). |
 
 Ver [`cms-strapi/.env.example`](../cms-strapi/.env.example) y [`.env.cms.example`](../.env.cms.example) en raíz.
 
@@ -120,11 +119,40 @@ Sin `STRAPI_URL`, el código cae a `http://127.0.0.1:1337` por defecto. Sin `STR
 
 El token (si se usa) se crea en Strapi admin → Settings → API Tokens → tipo "Read-only".
 
+## Cargar el contenido
+
+**Este paso es imprescindible y no es opcional.** El repositorio trae el código,
+no el contenido: los textos, las noticias y los documentos viven en la base de
+datos del servidor. Un CMS recién levantado está **vacío**, y el sitio compila
+igual sin avisar de nada — con todas las páginas en blanco.
+
+Para trabajar con el contenido real hay que traer una copia de la base:
+
+```bash
+# 1. Volcar la base del servidor (requiere la VPN conectada)
+ssh itrc-prod 'docker exec itrc-cms-postgres pg_dump -U strapi -Fc strapi' > strapi.pgcustom
+
+# 2. Restaurarla en el Postgres local
+docker exec -i itrc-cms-postgres pg_restore -U strapi -d strapi -c --if-exists < strapi.pgcustom
+```
+
+Los archivos subidos (PDF e imágenes del panel) viajan aparte:
+
+```bash
+rsync -az itrc-prod:/var/www/portal_nuevo/uploads/ ./public/uploads/
+```
+
+Es una copia de trabajo. Los cambios que se hagan en el CMS local **no llegan
+al portal**: publicar es otro camino, descrito en [`despliegue.md`](despliegue.md).
+
 ## Verificación rápida
 
-1. `curl http://localhost:1337/api/agencia-mision-vision` debe responder JSON con datos.
-2. `pnpm dev` en la raíz debe arrancar sin errores y `http://localhost:4321` cargar el home con datos del CMS.
-3. `pnpm build` debe terminar sin errores y generar `dist/` con páginas HTML.
+1. `curl http://localhost:1337/api/agencia-mision-vision` debe responder JSON
+   con datos. Si responde vacío, falta cargar el contenido.
+2. `pnpm dev` en la raíz debe arrancar y `http://localhost:4321` mostrar el
+   inicio **con textos**. Si las páginas salen vacías, falta el paso anterior.
+3. `pnpm build` debe terminar y generar `dist/`. Ojo: **termina bien aunque no
+   haya contenido**; revisar los avisos `[strapi]` del registro.
 
 ## Por qué pnpm
 
@@ -150,5 +178,20 @@ En este proyecto, los paquetes que sí necesitan correr sus build scripts (`esbu
 
 ## Siguiente paso
 
-- Para subir el sitio al servidor: ver [`despliegue.md`](despliegue.md).
+- Para publicar en el portal: ver [`despliegue.md`](despliegue.md).
 - Para usar el CMS como editor: ver [`manual-operador/`](manual-operador/).
+
+## Lo que no está en el repositorio
+
+Clonar y seguir esta guía deja el proyecto corriendo en local, pero para
+**administrar el portal** hacen falta además tres cosas que se entregan por
+separado, nunca por el repositorio:
+
+| | Para qué |
+|---|---|
+| Acceso a la VPN del proveedor | Es la única vía hasta el servidor |
+| Llave SSH autorizada en el servidor | Publicar, respaldar, diagnosticar |
+| Cuenta en el panel de contenidos | Publicar contenido |
+
+Sin ellas se puede desarrollar y compilar, pero no publicar ni traer el
+contenido real.

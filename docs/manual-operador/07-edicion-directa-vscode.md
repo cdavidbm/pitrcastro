@@ -27,7 +27,7 @@ Si es la primera vez que trabaja con el proyecto localmente:
 
 ```bash
 git clone https://github.com/comunicaciones-itrc/web.git
-cd pitrcastro
+cd web
 pnpm install
 ```
 
@@ -65,9 +65,29 @@ itrc-portal/
 ```
 
 Las carpetas que el operador puede editar con seguridad son:
-- `src/content/news/` — archivos originales de las noticias. El sitio ya no los usa: las noticias se editan en el panel.
-- `src/content/sliders/` — sliders en JSON.
+- `src/content/pages/` — **solo cinco páginas los leen** (ver el aviso de abajo).
 - `cms-strapi/src/api/<slug>/content-types/<slug>/schema.json` — solo si necesita ajustar campos de un content type existente. Tras editar, regenerar fetchers con `node cms-strapi/scripts/gen-strapi-fetchers.mjs`.
+
+> **Antes de editar un JSON, compruebe que la página lo lee.** Casi todo el
+> contenido del portal vive en el panel; los archivos de `src/content/` son en
+> su mayoría el respaldo del contenido original y **editarlos no cambia nada**.
+>
+> Solo estas cinco páginas siguen leyéndolos, y lo hacen combinándolos con lo
+> que viene del panel:
+>
+> | Página | Archivo |
+> |---|---|
+> | Gestión Misional | `agencia/gestion-misional.json` |
+> | Misión y Visión | `agencia/mision-vision.json` |
+> | Control Interno | `agencia/sistema-de-control-interno.json` |
+> | Relatoría | `transparencia/relatoria.json` |
+> | Memorias del eje de educación | `observatorio/eje-de-educacion/memorias.json` |
+>
+> Para saberlo con certeza, busque el `import` en la plantilla de la página:
+> `grep -n "content/pages" src/pages/<ruta>.astro`.
+>
+> `src/content/news/` y `src/content/sliders/` **ya no se usan**: las noticias y
+> los banners se editan en el panel.
 
 ## Editar un archivo JSON directamente
 
