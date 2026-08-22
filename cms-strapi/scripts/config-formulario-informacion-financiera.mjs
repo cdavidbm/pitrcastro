@@ -37,10 +37,13 @@ const UID_DOCUMENTO = 'agencia-informacion-financiera.item';
 const PESTANA = {
   campos: {
     label: { label: 'Nombre de la pestaña', description: 'El que ven los visitantes. Ej.: Estados Financieros 2026' },
-    idLogico: { label: 'Identificador interno', description: 'No cambiar: la pagina lo usa para enlazar a esta pestaña' },
+    // Sobra en el formulario: la pagina identifica cada pestaña por su
+    // identificador de fila, no por este campo. Solo estorba y se presta a
+    // que alguien lo cambie sin motivo.
+    idLogico: { label: 'Identificador interno', description: '', visible: false },
     items: { label: 'Documentos de esta pestaña', description: '' },
   },
-  filas: [[['label', 8], ['idLogico', 4]], [['items', 12]]],
+  filas: [[['label', 12]], [['items', 12]]],
   principal: 'label',
 };
 
@@ -94,7 +97,7 @@ async function configurar(cabeceras, ruta, clave, def) {
       ...metadatas[campo].edit,
       label: ajuste.label,
       description: ajuste.description ?? '',
-      visible: true,
+      visible: ajuste.visible !== false,
       editable: true,
     };
     metadatas[campo].list = { ...metadatas[campo].list, label: ajuste.label };
