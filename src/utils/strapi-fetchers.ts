@@ -5,7 +5,7 @@
  */
 import { strapiGet } from './strapi';
 
-// === Settings globales (administrables desde Strapi) ===
+// === Ajustes globales (administrables desde Strapi) ===
 export const getSite = () => strapiGet<any>("/api/site?populate[featuredVideo]=true");
 export const getContact = () => strapiGet<any>("/api/contact?populate[socialMedia]=true");
 export const getNavigation = () => strapiGet<any>("/api/navigation");
@@ -24,7 +24,7 @@ export const getAgenciaEmpleoRrhhOfertasEmpleo = () => strapiGet<any>("/api/agen
 export const getAgenciaEquipoDirectivo = () => strapiGet<any>("/api/agencia-equipo-directivo?populate[directora]=true&populate[subdirectores]=true");
 export const getAgenciaEscalaSalarial = () => strapiGet<any>("/api/agencia-escala-salarial?populate[pdfUrl]=true");
 export const getAgenciaGestionMisional = () => strapiGet<any>("/api/agencia-gestion-misional?populate[subdirecciones][populate][observatorio]=true&populate[subdirecciones][populate][categorias][populate][documentos][populate][file]=true&populate[enlacesRelacionados]=true");
-export const getAgenciaInformacionFinanciera = () => strapiGet<any>("/api/agencia-informacion-financiera?populate[tabs][populate][items]=true&populate[infoCards]=true&populate[ctaSection]=true");
+export const getAgenciaInformacionFinanciera = () => strapiGet<any>("/api/agencia-informacion-financiera?populate[tabs][populate][items][populate][file]=true&populate[infoCards]=true&populate[ctaSection]=true");
 export const getAgenciaLanding = () => strapiGet<any>("/api/agencia-landing?populate[secciones]=true");
 export const getAgenciaMisionVision = () => strapiGet<any>("/api/agencia-mision-vision?populate[proposito]=true&populate[quienesSomos]=true&populate[queHacemos][populate][entidades]=true&populate[comoLoHacemos]=true&populate[funciones][populate][items]=true&populate[valores]=true&populate[mapaEstrategico][populate][pdf]=true");
 export const getAgenciaOrganigrama = () => strapiGet<any>("/api/agencia-organigrama?populate[organigrama][populate][pdf]=true&populate[funcionesPorArea]=true&populate[resolucionesSeccion]=true&populate[resoluciones]=true&populate[ctaDirectorio]=true");

@@ -5,6 +5,7 @@ import SectionTitle from '../../components/SectionTitle.astro';
 
 import { getAgenciaInformacionFinanciera } from '../../utils/strapi-fetchers';
 import { resolveUrl } from '../../utils/url';
+import { mediaUrl } from '../../utils/strapi-media';
 
 
 const pageData: any = (await getAgenciaInformacionFinanciera()) ?? {};
@@ -69,7 +70,7 @@ const breadcrumb = [
               <div class="documents-list">
                 {tab.items.map((item, idx) => (
                   <a
-                    href={item.url}
+                    href={mediaUrl(item.file) || item.url}
                     class={`document-item ${idx % 2 === 0 ? 'document-item--alt' : ''}`}
                     target="_blank"
                     rel="noopener noreferrer"

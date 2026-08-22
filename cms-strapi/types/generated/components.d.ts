@@ -379,6 +379,7 @@ export interface AgenciaInformacionFinancieraItem extends Struct.ComponentSchema
     icon: 'cube';
   };
   attributes: {
+    file: Schema.Attribute.Media<'files' | 'images'>;
     titulo: Schema.Attribute.String;
     url: Schema.Attribute.String;
   };

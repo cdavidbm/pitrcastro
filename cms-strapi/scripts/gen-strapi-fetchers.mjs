@@ -103,6 +103,22 @@ function pascalCase(s) {
   return c.charAt(0).toUpperCase() + c.slice(1);
 }
 
+/**
+ * Tipos de contenido creados a mano, que no estan en el manifest del autogen.
+ * Sin esta lista el generador los omitia y cada regeneracion borraba sus
+ * lectores del archivo de salida, rompiendo el pie de pagina, la navegacion,
+ * los accesos rapidos y la portada.
+ *
+ * Se declaran con su consulta literal para que el resultado sea exactamente el
+ * que el sitio ya usa.
+ */
+const AJUSTES_GLOBALES = [
+  ['getSite', '/api/site?populate[featuredVideo]=true'],
+  ['getContact', '/api/contact?populate[socialMedia]=true'],
+  ['getNavigation', '/api/navigation'],
+  ['getQuickAccess', '/api/quick-access?populate[items]=true&pagination[pageSize]=200'],
+];
+
 function generate() {
   if (!fs.existsSync(MANIFEST)) {
     console.error('[gen-fetchers] manifest no existe. Corre primero: node scripts/autogen-schemas.mjs');
@@ -117,6 +133,11 @@ function generate() {
   lines.push(' *   node cms-strapi/scripts/gen-strapi-fetchers.mjs');
   lines.push(' */');
   lines.push("import { strapiGet } from './strapi';");
+  lines.push('');
+  lines.push('// === Ajustes globales (administrables desde Strapi) ===');
+  for (const [fn, url] of AJUSTES_GLOBALES) {
+    lines.push(`export const ${fn} = () => strapiGet<any>(${JSON.stringify(url)});`);
+  }
   lines.push('');
 
   // Single pages
