@@ -39,6 +39,12 @@ const socialIcons: Record<string, string> = {
           <i class="fa-solid fa-city" aria-hidden="true"></i>
           {contactConfig.city}
         </li>
+        {contactConfig.postalCode && (
+          <li>
+            <i class="fa-solid fa-map-pin" aria-hidden="true"></i>
+            Código Postal: {contactConfig.postalCode}
+          </li>
+        )}
         <li>
           <i class="fa-solid fa-phone" aria-hidden="true"></i>
           <a href={`tel:${contactConfig.phone.replace(/\s/g, '')}`}>{contactConfig.phone}</a>
