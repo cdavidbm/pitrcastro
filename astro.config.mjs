@@ -35,7 +35,11 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin'),
+      // Fuera del sitemap: el panel y las paginas no listadas (existen y
+      // responden, pero no se anuncian a los buscadores).
+      filter: (page) =>
+        !page.includes('/admin') &&
+        !page.includes('/rendicion-de-cuentas-2026'),
     }),
   ],
   vite: {

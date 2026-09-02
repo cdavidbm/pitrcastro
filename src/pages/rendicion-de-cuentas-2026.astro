@@ -1,0 +1,206 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+const FORMULARIO = 'https://forms.cloud.microsoft/r/YN5JEcziaL';
+
+const breadcrumb = [
+  { label: 'Inicio', href: resolveUrl('/') },
+  { label: 'Rendición de cuentas 2026' },
+];
+
+// El formulario no se puede embeber: la politica de seguridad del proveedor
+// prohibe cargar marcos de otros dominios sobre www.itrc.gov.co, y el navegador
+// los rechaza antes de pedirlos. Por eso se invita a abrirlo en una pestana.
+//
+// El dia que el proveedor permita enmarcar forms.cloud.microsoft, basta con
+// sustituir la tarjeta de abajo por:
+//   <iframe src={FORMULARIO} title="Formulario de rendicion de cuentas 2026"
+//           width="100%" height="900" frameborder="0"></iframe>
+---
+
+<Base
+  title="Rendición de cuentas 2026"
+  description="Participe en el ejercicio de rendición de cuentas 2026 de la Agencia ITRC."
+  noindex={true}
+>
+  <HeroPage
+    title="Rendición de cuentas 2026"
+    subtitle="Su opinión orienta el ejercicio de rendición de cuentas de la Agencia"
+    icon="fa-solid fa-comments"
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="rc-section">
+    <div class="container">
+      <div class="rc-intro">
+        <p>
+          La Agencia del Inspector General de Tributos, Rentas y Contribuciones
+          Parafiscales invita a la ciudadanía, a los servidores públicos y a los
+          grupos de interés a participar en el ejercicio de rendición de cuentas
+          de la vigencia 2026.
+        </p>
+        <p>
+          Sus respuestas alimentan la construcción del informe y la definición de
+          los temas que se abordarán en la audiencia pública.
+        </p>
+      </div>
+
+      <div class="rc-card">
+        <div class="rc-card__icon" aria-hidden="true">
+          <i class="fa-solid fa-clipboard-question"></i>
+        </div>
+
+        <h2 class="rc-card__titulo">Formulario de participación</h2>
+
+        <p class="rc-card__texto">
+          Diligenciarlo toma pocos minutos. Se abrirá en una pestaña nueva.
+        </p>
+
+        <a
+          href={FORMULARIO}
+          class="rc-card__boton"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+          <span>Diligenciar el formulario</span>
+          <i class="fa-solid fa-arrow-up-right-from-square rc-card__boton-ext" aria-hidden="true"></i>
+        </a>
+
+        <p class="rc-card__nota">
+          El formulario está alojado en Microsoft Forms.
+        </p>
+      </div>
+
+      <ul class="rc-datos">
+        <li class="rc-dato">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <span><strong>Pocos minutos</strong><br>es lo que toma responder</span>
+        </li>
+        <li class="rc-dato">
+          <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+          <span><strong>Sus datos</strong><br>se tratan conforme a la ley</span>
+        </li>
+        <li class="rc-dato">
+          <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+          <span><strong>Abierto</strong><br>a ciudadanía y grupos de interés</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .rc-section { padding: var(--space-10) 0 var(--space-12); }
+  .rc-section .container { max-width: 860px; margin: 0 auto; }
+
+  .rc-intro { margin-bottom: var(--space-8); }
+  .rc-intro p {
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--theme-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .rc-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: var(--space-10) var(--space-6) var(--space-8);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--theme-cta-from), var(--theme-cta-to));
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(0, 33, 71, 0.18);
+  }
+  .rc-card::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--itrc-gold);
+  }
+
+  .rc-card__icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto var(--space-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    font-size: 2rem;
+  }
+
+  .rc-card__titulo {
+    color: #fff;
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .rc-card__texto {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-7);
+    font-size: var(--font-size-base);
+  }
+
+  .rc-card__boton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  }
+  .rc-card__boton:hover,
+  .rc-card__boton:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+  }
+  .rc-card__boton-ext { font-size: 0.8em; opacity: 0.75; }
+
+  .rc-card__nota {
+    margin-top: var(--space-5);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .rc-datos {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+  .rc-dato {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface-alt);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: var(--theme-text-secondary);
+  }
+  .rc-dato i { color: var(--itrc-gold); font-size: var(--font-size-lg); flex-shrink: 0; }
+  .rc-dato strong { color: var(--theme-heading); }
+
+  @media (max-width: 768px) {
+    .rc-datos { grid-template-columns: 1fr; }
+    .rc-card { padding: var(--space-8) var(--space-4) var(--space-6); }
+    .rc-card__boton { width: 100%; justify-content: center; }
+  }
+</style>

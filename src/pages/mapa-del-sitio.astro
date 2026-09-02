@@ -47,6 +47,15 @@ function walkAstro(dir: string): string[] {
   return out;
 }
 
+/**
+ * Paginas que existen y responden, pero no se anuncian: no salen en este mapa
+ * ni en el sitemap.xml (ver el filtro de astro.config.mjs), y ningun menu las
+ * enlaza. Se llega solo por su direccion.
+ */
+const NO_LISTADAS = new Set<string>([
+  '/rendicion-de-cuentas-2026',
+]);
+
 function pageRelativeUrl(absPath: string): string | null {
   let rel = absPath
     .slice(PAGES_DIR.length)
@@ -56,6 +65,7 @@ function pageRelativeUrl(absPath: string): string | null {
   if (!rel) return null;
   if (rel.includes('[')) return null;
   if (rel.startsWith('admin/') || rel === 'admin') return null;
+  if (NO_LISTADAS.has('/' + rel)) return null;
   if (rel.split('/').some((p) => p.startsWith('_'))) return null;
   let url = '/' + rel;
   if (url.endsWith('/index')) url = url.slice(0, -6) || '/';

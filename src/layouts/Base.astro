@@ -20,6 +20,9 @@ interface Props {
   // Ejemplo: strapiSlug="normativa-marco-legal" strapiKind="singleType"
   strapiSlug?: string;
   strapiKind?: 'singleType' | 'collectionType';
+  // Para paginas que no deben aparecer en buscadores. Por defecto se indexan,
+  // igual que siempre: ninguna pagina existente cambia.
+  noindex?: boolean;
 }
 
 const {
@@ -28,6 +31,7 @@ const {
   class: className = '',
   strapiSlug,
   strapiKind = 'singleType',
+  noindex = false,
 } = Astro.props;
 const pageTitle = `${title} | ${siteConfig.name}`;
 const base = import.meta.env.BASE_URL;
@@ -78,7 +82,7 @@ const schemaOrgData = {
   <meta name="description" content={description}>
   <meta name="keywords" content={siteConfig.keywords?.join(', ')}>
   <meta name="author" content={siteConfig.name}>
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"}>
 
   <meta property="og:title" content={pageTitle}>
   <meta property="og:description" content={description}>
