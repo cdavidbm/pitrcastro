@@ -10,7 +10,6 @@ const breadcrumb = [
   { label: 'Agencia', href: resolveUrl('/agencia') },
   { label: pageData.title }
 ];
-const total = pageData.secciones.reduce((acc, s) => acc + s.documentos.length, 0);
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="agencia-empleo-rrhh-manual-especifico-funciones">
@@ -18,7 +17,6 @@ const total = pageData.secciones.reduce((acc, s) => acc + s.documentos.length, 0
   <section class="mef-section">
     <div class="container">
       {pageData.intro && <p class="mef-intro">{pageData.intro}</p>}
-      <div class="mef-stats"><strong>{total} documentos</strong> en {pageData.secciones.length} secciones</div>
       {pageData.secciones.map((s, i) => (
         <details class="mef-sec" open={i === 0}>
           <summary class="mef-sec__summary">
@@ -47,8 +45,6 @@ const total = pageData.secciones.reduce((acc, s) => acc + s.documentos.length, 0
   .mef-section { padding: var(--space-8) var(--space-6) var(--space-16); background: var(--theme-surface); }
   .mef-section .container { max-width: 1000px; margin: 0 auto; }
   .mef-intro { font-size: var(--font-size-base); line-height: 1.7; color: var(--theme-text-secondary); margin-bottom: var(--space-6); text-align: justify; }
-  .mef-stats { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--theme-surface-alt); border-radius: var(--radius-full); margin-bottom: var(--space-8); font-size: var(--font-size-sm); }
-  .mef-stats strong { color: var(--itrc-gold); }
   .mef-sec { margin-bottom: var(--space-3); border: 1px solid var(--theme-border); border-radius: var(--radius-lg); overflow: hidden; }
   .mef-sec__summary { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); cursor: pointer; list-style: none; }
   .mef-sec__summary::-webkit-details-marker { display: none; }
