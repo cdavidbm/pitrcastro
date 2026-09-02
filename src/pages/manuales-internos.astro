@@ -1,11 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListadoInformes from '../components/ListadoInformes.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { getAgenciaEmpleoRrhhManualesInternos } from '../utils/strapi-fetchers';
 import { resolveUrl } from '../utils/url';
 const pageData: any = (await getAgenciaEmpleoRrhhManualesInternos()) ?? {};
+
+// Manuales que tienen pagina propia y no figuran en la lista de arriba, que
+// solo enlaza archivos. Sin esto no habia forma de llegar a ellos navegando.
+const otrosManuales = [
+  {
+    titulo: 'Manual Específico de Funciones y de Competencias Laborales',
+    descripcion: 'Resoluciones que lo adoptan y fichas de empleo por dependencia.',
+    url: '/manual-especifico-de-funciones-y-de-competencias-laborales',
+    icon: 'fa-solid fa-address-card',
+  },
+  {
+    titulo: 'Manual de Identidad Visual',
+    descripcion: 'Lineamientos gráficos y de marca de la Agencia.',
+    url: '/manual-de-identidad-visual-itrc',
+    icon: 'fa-solid fa-palette',
+  },
+];
 ---
 
 <Base title={pageData.title} description={pageData.description} strapiSlug="agencia-empleo-rrhh-manuales-internos">
   <ListadoInformes pageData={pageData} section={{ label: 'Agencia', href: resolveUrl('/agencia') }} />
+  <RelatedLinks links={otrosManuales} title="Otros manuales" />
 </Base>

@@ -39,6 +39,22 @@
         {
           "label": "Información Financiera",
           "url": "/agencia/informacion-financiera"
+        },
+        {
+          "url": "/manuales-internos",
+          "label": "Manuales Internos"
+        },
+        {
+          "url": "/manual-especifico-de-funciones-y-de-competencias-laborales",
+          "label": "Manual Específico de Funciones"
+        },
+        {
+          "url": "/nombramientos",
+          "label": "Nombramientos"
+        },
+        {
+          "url": "/ofertas-de-empleo",
+          "label": "Ofertas de Empleo"
         }
       ]
     },
