@@ -95,7 +95,13 @@ const sliderId = `slider-${slider}-${Math.random().toString(36).substring(2, 11)
                 loading={index === 0 ? "eager" : "lazy"}
               />
             )}
-            {slide.overlay !== false && <div class="hero-slide__overlay"></div>}
+            {/* La capa oscurece la imagen para que el texto se lea encima. Sin
+                texto no protege nada: solo apaga la foto. El campo `overlay`
+                viene activado por defecto y no se ve en el formulario, asi que
+                un banner nuevo lo heredaba sin que nadie pudiera quitarlo. */}
+            {slide.overlay !== false && hasContent && (
+              <div class="hero-slide__overlay"></div>
+            )}
             {hasContent && (
               <div class="hero-slide__content">
                 {slide.title && <h2 class="hero-slide__title">{slide.title}</h2>}
