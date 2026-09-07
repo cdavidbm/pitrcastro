@@ -1,0 +1,284 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { resolveUrl } from '../utils/url';
+
+// Si esta constante queda vacia, la pagina no muestra un boton roto: avisa que
+// el formulario abre proximamente.
+const FORMULARIO = 'https://forms.cloud.microsoft/r/5zYhnFUUt6';
+
+// El texto del Acuerdo Colectivo 2026 se enlaza solo si esta publicado en el
+// portal. Dejarlo vacio mientras no se confirme que puede difundirse.
+const ACUERDO_PDF = '';
+
+const breadcrumb = [
+  { label: 'Inicio', href: resolveUrl('/') },
+  { label: 'Autorización para recibir información de SUNET' },
+];
+
+// El formulario no se puede embeber: la politica de seguridad del proveedor
+// prohibe cargar marcos de otros dominios sobre www.itrc.gov.co, y el navegador
+// los rechaza antes de pedirlos. Por eso se invita a abrirlo en una pestana.
+---
+
+<Base
+  title="Autorización para recibir información de SUNET"
+  description="Manifieste si autoriza que la Agencia ITRC remita a su correo institucional la información de la organización sindical SUNET."
+  noindex={true}
+>
+  <HeroPage
+    title="Autorización para recibir información de SUNET"
+    subtitle="Cada funcionario decide si desea recibir estas comunicaciones"
+    icon="fa-solid fa-envelope-circle-check"
+    breadcrumb={breadcrumb}
+  />
+
+  <section class="au-section">
+    <div class="container">
+      <div class="au-intro">
+        <p>
+          En el <strong>Acuerdo Colectivo 2026</strong>, suscrito entre la Agencia
+          del Inspector General de Tributos, Rentas y Contribuciones Parafiscales
+          y el Sindicato Unitario Nacional de Trabajadores del Estado — SUNET, la
+          Agencia se comprometió a consultar a cada funcionario si desea recibir
+          en su correo institucional la información de la organización sindical.
+        </p>
+        <p>
+          Este formulario recoge esa manifestación. Responderlo no vincula a nadie
+          con el sindicato ni supone afiliación alguna: únicamente indica si
+          quiere o no recibir esos mensajes.
+        </p>
+      </div>
+
+      <div class="au-card">
+        <div class="au-card__icon" aria-hidden="true">
+          <i class="fa-solid fa-square-check"></i>
+        </div>
+
+        <h2 class="au-card__titulo">Formulario de autorización</h2>
+
+        {FORMULARIO ? (
+          <>
+            <p class="au-card__texto">
+              Responderlo toma dos minutos. Se abrirá en una pestaña nueva.
+            </p>
+
+            <a
+              href={FORMULARIO}
+              class="au-card__boton"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+              <span>Responder el formulario</span>
+              <i class="fa-solid fa-arrow-up-right-from-square au-card__boton-ext" aria-hidden="true"></i>
+            </a>
+
+            <p class="au-card__nota">
+              El formulario está alojado en Microsoft Forms y solo admite
+              respuestas con la cuenta institucional.
+            </p>
+          </>
+        ) : (
+          <p class="au-card__texto au-card__texto--solo">
+            El formulario se habilitará próximamente. La convocatoria se enviará
+            por los canales oficiales de la Agencia.
+          </p>
+        )}
+      </div>
+
+      <ul class="au-datos">
+        <li class="au-dato">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <span><strong>Dos minutos</strong><br>es lo que toma responder</span>
+        </li>
+        <li class="au-dato">
+          <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+          <span><strong>Reversible</strong><br>puede cambiar su decisión cuando quiera</span>
+        </li>
+        <li class="au-dato">
+          <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+          <span><strong>Confidencial</strong><br>su respuesta no se publica</span>
+        </li>
+      </ul>
+
+      <div class="au-notas">
+        <h2 class="au-notas__titulo">Qué debe saber antes de responder</h2>
+        <ul>
+          <li>
+            <strong>Es voluntario.</strong> Responder «No autorizo» no tiene
+            ninguna consecuencia laboral ni deja constancia negativa en su hoja
+            de vida.
+          </li>
+          <li>
+            <strong>Puede cambiar de opinión.</strong> Basta con volver a abrir
+            el formulario y modificar su respuesta; la Agencia repetirá la
+            consulta de forma periódica, atendiendo también el ingreso de nuevos
+            funcionarios.
+          </li>
+          <li>
+            <strong>Sus datos.</strong> Se recogen únicamente para conformar la
+            lista de distribución y se tratan conforme a la Ley 1581 de 2012 de
+            protección de datos personales. No se publican resultados con
+            nombres.
+          </li>
+        </ul>
+      </div>
+
+      <p class="au-fuente">
+        Fundamento: Acuerdo Colectivo 2026 entre la Agencia ITRC y SUNET, punto 35,
+        suscrito tras la mediación colectiva finalizada el 24 de junio de 2026, en
+        el marco del Decreto 160 de 2014, compilado en el Decreto 1072 de 2015.
+        {ACUERDO_PDF && (
+          <>
+            {' '}<a href={ACUERDO_PDF} target="_blank" rel="noopener noreferrer">Consultar el acuerdo</a>.
+          </>
+        )}
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .au-section { padding: var(--space-10) 0 var(--space-12); }
+  .au-section .container { max-width: 860px; margin: 0 auto; }
+
+  .au-intro { margin-bottom: var(--space-8); }
+  .au-intro p {
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--theme-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+  .au-intro strong { color: var(--theme-heading); }
+
+  .au-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: var(--space-10) var(--space-6) var(--space-8);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--theme-cta-from), var(--theme-cta-to));
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(0, 33, 71, 0.18);
+  }
+  .au-card::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--itrc-gold);
+  }
+
+  .au-card__icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto var(--space-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    font-size: 2rem;
+  }
+
+  .au-card__titulo {
+    color: #fff;
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .au-card__texto {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-7);
+    font-size: var(--font-size-base);
+  }
+  .au-card__texto--solo { margin-bottom: 0; }
+
+  .au-card__boton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  }
+  .au-card__boton:hover,
+  .au-card__boton:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+  }
+  .au-card__boton-ext { font-size: 0.8em; opacity: 0.75; }
+
+  .au-card__nota {
+    margin-top: var(--space-5);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .au-datos {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+  .au-dato {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface-alt);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: var(--theme-text-secondary);
+  }
+  .au-dato i { color: var(--itrc-gold); font-size: var(--font-size-lg); flex-shrink: 0; }
+  .au-dato strong { color: var(--theme-heading); }
+
+  .au-notas {
+    margin-top: var(--space-10);
+    padding: var(--space-6);
+    border: 1px solid var(--theme-border);
+    border-left: 4px solid var(--itrc-gold);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface);
+  }
+  .au-notas__titulo {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+    color: var(--theme-heading);
+  }
+  .au-notas ul { margin: 0; padding-left: var(--space-5); }
+  .au-notas li {
+    margin-bottom: var(--space-3);
+    line-height: 1.7;
+    color: var(--theme-text-secondary);
+  }
+  .au-notas li:last-child { margin-bottom: 0; }
+  .au-notas strong { color: var(--theme-heading); }
+
+  .au-fuente {
+    margin-top: var(--space-6);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    color: var(--theme-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .au-datos { grid-template-columns: 1fr; }
+    .au-card { padding: var(--space-8) var(--space-4) var(--space-6); }
+    .au-card__boton { width: 100%; justify-content: center; }
+  }
+</style>

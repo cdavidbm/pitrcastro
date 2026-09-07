@@ -39,7 +39,8 @@ export default defineConfig({
       // responden, pero no se anuncian a los buscadores).
       filter: (page) =>
         !page.includes('/admin') &&
-        !page.includes('/rendicion-de-cuentas-2026'),
+        !page.includes('/rendicion-de-cuentas-2026') &&
+        !page.includes('/autorizacion-comunicaciones-sunet'),
     }),
   ],
   vite: {
