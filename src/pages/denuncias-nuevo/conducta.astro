@@ -9,8 +9,7 @@ const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
   { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
-  { label: 'Identifíquese', href: resolveUrl('/denuncias-nuevo/denunciante') },
-  { label: 'Describa la conducta' },
+  { label: 'Elija la conducta' },
 ];
 
 // Diccionario de entidades para el chip (leído en runtime del ?entidad=)
@@ -169,17 +168,17 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
           <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
           <span class="paso-indicador__label">Entidad</span>
         </li>
-        <li class="paso-indicador__item paso-indicador__item--completado">
-          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-          <span class="paso-indicador__label">Identifíquese</span>
-        </li>
         <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
+          <span class="paso-indicador__num">2</span>
+          <span class="paso-indicador__label">Conducta</span>
+        </li>
+        <li class="paso-indicador__item">
           <span class="paso-indicador__num">3</span>
-          <span class="paso-indicador__label">Describa los hechos</span>
+          <span class="paso-indicador__label">Sus datos</span>
         </li>
         <li class="paso-indicador__item">
           <span class="paso-indicador__num">4</span>
-          <span class="paso-indicador__label">Radicado</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
         </li>
       </ol>
     </div>
@@ -242,7 +241,7 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
                 data-nombre={c.nombre.toLowerCase()}
                 data-desc={c.descripcion.toLowerCase()}
               >
-                <a href={resolveUrl(`/denuncias-nuevo/formulario?conducta=${c.id}&form=${c.formId}`)} class="conducta-card__link">
+                <a href={resolveUrl(`/denuncias-nuevo/denunciante?conducta=${c.id}&form=${c.formId}`)} class="conducta-card__link">
                   <div class="conducta-card__header">
                     <div class="conducta-card__icon" aria-hidden="true">
                       <i class={c.icon}></i>
@@ -271,7 +270,7 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
         <i class="fa-regular fa-face-thinking" aria-hidden="true"></i>
         <p>No encontramos ninguna conducta que coincida con su búsqueda.</p>
         <p class="conducta__sin-resultados-hint">
-          Puede seleccionar <strong>"Otra conducta disciplinaria"</strong> y describir el hecho con sus propias palabras en el siguiente paso.
+          Puede seleccionar <strong>"Otra conducta disciplinaria"</strong> y describir el hecho con sus propias palabras más adelante.
         </p>
       </div>
 
@@ -290,9 +289,9 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
 
       <!-- Volver -->
       <div class="conducta__volver">
-        <a href={resolveUrl('/denuncias-nuevo/denunciante')} class="link-volver">
+        <a href={resolveUrl('/denuncias-nuevo/entidades')} class="link-volver">
           <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-          Volver a identificación
+          Volver a elegir la entidad
         </a>
       </div>
     </div>

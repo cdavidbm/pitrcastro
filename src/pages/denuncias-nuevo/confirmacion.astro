@@ -8,139 +8,25 @@ const base = import.meta.env.BASE_URL;
 const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
-  { label: 'Radicado' },
-];
-
-// Pasos posteriores del proceso, mostrados como timeline
-const proximos = [
-  {
-    icon: 'fa-solid fa-envelope-open-text',
-    titulo: 'Recibirá un aviso',
-    texto: 'Si indicó correo o teléfono, le llegará una confirmación con el número de radicado en las próximas horas.',
-    tiempo: 'En pocas horas',
-  },
-  {
-    icon: 'fa-solid fa-clipboard-check',
-    titulo: 'Análisis inicial',
-    texto: 'El equipo jurídico revisa que la denuncia cumpla los requisitos formales y hace la calificación jurídica de la conducta.',
-    tiempo: 'Primeros 15 días hábiles',
-  },
-  {
-    icon: 'fa-solid fa-magnifying-glass-chart',
-    titulo: 'Investigación disciplinaria',
-    texto: 'Si procede, se abre proceso disciplinario. Se practican pruebas, se toman declaraciones y se garantiza el derecho de defensa.',
-    tiempo: 'Varía según complejidad',
-  },
-  {
-    icon: 'fa-solid fa-scale-balanced',
-    titulo: 'Decisión final',
-    texto: 'La Agencia adopta decisión, notifica al investigado y — si usted lo pidió — le comunica el resultado del proceso.',
-    tiempo: 'Al cierre del expediente',
-  },
+  { label: 'Confirmación' },
 ];
 ---
 
 <Base
-  title="Denuncia radicada — Agencia ITRC"
-  description="Su denuncia disciplinaria fue radicada exitosamente en la Agencia ITRC. Guarde su número de radicado y contraseña para consultar el estado del proceso."
+  title="Denuncia recibida — Agencia ITRC"
+  description="Su denuncia disciplinaria fue recibida por la Agencia ITRC."
 >
   <HeroPage
-    title="Su denuncia fue radicada"
-    subtitle="Gracias por contribuir al control disciplinario de los servidores públicos. Guarde su número de radicado y contraseña — con eso podrá consultar el estado del proceso cuando quiera."
+    title="Su denuncia fue recibida"
+    subtitle="Gracias por contribuir al control disciplinario de los servidores públicos."
     icon="fa-solid fa-circle-check"
     breadcrumb={breadcrumb}
   />
-
-  <!-- ================ Datos del radicado ================ -->
-  <section class="radicado" aria-labelledby="radicado-title">
-    <div class="container">
-      <div class="radicado-card">
-        <div class="radicado-card__cabecera">
-          <span class="radicado-card__eyebrow">Número de radicado</span>
-          <h2 id="radicado-title" class="radicado-card__numero" data-radicado>—</h2>
-          <button type="button" class="radicado-card__copiar" data-copy-radicado>
-            <i class="fa-regular fa-copy" aria-hidden="true"></i>
-            <span data-copy-label>Copiar</span>
-          </button>
-        </div>
-
-        <div class="radicado-card__pass">
-          <span class="radicado-card__pass-label">Contraseña de consulta</span>
-          <div class="radicado-card__pass-value">
-            <code data-pass-mask>••••••••</code>
-            <button type="button" class="radicado-card__toggle-pass" data-toggle-pass aria-label="Mostrar u ocultar contraseña">
-              <i class="fa-regular fa-eye"></i>
-            </button>
-            <button type="button" class="radicado-card__toggle-pass" data-copy-pass aria-label="Copiar contraseña">
-              <i class="fa-regular fa-copy"></i>
-            </button>
-          </div>
-          <p class="radicado-card__pass-warn">
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-            Esta contraseña la eligió usted al iniciar la denuncia. Anótela en un lugar seguro — no podemos recuperarla si la olvida.
-          </p>
-        </div>
-
-        <div class="radicado-card__acciones">
-          <button type="button" class="btn-primario" data-descargar>
-            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
-            Descargar comprobante
-          </button>
-          <button type="button" class="btn-secundario" data-imprimir>
-            <i class="fa-solid fa-print" aria-hidden="true"></i>
-            Imprimir esta página
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================ ¿Qué pasa ahora? ================ -->
-  <section class="proximos" aria-labelledby="proximos-title">
-    <div class="container">
-      <h2 id="proximos-title" class="proximos__title">¿Qué pasa ahora?</h2>
-      <p class="proximos__lede">
-        Estos son los pasos que sigue la Agencia ITRC con su denuncia. Los tiempos dependen de la complejidad del caso y de los recursos disponibles.
-      </p>
-
-      <ol class="timeline">
-        {proximos.map((p, idx) => (
-          <li class="timeline__item">
-            <div class="timeline__marker" aria-hidden="true">
-              <span class="timeline__marker-icon"><i class={p.icon}></i></span>
-            </div>
-            <div class="timeline__content">
-              <div class="timeline__meta">
-                <span class="timeline__num">Paso {idx + 1}</span>
-                <span class="timeline__tiempo">
-                  <i class="fa-regular fa-clock" aria-hidden="true"></i>
-                  {p.tiempo}
-                </span>
-              </div>
-              <h3 class="timeline__titulo">{p.titulo}</h3>
-              <p class="timeline__texto">{p.texto}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
 
   <!-- ================ CTAs finales ================ -->
   <section class="cta-final">
     <div class="container">
       <div class="cta-final__grid">
-        <a href={resolveUrl('/denuncias-nuevo/consulta')} class="cta-card cta-card--primary">
-          <div class="cta-card__icon" aria-hidden="true">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div class="cta-card__body">
-            <h3 class="cta-card__title">Consultar el estado más adelante</h3>
-            <p class="cta-card__text">Con su radicado y contraseña, revise el avance del proceso cuando quiera.</p>
-          </div>
-          <span class="cta-card__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-        </a>
-
         <a href={base} class="cta-card cta-card--secondary">
           <div class="cta-card__icon" aria-hidden="true">
             <i class="fa-solid fa-house"></i>
@@ -481,66 +367,3 @@ const proximos = [
     body { background: white; color: black; }
   }
 </style>
-
-<script>
-  // ============ Generar radicado + recuperar contraseña ============
-  // En producción el backend arma el radicado y devuelve pass; aquí simulamos
-  // formato realista para que se vea coherente el prototipo.
-  function generarRadicado(): string {
-    const year = 2026; // fijo — el archivo se rehace anualmente al fin de año
-    const seq = String(Math.floor(Math.random() * 9999)).padStart(4, '0');
-    const check = String(Math.floor(Math.random() * 999999)).padStart(6, '0');
-    return `${year}-${seq}-${check}`;
-  }
-
-  const rad = document.querySelector<HTMLElement>('[data-radicado]');
-  if (rad) rad.textContent = generarRadicado();
-
-  // Contraseña del wizard (localStorage o sessionStorage la puso el paso 2)
-  const pass = (() => {
-    for (const key of Object.keys(localStorage)) {
-      if (key.startsWith('itrc-denuncia-borrador-')) {
-        try {
-          const data = JSON.parse(localStorage.getItem(key) || '{}');
-          if (data.CONTRASENIA) return data.CONTRASENIA as string;
-        } catch (_) {}
-      }
-    }
-    return 'MiClave-2026';
-  })();
-
-  const passMask = document.querySelector<HTMLElement>('[data-pass-mask]');
-  const togglePass = document.querySelector<HTMLButtonElement>('[data-toggle-pass]');
-  let revealed = false;
-  togglePass?.addEventListener('click', () => {
-    revealed = !revealed;
-    if (passMask) passMask.textContent = revealed ? pass : '•'.repeat(pass.length);
-    const icon = togglePass.querySelector('i');
-    if (icon) icon.className = revealed ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye';
-  });
-
-  // Copiar radicado
-  const copyBtn = document.querySelector<HTMLButtonElement>('[data-copy-radicado]');
-  const copyLabel = document.querySelector<HTMLElement>('[data-copy-label]');
-  copyBtn?.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(rad?.textContent || '');
-      if (copyLabel) copyLabel.textContent = 'Copiado';
-      setTimeout(() => { if (copyLabel) copyLabel.textContent = 'Copiar'; }, 1800);
-    } catch (_) {}
-  });
-
-  // Copiar contraseña
-  const copyPassBtn = document.querySelector<HTMLButtonElement>('[data-copy-pass]');
-  copyPassBtn?.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(pass); } catch (_) {}
-  });
-
-  // Imprimir
-  document.querySelector<HTMLButtonElement>('[data-imprimir]')?.addEventListener('click', () => window.print());
-
-  // Descargar comprobante (por ahora placeholder — el backend lo generará)
-  document.querySelector<HTMLButtonElement>('[data-descargar]')?.addEventListener('click', () => {
-    alert('El comprobante en PDF estará disponible cuando el backend lo genere. Mientras tanto, use "Imprimir" para guardar esta página como PDF.');
-  });
-</script>

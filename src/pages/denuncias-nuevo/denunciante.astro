@@ -9,7 +9,8 @@ const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
   { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
-  { label: 'Identifíquese' },
+  { label: 'Elija la conducta', href: resolveUrl('/denuncias-nuevo/conducta') },
+  { label: 'Sus datos' },
 ];
 
 // Diccionario de entidades para el chip contextual (leído desde ?entidad=)
@@ -30,17 +31,16 @@ const tiposDocumento = [
 const mediosRespuesta = [
   { value: 'correo', label: 'Correo electrónico' },
   { value: 'telefono', label: 'Llamada telefónica' },
-  { value: 'ninguno', label: 'Prefiero no recibir avisos (solo consultaré por el radicado)' },
 ];
 ---
 
 <Base
-  title="Identifíquese — Presente su denuncia — Agencia ITRC"
-  description="Segundo paso del proceso de denuncia disciplinaria. Elija cómo desea identificarse: anónima, persona natural o persona jurídica. La reserva de su identidad está garantizada por ley."
+  title="Sus datos — Presente su denuncia — Agencia ITRC"
+  description="Tercer paso del proceso de denuncia disciplinaria. Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La reserva de su identidad está garantizada por ley."
 >
   <HeroPage
-    title="Identifíquese"
-    subtitle="Elija cómo prefiere identificarse ante el trámite disciplinario. Puede hacerlo de manera anónima. La ley protege la reserva de su identidad en todos los casos."
+    title="Datos del denunciante"
+    subtitle="Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La ley protege la reserva de su identidad en todos los casos."
     icon="fa-solid fa-id-card"
     breadcrumb={breadcrumb}
   />
@@ -50,22 +50,20 @@ const mediosRespuesta = [
     <div class="container">
       <ol class="paso-indicador__list">
         <li class="paso-indicador__item paso-indicador__item--completado">
-          <span class="paso-indicador__num" aria-hidden="true">
-            <i class="fa-solid fa-check"></i>
-          </span>
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
           <span class="paso-indicador__label">Entidad</span>
         </li>
-        <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
-          <span class="paso-indicador__num">2</span>
-          <span class="paso-indicador__label">Identifíquese</span>
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+          <span class="paso-indicador__label">Conducta</span>
         </li>
-        <li class="paso-indicador__item">
+        <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
           <span class="paso-indicador__num">3</span>
-          <span class="paso-indicador__label">Describa los hechos</span>
+          <span class="paso-indicador__label">Sus datos</span>
         </li>
         <li class="paso-indicador__item">
           <span class="paso-indicador__num">4</span>
-          <span class="paso-indicador__label">Radicado</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
         </li>
       </ol>
     </div>
@@ -100,7 +98,7 @@ const mediosRespuesta = [
       <form
         class="form-denunciante"
         method="get"
-        action={resolveUrl('/denuncias-nuevo/conducta')}
+        action={resolveUrl('/denuncias-nuevo/formulario')}
         data-form-denunciante
         novalidate
       >
@@ -108,11 +106,16 @@ const mediosRespuesta = [
         <input type="hidden" name="MM_insert" value="form" />
         <input type="hidden" name="FORM_ID" value="" data-form-id />
 
+        <!-- Lo elegido en los pasos anteriores viaja al formulario de hechos -->
+        <input type="hidden" name="entidad" value="" data-param="entidad" />
+        <input type="hidden" name="conducta" value="" data-param="conducta" />
+        <input type="hidden" name="form" value="" data-param="form" />
+
         <!-- ============ Cómo desea identificarse ============ -->
         <fieldset class="fieldset">
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">1</span>
-            <span>¿Cómo desea identificarse?</span>
+            <span>Tipo de persona</span>
           </legend>
           <p class="fieldset__ayuda">
             Elija la opción que mejor refleje su situación. Puede cambiar de opción en cualquier momento antes de enviar.
@@ -123,7 +126,7 @@ const mediosRespuesta = [
               <input type="radio" name="TIPO_PERSONA" value="anonimo" data-tipo-persona />
               <div class="tipo-persona-card__body">
                 <span class="tipo-persona-card__titulo">Anónima</span>
-                <span class="tipo-persona-card__texto">No revela su identidad. Puede seguir el proceso con una contraseña propia.</span>
+                <span class="tipo-persona-card__texto">No revela su identidad.</span>
               </div>
             </label>
 
@@ -222,7 +225,7 @@ const mediosRespuesta = [
             <span>Cómo contactarle</span>
           </legend>
           <p class="fieldset__ayuda">
-            Se usan únicamente para notificarle avances del proceso. No aparecen en el expediente que consulta la persona denunciada.
+            Se usan únicamente si la Agencia necesita contactarle para ampliar la información de su denuncia. No aparecen en el expediente que consulta la persona denunciada.
           </p>
 
           <div class="campo-grid campo-grid--2">
@@ -237,7 +240,7 @@ const mediosRespuesta = [
           </div>
 
           <div class="campo">
-            <label class="campo__label" for="medio-respuesta">¿Cómo prefiere que le notifiquen? <span class="campo__req">*</span></label>
+            <label class="campo__label" for="medio-respuesta">¿Por qué medio prefiere que le contacten? <span class="campo__req">*</span></label>
             <select class="campo__input" id="medio-respuesta" name="MEDIO_RESPUESTA" required>
               <option value="">Elija una opción</option>
               {mediosRespuesta.map(m => <option value={m.value}>{m.label}</option>)}
@@ -287,33 +290,14 @@ const mediosRespuesta = [
           </div>
         </fieldset>
 
-        <!-- ============ Contraseña de consulta — todos ============ -->
-        <fieldset class="fieldset" data-group="consulta" hidden>
-          <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true" data-consulta-num>5</span>
-            <span>Su contraseña para consultar el estado</span>
-          </legend>
-          <p class="fieldset__ayuda">
-            <strong>Importante:</strong> con esta contraseña y el número de radicado podrá consultar el avance de su denuncia. Anótela en un lugar seguro — no podemos recuperarla si la olvida.
-          </p>
-
-          <div class="campo-grid campo-grid--2">
-            <div class="campo">
-              <label class="campo__label" for="contrasenia">Contraseña <span class="campo__req">*</span></label>
-              <input class="campo__input" id="contrasenia" name="CONTRASENIA" type="text" minlength="6" required />
-              <small class="campo__hint">Mínimo 6 caracteres. No use datos personales.</small>
-            </div>
-          </div>
-        </fieldset>
-
         <!-- ============ Contacto anónimo — solo anónimo ============ -->
         <fieldset class="fieldset" data-group="anonimo-contacto" hidden>
           <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true">3</span>
-            <span>Cómo recibir avisos (opcional)</span>
+            <span class="fieldset__num" aria-hidden="true">2</span>
+            <span>Cómo contactarle (opcional)</span>
           </legend>
           <p class="fieldset__ayuda">
-            Como denuncia anónima, no está obligado a ingresar datos de contacto. Si desea recibir avisos del avance, puede indicar un correo o teléfono que <em>no revele su identidad</em> (por ejemplo, un correo creado para esto).
+            Como denuncia anónima, no está obligado a ingresar datos de contacto. Si quiere que la Agencia pueda pedirle más información, puede indicar un correo o teléfono que <em>no revele su identidad</em> (por ejemplo, un correo creado para esto).
           </p>
 
           <div class="campo-grid campo-grid--2">
@@ -331,7 +315,7 @@ const mediosRespuesta = [
         <!-- ============ Términos ============ -->
         <fieldset class="fieldset fieldset--terms" data-group="terms" hidden>
           <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true" data-terms-num>6</span>
+            <span class="fieldset__num" aria-hidden="true">5</span>
             <span>Confirmación</span>
           </legend>
 
@@ -346,7 +330,7 @@ const mediosRespuesta = [
         <!-- ============ Confirmación anónima ============ -->
         <fieldset class="fieldset fieldset--terms" data-group="terms-anonimo" hidden>
           <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true">4</span>
+            <span class="fieldset__num" aria-hidden="true">3</span>
             <span>Confirmación</span>
           </legend>
 
@@ -360,7 +344,7 @@ const mediosRespuesta = [
 
         <!-- ============ Botones ============ -->
         <div class="form-actions" data-actions hidden>
-          <a href={resolveUrl('/denuncias-nuevo/entidades')} class="btn-secundario">
+          <a href={resolveUrl('/denuncias-nuevo/conducta')} class="btn-secundario" data-volver>
             <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
             Volver
           </a>
@@ -704,22 +688,29 @@ const mediosRespuesta = [
   if (chip && logoActivo) {
     logoActivo.hidden = false;
     chip.hidden = false;
-    if (formIdInput) formIdInput.value = entidadSlug;
+  }
+
+  // === Entidad, conducta y formulario viajan al paso de los hechos ===
+  document.querySelectorAll<HTMLInputElement>('[data-param]').forEach(input => {
+    input.value = params.get(input.dataset.param || '') || '';
+  });
+  if (formIdInput) formIdInput.value = params.get('form') || '';
+
+  // Volver a la conducta sin perder la entidad elegida
+  const volver = document.querySelector<HTMLAnchorElement>('[data-volver]');
+  if (volver && entidadSlug) {
+    volver.href = volver.href + '?entidad=' + encodeURIComponent(entidadSlug);
   }
 
   // === Show/hide de grupos según tipo de persona ===
   const groups = {
-    natural:           ['natural', 'contacto', 'ubicacion', 'consulta', 'terms'],
-    juridica:          ['juridica', 'contacto', 'ubicacion', 'consulta', 'terms'],
-    anonimo:           ['consulta', 'anonimo-contacto', 'terms-anonimo'],
+    natural:           ['natural', 'contacto', 'ubicacion', 'terms'],
+    juridica:          ['juridica', 'contacto', 'ubicacion', 'terms'],
+    anonimo:           ['anonimo-contacto', 'terms-anonimo'],
   };
 
-  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'consulta', 'anonimo-contacto', 'terms', 'terms-anonimo'];
+  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'anonimo-contacto', 'terms', 'terms-anonimo'];
   const actions = document.querySelector<HTMLElement>('[data-actions]');
-  const consultaNum = document.querySelector<HTMLElement>('[data-consulta-num]');
-  const termsNum = document.querySelector<HTMLElement>('[data-terms-num]');
-
-  const setNum = (el: HTMLElement | null, n: number) => { if (el) el.textContent = String(n); };
 
   document.querySelectorAll<HTMLInputElement>('[data-tipo-persona]').forEach(radio => {
     radio.addEventListener('change', () => {
@@ -730,14 +721,6 @@ const mediosRespuesta = [
         const el = document.querySelector<HTMLElement>(`[data-group="${g}"]`);
         if (el) el.hidden = !visibleGroups.includes(g);
       });
-
-      // Renumerar el orden del pasillo de fieldsets
-      if (tipo === 'anonimo') {
-        setNum(consultaNum, 2);
-      } else {
-        setNum(consultaNum, 5);
-        setNum(termsNum, 6);
-      }
 
       if (actions) actions.hidden = false;
     });

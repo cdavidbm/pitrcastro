@@ -9,8 +9,8 @@ const breadcrumb = [
   { label: 'Inicio', href: base },
   { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
   { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
-  { label: 'Identifíquese', href: resolveUrl('/denuncias-nuevo/denunciante') },
   { label: 'Elija la conducta', href: resolveUrl('/denuncias-nuevo/conducta') },
+  { label: 'Sus datos', href: resolveUrl('/denuncias-nuevo/denunciante') },
   { label: 'Describa los hechos' },
 ];
 
@@ -56,7 +56,7 @@ const secciones = [
     id: 'revision',
     num: 5,
     titulo: 'Revisar y enviar',
-    subtitulo: 'Confirme lo diligenciado antes de radicar.',
+    subtitulo: 'Confirme lo diligenciado antes de enviar.',
     icon: 'fa-solid fa-check-double',
   },
 ];
@@ -85,15 +85,15 @@ const totalSecciones = secciones.length;
         </li>
         <li class="paso-indicador__item paso-indicador__item--completado">
           <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
-          <span class="paso-indicador__label">Identifíquese</span>
+          <span class="paso-indicador__label">Conducta</span>
+        </li>
+        <li class="paso-indicador__item paso-indicador__item--completado">
+          <span class="paso-indicador__num" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+          <span class="paso-indicador__label">Sus datos</span>
         </li>
         <li class="paso-indicador__item paso-indicador__item--activo" aria-current="step">
-          <span class="paso-indicador__num">3</span>
-          <span class="paso-indicador__label">Describa los hechos</span>
-        </li>
-        <li class="paso-indicador__item">
           <span class="paso-indicador__num">4</span>
-          <span class="paso-indicador__label">Radicado</span>
+          <span class="paso-indicador__label">Describa los hechos</span>
         </li>
       </ol>
     </div>

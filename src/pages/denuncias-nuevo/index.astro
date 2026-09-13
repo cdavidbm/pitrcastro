@@ -41,18 +41,18 @@ const pasos = [
   },
   {
     num: '02',
-    titulo: 'Identifíquese',
-    texto: 'Puede hacerlo como persona natural, jurídica, o de manera anónima. La reserva de su identidad está protegida por ley.',
+    titulo: 'Elija la conducta',
+    texto: 'Seleccione la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve.',
   },
   {
     num: '03',
-    titulo: 'Describa los hechos',
-    texto: 'Un formulario guiado le ayuda a describir la conducta, aportar detalles y adjuntar evidencia digital si la tiene.',
+    titulo: 'Sus datos',
+    texto: 'Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La reserva de su identidad está protegida por ley.',
   },
   {
     num: '04',
-    titulo: 'Reciba su radicado',
-    texto: 'Al terminar, recibirá un número de radicado y una contraseña para consultar el estado de su denuncia en cualquier momento.',
+    titulo: 'Describa los hechos',
+    texto: 'Un formulario guiado le ayuda a describir la conducta, aportar detalles y adjuntar evidencia digital si la tiene.',
   },
 ];
 
@@ -65,12 +65,7 @@ const garantias = [
   {
     icon: 'fa-solid fa-user-secret',
     titulo: 'Denuncia anónima permitida',
-    texto: 'Puede presentar la denuncia sin identificarse. Solo cambia el modo en el que se le notifican los avances.',
-  },
-  {
-    icon: 'fa-solid fa-key',
-    titulo: 'Consulta con contraseña propia',
-    texto: 'Usted elige una contraseña al radicar. Con esa contraseña y el número de radicado consulta el avance cuando quiera.',
+    texto: 'Puede presentar la denuncia sin revelar su identidad.',
   },
   {
     icon: 'fa-solid fa-scale-balanced',
@@ -98,7 +93,7 @@ const faq = [
   {
     title: '¿Cuánto demora el proceso?',
     content:
-      'Los tiempos varían según la complejidad del caso. Podrá consultar el estado del expediente cuando quiera con su número de radicado y su contraseña.',
+      'Los tiempos varían según la complejidad de cada caso. Una vez recibida la denuncia, la Agencia ITRC adelanta el trámite sin que usted deba hacer seguimiento.',
   },
   {
     title: '¿Corro algún riesgo al denunciar?',
@@ -110,7 +105,7 @@ const faq = [
 
 <Base
   title="Presente su denuncia — Agencia ITRC"
-  description="Presente una denuncia disciplinaria contra servidores públicos de DIAN, Coljuegos o UGPP. Proceso guiado, reserva de identidad garantizada y consulta de estado con radicado y contraseña propia."
+  description="Presente una denuncia disciplinaria contra servidores públicos de DIAN, Coljuegos o UGPP. Proceso guiado y reserva de identidad garantizada."
 >
   <HeroPage
     title="Presente su denuncia"
@@ -131,19 +126,6 @@ const faq = [
           <div class="cta-card__body">
             <h3 class="cta-card__title">Presentar una denuncia</h3>
             <p class="cta-card__text">Inicie el proceso guiado. Toma entre 10 y 20 minutos, y puede guardar su avance.</p>
-          </div>
-          <span class="cta-card__arrow" aria-hidden="true">
-            <i class="fa-solid fa-arrow-right"></i>
-          </span>
-        </a>
-
-        <a href={resolveUrl('/denuncias-nuevo/consulta')} class="cta-card cta-card--secondary">
-          <div class="cta-card__icon" aria-hidden="true">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div class="cta-card__body">
-            <h3 class="cta-card__title">Consultar mi radicado</h3>
-            <p class="cta-card__text">Si ya presentó una denuncia, consulte el estado con su número de radicado y contraseña.</p>
           </div>
           <span class="cta-card__arrow" aria-hidden="true">
             <i class="fa-solid fa-arrow-right"></i>
@@ -177,7 +159,7 @@ const faq = [
     <div class="container">
       <SectionTitle id="garantias-title">Sus garantías al denunciar</SectionTitle>
       <p class="garantias__lede">
-        La ley protege a quien denuncia y a quien es denunciado. Estas son las cuatro garantías principales del proceso.
+        La ley protege a quien denuncia y a quien es denunciado. Estas son las tres garantías principales del proceso.
       </p>
       <div class="garantias__grid">
         {garantias.map(g => (
@@ -243,7 +225,7 @@ const faq = [
       <div class="cta-close__intro">
         <h2 id="cta-close-title" class="cta-close__title">Ya conoce el proceso — dé el siguiente paso</h2>
         <p class="cta-close__lede">
-          Presente su denuncia o consulte el estado de una que ya haya radicado. En ambos casos el proceso es guiado y toma pocos minutos.
+          Presente su denuncia. El proceso es guiado y puede guardar su avance.
         </p>
       </div>
       <div class="cta-close__grid">
@@ -254,19 +236,6 @@ const faq = [
           <div class="cta-card__body">
             <h3 class="cta-card__title">Presentar una denuncia</h3>
             <p class="cta-card__text">Inicie el proceso guiado. Toma entre 10 y 20 minutos, y puede guardar su avance.</p>
-          </div>
-          <span class="cta-card__arrow" aria-hidden="true">
-            <i class="fa-solid fa-arrow-right"></i>
-          </span>
-        </a>
-
-        <a href={resolveUrl('/denuncias-nuevo/consulta')} class="cta-card cta-card--secondary">
-          <div class="cta-card__icon" aria-hidden="true">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div class="cta-card__body">
-            <h3 class="cta-card__title">Consultar mi radicado</h3>
-            <p class="cta-card__text">Si ya presentó una denuncia, consulte el estado con su número de radicado y contraseña.</p>
           </div>
           <span class="cta-card__arrow" aria-hidden="true">
             <i class="fa-solid fa-arrow-right"></i>
