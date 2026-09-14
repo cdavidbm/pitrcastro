@@ -17,21 +17,18 @@ const entidades = [
     nombre: 'DIAN',
     logo: '/images/entidades/dian.png',
     contexto: 'Autoridad tributaria, aduanera y cambiaria de Colombia.',
-    tipico: 'Recaudo, fiscalización tributaria, control aduanero, gestión de cobranzas.',
   },
   {
     slug: 'coljuegos',
     nombre: 'Coljuegos',
     logo: '/images/entidades/coljuegos.png',
     contexto: 'Regulador y explotador del monopolio rentístico de los juegos de suerte y azar en Colombia.',
-    tipico: 'Autorización de operadores, inspección de establecimientos, control de recaudo del monopolio.',
   },
   {
     slug: 'ugpp',
     nombre: 'UGPP',
     logo: '/images/entidades/ugpp.png',
-    contexto: 'Entidad adscrita al Ministerio de Hacienda y Crédito Público.',
-    tipico: 'Reconocimiento y pago de pensiones del régimen público, fiscalización de aportes parafiscales.',
+    contexto: 'Reconocimiento y pago de pensiones del régimen público, fiscalización de aportes parafiscales.',
   },
 ];
 ---
@@ -83,10 +80,6 @@ const entidades = [
               </div>
               <div class="ent-card__detalle">
                 <p class="ent-card__contexto">{e.contexto}</p>
-                <div class="ent-card__tipico">
-                  <span class="ent-card__tipico-label">Ámbito típico</span>
-                  <p>{e.tipico}</p>
-                </div>
               </div>
               <span class="ent-card__cta">
                 Continuar
