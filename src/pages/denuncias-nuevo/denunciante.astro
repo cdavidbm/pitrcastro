@@ -20,18 +20,6 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
   ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
 };
 
-const tiposDocumento = [
-  { value: 'CC', label: 'Cédula de ciudadanía' },
-  { value: 'CE', label: 'Cédula de extranjería' },
-  { value: 'PA', label: 'Pasaporte' },
-  { value: 'TI', label: 'Tarjeta de identidad' },
-  { value: 'NUIP', label: 'NUIP' },
-];
-
-const mediosRespuesta = [
-  { value: 'correo', label: 'Correo electrónico' },
-  { value: 'telefono', label: 'Llamada telefónica' },
-];
 ---
 
 <Base
@@ -102,14 +90,6 @@ const mediosRespuesta = [
         data-form-denunciante
         novalidate
       >
-        <!-- Campos técnicos que el backend legacy espera -->
-        <input type="hidden" name="MM_insert" value="form" />
-        <input type="hidden" name="FORM_ID" value="" data-form-id />
-
-        <!-- Lo elegido en los pasos anteriores viaja al formulario de hechos -->
-        <input type="hidden" name="entidad" value="" data-param="entidad" />
-        <input type="hidden" name="conducta" value="" data-param="conducta" />
-        <input type="hidden" name="form" value="" data-param="form" />
 
         <!-- ============ Cómo desea identificarse ============ -->
         <fieldset class="fieldset">
@@ -148,6 +128,19 @@ const mediosRespuesta = [
           </div>
         </fieldset>
 
+        <!-- Tipos de documento, departamentos, ciudades y medios de respuesta se
+             cargan del sistema de /denuncias/: sus valores son los que guarda. -->
+        <div class="aviso" data-aviso-carga role="status">
+          <i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>
+          <span>Conectando con el sistema de denuncias…</span>
+        </div>
+        <div class="aviso aviso--error" data-aviso-error role="alert" hidden>
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span>
+            No fue posible conectar con el sistema de denuncias. Intente de nuevo en unos minutos, o presente su denuncia en el <a href="/denuncias/entidades">formulario anterior</a>.
+          </span>
+        </div>
+
         <!-- ============ Datos personales — natural ============ -->
         <fieldset class="fieldset" data-group="natural" hidden>
           <legend class="fieldset__legend">
@@ -160,7 +153,7 @@ const mediosRespuesta = [
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
-              <label class="campo__label" for="nombre-natural">Nombre completo <span class="campo__req" aria-label="obligatorio">*</span></label>
+              <label class="campo__label" for="nombre-natural">Nombres y apellidos <span class="campo__req" aria-label="obligatorio">*</span></label>
               <input class="campo__input" id="nombre-natural" name="NOMBRE" type="text" autocomplete="name" required />
             </div>
           </div>
@@ -168,15 +161,12 @@ const mediosRespuesta = [
           <div class="campo-grid campo-grid--3">
             <div class="campo">
               <label class="campo__label" for="tipo-doc-natural">Tipo de documento <span class="campo__req">*</span></label>
-              <select class="campo__input" id="tipo-doc-natural" name="TIPO_DOCUMENTO" required>
-                <option value="">Elija una opción</option>
-                {tiposDocumento.map(t => <option value={t.value}>{t.label}</option>)}
-              </select>
+              <select class="campo__input" id="tipo-doc-natural" name="TIPO_DOCUMENTO" required data-lista="tiposDocumento"></select>
             </div>
             <div class="campo campo--span-2">
               <label class="campo__label" for="num-doc-natural">Número de documento <span class="campo__req">*</span></label>
               <input class="campo__input" id="num-doc-natural" name="TERCERO" type="text" inputmode="numeric" autocomplete="off" required />
-              <small class="campo__hint">Sin puntos ni espacios</small>
+              <small class="campo__hint">Solo números, sin puntos ni espacios</small>
             </div>
           </div>
         </fieldset>
@@ -188,7 +178,7 @@ const mediosRespuesta = [
             <span>Datos de la persona jurídica</span>
           </legend>
           <p class="fieldset__ayuda">
-            Ingrese los datos de la organización que representa y su rol dentro de ella.
+            Ingrese los datos de la organización que representa.
           </p>
 
           <div class="campo-grid campo-grid--2">
@@ -196,24 +186,17 @@ const mediosRespuesta = [
               <label class="campo__label" for="razon-social">Razón social <span class="campo__req">*</span></label>
               <input class="campo__input" id="razon-social" name="NOMBRE" type="text" autocomplete="organization" required />
             </div>
-            <div class="campo">
-              <label class="campo__label" for="nit">NIT <span class="campo__req">*</span></label>
-              <input class="campo__input" id="nit" name="TERCERO" type="text" inputmode="numeric" required />
-              <small class="campo__hint">Sin dígito de verificación</small>
-            </div>
           </div>
 
-          <div class="campo-grid campo-grid--2">
+          <div class="campo-grid campo-grid--3">
             <div class="campo">
-              <label class="campo__label" for="rep-legal">Representante legal <span class="campo__req">*</span></label>
-              <input class="campo__input" id="rep-legal" type="text" autocomplete="name" required />
+              <label class="campo__label" for="tipo-doc-juridica">Tipo de documento <span class="campo__req">*</span></label>
+              <select class="campo__input" id="tipo-doc-juridica" name="TIPO_DOCUMENTO" required data-lista="tiposDocumento" data-preferido="NIT"></select>
             </div>
-            <div class="campo">
-              <label class="campo__label" for="tipo-doc-juridica">Tipo de documento del representante <span class="campo__req">*</span></label>
-              <select class="campo__input" id="tipo-doc-juridica" name="TIPO_DOCUMENTO" required>
-                <option value="">Elija una opción</option>
-                {tiposDocumento.map(t => <option value={t.value}>{t.label}</option>)}
-              </select>
+            <div class="campo campo--span-2">
+              <label class="campo__label" for="nit">Número de documento <span class="campo__req">*</span></label>
+              <input class="campo__input" id="nit" name="TERCERO" type="text" inputmode="numeric" required />
+              <small class="campo__hint">Solo números, sin dígito de verificación</small>
             </div>
           </div>
         </fieldset>
@@ -230,21 +213,18 @@ const mediosRespuesta = [
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
-              <label class="campo__label" for="correo">Correo electrónico <span class="campo__req">*</span></label>
-              <input class="campo__input" id="correo" name="CORREO" type="email" autocomplete="email" required />
+              <label class="campo__label" for="correo">Correo electrónico</label>
+              <input class="campo__input" id="correo" name="CORREO" type="email" autocomplete="email" />
             </div>
             <div class="campo">
               <label class="campo__label" for="telefono">Teléfono</label>
-              <input class="campo__input" id="telefono" name="TELEFONO" type="tel" autocomplete="tel" />
+              <input class="campo__input" id="telefono" name="TELEFONO" type="tel" inputmode="numeric" autocomplete="tel" />
             </div>
           </div>
 
           <div class="campo">
-            <label class="campo__label" for="medio-respuesta">¿Por qué medio prefiere que le contacten? <span class="campo__req">*</span></label>
-            <select class="campo__input" id="medio-respuesta" name="MEDIO_RESPUESTA" required>
-              <option value="">Elija una opción</option>
-              {mediosRespuesta.map(m => <option value={m.value}>{m.label}</option>)}
-            </select>
+            <label class="campo__label" for="medio-respuesta">¿Por qué medio prefiere que le contacten?</label>
+            <select class="campo__input" id="medio-respuesta" name="MEDIO_RESPUESTA" data-lista="medios"></select>
           </div>
         </fieldset>
 
@@ -258,28 +238,16 @@ const mediosRespuesta = [
             Ayuda a asignar el trámite a la seccional correspondiente. No es su dirección personal exacta si prefiere reservarla.
           </p>
 
-          <div class="campo-grid campo-grid--3">
+          <div class="campo-grid campo-grid--2">
             <div class="campo">
-              <label class="campo__label" for="pais">País <span class="campo__req">*</span></label>
-              <select class="campo__input" id="pais" name="PAIS" required>
-                <option value="CO" selected>Colombia</option>
-                <option value="OT">Otro</option>
-              </select>
+              <label class="campo__label" for="depto">Departamento</label>
+              <select class="campo__input" id="depto" name="DEPTID" data-lista="departamentos"></select>
             </div>
             <div class="campo">
-              <label class="campo__label" for="depto">Departamento <span class="campo__req">*</span></label>
-              <select class="campo__input" id="depto" name="DEPTID" required>
-                <option value="">Elija una opción</option>
-                <option value="11">Bogotá D.C.</option>
-                <option value="05">Antioquia</option>
-                <option value="76">Valle del Cauca</option>
-                <option value="08">Atlántico</option>
-                <option value="ot">Otro</option>
+              <label class="campo__label" for="ciudad">Ciudad o municipio</label>
+              <select class="campo__input" id="ciudad" name="CITY" disabled>
+                <option value="">Elija primero el departamento</option>
               </select>
-            </div>
-            <div class="campo">
-              <label class="campo__label" for="ciudad">Ciudad / Municipio <span class="campo__req">*</span></label>
-              <input class="campo__input" id="ciudad" name="CITY" type="text" required />
             </div>
           </div>
 
@@ -287,6 +255,22 @@ const mediosRespuesta = [
             <label class="campo__label" for="direccion">Dirección de contacto</label>
             <input class="campo__input" id="direccion" name="DIRECCION" type="text" autocomplete="street-address" />
             <small class="campo__hint">Opcional. Si no la ingresa, la Agencia usa el correo o el teléfono.</small>
+          </div>
+        </fieldset>
+
+        <!-- ============ Asunto — natural / jurídica ============ -->
+        <fieldset class="fieldset" data-group="asunto" hidden>
+          <legend class="fieldset__legend">
+            <span class="fieldset__num" aria-hidden="true">5</span>
+            <span>Asunto (opcional)</span>
+          </legend>
+          <p class="fieldset__ayuda">
+            Una frase que resuma la denuncia. Ayuda a identificar el caso.
+          </p>
+
+          <div class="campo">
+            <label class="campo__label sr-only" for="asunto">Asunto</label>
+            <textarea class="campo__input campo__input--textarea" id="asunto" name="ASUNTO" rows="3" maxlength="500"></textarea>
           </div>
         </fieldset>
 
@@ -307,7 +291,7 @@ const mediosRespuesta = [
             </div>
             <div class="campo">
               <label class="campo__label" for="telefono-anon">Teléfono</label>
-              <input class="campo__input" id="telefono-anon" name="TELEFONO" type="tel" />
+              <input class="campo__input" id="telefono-anon" name="TELEFONO" type="tel" inputmode="numeric" />
             </div>
           </div>
         </fieldset>
@@ -315,7 +299,7 @@ const mediosRespuesta = [
         <!-- ============ Términos ============ -->
         <fieldset class="fieldset fieldset--terms" data-group="terms" hidden>
           <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true">5</span>
+            <span class="fieldset__num" aria-hidden="true">6</span>
             <span>Confirmación</span>
           </legend>
 
@@ -348,7 +332,7 @@ const mediosRespuesta = [
             <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
             Volver
           </a>
-          <button type="submit" name="enviar" class="btn-primario">
+          <button type="submit" class="btn-primario" data-continuar disabled>
             Continuar a describir los hechos
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </button>
@@ -672,17 +656,54 @@ const mediosRespuesta = [
     .form-actions { flex-direction: column-reverse; }
     .form-actions .btn-primario, .form-actions .btn-secundario { width: 100%; justify-content: center; }
   }
+  /* ============ Conexión con /denuncias/ ============ */
+  .aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--theme-border);
+    background: var(--theme-surface-alt);
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  .aviso[hidden] { display: none; }
+  .aviso i { color: var(--itrc-gold); margin-top: 3px; flex-shrink: 0; }
+  .aviso--error { border-color: #d9a0a0; background: #fdf3f3; color: #7a2323; }
+  .aviso--error i { color: #b83232; }
+  .aviso a { color: inherit; font-weight: 700; }
+  .campo__input--textarea { min-height: 96px; resize: vertical; font-family: inherit; }
+  .campo__input[aria-invalid="true"] { border-color: #b83232; }
+  .campo__error { display: block; margin-top: var(--space-1); color: #b83232; font-size: var(--font-size-sm); }
+  .btn-primario:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
 </style>
 
 <script>
+  import {
+    cargarListas,
+    ciudadesDe,
+    esFormIdValido,
+    guardarDatos,
+    leerDatos,
+    type DatosDenunciante,
+    type ListasDatos,
+    type Opcion,
+    type TipoPersona,
+  } from '../../utils/denuncias-legado';
+
   // === Entidad chip: leer ?entidad=X del querystring ===
   // Los 3 logos ya están en el DOM ocultos; el JS solo destapa el que corresponde
   // (así Astro resuelve la URL correcta con basePath en build; no dependemos de baseURI en runtime).
   const chip = document.querySelector<HTMLElement>('[data-entidad-chip]');
-  const formIdInput = document.querySelector<HTMLInputElement>('[data-form-id]');
+  const form = document.querySelector<HTMLFormElement>('[data-form-denunciante]');
 
   const params = new URLSearchParams(window.location.search);
   const entidadSlug = params.get('entidad') || '';
+  const conductaSlug = params.get('conducta') || '';
+  const formId = params.get('form') || '';
   const logoActivo = document.querySelector<HTMLImageElement>(`[data-entidad-logo="${entidadSlug}"]`);
 
   if (chip && logoActivo) {
@@ -690,39 +711,155 @@ const mediosRespuesta = [
     chip.hidden = false;
   }
 
-  // === Entidad, conducta y formulario viajan al paso de los hechos ===
-  document.querySelectorAll<HTMLInputElement>('[data-param]').forEach(input => {
-    input.value = params.get(input.dataset.param || '') || '';
-  });
-  if (formIdInput) formIdInput.value = params.get('form') || '';
-
-  // Volver a la conducta sin perder la entidad elegida
+  // Sin una conducta válida no hay a qué formulario enviar: volver a elegirla.
   const volver = document.querySelector<HTMLAnchorElement>('[data-volver]');
-  if (volver && entidadSlug) {
-    volver.href = volver.href + '?entidad=' + encodeURIComponent(entidadSlug);
-  }
+  const urlConducta = (volver?.href || '') + (entidadSlug ? '?entidad=' + encodeURIComponent(entidadSlug) : '');
+  if (volver) volver.href = urlConducta;
+  if (!esFormIdValido(formId) && urlConducta) window.location.replace(urlConducta);
 
   // === Show/hide de grupos según tipo de persona ===
-  const groups = {
-    natural:           ['natural', 'contacto', 'ubicacion', 'terms'],
-    juridica:          ['juridica', 'contacto', 'ubicacion', 'terms'],
-    anonimo:           ['anonimo-contacto', 'terms-anonimo'],
+  const groups: Record<TipoPersona, string[]> = {
+    natural:  ['natural', 'contacto', 'ubicacion', 'asunto', 'terms'],
+    juridica: ['juridica', 'contacto', 'ubicacion', 'asunto', 'terms'],
+    anonimo:  ['anonimo-contacto', 'terms-anonimo'],
   };
 
-  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'anonimo-contacto', 'terms', 'terms-anonimo'];
+  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'asunto', 'anonimo-contacto', 'terms', 'terms-anonimo'];
   const actions = document.querySelector<HTMLElement>('[data-actions]');
+  const grupo = (g: string) => document.querySelector<HTMLElement>(`[data-group="${g}"]`);
+  let tipoActual: TipoPersona | null = null;
 
   document.querySelectorAll<HTMLInputElement>('[data-tipo-persona]').forEach(radio => {
     radio.addEventListener('change', () => {
-      const tipo = radio.value as keyof typeof groups;
-      const visibleGroups = groups[tipo] || [];
+      tipoActual = radio.value as TipoPersona;
+      const visibleGroups = groups[tipoActual] || [];
 
       allGroups.forEach(g => {
-        const el = document.querySelector<HTMLElement>(`[data-group="${g}"]`);
+        const el = grupo(g);
         if (el) el.hidden = !visibleGroups.includes(g);
       });
 
       if (actions) actions.hidden = false;
     });
+  });
+
+  // === Listas del sistema de denuncias ===
+  const avisoCarga = document.querySelector<HTMLElement>('[data-aviso-carga]');
+  const avisoError = document.querySelector<HTMLElement>('[data-aviso-error]');
+  const continuar = document.querySelector<HTMLButtonElement>('[data-continuar]');
+  const selectCiudad = document.querySelector<HTMLSelectElement>('#ciudad');
+  const selectDepto = document.querySelector<HTMLSelectElement>('#depto');
+  let listas: ListasDatos | null = null;
+
+  const llenar = (select: HTMLSelectElement, opciones: Opcion[], vacia: string | null) => {
+    select.replaceChildren();
+    if (vacia !== null) select.append(new Option(vacia, ''));
+    opciones.forEach(o => select.append(new Option(o.texto, o.valor)));
+  };
+
+  const actualizarCiudades = () => {
+    if (!listas || !selectCiudad || !selectDepto) return;
+    const ciudades = selectDepto.value ? ciudadesDe(listas.ciudades, selectDepto.value) : [];
+    llenar(selectCiudad, ciudades, ciudades.length ? 'Elija una opción' : 'Elija primero el departamento');
+    selectCiudad.disabled = ciudades.length === 0;
+  };
+
+  if (esFormIdValido(formId)) cargarListas(formId)
+    .then(resultado => {
+      listas = resultado;
+      document.querySelectorAll<HTMLSelectElement>('select[data-lista]').forEach(select => {
+        const clave = select.dataset.lista as keyof ListasDatos;
+        const opciones = resultado[clave];
+        // Tipo de documento y medio siempre llevan valor, como en el formulario anterior.
+        const conVacia = clave === 'departamentos' ? 'Elija una opción' : null;
+        llenar(select, opciones, conVacia);
+        const preferido = select.dataset.preferido;
+        if (preferido && opciones.some(o => o.valor === preferido)) select.value = preferido;
+      });
+      selectDepto?.addEventListener('change', actualizarCiudades);
+      if (avisoCarga) avisoCarga.hidden = true;
+      if (continuar) continuar.disabled = false;
+      restaurar();
+    })
+    .catch(() => {
+      if (avisoCarga) avisoCarga.hidden = true;
+      if (avisoError) avisoError.hidden = false;
+    });
+
+  // === Volver a este paso con lo que ya se había escrito ===
+  function restaurar() {
+    const previos = leerDatos();
+    if (!previos) return;
+    document.querySelector<HTMLInputElement>(`[data-tipo-persona][value="${previos.tipo}"]`)?.click();
+    const visibles = groups[previos.tipo].map(grupo).filter(Boolean) as HTMLElement[];
+    visibles.forEach(g => {
+      g.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[name]').forEach(campo => {
+        if (campo.type === 'checkbox') return;
+        const valor = previos[campo.name as keyof DatosDenunciante];
+        if (typeof valor !== 'string' || !valor) return;
+        campo.value = valor;
+        if (campo === selectDepto) actualizarCiudades();
+      });
+    });
+  }
+
+  // === Validación y paso siguiente ===
+  const marcarError = (campo: HTMLInputElement | HTMLSelectElement, mensaje: string) => {
+    campo.setAttribute('aria-invalid', 'true');
+    const aviso = document.createElement('small');
+    aviso.className = 'campo__error';
+    aviso.dataset.error = '';
+    aviso.textContent = mensaje;
+    campo.closest('.campo, .check-inline')?.append(aviso);
+  };
+
+  form?.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!tipoActual || !listas) return;
+
+    document.querySelectorAll('[data-error]').forEach(el => el.remove());
+    document.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+
+    const visibles = groups[tipoActual].map(grupo).filter(Boolean) as HTMLElement[];
+    const valor = (name: string) =>
+      (visibles.map(g => g.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(`[name="${name}"]`)).find(Boolean)?.value || '').trim();
+
+    let primero: HTMLElement | null = null;
+    visibles.forEach(g => {
+      g.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]').forEach(campo => {
+        const vacio = campo.type === 'checkbox' ? !(campo as HTMLInputElement).checked : !campo.value.trim();
+        if (!vacio) return;
+        marcarError(campo, campo.type === 'checkbox' ? 'Debe aceptar esta declaración para continuar.' : 'Este dato es obligatorio.');
+        primero ??= campo;
+      });
+      const documento = g.querySelector<HTMLInputElement>('[name="TERCERO"]');
+      if (documento && documento.value.trim() && !/^\d+$/.test(documento.value.replace(/[.\s-]/g, ''))) {
+        marcarError(documento, 'Escriba solo números.');
+        primero ??= documento;
+      }
+    });
+    if (primero) {
+      (primero as HTMLElement).focus();
+      return;
+    }
+
+    guardarDatos({
+      tipo: tipoActual,
+      TIPO_DOCUMENTO: valor('TIPO_DOCUMENTO'),
+      TERCERO: valor('TERCERO'),
+      NOMBRE: valor('NOMBRE'),
+      DEPTID: valor('DEPTID'),
+      CITY: valor('CITY'),
+      DIRECCION: valor('DIRECCION'),
+      TELEFONO: valor('TELEFONO'),
+      CORREO: valor('CORREO'),
+      MEDIO_RESPUESTA: valor('MEDIO_RESPUESTA'),
+      ASUNTO: valor('ASUNTO'),
+    });
+
+    // Los datos personales no viajan en la dirección: solo lo elegido antes.
+    const siguiente = new URL(form.action);
+    siguiente.search = new URLSearchParams({ entidad: entidadSlug, conducta: conductaSlug, form: formId }).toString();
+    window.location.href = siguiente.href;
   });
 </script>

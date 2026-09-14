@@ -19,7 +19,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
   ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
 };
 
-// Conductas del legacy — misma FORM_ID que espera el backend.
+// Conductas y el FORM_ID con que las recibe /denuncias/. Verificado contra los
+// menús de ese sistema (dian.php, delitoitrc.php, peculado.php, docpublicoitrc.php):
+// un FORM_ID equivocado clasifica la denuncia bajo otra falta.
 // Agrupadas para navegar mejor las 13 opciones sin saturar visualmente.
 const grupos = [
   {
@@ -36,19 +38,19 @@ const grupos = [
       },
       {
         id: 'peculado-uso',
-        formId: '10',
+        formId: '11',
         nombre: 'Peculado por uso',
         icon: 'fa-solid fa-car',
         descripcion: 'El servidor usa bienes del Estado (vehículos, equipos, inmuebles) para fines personales o distintos a los oficiales.',
         norma: 'Art. 398 Código Penal',
       },
       {
-        id: 'peculado-aplicacion',
-        formId: '11',
-        nombre: 'Peculado por aplicación oficial diferente',
-        icon: 'fa-solid fa-arrow-right-arrow-left',
-        descripcion: 'Se da a los recursos públicos un destino distinto al que la ley les asignó, aunque siga siendo un uso oficial.',
-        norma: 'Art. 399 Código Penal',
+        id: 'peculado-culposo',
+        formId: '10',
+        nombre: 'Peculado culposo',
+        icon: 'fa-solid fa-triangle-exclamation',
+        descripcion: 'Por falta de diligencia, el servidor dio lugar a que se extravíen, pierdan o dañen bienes del Estado a los que tenía acceso por sus funciones.',
+        norma: 'Art. 400 Código Penal',
       },
       {
         id: 'concusion',
@@ -82,7 +84,7 @@ const grupos = [
     conductas: [
       {
         id: 'falsedad-material',
-        formId: '4',
+        formId: '5',
         nombre: 'Falsedad material en documento público',
         icon: 'fa-solid fa-pen-nib',
         descripcion: 'Alterar o crear un documento público falso, cambiando su contenido o su apariencia física.',
@@ -90,7 +92,7 @@ const grupos = [
       },
       {
         id: 'falsedad-ideologica',
-        formId: '5',
+        formId: '4',
         nombre: 'Falsedad ideológica en documento público',
         icon: 'fa-solid fa-file-pen',
         descripcion: 'El servidor consigna en un documento hechos que sabe que son falsos, o calla la verdad total o parcialmente.',
@@ -128,7 +130,7 @@ const grupos = [
       },
       {
         id: 'indebida-celebracion',
-        formId: '0',
+        formId: '1',
         nombre: 'Indebida celebración de contratos',
         icon: 'fa-solid fa-file-contract',
         descripcion: 'Contratar sin cumplir los requisitos legales, tramitar contratos con interés propio o suscribirlos por fuera de los procedimientos.',

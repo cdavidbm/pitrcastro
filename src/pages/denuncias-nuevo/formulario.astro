@@ -20,41 +20,19 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
   ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
 };
 
-// Wizard = 5 secciones. Colapsa las 27 preguntas del legacy en grupos temáticos.
-// Los `name=` de cada input preservan el contrato del backend legacy (PREG*_ID_VALUE,
-// RESP*_ID_VALUE, DESCR*, archivo) — los 27 caben repartidos entre las 5 secciones.
+// Dos secciones. Las preguntas no se escriben aquí: cada conducta tiene las
+// suyas en el sistema de /denuncias/, y el script las lee de allí al cargar.
 const secciones = [
   {
     id: 'hechos',
     num: 1,
     titulo: 'Los hechos',
-    subtitulo: 'Cuándo, dónde y qué pasó — cuente el hecho con sus palabras.',
+    subtitulo: 'Qué pasó, dónde, cuándo y quiénes intervinieron.',
     icon: 'fa-solid fa-calendar-day',
   },
   {
-    id: 'involucrados',
-    num: 2,
-    titulo: 'Los involucrados',
-    subtitulo: 'Datos del servidor público al que va a denunciar.',
-    icon: 'fa-solid fa-user-large',
-  },
-  {
-    id: 'circunstancias',
-    num: 3,
-    titulo: 'Circunstancias',
-    subtitulo: 'Beneficios, terceros, contexto adicional.',
-    icon: 'fa-solid fa-diagram-project',
-  },
-  {
-    id: 'evidencia',
-    num: 4,
-    titulo: 'Evidencia',
-    subtitulo: 'Documentos, testigos y adjuntos que respalden la denuncia.',
-    icon: 'fa-solid fa-paperclip',
-  },
-  {
     id: 'revision',
-    num: 5,
+    num: 2,
     titulo: 'Revisar y enviar',
     subtitulo: 'Confirme lo diligenciado antes de enviar.',
     icon: 'fa-solid fa-check-double',
@@ -66,11 +44,11 @@ const totalSecciones = secciones.length;
 
 <Base
   title="Describa los hechos — Presente su denuncia — Agencia ITRC"
-  description="Formulario guiado para describir la conducta disciplinaria que va a denunciar. Cinco secciones cortas con guardado automático de su avance."
+  description="Formulario guiado para describir la conducta disciplinaria que va a denunciar, con guardado automático de su avance."
 >
   <HeroPage
     title="Describa los hechos"
-    subtitle="Un formulario en cinco pasos cortos. Su avance se guarda automáticamente — puede cerrar la página y volver a continuar más tarde."
+    subtitle="Responda las preguntas sobre lo ocurrido. Sus respuestas se guardan automáticamente en este equipo mientras completa el formulario."
     icon="fa-solid fa-file-lines"
     breadcrumb={breadcrumb}
   />
@@ -163,10 +141,6 @@ const totalSecciones = secciones.length;
         novalidate
         enctype="multipart/form-data"
       >
-        <input type="hidden" name="MM_insert" value="form" />
-        <input type="hidden" name="FORM_ID" data-form-id value="" />
-        <input type="hidden" name="ID_DENUNCIA" data-id-denuncia value="" />
-
         <!-- ================ Sección 1 — Los hechos ================ -->
         <section class="seccion" data-seccion="hechos">
           <header class="seccion__header">
@@ -175,241 +149,31 @@ const totalSecciones = secciones.length;
             </div>
             <div>
               <h3 class="seccion__titulo">Los hechos</h3>
-              <p class="seccion__sub">Cuente lo que pasó con sus propias palabras. No hace falta usar lenguaje jurídico.</p>
+              <p class="seccion__sub">Responda con sus propias palabras; no hace falta usar lenguaje jurídico. Las preguntas marcadas con <span class="campo__req">*</span> son obligatorias.</p>
             </div>
           </header>
 
-          <div class="campo">
-            <label class="campo__label" for="q-cuando">¿Cuándo ocurrió el hecho? <span class="campo__req">*</span></label>
-            <input class="campo__input" id="q-cuando" name="DESCR2" type="date" required data-persist />
-            <small class="campo__hint">Si no recuerda la fecha exacta, use una fecha aproximada.</small>
+          <div class="aviso" data-aviso-carga role="status">
+            <i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>
+            <span>Cargando las preguntas…</span>
+          </div>
+          <div class="aviso aviso--error" data-aviso-error role="alert" hidden>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <span>
+              No fue posible conectar con el sistema de denuncias. Intente de nuevo en unos minutos, o presente su denuncia en el <a href="/denuncias/entidades">formulario anterior</a>.
+            </span>
+          </div>
+          <div class="aviso aviso--error" data-aviso-sin-datos role="alert" hidden>
+            <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+            <span>
+              Antes de describir los hechos, complete sus datos. <a href={resolveUrl('/denuncias-nuevo/denunciante')} data-link-datos>Ir a sus datos</a>
+            </span>
           </div>
 
-          <div class="campo">
-            <label class="campo__label" for="q-donde">¿Dónde ocurrió? <span class="campo__req">*</span></label>
-            <input class="campo__input" id="q-donde" name="DESCR3" type="text" placeholder="Ciudad, dependencia o lugar" required data-persist />
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-hecho">Descripción del hecho <span class="campo__req">*</span></label>
-            <textarea
-              class="campo__input campo__input--textarea"
-              id="q-hecho"
-              name="DESCR4"
-              rows="6"
-              placeholder="Cuente qué pasó, en el orden en que ocurrió. Máximo 2000 caracteres."
-              maxlength="2000"
-              required
-              data-persist
-              data-contador
-            ></textarea>
-            <div class="campo__meta">
-              <small class="campo__hint">Sea claro y concreto — evite juicios de valor si puede.</small>
-              <small class="campo__contador"><span data-contador-value>0</span> / 2000</small>
-            </div>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-continua">¿El hecho continúa ocurriendo?</label>
-            <div class="radio-inline">
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP1_ID_VALUE" value="si" data-persist />
-                <span>Sí, sigue ocurriendo</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP1_ID_VALUE" value="no" data-persist />
-                <span>No, ya terminó</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP1_ID_VALUE" value="ns" data-persist />
-                <span>No sabe</span>
-              </label>
-            </div>
-          </div>
+          <div class="preguntas" data-preguntas></div>
         </section>
 
-        <!-- ================ Sección 2 — Los involucrados ================ -->
-        <section class="seccion" data-seccion="involucrados" hidden>
-          <header class="seccion__header">
-            <div class="seccion__icon" aria-hidden="true">
-              <i class="fa-solid fa-user-large"></i>
-            </div>
-            <div>
-              <h3 class="seccion__titulo">Los involucrados</h3>
-              <p class="seccion__sub">Datos del servidor público. Si no conoce alguno, deje el campo vacío.</p>
-            </div>
-          </header>
-
-          <div class="campo-grid campo-grid--2">
-            <div class="campo">
-              <label class="campo__label" for="q-nombre-serv">Nombre del servidor público</label>
-              <input class="campo__input" id="q-nombre-serv" name="DESCR5" type="text" placeholder="Nombre y apellidos" data-persist />
-            </div>
-            <div class="campo">
-              <label class="campo__label" for="q-doc-serv">Documento de identidad (si lo conoce)</label>
-              <input class="campo__input" id="q-doc-serv" name="DESCR6" type="text" data-persist />
-            </div>
-          </div>
-
-          <div class="campo-grid campo-grid--2">
-            <div class="campo">
-              <label class="campo__label" for="q-cargo">Cargo que ocupa</label>
-              <input class="campo__input" id="q-cargo" name="DESCR7" type="text" placeholder="Ej. Gestor, Auditor, Coordinador" data-persist />
-            </div>
-            <div class="campo">
-              <label class="campo__label" for="q-dependencia">Dependencia o área</label>
-              <input class="campo__input" id="q-dependencia" name="DESCR8" type="text" placeholder="Ej. División de Cobranzas, Seccional Bogotá" data-persist />
-            </div>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-otros">¿Hubo otros servidores involucrados?</label>
-            <textarea
-              class="campo__input campo__input--textarea"
-              id="q-otros"
-              name="DESCR9"
-              rows="3"
-              placeholder="Nombres, cargos o roles de otros implicados si los conoce."
-              data-persist
-            ></textarea>
-          </div>
-        </section>
-
-        <!-- ================ Sección 3 — Circunstancias ================ -->
-        <section class="seccion" data-seccion="circunstancias" hidden>
-          <header class="seccion__header">
-            <div class="seccion__icon" aria-hidden="true">
-              <i class="fa-solid fa-diagram-project"></i>
-            </div>
-            <div>
-              <h3 class="seccion__titulo">Circunstancias</h3>
-              <p class="seccion__sub">Elementos que ayudan a entender el contexto y el alcance del hecho.</p>
-            </div>
-          </header>
-
-          <div class="campo">
-            <label class="campo__label">¿Hubo un beneficio económico para el servidor?</label>
-            <div class="radio-inline">
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP2_ID_VALUE" value="si" data-persist />
-                <span>Sí</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP2_ID_VALUE" value="no" data-persist />
-                <span>No</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP2_ID_VALUE" value="ns" data-persist />
-                <span>No sabe</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label">¿Hubo beneficio para terceros?</label>
-            <div class="radio-inline">
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP3_ID_VALUE" value="si" data-persist />
-                <span>Sí</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP3_ID_VALUE" value="no" data-persist />
-                <span>No</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP3_ID_VALUE" value="ns" data-persist />
-                <span>No sabe</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-monto">Monto o valor aproximado del beneficio</label>
-            <input class="campo__input" id="q-monto" name="DESCR10" type="text" placeholder="Ej. $ 5.000.000 COP. Deje vacío si no aplica." data-persist />
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-contexto">Contexto adicional</label>
-            <textarea
-              class="campo__input campo__input--textarea"
-              id="q-contexto"
-              name="DESCR11"
-              rows="4"
-              placeholder="Cualquier detalle que ayude a entender por qué ocurrió — presiones, prácticas previas, favores anteriores."
-              data-persist
-            ></textarea>
-          </div>
-        </section>
-
-        <!-- ================ Sección 4 — Evidencia ================ -->
-        <section class="seccion" data-seccion="evidencia" hidden>
-          <header class="seccion__header">
-            <div class="seccion__icon" aria-hidden="true">
-              <i class="fa-solid fa-paperclip"></i>
-            </div>
-            <div>
-              <h3 class="seccion__titulo">Evidencia</h3>
-              <p class="seccion__sub">Adjunte documentos y describa qué otras pruebas existen. No es obligatorio pero acelera el proceso.</p>
-            </div>
-          </header>
-
-          <div class="campo">
-            <label class="campo__label">¿Cuenta con documentos o registros que respalden la denuncia?</label>
-            <div class="radio-inline">
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP4_ID_VALUE" value="si" data-persist />
-                <span>Sí, los tengo</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP4_ID_VALUE" value="parciales" data-persist />
-                <span>Solo parcialmente</span>
-              </label>
-              <label class="radio-inline__opt">
-                <input type="radio" name="RESP4_ID_VALUE" value="no" data-persist />
-                <span>No</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-docs-desc">Describa los documentos o pruebas que tiene</label>
-            <textarea
-              class="campo__input campo__input--textarea"
-              id="q-docs-desc"
-              name="DESCR12"
-              rows="4"
-              placeholder="Ej. correos electrónicos, contratos, actas, grabaciones, comunicaciones."
-              data-persist
-            ></textarea>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-testigos">Testigos del hecho (si los hay)</label>
-            <textarea
-              class="campo__input campo__input--textarea"
-              id="q-testigos"
-              name="DESCR13"
-              rows="3"
-              placeholder="Nombres o roles de quienes presenciaron el hecho. Sus datos quedan bajo reserva."
-              data-persist
-            ></textarea>
-          </div>
-
-          <div class="campo">
-            <label class="campo__label" for="q-archivo">Adjunte archivos</label>
-            <div class="dropzone" data-dropzone>
-              <input class="dropzone__input" id="q-archivo" name="archivo" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp3,.mp4" data-file-input />
-              <div class="dropzone__body">
-                <i class="fa-solid fa-cloud-arrow-up dropzone__icon" aria-hidden="true"></i>
-                <p class="dropzone__prompt">Arrastre archivos aquí o <strong>haga clic para seleccionar</strong></p>
-                <p class="dropzone__hint">PDF, imágenes, Word, audio, video. Máximo 25 MB por archivo.</p>
-              </div>
-            </div>
-            <ul class="dropzone__list" data-file-list></ul>
-          </div>
-        </section>
-
-        <!-- ================ Sección 5 — Revisar y enviar ================ -->
+        <!-- ================ Sección 2 — Revisar y enviar ================ -->
         <section class="seccion" data-seccion="revision" hidden>
           <header class="seccion__header">
             <div class="seccion__icon" aria-hidden="true">
@@ -417,7 +181,7 @@ const totalSecciones = secciones.length;
             </div>
             <div>
               <h3 class="seccion__titulo">Revisar y enviar</h3>
-              <p class="seccion__sub">Ya casi terminamos. Revise lo diligenciado — puede volver a cualquier sección para ajustar.</p>
+              <p class="seccion__sub">Ya casi terminamos. Revise lo diligenciado — puede volver atrás para ajustar.</p>
             </div>
           </header>
 
@@ -425,19 +189,63 @@ const totalSecciones = secciones.length;
             <!-- Se llena por JS a partir del formulario -->
           </div>
 
-          <div class="asunto">
-            <label class="campo__label" for="q-asunto">Título breve de la denuncia (opcional)</label>
-            <input class="campo__input" id="q-asunto" name="ASUNTO" type="text" placeholder="Ej. Presunto cohecho en trámite aduanero" maxlength="200" data-persist />
-            <small class="campo__hint">Ayuda al equipo de la Agencia a identificar rápidamente el caso.</small>
-          </div>
-
           <label class="check-inline">
-            <input type="checkbox" name="declara" required />
+            <input type="checkbox" name="declara" required data-declara />
             <span>
               Declaro bajo la gravedad del juramento que la información suministrada es cierta según mi conocimiento, y que conozco que la presentación de denuncias con temeridad o mala fe puede generar responsabilidad legal.
             </span>
           </label>
+
+          <div class="aviso aviso--error aviso--envio" data-aviso-envio role="alert" hidden>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <span data-aviso-envio-texto></span>
+          </div>
         </section>
+
+        <!-- Piezas de las preguntas. El script las clona: así lo que se dibuja
+             después de cargar lleva los mismos estilos que el resto de la página. -->
+        <template data-tpl="pregunta"><div class="pregunta"></div></template>
+        <template data-tpl="opciones">
+          <fieldset class="campo campo--opciones">
+            <legend class="campo__label"></legend>
+            <div class="radio-inline"></div>
+          </fieldset>
+        </template>
+        <template data-tpl="opcion">
+          <label class="radio-inline__opt"><input type="radio" data-persist /><span></span></label>
+        </template>
+        <template data-tpl="texto">
+          <div class="campo"><label class="campo__label"></label><input class="campo__input" type="text" data-persist /></div>
+        </template>
+        <template data-tpl="parrafo">
+          <div class="campo"><label class="campo__label"></label><textarea class="campo__input campo__input--textarea" rows="5" data-persist></textarea></div>
+        </template>
+        <template data-tpl="fecha">
+          <div class="campo"><label class="campo__label"></label><input class="campo__input campo__input--fecha" type="date" data-persist /></div>
+        </template>
+        <template data-tpl="archivo">
+          <div class="campo">
+            <label class="campo__label"></label>
+            <div class="dropzone" data-dropzone>
+              <input class="dropzone__input" type="file" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.avi,.zip" data-file-input />
+              <div class="dropzone__body">
+                <i class="fa-solid fa-cloud-arrow-up dropzone__icon" aria-hidden="true"></i>
+                <p class="dropzone__prompt">Arrastre un archivo aquí o <strong>haga clic para seleccionar</strong></p>
+                <p class="dropzone__hint">JPG, PNG, PDF, Word, AVI o ZIP. Un archivo de hasta 20 MB.</p>
+              </div>
+            </div>
+            <ul class="dropzone__list" data-file-list></ul>
+          </div>
+        </template>
+        <template data-tpl="archivo-item">
+          <li class="dropzone__file"><i class="fa-solid fa-file" aria-hidden="true"></i><span class="dropzone__file-name"></span><span class="dropzone__file-size"></span></li>
+        </template>
+        <template data-tpl="requerido"><span class="campo__req" aria-label="obligatorio"> *</span></template>
+        <template data-tpl="nota"><small class="campo__hint"></small></template>
+        <template data-tpl="error"><small class="campo__error"></small></template>
+        <template data-tpl="revision-item">
+          <div class="revision-item"><span class="revision-item__label"></span><span class="revision-item__value"></span></div>
+        </template>
 
         <!-- ================ Botonera del wizard ================ -->
         <div class="wizard-nav">
@@ -447,11 +255,11 @@ const totalSecciones = secciones.length;
           </button>
           <div class="wizard-nav__spacer" aria-hidden="true"></div>
           <span class="wizard-nav__guardado" data-guardado>Su avance se guarda automáticamente</span>
-          <button type="button" class="btn-primario" data-btn-next>
+          <button type="button" class="btn-primario" data-btn-next disabled>
             Siguiente
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </button>
-          <button type="submit" class="btn-primario btn-primario--send" data-btn-submit hidden>
+          <button type="submit" class="btn-primario btn-primario--send" data-btn-submit hidden disabled>
             <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
             Enviar denuncia
           </button>
@@ -783,9 +591,63 @@ const totalSecciones = secciones.length;
     .wizard-nav .btn-primario, .wizard-nav .btn-secundario { width: 100%; justify-content: center; }
     .wizard-nav__spacer, .wizard-nav__guardado { display: none; }
   }
+  /* ============ Preguntas del sistema de /denuncias/ ============ */
+  .preguntas { display: flex; flex-direction: column; gap: var(--space-4); }
+  .pregunta {
+    padding: var(--space-5);
+    border: 1px solid var(--theme-border-light);
+    border-radius: var(--radius-md);
+    background: var(--theme-surface);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .pregunta .campo { margin-bottom: 0; }
+  .campo[hidden] { display: none; }
+  .campo--opciones { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .campo--opciones .campo__label { padding: 0; margin-bottom: var(--space-2); line-height: 1.5; }
+  .campo__label { line-height: 1.5; }
+  .radio-inline--lista { flex-direction: column; align-items: stretch; }
+  .radio-inline--lista .radio-inline__opt { border-radius: var(--radius-md); align-items: flex-start; }
+  .radio-inline--lista .radio-inline__opt input[type="radio"] { margin-top: 3px; }
+  .campo__input--fecha { max-width: 240px; }
+  .campo__input[aria-invalid="true"] { border-color: #b83232; }
+  .campo__error { display: block; color: #b83232; font-size: var(--font-size-sm); font-weight: 600; }
+
+  .aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--theme-border);
+    background: var(--theme-surface-alt);
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  .aviso[hidden] { display: none; }
+  .aviso i { color: var(--itrc-gold); margin-top: 3px; flex-shrink: 0; }
+  .aviso--error { border-color: #d9a0a0; background: #fdf3f3; color: #7a2323; }
+  .aviso--error i { color: #b83232; }
+  .aviso a { color: inherit; font-weight: 700; }
+  .aviso--envio { margin: var(--space-4) 0 0; }
+  .btn-primario:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
 </style>
 
 <script>
+  import {
+    CORREO_CONTACTO,
+    borrarDatos,
+    cargarPreguntas,
+    enviarDenuncia,
+    esFormIdValido,
+    leerDatos,
+    type Control,
+    type Pregunta,
+  } from '../../utils/denuncias-legado';
+
   // ============ Datos del querystring ============
   const params = new URLSearchParams(window.location.search);
   const entidadSlug = params.get('entidad') || '';
@@ -793,6 +655,7 @@ const totalSecciones = secciones.length;
   const formId = params.get('form') || '';
 
   // Chip de entidad
+  const entidadNombres: Record<string, string> = { dian: 'DIAN', coljuegos: 'Coljuegos', ugpp: 'UGPP' };
   const chipEnt = document.querySelector<HTMLElement>('[data-entidad-chip]');
   const logoActivo = document.querySelector<HTMLImageElement>(`[data-entidad-logo="${entidadSlug}"]`);
   if (chipEnt && logoActivo) { logoActivo.hidden = false; chipEnt.hidden = false; }
@@ -801,7 +664,7 @@ const totalSecciones = secciones.length;
   const conductaNombres: Record<string, string> = {
     'peculado-apropiacion': 'Peculado por apropiación',
     'peculado-uso': 'Peculado por uso',
-    'peculado-aplicacion': 'Peculado por aplicación oficial diferente',
+    'peculado-culposo': 'Peculado culposo',
     'concusion': 'Concusión',
     'cohecho': 'Cohecho',
     'prevaricato': 'Prevaricato',
@@ -820,29 +683,28 @@ const totalSecciones = secciones.length;
     chipCond.hidden = false;
   }
 
-  // FORM_ID hidden
-  const formIdInput = document.querySelector<HTMLInputElement>('[data-form-id]');
-  if (formIdInput) formIdInput.value = formId;
+  // ============ Piezas clonables ============
+  const plantilla = <T extends Element>(nombre: string): T =>
+    document.querySelector<HTMLTemplateElement>(`template[data-tpl="${nombre}"]`)!
+      .content.firstElementChild!.cloneNode(true) as T;
 
-  // ID_DENUNCIA sesión (client-side placeholder — el backend lo reemplaza)
-  const idDenunciaInput = document.querySelector<HTMLInputElement>('[data-id-denuncia]');
-  if (idDenunciaInput) {
-    const stored = sessionStorage.getItem('itrc-denuncia-session');
-    if (stored) { idDenunciaInput.value = stored; }
-    else {
-      const nuevo = 'wf-' + Math.random().toString(36).slice(2, 10);
-      sessionStorage.setItem('itrc-denuncia-session', nuevo);
-      idDenunciaInput.value = nuevo;
-    }
+  const contenedor = document.querySelector<HTMLElement>('[data-preguntas]')!;
+  const avisoCarga = document.querySelector<HTMLElement>('[data-aviso-carga]');
+  const avisoError = document.querySelector<HTMLElement>('[data-aviso-error]');
+  const avisoSinDatos = document.querySelector<HTMLElement>('[data-aviso-sin-datos]');
+
+  // Volver a los datos conserva lo elegido en los pasos anteriores.
+  const linkDatos = document.querySelector<HTMLAnchorElement>('[data-link-datos]');
+  if (linkDatos) {
+    const url = new URL(linkDatos.href);
+    url.search = new URLSearchParams({ entidad: entidadSlug, conducta: conductaSlug, form: formId }).toString();
+    linkDatos.href = url.href;
   }
 
   // ============ Estado del wizard ============
-  const seccionIds = ['hechos', 'involucrados', 'circunstancias', 'evidencia', 'revision'];
+  const seccionIds = ['hechos', 'revision'];
   const seccionTitulos: Record<string, string> = {
     'hechos': 'Los hechos',
-    'involucrados': 'Los involucrados',
-    'circunstancias': 'Circunstancias',
-    'evidencia': 'Evidencia',
     'revision': 'Revisar y enviar',
   };
   let indice = 0;
@@ -884,31 +746,217 @@ const totalSecciones = secciones.length;
   // porque esa desplaza la página hasta el formulario.
   if (barraFill) barraFill.style.width = 100 / seccionIds.length + '%';
 
-  btnNext?.addEventListener('click', () => {
-    if (indice < seccionIds.length - 1) { indice++; mostrarSeccion(indice); }
-  });
-  btnPrev?.addEventListener('click', () => {
-    if (indice > 0) { indice--; mostrarSeccion(indice); }
-  });
+  const irA = (i: number) => {
+    if (i > 0 && !validarHechos()) return;
+    indice = i;
+    mostrarSeccion(i);
+  };
+
+  btnNext?.addEventListener('click', () => { if (indice < seccionIds.length - 1) irA(indice + 1); });
+  btnPrev?.addEventListener('click', () => { if (indice > 0) irA(indice - 1); });
 
   // Click en pastilla = ir a esa sección (solo si ya se pasó o es la próxima)
   pastillas.forEach((p, idx) => {
     p.style.cursor = 'pointer';
-    p.addEventListener('click', () => {
-      if (idx <= indice + 1) { indice = idx; mostrarSeccion(idx); }
-    });
+    p.addEventListener('click', () => { if (idx <= indice + 1) irA(idx); });
   });
 
+  // ============ Preguntas del sistema de denuncias ============
+  let preguntas: Pregunta[] = [];
+  const controles = () => preguntas.flatMap(p => p.controles);
+
+  // Las respuestas que piden narrar se escriben mejor en un área amplia.
+  const PIDE_RELATO = /explique|describa|detallad|agregar/i;
+
+  const sel = (nombre: string) => CSS.escape(nombre);
+
+  function valorDe(nombre: string): string {
+    const radios = contenedor.querySelectorAll<HTMLInputElement>(`input[type="radio"][name="${sel(nombre)}"]`);
+    if (radios.length) return Array.from(radios).find(r => r.checked)?.value || '';
+    const campo = contenedor.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${sel(nombre)}"]`);
+    return campo && campo.type !== 'file' ? campo.value.trim() : '';
+  }
+
+  const aplica = (c: Control) => !c.dependeDe || c.activaCon.includes(valorDe(c.dependeDe));
+
+  const textoVisible = (texto: string) => (texto === 'SI' ? 'Sí' : texto === 'NO' ? 'No' : texto);
+
+  function etiquetar(label: Element, c: Control) {
+    label.textContent = c.etiqueta || 'Respuesta';
+    if (c.obligatorio) label.append(plantilla('requerido'));
+  }
+
+  function dibujarControl(c: Control): HTMLElement {
+    const id = 'q-' + c.nombre;
+
+    if (c.tipo === 'opciones') {
+      const campo = plantilla<HTMLFieldSetElement>('opciones');
+      etiquetar(campo.querySelector('legend')!, c);
+      const grupo = campo.querySelector<HTMLElement>('.radio-inline')!;
+      if (c.opciones.some(o => o.length > 24)) grupo.classList.add('radio-inline--lista');
+      c.opciones.forEach((valor, i) => {
+        const opcion = plantilla<HTMLLabelElement>('opcion');
+        const input = opcion.querySelector('input')!;
+        input.name = c.nombre;
+        input.value = valor;
+        opcion.querySelector('span')!.textContent = textoVisible(c.textosOpciones[i] || valor);
+        grupo.append(opcion);
+      });
+      campo.dataset.control = c.nombre;
+      return campo;
+    }
+
+    if (c.tipo === 'archivo') {
+      const campo = plantilla<HTMLElement>('archivo');
+      const label = campo.querySelector('label')!;
+      label.textContent = 'Adjuntar archivo (opcional)';
+      label.htmlFor = id;
+      const input = campo.querySelector('input')!;
+      input.id = id;
+      input.name = c.nombre;
+      prepararArchivo(campo, input);
+      return campo;
+    }
+
+    const campo = plantilla<HTMLElement>(c.tipo === 'fecha' ? 'fecha' : PIDE_RELATO.test(c.etiqueta) ? 'parrafo' : 'texto');
+    const label = campo.querySelector('label')!;
+    etiquetar(label, c);
+    label.htmlFor = id;
+    const input = campo.querySelector<HTMLInputElement | HTMLTextAreaElement>('input, textarea')!;
+    input.id = id;
+    input.name = c.nombre;
+    campo.dataset.control = c.nombre;
+    return campo;
+  }
+
+  // Los detalles ("¿Cuál?", "¿Quién es el tercero?") solo aparecen con la respuesta que los pide.
+  function actualizarDependientes() {
+    controles().forEach(c => {
+      if (!c.dependeDe) return;
+      const campo = contenedor.querySelector<HTMLElement>(`[data-control="${sel(c.nombre)}"]`);
+      if (campo) campo.hidden = !aplica(c);
+    });
+  }
+
+  function dibujar() {
+    preguntas.forEach(p => {
+      const tarjeta = plantilla<HTMLElement>('pregunta');
+      p.controles.forEach(c => tarjeta.append(dibujarControl(c)));
+      if (p.nota) {
+        const nota = plantilla<HTMLElement>('nota');
+        nota.textContent = p.nota;
+        tarjeta.append(nota);
+      }
+      contenedor.append(tarjeta);
+    });
+    contenedor.addEventListener('change', actualizarDependientes);
+    actualizarDependientes();
+
+    // Al responder, desaparece el aviso de esa pregunta.
+    const alResponder = (event: Event) => {
+      const campo = (event.target as Element).closest<HTMLElement>('[data-control]');
+      if (!campo) return;
+      const nombre = campo.dataset.control || '';
+      if (!valorDe(nombre)) return;
+      campo.querySelectorAll('[data-error]').forEach(el => el.remove());
+      campo.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+    };
+    contenedor.addEventListener('input', alResponder);
+    contenedor.addEventListener('change', alResponder);
+  }
+
+  // ============ Adjunto: uno solo, como admite el sistema ============
+  const TIPOS_PERMITIDOS = ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx', 'avi', 'zip'];
+  const TAMANO_MAXIMO = 20 * 1024 * 1024;
+  let archivo: File | null = null;
+
+  const tamanoLegible = (bytes: number) => {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  };
+
+  function prepararArchivo(campo: HTMLElement, input: HTMLInputElement) {
+    const dropzone = campo.querySelector<HTMLElement>('[data-dropzone]');
+    const lista = campo.querySelector<HTMLElement>('[data-file-list]');
+
+    input.addEventListener('change', () => {
+      campo.querySelectorAll('[data-error]').forEach(el => el.remove());
+      lista?.replaceChildren();
+      const elegido = input.files?.[0] || null;
+      const extension = elegido?.name.split('.').pop()?.toLowerCase() || '';
+
+      if (elegido && (!TIPOS_PERMITIDOS.includes(extension) || elegido.size > TAMANO_MAXIMO)) {
+        input.value = '';
+        archivo = null;
+        mostrarError(campo, elegido.size > TAMANO_MAXIMO
+          ? 'El archivo supera los 20 MB.'
+          : 'Ese tipo de archivo no está permitido. Use JPG, PNG, PDF, Word, AVI o ZIP.');
+        return;
+      }
+
+      archivo = elegido;
+      if (archivo && lista) {
+        const item = plantilla<HTMLElement>('archivo-item');
+        item.querySelector('.dropzone__file-name')!.textContent = archivo.name;
+        item.querySelector('.dropzone__file-size')!.textContent = tamanoLegible(archivo.size);
+        lista.append(item);
+      }
+    });
+
+    // Solo resaltado: soltar el archivo lo recibe el propio campo, que cubre la zona.
+    ['dragenter', 'dragover'].forEach(ev => dropzone?.addEventListener(ev, () => dropzone.classList.add('dropzone--drag')));
+    ['dragleave', 'drop'].forEach(ev => dropzone?.addEventListener(ev, () => dropzone.classList.remove('dropzone--drag')));
+  }
+
+  // ============ Validación ============
+  function mostrarError(campo: HTMLElement, mensaje: string) {
+    const error = plantilla<HTMLElement>('error');
+    error.dataset.error = '';
+    error.textContent = mensaje;
+    campo.append(error);
+  }
+
+  function validarHechos(): boolean {
+    contenedor.querySelectorAll('[data-error]').forEach(el => el.remove());
+    contenedor.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+
+    let primero: HTMLElement | null = null;
+    controles().forEach(c => {
+      if (c.tipo === 'archivo' || !c.obligatorio || !aplica(c) || valorDe(c.nombre)) return;
+      const campo = contenedor.querySelector<HTMLElement>(`[data-control="${sel(c.nombre)}"]`);
+      if (!campo) return;
+      mostrarError(campo, c.tipo === 'opciones' ? 'Elija una opción.' : 'Esta respuesta es obligatoria.');
+      const foco = campo.querySelector<HTMLElement>('input, textarea');
+      foco?.setAttribute('aria-invalid', 'true');
+      if (!primero) primero = foco;
+    });
+
+    if (primero) {
+      if (indice !== 0) { indice = 0; mostrarSeccion(0); }
+      (primero as HTMLElement).focus({ preventScroll: true });
+      (primero as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    return true;
+  }
+
   // ============ Persistencia (localStorage) ============
-  const STORAGE_KEY = 'itrc-denuncia-borrador-' + (formId || 'default');
+  // Clave nueva: los borradores del prototipo guardaban otras preguntas.
+  const STORAGE_KEY = 'itrc-denuncia-v2-' + formId;
+  try {
+    Object.keys(localStorage)
+      .filter(k => k.startsWith('itrc-denuncia-borrador-'))
+      .forEach(k => localStorage.removeItem(k));
+  } catch (_) {}
 
   function guardar() {
     const data: Record<string, string> = {};
-    document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[data-persist]').forEach(el => {
-      if (el.type === 'radio' || el.type === 'checkbox') {
-        if ((el as HTMLInputElement).checked) data[el.name || el.id] = el.value;
+    contenedor.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-persist]').forEach(el => {
+      if (el.type === 'radio') {
+        if ((el as HTMLInputElement).checked) data[el.name] = el.value;
       } else {
-        data[el.name || el.id] = el.value;
+        data[el.name] = el.value;
       }
     });
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (_) {}
@@ -919,108 +967,142 @@ const totalSecciones = secciones.length;
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       const data = JSON.parse(raw) as Record<string, string>;
-      document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('[data-persist]').forEach(el => {
-        const key = el.name || el.id;
-        const val = data[key];
+      contenedor.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-persist]').forEach(el => {
+        const val = data[el.name];
         if (val === undefined) return;
         if (el.type === 'radio') {
-          if ((el as HTMLInputElement).value === val) (el as HTMLInputElement).checked = true;
-        } else if (el.type === 'checkbox') {
-          (el as HTMLInputElement).checked = val === (el as HTMLInputElement).value;
+          (el as HTMLInputElement).checked = el.value === val;
         } else {
           el.value = val;
         }
       });
-      // Trigger contadores
-      document.querySelectorAll<HTMLTextAreaElement>('[data-contador]').forEach(t => t.dispatchEvent(new Event('input')));
     } catch (_) {}
   }
 
-  restaurar();
-
-  document.querySelectorAll('[data-persist]').forEach(el => {
-    el.addEventListener('input', guardar);
-    el.addEventListener('change', guardar);
-  });
-
-  // ============ Contador de caracteres ============
-  document.querySelectorAll<HTMLTextAreaElement>('[data-contador]').forEach(area => {
-    const val = area.parentElement?.querySelector<HTMLElement>('[data-contador-value]');
-    const upd = () => { if (val) val.textContent = String(area.value.length); };
-    area.addEventListener('input', upd);
-    upd();
-  });
-
-  // ============ Dropzone ============
-  const dropzone = document.querySelector<HTMLElement>('[data-dropzone]');
-  const fileInput = document.querySelector<HTMLInputElement>('[data-file-input]');
-  const fileList = document.querySelector<HTMLElement>('[data-file-list]');
-
-  const humanSize = (bytes: number) => {
-    if (bytes < 1024) return `${bytes} B`;
-    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-  };
-
-  const iconForFile = (name: string) => {
-    const ext = name.split('.').pop()?.toLowerCase() || '';
-    if (['pdf'].includes(ext)) return 'fa-file-pdf';
-    if (['doc', 'docx'].includes(ext)) return 'fa-file-word';
-    if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(ext)) return 'fa-file-image';
-    if (['mp3', 'wav', 'ogg', 'm4a'].includes(ext)) return 'fa-file-audio';
-    if (['mp4', 'mov', 'avi', 'webm'].includes(ext)) return 'fa-file-video';
-    return 'fa-file';
-  };
-
-  const renderFileList = () => {
-    if (!fileInput || !fileList) return;
-    fileList.innerHTML = '';
-    Array.from(fileInput.files || []).forEach(f => {
-      const li = document.createElement('li');
-      li.className = 'dropzone__file';
-      li.innerHTML = `<i class="fa-solid ${iconForFile(f.name)}"></i>
-        <span class="dropzone__file-name">${f.name}</span>
-        <span class="dropzone__file-size">${humanSize(f.size)}</span>`;
-      fileList.appendChild(li);
-    });
-  };
-  fileInput?.addEventListener('change', renderFileList);
-  ['dragenter', 'dragover'].forEach(ev => dropzone?.addEventListener(ev, e => {
-    e.preventDefault();
-    dropzone.classList.add('dropzone--drag');
-  }));
-  ['dragleave', 'drop'].forEach(ev => dropzone?.addEventListener(ev, e => {
-    e.preventDefault();
-    dropzone.classList.remove('dropzone--drag');
-  }));
-
   // ============ Panel de revisión ============
+  const formatoFecha = (iso: string) => {
+    const [a, m, d] = iso.split('-');
+    return a && m && d ? `${d}/${m}/${a}` : iso;
+  };
+
   function renderRevision() {
     const panel = document.querySelector<HTMLElement>('[data-revision-panel]');
     if (!panel) return;
+    panel.replaceChildren();
 
-    const items: Array<{ label: string; value: string }> = [
-      { label: 'Entidad', value: entidadSlug ? entidadSlug.toUpperCase() : '—' },
-      { label: 'Conducta', value: conductaNombres[conductaSlug] || '—' },
-      { label: 'Fecha del hecho', value: (document.querySelector<HTMLInputElement>('[name="DESCR2"]')?.value) || '—' },
-      { label: 'Lugar', value: (document.querySelector<HTMLInputElement>('[name="DESCR3"]')?.value) || '—' },
-      { label: 'Descripción del hecho', value: (document.querySelector<HTMLTextAreaElement>('[name="DESCR4"]')?.value) || '—' },
-      { label: 'Servidor denunciado', value: (document.querySelector<HTMLInputElement>('[name="DESCR5"]')?.value) || '—' },
-      { label: 'Cargo', value: (document.querySelector<HTMLInputElement>('[name="DESCR7"]')?.value) || '—' },
-      { label: 'Archivos adjuntos', value: fileInput && fileInput.files && fileInput.files.length > 0 ? `${fileInput.files.length} archivo(s)` : 'Ninguno' },
-    ];
+    const fila = (etiqueta: string, valor: string) => {
+      const item = plantilla<HTMLElement>('revision-item');
+      item.querySelector('.revision-item__label')!.textContent = etiqueta;
+      const celda = item.querySelector<HTMLElement>('.revision-item__value')!;
+      celda.textContent = valor || '—';
+      if (!valor || valor === 'Ninguno') celda.classList.add('revision-empty');
+      panel.append(item);
+    };
 
-    panel.innerHTML = items.map(i => `
-      <div class="revision-item">
-        <span class="revision-item__label">${i.label}</span>
-        <span class="revision-item__value ${i.value === '—' || i.value === 'Ninguno' ? 'revision-empty' : ''}">${i.value}</span>
-      </div>
-    `).join('');
+    fila('Entidad', entidadNombres[entidadSlug] || '');
+    fila('Conducta', conductaNombres[conductaSlug] || '');
+    if (datos) fila('Quién denuncia', datos.tipo === 'anonimo' ? 'Denuncia anónima' : datos.NOMBRE);
+
+    controles().forEach(c => {
+      if (c.tipo === 'archivo') { fila('Archivo adjunto', archivo ? archivo.name : 'Ninguno'); return; }
+      if (!aplica(c)) return;
+      let valor = valorDe(c.nombre);
+      if (c.tipo === 'opciones') valor = textoVisible(c.textosOpciones[c.opciones.indexOf(valor)] || valor);
+      if (c.tipo === 'fecha') valor = formatoFecha(valor);
+      fila(c.etiqueta, valor);
+    });
   }
 
-  // Al enviar, limpiar borrador local
-  document.querySelector<HTMLFormElement>('[data-wizard-form]')?.addEventListener('submit', () => {
-    try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
-    try { sessionStorage.removeItem('itrc-denuncia-session'); } catch (_) {}
+  // ============ Arranque ============
+  const datos = leerDatos();
+
+  if (!datos || !esFormIdValido(formId)) {
+    if (avisoCarga) avisoCarga.hidden = true;
+    if (avisoSinDatos) avisoSinDatos.hidden = false;
+  } else {
+    cargarPreguntas(formId)
+      .then(resultado => {
+        preguntas = resultado;
+        dibujar();
+        restaurar();
+        actualizarDependientes();
+        contenedor.addEventListener('input', guardar);
+        contenedor.addEventListener('change', guardar);
+        if (avisoCarga) avisoCarga.hidden = true;
+        if (btnNext) btnNext.disabled = false;
+        if (btnSubmit) btnSubmit.disabled = false;
+      })
+      .catch(() => {
+        if (avisoCarga) avisoCarga.hidden = true;
+        if (avisoError) avisoError.hidden = false;
+      });
+  }
+
+  // ============ Envío ============
+  const form = document.querySelector<HTMLFormElement>('[data-wizard-form]');
+  const declara = document.querySelector<HTMLInputElement>('[data-declara]');
+  const avisoEnvio = document.querySelector<HTMLElement>('[data-aviso-envio]');
+  const avisoEnvioTexto = document.querySelector<HTMLElement>('[data-aviso-envio-texto]');
+  const textoBoton = btnSubmit?.innerHTML || '';
+  let enviando = false;
+
+  const avisar = (mensaje: string) => {
+    if (avisoEnvioTexto) avisoEnvioTexto.textContent = mensaje;
+    if (avisoEnvio) avisoEnvio.hidden = false;
+  };
+
+  const CONTACTO = `escriba a ${CORREO_CONTACTO} o llame a la línea gratuita 01 8000 123 004`;
+  const MENSAJES = {
+    reintentar: 'No pudimos enviar su denuncia. Revise su conexión e intente de nuevo en unos minutos.',
+    cambio: 'Las preguntas del sistema de denuncias cambiaron mientras completaba el formulario. Recargue la página, revise sus respuestas e intente de nuevo.',
+    incierto: `Su denuncia llegó al sistema, pero no pudimos confirmar que quedara completa. Para no duplicarla, no la envíe de nuevo: ${CONTACTO}, indicando la fecha y hora del envío.`,
+  };
+
+  form?.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (enviando || !datos) return;
+    if (avisoEnvio) avisoEnvio.hidden = true;
+    if (!validarHechos()) return;
+    if (!declara?.checked) {
+      avisar('Para enviar la denuncia debe aceptar la declaración.');
+      return;
+    }
+
+    const respuestas: Record<string, string> = {};
+    controles().forEach(c => {
+      if (c.tipo === 'archivo' || !aplica(c)) return;
+      const valor = valorDe(c.nombre);
+      if (valor) respuestas[c.nombre] = valor;
+    });
+
+    enviando = true;
+    if (btnPrev) btnPrev.hidden = true;
+    if (btnSubmit) {
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Enviando…';
+    }
+
+    const resultado = await enviarDenuncia(datos, formId, respuestas, archivo);
+
+    if (resultado.ok) {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
+      borrarDatos();
+      window.location.href = form.action;
+      return;
+    }
+
+    if (resultado.reintentable) {
+      avisar(resultado.motivo === 'cambio' ? MENSAJES.cambio : MENSAJES.reintentar);
+      enviando = false;
+      if (btnPrev) btnPrev.hidden = false;
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = textoBoton;
+      }
+    } else {
+      // El envío pudo quedar registrado: no se ofrece repetirlo.
+      avisar(MENSAJES.incierto);
+      if (btnSubmit) btnSubmit.textContent = 'Envío detenido';
+    }
   });
 </script>
