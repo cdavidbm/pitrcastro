@@ -136,17 +136,19 @@ const grupos = [
         descripcion: 'Contratar sin cumplir los requisitos legales, tramitar contratos con interés propio o suscribirlos por fuera de los procedimientos.',
         norma: 'Arts. 408-410 Código Penal',
       },
-      {
-        id: 'general',
-        formId: '1',
-        nombre: 'Otra conducta disciplinaria',
-        icon: 'fa-solid fa-circle-question',
-        descripcion: 'Si el hecho no encaja claramente con las conductas anteriores, seleccione esta opción. Podrá describirlo con sus propias palabras en el siguiente paso.',
-        norma: 'Ley 734/2002 · Ley 2094/2021',
-      },
     ],
   },
 ];
+
+// La opción para quien no conoce el nombre jurídico de la falta. Va primero y
+// siempre visible: el buscador filtra las demás, no esta.
+const destacada = {
+  id: 'general',
+  formId: '1',
+  nombre: 'Otra conducta disciplinaria',
+  icon: 'fa-solid fa-circle-question',
+  descripcion: 'Si no está seguro de cómo se llama la falta, o el hecho no encaja con las opciones de abajo, elija esta. Podrá describirlo con sus propias palabras.',
+};
 
 const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
 ---
@@ -157,7 +159,7 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
 >
   <HeroPage
     title="¿Qué conducta quiere denunciar?"
-    subtitle="Elija la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve; si no está seguro, la última opción le permite describir el hecho con sus propias palabras."
+    subtitle="Elija la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve; si no está seguro, la primera opción le permite describir el hecho con sus propias palabras."
     icon="fa-solid fa-list-check"
     breadcrumb={breadcrumb}
   />
@@ -213,6 +215,26 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
   <section class="conducta" aria-labelledby="conducta-title">
     <div class="container">
       <h2 id="conducta-title" class="visually-hidden">Conductas disciplinarias</h2>
+
+      <div class="destacada">
+        <p class="destacada__aviso">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          Si no está seguro, empiece aquí
+        </p>
+        <a href={resolveUrl(`/denuncias/denunciante?conducta=${destacada.id}&form=${destacada.formId}`)} class="conducta-card__link destacada__link">
+          <span class="destacada__icon" aria-hidden="true"><i class={destacada.icon}></i></span>
+          <span class="destacada__cuerpo">
+            <span class="destacada__nombre">{destacada.nombre}</span>
+            <span class="destacada__desc">{destacada.descripcion}</span>
+          </span>
+          <span class="destacada__cta">
+            Continuar
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+
+      <p class="conducta__separador">O elija una conducta específica</p>
 
       <div class="conducta__search-band">
         <div class="conducta__search">
@@ -601,6 +623,74 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
     .ayuda-card { flex-direction: column; }
     .conducta__search-band { flex-direction: column; align-items: stretch; }
     .conducta__contador { text-align: center; }
+  }
+  /* ============ Opción destacada ============ */
+  .destacada {
+    margin: var(--space-6) 0 var(--space-2);
+    padding: var(--space-5);
+    border: 2px solid var(--itrc-gold);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(179, 139, 64, 0.10), rgba(179, 139, 64, 0.02));
+    box-shadow: var(--shadow-md);
+  }
+  .destacada__aviso {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    margin: 0 0 var(--space-3);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+  }
+  .destacada__link {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-2) 0 0;
+    border-radius: var(--radius-md);
+  }
+  .destacada__icon {
+    width: 64px; height: 64px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--itrc-navy);
+    color: var(--itrc-gold);
+    font-size: 1.6rem;
+  }
+  .destacada__cuerpo { display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
+  .destacada__nombre { font-size: var(--font-size-xl); font-weight: 800; color: var(--theme-heading); line-height: 1.25; }
+  .destacada__desc { font-size: var(--font-size-base); color: var(--theme-text-secondary); line-height: 1.55; }
+  .destacada__cta {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    flex-shrink: 0;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    background: var(--itrc-gold);
+    color: var(--itrc-navy);
+    font-weight: 700;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .destacada__link:hover .destacada__cta { transform: translateX(3px); box-shadow: var(--shadow-md); }
+  .conducta__separador {
+    margin: var(--space-8) 0 0;
+    color: var(--theme-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .destacada__link { flex-direction: column; align-items: flex-start; }
+    .destacada__cta { width: 100%; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .destacada__cta { transition: none; }
+    .destacada__link:hover .destacada__cta { transform: none; }
   }
 </style>
 
