@@ -7,10 +7,10 @@ const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
-  { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
-  { label: 'Elija la conducta', href: resolveUrl('/denuncias-nuevo/conducta') },
-  { label: 'Sus datos', href: resolveUrl('/denuncias-nuevo/denunciante') },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
+  { label: 'Elija la entidad', href: resolveUrl('/denuncias/entidades') },
+  { label: 'Elija la conducta', href: resolveUrl('/denuncias/conducta') },
+  { label: 'Sus datos', href: resolveUrl('/denuncias/denunciante') },
   { label: 'Describa los hechos' },
 ];
 
@@ -99,7 +99,7 @@ const totalSecciones = secciones.length;
           <i class="fa-solid fa-tag" aria-hidden="true"></i>
           <span class="conducta-chip__label">Conducta —</span>
           <strong data-conducta-nombre></strong>
-          <a href={resolveUrl('/denuncias-nuevo/conducta')} class="conducta-chip__cambiar">Cambiar</a>
+          <a href={resolveUrl('/denuncias/conducta')} class="conducta-chip__cambiar">Cambiar</a>
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@ const totalSecciones = secciones.length;
       <form
         class="wizard-form"
         method="get"
-        action={resolveUrl('/denuncias-nuevo/confirmacion')}
+        action={resolveUrl('/denuncias/confirmacion')}
         data-wizard-form
         novalidate
         enctype="multipart/form-data"
@@ -166,7 +166,7 @@ const totalSecciones = secciones.length;
           <div class="aviso aviso--error" data-aviso-sin-datos role="alert" hidden>
             <i class="fa-solid fa-id-card" aria-hidden="true"></i>
             <span>
-              Antes de describir los hechos, complete sus datos. <a href={resolveUrl('/denuncias-nuevo/denunciante')} data-link-datos>Ir a sus datos</a>
+              Antes de describir los hechos, complete sus datos. <a href={resolveUrl('/denuncias/denunciante')} data-link-datos>Ir a sus datos</a>
             </span>
           </div>
 

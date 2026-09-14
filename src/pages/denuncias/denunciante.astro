@@ -7,9 +7,9 @@ const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
-  { label: 'Elija la entidad', href: resolveUrl('/denuncias-nuevo/entidades') },
-  { label: 'Elija la conducta', href: resolveUrl('/denuncias-nuevo/conducta') },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
+  { label: 'Elija la entidad', href: resolveUrl('/denuncias/entidades') },
+  { label: 'Elija la conducta', href: resolveUrl('/denuncias/conducta') },
   { label: 'Sus datos' },
 ];
 
@@ -73,7 +73,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
             />
           ))}
         </div>
-        <a href={resolveUrl('/denuncias-nuevo/entidades')} class="entidad-chip__cambiar">
+        <a href={resolveUrl('/denuncias/entidades')} class="entidad-chip__cambiar">
           Cambiar
         </a>
       </div>
@@ -86,7 +86,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
       <form
         class="form-denunciante"
         method="get"
-        action={resolveUrl('/denuncias-nuevo/formulario')}
+        action={resolveUrl('/denuncias/formulario')}
         data-form-denunciante
         novalidate
       >
@@ -306,7 +306,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
           <label class="check-inline">
             <input type="checkbox" name="terms" required />
             <span>
-              Declaro que la información suministrada es cierta y que conozco que presentar una denuncia con temeridad o mala fe puede generar responsabilidad legal. He leído la <a href={resolveUrl('/denuncias-nuevo')} target="_blank" rel="noopener">política de tratamiento de datos</a> de la Agencia ITRC.
+              Declaro que la información suministrada es cierta y que conozco que presentar una denuncia con temeridad o mala fe puede generar responsabilidad legal. He leído la <a href={resolveUrl('/denuncias')} target="_blank" rel="noopener">política de tratamiento de datos</a> de la Agencia ITRC.
             </span>
           </label>
         </fieldset>
@@ -321,14 +321,14 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
           <label class="check-inline">
             <input type="checkbox" name="terms" required />
             <span>
-              Declaro que la información que voy a suministrar es cierta y comprendo que la denuncia anónima limita las opciones de aportar pruebas testimoniales adicionales. He leído la <a href={resolveUrl('/denuncias-nuevo')} target="_blank" rel="noopener">política de tratamiento de datos</a>.
+              Declaro que la información que voy a suministrar es cierta y comprendo que la denuncia anónima limita las opciones de aportar pruebas testimoniales adicionales. He leído la <a href={resolveUrl('/denuncias')} target="_blank" rel="noopener">política de tratamiento de datos</a>.
             </span>
           </label>
         </fieldset>
 
         <!-- ============ Botones ============ -->
         <div class="form-actions" data-actions hidden>
-          <a href={resolveUrl('/denuncias-nuevo/conducta')} class="btn-secundario" data-volver>
+          <a href={resolveUrl('/denuncias/conducta')} class="btn-secundario" data-volver>
             <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
             Volver
           </a>

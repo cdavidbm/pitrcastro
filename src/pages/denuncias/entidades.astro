@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL;
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias-nuevo') },
+  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
   { label: 'Elija la entidad' },
 ];
 
@@ -77,7 +77,7 @@ const entidades = [
       <ul class="entidades-picker__grid">
         {entidades.map(e => (
           <li class="ent-card">
-            <a href={resolveUrl(`/denuncias-nuevo/conducta?entidad=${e.slug}`)} class="ent-card__link">
+            <a href={resolveUrl(`/denuncias/conducta?entidad=${e.slug}`)} class="ent-card__link">
               <div class="ent-card__logo-wrap">
                 <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} class="ent-card__logo" loading="eager" />
               </div>
@@ -115,7 +115,7 @@ const entidades = [
       </div>
 
       <div class="entidades-picker__volver">
-        <a href={resolveUrl('/denuncias-nuevo')} class="link-volver">
+        <a href={resolveUrl('/denuncias')} class="link-volver">
           <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
           Volver a la presentación
         </a>
