@@ -1151,6 +1151,7 @@ export interface DenunciasPantallaConfirmacion extends Struct.ComponentSchema {
     botonPortal: Schema.Attribute.Component<'denuncias.tarjeta', false>;
     cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
     nota: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    radicado: Schema.Attribute.Component<'denuncias.tarjeta', false>;
   };
 }
 

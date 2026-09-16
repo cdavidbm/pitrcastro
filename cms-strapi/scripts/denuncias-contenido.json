@@ -336,6 +336,10 @@
       "subtitulo": "Gracias por contribuir al control disciplinario de los servidores públicos.",
       "migaPan": "Confirmación"
     },
+    "radicado": {
+      "titulo": "Número de radicado",
+      "texto": "Es el número con el que la Agencia registró su denuncia. Consérvelo."
+    },
     "botonPortal": {
       "titulo": "Volver al portal",
       "texto": "Regrese al sitio de la Agencia ITRC."

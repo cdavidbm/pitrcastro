@@ -645,6 +645,7 @@ const totalSecciones = secciones.length;
     cargarPreguntas,
     enviarDenuncia,
     esFormIdValido,
+    guardarRadicado,
     leerDatos,
     type Control,
     type Pregunta,
@@ -1089,6 +1090,7 @@ const totalSecciones = secciones.length;
     if (resultado.ok) {
       try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
       borrarDatos();
+      guardarRadicado(resultado.radicado);
       window.location.href = form.action;
       return;
     }

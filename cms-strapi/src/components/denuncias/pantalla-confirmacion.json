@@ -9,6 +9,7 @@
   "attributes": {
     "cabecera": { "type": "component", "component": "denuncias.cabecera" },
     "botonPortal": { "type": "component", "component": "denuncias.tarjeta" },
-    "nota": { "type": "component", "component": "denuncias.tarjeta" }
+    "nota": { "type": "component", "component": "denuncias.tarjeta" },
+    "radicado": { "type": "component", "component": "denuncias.tarjeta" }
   }
 }

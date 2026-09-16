@@ -28,6 +28,23 @@ const breadcrumb = [
     breadcrumb={breadcrumb}
   />
 
+  <!-- ================ Radicado ================
+       Solo aparece si Forest asignó número a la denuncia. Sin número, la
+       pantalla queda como siempre. -->
+  {pantalla.radicado && (
+    <section class="radicado" data-radicado hidden>
+      <div class="container">
+        <div class="radicado-card">
+          <div class="radicado-card__cabecera">
+            <span class="radicado-card__eyebrow">{pantalla.radicado.titulo}</span>
+            <p class="radicado-card__numero" data-radicado-numero></p>
+            <p class="radicado-card__texto" set:html={conNegritas(pantalla.radicado.texto)}></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- ================ CTAs finales ================ -->
   <section class="cta-final">
     <div class="container">
@@ -78,6 +95,12 @@ const breadcrumb = [
   .radicado-card__cabecera {
     display: flex; flex-direction: column; align-items: center;
     gap: var(--space-3);
+  }
+  .radicado-card__texto {
+    margin: 0;
+    max-width: 52ch;
+    color: var(--theme-text-secondary);
+    font-size: 0.95rem;
   }
   .radicado-card__eyebrow {
     font-size: 0.72rem;
@@ -370,3 +393,15 @@ const breadcrumb = [
     body { background: white; color: black; }
   }
 </style>
+
+<script>
+  import { leerRadicadoGuardado } from '../../utils/denuncias-legado';
+
+  const bloque = document.querySelector<HTMLElement>('[data-radicado]');
+  const numero = document.querySelector<HTMLElement>('[data-radicado-numero]');
+  const radicado = leerRadicadoGuardado();
+  if (bloque && numero && radicado) {
+    numero.textContent = radicado;
+    bloque.hidden = false;
+  }
+</script>

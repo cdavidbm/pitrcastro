@@ -320,8 +320,41 @@ export async function cargarPreguntas(
 
 // ============ Envío ============
 
+/**
+ * Número de radicado en la página final del sistema antiguo, que lo escribe
+ * tras la palabra "Radicado" dentro de un <strong>.
+ *
+ * Solo se acepta con la forma que usa Forest (`1-2026-006760`). Si Forest no
+ * asigna número, esa página llega vacía o con avisos de error, y no se muestra
+ * nada: mejor ningún número que uno equivocado.
+ */
+export function leerRadicado(html: string): string | null {
+  const m = html.match(/Radicado[\s\S]*?<strong>\s*([^<]*?)\s*<\/strong>/i);
+  const valor = m?.[1]?.trim() ?? '';
+  return /^\d+-\d{4}-\d+$/.test(valor) ? valor : null;
+}
+
+const CLAVE_RADICADO = 'itrc-denuncia-radicado';
+
+/** Se guarda el de la última denuncia, o se borra si no hubo: nunca queda uno viejo. */
+export function guardarRadicado(radicado: string | null) {
+  try {
+    if (radicado) sessionStorage.setItem(CLAVE_RADICADO, radicado);
+    else sessionStorage.removeItem(CLAVE_RADICADO);
+  } catch (_) {}
+}
+
+export function leerRadicadoGuardado(): string | null {
+  try {
+    const valor = sessionStorage.getItem(CLAVE_RADICADO);
+    return valor && /^\d+-\d{4}-\d+$/.test(valor) ? valor : null;
+  } catch (_) {
+    return null;
+  }
+}
+
 export type ResultadoEnvio =
-  | { ok: true }
+  | { ok: true; radicado: string | null }
   | { ok: false; motivo: 'bloqueo' | 'datos' | 'respuestas' | 'cambio'; reintentable: boolean };
 
 // Reintentar es seguro mientras falle el primer envío: como mucho queda un
@@ -438,9 +471,13 @@ export async function enviarDenuncia(
     return { ok: false, motivo: 'respuestas', reintentable: false };
   }
 
-  // La página final devuelve todos los datos de la denuncia. No se lee ni se
-  // guarda: basta con saber que el sistema llegó a ella.
-  if (final.ok && /integracion/i.test(final.url)) return { ok: true };
+  // La página final devuelve todos los datos de la denuncia. De ella solo se
+  // toma el número de radicado que asigna Forest; lo demás se descarta.
+  if (final.ok && /integracion/i.test(final.url)) {
+    let radicado: string | null = null;
+    try { radicado = leerRadicado(await final.text()); } catch (_) {}
+    return { ok: true, radicado };
+  }
 
   const htmlFinal = await final.text();
   if (esBloqueo(htmlFinal)) return { ok: false, motivo: 'bloqueo', reintentable: false };
