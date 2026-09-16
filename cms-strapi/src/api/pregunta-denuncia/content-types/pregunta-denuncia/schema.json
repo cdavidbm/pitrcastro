@@ -5,7 +5,7 @@
     "singularName": "pregunta-denuncia",
     "pluralName": "preguntas-denuncia",
     "displayName": "Denuncias · Preguntas de los hechos",
-    "description": "Redaccion de las preguntas que responde el ciudadano. Cada entrada es una pregunta; si varias conductas la hacen, se corrige una sola vez y queda corregida en todas. Las preguntas las define el sistema que recibe las denuncias: aqui solo se corrige como estan escritas. No se agregan ni se quitan preguntas.",
+    "description": "Redaccion de las preguntas que responde el ciudadano. Cada entrada es una pregunta; si varias conductas la hacen, se corrige una sola vez y queda corregida en todas. Las preguntas de detalle (\"Cual?\", \"Por que?\") van junto a la pregunta de la que dependen. Las preguntas las define el sistema que recibe las denuncias: aqui solo se corrige como estan escritas. No se agregan ni se quitan preguntas.",
     "mainField": "texto"
   },
   "options": {
@@ -13,16 +13,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "texto": { "type": "text", "required": true },
-    "original": { "type": "text" },
-    "donde": { "type": "string" },
+    "texto": {
+      "type": "text",
+      "required": true
+    },
+    "original": {
+      "type": "text"
+    },
+    "detalleDe": {
+      "type": "text"
+    },
+    "donde": {
+      "type": "string"
+    },
     "apariciones": {
       "type": "component",
       "repeatable": true,
       "component": "denuncias.aparicion"
     },
-    "clave": { "type": "text", "required": true },
-    "orden": { "type": "integer" },
-    "revisar": { "type": "boolean", "default": false }
+    "clave": {
+      "type": "text",
+      "required": true
+    },
+    "orden": {
+      "type": "integer"
+    },
+    "revisar": {
+      "type": "boolean",
+      "default": false
+    }
   }
 }

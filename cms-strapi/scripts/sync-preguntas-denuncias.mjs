@@ -18,8 +18,15 @@
  * posicional —la misma pregunta es la 8 en Cohecho y la 14 en Peculado— así que
  * cada aparición conserva el suyo y lo que se edita es solo la frase.
  *
+ * Las preguntas de detalle ("¿Cuál?", "¿Por qué?", "Precise su respuesta") no
+ * se agrupan por su texto, que no dice nada por sí solo, sino por la pregunta
+ * de la que dependen: hay cuatro "¿Cuál(es)?" distintos y cada uno pregunta por
+ * algo diferente. Así, además, las tres maneras de escribir el mismo detalle
+ * ("¿Cual?", "¿Cuales?", "¿Cuál(es)?") quedan en una sola entrada.
+ *
  *   texto        la frase, tal como la lee el ciudadano  ← esto es lo que se corrige
  *   original     la frase tal como la pregunta el sistema que recibe
+ *   detalleDe    la pregunta de la que cuelga, si es un detalle
  *   apariciones  cada conducta donde se hace, con su número y su texto original
  *
  * La corrección se aplica aparición por aparición, y solo mientras el texto
@@ -108,6 +115,12 @@ const claveDe = (frase) => frase
   .replace(/\s+/g, ' ')
   .trim();
 
+/**
+ * La primera palabra decide si dos detalles son el mismo escrito de otra forma.
+ * En singular: "¿Cual?", "¿Cuales?" y "¿Cuál(es)?" son el mismo "¿cuál?".
+ */
+const primeraPalabra = (clave) => clave.split(' ')[0].replace(/(es|s)$/, '');
+
 /** Nombre de la conducta (o conductas) que usa cada formulario. */
 function conductasPorFormulario() {
   const mapa = new Map();
@@ -125,11 +138,15 @@ function conductasPorFormulario() {
 
 async function leerPreguntas() {
   const conductas = conductasPorFormulario();
-  const grupos = new Map();
+  const casillas = [];
 
   for (const formulario of [...conductas.keys()].sort((a, b) => Number(a) - Number(b))) {
     const { preguntas } = await cargarPreguntas(formulario);
+    const porNombre = new Map();
+    for (const p of preguntas) for (const c of p.controles) porNombre.set(c.nombre, c);
+
     const vistos = new Set();
+    const hijosDe = new Map();
     let posicion = 0;
 
     for (const p of preguntas) {
@@ -143,34 +160,87 @@ async function leerPreguntas() {
         const clave = claveDe(frase);
         if (!clave) continue;
 
-        if (!grupos.has(clave)) grupos.set(clave, { clave, apariciones: [], orden: Number(formulario) * 1000 + posicion });
-        grupos.get(clave).apariciones.push({
+        // ¿Cuelga de otra pregunta? El formulario antiguo lo marca: ese "¿Cuál?"
+        // solo aparece si antes se respondió que sí. Se numeran los detalles de
+        // cada pregunta, porque alguna tiene más de uno.
+        const padre = c.dependeDe ? porNombre.get(c.dependeDe) : null;
+        const fraseMadre = padre ? partir(padre.etiqueta).frase : '';
+        const claveMadre = fraseMadre ? claveDe(fraseMadre) : '';
+        let rama = '';
+        if (claveMadre && claveMadre !== clave) {
+          const orden = hijosDe.get(c.dependeDe) || 0;
+          hijosDe.set(c.dependeDe, orden + 1);
+          rama = `${claveMadre}#${orden}`;
+        }
+
+        casillas.push({
           conducta: conductas.get(formulario),
           numero,
           original: c.etiqueta,
           formulario,
           campo: c.nombre,
           frase,
+          clave,
+          rama,
+          fraseMadre: rama ? fraseMadre : '',
+          orden: Number(formulario) * 1000 + posicion,
         });
       }
     }
     console.log(`   formulario ${formulario.padStart(2)} · ${conductas.get(formulario)}: ${posicion / 10} preguntas`);
   }
 
-  // La frase que se ofrece para corregir es la más repetida; en caso de empate,
-  // la que ya está bien escrita (con su signo de apertura).
-  for (const g of grupos.values()) {
-    const cuenta = new Map();
-    for (const a of g.apariciones) cuenta.set(a.frase, (cuenta.get(a.frase) || 0) + 1);
-    g.original = [...cuenta.entries()].sort((a, b) =>
-      b[1] - a[1] || Number(b[0].startsWith('¿')) - Number(a[0].startsWith('¿')) || a[0].localeCompare(b[0])
-    )[0][0];
+  // Dentro de una misma rama, los detalles se juntan solo si son el mismo
+  // escrito de otra forma. Si de verdad preguntan cosas distintas —"Describa"
+  // frente a "¿Sabe dónde labora ese tercero?"— cada uno va por su lado.
+  const ramas = new Map();
+  for (const c of casillas) {
+    if (!c.rama) continue;
+    if (!ramas.has(c.rama)) ramas.set(c.rama, new Set());
+    ramas.get(c.rama).add(c.clave);
+  }
+  const ramaUnifica = new Map();
+  for (const [rama, claves] of ramas) {
+    ramaUnifica.set(rama, new Set([...claves].map(primeraPalabra)).size === 1);
+  }
 
-    const conductas = new Set(g.apariciones.map(a => a.conducta));
-    g.donde = conductas.size === 1
-      ? [...conductas][0]
-      : `${conductas.size} conductas · ${g.apariciones.length} veces`;
-    g.apariciones = g.apariciones.map(({ frase, ...resto }) => resto);
+  const grupos = new Map();
+  for (const c of casillas) {
+    const llave = !c.rama ? c.clave
+      : ramaUnifica.get(c.rama) ? `⟵ ${c.rama}`
+      : `${c.clave} ⟵ ${c.rama}`;
+
+    if (!grupos.has(llave)) grupos.set(llave, { clave: llave, apariciones: [], orden: c.orden });
+    grupos.get(llave).apariciones.push(c);
+  }
+
+  // De las varias maneras en que el sistema antiguo escribe la misma pregunta,
+  // se ofrece para corregir la mejor escrita, no la más repetida: entre
+  // "¿Cuales?" (5 veces), "¿Cual?" (4) y "¿Cuál(es)?" (3), la buena es la
+  // tercera. El punto de partida debería ser el menos malo.
+  const bienEscrita = (f) =>
+    (/[áéíóúüñ]/i.test(f) ? 2 : 0) +
+    (f.startsWith('¿') && f.endsWith('?') ? 1 : 0);
+
+  const masComun = (valores) => {
+    const cuenta = new Map();
+    for (const v of valores) if (v) cuenta.set(v, (cuenta.get(v) || 0) + 1);
+    if (!cuenta.size) return '';
+    return [...cuenta.entries()].sort((a, b) =>
+      bienEscrita(b[0]) - bienEscrita(a[0]) || b[1] - a[1] || a[0].localeCompare(b[0])
+    )[0][0];
+  };
+
+  for (const g of grupos.values()) {
+    g.original = masComun(g.apariciones.map(a => a.frase));
+    g.detalleDe = masComun(g.apariciones.map(a => a.fraseMadre));
+
+    const nombres = new Set(g.apariciones.map(a => a.conducta));
+    g.donde = nombres.size === 1
+      ? [...nombres][0]
+      : `${nombres.size} conductas · ${g.apariciones.length} veces`;
+    g.apariciones = g.apariciones.map(({ conducta, numero, original, formulario, campo }) =>
+      ({ conducta, numero, original, formulario, campo }));
   }
 
   return [...grupos.values()].sort((a, b) => a.orden - b.orden);
@@ -212,7 +282,10 @@ async function main() {
   console.log(`Preguntas distintas: ${grupos.length}  (en ${casillas} casillas del formulario)`);
 
   if (SOLO_REVISAR) {
-    for (const g of grupos) console.log(`   ${String(g.apariciones.length).padStart(3)}× ${g.donde.padEnd(38)} ${g.original.slice(0, 60)}`);
+    for (const g of grupos) {
+      console.log(`   ${String(g.apariciones.length).padStart(3)}× ${g.donde.padEnd(38)} ${g.original.slice(0, 60)}`);
+      if (g.detalleDe) console.log(`        detalle de: ${g.detalleDe.slice(0, 74)}`);
+    }
     console.log('No se escribió nada.');
     return;
   }
@@ -226,7 +299,10 @@ async function main() {
   for (const g of grupos) {
     const ya = porClave.get(g.clave);
     porClave.delete(g.clave);
-    const datos = { clave: g.clave, original: g.original, donde: g.donde, orden: g.orden, apariciones: g.apariciones };
+    const datos = {
+      clave: g.clave, original: g.original, detalleDe: g.detalleDe,
+      donde: g.donde, orden: g.orden, apariciones: g.apariciones,
+    };
 
     if (!ya) {
       // Nace con la misma redacción que tiene hoy: nadie ve un cambio hasta que
@@ -237,8 +313,8 @@ async function main() {
       continue;
     }
 
-    if (ya.original === g.original && ya.donde === g.donde && ya.orden === g.orden
-        && mismasApariciones(ya.apariciones, g.apariciones)) { iguales++; continue; }
+    if (ya.original === g.original && ya.detalleDe === g.detalleDe && ya.donde === g.donde
+        && ya.orden === g.orden && mismasApariciones(ya.apariciones, g.apariciones)) { iguales++; continue; }
 
     if (ya.original !== g.original || !mismasApariciones(ya.apariciones, g.apariciones)) {
       // El sistema que recibe cambió algo. Su texto manda; la corrección

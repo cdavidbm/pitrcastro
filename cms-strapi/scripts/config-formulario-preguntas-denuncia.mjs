@@ -13,6 +13,9 @@
  * una vez y queda corregida en todas. La lista "Dónde se hace esta pregunta"
  * muestra en cuáles, con el número que tiene en cada una.
  *
+ * Las preguntas de detalle ("¿Cuál?", "¿Por qué?") muestran de qué pregunta
+ * cuelgan: solas no dicen nada, y hay varias distintas con el mismo texto.
+ *
  * Uso:
  *   STRAPI_EMAIL=... STRAPI_PASSWORD=... node cms-strapi/scripts/config-formulario-preguntas-denuncia.mjs
  *   ... --revisar     # muestra cómo quedaría, sin guardar
@@ -49,6 +52,13 @@ const CAMPOS = {
       'Al ajustar la corrección, apáguela.',
     editable: true,
   },
+  detalleDe: {
+    label: 'Es el detalle de esta pregunta',
+    description:
+      'Esta pregunta solo aparece según lo que se haya respondido arriba. Por eso "¿Cuál?" hay varios ' +
+      'y cada uno pregunta por algo distinto: mírelo aquí antes de corregirlo. Lo pone el sistema.',
+    editable: false,
+  },
   donde: {
     label: 'Dónde se hace',
     description: 'En cuántas conductas se hace esta misma pregunta. Lo pone el sistema.',
@@ -67,13 +77,14 @@ const CAMPOS = {
 
 const FILAS = [
   [['donde', 8], ['revisar', 4]],
+  [['detalleDe', 12]],
   [['texto', 12]],
   [['original', 12]],
   [['apariciones', 12]],
   [['clave', 8], ['orden', 4]],
 ];
 
-const COLUMNAS = ['texto', 'donde', 'revisar'];
+const COLUMNAS = ['texto', 'detalleDe', 'donde', 'revisar'];
 
 async function entrar() {
   const r = await fetch(`${STRAPI}/admin/login`, {

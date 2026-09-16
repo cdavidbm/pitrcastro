@@ -3584,7 +3584,7 @@ export interface ApiParticipaParticipa extends Struct.SingleTypeSchema {
 export interface ApiPreguntaDenunciaPreguntaDenuncia extends Struct.CollectionTypeSchema {
   collectionName: 'preguntas_denuncia';
   info: {
-    description: 'Redaccion de las preguntas que responde el ciudadano. Cada entrada es una pregunta; si varias conductas la hacen, se corrige una sola vez y queda corregida en todas. Las preguntas las define el sistema que recibe las denuncias: aqui solo se corrige como estan escritas. No se agregan ni se quitan preguntas.';
+    description: 'Redaccion de las preguntas que responde el ciudadano. Cada entrada es una pregunta; si varias conductas la hacen, se corrige una sola vez y queda corregida en todas. Las preguntas de detalle ("Cual?", "Por que?") van junto a la pregunta de la que dependen. Las preguntas las define el sistema que recibe las denuncias: aqui solo se corrige como estan escritas. No se agregan ni se quitan preguntas.';
     displayName: 'Denuncias \u00B7 Preguntas de los hechos';
     mainField: 'texto';
     pluralName: 'preguntas-denuncia';
@@ -3598,6 +3598,7 @@ export interface ApiPreguntaDenunciaPreguntaDenuncia extends Struct.CollectionTy
     clave: Schema.Attribute.Text & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    detalleDe: Schema.Attribute.Text;
     donde: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
