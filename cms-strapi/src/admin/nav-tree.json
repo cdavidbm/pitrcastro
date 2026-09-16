@@ -358,6 +358,18 @@
           ]
         },
         {
+          "label": "Denuncias",
+          "items": [
+            {
+              "uid": "api::denuncias.denuncias",
+              "slug": "denuncias",
+              "kind": "single",
+              "label": "Denuncias (formulario)",
+              "url": "/denuncias"
+            }
+          ]
+        },
+        {
           "label": "Glosario",
           "items": [
             {
