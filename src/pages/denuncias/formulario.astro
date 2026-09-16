@@ -2,13 +2,17 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
-import { cargarContenidoDenuncias } from '../../utils/denuncias-contenido';
+import { cargarContenidoDenuncias, reescriturasDePreguntas } from '../../utils/denuncias-contenido';
 import { mediaUrl } from '../../utils/strapi-media';
 
 const base = import.meta.env.BASE_URL;
 
 const cms = await cargarContenidoDenuncias();
 const pantalla = cms.pantallaHechos;
+
+// Preguntas cuya redacción se corrigió en el panel. Viajan con la página: las
+// preguntas en sí las sigue entregando el sistema que recibe las denuncias.
+const reescrituras = await reescriturasDePreguntas();
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -137,6 +141,7 @@ const totalSecciones = secciones.length;
         method="get"
         action={resolveUrl('/denuncias/confirmacion')}
         data-wizard-form
+        data-reescrituras={JSON.stringify(reescrituras)}
         novalidate
         enctype="multipart/form-data"
       >
@@ -643,6 +648,7 @@ const totalSecciones = secciones.length;
     leerDatos,
     type Control,
     type Pregunta,
+    type Reescritura,
   } from '../../utils/denuncias-legado';
 
   // ============ Datos del querystring ============
@@ -748,6 +754,7 @@ const totalSecciones = secciones.length;
 
   // ============ Preguntas del sistema de denuncias ============
   let preguntas: Pregunta[] = [];
+  let enunciadosReescritos: Record<string, string> = {};
   const controles = () => preguntas.flatMap(p => p.controles);
 
   // Las respuestas que piden narrar se escriben mejor en un área amplia.
@@ -1005,9 +1012,19 @@ const totalSecciones = secciones.length;
     if (avisoCarga) avisoCarga.hidden = true;
     if (avisoSinDatos) avisoSinDatos.hidden = false;
   } else {
-    cargarPreguntas(formId)
+    // Redacción revisada en el panel, solo la de esta conducta.
+    let reescrituras: Record<string, Reescritura> = {};
+    try {
+      const todas = JSON.parse(
+        document.querySelector<HTMLElement>('[data-wizard-form]')?.dataset.reescrituras || '{}'
+      );
+      reescrituras = todas[formId] || {};
+    } catch (_) {}
+
+    cargarPreguntas(formId, reescrituras)
       .then(resultado => {
-        preguntas = resultado;
+        preguntas = resultado.preguntas;
+        enunciadosReescritos = resultado.reescritos;
         dibujar();
         restaurar();
         actualizarDependientes();
@@ -1067,7 +1084,7 @@ const totalSecciones = secciones.length;
       btnSubmit.textContent = 'Enviando…';
     }
 
-    const resultado = await enviarDenuncia(datos, formId, respuestas, archivo);
+    const resultado = await enviarDenuncia(datos, formId, respuestas, archivo, enunciadosReescritos);
 
     if (resultado.ok) {
       try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}

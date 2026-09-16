@@ -32,6 +32,8 @@ function loadPublicReadPermissions(): string[] {
     // creó a mano, porque no sale de un JSON de pages.
     'api::denuncias.denuncias.find',
     'api::denuncias.denuncias.findOne',
+    'api::pregunta-denuncia.pregunta-denuncia.find',
+    'api::pregunta-denuncia.pregunta-denuncia.findOne',
   ];
   const fallback = [
     'api::marco-legal.marco-legal.find',

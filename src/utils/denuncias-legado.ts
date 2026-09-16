@@ -141,6 +141,8 @@ export type TipoControl = 'opciones' | 'texto' | 'fecha' | 'archivo';
 export interface Control {
   tipo: TipoControl;
   nombre: string;
+  /** Campo oculto con el enunciado oficial que acompaña a este control. */
+  preg: string;
   etiqueta: string;
   /** Valores que se envían, y el texto con que el formulario antiguo los muestra. */
   opciones: string[];
@@ -156,12 +158,30 @@ export interface Pregunta {
   nota: string;
 }
 
+export interface Formulario {
+  preguntas: Pregunta[];
+  /** Enunciados reescritos: se envían así al expediente. */
+  reescritos: Record<string, string>;
+}
+
+/**
+ * Redacción revisada de una pregunta: cómo la pregunta el sistema que recibe
+ * (`original`) y cómo se decidió escribirla en el panel (`texto`).
+ */
+export interface Reescritura {
+  original: string;
+  texto: string;
+}
+
 /**
  * Preguntas del formulario de una conducta. Se leen del backend en cada carga:
  * cada conducta tiene las suyas, y si el equipo del sistema antiguo las cambia,
  * el formulario nuevo las muestra sin tocar nada aquí.
  */
-export async function cargarPreguntas(formId: string): Promise<Pregunta[]> {
+export async function cargarPreguntas(
+  formId: string,
+  reescrituras: Record<string, Reescritura> = {},
+): Promise<Formulario> {
   const r = await fetch(`${BASE}${FORMULARIOS[formId]}.php?FORM_ID=${formId}`, { credentials: 'same-origin' });
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   const doc = aDocumento(await r.text());
@@ -172,6 +192,11 @@ export async function cargarPreguntas(formId: string): Promise<Pregunta[]> {
     const n = el.getAttribute('name')!.match(/^PREG(\d+)_ID_VALUE$/)?.[1];
     if (n) enunciados.set(n, limpiar(el.getAttribute('value') || ''));
   });
+  const pregDe = (nombre: string) => {
+    const n = nombre.match(/^RESP(\d+)_ID_VALUE$/)?.[1] ?? nombre.match(/^DESCR(\d*)$/)?.[1];
+    if (n === undefined) return '';
+    return `PREG${n || '1'}_ID_VALUE`;
+  };
   const enunciadoDe = (nombre: string) =>
     enunciados.get(nombre.match(/^RESP(\d+)_ID_VALUE$/)?.[1] ?? nombre.match(/^DESCR(\d*)$/)?.[1] ?? '') ||
     (nombre === 'DESCR' ? enunciados.get('1') || '' : '');
@@ -220,7 +245,7 @@ export async function cargarPreguntas(formId: string): Promise<Pregunta[]> {
           grupo.textosOpciones.push(valor);
         } else {
           grupo = {
-            tipo: 'opciones', nombre, etiqueta: texto || enunciadoDe(nombre), opciones: [valor], textosOpciones: [valor],
+            tipo: 'opciones', nombre, preg: pregDe(nombre), etiqueta: texto || enunciadoDe(nombre), opciones: [valor], textosOpciones: [valor],
             obligatorio: asterisco, dependeDe: null, activaCon: [],
           };
           controles.push(grupo);
@@ -237,6 +262,7 @@ export async function cargarPreguntas(formId: string): Promise<Pregunta[]> {
       const control: Control = {
         tipo: tipo === 'date' ? 'fecha' : tipo === 'file' ? 'archivo' : 'texto',
         nombre,
+        preg: pregDe(nombre),
         etiqueta,
         opciones: [],
         textosOpciones: [],
@@ -274,7 +300,22 @@ export async function cargarPreguntas(formId: string): Promise<Pregunta[]> {
   });
 
   if (!preguntas.length) throw new Error('Formulario sin preguntas');
-  return preguntas;
+
+  // La redacción revisada solo se aplica si el sistema antiguo sigue
+  // preguntando lo mismo: si allá cambiaron el texto, manda el suyo.
+  const reescritos: Record<string, string> = {};
+  for (const p of preguntas) {
+    for (const c of p.controles) {
+      const r = reescrituras[c.nombre];
+      if (!r || limpiar(r.original) !== limpiar(c.etiqueta)) continue;
+      // Si este control lleva el enunciado oficial, el expediente guarda lo
+      // que la persona leyó, no la versión anterior.
+      if (c.preg && limpiar(enunciadoDe(c.nombre)) === limpiar(c.etiqueta)) reescritos[c.preg] = r.texto;
+      c.etiqueta = r.texto;
+    }
+  }
+
+  return { preguntas, reescritos };
 }
 
 // ============ Envío ============
@@ -329,6 +370,7 @@ export async function enviarDenuncia(
   formId: string,
   respuestas: Record<string, string>,
   archivo: File | null,
+  enunciadosReescritos: Record<string, string> = {},
 ): Promise<ResultadoEnvio> {
   // ---- 1. Datos del denunciante ----
   let paginaRespuestas: Response;
@@ -374,7 +416,7 @@ export async function enviarDenuncia(
     const tipo = (el.getAttribute('type') || 'text').toLowerCase();
 
     if (tipo === 'hidden' || tipo === 'submit') {
-      cuerpo.append(nombre, el.getAttribute('value') ?? '');
+      cuerpo.append(nombre, enunciadosReescritos[nombre] ?? el.getAttribute('value') ?? '');
     } else if (tipo === 'radio') {
       if (radiosVistos.has(nombre)) continue;
       radiosVistos.add(nombre);

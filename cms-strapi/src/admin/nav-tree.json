@@ -361,6 +361,13 @@
           "label": "Denuncias",
           "items": [
             {
+              "uid": "api::pregunta-denuncia.pregunta-denuncia",
+              "slug": "pregunta-denuncia",
+              "kind": "collection",
+              "label": "Denuncias · Preguntas de los hechos",
+              "url": null
+            },
+            {
               "uid": "api::denuncias.denuncias",
               "slug": "denuncias",
               "kind": "single",

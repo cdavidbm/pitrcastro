@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_denuncias_apariciones",
+  "info": {
+    "displayName": "Dónde se hace esta pregunta",
+    "description": "Una conducta que hace esta misma pregunta. Lo llena el sistema leyendo el formulario que recibe las denuncias.",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "conducta": { "type": "string" },
+    "numero": { "type": "string" },
+    "original": { "type": "text" },
+    "formulario": { "type": "string" },
+    "campo": { "type": "string" }
+  }
+}

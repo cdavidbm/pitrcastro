@@ -1033,6 +1033,22 @@ export interface CiprepSpeakersindex extends Struct.ComponentSchema {
   };
 }
 
+export interface DenunciasAparicion extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_apariciones';
+  info: {
+    description: 'Una conducta que hace esta misma pregunta. Lo llena el sistema leyendo el formulario que recibe las denuncias.';
+    displayName: 'D\u00F3nde se hace esta pregunta';
+    icon: 'bulletList';
+  };
+  attributes: {
+    campo: Schema.Attribute.String;
+    conducta: Schema.Attribute.String;
+    formulario: Schema.Attribute.String;
+    numero: Schema.Attribute.String;
+    original: Schema.Attribute.Text;
+  };
+}
+
 export interface DenunciasBloque extends Struct.ComponentSchema {
   collectionName: 'components_denuncias_bloques';
   info: {
@@ -3320,6 +3336,7 @@ declare module '@strapi/strapi' {
       'ciprep.memorias': CiprepMemorias;
       'ciprep.recurso': CiprepRecurso;
       'ciprep.speakersindex': CiprepSpeakersindex;
+      'denuncias.aparicion': DenunciasAparicion;
       'denuncias.bloque': DenunciasBloque;
       'denuncias.cabecera': DenunciasCabecera;
       'denuncias.conducta': DenunciasConducta;

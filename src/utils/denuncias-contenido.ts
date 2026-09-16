@@ -10,7 +10,7 @@
  * propósito: es preferible no publicar a publicar el canal oficial de denuncias
  * con las pantallas en blanco.
  */
-import { getDenuncias } from './strapi-fetchers';
+import { getDenuncias, getPreguntasDenuncia } from './strapi-fetchers';
 
 export async function cargarContenidoDenuncias(): Promise<any> {
   const cms: any = await getDenuncias();
@@ -45,4 +45,44 @@ export function conNegritas(texto: string | null | undefined): string {
   return seguro
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/_([^_]+)_/g, '<em>$1</em>');
+}
+
+/**
+ * Preguntas de los hechos cuya redacción se corrigió en el panel, listas para
+ * el formulario: `{ formulario: { campo: { original, texto } } }`.
+ *
+ * En el panel cada pregunta es UNA entrada, aunque varias conductas la hagan.
+ * Aquí se reparte a cada casilla donde aparece, devolviéndole su número —que es
+ * de la conducta, no de la pregunta: la misma es la 8 en Cohecho y la 14 en
+ * Peculado—.
+ *
+ * Solo viajan las que de verdad se corrigieron. `original` es el texto tal como
+ * lo pregunta el sistema que recibe las denuncias en esa casilla concreta; si
+ * allá lo cambian, deja de coincidir y la corrección no se aplica ahí (ver
+ * `denuncias-legado.ts`), aunque siga aplicándose en las demás conductas.
+ *
+ * Si el listado no se puede leer, el formulario muestra los textos del sistema
+ * que recibe: la redacción es una mejora, no un requisito para denunciar.
+ */
+export async function reescriturasDePreguntas(): Promise<Record<string, Record<string, { original: string; texto: string }>>> {
+  let preguntas: any[] = [];
+  try {
+    preguntas = (await getPreguntasDenuncia()) ?? [];
+  } catch (_) {
+    console.warn('[denuncias] no se pudo leer la redacción de las preguntas; se usarán los textos del sistema que las recibe.');
+    return {};
+  }
+
+  const salida: Record<string, Record<string, { original: string; texto: string }>> = {};
+  for (const p of preguntas) {
+    if (!p?.texto || !p?.original || !Array.isArray(p.apariciones)) continue;
+    if (p.texto.trim() === p.original.trim()) continue;   // nadie la ha corregido
+
+    for (const a of p.apariciones) {
+      if (!a?.formulario || !a?.campo || !a?.original) continue;
+      const texto = a.numero ? `${a.numero} ${p.texto.trim()}` : p.texto.trim();
+      (salida[a.formulario] ||= {})[a.campo] = { original: a.original, texto };
+    }
+  }
+  return salida;
 }

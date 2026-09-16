@@ -3581,6 +3581,40 @@ export interface ApiParticipaParticipa extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPreguntaDenunciaPreguntaDenuncia extends Struct.CollectionTypeSchema {
+  collectionName: 'preguntas_denuncia';
+  info: {
+    description: 'Redaccion de las preguntas que responde el ciudadano. Cada entrada es una pregunta; si varias conductas la hacen, se corrige una sola vez y queda corregida en todas. Las preguntas las define el sistema que recibe las denuncias: aqui solo se corrige como estan escritas. No se agregan ni se quitan preguntas.';
+    displayName: 'Denuncias \u00B7 Preguntas de los hechos';
+    mainField: 'texto';
+    pluralName: 'preguntas-denuncia';
+    singularName: 'pregunta-denuncia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apariciones: Schema.Attribute.Component<'denuncias.aparicion', true>;
+    clave: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    donde: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pregunta-denuncia.pregunta-denuncia'
+    > &
+      Schema.Attribute.Private;
+    orden: Schema.Attribute.Integer;
+    original: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    revisar: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    texto: Schema.Attribute.Text & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPrensaCapsulasPrensaCapsulas extends Struct.SingleTypeSchema {
   collectionName: 'prensa_capsulas';
   info: {
@@ -6109,6 +6143,7 @@ declare module '@strapi/strapi' {
       'api::participa-planeacion.participa-planeacion': ApiParticipaPlaneacionParticipaPlaneacion;
       'api::participa-rendicion-de-cuentas.participa-rendicion-de-cuentas': ApiParticipaRendicionDeCuentasParticipaRendicionDeCuentas;
       'api::participa.participa': ApiParticipaParticipa;
+      'api::pregunta-denuncia.pregunta-denuncia': ApiPreguntaDenunciaPreguntaDenuncia;
       'api::prensa-capsulas.prensa-capsulas': ApiPrensaCapsulasPrensaCapsulas;
       'api::prensa-comunicados-institucionales.prensa-comunicados-institucionales': ApiPrensaComunicadosInstitucionalesPrensaComunicadosInstitucionales;
       'api::prensa-galeria.prensa-galeria': ApiPrensaGaleriaPrensaGaleria;
