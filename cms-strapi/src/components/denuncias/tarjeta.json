@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_denuncias_tarjetas",
+  "info": {
+    "displayName": "Bloque de texto",
+    "description": "Un titulo con su texto. Se usa en los pasos, las garantias, las notas y los recuadros de ayuda.",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": { "type": "string" },
+    "texto": { "type": "text" },
+    "texto2": { "type": "text" },
+    "icono": { "type": "string" }
+  }
+}

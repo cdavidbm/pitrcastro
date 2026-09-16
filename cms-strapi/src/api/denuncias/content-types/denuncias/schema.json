@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "denuncias",
+  "info": {
+    "singularName": "denuncias",
+    "pluralName": "denunciases",
+    "displayName": "Denuncias (formulario)",
+    "description": "Textos e imagenes del formulario de denuncias, publicado en /denuncias. Las preguntas sobre los hechos no estan aqui: las entrega el sistema que recibe las denuncias.",
+    "mainField": "title"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": { "type": "string" },
+    "entidades": { "type": "component", "component": "denuncias.entidad", "repeatable": true },
+    "portada": { "type": "component", "component": "denuncias.pantalla-portada" },
+    "pantallaEntidades": { "type": "component", "component": "denuncias.pantalla-entidades" },
+    "pantallaConducta": { "type": "component", "component": "denuncias.pantalla-conducta" },
+    "pantallaDatos": { "type": "component", "component": "denuncias.pantalla-datos" },
+    "pantallaHechos": { "type": "component", "component": "denuncias.pantalla-hechos" },
+    "pantallaConfirmacion": { "type": "component", "component": "denuncias.pantalla-confirmacion" }
+  }
+}

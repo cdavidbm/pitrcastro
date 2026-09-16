@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_denuncias_pantalla_datos",
+  "info": {
+    "displayName": "Pantalla 4. Datos del denunciante",
+    "description": "Las listas de documento, departamento y ciudad las entrega el sistema de denuncias; no se editan aqui.",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "cabecera": { "type": "component", "component": "denuncias.cabecera" },
+    "tiposPersona": { "type": "component", "component": "denuncias.tipo-persona", "repeatable": true },
+    "bloqueTipoPersona": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueNatural": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueJuridica": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueContacto": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueUbicacion": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueAsunto": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueContactoAnonimo": { "type": "component", "component": "denuncias.bloque" },
+    "declaracion": { "type": "text" },
+    "declaracionAnonima": { "type": "text" }
+  }
+}

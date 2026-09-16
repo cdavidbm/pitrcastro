@@ -4,112 +4,30 @@ import HeroPage from '../../components/HeroPage.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import Accordion from '../../components/Accordion.astro';
 import { resolveUrl } from '../../utils/url';
+import { cargarContenidoDenuncias, conNegritas } from '../../utils/denuncias-contenido';
+import { mediaUrl } from '../../utils/strapi-media';
 
 const base = import.meta.env.BASE_URL;
 
+const cms = await cargarContenidoDenuncias();
+const portada = cms.portada;
+const entidades = cms.entidades;
+const faq = portada.preguntas.map((p: any) => ({ title: p.pregunta, content: p.respuesta }));
+
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia' },
-];
-
-const entidades = [
-  {
-    nombre: 'DIAN',
-    descripcion: 'Dirección de Impuestos y Aduanas Nacionales',
-    slug: 'dian',
-    logo: '/images/entidades/dian.png',
-  },
-  {
-    nombre: 'Coljuegos',
-    descripcion: 'Empresa Industrial y Comercial del Estado — Administradora del Monopolio Rentístico de los Juegos de Suerte y Azar',
-    slug: 'coljuegos',
-    logo: '/images/entidades/coljuegos.png',
-  },
-  {
-    nombre: 'UGPP',
-    descripcion: 'Unidad de Gestión Pensional y Parafiscales',
-    slug: 'ugpp',
-    logo: '/images/entidades/ugpp.png',
-  },
-];
-
-const pasos = [
-  {
-    num: '01',
-    titulo: 'Elija la entidad',
-    texto: 'Seleccione la entidad a la que pertenece el servidor público que va a denunciar: DIAN, Coljuegos o UGPP.',
-  },
-  {
-    num: '02',
-    titulo: 'Elija la conducta',
-    texto: 'Seleccione la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve.',
-  },
-  {
-    num: '03',
-    titulo: 'Sus datos',
-    texto: 'Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La reserva de su identidad está protegida por ley.',
-  },
-  {
-    num: '04',
-    titulo: 'Describa los hechos',
-    texto: 'Un formulario guiado le ayuda a describir la conducta, aportar detalles y adjuntar evidencia digital si la tiene.',
-  },
-];
-
-const garantias = [
-  {
-    icon: 'fa-solid fa-user-shield',
-    titulo: 'Reserva de identidad',
-    texto: 'Sus datos personales quedan protegidos por la Ley 1712 de 2014 y no son compartidos fuera del proceso disciplinario.',
-  },
-  {
-    icon: 'fa-solid fa-user-secret',
-    titulo: 'Denuncia anónima permitida',
-    texto: 'Puede presentar la denuncia sin revelar su identidad.',
-  },
-  {
-    icon: 'fa-solid fa-scale-balanced',
-    titulo: 'Marco legal claro',
-    texto: 'El trámite se rige por la Ley 734 de 2002 (Código Disciplinario) y por la Ley 2094 de 2021, con garantías para ambas partes.',
-  },
-];
-
-const faq = [
-  {
-    title: '¿Quién puede presentar una denuncia?',
-    content:
-      'Cualquier ciudadano, servidor público o persona jurídica que tenga conocimiento de una posible falta disciplinaria cometida por un servidor público adscrito a DIAN, Coljuegos o UGPP.',
-  },
-  {
-    title: '¿Qué conductas se pueden denunciar?',
-    content:
-      'Faltas disciplinarias tipificadas en la Ley 734 de 2002, entre otras: peculado, cohecho, prevaricato, concusión, tráfico de influencias, falsedad en documento público, incremento patrimonial no justificado, abuso de función pública, e indebida celebración de contratos.',
-  },
-  {
-    title: '¿Necesito pruebas para denunciar?',
-    content:
-      'No es requisito, pero cualquier documento, imagen, correo electrónico o testimonio que respalde su denuncia agiliza la investigación. Puede adjuntar archivos digitales durante el proceso.',
-  },
-  {
-    title: '¿Cuánto demora el proceso?',
-    content:
-      'Los tiempos varían según la complejidad de cada caso. Una vez recibida la denuncia, la Agencia ITRC adelanta el trámite sin que usted deba hacer seguimiento.',
-  },
-  {
-    title: '¿Corro algún riesgo al denunciar?',
-    content:
-      'La Ley 1712 de 2014 protege la reserva de su identidad. Si prefiere no identificarse, la denuncia anónima es una opción válida. Su seguridad y confidencialidad son prioritarias para la Agencia ITRC.',
-  },
+  { label: portada.cabecera.migaPan },
 ];
 ---
 
 <Base
-  title="Presente su denuncia — Agencia ITRC"
-  description="Presente una denuncia disciplinaria contra servidores públicos de DIAN, Coljuegos o UGPP. Proceso guiado y reserva de identidad garantizada."
+  title={`${portada.cabecera.titulo} — Agencia ITRC`}
+  description={portada.cabecera.subtitulo}
+  strapiSlug="denuncias"
 >
   <HeroPage
-    title="Presente su denuncia"
-    subtitle="Un canal directo para reportar conductas presuntamente irregulares de servidores públicos adscritos a DIAN, Coljuegos y UGPP. Su denuncia importa y su identidad está protegida."
+    title={portada.cabecera.titulo}
+    subtitle={portada.cabecera.subtitulo}
     icon="fa-solid fa-scale-balanced"
     breadcrumb={breadcrumb}
   />
@@ -124,8 +42,8 @@ const faq = [
             <i class="fa-solid fa-file-signature"></i>
           </div>
           <div class="cta-card__body">
-            <h3 class="cta-card__title">Presentar una denuncia</h3>
-            <p class="cta-card__text">Inicie el proceso guiado. Toma entre 10 y 20 minutos, y puede guardar su avance.</p>
+            <h3 class="cta-card__title">{portada.botonPrincipal.titulo}</h3>
+            <p class="cta-card__text">{portada.botonPrincipal.texto}</p>
           </div>
           <span class="cta-card__arrow" aria-hidden="true">
             <i class="fa-solid fa-arrow-right"></i>
@@ -138,14 +56,12 @@ const faq = [
   <!-- ================== Cómo funciona ================== -->
   <section class="proceso" aria-labelledby="proceso-title">
     <div class="container">
-      <SectionTitle id="proceso-title">Cómo funciona el proceso</SectionTitle>
-      <p class="proceso__lede">
-        Cuatro pasos guiados. En cada uno se le indica qué información se necesita y por qué. No requiere conocimiento legal previo.
-      </p>
+      <SectionTitle id="proceso-title">{portada.tituloPasos}</SectionTitle>
+      <p class="proceso__lede">{portada.introPasos}</p>
       <ol class="proceso__grid">
-        {pasos.map(p => (
+        {portada.pasos.map((p: any, i: number) => (
           <li class="paso-card">
-            <span class="paso-card__num" aria-hidden="true">{p.num}</span>
+            <span class="paso-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             <h3 class="paso-card__titulo">{p.titulo}</h3>
             <p class="paso-card__texto">{p.texto}</p>
           </li>
@@ -157,18 +73,16 @@ const faq = [
   <!-- ================== Garantías ================== -->
   <section class="garantias" aria-labelledby="garantias-title">
     <div class="container">
-      <SectionTitle id="garantias-title">Sus garantías al denunciar</SectionTitle>
-      <p class="garantias__lede">
-        La ley protege a quien denuncia y a quien es denunciado. Estas son las tres garantías principales del proceso.
-      </p>
+      <SectionTitle id="garantias-title">{portada.tituloGarantias}</SectionTitle>
+      <p class="garantias__lede">{portada.introGarantias}</p>
       <div class="garantias__grid">
-        {garantias.map(g => (
+        {portada.garantias.map((g: any) => (
           <article class="garantia-card">
             <div class="garantia-card__icon" aria-hidden="true">
-              <i class={g.icon}></i>
+              <i class={g.icono}></i>
             </div>
             <h3 class="garantia-card__titulo">{g.titulo}</h3>
-            <p class="garantia-card__texto">{g.texto}</p>
+            <p class="garantia-card__texto" set:html={conNegritas(g.texto)}></p>
           </article>
         ))}
       </div>
@@ -178,17 +92,15 @@ const faq = [
   <!-- ================== Entidades bajo control disciplinario ================== -->
   <section class="entidades" aria-labelledby="entidades-title">
     <div class="container">
-      <SectionTitle id="entidades-title">Entidades cuyos servidores puede denunciar</SectionTitle>
-      <p class="entidades__lede">
-        La Agencia ITRC ejerce el control disciplinario externo sobre servidores públicos adscritos a estas tres entidades.
-      </p>
+      <SectionTitle id="entidades-title">{portada.tituloEntidades}</SectionTitle>
+      <p class="entidades__lede">{portada.introEntidades}</p>
       <div class="entidades__grid">
-        {entidades.map(e => (
+        {entidades.map((e: any) => (
           <div class="entidad-card">
             <div class="entidad-card__logo-wrap">
-              <img src={resolveUrl(e.logo)} alt={`Logo ${e.nombre}`} class="entidad-card__logo" loading="lazy" />
+              <img src={mediaUrl(e.logo)} alt={`Logo ${e.nombre}`} class="entidad-card__logo" loading="lazy" />
             </div>
-            <p class="entidad-card__desc">{e.descripcion}</p>
+            <p class="entidad-card__desc">{e.descripcionCorta}</p>
           </div>
         ))}
       </div>
@@ -198,7 +110,7 @@ const faq = [
   <!-- ================== FAQ ================== -->
   <section class="faq" aria-labelledby="faq-title">
     <div class="container container--narrow">
-      <SectionTitle id="faq-title">Preguntas frecuentes</SectionTitle>
+      <SectionTitle id="faq-title">{portada.tituloPreguntas}</SectionTitle>
       <Accordion items={faq} variant="content" />
     </div>
   </section>
@@ -208,14 +120,10 @@ const faq = [
     <div class="container container--narrow">
       <h2 id="legal-title" class="legal__title">
         <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-        Marco normativo
+        {portada.notaLegal.titulo}
       </h2>
-      <p class="legal__text">
-        El proceso se rige por la <strong>Ley 734 de 2002</strong> (Código Disciplinario Único) y la <strong>Ley 2094 de 2021</strong> (que modifica el Código General Disciplinario). La reserva de la identidad del denunciante y de los documentos de la investigación se ampara en la <strong>Ley 1712 de 2014</strong> de transparencia y acceso a la información pública.
-      </p>
-      <p class="legal__text">
-        Presentar una denuncia con temeridad, mala fe o para causar daño injustificado puede configurar responsabilidad disciplinaria, civil o penal según el caso.
-      </p>
+      <p class="legal__text" set:html={conNegritas(portada.notaLegal.texto)}></p>
+      <p class="legal__text" set:html={conNegritas(portada.notaLegal.texto2)}></p>
     </div>
   </section>
 
@@ -223,10 +131,8 @@ const faq = [
   <section class="cta-close" aria-labelledby="cta-close-title">
     <div class="container">
       <div class="cta-close__intro">
-        <h2 id="cta-close-title" class="cta-close__title">Ya conoce el proceso — dé el siguiente paso</h2>
-        <p class="cta-close__lede">
-          Presente su denuncia. El proceso es guiado y puede guardar su avance.
-        </p>
+        <h2 id="cta-close-title" class="cta-close__title">{portada.cierre.titulo}</h2>
+        <p class="cta-close__lede">{portada.cierre.texto}</p>
       </div>
       <div class="cta-close__grid">
         <a href={resolveUrl('/denuncias/entidades')} class="cta-card cta-card--primary">
@@ -234,8 +140,8 @@ const faq = [
             <i class="fa-solid fa-file-signature"></i>
           </div>
           <div class="cta-card__body">
-            <h3 class="cta-card__title">Presentar una denuncia</h3>
-            <p class="cta-card__text">Inicie el proceso guiado. Toma entre 10 y 20 minutos, y puede guardar su avance.</p>
+            <h3 class="cta-card__title">{portada.botonPrincipal.titulo}</h3>
+            <p class="cta-card__text">{portada.botonPrincipal.texto}</p>
           </div>
           <span class="cta-card__arrow" aria-hidden="true">
             <i class="fa-solid fa-arrow-right"></i>

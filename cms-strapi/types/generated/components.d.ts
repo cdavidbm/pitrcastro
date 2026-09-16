@@ -1033,6 +1033,229 @@ export interface CiprepSpeakersindex extends Struct.ComponentSchema {
   };
 }
 
+export interface DenunciasBloque extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_bloques';
+  info: {
+    description: 'Titulo y texto de ayuda de un grupo de campos del formulario.';
+    displayName: 'Bloque del formulario';
+    icon: 'bulletList';
+  };
+  attributes: {
+    ayuda: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
+  };
+}
+
+export interface DenunciasCabecera extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_cabeceras';
+  info: {
+    description: 'Titulo grande, texto de entrada y el nombre corto que aparece en la ruta de navegacion.';
+    displayName: 'Cabecera de pantalla';
+    icon: 'feather';
+  };
+  attributes: {
+    migaPan: Schema.Attribute.String;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DenunciasConducta extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_conductas';
+  info: {
+    description: 'Falta disciplinaria que el ciudadano puede elegir.';
+    displayName: 'Conducta';
+    icon: 'exclamationMarkCircle';
+  };
+  attributes: {
+    descripcion: Schema.Attribute.Text;
+    formulario: Schema.Attribute.String & Schema.Attribute.Required;
+    icono: Schema.Attribute.String;
+    idLogico: Schema.Attribute.String & Schema.Attribute.Required;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    norma: Schema.Attribute.String;
+  };
+}
+
+export interface DenunciasEntidad extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_entidades';
+  info: {
+    description: 'Entidad sobre la que la Agencia ejerce control disciplinario. Se muestra en la portada y en la pantalla de eleccion de entidad.';
+    displayName: 'Entidad';
+    icon: 'briefcase';
+  };
+  attributes: {
+    descripcion: Schema.Attribute.Text;
+    descripcionCorta: Schema.Attribute.String;
+    idLogico: Schema.Attribute.String & Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images'>;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DenunciasGrupoConductas extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_grupos_conductas';
+  info: {
+    description: 'Conjunto de conductas que se muestran juntas bajo un mismo titulo.';
+    displayName: 'Grupo de conductas';
+    icon: 'layer';
+  };
+  attributes: {
+    conductas: Schema.Attribute.Component<'denuncias.conducta', true>;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DenunciasPantallaConducta extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_pantalla_conductas';
+  info: {
+    description: 'La opcion destacada aparece primera y siempre visible, aunque se use el buscador.';
+    displayName: 'Pantalla 3. Elija la conducta';
+    icon: 'bulletList';
+  };
+  attributes: {
+    avisoDestacada: Schema.Attribute.String;
+    ayuda: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
+    destacada: Schema.Attribute.Component<'denuncias.conducta', false>;
+    grupos: Schema.Attribute.Component<'denuncias.grupo-conductas', true>;
+    separador: Schema.Attribute.String;
+    sinResultados: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+  };
+}
+
+export interface DenunciasPantallaConfirmacion extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_pantalla_confirmaciones';
+  info: {
+    description: 'Lo que ve el ciudadano cuando su denuncia queda enviada.';
+    displayName: 'Pantalla 6. Confirmacion';
+    icon: 'check';
+  };
+  attributes: {
+    botonPortal: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
+    nota: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+  };
+}
+
+export interface DenunciasPantallaDatos extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_pantalla_datos';
+  info: {
+    description: 'Las listas de documento, departamento y ciudad las entrega el sistema de denuncias; no se editan aqui.';
+    displayName: 'Pantalla 4. Datos del denunciante';
+    icon: 'user';
+  };
+  attributes: {
+    bloqueAsunto: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueContacto: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueContactoAnonimo: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueJuridica: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueNatural: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueTipoPersona: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueUbicacion: Schema.Attribute.Component<'denuncias.bloque', false>;
+    cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
+    declaracion: Schema.Attribute.Text;
+    declaracionAnonima: Schema.Attribute.Text;
+    tiposPersona: Schema.Attribute.Component<'denuncias.tipo-persona', true>;
+  };
+}
+
+export interface DenunciasPantallaEntidades extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_pantalla_entidades';
+  info: {
+    description: 'Las entidades se editan en la seccion "Entidades" de esta misma pagina.';
+    displayName: 'Pantalla 2. Elija la entidad';
+    icon: 'briefcase';
+  };
+  attributes: {
+    ayuda: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
+  };
+}
+
+export interface DenunciasPantallaHechos extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_pantalla_hechos';
+  info: {
+    description: 'Las preguntas de esta pantalla vienen del sistema de denuncias y no se editan aqui.';
+    displayName: 'Pantalla 5. Describa los hechos';
+    icon: 'file';
+  };
+  attributes: {
+    bloqueHechos: Schema.Attribute.Component<'denuncias.bloque', false>;
+    bloqueRevision: Schema.Attribute.Component<'denuncias.bloque', false>;
+    cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
+    declaracion: Schema.Attribute.Text;
+  };
+}
+
+export interface DenunciasPantallaPortada extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_pantalla_portadas';
+  info: {
+    description: 'Lo que ve quien entra a /denuncias/ antes de empezar.';
+    displayName: 'Pantalla 1. Portada';
+    icon: 'house';
+  };
+  attributes: {
+    botonPrincipal: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    cabecera: Schema.Attribute.Component<'denuncias.cabecera', false>;
+    cierre: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    garantias: Schema.Attribute.Component<'denuncias.tarjeta', true>;
+    introEntidades: Schema.Attribute.Text;
+    introGarantias: Schema.Attribute.Text;
+    introPasos: Schema.Attribute.Text;
+    notaLegal: Schema.Attribute.Component<'denuncias.tarjeta', false>;
+    pasos: Schema.Attribute.Component<'denuncias.tarjeta', true>;
+    preguntas: Schema.Attribute.Component<'denuncias.pregunta-frecuente', true>;
+    tituloEntidades: Schema.Attribute.String;
+    tituloGarantias: Schema.Attribute.String;
+    tituloPasos: Schema.Attribute.String;
+    tituloPreguntas: Schema.Attribute.String;
+  };
+}
+
+export interface DenunciasPreguntaFrecuente extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_preguntas_frecuentes';
+  info: {
+    description: 'Pregunta y respuesta del acordeon de la portada.';
+    displayName: 'Pregunta frecuente';
+    icon: 'question';
+  };
+  attributes: {
+    pregunta: Schema.Attribute.String & Schema.Attribute.Required;
+    respuesta: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface DenunciasTarjeta extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_tarjetas';
+  info: {
+    description: 'Un titulo con su texto. Se usa en los pasos, las garantias, las notas y los recuadros de ayuda.';
+    displayName: 'Bloque de texto';
+    icon: 'file';
+  };
+  attributes: {
+    icono: Schema.Attribute.String;
+    texto: Schema.Attribute.Text;
+    texto2: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
+  };
+}
+
+export interface DenunciasTipoPersona extends Struct.ComponentSchema {
+  collectionName: 'components_denuncias_tipos_persona';
+  info: {
+    description: 'Opcion de identificacion del denunciante: anonima, natural o juridica.';
+    displayName: 'Tipo de persona';
+    icon: 'user';
+  };
+  attributes: {
+    idLogico: Schema.Attribute.String & Schema.Attribute.Required;
+    imagen: Schema.Attribute.Media<'images'>;
+    texto: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GaleriaImagen extends Struct.ComponentSchema {
   collectionName: 'components_galeria_imagens';
   info: {
@@ -3097,6 +3320,20 @@ declare module '@strapi/strapi' {
       'ciprep.memorias': CiprepMemorias;
       'ciprep.recurso': CiprepRecurso;
       'ciprep.speakersindex': CiprepSpeakersindex;
+      'denuncias.bloque': DenunciasBloque;
+      'denuncias.cabecera': DenunciasCabecera;
+      'denuncias.conducta': DenunciasConducta;
+      'denuncias.entidad': DenunciasEntidad;
+      'denuncias.grupo-conductas': DenunciasGrupoConductas;
+      'denuncias.pantalla-conducta': DenunciasPantallaConducta;
+      'denuncias.pantalla-confirmacion': DenunciasPantallaConfirmacion;
+      'denuncias.pantalla-datos': DenunciasPantallaDatos;
+      'denuncias.pantalla-entidades': DenunciasPantallaEntidades;
+      'denuncias.pantalla-hechos': DenunciasPantallaHechos;
+      'denuncias.pantalla-portada': DenunciasPantallaPortada;
+      'denuncias.pregunta-frecuente': DenunciasPreguntaFrecuente;
+      'denuncias.tarjeta': DenunciasTarjeta;
+      'denuncias.tipo-persona': DenunciasTipoPersona;
       'galeria.imagen': GaleriaImagen;
       'galeria.portada': GaleriaPortada;
       'home.columnasservicio': HomeColumnasservicio;

@@ -2,164 +2,39 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
+import { cargarContenidoDenuncias, conNegritas } from '../../utils/denuncias-contenido';
+import { mediaUrl } from '../../utils/strapi-media';
 
 const base = import.meta.env.BASE_URL;
 
+const cms = await cargarContenidoDenuncias();
+const pantalla = cms.pantallaConducta;
+const grupos = pantalla.grupos;
+const destacada = pantalla.destacada;
+
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
-  { label: 'Elija la entidad', href: resolveUrl('/denuncias/entidades') },
-  { label: 'Elija la conducta' },
+  { label: cms.portada.cabecera.migaPan, href: resolveUrl('/denuncias') },
+  { label: cms.pantallaEntidades.cabecera.migaPan, href: resolveUrl('/denuncias/entidades') },
+  { label: pantalla.cabecera.migaPan },
 ];
 
 // Diccionario de entidades para el chip (leído en runtime del ?entidad=)
-const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
-  dian:      { nombre: 'DIAN',      logo: '/images/entidades/dian.png' },
-  coljuegos: { nombre: 'Coljuegos', logo: '/images/entidades/coljuegos.png' },
-  ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
-};
+const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.fromEntries(
+  cms.entidades.map((e: any) => [e.idLogico, { nombre: e.nombre, logo: mediaUrl(e.logo) }])
+);
 
-// Conductas y el FORM_ID con que las recibe /denuncias/. Verificado contra los
-// menús de ese sistema (dian.php, delitoitrc.php, peculado.php, docpublicoitrc.php):
-// un FORM_ID equivocado clasifica la denuncia bajo otra falta.
-// Agrupadas para navegar mejor las 13 opciones sin saturar visualmente.
-const grupos = [
-  {
-    id: 'admin',
-    titulo: 'Contra la administración pública',
-    conductas: [
-      {
-        id: 'peculado-apropiacion',
-        formId: '9',
-        nombre: 'Peculado por apropiación',
-        icon: 'fa-solid fa-money-bill-transfer',
-        descripcion: 'Un servidor público se apropia, para sí o para otro, de bienes del Estado que le fueron confiados por su cargo.',
-        norma: 'Art. 397 Código Penal · Ley 734/2002',
-      },
-      {
-        id: 'peculado-uso',
-        formId: '11',
-        nombre: 'Peculado por uso',
-        icon: 'fa-solid fa-car',
-        descripcion: 'El servidor usa bienes del Estado (vehículos, equipos, inmuebles) para fines personales o distintos a los oficiales.',
-        norma: 'Art. 398 Código Penal',
-      },
-      {
-        id: 'peculado-culposo',
-        formId: '10',
-        nombre: 'Peculado culposo',
-        icon: 'fa-solid fa-triangle-exclamation',
-        descripcion: 'Por falta de diligencia, el servidor dio lugar a que se extravíen, pierdan o dañen bienes del Estado a los que tenía acceso por sus funciones.',
-        norma: 'Art. 400 Código Penal',
-      },
-      {
-        id: 'concusion',
-        formId: '3',
-        nombre: 'Concusión',
-        icon: 'fa-solid fa-hand-back-fist',
-        descripcion: 'El servidor abusa de su cargo para exigir o inducir a otra persona a entregarle dinero o beneficios que no le corresponden.',
-        norma: 'Art. 404 Código Penal',
-      },
-      {
-        id: 'cohecho',
-        formId: '7',
-        nombre: 'Cohecho',
-        icon: 'fa-solid fa-hand-holding-dollar',
-        descripcion: 'El servidor recibe dinero o beneficios para realizar, retardar u omitir un acto propio de su cargo.',
-        norma: 'Arts. 405-407 Código Penal',
-      },
-      {
-        id: 'prevaricato',
-        formId: '12',
-        nombre: 'Prevaricato',
-        icon: 'fa-solid fa-gavel',
-        descripcion: 'Dictar una resolución, dictamen o concepto manifiestamente contrario a la ley, sabiendo que lo es.',
-        norma: 'Art. 413 Código Penal',
-      },
-    ],
-  },
-  {
-    id: 'fe-publica',
-    titulo: 'Contra la fe pública',
-    conductas: [
-      {
-        id: 'falsedad-material',
-        formId: '5',
-        nombre: 'Falsedad material en documento público',
-        icon: 'fa-solid fa-pen-nib',
-        descripcion: 'Alterar o crear un documento público falso, cambiando su contenido o su apariencia física.',
-        norma: 'Art. 287 Código Penal',
-      },
-      {
-        id: 'falsedad-ideologica',
-        formId: '4',
-        nombre: 'Falsedad ideológica en documento público',
-        icon: 'fa-solid fa-file-pen',
-        descripcion: 'El servidor consigna en un documento hechos que sabe que son falsos, o calla la verdad total o parcialmente.',
-        norma: 'Art. 286 Código Penal',
-      },
-    ],
-  },
-  {
-    id: 'otras',
-    titulo: 'Otras faltas disciplinarias',
-    conductas: [
-      {
-        id: 'abuso-funcion',
-        formId: '6',
-        nombre: 'Abuso de función pública',
-        icon: 'fa-solid fa-user-shield',
-        descripcion: 'El servidor ejerce funciones distintas a las asignadas a su cargo o excede los límites de sus atribuciones.',
-        norma: 'Art. 428 Código Penal',
-      },
-      {
-        id: 'trafico-influencias',
-        formId: '8',
-        nombre: 'Tráfico de influencias',
-        icon: 'fa-solid fa-handshake-simple',
-        descripcion: 'El servidor invoca influencias reales o simuladas de su cargo para obtener beneficios propios o de terceros.',
-        norma: 'Art. 411 Código Penal',
-      },
-      {
-        id: 'incremento-patrimonial',
-        formId: '2',
-        nombre: 'Incremento patrimonial no justificado',
-        icon: 'fa-solid fa-money-bill-trend-up',
-        descripcion: 'El servidor obtiene un aumento de su patrimonio que no corresponde con sus ingresos declarados o legítimos.',
-        norma: 'Art. 412 Código Penal',
-      },
-      {
-        id: 'indebida-celebracion',
-        formId: '1',
-        nombre: 'Indebida celebración de contratos',
-        icon: 'fa-solid fa-file-contract',
-        descripcion: 'Contratar sin cumplir los requisitos legales, tramitar contratos con interés propio o suscribirlos por fuera de los procedimientos.',
-        norma: 'Arts. 408-410 Código Penal',
-      },
-    ],
-  },
-];
-
-// La opción para quien no conoce el nombre jurídico de la falta. Va primero y
-// siempre visible: el buscador filtra las demás, no esta.
-const destacada = {
-  id: 'general',
-  formId: '1',
-  nombre: 'Otra conducta disciplinaria',
-  icon: 'fa-solid fa-circle-question',
-  descripcion: 'Si no está seguro de cómo se llama la falta, o el hecho no encaja con las opciones de abajo, elija esta. Podrá describirlo con sus propias palabras.',
-};
-
-const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
+const totalConductas = grupos.reduce((n: number, g: any) => n + g.conductas.length, 0);
 ---
 
 <Base
-  title="Elija la conducta a denunciar — Presente su denuncia — Agencia ITRC"
-  description="Seleccione la falta disciplinaria que corresponda al hecho que va a denunciar. Cada opción incluye una descripción en lenguaje sencillo y su referencia normativa."
+  title={`${pantalla.cabecera.titulo} — Presente su denuncia — Agencia ITRC`}
+  description={pantalla.cabecera.subtitulo}
+  strapiSlug="denuncias"
 >
   <HeroPage
-    title="¿Qué conducta quiere denunciar?"
-    subtitle="Elija la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve; si no está seguro, la primera opción le permite describir el hecho con sus propias palabras."
+    title={pantalla.cabecera.titulo}
+    subtitle={pantalla.cabecera.subtitulo}
     icon="fa-solid fa-list-check"
     breadcrumb={breadcrumb}
   />
@@ -198,7 +73,7 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
             <img
               class="entidad-chip__logo"
               data-entidad-logo={slug}
-              src={resolveUrl(info.logo)}
+              src={info.logo}
               alt={`Logo ${info.nombre}`}
               hidden
             />
@@ -219,10 +94,10 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
       <div class="destacada">
         <p class="destacada__aviso">
           <i class="fa-solid fa-star" aria-hidden="true"></i>
-          Si no está seguro, empiece aquí
+          {pantalla.avisoDestacada}
         </p>
-        <a href={resolveUrl(`/denuncias/denunciante?conducta=${destacada.id}&form=${destacada.formId}`)} class="conducta-card__link destacada__link">
-          <span class="destacada__icon" aria-hidden="true"><i class={destacada.icon}></i></span>
+        <a href={resolveUrl(`/denuncias/denunciante?conducta=${destacada.idLogico}&form=${destacada.formulario}`)} class="conducta-card__link destacada__link">
+          <span class="destacada__icon" aria-hidden="true"><i class={destacada.icono}></i></span>
           <span class="destacada__cuerpo">
             <span class="destacada__nombre">{destacada.nombre}</span>
             <span class="destacada__desc">{destacada.descripcion}</span>
@@ -234,7 +109,7 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
         </a>
       </div>
 
-      <p class="conducta__separador">O elija una conducta específica</p>
+      <p class="conducta__separador">{pantalla.separador}</p>
 
       <div class="conducta__search-band">
         <div class="conducta__search">
@@ -254,21 +129,21 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
       </div>
 
       <!-- Grid de conductas agrupadas -->
-      {grupos.map(g => (
+      {grupos.map((g: any) => (
         <section class="grupo" data-grupo>
           <h3 class="grupo__titulo">{g.titulo}</h3>
           <ul class="grupo__grid">
-            {g.conductas.map(c => (
+            {g.conductas.map((c: any) => (
               <li
                 class="conducta-card"
                 data-conducta
                 data-nombre={c.nombre.toLowerCase()}
                 data-desc={c.descripcion.toLowerCase()}
               >
-                <a href={resolveUrl(`/denuncias/denunciante?conducta=${c.id}&form=${c.formId}`)} class="conducta-card__link">
+                <a href={resolveUrl(`/denuncias/denunciante?conducta=${c.idLogico}&form=${c.formulario}`)} class="conducta-card__link">
                   <div class="conducta-card__header">
                     <div class="conducta-card__icon" aria-hidden="true">
-                      <i class={c.icon}></i>
+                      <i class={c.icono}></i>
                     </div>
                     <h4 class="conducta-card__nombre">{c.nombre}</h4>
                   </div>
@@ -292,10 +167,8 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
       <!-- Mensaje sin resultados -->
       <div class="conducta__sin-resultados" data-sin-resultados hidden>
         <i class="fa-regular fa-face-thinking" aria-hidden="true"></i>
-        <p>No encontramos ninguna conducta que coincida con su búsqueda.</p>
-        <p class="conducta__sin-resultados-hint">
-          Puede seleccionar <strong>"Otra conducta disciplinaria"</strong> y describir el hecho con sus propias palabras más adelante.
-        </p>
+        <p>{pantalla.sinResultados.texto}</p>
+        <p class="conducta__sin-resultados-hint" set:html={conNegritas(pantalla.sinResultados.texto2)}></p>
       </div>
 
       <!-- Card de ayuda -->
@@ -304,10 +177,8 @@ const totalConductas = grupos.reduce((n, g) => n + g.conductas.length, 0);
           <i class="fa-solid fa-lightbulb"></i>
         </div>
         <div class="ayuda-card__body">
-          <h3 class="ayuda-card__titulo">¿No sabe cómo tipificar el hecho?</h3>
-          <p class="ayuda-card__texto">
-            No hace falta que sea preciso jurídicamente. Elija la conducta que más se acerque a lo ocurrido — si ninguna encaja, use <strong>"Otra conducta disciplinaria"</strong> y descríbalo con sus palabras. El equipo de la Agencia ITRC hará la calificación jurídica definitiva al analizar su denuncia.
-          </p>
+          <h3 class="ayuda-card__titulo">{pantalla.ayuda.titulo}</h3>
+          <p class="ayuda-card__texto" set:html={conNegritas(pantalla.ayuda.texto)}></p>
         </div>
       </aside>
 

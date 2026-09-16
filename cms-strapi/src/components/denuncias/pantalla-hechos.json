@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_denuncias_pantalla_hechos",
+  "info": {
+    "displayName": "Pantalla 5. Describa los hechos",
+    "description": "Las preguntas de esta pantalla vienen del sistema de denuncias y no se editan aqui.",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "cabecera": { "type": "component", "component": "denuncias.cabecera" },
+    "bloqueHechos": { "type": "component", "component": "denuncias.bloque" },
+    "bloqueRevision": { "type": "component", "component": "denuncias.bloque" },
+    "declaracion": { "type": "text" }
+  }
+}

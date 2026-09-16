@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_denuncias_pantalla_entidades",
+  "info": {
+    "displayName": "Pantalla 2. Elija la entidad",
+    "description": "Las entidades se editan en la seccion \"Entidades\" de esta misma pagina.",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "cabecera": { "type": "component", "component": "denuncias.cabecera" },
+    "ayuda": { "type": "component", "component": "denuncias.tarjeta" }
+  }
+}

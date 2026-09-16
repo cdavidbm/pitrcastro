@@ -1,0 +1,348 @@
+{
+  "title": "Denuncias",
+  "entidades": [
+    {
+      "idLogico": "dian",
+      "nombre": "DIAN",
+      "descripcion": "Autoridad tributaria, aduanera y cambiaria de Colombia.",
+      "descripcionCorta": "Dirección de Impuestos y Aduanas Nacionales",
+      "logo": "/images/entidades/dian.png"
+    },
+    {
+      "idLogico": "coljuegos",
+      "nombre": "Coljuegos",
+      "descripcion": "Regulador y explotador del monopolio rentístico de los juegos de suerte y azar en Colombia.",
+      "descripcionCorta": "Empresa Industrial y Comercial del Estado — Administradora del Monopolio Rentístico de los Juegos de Suerte y Azar",
+      "logo": "/images/entidades/coljuegos.png"
+    },
+    {
+      "idLogico": "ugpp",
+      "nombre": "UGPP",
+      "descripcion": "Reconocimiento y pago de pensiones del régimen público, fiscalización de aportes parafiscales.",
+      "descripcionCorta": "Unidad de Gestión Pensional y Parafiscales",
+      "logo": "/images/entidades/ugpp.png"
+    }
+  ],
+  "portada": {
+    "cabecera": {
+      "titulo": "Presente su denuncia",
+      "subtitulo": "Un canal directo para reportar conductas presuntamente irregulares de servidores públicos adscritos a DIAN, Coljuegos y UGPP. Su denuncia importa y su identidad está protegida.",
+      "migaPan": "Presente su denuncia"
+    },
+    "botonPrincipal": {
+      "titulo": "Presentar una denuncia",
+      "texto": "Inicie el proceso guiado. Toma entre 10 y 20 minutos, y puede guardar su avance."
+    },
+    "tituloPasos": "Cómo funciona el proceso",
+    "introPasos": "Cuatro pasos guiados. En cada uno se le indica qué información se necesita y por qué. No requiere conocimiento legal previo.",
+    "pasos": [
+      {
+        "titulo": "Elija la entidad",
+        "texto": "Seleccione la entidad a la que pertenece el servidor público que va a denunciar: DIAN, Coljuegos o UGPP."
+      },
+      {
+        "titulo": "Elija la conducta",
+        "texto": "Seleccione la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve."
+      },
+      {
+        "titulo": "Sus datos",
+        "texto": "Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La reserva de su identidad está protegida por ley."
+      },
+      {
+        "titulo": "Describa los hechos",
+        "texto": "Un formulario guiado le ayuda a describir la conducta, aportar detalles y adjuntar evidencia digital si la tiene."
+      }
+    ],
+    "tituloGarantias": "Sus garantías al denunciar",
+    "introGarantias": "La ley protege a quien denuncia y a quien es denunciado. Estas son las tres garantías principales del proceso.",
+    "garantias": [
+      {
+        "titulo": "Reserva de identidad",
+        "texto": "Sus datos personales quedan protegidos por la Ley 1712 de 2014 y no son compartidos fuera del proceso disciplinario.",
+        "icono": "fa-solid fa-user-shield"
+      },
+      {
+        "titulo": "Denuncia anónima permitida",
+        "texto": "Puede presentar la denuncia sin revelar su identidad.",
+        "icono": "fa-solid fa-user-secret"
+      },
+      {
+        "titulo": "Marco legal claro",
+        "texto": "El trámite se rige por la Ley 734 de 2002 (Código Disciplinario) y por la Ley 2094 de 2021, con garantías para ambas partes.",
+        "icono": "fa-solid fa-scale-balanced"
+      }
+    ],
+    "tituloEntidades": "Entidades cuyos servidores puede denunciar",
+    "introEntidades": "La Agencia ITRC ejerce el control disciplinario externo sobre servidores públicos adscritos a estas tres entidades.",
+    "tituloPreguntas": "Preguntas frecuentes",
+    "preguntas": [
+      {
+        "pregunta": "¿Quién puede presentar una denuncia?",
+        "respuesta": "Cualquier ciudadano, servidor público o persona jurídica que tenga conocimiento de una posible falta disciplinaria cometida por un servidor público adscrito a DIAN, Coljuegos o UGPP."
+      },
+      {
+        "pregunta": "¿Qué conductas se pueden denunciar?",
+        "respuesta": "Faltas disciplinarias tipificadas en la Ley 734 de 2002, entre otras: peculado, cohecho, prevaricato, concusión, tráfico de influencias, falsedad en documento público, incremento patrimonial no justificado, abuso de función pública, e indebida celebración de contratos."
+      },
+      {
+        "pregunta": "¿Necesito pruebas para denunciar?",
+        "respuesta": "No es requisito, pero cualquier documento, imagen, correo electrónico o testimonio que respalde su denuncia agiliza la investigación. Puede adjuntar archivos digitales durante el proceso."
+      },
+      {
+        "pregunta": "¿Cuánto demora el proceso?",
+        "respuesta": "Los tiempos varían según la complejidad de cada caso. Una vez recibida la denuncia, la Agencia ITRC adelanta el trámite sin que usted deba hacer seguimiento."
+      },
+      {
+        "pregunta": "¿Corro algún riesgo al denunciar?",
+        "respuesta": "La Ley 1712 de 2014 protege la reserva de su identidad. Si prefiere no identificarse, la denuncia anónima es una opción válida. Su seguridad y confidencialidad son prioritarias para la Agencia ITRC."
+      }
+    ],
+    "notaLegal": {
+      "titulo": "Marco normativo",
+      "texto": "El proceso se rige por la **Ley 734 de 2002** (Código Disciplinario Único) y la **Ley 2094 de 2021** (que modifica el Código General Disciplinario). La reserva de la identidad del denunciante y de los documentos de la investigación se ampara en la **Ley 1712 de 2014** de transparencia y acceso a la información pública.",
+      "texto2": "Presentar una denuncia con temeridad, mala fe o para causar daño injustificado puede configurar responsabilidad disciplinaria, civil o penal según el caso."
+    },
+    "cierre": {
+      "titulo": "Ya conoce el proceso — dé el siguiente paso",
+      "texto": "Presente su denuncia. El proceso es guiado y puede guardar su avance."
+    }
+  },
+  "pantallaEntidades": {
+    "cabecera": {
+      "titulo": "Elija la entidad",
+      "subtitulo": "Seleccione la entidad a la que pertenece el servidor público al que va a denunciar. La Agencia ITRC ejerce el control disciplinario externo sobre estas tres entidades.",
+      "migaPan": "Elija la entidad"
+    },
+    "ayuda": {
+      "titulo": "¿No sabe a cuál pertenece el servidor?",
+      "texto": "Si el hecho ocurrió en trámites tributarios o de aduanas, corresponde a la **DIAN**. Si involucra pensiones o aportes parafiscales, a la **UGPP**. Si tiene que ver con juegos de suerte y azar, a **Coljuegos**.",
+      "texto2": "Si sigue sin poder identificarla, puede iniciar el trámite con la entidad que le parezca más cercana — la Agencia ITRC redirige internamente el expediente cuando corresponde."
+    }
+  },
+  "pantallaConducta": {
+    "cabecera": {
+      "titulo": "¿Qué conducta quiere denunciar?",
+      "subtitulo": "Elija la falta disciplinaria que mejor describe el hecho. Cada opción tiene una explicación breve; si no está seguro, la primera opción le permite describir el hecho con sus propias palabras.",
+      "migaPan": "Elija la conducta"
+    },
+    "avisoDestacada": "Si no está seguro, empiece aquí",
+    "destacada": {
+      "idLogico": "general",
+      "nombre": "Otra conducta disciplinaria",
+      "descripcion": "Si no está seguro de cómo se llama la falta, o el hecho no encaja con las opciones de abajo, elija esta. Podrá describirlo con sus propias palabras.",
+      "icono": "fa-solid fa-circle-question",
+      "norma": "",
+      "formulario": "1"
+    },
+    "separador": "O elija una conducta específica",
+    "grupos": [
+      {
+        "titulo": "Contra la administración pública",
+        "conductas": [
+          {
+            "idLogico": "peculado-apropiacion",
+            "nombre": "Peculado por apropiación",
+            "descripcion": "Un servidor público se apropia, para sí o para otro, de bienes del Estado que le fueron confiados por su cargo.",
+            "icono": "fa-solid fa-money-bill-transfer",
+            "norma": "Art. 397 Código Penal · Ley 734/2002",
+            "formulario": "9"
+          },
+          {
+            "idLogico": "peculado-uso",
+            "nombre": "Peculado por uso",
+            "descripcion": "El servidor usa bienes del Estado (vehículos, equipos, inmuebles) para fines personales o distintos a los oficiales.",
+            "icono": "fa-solid fa-car",
+            "norma": "Art. 398 Código Penal",
+            "formulario": "11"
+          },
+          {
+            "idLogico": "peculado-culposo",
+            "nombre": "Peculado culposo",
+            "descripcion": "Por falta de diligencia, el servidor dio lugar a que se extravíen, pierdan o dañen bienes del Estado a los que tenía acceso por sus funciones.",
+            "icono": "fa-solid fa-triangle-exclamation",
+            "norma": "Art. 400 Código Penal",
+            "formulario": "10"
+          },
+          {
+            "idLogico": "concusion",
+            "nombre": "Concusión",
+            "descripcion": "El servidor abusa de su cargo para exigir o inducir a otra persona a entregarle dinero o beneficios que no le corresponden.",
+            "icono": "fa-solid fa-hand-back-fist",
+            "norma": "Art. 404 Código Penal",
+            "formulario": "3"
+          },
+          {
+            "idLogico": "cohecho",
+            "nombre": "Cohecho",
+            "descripcion": "El servidor recibe dinero o beneficios para realizar, retardar u omitir un acto propio de su cargo.",
+            "icono": "fa-solid fa-hand-holding-dollar",
+            "norma": "Arts. 405-407 Código Penal",
+            "formulario": "7"
+          },
+          {
+            "idLogico": "prevaricato",
+            "nombre": "Prevaricato",
+            "descripcion": "Dictar una resolución, dictamen o concepto manifiestamente contrario a la ley, sabiendo que lo es.",
+            "icono": "fa-solid fa-gavel",
+            "norma": "Art. 413 Código Penal",
+            "formulario": "12"
+          }
+        ]
+      },
+      {
+        "titulo": "Contra la fe pública",
+        "conductas": [
+          {
+            "idLogico": "falsedad-material",
+            "nombre": "Falsedad material en documento público",
+            "descripcion": "Alterar o crear un documento público falso, cambiando su contenido o su apariencia física.",
+            "icono": "fa-solid fa-pen-nib",
+            "norma": "Art. 287 Código Penal",
+            "formulario": "5"
+          },
+          {
+            "idLogico": "falsedad-ideologica",
+            "nombre": "Falsedad ideológica en documento público",
+            "descripcion": "El servidor consigna en un documento hechos que sabe que son falsos, o calla la verdad total o parcialmente.",
+            "icono": "fa-solid fa-file-pen",
+            "norma": "Art. 286 Código Penal",
+            "formulario": "4"
+          }
+        ]
+      },
+      {
+        "titulo": "Otras faltas disciplinarias",
+        "conductas": [
+          {
+            "idLogico": "abuso-funcion",
+            "nombre": "Abuso de función pública",
+            "descripcion": "El servidor ejerce funciones distintas a las asignadas a su cargo o excede los límites de sus atribuciones.",
+            "icono": "fa-solid fa-user-shield",
+            "norma": "Art. 428 Código Penal",
+            "formulario": "6"
+          },
+          {
+            "idLogico": "trafico-influencias",
+            "nombre": "Tráfico de influencias",
+            "descripcion": "El servidor invoca influencias reales o simuladas de su cargo para obtener beneficios propios o de terceros.",
+            "icono": "fa-solid fa-handshake-simple",
+            "norma": "Art. 411 Código Penal",
+            "formulario": "8"
+          },
+          {
+            "idLogico": "incremento-patrimonial",
+            "nombre": "Incremento patrimonial no justificado",
+            "descripcion": "El servidor obtiene un aumento de su patrimonio que no corresponde con sus ingresos declarados o legítimos.",
+            "icono": "fa-solid fa-money-bill-trend-up",
+            "norma": "Art. 412 Código Penal",
+            "formulario": "2"
+          },
+          {
+            "idLogico": "indebida-celebracion",
+            "nombre": "Indebida celebración de contratos",
+            "descripcion": "Contratar sin cumplir los requisitos legales, tramitar contratos con interés propio o suscribirlos por fuera de los procedimientos.",
+            "icono": "fa-solid fa-file-contract",
+            "norma": "Arts. 408-410 Código Penal",
+            "formulario": "1"
+          }
+        ]
+      }
+    ],
+    "ayuda": {
+      "titulo": "¿No sabe cómo tipificar el hecho?",
+      "texto": "No hace falta que sea preciso jurídicamente. Elija la conducta que más se acerque a lo ocurrido — si ninguna encaja, use **\"Otra conducta disciplinaria\"** y descríbalo con sus palabras. El equipo de la Agencia ITRC hará la calificación jurídica definitiva al analizar su denuncia."
+    },
+    "sinResultados": {
+      "texto": "No encontramos ninguna conducta que coincida con su búsqueda.",
+      "texto2": "Puede seleccionar **\"Otra conducta disciplinaria\"** y describir el hecho con sus propias palabras más adelante."
+    }
+  },
+  "pantallaDatos": {
+    "cabecera": {
+      "titulo": "Datos del denunciante",
+      "subtitulo": "Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La ley protege la reserva de su identidad en todos los casos.",
+      "migaPan": "Sus datos"
+    },
+    "tiposPersona": [
+      {
+        "idLogico": "anonimo",
+        "titulo": "Anónima",
+        "texto": "No revela su identidad.",
+        "imagen": "/images/denuncias-nuevo/anonimo.webp"
+      },
+      {
+        "idLogico": "natural",
+        "titulo": "Persona natural",
+        "texto": "Denuncia como ciudadano o ciudadana. Sus datos quedan bajo reserva legal.",
+        "imagen": "/images/denuncias-nuevo/persona-natural.webp"
+      },
+      {
+        "idLogico": "juridica",
+        "titulo": "Persona jurídica",
+        "texto": "Denuncia en representación de una empresa, gremio, ONG u otra entidad.",
+        "imagen": "/images/denuncias-nuevo/persona-juridica.webp"
+      }
+    ],
+    "declaracion": "Declaro que la información suministrada es cierta y que conozco que presentar una denuncia con temeridad o mala fe puede generar responsabilidad legal. He leído la política de tratamiento de datos de la Agencia ITRC.",
+    "declaracionAnonima": "Declaro que la información que voy a suministrar es cierta y comprendo que la denuncia anónima limita las opciones de aportar pruebas testimoniales adicionales. He leído la política de tratamiento de datos.",
+    "bloqueTipoPersona": {
+      "titulo": "Tipo de persona",
+      "ayuda": "Elija la opción que mejor refleje su situación. Puede cambiar de opción en cualquier momento antes de enviar."
+    },
+    "bloqueNatural": {
+      "titulo": "Sus datos personales",
+      "ayuda": "La ley protege la reserva de esta información. Sus datos no aparecen en el expediente que consulta la persona denunciada."
+    },
+    "bloqueJuridica": {
+      "titulo": "Datos de la persona jurídica",
+      "ayuda": "Ingrese los datos de la organización que representa."
+    },
+    "bloqueContacto": {
+      "titulo": "Cómo contactarle",
+      "ayuda": "Se usan únicamente si la Agencia necesita contactarle para ampliar la información de su denuncia. No aparecen en el expediente que consulta la persona denunciada."
+    },
+    "bloqueUbicacion": {
+      "titulo": "Ubicación",
+      "ayuda": "Ayuda a asignar el trámite a la seccional correspondiente. No es su dirección personal exacta si prefiere reservarla."
+    },
+    "bloqueAsunto": {
+      "titulo": "Asunto (opcional)",
+      "ayuda": "Una frase que resuma la denuncia. Ayuda a identificar el caso."
+    },
+    "bloqueContactoAnonimo": {
+      "titulo": "Cómo contactarle (opcional)",
+      "ayuda": "Como denuncia anónima, no está obligado a ingresar datos de contacto. Si quiere que la Agencia pueda pedirle más información, puede indicar un correo o teléfono que _no revele su identidad_ (por ejemplo, un correo creado para esto)."
+    }
+  },
+  "pantallaHechos": {
+    "cabecera": {
+      "titulo": "Describa los hechos",
+      "subtitulo": "Responda las preguntas sobre lo ocurrido. Sus respuestas se guardan automáticamente en este equipo mientras completa el formulario.",
+      "migaPan": "Describa los hechos"
+    },
+    "declaracion": "Declaro bajo la gravedad del juramento que la información suministrada es cierta según mi conocimiento, y que conozco que la presentación de denuncias con temeridad o mala fe puede generar responsabilidad legal.",
+    "bloqueHechos": {
+      "titulo": "Los hechos",
+      "ayuda": "Responda con sus propias palabras; no hace falta usar lenguaje jurídico. Las preguntas marcadas con * son obligatorias."
+    },
+    "bloqueRevision": {
+      "titulo": "Revisar y enviar",
+      "ayuda": "Ya casi terminamos. Revise lo diligenciado — puede volver atrás para ajustar."
+    }
+  },
+  "pantallaConfirmacion": {
+    "cabecera": {
+      "titulo": "Su denuncia fue recibida",
+      "subtitulo": "Gracias por contribuir al control disciplinario de los servidores públicos.",
+      "migaPan": "Confirmación"
+    },
+    "botonPortal": {
+      "titulo": "Volver al portal",
+      "texto": "Regrese al sitio de la Agencia ITRC."
+    },
+    "nota": {
+      "titulo": "Su identidad está protegida",
+      "texto": "Sus datos personales y el contenido de esta denuncia están bajo la reserva que establecen la Ley 734 de 2002 y la Ley 1712 de 2014. Sólo el equipo autorizado de la Agencia ITRC tiene acceso al expediente completo."
+    }
+  }
+}

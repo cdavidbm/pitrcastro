@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_denuncias_entidades",
+  "info": {
+    "displayName": "Entidad",
+    "description": "Entidad sobre la que la Agencia ejerce control disciplinario. Se muestra en la portada y en la pantalla de eleccion de entidad.",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "descripcionCorta": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "idLogico": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

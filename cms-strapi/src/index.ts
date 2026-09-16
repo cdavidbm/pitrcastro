@@ -28,6 +28,10 @@ function loadPublicReadPermissions(): string[] {
     // así que no aparece en el manifest del autogen.
     'api::noticia.noticia.find',
     'api::noticia.noticia.findOne',
+    // Denuncias: textos e imágenes del formulario de /denuncias. También se
+    // creó a mano, porque no sale de un JSON de pages.
+    'api::denuncias.denuncias.find',
+    'api::denuncias.denuncias.findOne',
   ];
   const fallback = [
     'api::marco-legal.marco-legal.find',

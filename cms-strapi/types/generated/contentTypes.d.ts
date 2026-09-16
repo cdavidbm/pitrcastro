@@ -1595,6 +1595,38 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiDenunciasDenuncias extends Struct.SingleTypeSchema {
+  collectionName: 'denuncias';
+  info: {
+    description: 'Textos e imagenes del formulario de denuncias, publicado en /denuncias. Las preguntas sobre los hechos no estan aqui: las entrega el sistema que recibe las denuncias.';
+    displayName: 'Denuncias (formulario)';
+    mainField: 'title';
+    pluralName: 'denunciases';
+    singularName: 'denuncias';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    entidades: Schema.Attribute.Component<'denuncias.entidad', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::denuncias.denuncias'> &
+      Schema.Attribute.Private;
+    pantallaConducta: Schema.Attribute.Component<'denuncias.pantalla-conducta', false>;
+    pantallaConfirmacion: Schema.Attribute.Component<'denuncias.pantalla-confirmacion', false>;
+    pantallaDatos: Schema.Attribute.Component<'denuncias.pantalla-datos', false>;
+    pantallaEntidades: Schema.Attribute.Component<'denuncias.pantalla-entidades', false>;
+    pantallaHechos: Schema.Attribute.Component<'denuncias.pantalla-hechos', false>;
+    portada: Schema.Attribute.Component<'denuncias.pantalla-portada', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
   collectionName: 'eventos';
   info: {
@@ -6018,6 +6050,7 @@ declare module '@strapi/strapi' {
       'api::ciprep-speaker.ciprep-speaker': ApiCiprepSpeakerCiprepSpeaker;
       'api::ciprep.ciprep': ApiCiprepCiprep;
       'api::contact.contact': ApiContactContact;
+      'api::denuncias.denuncias': ApiDenunciasDenuncias;
       'api::evento.evento': ApiEventoEvento;
       'api::galeria.galeria': ApiGaleriaGaleria;
       'api::home.home': ApiHomeHome;

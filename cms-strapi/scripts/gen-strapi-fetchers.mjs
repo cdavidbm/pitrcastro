@@ -117,6 +117,9 @@ const AJUSTES_GLOBALES = [
   ['getContact', '/api/contact?populate[socialMedia]=true'],
   ['getNavigation', '/api/navigation'],
   ['getQuickAccess', '/api/quick-access?populate[items]=true&pagination[pageSize]=200'],
+  // Denuncias: textos e imagenes del formulario de /denuncias. Se creo a mano,
+  // fuera del autogen, porque no sale de un JSON de pages.
+  ['getDenuncias', '/api/denuncias?populate[entidades][populate]=logo&populate[portada][populate]=*&populate[pantallaEntidades][populate]=*&populate[pantallaConducta][populate][cabecera]=true&populate[pantallaConducta][populate][destacada]=true&populate[pantallaConducta][populate][ayuda]=true&populate[pantallaConducta][populate][sinResultados]=true&populate[pantallaConducta][populate][grupos][populate]=conductas&populate[pantallaDatos][populate][cabecera]=true&populate[pantallaDatos][populate][tiposPersona][populate]=imagen&populate[pantallaDatos][populate][bloqueTipoPersona]=true&populate[pantallaDatos][populate][bloqueNatural]=true&populate[pantallaDatos][populate][bloqueJuridica]=true&populate[pantallaDatos][populate][bloqueContacto]=true&populate[pantallaDatos][populate][bloqueUbicacion]=true&populate[pantallaDatos][populate][bloqueAsunto]=true&populate[pantallaDatos][populate][bloqueContactoAnonimo]=true&populate[pantallaHechos][populate]=*&populate[pantallaConfirmacion][populate]=*'],
 ];
 
 function generate() {

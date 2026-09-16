@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_denuncias_pantalla_conductas",
+  "info": {
+    "displayName": "Pantalla 3. Elija la conducta",
+    "description": "La opcion destacada aparece primera y siempre visible, aunque se use el buscador.",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "cabecera": { "type": "component", "component": "denuncias.cabecera" },
+    "avisoDestacada": { "type": "string" },
+    "destacada": { "type": "component", "component": "denuncias.conducta" },
+    "separador": { "type": "string" },
+    "grupos": { "type": "component", "component": "denuncias.grupo-conductas", "repeatable": true },
+    "ayuda": { "type": "component", "component": "denuncias.tarjeta" },
+    "sinResultados": { "type": "component", "component": "denuncias.tarjeta" }
+  }
+}

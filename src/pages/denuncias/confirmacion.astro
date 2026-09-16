@@ -2,23 +2,28 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
+import { cargarContenidoDenuncias, conNegritas } from '../../utils/denuncias-contenido';
 
 const base = import.meta.env.BASE_URL;
 
+const cms = await cargarContenidoDenuncias();
+const pantalla = cms.pantallaConfirmacion;
+
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
-  { label: 'Confirmación' },
+  { label: cms.portada.cabecera.migaPan, href: resolveUrl('/denuncias') },
+  { label: pantalla.cabecera.migaPan },
 ];
 ---
 
 <Base
-  title="Denuncia recibida — Agencia ITRC"
-  description="Su denuncia disciplinaria fue recibida por la Agencia ITRC."
+  title={`${pantalla.cabecera.titulo} — Agencia ITRC`}
+  description={pantalla.cabecera.subtitulo}
+  strapiSlug="denuncias"
 >
   <HeroPage
-    title="Su denuncia fue recibida"
-    subtitle="Gracias por contribuir al control disciplinario de los servidores públicos."
+    title={pantalla.cabecera.titulo}
+    subtitle={pantalla.cabecera.subtitulo}
     icon="fa-solid fa-circle-check"
     breadcrumb={breadcrumb}
   />
@@ -32,8 +37,8 @@ const breadcrumb = [
             <i class="fa-solid fa-house"></i>
           </div>
           <div class="cta-card__body">
-            <h3 class="cta-card__title">Volver al portal</h3>
-            <p class="cta-card__text">Regrese al sitio de la Agencia ITRC.</p>
+            <h3 class="cta-card__title">{pantalla.botonPortal.titulo}</h3>
+            <p class="cta-card__text">{pantalla.botonPortal.texto}</p>
           </div>
           <span class="cta-card__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
         </a>
@@ -47,10 +52,8 @@ const breadcrumb = [
       <div class="nota-final__body">
         <i class="fa-solid fa-shield-halved nota-final__icon" aria-hidden="true"></i>
         <div>
-          <h3 class="nota-final__titulo">Su identidad está protegida</h3>
-          <p class="nota-final__texto">
-            Sus datos personales y el contenido de esta denuncia están bajo la reserva que establecen la Ley 734 de 2002 y la Ley 1712 de 2014. Sólo el equipo autorizado de la Agencia ITRC tiene acceso al expediente completo.
-          </p>
+          <h3 class="nota-final__titulo">{pantalla.nota.titulo}</h3>
+          <p class="nota-final__texto" set:html={conNegritas(pantalla.nota.texto)}></p>
         </div>
       </div>
     </div>

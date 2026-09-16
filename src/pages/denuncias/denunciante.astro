@@ -2,33 +2,37 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
+import { cargarContenidoDenuncias, conNegritas } from '../../utils/denuncias-contenido';
+import { mediaUrl } from '../../utils/strapi-media';
 
 const base = import.meta.env.BASE_URL;
 
+const cms = await cargarContenidoDenuncias();
+const pantalla = cms.pantallaDatos;
+
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
-  { label: 'Elija la entidad', href: resolveUrl('/denuncias/entidades') },
-  { label: 'Elija la conducta', href: resolveUrl('/denuncias/conducta') },
-  { label: 'Sus datos' },
+  { label: cms.portada.cabecera.migaPan, href: resolveUrl('/denuncias') },
+  { label: cms.pantallaEntidades.cabecera.migaPan, href: resolveUrl('/denuncias/entidades') },
+  { label: cms.pantallaConducta.cabecera.migaPan, href: resolveUrl('/denuncias/conducta') },
+  { label: pantalla.cabecera.migaPan },
 ];
 
 // Diccionario de entidades para el chip contextual (leído desde ?entidad=)
-const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
-  dian:      { nombre: 'DIAN',      logo: '/images/entidades/dian.png' },
-  coljuegos: { nombre: 'Coljuegos', logo: '/images/entidades/coljuegos.png' },
-  ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
-};
+const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.fromEntries(
+  cms.entidades.map((e: any) => [e.idLogico, { nombre: e.nombre, logo: mediaUrl(e.logo) }])
+);
 
 ---
 
 <Base
-  title="Sus datos — Presente su denuncia — Agencia ITRC"
-  description="Tercer paso del proceso de denuncia disciplinaria. Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La reserva de su identidad está garantizada por ley."
+  title={`${pantalla.cabecera.migaPan} — Presente su denuncia — Agencia ITRC`}
+  description={pantalla.cabecera.subtitulo}
+  strapiSlug="denuncias"
 >
   <HeroPage
-    title="Datos del denunciante"
-    subtitle="Indique si presenta la denuncia de forma anónima, como persona natural o como persona jurídica. La ley protege la reserva de su identidad en todos los casos."
+    title={pantalla.cabecera.titulo}
+    subtitle={pantalla.cabecera.subtitulo}
     icon="fa-solid fa-id-card"
     breadcrumb={breadcrumb}
   />
@@ -67,7 +71,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
             <img
               class="entidad-chip__logo"
               data-entidad-logo={slug}
-              src={resolveUrl(info.logo)}
+              src={info.logo}
               alt={`Logo ${info.nombre}`}
               hidden
             />
@@ -95,36 +99,21 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset">
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">1</span>
-            <span>Tipo de persona</span>
+            <span>{pantalla.bloqueTipoPersona.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            Elija la opción que mejor refleje su situación. Puede cambiar de opción en cualquier momento antes de enviar.
-          </p>
+          <p class="fieldset__ayuda">{pantalla.bloqueTipoPersona.ayuda}</p>
 
           <div class="tipo-persona__grid" role="radiogroup" aria-label="Tipo de persona">
-            <label class="tipo-persona-card tipo-persona-card--anonimo">
-              <input type="radio" name="TIPO_PERSONA" value="anonimo" data-tipo-persona />
-              <div class="tipo-persona-card__body">
-                <span class="tipo-persona-card__titulo">Anónima</span>
-                <span class="tipo-persona-card__texto">No revela su identidad.</span>
-              </div>
-            </label>
-
-            <label class="tipo-persona-card tipo-persona-card--natural">
-              <input type="radio" name="TIPO_PERSONA" value="natural" data-tipo-persona />
-              <div class="tipo-persona-card__body">
-                <span class="tipo-persona-card__titulo">Persona natural</span>
-                <span class="tipo-persona-card__texto">Denuncia como ciudadano o ciudadana. Sus datos quedan bajo reserva legal.</span>
-              </div>
-            </label>
-
-            <label class="tipo-persona-card tipo-persona-card--juridica">
-              <input type="radio" name="TIPO_PERSONA" value="juridica" data-tipo-persona />
-              <div class="tipo-persona-card__body">
-                <span class="tipo-persona-card__titulo">Persona jurídica</span>
-                <span class="tipo-persona-card__texto">Denuncia en representación de una empresa, gremio, ONG u otra entidad.</span>
-              </div>
-            </label>
+            {pantalla.tiposPersona.map((t: any) => (
+              <label class={`tipo-persona-card tipo-persona-card--${t.idLogico}`}>
+                <input type="radio" name="TIPO_PERSONA" value={t.idLogico} data-tipo-persona />
+                <div class="tipo-persona-card__body">
+                  <img class="tipo-persona-card__fondo" src={mediaUrl(t.imagen)} alt="" loading="lazy" aria-hidden="true" />
+                  <span class="tipo-persona-card__titulo">{t.titulo}</span>
+                  <span class="tipo-persona-card__texto">{t.texto}</span>
+                </div>
+              </label>
+            ))}
           </div>
         </fieldset>
 
@@ -145,11 +134,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset" data-group="natural" hidden>
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">2</span>
-            <span>Sus datos personales</span>
+            <span>{pantalla.bloqueNatural.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            La ley protege la reserva de esta información. Sus datos no aparecen en el expediente que consulta la persona denunciada.
-          </p>
+          <p class="fieldset__ayuda">{pantalla.bloqueNatural.ayuda}</p>
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
@@ -175,11 +162,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset" data-group="juridica" hidden>
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">2</span>
-            <span>Datos de la persona jurídica</span>
+            <span>{pantalla.bloqueJuridica.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            Ingrese los datos de la organización que representa.
-          </p>
+          <p class="fieldset__ayuda">{pantalla.bloqueJuridica.ayuda}</p>
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
@@ -205,11 +190,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset" data-group="contacto" hidden>
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">3</span>
-            <span>Cómo contactarle</span>
+            <span>{pantalla.bloqueContacto.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            Se usan únicamente si la Agencia necesita contactarle para ampliar la información de su denuncia. No aparecen en el expediente que consulta la persona denunciada.
-          </p>
+          <p class="fieldset__ayuda">{pantalla.bloqueContacto.ayuda}</p>
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
@@ -232,11 +215,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset" data-group="ubicacion" hidden>
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">4</span>
-            <span>Ubicación</span>
+            <span>{pantalla.bloqueUbicacion.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            Ayuda a asignar el trámite a la seccional correspondiente. No es su dirección personal exacta si prefiere reservarla.
-          </p>
+          <p class="fieldset__ayuda">{pantalla.bloqueUbicacion.ayuda}</p>
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
@@ -262,11 +243,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset" data-group="asunto" hidden>
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">5</span>
-            <span>Asunto (opcional)</span>
+            <span>{pantalla.bloqueAsunto.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            Una frase que resuma la denuncia. Ayuda a identificar el caso.
-          </p>
+          <p class="fieldset__ayuda">{pantalla.bloqueAsunto.ayuda}</p>
 
           <div class="campo">
             <label class="campo__label sr-only" for="asunto">Asunto</label>
@@ -278,11 +257,9 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
         <fieldset class="fieldset" data-group="anonimo-contacto" hidden>
           <legend class="fieldset__legend">
             <span class="fieldset__num" aria-hidden="true">2</span>
-            <span>Cómo contactarle (opcional)</span>
+            <span>{pantalla.bloqueContactoAnonimo.titulo}</span>
           </legend>
-          <p class="fieldset__ayuda">
-            Como denuncia anónima, no está obligado a ingresar datos de contacto. Si quiere que la Agencia pueda pedirle más información, puede indicar un correo o teléfono que <em>no revele su identidad</em> (por ejemplo, un correo creado para esto).
-          </p>
+          <p class="fieldset__ayuda" set:html={conNegritas(pantalla.bloqueContactoAnonimo.ayuda)}></p>
 
           <div class="campo-grid campo-grid--2">
             <div class="campo">
@@ -305,9 +282,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
 
           <label class="check-inline">
             <input type="checkbox" name="terms" required />
-            <span>
-              Declaro que la información suministrada es cierta y que conozco que presentar una denuncia con temeridad o mala fe puede generar responsabilidad legal. He leído la <a href={resolveUrl('/denuncias')} target="_blank" rel="noopener">política de tratamiento de datos</a> de la Agencia ITRC.
-            </span>
+            <span>{pantalla.declaracion}</span>
           </label>
         </fieldset>
 
@@ -320,9 +295,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
 
           <label class="check-inline">
             <input type="checkbox" name="terms" required />
-            <span>
-              Declaro que la información que voy a suministrar es cierta y comprendo que la denuncia anónima limita las opciones de aportar pruebas testimoniales adicionales. He leído la <a href={resolveUrl('/denuncias')} target="_blank" rel="noopener">política de tratamiento de datos</a>.
-            </span>
+            <span>{pantalla.declaracionAnonima}</span>
           </label>
         </fieldset>
 
@@ -517,15 +490,13 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
     outline: 3px solid var(--itrc-gold);
     outline-offset: 3px;
   }
-  /* Fondos específicos por tipo */
-  .tipo-persona-card--anonimo .tipo-persona-card__body {
-    background-image: url('/images/denuncias-nuevo/anonimo.webp');
-  }
-  .tipo-persona-card--natural .tipo-persona-card__body {
-    background-image: url('/images/denuncias-nuevo/persona-natural.webp');
-  }
-  .tipo-persona-card--juridica .tipo-persona-card__body {
-    background-image: url('/images/denuncias-nuevo/persona-juridica.webp');
+  /* La imagen de fondo se administra en el panel, asi que va como <img> y no
+     como fondo en la hoja de estilos. Queda debajo del degradado. */
+  .tipo-persona-card__fondo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -2;
   }
   .tipo-persona-card__titulo {
     font-size: var(--font-size-lg);

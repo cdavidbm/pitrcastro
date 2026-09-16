@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_denuncias_bloques",
+  "info": {
+    "displayName": "Bloque del formulario",
+    "description": "Titulo y texto de ayuda de un grupo de campos del formulario.",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": { "type": "string" },
+    "ayuda": { "type": "text" }
+  }
+}

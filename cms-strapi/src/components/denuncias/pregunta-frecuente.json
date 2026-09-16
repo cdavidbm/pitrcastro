@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_denuncias_preguntas_frecuentes",
+  "info": {
+    "displayName": "Pregunta frecuente",
+    "description": "Pregunta y respuesta del acordeon de la portada.",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "pregunta": { "type": "string", "required": true },
+    "respuesta": { "type": "text", "required": true }
+  }
+}

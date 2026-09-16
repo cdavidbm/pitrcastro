@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_denuncias_grupos_conductas",
+  "info": {
+    "displayName": "Grupo de conductas",
+    "description": "Conjunto de conductas que se muestran juntas bajo un mismo titulo.",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": { "type": "string", "required": true },
+    "conductas": { "type": "component", "component": "denuncias.conducta", "repeatable": true }
+  }
+}

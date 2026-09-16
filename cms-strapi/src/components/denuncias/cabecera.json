@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_denuncias_cabeceras",
+  "info": {
+    "displayName": "Cabecera de pantalla",
+    "description": "Titulo grande, texto de entrada y el nombre corto que aparece en la ruta de navegacion.",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "subtitulo": {
+      "type": "text"
+    },
+    "migaPan": {
+      "type": "string"
+    }
+  }
+}

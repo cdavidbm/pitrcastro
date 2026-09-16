@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_denuncias_pantalla_portadas",
+  "info": {
+    "displayName": "Pantalla 1. Portada",
+    "description": "Lo que ve quien entra a /denuncias/ antes de empezar.",
+    "icon": "house"
+  },
+  "options": {},
+  "attributes": {
+    "cabecera": { "type": "component", "component": "denuncias.cabecera" },
+    "botonPrincipal": { "type": "component", "component": "denuncias.tarjeta" },
+    "tituloPasos": { "type": "string" },
+    "introPasos": { "type": "text" },
+    "pasos": { "type": "component", "component": "denuncias.tarjeta", "repeatable": true },
+    "tituloGarantias": { "type": "string" },
+    "introGarantias": { "type": "text" },
+    "garantias": { "type": "component", "component": "denuncias.tarjeta", "repeatable": true },
+    "tituloEntidades": { "type": "string" },
+    "introEntidades": { "type": "text" },
+    "tituloPreguntas": { "type": "string" },
+    "preguntas": { "type": "component", "component": "denuncias.pregunta-frecuente", "repeatable": true },
+    "notaLegal": { "type": "component", "component": "denuncias.tarjeta" },
+    "cierre": { "type": "component", "component": "denuncias.tarjeta" }
+  }
+}

@@ -2,53 +2,52 @@
 import Base from '../../layouts/Base.astro';
 import HeroPage from '../../components/HeroPage.astro';
 import { resolveUrl } from '../../utils/url';
+import { cargarContenidoDenuncias } from '../../utils/denuncias-contenido';
+import { mediaUrl } from '../../utils/strapi-media';
 
 const base = import.meta.env.BASE_URL;
 
+const cms = await cargarContenidoDenuncias();
+const pantalla = cms.pantallaHechos;
+
 const breadcrumb = [
   { label: 'Inicio', href: base },
-  { label: 'Presente su denuncia', href: resolveUrl('/denuncias') },
-  { label: 'Elija la entidad', href: resolveUrl('/denuncias/entidades') },
-  { label: 'Elija la conducta', href: resolveUrl('/denuncias/conducta') },
-  { label: 'Sus datos', href: resolveUrl('/denuncias/denunciante') },
-  { label: 'Describa los hechos' },
+  { label: cms.portada.cabecera.migaPan, href: resolveUrl('/denuncias') },
+  { label: cms.pantallaEntidades.cabecera.migaPan, href: resolveUrl('/denuncias/entidades') },
+  { label: cms.pantallaConducta.cabecera.migaPan, href: resolveUrl('/denuncias/conducta') },
+  { label: cms.pantallaDatos.cabecera.migaPan, href: resolveUrl('/denuncias/denunciante') },
+  { label: pantalla.cabecera.migaPan },
 ];
 
-const entidadesInfo: Record<string, { nombre: string; logo: string }> = {
-  dian:      { nombre: 'DIAN',      logo: '/images/entidades/dian.png' },
-  coljuegos: { nombre: 'Coljuegos', logo: '/images/entidades/coljuegos.png' },
-  ugpp:      { nombre: 'UGPP',      logo: '/images/entidades/ugpp.png' },
-};
+const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.fromEntries(
+  cms.entidades.map((e: any) => [e.idLogico, { nombre: e.nombre, logo: mediaUrl(e.logo) }])
+);
+
+// El chip muestra el nombre de la conducta elegida. Como el nombre se edita en
+// el panel y el script corre en el navegador, viaja en un atributo de datos.
+const nombresConductas: Record<string, string> = Object.fromEntries([
+  ...cms.pantallaConducta.grupos.flatMap((g: any) => g.conductas.map((c: any) => [c.idLogico, c.nombre])),
+  [cms.pantallaConducta.destacada.idLogico, cms.pantallaConducta.destacada.nombre],
+]);
 
 // Dos secciones. Las preguntas no se escriben aquí: cada conducta tiene las
 // suyas en el sistema de /denuncias/, y el script las lee de allí al cargar.
 const secciones = [
-  {
-    id: 'hechos',
-    num: 1,
-    titulo: 'Los hechos',
-    subtitulo: 'Qué pasó, dónde, cuándo y quiénes intervinieron.',
-    icon: 'fa-solid fa-calendar-day',
-  },
-  {
-    id: 'revision',
-    num: 2,
-    titulo: 'Revisar y enviar',
-    subtitulo: 'Confirme lo diligenciado antes de enviar.',
-    icon: 'fa-solid fa-check-double',
-  },
+  { id: 'hechos', num: 1, titulo: pantalla.bloqueHechos.titulo, subtitulo: pantalla.bloqueHechos.ayuda, icon: 'fa-solid fa-calendar-day' },
+  { id: 'revision', num: 2, titulo: pantalla.bloqueRevision.titulo, subtitulo: pantalla.bloqueRevision.ayuda, icon: 'fa-solid fa-check-double' },
 ];
 
 const totalSecciones = secciones.length;
 ---
 
 <Base
-  title="Describa los hechos — Presente su denuncia — Agencia ITRC"
-  description="Formulario guiado para describir la conducta disciplinaria que va a denunciar, con guardado automático de su avance."
+  title={`${pantalla.cabecera.titulo} — Presente su denuncia — Agencia ITRC`}
+  description={pantalla.cabecera.subtitulo}
+  strapiSlug="denuncias"
 >
   <HeroPage
-    title="Describa los hechos"
-    subtitle="Responda las preguntas sobre lo ocurrido. Sus respuestas se guardan automáticamente en este equipo mientras completa el formulario."
+    title={pantalla.cabecera.titulo}
+    subtitle={pantalla.cabecera.subtitulo}
     icon="fa-solid fa-file-lines"
     breadcrumb={breadcrumb}
   />
@@ -88,14 +87,14 @@ const totalSecciones = secciones.length;
               <img
                 class="entidad-chip__logo"
                 data-entidad-logo={slug}
-                src={resolveUrl(info.logo)}
+                src={info.logo}
                 alt={`Logo ${info.nombre}`}
                 hidden
               />
             ))}
           </div>
         </div>
-        <div class="conducta-chip" data-conducta-chip hidden>
+        <div class="conducta-chip" data-conducta-chip data-nombres={JSON.stringify(nombresConductas)} hidden>
           <i class="fa-solid fa-tag" aria-hidden="true"></i>
           <span class="conducta-chip__label">Conducta —</span>
           <strong data-conducta-nombre></strong>
@@ -148,8 +147,8 @@ const totalSecciones = secciones.length;
               <i class="fa-solid fa-calendar-day"></i>
             </div>
             <div>
-              <h3 class="seccion__titulo">Los hechos</h3>
-              <p class="seccion__sub">Responda con sus propias palabras; no hace falta usar lenguaje jurídico. Las preguntas marcadas con <span class="campo__req">*</span> son obligatorias.</p>
+              <h3 class="seccion__titulo">{secciones[0].titulo}</h3>
+              <p class="seccion__sub">{secciones[0].subtitulo}</p>
             </div>
           </header>
 
@@ -180,8 +179,8 @@ const totalSecciones = secciones.length;
               <i class="fa-solid fa-check-double"></i>
             </div>
             <div>
-              <h3 class="seccion__titulo">Revisar y enviar</h3>
-              <p class="seccion__sub">Ya casi terminamos. Revise lo diligenciado — puede volver atrás para ajustar.</p>
+              <h3 class="seccion__titulo">{secciones[1].titulo}</h3>
+              <p class="seccion__sub">{secciones[1].subtitulo}</p>
             </div>
           </header>
 
@@ -191,9 +190,7 @@ const totalSecciones = secciones.length;
 
           <label class="check-inline">
             <input type="checkbox" name="declara" required data-declara />
-            <span>
-              Declaro bajo la gravedad del juramento que la información suministrada es cierta según mi conocimiento, y que conozco que la presentación de denuncias con temeridad o mala fe puede generar responsabilidad legal.
-            </span>
+            <span>{pantalla.declaracion}</span>
           </label>
 
           <div class="aviso aviso--error aviso--envio" data-aviso-envio role="alert" hidden>
@@ -660,22 +657,10 @@ const totalSecciones = secciones.length;
   const logoActivo = document.querySelector<HTMLImageElement>(`[data-entidad-logo="${entidadSlug}"]`);
   if (chipEnt && logoActivo) { logoActivo.hidden = false; chipEnt.hidden = false; }
 
-  // Chip de conducta
-  const conductaNombres: Record<string, string> = {
-    'peculado-apropiacion': 'Peculado por apropiación',
-    'peculado-uso': 'Peculado por uso',
-    'peculado-culposo': 'Peculado culposo',
-    'concusion': 'Concusión',
-    'cohecho': 'Cohecho',
-    'prevaricato': 'Prevaricato',
-    'falsedad-material': 'Falsedad material en documento público',
-    'falsedad-ideologica': 'Falsedad ideológica en documento público',
-    'abuso-funcion': 'Abuso de función pública',
-    'trafico-influencias': 'Tráfico de influencias',
-    'incremento-patrimonial': 'Incremento patrimonial no justificado',
-    'indebida-celebracion': 'Indebida celebración de contratos',
-    'general': 'Otra conducta disciplinaria',
-  };
+  // Chip de conducta. Los nombres los pone la página desde el panel.
+  const chipCondEl = document.querySelector<HTMLElement>('[data-conducta-chip]');
+  let conductaNombres: Record<string, string> = {};
+  try { conductaNombres = JSON.parse(chipCondEl?.dataset.nombres || '{}'); } catch (_) {}
   const chipCond = document.querySelector<HTMLElement>('[data-conducta-chip]');
   const chipCondNombre = document.querySelector<HTMLElement>('[data-conducta-nombre]');
   if (chipCond && chipCondNombre && conductaNombres[conductaSlug]) {
