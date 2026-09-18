@@ -8,11 +8,18 @@
 //      del denunciante y redirige al formulario de la conducta.
 //   2. <formulario de la conducta>.php?FORM_ID=N      POST  guarda respuestas
 //      y adjunto, y redirige a integracion.php.
-//   3. integracion.php?ID_DENUNCIA=X                  GET   envía la denuncia a
-//      Forest y registra el radicado.
+//   3. integracion-portal.php                         POST  envía la denuncia a
+//      Forest (SIGI) y devuelve el radicado.
 //
-// El paso 3 reenvía la denuncia a Forest cada vez que se abre la página. Por
-// eso el envío nunca se reintenta después del paso 2.
+// El formulario antiguo, en el paso 3, sigue la redirección a integracion.php.
+// Esa página arma lo que manda a Forest con una vista que empareja denuncia y
+// denunciante por número interno, y esos números están desfasados: casi nunca
+// encuentra la denuncia y a Forest le llega vacía. Este formulario no sigue la
+// redirección y usa integracion-portal.php, que encuentra al denunciante por su
+// documento y la hora del envío, y no reenvía lo que ya tiene radicado.
+//
+// Los pasos 1 y 2 guardan: después del 2 nunca se repiten. El 3 sí se puede
+// repetir sin riesgo.
 
 const BASE = '/denuncias/';
 
@@ -320,20 +327,6 @@ export async function cargarPreguntas(
 
 // ============ Envío ============
 
-/**
- * Número de radicado en la página final del sistema antiguo, que lo escribe
- * tras la palabra "Radicado" dentro de un <strong>.
- *
- * Solo se acepta con la forma que usa Forest (`1-2026-006760`). Si Forest no
- * asigna número, esa página llega vacía o con avisos de error, y no se muestra
- * nada: mejor ningún número que uno equivocado.
- */
-export function leerRadicado(html: string): string | null {
-  const m = html.match(/Radicado[\s\S]*?<strong>\s*([^<]*?)\s*<\/strong>/i);
-  const valor = m?.[1]?.trim() ?? '';
-  return /^\d+-\d{4}-\d+$/.test(valor) ? valor : null;
-}
-
 const CLAVE_RADICADO = 'itrc-denuncia-radicado';
 
 /** Se guarda el de la última denuncia, o se borra si no hubo: nunca queda uno viejo. */
@@ -463,23 +456,50 @@ export async function enviarDenuncia(
   }
 
   // ---- 2. Respuestas y adjunto. Desde aquí, nunca se reintenta. ----
+  // Sin seguir la redirección: al terminar de guardar, el sistema manda a
+  // integracion.php, que es justo lo que no se quiere abrir (ver arriba).
   const accion = new URL(formulario.getAttribute('action') || paginaRespuestas.url, paginaRespuestas.url).href;
   let final: Response;
   try {
-    final = await fetch(accion, { method: 'POST', body: cuerpo, credentials: 'same-origin', redirect: 'follow' });
+    final = await fetch(accion, { method: 'POST', body: cuerpo, credentials: 'same-origin', redirect: 'manual' });
   } catch (_) {
     return { ok: false, motivo: 'respuestas', reintentable: false };
   }
 
-  // La página final devuelve todos los datos de la denuncia. De ella solo se
-  // toma el número de radicado que asigna Forest; lo demás se descarta.
-  if (final.ok && /integracion/i.test(final.url)) {
-    let radicado: string | null = null;
-    try { radicado = leerRadicado(await final.text()); } catch (_) {}
-    return { ok: true, radicado };
+  // La redirección es la señal de que la denuncia quedó guardada.
+  if (final.type !== 'opaqueredirect') {
+    const htmlFinal = await final.text().catch(() => '');
+    if (esBloqueo(htmlFinal)) return { ok: false, motivo: 'bloqueo', reintentable: false };
+    return { ok: false, motivo: 'respuestas', reintentable: false };
   }
 
-  const htmlFinal = await final.text();
-  if (esBloqueo(htmlFinal)) return { ok: false, motivo: 'bloqueo', reintentable: false };
-  return { ok: false, motivo: 'respuestas', reintentable: false };
+  // ---- 3. Envío a Forest. Repetirlo es seguro: no duplica el radicado. ----
+  const radicado = await enviarAForest(idDenuncia.getAttribute('value') || '', formId);
+  return { ok: true, radicado };
+}
+
+/**
+ * Pide a integracion-portal.php que envíe la denuncia a Forest y devuelve el
+ * radicado, o null si no se obtuvo.
+ *
+ * La denuncia ya está guardada: si esto falla, se le confirma igual al
+ * ciudadano, y queda en la base sin radicado para enviarla después.
+ */
+async function enviarAForest(idDenuncia: string, formId: string): Promise<string | null> {
+  const cuerpo = new URLSearchParams({ ID_DENUNCIA: idDenuncia, FORM_ID: formId });
+  for (let intento = 1; intento <= 3; intento++) {
+    try {
+      const r = await fetch(`${BASE}integracion-portal.php`, { method: 'POST', body: cuerpo, credentials: 'same-origin' });
+      const j = await r.json().catch(() => null);
+      if (j?.ok) return typeof j.radicado === 'string' && /^\d+-\d{4}-\d+$/.test(j.radicado) ? j.radicado : null;
+      // Solo se reintenta si otra llamada por esta misma denuncia sigue esperando
+      // a Forest. Si Forest no contestó, no: pudo haber creado el radicado sin
+      // que llegara la respuesta, y repetir lo duplicaría en SIGI.
+      if (j?.motivo !== 'en-curso') return null;
+    } catch (_) {
+      // Corte de red: se reintenta.
+    }
+    await new Promise(r => setTimeout(r, 3000 * intento));
+  }
+  return null;
 }
