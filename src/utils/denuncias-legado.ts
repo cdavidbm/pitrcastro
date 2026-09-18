@@ -357,6 +357,23 @@ export type ResultadoEnvio =
 
 const soloDigitos = (texto: string) => texto.replace(/\D/g, '');
 
+/** Caracteres que caben en la base para el enunciado de cada pregunta (RESPUESTAS.PREGn_ID_VALUE). */
+const LIMITE_ENUNCIADO = 256;
+
+/**
+ * El número de documento tal como lo guarda el sistema que recibe: sin puntos
+ * ni espacios y, si trae dígito de verificación ("900123456-7"), sin él.
+ */
+export const numeroDocumento = (texto: string) => soloDigitos(texto.split('-')[0]);
+
+/**
+ * El sistema que recibe guarda el documento como número entero: más de
+ * 2.147.483.647 no cabe y el envío falla. Una cédula colombiana cabe; un NIT
+ * cabe si va sin el dígito de verificación.
+ */
+export const documentoCabe = (numero: string) =>
+  /^\d{1,10}$/.test(numero) && Number(numero) > 0 && Number(numero) <= 2147483647;
+
 function cuerpoDatos(datos: DatosDenunciante, formId: string) {
   const persona = PERSONA[datos.tipo];
   const anonimo = datos.tipo === 'anonimo';
@@ -364,7 +381,7 @@ function cuerpoDatos(datos: DatosDenunciante, formId: string) {
   const cuerpo = new URLSearchParams();
   cuerpo.append('TIPO_PERSONA', persona.valor);
   cuerpo.append('TIPO_DOCUMENTO', anonimo ? 'CC' : datos.TIPO_DOCUMENTO);
-  cuerpo.append('TERCERO', anonimo ? '0' : soloDigitos(datos.TERCERO));
+  cuerpo.append('TERCERO', anonimo ? '0' : numeroDocumento(datos.TERCERO));
   cuerpo.append('NOMBRE', anonimo ? '' : datos.NOMBRE);
   cuerpo.append('PAIS', anonimo ? '' : 'COL');
   cuerpo.append('DEPTID', anonimo ? '' : datos.DEPTID);
@@ -442,7 +459,11 @@ export async function enviarDenuncia(
     const tipo = (el.getAttribute('type') || 'text').toLowerCase();
 
     if (tipo === 'hidden' || tipo === 'submit') {
-      cuerpo.append(nombre, enunciadosReescritos[nombre] ?? el.getAttribute('value') ?? '');
+      const reescrito = enunciadosReescritos[nombre];
+      // Una redacción más larga de lo que cabe en la base rompería el envío:
+      // en ese caso viaja el enunciado original.
+      const usar = reescrito !== undefined && reescrito.length <= LIMITE_ENUNCIADO;
+      cuerpo.append(nombre, usar ? reescrito : el.getAttribute('value') ?? '');
     } else if (tipo === 'radio') {
       if (radiosVistos.has(nombre)) continue;
       radiosVistos.add(nombre);

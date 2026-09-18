@@ -249,7 +249,8 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
 
           <div class="campo">
             <label class="campo__label sr-only" for="asunto">Asunto</label>
-            <textarea class="campo__input campo__input--textarea" id="asunto" name="ASUNTO" rows="3" maxlength="500"></textarea>
+            <textarea class="campo__input campo__input--textarea" id="asunto" name="ASUNTO" rows="3" maxlength="200" aria-describedby="asunto-contador"></textarea>
+            <small class="campo__hint campo__contador" id="asunto-contador" data-contador-asunto aria-live="polite">0 de 200 caracteres</small>
           </div>
         </fieldset>
 
@@ -648,6 +649,8 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
   .aviso a { color: inherit; font-weight: 700; }
   .campo__input--textarea { min-height: 96px; resize: vertical; font-family: inherit; }
   .campo__input[aria-invalid="true"] { border-color: #b83232; }
+  .campo__contador { text-align: right; }
+  .campo__contador--limite { color: #8a5a00; font-weight: 700; }
   .campo__error { display: block; margin-top: var(--space-1); color: #b83232; font-size: var(--font-size-sm); }
   .btn-primario:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
 </style>
@@ -656,9 +659,11 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
   import {
     cargarListas,
     ciudadesDe,
+    documentoCabe,
     esFormIdValido,
     guardarDatos,
     leerDatos,
+    numeroDocumento,
     type DatosDenunciante,
     type ListasDatos,
     type Opcion,
@@ -804,9 +809,20 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
         primero ??= campo;
       });
       const documento = g.querySelector<HTMLInputElement>('[name="TERCERO"]');
-      if (documento && documento.value.trim() && !/^\d+$/.test(documento.value.replace(/[.\s-]/g, ''))) {
-        marcarError(documento, 'Escriba solo números.');
-        primero ??= documento;
+      if (documento && documento.value.trim()) {
+        // Se admiten puntos, espacios y el dígito de verificación tras un guion;
+        // cualquier otra cosa (letras, símbolos) es un error de escritura.
+        const escrito = documento.value.split('-')[0].replace(/[.\s]/g, '');
+        const numero = numeroDocumento(documento.value);
+        if (!/^\d+$/.test(escrito)) {
+          marcarError(documento, 'Escriba solo números.');
+          primero ??= documento;
+        } else if (!documentoCabe(numero)) {
+          // El sistema que recibe las denuncias no guarda números más largos:
+          // se avisa aquí, y no con un error después de enviar.
+          marcarError(documento, 'El número es demasiado largo. Revíselo: sin puntos y, si es un NIT, sin el dígito de verificación.');
+          primero ??= documento;
+        }
       }
     });
     if (primero) {
@@ -833,4 +849,21 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
     siguiente.search = new URLSearchParams({ entidad: entidadSlug, conducta: conductaSlug, form: formId }).toString();
     window.location.href = siguiente.href;
   });
+
+  // ============ Contador del asunto ============
+  // El sistema que recibe guarda hasta 200 caracteres: el campo no deja pasar
+  // más, y el contador lo hace visible antes de que la persona choque con él.
+  const asunto = document.querySelector<HTMLTextAreaElement>('#asunto');
+  const contadorAsunto = document.querySelector<HTMLElement>('[data-contador-asunto]');
+  const contarAsunto = () => {
+    if (!asunto || !contadorAsunto) return;
+    const limite = asunto.maxLength;
+    const usados = asunto.value.length;
+    contadorAsunto.textContent = usados >= limite
+      ? `${usados} de ${limite} caracteres: llegó al máximo`
+      : `${usados} de ${limite} caracteres`;
+    contadorAsunto.classList.toggle('campo__contador--limite', usados >= limite);
+  };
+  asunto?.addEventListener('input', contarAsunto);
+  contarAsunto();
 </script>
