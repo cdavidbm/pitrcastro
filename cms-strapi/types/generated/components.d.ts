@@ -1165,7 +1165,6 @@ export interface DenunciasPantallaDatos extends Struct.ComponentSchema {
   attributes: {
     bloqueAsunto: Schema.Attribute.Component<'denuncias.bloque', false>;
     bloqueContacto: Schema.Attribute.Component<'denuncias.bloque', false>;
-    bloqueContactoAnonimo: Schema.Attribute.Component<'denuncias.bloque', false>;
     bloqueJuridica: Schema.Attribute.Component<'denuncias.bloque', false>;
     bloqueNatural: Schema.Attribute.Component<'denuncias.bloque', false>;
     bloqueTipoPersona: Schema.Attribute.Component<'denuncias.bloque', false>;

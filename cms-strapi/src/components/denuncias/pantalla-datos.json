@@ -15,7 +15,6 @@
     "bloqueContacto": { "type": "component", "component": "denuncias.bloque" },
     "bloqueUbicacion": { "type": "component", "component": "denuncias.bloque" },
     "bloqueAsunto": { "type": "component", "component": "denuncias.bloque" },
-    "bloqueContactoAnonimo": { "type": "component", "component": "denuncias.bloque" },
     "declaracion": { "type": "text" },
     "declaracionAnonima": { "type": "text" }
   }

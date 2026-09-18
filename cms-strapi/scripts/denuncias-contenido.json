@@ -308,10 +308,6 @@
     "bloqueAsunto": {
       "titulo": "Asunto (opcional)",
       "ayuda": "Una frase que resuma la denuncia. Ayuda a identificar el caso."
-    },
-    "bloqueContactoAnonimo": {
-      "titulo": "Cómo contactarle (opcional)",
-      "ayuda": "Como denuncia anónima, no está obligado a ingresar datos de contacto. Si quiere que la Agencia pueda pedirle más información, puede indicar un correo o teléfono que _no revele su identidad_ (por ejemplo, un correo creado para esto)."
     }
   },
   "pantallaHechos": {
