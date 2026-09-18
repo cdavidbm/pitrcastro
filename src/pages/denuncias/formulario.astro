@@ -636,6 +636,9 @@ const totalSecciones = secciones.length;
   .aviso a { color: inherit; font-weight: 700; }
   .aviso--envio { margin: var(--space-4) 0 0; }
   .btn-primario:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+  /* Los botones declaran display y eso anula el atributo hidden: sin esta regla
+     se veian a la vez Atras, Siguiente y Enviar. */
+  .btn-primario[hidden], .btn-secundario[hidden] { display: none; }
 </style>
 
 <script>

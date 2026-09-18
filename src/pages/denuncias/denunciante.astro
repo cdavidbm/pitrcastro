@@ -254,26 +254,6 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
           </div>
         </fieldset>
 
-        <!-- ============ Contacto anónimo — solo anónimo ============ -->
-        <fieldset class="fieldset" data-group="anonimo-contacto" hidden>
-          <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true">2</span>
-            <span>{pantalla.bloqueContactoAnonimo.titulo}</span>
-          </legend>
-          <p class="fieldset__ayuda" set:html={conNegritas(pantalla.bloqueContactoAnonimo.ayuda)}></p>
-
-          <div class="campo-grid campo-grid--2">
-            <div class="campo">
-              <label class="campo__label" for="correo-anon">Correo electrónico</label>
-              <input class="campo__input" id="correo-anon" name="CORREO" type="email" />
-            </div>
-            <div class="campo">
-              <label class="campo__label" for="telefono-anon">Teléfono</label>
-              <input class="campo__input" id="telefono-anon" name="TELEFONO" type="tel" inputmode="numeric" />
-            </div>
-          </div>
-        </fieldset>
-
         <!-- ============ Términos ============ -->
         <fieldset class="fieldset fieldset--terms" data-group="terms" hidden>
           <legend class="fieldset__legend">
@@ -290,7 +270,7 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
         <!-- ============ Confirmación anónima ============ -->
         <fieldset class="fieldset fieldset--terms" data-group="terms-anonimo" hidden>
           <legend class="fieldset__legend">
-            <span class="fieldset__num" aria-hidden="true">3</span>
+            <span class="fieldset__num" aria-hidden="true">2</span>
             <span>Confirmación</span>
           </legend>
 
@@ -697,10 +677,10 @@ const entidadesInfo: Record<string, { nombre: string; logo: string }> = Object.f
   const groups: Record<TipoPersona, string[]> = {
     natural:  ['natural', 'contacto', 'ubicacion', 'asunto', 'terms'],
     juridica: ['juridica', 'contacto', 'ubicacion', 'asunto', 'terms'],
-    anonimo:  ['anonimo-contacto', 'terms-anonimo'],
+    anonimo:  ['terms-anonimo'],
   };
 
-  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'asunto', 'anonimo-contacto', 'terms', 'terms-anonimo'];
+  const allGroups = ['natural', 'juridica', 'contacto', 'ubicacion', 'asunto', 'terms', 'terms-anonimo'];
   const actions = document.querySelector<HTMLElement>('[data-actions]');
   const grupo = (g: string) => document.querySelector<HTMLElement>(`[data-group="${g}"]`);
   let tipoActual: TipoPersona | null = null;
