@@ -17,6 +17,10 @@
  *  3. Solo acepta denuncias enviadas en los últimos minutos. No sirve para
  *     reenviar denuncias antiguas ni para recorrerlas por número.
  *  4. Responde solo el número de radicado, sin datos personales.
+ *  5. Lee el radicado en los dos formatos en que Forest lo devuelve (ver
+ *     radicadoDe). integracion.php solo conoce el de las anónimas, así que
+ *     nunca registró ni mostró el radicado de una denuncia con datos
+ *     personales, aunque Forest sí la radicaba.
  *
  * Petición:  POST ID_DENUNCIA, FORM_ID
  * Respuesta: JSON {"ok":true,"radicado":"1-2026-006925"} · {"ok":true,"radicado":null}
@@ -109,6 +113,29 @@ function leerDenuncia(mysqli $db, int $id, ?int $formId): ?array {
   return ['d' => $d, 'b' => $b, 'c' => $c, 'preguntas' => $preguntas];
 }
 
+/**
+ * El radicado en la respuesta de Forest, o '' si no trae uno.
+ *
+ * Forest contesta distinto según el denunciante:
+ *   anónima:        <salida>…<contenido><datos><mensaje>1-2026-006939</mensaje>…
+ *   con remitente:  <salida><mensaje>OK</mensaje><contenido>1-2026-006938</contenido></salida>
+ * Solo se acepta con forma de radicado, para no guardar un mensaje de error
+ * como si fuera un número (los 396 radicados históricos tienen esta forma).
+ */
+function radicadoDe(string $respuesta): string {
+  $xml = @simplexml_load_string($respuesta);
+  if (!$xml) return '';
+  $esRadicado = fn(string $v) => (bool)preg_match('/^\d+-\d{4}-\d+$/', $v);
+
+  $anonima = trim((string)$xml->contenido->datos->mensaje);
+  if ($esRadicado($anonima)) return $anonima;
+
+  $conRemitente = trim((string)$xml->contenido);
+  if (strcasecmp(trim((string)$xml->mensaje), 'OK') === 0 && $esRadicado($conRemitente)) return $conRemitente;
+
+  return '';
+}
+
 /** El mismo XML que arma integracion.php, con los valores escapados. */
 function armarXml(array $x): string {
   $e = fn($v) => htmlspecialchars((string)($v ?? ''), ENT_XML1 | ENT_QUOTES, 'UTF-8');
@@ -141,6 +168,12 @@ function armarXml(array $x): string {
 
 // ---- Simulación desde la línea de comandos ----------------------------------
 if (PHP_SAPI === 'cli') {
+  // Prueba de la lectura de una respuesta de Forest, sin llamar a Forest.
+  $j = array_search('--leer-respuesta', $argv, true);
+  if ($j !== false && isset($argv[$j + 1])) {
+    echo radicadoDe($argv[$j + 1]) ?: '(sin radicado)', "\n";
+    exit(0);
+  }
   $i = array_search('--simular', $argv, true);
   if ($i === false || !isset($argv[$i + 1])) {
     fwrite(STDERR, "Uso: php integracion-portal.php --simular <ID_DENUNCIA>\n");
@@ -201,12 +234,13 @@ if ($errorRed !== null || $respuesta === false) {
   responder(502, ['ok' => false, 'motivo' => 'forest']);
 }
 
-$xml = @simplexml_load_string($respuesta);
-$radicado = $xml ? trim((string)$xml->contenido->datos->mensaje) : '';
+$radicado = radicadoDe($respuesta);
 
-// Igual que integracion.php: "0" o vacío significa que Forest no asignó número.
-if ($radicado === '' || $radicado === '0') {
-  registrar("denuncia $id: Forest respondió sin radicado");
+if ($radicado === '') {
+  // La respuesta completa (recortada), para poder preguntar el motivo a quien
+  // administra Forest.
+  $resumen = substr(preg_replace('/\s+/', ' ', (string)$respuesta), 0, 800);
+  registrar("denuncia $id: Forest respondió sin radicado. Respuesta: $resumen");
   responder(200, ['ok' => true, 'radicado' => null]);
 }
 
