@@ -1,0 +1,378 @@
+--- original/AbuFunPubli_6.php
++++ corregido/AbuFunPubli_6.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -380,8 +384,11 @@
+   move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+ }
+ 
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/Cohecho_7.php
++++ corregido/Cohecho_7.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -382,8 +386,11 @@
+   move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+ }
+   
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, RESP7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/concusion_3.php
++++ corregido/concusion_3.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -380,8 +384,11 @@
+   move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+ }
+ 
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/denuAnonimo.php
++++ corregido/denuAnonimo.php
+@@ -15,6 +15,10 @@
+ 
+   /*$theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -42,7 +46,7 @@
+   $colname_FORM_ID = $_GET['FORM_ID'];
+ }
+ mysqli_select_db($mysql, $database_mysql);
+-$query_FORM_ID = sprintf("SELECT * FROM FORMULARIOS WHERE FORM_ID = %s", $_GET['FORM_ID']);
++$query_FORM_ID = sprintf("SELECT * FROM FORMULARIOS WHERE FORM_ID = %s", (int)$_GET['FORM_ID']);
+ $FORM_ID = mysqli_query($mysql, $query_FORM_ID) or die(mysqli_error());
+ $row_FORM_ID = mysqli_fetch_assoc($FORM_ID);
+ $totalRows_FORM_ID = mysqli_num_rows($FORM_ID);
+--- original/denuJuridica.php
++++ corregido/denuJuridica.php
+@@ -9,6 +9,10 @@
+ 
+   /*$theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -36,7 +40,7 @@
+   $colname_FORM_ID = $_GET['FORM_ID'];
+ }
+ mysqli_select_db($mysql, $database_mysql);
+-$query_FORM_ID = sprintf("SELECT * FROM FORMULARIOS WHERE FORM_ID = %s", $_GET['FORM_ID']);
++$query_FORM_ID = sprintf("SELECT * FROM FORMULARIOS WHERE FORM_ID = %s", (int)$_GET['FORM_ID']);
+ $FORM_ID = mysqli_query($mysql, $query_FORM_ID) or die(mysqli_error());
+ $row_FORM_ID = mysqli_fetch_assoc($FORM_ID);
+ $totalRows_FORM_ID = mysqli_num_rows($FORM_ID);
+--- original/denuNatural.php
++++ corregido/denuNatural.php
+@@ -9,6 +9,10 @@
+ 
+   /*$theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -36,7 +40,7 @@
+   $colname_FORM_ID = $_GET['FORM_ID'];
+ }
+ mysqli_select_db($mysql, $database_mysql);
+-$query_FORM_ID = sprintf("SELECT * FROM FORMULARIOS WHERE FORM_ID = %s", $_GET['FORM_ID']);
++$query_FORM_ID = sprintf("SELECT * FROM FORMULARIOS WHERE FORM_ID = %s", (int)$_GET['FORM_ID']);
+ $FORM_ID = mysqli_query($mysql, $query_FORM_ID) or die(mysqli_error());
+ $row_FORM_ID = mysqli_fetch_assoc($FORM_ID);
+ $totalRows_FORM_ID = mysqli_num_rows($FORM_ID);
+--- original/FalsDocPubli_4.php
++++ corregido/FalsDocPubli_4.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -381,8 +385,11 @@
+ }
+ 
+ 
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, RESP7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/FalsDocPubli_5.php
++++ corregido/FalsDocPubli_5.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -381,8 +385,11 @@
+   move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+ }
+ 
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, RESP7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/general_1.php
++++ corregido/general_1.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -383,8 +387,11 @@
+ 
+ 
+       //echo "El archivo ".  basename( $_FILES['archivo']['name'])." ha sido subido";
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/IncrPatrNoJust_2.php
++++ corregido/IncrPatrNoJust_2.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -380,8 +384,11 @@
+       move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+     }
+        
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+        $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-       PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++       PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                             GetSQLValueString($_POST['RESP_ID'], "int"),
+                             GetSQLValueString($_POST['FORM_ID'], "int"),
+                             GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/peculado_10.php
++++ corregido/peculado_10.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -382,8 +386,11 @@
+ }
+ 
+   
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/peculado_11.php
++++ corregido/peculado_11.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -382,8 +386,11 @@
+ }
+ 
+   
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/peculado_9.php
++++ corregido/peculado_9.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -381,8 +385,11 @@
+ }
+ 
+   
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/prevaricato_12.php
++++ corregido/prevaricato_12.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -381,8 +385,11 @@
+   move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+ }
+   
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
+--- original/TrafInflu_8.php
++++ corregido/TrafInflu_8.php
+@@ -9,6 +9,10 @@
+ 
+  /* $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($theValue) : mysqli_escape_string($theValue);*/
+ 
++  // Proteccion contra inyeccion SQL: la linea original de arriba quedo comentada
++  // y los valores llegaban a la base sin escapar. Se escapan con la conexion abierta.
++  global $mysql;
++  $theValue = mysqli_real_escape_string($mysql, (string)$theValue);
+   switch ($theType) {
+     case "text":
+       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+@@ -382,8 +386,11 @@
+   move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+ }
+   
++      // El nombre del adjunto va dentro de la consulta: se escapa para la base y
++      // se protegen los % para sprintf.
++      $archivo_sql = str_replace('%', '%%', mysqli_real_escape_string($mysql, $target_path));
+       $insertSQL = sprintf("INSERT INTO RESPUESTAS (RESP_ID, FORM_ID, ID_DENUNCIA, PREG1_ID_VALUE, RESP1_ID_VALUE, PREG2_ID_VALUE, RESP2_ID_VALUE, PREG3_ID_VALUE, RESP3_ID_VALUE, PREG4_ID_VALUE, RESP4_ID_VALUE, PREG5_ID_VALUE, PREG6_ID_VALUE, PREG7_ID_VALUE, PREG8_ID_VALUE, RESP8_ID_VALUE, PREG9_ID_VALUE, RESP9_ID_VALUE, PREG10_ID_VALUE, RESP10_ID_VALUE, PREG11_ID_VALUE, RESP11_ID_VALUE, PREG12_ID_VALUE, RESP12_ID_VALUE, PREG13_ID_VALUE, RESP13_ID_VALUE, PREG14_ID_VALUE, RESP14_ID_VALUE, PREG15_ID_VALUE, RESP15_ID_VALUE, PREG16_ID_VALUE, RESP16_ID_VALUE, PREG17_ID_VALUE, RESP17_ID_VALUE, PREG18_ID_VALUE, RESP18_ID_VALUE, PREG19_ID_VALUE, RESP19_ID_VALUE, PREG20_ID_VALUE, RESP20_ID_VALUE, PREG21_ID_VALUE, RESP21_ID_VALUE, PREG22_ID_VALUE, RESP22_ID_VALUE, PREG23_ID_VALUE, RESP23_ID_VALUE, PREG24_ID_VALUE, RESP24_ID_VALUE, PREG25_ID_VALUE, RESP25_ID_VALUE,
+-      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$target_path')",
++      PREG26_ID_VALUE, RESP26_ID_VALUE, PREG27_ID_VALUE, RESP27_ID_VALUE, ARCHIVO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '$archivo_sql')",
+                            GetSQLValueString($_POST['RESP_ID'], "int"),
+                            GetSQLValueString($_POST['FORM_ID'], "int"),
+                            GetSQLValueString($_POST['ID_DENUNCIA'], "int"),
