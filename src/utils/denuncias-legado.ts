@@ -358,7 +358,7 @@ export type ResultadoEnvio =
 const soloDigitos = (texto: string) => texto.replace(/\D/g, '');
 
 /** Caracteres que caben en la base para el enunciado de cada pregunta (RESPUESTAS.PREGn_ID_VALUE). */
-const LIMITE_ENUNCIADO = 256;
+const LIMITE_ENUNCIADO = 1000;
 
 /**
  * El número de documento tal como lo guarda el sistema que recibe: sin puntos
