@@ -15,32 +15,9 @@ import { resolveUrl } from '../utils/url';
 
 const base = import.meta.env.BASE_URL;
 
-// Formulario propio (Opción B). El backend (endpoint en santorini + Postgres) aún
-// NO existe: esta es una VISTA PREVIA para evaluadores. El botón Enviar está
-// deshabilitado para que nadie envíe una denuncia real sin destino. Cuando el
-// backend esté listo, se conecta el submit a /api/buzon/submit (mismo dominio).
-const FORM_OPERATIVO = false;
-
-// Opciones de los desplegables. Las dependencias son provisionales — confirmar
-// con la entidad la lista oficial.
-const dependencias = [
-  'Dirección General',
-  'Secretaría General',
-  'Subdirección de Asuntos Legales',
-  'Subdirección de Instrucción Disciplinaria',
-  'Oficina Asesora de Control Interno',
-  'Oficina Asesora de Planeación',
-  'Gestión del Talento Humano',
-  'Gestión Administrativa y Financiera',
-  'Tecnologías de la Información',
-  'Otra / No estoy seguro',
-];
-const gradosAfectacion = ['Bajo', 'Medio', 'Alto', 'Muy alto'];
-const relaciones = [
-  'Servidor público de la entidad', 'Contratista', 'Ciudadano', 'Usuario',
-  'Proveedor', 'Pasante o practicante', 'Compañero de trabajo',
-  'Superior jerárquico', 'Subalterno', 'Ninguna', 'Otro',
-];
+// Formulario del buzón en Microsoft Forms (se abre en una pestaña nueva: la política
+// de seguridad del proveedor no permite incrustarlo).
+const FORMULARIO = 'https://forms.cloud.microsoft/r/xHb141ju0Z';
 
 const breadcrumb = [
   { label: 'Inicio', href: base },
@@ -103,8 +80,6 @@ const proceso = [
   { n: 8, t: 'Retroalimentación', d: 'Se informa al denunciante cuando aplique.', tiempo: '5 días hábiles tras el cierre' },
 ];
 
-// Mapa valor → conductas (Tabla 3), para el desplegable dependiente del formulario.
-const conductasMap = Object.fromEntries(valoresIntegridad.map((v) => [v.valor, v.conductas]));
 ---
 
 <Base
@@ -236,189 +211,38 @@ const conductasMap = Object.fromEntries(valoresIntegridad.map((v) => [v.valor, v
     <div class="container">
       <h2 id="form-title" class="buzon-h2 buzon-h2--light">Presentar un reporte</h2>
       <p class="buzon-form__intro">
-        Diligencia el siguiente formulario. Puedes hacerlo de forma <strong>anónima</strong> o
+        Diligencia el formulario. Puedes hacerlo de forma <strong>anónima</strong> o
         identificada. Al enviar, autorizas el tratamiento de tus datos conforme a la
         <a href={resolveUrl('/proteccion-de-datos-personales')}>Política de Tratamiento de Datos Personales</a>
         (Ley 1581 de 2012).
       </p>
 
-      {!FORM_OPERATIVO && (
-        <div class="buzon-aviso" role="status">
-          <i class="fa-solid fa-flask" aria-hidden="true"></i>
-          <p><strong>Vista previa.</strong> El formulario está en revisión y <strong>aún no está operativo</strong>. Por ahora no envíes información real: los reportes todavía no se reciben.</p>
+      <div class="buzon-card">
+        <div class="buzon-card__icon" aria-hidden="true">
+          <i class="fa-solid fa-shield-halved"></i>
         </div>
-      )}
 
-      <form class="buzon-form" novalidate data-buzon-form aria-label="Formulario del Buzón Ético Virtual">
+        <h3 class="buzon-card__titulo">Formulario del Buzón Ético Virtual</h3>
 
-        <!-- 1. Clasificación -->
-        <fieldset class="buzon-fs">
-          <legend><span class="buzon-fs__n">1</span> Clasificación del reporte</legend>
+        <p class="buzon-card__texto">
+          Se abrirá en una pestaña nueva.
+        </p>
 
-          <div class="buzon-field">
-            <label for="tipo">¿Qué tipo de reporte desea presentar? <span class="req">*</span></label>
-            <select id="tipo" name="tipo" required data-tipo>
-              <option value="" selected disabled>Selecciona una opción…</option>
-              <option value="codigo">Código de Integridad</option>
-              <option value="conflicto">Conflicto de interés</option>
-            </select>
-          </div>
+        <a
+          href={FORMULARIO}
+          class="buzon-card__boton"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+          <span>Presentar un reporte</span>
+          <i class="fa-solid fa-arrow-up-right-from-square buzon-card__boton-ext" aria-hidden="true"></i>
+        </a>
 
-          <div class="buzon-field" data-cond="codigo" hidden>
-            <label for="valor">¿Cuál valor del Código de Integridad considera afectado? <span class="req">*</span></label>
-            <select id="valor" name="valor" data-valor>
-              <option value="" selected disabled>Selecciona un valor…</option>
-              <option>Honestidad</option><option>Respeto</option><option>Compromiso</option><option>Diligencia</option><option>Justicia</option>
-            </select>
-          </div>
-
-          <div class="buzon-field" data-cond="codigo" hidden>
-            <label for="conducta">¿Cuál es la situación o conducta que desea reportar? <span class="req">*</span></label>
-            <select id="conducta" name="conducta" data-conducta>
-              <option value="" selected disabled>Primero selecciona un valor…</option>
-            </select>
-          </div>
-        </fieldset>
-
-        <!-- 2. Información del reporte -->
-        <fieldset class="buzon-fs">
-          <legend><span class="buzon-fs__n">2</span> Información del reporte</legend>
-
-          <div class="buzon-field">
-            <label for="descripcion">Describa los hechos que desea reportar <span class="req">*</span></label>
-            <textarea id="descripcion" name="descripcion" rows="6" required
-              placeholder="Describa de manera clara, objetiva y cronológica lo sucedido: qué ocurrió, cómo ocurrió y cualquier información relevante."></textarea>
-          </div>
-
-          <div class="buzon-row">
-            <div class="buzon-field">
-              <label for="fecha">¿Cuándo ocurrieron los hechos? <span class="req">*</span></label>
-              <input type="date" id="fecha" name="fecha" required />
-            </div>
-            <div class="buzon-field">
-              <label for="lugar">¿Dónde ocurrieron los hechos? <span class="req">*</span></label>
-              <select id="lugar" name="lugar" required>
-                <option value="" selected disabled>Dependencia, oficina o área…</option>
-                {dependencias.map((d) => (<option>{d}</option>))}
-              </select>
-            </div>
-          </div>
-
-          <div class="buzon-field">
-            <label for="involucrados">¿Quiénes estuvieron presuntamente involucrados? <span class="req">*</span></label>
-            <input type="text" id="involucrados" name="involucrados" required
-              placeholder="Nombres, cargos o cualquier información que permita identificarlos." />
-          </div>
-        </fieldset>
-
-        <!-- 3. Información del denunciante -->
-        <fieldset class="buzon-fs">
-          <legend><span class="buzon-fs__n">3</span> Información del denunciante</legend>
-
-          <div class="buzon-field">
-            <span class="buzon-label">¿Cómo desea presentar el reporte? <span class="req">*</span></span>
-            <div class="buzon-radios" role="radiogroup">
-              <label class="buzon-radio"><input type="radio" name="modalidad" value="anonima" data-modalidad checked /> <span><i class="fa-solid fa-user-secret"></i> Denuncia anónima</span></label>
-              <label class="buzon-radio"><input type="radio" name="modalidad" value="identificada" data-modalidad /> <span><i class="fa-solid fa-id-card"></i> Denuncia identificada</span></label>
-            </div>
-          </div>
-
-          <div class="buzon-row" data-cond="identificada" hidden>
-            <div class="buzon-field">
-              <label for="correo">Correo electrónico</label>
-              <input type="email" id="correo" name="correo" placeholder="nombre@correo.com" />
-            </div>
-            <div class="buzon-field">
-              <label for="telefono">Número de teléfono</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="Opcional" />
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- 4. Información complementaria -->
-        <fieldset class="buzon-fs">
-          <legend><span class="buzon-fs__n">4</span> Información complementaria</legend>
-
-          <div class="buzon-row">
-            <div class="buzon-field">
-              <label for="afectacion">Grado de afectación ocasionado <span class="req">*</span></label>
-              <select id="afectacion" name="afectacion" required>
-                <option value="" selected disabled>Selecciona…</option>
-                {gradosAfectacion.map((g) => (<option>{g}</option>))}
-              </select>
-            </div>
-            <div class="buzon-field">
-              <label for="relacion">¿Cuál es su relación con la persona involucrada? <span class="req">*</span></label>
-              <select id="relacion" name="relacion" required>
-                <option value="" selected disabled>Selecciona…</option>
-                {relaciones.map((r) => (<option>{r}</option>))}
-              </select>
-            </div>
-          </div>
-
-          <div class="buzon-field">
-            <label for="anexos">¿Desea adjuntar evidencias que respalden su reporte?</label>
-            <input type="file" id="anexos" name="anexos" multiple
-              accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.mp3,.mp4" />
-            <small class="buzon-help">Formatos permitidos: PDF, Word, Excel, JPG, PNG, MP3, MP4.</small>
-          </div>
-        </fieldset>
-
-        <!-- 5. Preguntas adicionales -->
-        <fieldset class="buzon-fs">
-          <legend><span class="buzon-fs__n">5</span> Información adicional</legend>
-
-          <div class="buzon-row">
-            <div class="buzon-field">
-              <label for="continuan">¿Los hechos continúan ocurriendo actualmente?</label>
-              <select id="continuan" name="continuan">
-                <option value="" selected disabled>Selecciona…</option>
-                <option>Sí</option><option>No</option><option>No sabe</option>
-              </select>
-            </div>
-            <div class="buzon-field">
-              <label for="reportado">¿Ha reportado anteriormente esta situación?</label>
-              <select id="reportado" name="reportado">
-                <option value="" selected disabled>Selecciona…</option>
-                <option>Sí</option><option>No</option><option>No recuerda</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="buzon-field">
-            <label for="testigos">¿Existen otras personas que puedan aportar información sobre estos hechos?</label>
-            <input type="text" id="testigos" name="testigos" placeholder="Opcional" />
-          </div>
-        </fieldset>
-
-        <!-- 6. Seguimiento + datos -->
-        <fieldset class="buzon-fs">
-          <legend><span class="buzon-fs__n">6</span> Seguimiento y protección de datos</legend>
-
-          <div class="buzon-field" data-cond="identificada" hidden>
-            <span class="buzon-label">¿Por cuál medio desea recibir información sobre el trámite?</span>
-            <div class="buzon-radios" role="radiogroup">
-              <label class="buzon-radio"><input type="radio" name="canal" value="correo" /> <span>Correo electrónico</span></label>
-              <label class="buzon-radio"><input type="radio" name="canal" value="telefono" /> <span>Teléfono</span></label>
-            </div>
-          </div>
-          <p class="buzon-anon-nota" data-cond="anonima">
-            <i class="fa-solid fa-circle-info"></i> Al ser anónima, no recibirás respuesta directa. Guarda el <strong>número de radicado</strong> que se generará al enviar para consultar el estado.
-          </p>
-
-          <label class="buzon-check">
-            <input type="checkbox" name="autorizacion" required />
-            <span>Declaro que he leído y acepto la <a href={resolveUrl('/proteccion-de-datos-personales')} target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a> de la Agencia ITRC y autorizo el tratamiento de mis datos conforme a la normatividad vigente. <span class="req">*</span></span>
-          </label>
-        </fieldset>
-
-        <div class="buzon-actions">
-          <button type="submit" class="buzon-btn buzon-btn--primary buzon-btn--lg" disabled={!FORM_OPERATIVO}>
-            <i class="fa-solid fa-paper-plane"></i> {FORM_OPERATIVO ? 'Enviar reporte' : 'Envío no disponible (vista previa)'}
-          </button>
-          <button type="reset" class="buzon-btn buzon-btn--ghost">Limpiar</button>
-        </div>
-      </form>
+        <p class="buzon-card__nota">
+          El formulario está alojado en Microsoft Forms.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -457,12 +281,10 @@ const conductasMap = Object.fromEntries(valoresIntegridad.map((v) => [v.valor, v
       </div>
     </div>
   </section>
-
-  <script is:inline src={`${import.meta.env.BASE_URL}js/buzon-etico.js`} data-conductas={JSON.stringify(conductasMap)}></script>
 </Base>
 
 <style>
-  .page-buzon { --buzon-navy: var(--itrc-navy, #002147); --buzon-gold: var(--itrc-gold, #b38b40); }
+  :global(.page-buzon) { --buzon-navy: var(--itrc-navy, #002147); --buzon-gold: var(--itrc-gold, #b38b40); }
 
   .buzon-section { padding: var(--space-16) var(--space-6); }
   .buzon-section--surface { background: var(--theme-surface); }
@@ -520,12 +342,6 @@ const conductasMap = Object.fromEntries(valoresIntegridad.map((v) => [v.valor, v
   /* Formulario */
   .buzon-form__intro { text-align: center; color: rgba(255,255,255,.9); max-width: 720px; margin: 0 auto var(--space-8); line-height: 1.6; }
   .buzon-form__intro a { color: var(--buzon-gold); text-decoration: underline; }
-  .buzon-form__frame { background: #fff; border-radius: var(--radius-xl, 16px); overflow: hidden; box-shadow: var(--shadow-xl); max-width: 820px; margin: 0 auto; }
-  .buzon-form__frame iframe { width: 100%; height: 80vh; min-height: 600px; border: 0; display: block; }
-  .buzon-form__placeholder { background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.35); border-radius: var(--radius-xl, 16px); padding: var(--space-12) var(--space-6); text-align: center; color: #fff; max-width: 720px; margin: 0 auto; }
-  .buzon-form__placeholder i { font-size: 2.4rem; color: var(--buzon-gold); margin-bottom: var(--space-4); }
-  .buzon-form__placeholder h3 { margin: 0 0 var(--space-2); }
-  .buzon-form__placeholder p { margin: 0; opacity: .85; }
 
   /* Proceso */
   .buzon-proceso { list-style: none; padding: 0; margin: 0 auto; max-width: 820px; display: flex; flex-direction: column; gap: var(--space-4); }
@@ -540,52 +356,21 @@ const conductasMap = Object.fromEntries(valoresIntegridad.map((v) => [v.valor, v
   .buzon-nota i { color: var(--buzon-gold); font-size: 1.4rem; margin-top: 2px; }
   .buzon-nota p { margin: 0; color: var(--theme-text, #333); font-size: var(--font-size-sm); line-height: 1.6; }
 
-  /* Aviso vista previa */
-  .buzon-aviso { display: flex; gap: var(--space-3); align-items: center; max-width: 820px; margin: 0 auto var(--space-6); background: rgba(179,139,64,.15); border: 1px solid var(--buzon-gold); border-radius: var(--radius-md, 8px); padding: var(--space-4) var(--space-5); color: #fff; }
-  .buzon-aviso i { color: var(--buzon-gold); font-size: 1.3rem; }
-  .buzon-aviso p { margin: 0; font-size: var(--font-size-sm); }
-
-  /* Formulario */
-  .buzon-form { max-width: 820px; margin: 0 auto; background: #fff; border-radius: var(--radius-xl, 16px); padding: var(--space-8); box-shadow: var(--shadow-xl); }
-  /* Garantiza que [hidden] gane sobre display:grid/flex de .buzon-row, etc. */
-  .buzon-form [hidden] { display: none !important; }
-  .buzon-fs { border: 0; border-top: 1px solid var(--theme-border, #e8e8e8); padding: var(--space-6) 0 0; margin: 0 0 var(--space-6); }
-  .buzon-fs:first-of-type { border-top: 0; padding-top: 0; }
-  .buzon-fs legend { display: flex; align-items: center; gap: var(--space-3); font-weight: 700; color: var(--buzon-navy); font-size: var(--font-size-lg, 1.15rem); margin-bottom: var(--space-4); padding: 0; }
-  .buzon-fs__n { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: var(--buzon-navy); color: #fff; font-size: var(--font-size-sm); display: flex; align-items: center; justify-content: center; }
-  .buzon-field { margin-bottom: var(--space-4); }
-  .buzon-field > label, .buzon-label { display: block; font-weight: 600; color: var(--theme-heading, var(--buzon-navy)); font-size: var(--font-size-sm); margin-bottom: var(--space-2); }
-  .req { color: #c0392b; }
-  .buzon-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-  .buzon-form input[type="text"], .buzon-form input[type="email"], .buzon-form input[type="tel"],
-  .buzon-form input[type="date"], .buzon-form select, .buzon-form textarea {
-    width: 100%; padding: var(--space-3); border: 1px solid var(--theme-border, #ccc); border-radius: var(--radius-md, 8px);
-    font: inherit; color: var(--theme-text, #222); background: #fff; transition: border-color .15s, box-shadow .15s;
-  }
-  .buzon-form input:focus, .buzon-form select:focus, .buzon-form textarea:focus {
-    outline: none; border-color: var(--buzon-gold); box-shadow: 0 0 0 3px rgba(179,139,64,.18);
-  }
-  .buzon-form textarea { resize: vertical; }
-  .buzon-help { display: block; color: var(--theme-text-secondary, #666); font-size: var(--font-size-xs); margin-top: var(--space-2); }
-  .buzon-radios { display: flex; gap: var(--space-3); flex-wrap: wrap; }
-  .buzon-radio { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); border: 1px solid var(--theme-border, #ccc); border-radius: var(--radius-md, 8px); cursor: pointer; font-size: var(--font-size-sm); }
-  .buzon-radio:has(input:checked) { border-color: var(--buzon-gold); background: rgba(179,139,64,.08); font-weight: 600; }
-  .buzon-radio i { color: var(--buzon-gold); }
-  .buzon-anon-nota { background: var(--theme-surface, #f5f5f5); border-radius: var(--radius-md, 8px); padding: var(--space-3) var(--space-4); font-size: var(--font-size-sm); color: var(--theme-text-secondary, #555); }
-  .buzon-anon-nota i { color: var(--buzon-gold); margin-right: var(--space-1, 4px); }
-  .buzon-check { display: flex; gap: var(--space-3); align-items: flex-start; font-size: var(--font-size-sm); color: var(--theme-text, #333); line-height: 1.5; }
-  .buzon-check input { margin-top: 3px; flex: 0 0 auto; }
-  .buzon-check a { color: var(--buzon-gold); text-decoration: underline; }
-  .buzon-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; margin-top: var(--space-2); }
-  .buzon-btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--font-size-base, 1rem); }
-  .buzon-btn--ghost { background: transparent; border: 1px solid var(--theme-border, #ccc); color: var(--theme-text, #333); }
-  .buzon-btn[disabled] { opacity: .55; cursor: not-allowed; }
-  .buzon-btn[disabled]:hover { transform: none; box-shadow: none; }
+  /* Tarjeta con el enlace al formulario (mismo patrón que /autorizacion-comunicaciones-sunet) */
+  .buzon-card { position: relative; overflow: hidden; text-align: center; max-width: 640px; margin: 0 auto; padding: var(--space-10) var(--space-6) var(--space-8); border-radius: var(--radius-lg, 12px); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); color: #fff; }
+  .buzon-card::after { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--buzon-gold); }
+  .buzon-card__icon { width: 76px; height: 76px; margin: 0 auto var(--space-5); display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.28); font-size: 2rem; color: var(--buzon-gold); }
+  .buzon-card__titulo { color: #fff; font-size: var(--font-size-xl, 1.35rem); margin: 0 0 var(--space-3); }
+  .buzon-card__texto { color: rgba(255,255,255,.9); margin: 0 0 var(--space-7); }
+  .buzon-card__boton { display: inline-flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-8); border-radius: var(--radius-full, 999px); background: var(--buzon-gold); color: var(--buzon-navy); font-weight: 700; font-size: var(--font-size-lg, 1.15rem); text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; box-shadow: 0 8px 20px rgba(0,0,0,.22); }
+  .buzon-card__boton:hover, .buzon-card__boton:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.28); }
+  .buzon-card__boton-ext { font-size: .8em; opacity: .75; }
+  .buzon-card__nota { margin: var(--space-5) 0 0; font-size: var(--font-size-sm); color: rgba(255,255,255,.72); }
 
   @media (max-width: 860px) {
     .buzon-intro__grid, .buzon-dos-col, .buzon-listo { grid-template-columns: 1fr; }
     .buzon-principios { grid-template-columns: 1fr; }
-    .buzon-row { grid-template-columns: 1fr; }
-    .buzon-form { padding: var(--space-6) var(--space-5); }
+    .buzon-card { padding: var(--space-8) var(--space-4) var(--space-6); }
+    .buzon-card__boton { width: 100%; justify-content: center; padding: var(--space-4) var(--space-5); font-size: var(--font-size-base, 1rem); }
   }
 </style>
