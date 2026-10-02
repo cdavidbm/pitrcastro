@@ -19,6 +19,12 @@
     "description": {
       "type": "string"
     },
+    "avisoTitulo": {
+      "type": "string"
+    },
+    "aviso": {
+      "type": "richtext"
+    },
     "icon": {
       "type": "string"
     },
