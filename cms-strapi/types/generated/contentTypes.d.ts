@@ -4662,6 +4662,8 @@ export interface ApiTransparenciaHojasDeVidaTransparenciaHojasDeVida
   };
   attributes: {
     aspirantes: Schema.Attribute.Component<'transparencia-hojas-de-vida.aspirant', true>;
+    aviso: Schema.Attribute.RichText;
+    avisoTitulo: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     description: Schema.Attribute.String;

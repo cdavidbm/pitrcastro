@@ -264,8 +264,10 @@ const sections = [
                 rel="noopener"
                 {...(r.url.startsWith('/') ? { download: true } : {})}
               >
-                <i class={`fa-solid ${r.tipo === 'video' ? 'fa-play' : 'fa-download'}`}></i>
-                {r.tipo === 'video' ? 'Ver' : 'Descargar'}
+                {/* Un recurso que vive fuera del portal (un tablero, un visor) se
+                    abre, no se descarga: el rótulo y el ícono lo dicen. */}
+                <i class={`fa-solid ${r.tipo === 'video' ? 'fa-play' : r.url.startsWith('/') ? 'fa-download' : 'fa-arrow-up-right-from-square'}`}></i>
+                {r.tipo === 'video' ? 'Ver' : r.url.startsWith('/') ? 'Descargar' : 'Abrir'}
               </a>
             ) : (
               <span class="ciprep-memoria__pending">Próximamente</span>

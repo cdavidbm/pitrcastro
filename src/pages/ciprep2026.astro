@@ -298,6 +298,35 @@ const entidadesInternacionales = [
 
   <script is:inline src={`${base}js/ciprep-memorias.js`}></script>
 
+  <!-- ======================== Tablero de control ======================== -->
+  {/* El tablero vive en Power BI y se abre en una pestaña nueva: la política de
+      seguridad del proveedor bloquea los marcos externos. */}
+  <section id="tablero" class="ciprep-tablero" aria-labelledby="ciprep-tablero-title">
+    <div class="container">
+      <div class="ciprep-tablero__card">
+        <div class="ciprep-tablero__icon" aria-hidden="true">
+          <i class="fa-solid fa-chart-column"></i>
+        </div>
+        <div class="ciprep-tablero__body">
+          <h2 id="ciprep-tablero-title">Tablero de control del Congreso</h2>
+          <p>
+            Consulte las cifras de participación y los indicadores del II Congreso
+            Internacional para la Protección de los Recursos Públicos.
+          </p>
+        </div>
+        <a
+          href="https://app.powerbi.com/reportEmbed?reportId=5d3a43c5-e1ba-419f-b61f-b0a22d429c6d&autoAuth=true&ctid=a725d1dc-3e64-4283-955e-dd4e513608e6"
+          class="ciprep-tablero__boton"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          Abrir el tablero
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================== Acerca del Congreso ======================== -->
   <section id="acerca" class="ciprep-section">
     <div class="container">
@@ -722,6 +751,17 @@ const entidadesInternacionales = [
   .btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--font-size-base); }
 
   /* === Memorias del Congreso === */
+  /* ===================== Tablero de control ===================== */
+  .ciprep-tablero { padding: var(--space-14) var(--space-6); }
+  .ciprep-tablero .container { max-width: 1100px; margin: 0 auto; }
+  .ciprep-tablero__card { display: flex; align-items: center; gap: var(--space-8); flex-wrap: wrap; background: var(--white); border: 1px solid var(--theme-border-light); border-radius: var(--radius-lg); padding: var(--space-9) var(--space-8); box-shadow: var(--shadow-sm); }
+  .ciprep-tablero__icon { flex: 0 0 auto; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(var(--itrc-gold-rgb), 0.12); color: var(--itrc-gold); font-size: 1.6rem; }
+  .ciprep-tablero__body { flex: 1 1 320px; }
+  .ciprep-tablero__body h2 { margin: 0 0 var(--space-3); font-size: var(--font-size-xl); color: var(--theme-heading); }
+  .ciprep-tablero__body p { margin: 0 0 var(--space-2); color: var(--theme-text-secondary); font-size: var(--font-size-sm); line-height: 1.6; }
+  .ciprep-tablero__boton { flex: 0 0 auto; display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); border-radius: var(--radius-full); background: var(--itrc-navy); color: var(--white); font-weight: 700; font-size: var(--font-size-sm); text-decoration: none; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+  .ciprep-tablero__boton:hover, .ciprep-tablero__boton:focus-visible { background: var(--itrc-gold); color: var(--itrc-navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
   .ciprep-memorias {
     padding: var(--space-12) var(--space-6);
     background:
