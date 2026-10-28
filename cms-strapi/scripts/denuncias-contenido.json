@@ -144,7 +144,7 @@
             "nombre": "Peculado por apropiación",
             "descripcion": "Un servidor público se apropia, para sí o para otro, de bienes del Estado que le fueron confiados por su cargo.",
             "icono": "fa-solid fa-money-bill-transfer",
-            "norma": "Art. 397 Código Penal · Ley 734/2002",
+            "norma": "Art. 397 Código Penal",
             "formulario": "9"
           },
           {
@@ -182,7 +182,7 @@
           {
             "idLogico": "prevaricato",
             "nombre": "Prevaricato",
-            "descripcion": "Dictar una resolución, dictamen o concepto manifiestamente contrario a la ley, sabiendo que lo es.",
+            "descripcion": "Dictar una resolución, dictamen o concepto manifiestamente contrario a la ley.",
             "icono": "fa-solid fa-gavel",
             "norma": "Art. 413 Código Penal",
             "formulario": "12"
@@ -203,7 +203,7 @@
           {
             "idLogico": "falsedad-ideologica",
             "nombre": "Falsedad ideológica en documento público",
-            "descripcion": "El servidor consigna en un documento hechos que sabe que son falsos, o calla la verdad total o parcialmente.",
+            "descripcion": "Consignar información falsa u ocultar la verdad en un documento público auténtico, afectando su veracidad.",
             "icono": "fa-solid fa-file-pen",
             "norma": "Art. 286 Código Penal",
             "formulario": "4"
@@ -232,9 +232,9 @@
           {
             "idLogico": "incremento-patrimonial",
             "nombre": "Incremento patrimonial no justificado",
-            "descripcion": "El servidor obtiene un aumento de su patrimonio que no corresponde con sus ingresos declarados o legítimos.",
+            "descripcion": "Aumento del patrimonio de un servidor público que no puede explicarse razonablemente con sus ingresos o fuentes lícitas de recursos.",
             "icono": "fa-solid fa-money-bill-trend-up",
-            "norma": "Art. 412 Código Penal",
+            "norma": "Art. 62, numeral 2, Ley 1952 de 2019",
             "formulario": "2"
           },
           {

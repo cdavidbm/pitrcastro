@@ -1,0 +1,28 @@
+[
+ {
+  "motivo": "Derogada por la Resolución 3461 de 2025 (Excel del SDL, 28-oct-2026)",
+  "fila": {
+   "tipo": "Resolución",
+   "numero": "652",
+   "normaUrl": "/documentos/normograma/Resolucion_652_de_2012_Ministerio_de_Trabajo.pdf",
+   "anio": 2012,
+   "vigencia": "VIGENTE",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-652-de-2012-act.pdf",
+   "descripcion": "Por la cual se establece la conformación y funcionamiento del Comité de Convivencia Laboral en entidades públicas y empresas privadas y se dictan otras disposiciones",
+   "proceso": "Gestión Talento Humano"
+  }
+ },
+ {
+  "motivo": "Duplicidad documental señalada por el SDL: Circular Interna 049 de 2021",
+  "fila": {
+   "tipo": "Circular",
+   "numero": "#VALUE!",
+   "normaUrl": "",
+   "anio": 2021,
+   "vigencia": "VIGENTE",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-SDL-circular-49.pdf",
+   "descripcion": "Uso de firmas en documentos de la Agencia ITRC",
+   "proceso": "Gestión documental"
+  }
+ }
+]

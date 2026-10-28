@@ -1,0 +1,209 @@
+{
+ "incluir": [
+  {
+   "tipo": "Decreto",
+   "numero": "1499",
+   "anio": 2017,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio del cual se modifica el Decreto 1083 de 2015, Decreto Único Reglamentario del Sector Función Pública, en lo relacionado con el Sistema de Gestión establecido en el artículo 133 de la Ley 1753 de 2015",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Decreto-1499-de-2017.pdf",
+   "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=83433"
+  },
+  {
+   "tipo": "Decreto",
+   "numero": "1122",
+   "anio": 2024,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por el cual se reglamenta el artículo 73 de la Ley 1474 de 2011, modificado por el artículo 31 de la Ley 2195 de 2022, en lo relacionado con los Programas de Transparencia y Ética Pública",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Decreto-1122-de-2024.pdf",
+   "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=250176"
+  },
+  {
+   "tipo": "Decreto",
+   "numero": "1082",
+   "anio": 2015,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio del cual se expide el decreto único reglamentario del sector Administrativo de Planeación Nacional",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Decreto-1082-de-2015.pdf",
+   "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77653"
+  },
+  {
+   "tipo": "Ley",
+   "numero": "1882",
+   "anio": 2018,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se adicionan, modifican y dictan disposiciones orientadas a fortalecer la Contratación Pública en Colombia, la ley de infraestructura y se dictan otras disposiciones.",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Ley-1882-de-2018.pdf",
+   "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1882_2018.html"
+  },
+  {
+   "tipo": "Ley",
+   "numero": "1150",
+   "anio": 2007,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio de la cual se introducen medidas para la eficiencia y la transparencia en la Ley 80 de 1993 y se dictan otras disposiciones generales sobre la contratación con Recursos Públicos.",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Ley-1150-de-2007.pdf",
+   "normaUrl": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1150_2007.html"
+  },
+  {
+   "tipo": "Resolución Interna",
+   "numero": "001",
+   "anio": 2026,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se adopta la tabla de honorarios para la contratación de prestación de \r servicios y de apoyo a la gestión que celebre la Agencia ITRC, y se dictan otras \r disposiciones",
+   "proceso": "Gestión Contractual",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-Interna-001-de-2026.pdf",
+   "normaUrl": ""
+  },
+  {
+   "tipo": "Resolución Interna",
+   "numero": "008",
+   "anio": 2026,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se constituye y reglamenta el funcionamiento de la Caja Menor de \r gastos generales de la Unidad Administrativa Especial Agencia del Inspector \r General de Tributos, Rentas y Contribuciones Parafiscales - ITRC y se designa - \r Vigencia 2026",
+   "proceso": "Gestión Administrativa",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-Interna-008-de-2026.pdf",
+   "normaUrl": ""
+  },
+  {
+   "tipo": "Resolución Interna",
+   "numero": "022",
+   "anio": 2026,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio de la cual se adopta la Política de Prevención del Daño Antijurídico de la U.A.E. Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales - ITRC, para las vigencias 2026 - 2027",
+   "proceso": "Gestión Jurídica",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-Interna-022-de-2026.pdf",
+   "normaUrl": ""
+  },
+  {
+   "tipo": "Resolución Interna",
+   "numero": "048",
+   "anio": 2026,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se adopta el Plan de Bienestar, Estímulos e Incentivos de la \r Agencia ITRC para la vigencia 2026",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-Interna-048-de-2026.pdf",
+   "normaUrl": ""
+  },
+  {
+   "tipo": "Resolución Interna",
+   "numero": "049",
+   "anio": 2026,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se adopta el Plan Institucional de Capacitación de la Agencia ITRC \r para la vigencia 2026",
+   "proceso": "Transversal a toda la entidad",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-Interna-049-de-2026.pdf",
+   "normaUrl": ""
+  },
+  {
+   "tipo": "Resolución Interna",
+   "numero": "054",
+   "anio": 2026,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se modifica la Resolución 438 de 2025, y se organizan los Grupos \r Internos de Trabajo de la Subdirección de Instrucción Disciplinaria",
+   "proceso": "Gestión Instrucción  Disciplinaria",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-Interna-054-de-2026.pdf",
+   "normaUrl": ""
+  },
+  {
+   "tipo": "Circular",
+   "numero": "047",
+   "anio": 2025,
+   "vigencia": "VIGENTE",
+   "descripcion": "Actualización de la capacitación virtual de carácter gratuito en el sistema de gestión de seguridad y salud en el trabajo conforme a la resolución 4927 de 2016.",
+   "proceso": "Gestión de Talento Humano",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Circular-047-de-2025.pdf",
+   "normaUrl": "https://www.mintrabajo.gov.co/documents/20147/81894008/Circular+No.+0047.pdf/73662831-15fc-a15c-874b-af416614414d?t=1745875465702"
+  },
+  {
+   "tipo": "Resolución",
+   "numero": "691",
+   "anio": 2025,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio de la cual se declara la emergencia sanitaria en todo el territorio nacional por el brote causado por el virus de la fiebre amarilla y se adoptan medidas para su prevención y control",
+   "proceso": "Gestión de Talento Humano",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-691-de-2025.pdf",
+   "normaUrl": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resolucion%20No%20691%20de%202025.pdf"
+  },
+  {
+   "tipo": "Resolución",
+   "numero": "908",
+   "anio": 2025,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se establecen los requisitos y el procedimiento para la expedición, renovación y cambios de la licencia de seguridad y salud en el trabajo",
+   "proceso": "Gestión de Talento Humano",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-908-de-2025.pdf",
+   "normaUrl": "https://tramites.minsalud.gov.co/FormatosDescargables/LSST/Resolucion908-2025.pdf"
+  },
+  {
+   "tipo": "Resolución",
+   "numero": "1843",
+   "anio": 2025,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por la cual se regula la práctica de evaluaciones médicas ocupacionales, y se dictan otras disposiciones",
+   "proceso": "Gestión de Talento Humano",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-1843-de-2025.pdf",
+   "normaUrl": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?dt=S&i=178947"
+  },
+  {
+   "tipo": "Ley",
+   "numero": "2460",
+   "anio": 2025,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio del cual se modifica la Ley 1616 de 2013 y se dictan otras disposiciones en materia de prevención y atención de trastornos y/o enfermedades mentales, así como medidas para la promoción y cuidado de la salud mental",
+   "proceso": "Gestión de Talento Humano",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Ley-2460-de-2025.pdf",
+   "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=260636"
+  },
+  {
+   "tipo": "Resolución",
+   "numero": "3461",
+   "anio": 2025,
+   "vigencia": "VIGENTE",
+   "descripcion": "Por medio de la cual se derogan las Resoluciones 652 y 1356 de 2012, por las cuales se establecen lineamientos para la conformación y funcionamiento del comité de convivencia laboral, en entidades públicas y empresas privadas, y se dictan otras disposiciones.",
+   "proceso": "Gestión de Talento Humano",
+   "fichaUrl": "/documentos/normograma/Ficha-Tecnica-Normograma-Resolucion-3461-de-2025.pdf",
+   "normaUrl": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=262916"
+  }
+ ],
+ "quitar": [
+  {
+   "tipo": "Resolución",
+   "numero": "652",
+   "anio": 2012,
+   "motivo": "Derogada por la Resolución 3461 de 2025 (Excel del SDL, 28-oct-2026)"
+  }
+ ],
+ "numero": [
+  {
+   "tipo": "Circular",
+   "anio": 2022,
+   "desc": "Recomendaciones Administrativas y de Seguridad y Salud en el Trabajo",
+   "nuevo": "10"
+  },
+  {
+   "tipo": "Circular Interna",
+   "anio": 2022,
+   "desc": "Comisiones y Viaticos",
+   "nuevo": "22"
+  }
+ ],
+ "duplicada": {
+  "conservar": {
+   "tipo": "Circular Interna",
+   "anio": 2021,
+   "desc": "Uso de firmas en documentos de la Agencia ITRC",
+   "nuevo": "49"
+  },
+  "quitar": {
+   "tipo": "Circular",
+   "anio": 2021,
+   "desc": "Uso de firmas en documentos de la Agencia ITRC"
+  }
+ }
+}
