@@ -1,0 +1,36 @@
+[
+ {
+  "pagina": "encuesta-ciudadana",
+  "participar": {
+   "id": 3,
+   "titulo": "Participe en la Encuesta",
+   "descripcion": "Responda la encuesta ciudadana y ayúdenos a mejorar",
+   "url": "https://forms.office.com/Pages/ResponsePage.aspx?id=3NElp2Q-g0KVXt1OUTYI5u8zJWVyZrRPp4eoX5S-G7lUM0s5UVo2T0pGUlZLQlZFV05PUE01T1lINC4u",
+   "imagen": "/uploads/2021/12/Imagen-Banner-Encuesta.png"
+  },
+  "resultados": {
+   "id": 3,
+   "titulo": "Ver Resultados",
+   "descripcion": "Consulte los resultados de la encuesta en el dashboard",
+   "url": "https://app.powerbi.com/view?r=eyJrIjoiNmYwN2Q2ZDAtYzA3MS00YThmLWFmYjItNDM1YzliOTcxNTE1IiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9&pageName=ReportSection",
+   "imagen": "/uploads/2021/12/Herramientas-de-Analisis-para-la-lucha-anticorrupcion.png"
+  }
+ },
+ {
+  "pagina": "encuesta-ciudadana",
+  "participar": {
+   "id": 3,
+   "titulo": "Participe en la Encuesta",
+   "descripcion": "Responda la encuesta ciudadana y ayúdenos a mejorar",
+   "url": "https://forms.office.com/Pages/ResponsePage.aspx?id=3NElp2Q-g0KVXt1OUTYI5u8zJWVyZrRPp4eoX5S-G7lUM0s5UVo2T0pGUlZLQlZFV05PUE01T1lINC4u",
+   "imagen": "/uploads/2021/12/Imagen-Banner-Encuesta.png"
+  },
+  "resultados": {
+   "id": 3,
+   "titulo": "Ver Resultados",
+   "descripcion": "Consulte los resultados de la encuesta en el dashboard",
+   "url": "https://app.powerbi.com/view?r=eyJrIjoiNmYwN2Q2ZDAtYzA3MS00YThmLWFmYjItNDM1YzliOTcxNTE1IiwidCI6ImE3MjVkMWRjLTNlNjQtNDI4My05NTVlLWRkNGU1MTM2MDhlNiJ9&pageName=ReportSection",
+   "imagen": "/uploads/2021/12/Herramientas-de-Analisis-para-la-lucha-anticorrupcion.png"
+  }
+ }
+]
