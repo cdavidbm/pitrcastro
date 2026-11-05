@@ -77,10 +77,14 @@ const enlacesRelacionados = pageData.enlacesRelacionados ?? [];
           <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
           Iniciar una PQRSDF
         </a>
-        <a href={pageData.consultaUrl} target="_blank" rel="noopener" class="pqrs-cta pqrs-cta--secondary">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-          Consultar estado de su PQRSDF
-        </a>
+        {/* Oculto mientras el campo «consultaUrl» esté vacío en Strapi (la aplicación de consulta no está disponible);
+            para volver a mostrarlo basta escribir la dirección en el panel */}
+        {pageData.consultaUrl && (
+          <a href={pageData.consultaUrl} target="_blank" rel="noopener" class="pqrs-cta pqrs-cta--secondary">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            Consultar estado de su PQRSDF
+          </a>
+        )}
       </div>
     </div>
   </section>

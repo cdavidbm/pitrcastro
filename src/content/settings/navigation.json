@@ -94,8 +94,7 @@
       "children": [
         {
           "label": "Consulte el estado de su PQRSDF",
-          "url": "https://www.itrc.gov.co/denuncias/consulta",
-          "external": true
+          "url": "/tu-p-q-r-s-al-dia"
         },
         {
           "label": "Notificaciones y Traslados",
