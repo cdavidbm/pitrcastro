@@ -85,8 +85,24 @@ function renderMarkdown(md: string): string {
   return out.join('\n').replace(/<\/ul>\n<ul>/g, '');
 }
 
-const contenidoHtml = renderMarkdown(memoria.contenido);
+// Fotos para el visor ampliado, en el orden en que aparecen en la página.
+const imagenesVisor: Array<{ url: string; alt: string }> = [];
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const miniatura = (url: string, alt: string) => {
+  const i = imagenesVisor.push({ url, alt }) - 1;
+  return `<button type="button" class="memoria-thumb" data-lightbox-open="${i}" aria-label="Ampliar fotografía ${i + 1}"><img src="${esc(url)}" alt="${esc(alt)}" loading="lazy"/></button>`;
+};
+let html = renderMarkdown(memoria.contenido);
+// Dos o más fotos seguidas se muestran como galería de miniaturas que se amplían al hacer clic.
+html = html.replace(/(?:<figure class="memoria-figure"><img src="[^"]*" alt="[^"]*" loading="lazy"\/><\/figure>\n?){2,}/g, (run) => {
+  const fotos = [...run.matchAll(/<img src="([^"]*)" alt="([^"]*)"/g)];
+  return `<div class="memoria-grid">${fotos.map((m) => miniatura(m[1], m[2])).join('')}</div>`;
+});
+// Cada texto seguido de su galería es una actividad distinta: se agrupa en un bloque propio.
+html = html.replace(/(<p>(?:(?!<\/p>)[\s\S])*<\/p>\n?)(<div class="memoria-grid">[\s\S]*?<\/div>)/g, '<section class="memoria-actividad">$1$2</section>');
+const contenidoHtml = html;
 const tieneGaleria = (memoria.galeria?.length ?? 0) > 0;
+const galeriaMin = (memoria.galeria ?? []).map((im) => ({ ...im, html: miniatura(im.url, im.alt) }));
 ---
 
 <Base title={`${memoria.titulo} — Observatorio ITRC`} description={memoria.resumen || memoria.titulo}>
@@ -111,16 +127,33 @@ const tieneGaleria = (memoria.galeria?.length ?? 0) > 0;
         <section class="memoria__galeria">
           <h2>Galería</h2>
           <ul role="list">
-            {memoria.galeria!.map((im) => (
-              <li>
-                <img src={im.url} alt={im.alt} loading="lazy" />
-              </li>
+            {galeriaMin.map((im) => (
+              <li set:html={im.html} />
             ))}
           </ul>
         </section>
       )}
     </div>
   </article>
+
+  {imagenesVisor.length > 0 && (
+    <dialog class="lightbox" id="albumLightbox" aria-label="Visor de imagen">
+      <button type="button" class="lightbox__close" data-lightbox-close aria-label="Cerrar">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Imagen anterior">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" alt="" />
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+      <button type="button" class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Siguiente imagen">
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </dialog>
+    <script is:inline src={`${import.meta.env.BASE_URL}js/galeria.js`} data-imagenes={JSON.stringify(imagenesVisor)}></script>
+  )}
 </Base>
 
 <style>
@@ -142,7 +175,29 @@ const tieneGaleria = (memoria.galeria?.length ?? 0) > 0;
   .memoria__galeria { margin-top: var(--space-10); }
   .memoria__galeria h2 { color: var(--theme-heading); margin-bottom: var(--space-4); font-size: var(--font-size-xl); }
   .memoria__galeria ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
-  .memoria__galeria img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--theme-border-light); }
+  .memoria__galeria :global(img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--theme-border-light); }
+  .memoria__galeria li { list-style: none; }
+
+  .memoria__body :global(.memoria-actividad) { margin: var(--space-10) 0; padding: var(--space-5) var(--space-5) var(--space-4); background: var(--theme-surface-alt); border: 1px solid var(--theme-border-light); border-top: 4px solid var(--itrc-gold); border-radius: var(--radius-lg); }
+  .memoria__body :global(.memoria-actividad:first-child) { margin-top: var(--space-6); }
+  .memoria__body :global(.memoria-actividad > p) { font-weight: 600; color: var(--theme-heading); margin-bottom: var(--space-4); }
+  .memoria__body :global(.memoria-actividad .memoria-grid) { margin: 0; }
+  .memoria__body :global(.memoria-grid) { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-2); margin: var(--space-4) 0 var(--space-6); }
+  :global(.memoria-thumb) { all: unset; cursor: zoom-in; display: block; border-radius: var(--radius-md); overflow: hidden; background: var(--theme-surface-alt); transition: transform var(--transition-base), box-shadow var(--transition-base); }
+  :global(.memoria-thumb:hover), :global(.memoria-thumb:focus-visible) { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  :global(.memoria-thumb:focus-visible) { outline: 3px solid var(--itrc-gold); outline-offset: 2px; }
+  :global(.memoria-thumb img) { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  .lightbox { border: none; padding: 0; background: transparent; max-width: min(96vw, 1400px); max-height: 94vh; color: var(--white); }
+  .lightbox::backdrop { background: rgba(0, 0, 0, 0.88); }
+  .lightbox__figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+  .lightbox__img { max-width: 100%; max-height: 82vh; width: auto; height: auto; object-fit: contain; }
+  .lightbox__caption { color: var(--white); font-size: var(--font-size-sm); text-align: center; max-width: 80ch; }
+  .lightbox__close, .lightbox__nav { position: fixed; background: rgba(0,0,0,0.5); color: var(--white); border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-lg); transition: background var(--transition-fast); }
+  .lightbox__close:hover, .lightbox__nav:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .lightbox__close { top: 20px; right: 20px; }
+  .lightbox__nav--prev { left: 20px; top: 50%; transform: translateY(-50%); }
+  .lightbox__nav--next { right: 20px; top: 50%; transform: translateY(-50%); }
 
   @media (max-width: 768px) {
     .memoria { padding: var(--space-6) var(--space-4) var(--space-12); }
