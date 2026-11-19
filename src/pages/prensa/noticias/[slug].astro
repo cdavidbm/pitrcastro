@@ -20,12 +20,14 @@ export async function getStaticPaths() {
         image: n.imagen,
         excerpt: n.resumen,
         contenido: await contenidoAHtml(n.contenido),
+        // El comunicado en PDF, si la noticia lo enlaza en su texto (carpeta de prensa).
+        pdf: n.contenido.match(/\((\/documentos\/media\/prensa\/[^)\s]+?\.pdf)\)/i)?.[1] ?? null,
       },
     }))
   );
 }
 
-const { title, date, image, excerpt, contenido } = Astro.props;
+const { title, date, image, excerpt, contenido, pdf } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 const displayImage = image;
@@ -41,6 +43,12 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
 <Base title={title} description={excerpt}>
   <article class="article">
     <div class="container container--narrow">
+      <!-- Solo aparece al imprimir o guardar como PDF -->
+      <div class="article__print-head" aria-hidden="true">
+        <img src={`${base}images/logo-itrc.png`} alt="" />
+        <span>Agencia del Inspector General de Tributos, Rentas y Contribuciones Parafiscales · www.itrc.gov.co</span>
+      </div>
+
       <header class="article__header">
         <a href={`${base}prensa/noticias`} class="article__back">
           <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
@@ -65,6 +73,18 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
       <div class="article__content" set:html={contenido}></div>
 
       <footer class="article__footer">
+        {pdf ? (
+          <a class="article__pdf" href={pdf} download target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            Descargar PDF
+          </a>
+        ) : (
+          <button type="button" class="article__pdf" data-descargar-pdf title="Se abrirá la ventana para guardar la noticia como PDF">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            Descargar PDF
+          </button>
+        )}
+
         <div class="article__share">
           <span>Compartir:</span>
           <a
@@ -208,6 +228,51 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
     margin-top: var(--space-12);
     padding-top: var(--space-8);
     border-top: 1px solid var(--theme-border);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .article__pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 2px solid var(--itrc-gold);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--theme-heading);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .article__pdf i { color: #dc3545; }
+  .article__pdf:hover { background: var(--itrc-gold); color: var(--itrc-navy); }
+  .article__pdf:hover i { color: var(--itrc-navy); }
+
+  .article__print-head { display: none; }
+
+  /* Versión para imprimir o guardar como PDF: solo la noticia, con el logo. */
+  @media print {
+    :global(body > :not(main)) { display: none !important; }
+    .article { padding: 0; }
+    .article__back, .article__footer { display: none !important; }
+    .article__print-head {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 10px; margin-bottom: 18px;
+      border-bottom: 2px solid #b38b40;
+      font-size: 9pt; color: #333;
+    }
+    .article__print-head img { height: 48px; width: auto; }
+    .article__title { font-size: 20pt; color: #002147; }
+    .article__image { box-shadow: none; break-inside: avoid; }
+    .article__image img { max-height: 9cm; width: auto; max-width: 100%; margin: 0 auto; }
+    .article__content { font-size: 11pt; line-height: 1.5; color: #000; }
   }
 
   .article__share {
@@ -244,3 +309,14 @@ const formattedDate = new Date(date).toLocaleDateString('es-CO', {
     }
   }
 </style>
+
+<script>
+  // Las noticias sin comunicado propio se guardan como PDF desde el navegador.
+  function initDescargarPdf() {
+    document.querySelectorAll<HTMLButtonElement>('[data-descargar-pdf]').forEach((b) => {
+      b.addEventListener('click', () => window.print());
+    });
+  }
+  initDescargarPdf();
+  document.addEventListener('astro:after-swap', initDescargarPdf);
+</script>
