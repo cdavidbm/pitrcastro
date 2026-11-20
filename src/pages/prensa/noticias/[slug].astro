@@ -20,8 +20,9 @@ export async function getStaticPaths() {
         image: n.imagen,
         excerpt: n.resumen,
         contenido: await contenidoAHtml(n.contenido),
-        // El comunicado en PDF, si la noticia lo enlaza en su texto (carpeta de prensa).
-        pdf: n.contenido.match(/\((\/documentos\/media\/prensa\/[^)\s]+?\.pdf)\)/i)?.[1] ?? null,
+        // El comunicado en PDF, si la noticia lo enlaza en su texto: los archivos de
+        // prensa del portal o un PDF subido desde la biblioteca de medios del panel.
+        pdf: n.contenido.match(/\(((?:\/documentos\/media\/prensa|\/uploads)\/[^)\s]+?\.pdf)\)/i)?.[1] ?? null,
       },
     }))
   );

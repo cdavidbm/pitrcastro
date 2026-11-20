@@ -120,6 +120,36 @@ El editor escribe solo la referencia:
 El texto entre corchetes describe la imagen para quien usa lector de pantalla.
 Descríbala en pocas palabras; no lo deje vacío.
 
+## El botón «Descargar PDF»
+
+Al final de cada noticia aparece un botón **Descargar PDF**. Funciona solo, de
+una de dos maneras:
+
+- **Si el texto enlaza el comunicado en PDF**, el botón descarga ese archivo.
+- **Si no**, el botón abre la ventana del navegador para guardar la noticia como
+  PDF, con el logo de la Agencia, el título, la fecha, la imagen y el texto.
+
+Para que descargue el comunicado original:
+
+1. En el panel, abra **Media Library** y suba el PDF del comunicado.
+2. Abra el archivo subido y copie su dirección (*Copy link*). Empieza por
+   `/uploads/`.
+3. En el contenido de la noticia, escriba un enlace con esa dirección:
+
+```
+[Descargar el comunicado](/uploads/nombre-del-archivo.pdf)
+```
+
+El botón usa el **primer** PDF enlazado en el texto. Si la noticia enlaza varios
+documentos, ponga primero el del comunicado.
+
+## Cómo se encuentran las noticias
+
+El listado de `/prensa/noticias` se filtra por **categoría** (Noticias o
+Periódico), por **año** y con el buscador por título. Los años del selector
+salen solos de las fechas de las noticias publicadas: no hay que configurarlos.
+Por eso es importante que la **Fecha** sea la del comunicado.
+
 ## Qué pasa al publicar
 
 Al pulsar **Publish**, el sitio se reconstruye solo. La noticia aparece
