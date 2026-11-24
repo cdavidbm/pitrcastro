@@ -23,26 +23,33 @@ const futureEvents = events
   .filter(event => new Date(event.startDate) >= now)
   .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
 
+// Todos los anteriores, del más reciente al más antiguo: la sección sirve también de memoria de
+// lo que ya se hizo (encuentros regionales, congresos).
 const pastEvents = events
   .filter(event => new Date(event.startDate) < now)
-  .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
-  .slice(0, 5);
+  .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
 
 const formatDate = (dateStr: string) => {
   const date = new Date(dateStr);
   return {
-    day: date.getDate(),
-    month: date.toLocaleDateString('es-CO', { month: 'short' }).toUpperCase(),
+    day: Number(date.toLocaleDateString('es-CO', { day: 'numeric', timeZone: 'America/Bogota' })),
+    month: date.toLocaleDateString('es-CO', { month: 'short', timeZone: 'America/Bogota' }).toUpperCase(),
     full: date.toLocaleDateString('es-CO', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      timeZone: 'America/Bogota'
     }),
-    time: date.toLocaleTimeString('es-CO', {
-      hour: '2-digit',
-      minute: '2-digit'
-    })
+    // Un evento guardado a la medianoche es uno del que se conoce el día pero no la hora: no se
+    // inventa una.
+    time: date.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Bogota' }) === '00:00'
+      ? null
+      : date.toLocaleTimeString('es-CO', {
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZone: 'America/Bogota'
+        })
   };
 };
 ---
@@ -84,10 +91,12 @@ const formatDate = (dateStr: string) => {
                         <i class="fa-regular fa-calendar" aria-hidden="true"></i>
                         {dateInfo.full}
                       </span>
-                      <span>
-                        <i class="fa-regular fa-clock" aria-hidden="true"></i>
-                        {dateInfo.time}
-                      </span>
+                      {dateInfo.time && (
+                        <span>
+                          <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                          {dateInfo.time}
+                        </span>
+                      )}
                       {event.location && (
                         <span>
                           <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -174,16 +183,27 @@ const formatDate = (dateStr: string) => {
                         <i class="fa-regular fa-calendar" aria-hidden="true"></i>
                         {dateInfo.full}
                       </span>
-                      <span>
-                        <i class="fa-regular fa-clock" aria-hidden="true"></i>
-                        {dateInfo.time}
-                      </span>
+                      {dateInfo.time && (
+                        <span>
+                          <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                          {dateInfo.time}
+                        </span>
+                      )}
                     </div>
                     {event.description && (
                       <p class="event-card__description">{event.description}</p>
                     )}
                     {event.image && (
                       <img src={event.image} alt={event.title} class="event-card__image" loading="lazy" />
+                    )}
+                    {event.inscriptionLink && (
+                      <a
+                        href={event.inscriptionLink.startsWith('http') ? event.inscriptionLink : resolveUrl(event.inscriptionLink)}
+                        class="event-card__link"
+                        {...(event.inscriptionLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        Ver más <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                      </a>
                     )}
                   </div>
                 </article>
@@ -375,6 +395,20 @@ const formatDate = (dateStr: string) => {
 
   .event-card__details[hidden] {
     display: none;
+  }
+
+  .event-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    color: var(--theme-heading);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .event-card__link:hover {
+    color: var(--itrc-gold);
   }
 
   .event-card__image {

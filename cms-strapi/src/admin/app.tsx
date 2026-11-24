@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { StrapiApp } from '@strapi/strapi/admin';
 
+import { instalarPegadoDesdeWord } from './pegar-desde-word';
 import PreviewButton from './PreviewButton';
 
 /**
@@ -21,15 +22,17 @@ const SiteContentIcon = () =>
   );
 
 /**
- * Personalización del panel de administración de Strapi. Añade dos cosas:
+ * Personalización del panel de administración de Strapi. Añade tres cosas:
  *
  *   1. "Contenido del sitio" — una entrada propia en el menú lateral que
  *      organiza los tipos de contenido como el menú del portal.
  *   2. "Ver en el sitio" — un enlace a la página pública desde el editor.
+ *   3. Pegar desde Word: conserva párrafos y formato en los campos Markdown.
  */
 export default {
   config: {
-    locales: [],
+    // Español disponible para quien publica (cada persona lo elige en su perfil).
+    locales: ['es'],
   },
   register(app: StrapiApp) {
     // Entrada propia en el menú lateral que organiza los 150+ tipos de
@@ -48,11 +51,14 @@ export default {
         defaultMessage: 'Contenido del sitio',
       },
       position: 1,
-      permissions: [],
+      // Solo para quien edita el sitio entero: la cuenta de prensa (noticias y banners) no la ve.
+      permissions: [{ action: 'plugin::content-manager.explorer.read', subject: 'api::site.site' }],
       Component: () => import('./pages/ContenidoDelSitio'),
     });
   },
   bootstrap(app: StrapiApp) {
+    // Pegar desde Word conserva párrafos, negrillas, cursivas, enlaces y listas (pegar-desde-word.ts).
+    instalarPegadoDesdeWord();
     // Botón "Ver en el sitio" en la barra derecha del editor. Lee el tipo de
     // contenido desde la dirección del navegador y arma el enlace a la página
     // pública correspondiente.

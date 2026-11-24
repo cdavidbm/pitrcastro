@@ -9,19 +9,23 @@ En el panel, entre a **Contenido del sitio** → sección **Prensa** → grupo
 **Noticias**. Ahí aparece el listado completo, de la más reciente a la más
 antigua.
 
-Para crear una, pulse **Create new entry** arriba a la derecha.
+Para crear una, pulse **Crear nueva entrada** arriba a la derecha.
+
+La oficina de prensa tiene su propia cuenta, que solo ve las noticias y el
+slider de la portada ([capítulo 10](10-autenticacion-strapi.md#b-roles-disponibles)).
+Su guía rápida, con capturas en el celular, se entrega aparte.
 
 ## Los campos
 
 | Campo | ¿Obligatorio? | Qué va ahí |
 |---|---|---|
 | **Título** | Sí | El titular completo, tal como debe leerse en el sitio |
-| **Slug** | Sí | La dirección web. Se rellena solo a partir del título |
-| **Fecha** | Sí | La fecha de la noticia, no la del día en que la carga |
-| **Resumen** | No | Dos o tres líneas; es lo que se lee en la tarjeta del listado |
-| **Imagen** | No | La foto de portada. Si la deja vacía se usa la imagen institucional |
-| **Contenido** | Sí | El cuerpo de la noticia |
+| **Fecha de publicación** | Sí | La fecha de la noticia, no la del día en que la carga |
 | **Categoría** | Sí | *Noticia* casi siempre. *Periódico* solo para las ediciones del periódico institucional |
+| **Resumen** | No | Dos o tres líneas; es lo que se lee en la tarjeta del listado |
+| **Imagen principal** | No | La foto de portada. Si la deja vacía se usa la imagen institucional |
+| **Contenido** | Sí | El cuerpo de la noticia. Se puede pegar desde Word |
+| **Dirección (slug)** | — | La dirección web. Se genera sola al guardar; no se escribe |
 
 ### Sobre el slug
 
@@ -29,9 +33,9 @@ Es la parte final de la dirección: una noticia con slug
 `sancion-exfuncionaria-dian` queda publicada en
 `www.itrc.gov.co/prensa/noticias/sancion-exfuncionaria-dian`.
 
-Strapi lo genera solo a partir del título. **Una vez publicada la noticia, no lo
-cambie**: quien haya guardado o compartido el enlace anterior encontrará una
-página inexistente.
+Se genera solo a partir del título la primera vez que se guarda la noticia, y
+después no cambia aunque se corrija el título: quien haya guardado o compartido
+el enlace lo sigue encontrando. Por eso el campo es de solo lectura.
 
 ### Sobre la imagen
 
@@ -108,7 +112,20 @@ El cuerpo admite formato sencillo:
 | Un enlace | `[texto visible](/direccion)` |
 
 La barra de herramientas del editor tiene botones para todo esto; no es
-necesario memorizar los símbolos.
+necesario memorizar los símbolos. En el celular, los de formato están en el
+menú **«…»** de la barra.
+
+### Pegar desde Word
+
+Lo habitual es pegar el texto ya redactado en Word (o en Outlook, Google Docs o
+una página web). Al pegar en **Contenido**, el panel convierte el formato a estos
+símbolos: se conservan los **párrafos**, las **negritas**, las *cursivas*, los
+**enlaces**, las **listas** y los **subtítulos**. No se pegan fotos ni tablas.
+
+Sin esta conversión, el editor recibiría solo el texto plano y los párrafos
+quedarían fundidos en uno. La hace `cms-strapi/src/admin/pegar-desde-word.ts`.
+
+Para comprobar el resultado antes de publicar, pulse **Modo de vista previa**.
 
 Para insertar una imagen dentro del texto, use el botón de imagen de la barra.
 El editor escribe solo la referencia:

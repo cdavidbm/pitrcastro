@@ -28,7 +28,9 @@ Strapi v5 trae tres roles de administración predefinidos. Cada uno define qué 
 | **Editor** | Crear, editar, publicar y borrar contenido en todos los content types. No gestiona usuarios. | Webmasters / editores regulares del portal. |
 | **Author** | Crear y editar SOLO sus propias entradas. No puede tocar las entradas creadas por otros. | Útil si se quiere que cada autor responda solo de sus contenidos (ej. periodistas con su propia área). |
 
-Para casos especiales se puede crear un **rol custom** desde Settings → Roles → Create new role, ajustando permiso por permiso. En la práctica del portal ITRC los tres roles built-in cubren todo el flujo.
+Para casos especiales se puede crear un **rol custom** desde Settings → Roles → Create new role, ajustando permiso por permiso.
+
+El portal tiene uno: **Prensa**, de la cuenta `prensa@itrc.local` de la oficina de prensa. Solo crea, edita y publica **noticias** (y borra únicamente las que ella misma creó), edita y publica el **Slider Principal** y sube archivos a la biblioteca. No ve el resto del contenido ni la entrada *Contenido del sitio*. El rol y la cuenta los crea `cms-strapi/scripts/cuenta-prensa-2026-11.mjs` (repetible; la contraseña llega por la variable `PRENSA_CLAVE`, no está en el guion).
 
 > **Rol "Public" ≠ rol de admin.** Strapi tiene además un rol llamado *Public* que controla qué endpoints de la API son accesibles sin autenticación (lo usa Astro al compilar). Ese rol se gestiona en Settings → Users & Permissions Plugin → Roles → Public, NO en Settings → Administration Panel → Roles. Está configurado automáticamente por el bootstrap del CMS (`cms-strapi/src/index.ts`); el editor no debe modificarlo.
 
